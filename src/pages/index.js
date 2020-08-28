@@ -53,8 +53,8 @@ function Home() {
                 </Link>
                 </div>
                 <iframe
-                  class="display--mobile-only"
-                  src="https://ghbtns.com/github-btn.html?user=aliscott&repo=infracost&type=star&count=true&size=small"
+                  className="display--mobile-only"
+                  src={`https://ghbtns.com/github-btn.html?user=${siteConfig.organizationName}&repo=${siteConfig.projectName}&type=star&count=true&size=small`}
                   frameBorder="0"
                   scrolling="0"
                   width="92"
@@ -62,8 +62,8 @@ function Home() {
                   title="Star Infracost on GitHub">  
                 </iframe>
                 <iframe
-                  class="display--tablet"
-                  src="https://ghbtns.com/github-btn.html?user=aliscott&repo=infracost&type=star&count=true&size=large"
+                  className="display--tablet"
+                  src={`https://ghbtns.com/github-btn.html?user=${siteConfig.organizationName}&repo=${siteConfig.projectName}&type=star&count=true&size=large`}
                   frameBorder="0"
                   scrolling="0"
                   width="135"

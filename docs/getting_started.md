@@ -1,7 +1,6 @@
 ---
-id: getting_started
+slug: /
 title: Getting started
-sidebar_label: Getting Started
 ---
 
 You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).

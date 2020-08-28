@@ -1,11 +1,26 @@
+const path = require('path');
+
+const organizationName = 'aliscott';
+const projectName = 'infracost';
+const docsProjectName = 'infracost-docs';
+const domain = 'docs.infracost.io';
+
 module.exports = {
   title: 'Infracost',
   url: 'https://infracost.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.png',
-  organizationName: 'aliscott',
-  projectName: 'infracost',
+  organizationName,
+  projectName,
+  plugins: [
+    [
+      'docusaurus-plugin-plausible',
+      {
+        domain,
+      },
+    ]
+  ],
   themeConfig: {
     colorMode: {
       defaultMode: 'light',
@@ -44,9 +59,8 @@ module.exports = {
           label: 'Docs',
           position: 'left',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/aliscott/infracost',
+          href: `https://github.com/${organizationName}/${projectName}`,
           className: 'navbar__github-icon',
           position: 'right',
           'aria-label': 'Infracost GitHub repository',
@@ -65,7 +79,7 @@ module.exports = {
             },
             {
               label: 'Integrations',
-              to: 'docs/a',
+              to: 'docs/integrations',
             },
           ],
         },
@@ -78,17 +92,13 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/aliscott/infracost',
+              href: `https://github.com/${organizationName}/${projectName}`,
             },
           ],
         },
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: 'blog',
-            },
             {
               label: 'Twitter',
               href: 'https://twitter.com/infracost',
@@ -104,18 +114,9 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          // It is recommended to set document id as docs home page (`docs/` path).
-          homePageId: 'getting_started',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           editUrl:
-            'https://github.com/infracost/infracost-docs/edit/master/website/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/infracost/infracost-docs/edit/master/website/blog/',
+          `https://github.com/${organizationName}/${docsProjectName}/edit/master/website/`,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
