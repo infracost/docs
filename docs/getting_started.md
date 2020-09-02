@@ -43,13 +43,6 @@ TF_VAR_key=value infracost --tfdir examples/terraform
 TF_CLI_ARGS_plan="-var-file=my.tfvars" infracost --tfdir examples/terraform
 ```
 
-Generate a cost breakdown from a Terraform plan file:
-```sh
-cd examples/terraform
-terraform plan -out plan.save .
-infracost --tfplan plan.save --tfdir .
-```
-
 Generate a cost breakdown from a Terraform plan JSON file:
 ```sh
 cd examples/terraform
