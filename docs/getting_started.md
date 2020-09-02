@@ -3,195 +3,65 @@ slug: /
 title: Getting started
 ---
 
-You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-## Markdown Syntax
+Infracost shows hourly and monthly cost estimates for a Terraform project. This helps developers, DevOps et al. quickly see the cost breakdown and compare different deployment options upfront.
 
-To serve as an example page when styling markdown based Docusaurus sites.
+<img alt="Example infracost output" width="500px" src={useBaseUrl('img/screenshot.png')} />
 
-## Headers
+## Installation
 
-# H1 - Create the best documentation
+To download and install the latest release:
 
-## H2 - Create the best documentation
-
-### H3 - Create the best documentation
-
-#### H4 - Create the best documentation
-
-##### H5 - Create the best documentation
-
-###### H6 - Create the best documentation
-
-## Emphasis
-
-Emphasis, aka italics, with *asterisks* or _underscores_.
-
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
-
-Combined emphasis with **asterisks and _underscores_**.
-
-Strikethrough uses two tildes. ~~Scratch this.~~
-
-## Lists
-
-1. First ordered list item
-1. Another item
-   - Unordered sub-list.
-1. Actual numbers don't matter, just that it's a number
-   1. Ordered sub-list
-1. And another item.
-
-* Unordered list can use asterisks
-
-- Or minuses
-
-+ Or pluses
-
----
-
-## Links
-
-[I'm an inline-style link](https://www.google.com/)
-
-[I'm an inline-style link with title](https://www.google.com/ "Google's Homepage")
-
-[I'm a reference-style link][arbitrary case-insensitive reference text]
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself].
-
-URLs and URLs in angle brackets will automatically get turned into links. http://www.example.com/ or <http://www.example.com/> and sometimes example.com (but not on GitHub, for example).
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org/
-[1]: http://slashdot.org/
-[link text itself]: http://www.reddit.com/
-
----
-
-## Images
-
-Here's our logo (hover to see the title text):
-
-Inline-style: ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
-
-Reference-style: ![alt text][logo]
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 2'
-
-Images from any folder can be used by providing path to file. Path should be relative to markdown file.
-
-![img](../static/img/logo-light.svg)
-
----
-
-## Code
-
-```javascript
-var s = 'JavaScript syntax highlighting';
-alert(s);
+```sh
+curl --silent --location "https://github.com/aliscott/infracost/releases/latest/download/infracost-$(uname -s)-amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/infracost-$(uname -s | tr '[:upper:]' '[:lower:]')-amd64 /usr/local/bin/infracost
 ```
 
-```python
-s = "Python syntax highlighting"
-print(s)
+## Basic usage
+
+Generate a cost breakdown from a Terraform directory:
+```sh
+infracost --tfdir /my/code/path
 ```
 
+The [Infracost GitHub action](https://github.com/marketplace/actions/run-infracost) can be used to automatically add a PR comment showing the cost estimate `diff` between a pull request and the master branch whenever Terraform files change.
+
+<img src="https://raw.githubusercontent.com/aliscott/infracost-gh-action/master/screenshot.png" width="550px" alt="Example infracost diff usage" />
+
+### Usage options
+
+To change the path to your `terraform` binary you can set the `TERRAFORM_BINARY` env variable:
+```sh
+TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir examples/terraform_0.13
 ```
-No language indicated, so no syntax highlighting.
-But let's throw in a <b>tag</b>.
+
+Standard Terraform env variables such as `TF_CLI_ARGS` can also be added if required:
+```sh
+TF_VAR_key=value infracost --tfdir examples/terraform
+# or
+TF_CLI_ARGS_plan="-var-file=my.tfvars" infracost --tfdir examples/terraform
 ```
 
-```js {2}
-function highlightMe() {
-  console.log('This line can be highlighted!');
-}
+Generate a cost breakdown from a Terraform plan file:
+```sh
+cd examples/terraform
+terraform plan -out plan.save .
+infracost --tfplan plan.save --tfdir .
 ```
 
----
+Generate a cost breakdown from a Terraform plan JSON file:
+```sh
+cd examples/terraform
+terraform plan -out plan.save .
+terraform show -json plan.save > plan.json
+infracost --tfjson plan.json
+```
 
-## Tables
+### How does it work?
 
-Colons can be used to align columns.
+Prices are retrieved using [https://github.com/aliscott/cloud-pricing-api](https://github.com/aliscott/cloud-pricing-api). There is a demo version of that service deployed at [https://pricing.infracost.io/graphql](https://pricing.infracost.io/graphql), which `infracost` uses by default. This is running on minimal infrastructure so is not guaranteed to always be available. On this service, spot prices are refreshed once per hour.
 
-| Tables        |      Are      |   Cool |
-| ------------- | :-----------: | -----: |
-| col 3 is      | right-aligned | \$1600 |
-| col 2 is      |   centered    |   \$12 |
-| zebra stripes |   are neat    |    \$1 |
+You can run `infracost` in your terraform directories without worrying about security or privacy issues as no terraform secrets/tags/IDs etc are sent to the pricing service (only generic price-related attributes are used). Also, do not be alarmed by seeing the `terraform init` in output, no changes are made to your terraform or cloud resources. As a security precaution, read-only AWS IAM creds can be used.
 
-There must be at least 3 dashes separating each header cell. The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.
-
-| Markdown | Less      | Pretty     |
-| -------- | --------- | ---------- |
-| _Still_  | `renders` | **nicely** |
-| 1        | 2         | 3          |
-
----
-
-## Blockquotes
-
-> Blockquotes are very handy in email to emulate reply text. This line is part of the same quote.
-
-Quote break.
-
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can _put_ **Markdown** into a blockquote.
-
----
-
-## Inline HTML
-
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-
----
-
-## Line Breaks
-
-Here's a line for us to start with.
-
-This line is separated from the one above by two newlines, so it will be a _separate paragraph_.
-
-This line is also a separate paragraph, but... This line is only separated by a single newline, so it's a separate line in the _same paragraph_.
-
----
-
-## Admonitions
-
-:::note
-
-This is a note
-
-:::
-
-:::tip
-
-This is a tip
-
-:::
-
-:::important
-
-This is important
-
-:::
-
-:::caution
-
-This is a caution
-
-:::
-
-:::warning
-
-This is a warning
-
-:::
+You can also deploy the price list API yourself and specify it by setting the `infracost_API_URL` env variable or passing the `--api-url` option.

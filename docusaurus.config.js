@@ -81,6 +81,10 @@ module.exports = {
               label: 'Integrations',
               to: 'docs/integrations',
             },
+            {
+              label: 'Getting support',
+              to: 'docs/getting_support',
+            },
           ],
         },
         {
@@ -102,6 +106,10 @@ module.exports = {
             {
               label: 'Twitter',
               href: 'https://twitter.com/infracost',
+            },
+            {
+              label: 'hello@infracost.io',
+              href: `mailto:hello@infracost.io`,
             },
           ],
         },
