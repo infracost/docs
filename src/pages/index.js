@@ -37,8 +37,8 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title="Cloud costs for developers"
-      description="Cost estimation for Terraform">
+      title="Cost estimation for Terraform"
+      description="Cost estimation for Terraform - in your pull requests">
       <header className="hero hero--dark">
         <div className="container">
           <div className="row">
