@@ -38,7 +38,7 @@ function Home() {
   return (
     <Layout
       title="Cloud costs for developers"
-      description="Description will go into a meta tag in <head />">
+      description="Cost estimation for Terraform">
       <header className="hero hero--dark">
         <div className="container">
           <div className="row">
