@@ -83,7 +83,8 @@ function Home() {
         {supportedServices && supportedServices.length > 0 && (
           <section className="supported-services">
             <div className="container">
-              <h3>Currently supports</h3>
+              <h3>Infracost is the missing checkout screen for developers buying cloud resources.<br></br>It analyzes your code and shows cost forecasts.</h3>
+              <h4>Currently supports</h4>
               <div className="row">
                 <div className="col col--2"></div>
                 {supportedServices.map((props, idx) => (
