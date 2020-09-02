@@ -60,7 +60,7 @@ infracost --tfjson plan.json
 
 ### How does it work?
 
-Prices are retrieved using [https://github.com/infracost/cloud-pricing-api](https://github.com/infracost/cloud-pricing-api). There is a demo version of that service deployed at [https://pricing.infracost.io/graphql](https://pricing.infracost.io/graphql), which `infracost` uses by default. This is running on minimal infrastructure so is not guaranteed to always be available. On this service, spot prices are refreshed once per hour.
+Prices are retrieved using [https://github.com/infracost/cloud-pricing-api](https://github.com/infracost/cloud-pricing-api). There is a demo version of that service deployed at [https://pricing.infracost.io/graphql](https://pricing.infracost.io/graphql), which `infracost` uses by default. On this service, spot prices are refreshed once per hour.
 
 You can run `infracost` in your terraform directories without worrying about security or privacy issues as no terraform secrets/tags/IDs etc are sent to the pricing service (only generic price-related attributes are used). Also, do not be alarmed by seeing the `terraform init` in output, no changes are made to your terraform or cloud resources. As a security precaution, read-only AWS IAM creds can be used.
 
