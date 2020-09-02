@@ -26,4 +26,4 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-TODO
+Merges to master automatically update docs.infracost.io
