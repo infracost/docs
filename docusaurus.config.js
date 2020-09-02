@@ -1,8 +1,5 @@
 const path = require('path');
 
-const organizationName = 'aliscott';
-const projectName = 'infracost';
-const docsProjectName = 'infracost-docs';
 const domain = 'docs.infracost.io';
 
 module.exports = {
@@ -11,8 +8,8 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.png',
-  organizationName,
-  projectName,
+  organizationName: 'infracost',
+  projectName: 'docs',
   plugins: [
     [
       'docusaurus-plugin-plausible',
@@ -60,7 +57,7 @@ module.exports = {
           position: 'left',
         },
         {
-          href: `https://github.com/${organizationName}/${projectName}`,
+          href: `https://github.com/infracost/infracost`,
           className: 'navbar__github-icon',
           position: 'right',
           'aria-label': 'Infracost GitHub repository',
@@ -96,7 +93,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: `https://github.com/${organizationName}/${projectName}`,
+              href: `https://github.com/infracost/infracost`,
             },
           ],
         },
@@ -124,7 +121,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-          `https://github.com/${organizationName}/${docsProjectName}/edit/master/website/`,
+          `https://github.com/infracost/docs/edit/master`,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

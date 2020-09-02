@@ -54,7 +54,7 @@ function Home() {
                 </div>
                 <iframe
                   className="display--mobile-only"
-                  src={`https://ghbtns.com/github-btn.html?user=${siteConfig.organizationName}&repo=${siteConfig.projectName}&type=star&count=true&size=small`}
+                  src={`https://ghbtns.com/github-btn.html?user=infracost&repo=infracost&type=star&count=true&size=small`}
                   frameBorder="0"
                   scrolling="0"
                   width="92"
@@ -63,7 +63,7 @@ function Home() {
                 </iframe>
                 <iframe
                   className="display--tablet"
-                  src={`https://ghbtns.com/github-btn.html?user=${siteConfig.organizationName}&repo=${siteConfig.projectName}&type=star&count=true&size=large`}
+                  src={`https://ghbtns.com/github-btn.html?user=infracost&repo=infracost&type=star&count=true&size=large`}
                   frameBorder="0"
                   scrolling="0"
                   width="135"

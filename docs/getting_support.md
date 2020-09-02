@@ -5,7 +5,7 @@ title: Getting support
 
 ## I found a bug
 
-Please [create an issue](https://github.com/aliscott/infracost/issues/new) and describe the issue.
+Please [create an issue](https://github.com/infracost/infracost/issues/new) and describe the issue.
 
 ## The resource I want isn't supported
 

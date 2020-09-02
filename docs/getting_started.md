@@ -14,7 +14,7 @@ Infracost shows hourly and monthly cost estimates for a Terraform project. This 
 To download and install the latest release:
 
 ```sh
-curl --silent --location "https://github.com/aliscott/infracost/releases/latest/download/infracost-$(uname -s)-amd64.tar.gz" | tar xz -C /tmp
+curl --silent --location "https://github.com/infracost/infracost/releases/latest/download/infracost-$(uname -s)-amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/infracost-$(uname -s | tr '[:upper:]' '[:lower:]')-amd64 /usr/local/bin/infracost
 ```
 
@@ -27,7 +27,7 @@ infracost --tfdir /my/code/path
 
 The [Infracost GitHub action](https://github.com/marketplace/actions/run-infracost) can be used to automatically add a PR comment showing the cost estimate `diff` between a pull request and the master branch whenever Terraform files change.
 
-<img src="https://raw.githubusercontent.com/aliscott/infracost-gh-action/master/screenshot.png" width="550px" alt="Example infracost diff usage" />
+<img src="https://raw.githubusercontent.com/infracost/infracost-gh-action/master/screenshot.png" width="550px" alt="Example infracost diff usage" />
 
 ### Usage options
 
@@ -60,7 +60,7 @@ infracost --tfjson plan.json
 
 ### How does it work?
 
-Prices are retrieved using [https://github.com/aliscott/cloud-pricing-api](https://github.com/aliscott/cloud-pricing-api). There is a demo version of that service deployed at [https://pricing.infracost.io/graphql](https://pricing.infracost.io/graphql), which `infracost` uses by default. This is running on minimal infrastructure so is not guaranteed to always be available. On this service, spot prices are refreshed once per hour.
+Prices are retrieved using [https://github.com/infracost/cloud-pricing-api](https://github.com/infracost/cloud-pricing-api). There is a demo version of that service deployed at [https://pricing.infracost.io/graphql](https://pricing.infracost.io/graphql), which `infracost` uses by default. This is running on minimal infrastructure so is not guaranteed to always be available. On this service, spot prices are refreshed once per hour.
 
 You can run `infracost` in your terraform directories without worrying about security or privacy issues as no terraform secrets/tags/IDs etc are sent to the pricing service (only generic price-related attributes are used). Also, do not be alarmed by seeing the `terraform init` in output, no changes are made to your terraform or cloud resources. As a security precaution, read-only AWS IAM creds can be used.
 
