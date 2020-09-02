@@ -51,7 +51,7 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/',
+          to: 'getting_started',
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
@@ -72,15 +72,15 @@ module.exports = {
           items: [
             {
               label: 'Getting started',
-              to: 'docs/',
+              to: 'getting_started',
             },
             {
               label: 'Integrations',
-              to: 'docs/integrations',
+              to: 'integrations',
             },
             {
               label: 'Getting support',
-              to: 'docs/getting_support',
+              to: 'getting_support',
             },
           ],
         },
@@ -119,6 +119,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
           `https://github.com/infracost/docs/edit/master`,

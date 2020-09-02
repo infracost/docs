@@ -43,12 +43,12 @@ function Home() {
         <div className="container">
           <div className="row">
             <div className="col col--4">
-              <p className="hero__title">Cloud costs<br />for developers</p>
-              <p className="hero__subtitle">Integrated into your workflow</p>
+              <p className="hero__title">Cost estimation for Terraform</p>
+              <p className="hero__subtitle">In your pull requests</p>
               <div className="buttons">
                 <Link
                   className="button button--primary button--lg"
-                  to={useBaseUrl('docs/')}>
+                  to={useBaseUrl('getting_started')}>
                   Get Started
                 </Link>
                 </div>
@@ -73,18 +73,27 @@ function Home() {
             </div>
             <div className="col col--8">
               <div className="hero__screenshot">
-                <img src={useBaseUrl("img/screenshot.png")} alt="Infracost screenshot" />
+                <img src={useBaseUrl("img/screenshot_hero.png")} alt="Infracost screenshot" />
               </div>
             </div>
           </div>
         </div>
       </header>
       <main>
+        <section className="home-section">
+          <div class="container">
+            <h2>AWS has over 300,000 prices 🤯</h2>
+            <p>
+              Developers don't know how much their cloud resources cost until they get the invoice at the end of the month.
+              <br />
+              We integrate with developers' existing workflows to show them costs as they code.
+            </p>
+          </div>
+        </section>
         {supportedServices && supportedServices.length > 0 && (
           <section className="supported-services">
             <div className="container">
-              <h3>Infracost is the missing checkout screen for developers buying cloud resources.<br></br>It analyzes your code and shows cost forecasts.</h3>
-              <h4>Currently supports</h4>
+              <h3>Currently supports</h3>
               <div className="row">
                 <div className="col col--2"></div>
                 {supportedServices.map((props, idx) => (

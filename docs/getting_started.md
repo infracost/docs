@@ -1,5 +1,5 @@
 ---
-slug: /
+slug: getting_started
 title: Getting started
 ---
 
@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Infracost shows hourly and monthly cost estimates for a Terraform project. This helps developers, DevOps et al. quickly see the cost breakdown and compare different deployment options upfront.
 
-<img alt="Example infracost output" width="500px" src={useBaseUrl('img/screenshot.png')} />
+<img alt="Example infracost output" width="600px" src={useBaseUrl('img/screenshot.png')} />
 
 ## Installation
 
