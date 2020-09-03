@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useThemeContext from '@theme/hooks/useThemeContext';
 
@@ -33,17 +32,15 @@ function SupportedService({imageUrl, darkImageUrl, title}) {
 }
 
 function Home() {
-  const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
   return (
     <Layout
-      title="Cost estimation for Terraform"
-      description="Cost estimation for Terraform - in your pull requests">
+      title="Cost estimates for Terraform"
+      description="Cost estimates for Terraform - in your pull requests">
       <header className="hero hero--dark">
         <div className="container">
           <div className="row">
             <div className="col col--4">
-              <p className="hero__title">Cost estimation for Terraform</p>
+              <p className="hero__title">Cost estimates for Terraform</p>
               <p className="hero__subtitle">In your pull requests</p>
               <div className="buttons">
                 <Link
