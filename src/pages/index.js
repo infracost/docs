@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useThemeContext from '@theme/hooks/useThemeContext';
 
 const supportedServices = [
@@ -18,13 +19,14 @@ const supportedServices = [
 ];
 
 function SupportedService({imageUrl, darkImageUrl, title}) {
+  const {isClient} = useDocusaurusContext();
   const {isDarkTheme} = useThemeContext();
   const imgUrl = useBaseUrl(isDarkTheme ? darkImageUrl : imageUrl);
   return (
     <div className="col col--4">
       {imgUrl && (
         <div className="text--center">
-          <img className="supported-service-image" src={imgUrl} alt={title} />
+          <img className="supported-service-image" key={isClient} src={imgUrl} alt={title} />
         </div>
       )}
     </div>
