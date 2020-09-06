@@ -47,7 +47,7 @@ function Home() {
               <div className="buttons">
                 <Link
                   className="button button--primary button--lg"
-                  to={useBaseUrl('getting_started')}>
+                  to={useBaseUrl('docs/')}>
                   Get Started
                 </Link>
                 </div>

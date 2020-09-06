@@ -1,5 +1,5 @@
 ---
-slug: getting_started
+slug: /
 title: Getting started
 ---
 

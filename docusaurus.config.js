@@ -1,10 +1,9 @@
 const path = require('path');
 
-const domain = 'docs.infracost.io';
 
 module.exports = {
   title: 'Infracost',
-  url: 'https://infracost.io',
+  url: 'https://www.infracost.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.png',
@@ -14,7 +13,7 @@ module.exports = {
     [
       'docusaurus-plugin-plausible',
       {
-        domain,
+        domain: 'infracost.io',
       },
     ]
   ],
@@ -51,7 +50,7 @@ module.exports = {
       },
       items: [
         {
-          to: 'getting_started',
+          to: 'docs/',
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
@@ -72,15 +71,15 @@ module.exports = {
           items: [
             {
               label: 'Getting started',
-              to: 'getting_started',
+              to: 'docs/',
             },
             {
               label: 'Integrations',
-              to: 'integrations',
+              to: 'docs/integrations',
             },
             {
               label: 'Getting support',
-              to: 'getting_support',
+              to: 'docs/getting_support',
             },
           ],
         },
@@ -119,7 +118,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          routeBasePath: '/',
+          routeBasePath: '/docs',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
           `https://github.com/infracost/docs/edit/master`,

@@ -26,7 +26,7 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-Merges to master automatically update docs.infracost.io
+Merges to master automatically update www.infracost.io
 
 ## License
 
