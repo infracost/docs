@@ -269,8 +269,8 @@ h2 {
 }
 
 .hero .buttons {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero .button--lg {
@@ -282,6 +282,15 @@ h2 {
   }
 }
 
+.open-source-label {
+  color: var(--ifm-color-gray-400);
+  margin-bottom: 1.5rem;
+}
+.open-source-label strong {
+  color: var(--ifm-color-gray-200);
+  font-weight: normal;
+}
+
 .home-section {
   text-align: center;
   padding: 4rem 0;
@@ -291,6 +300,11 @@ h2 {
   color: var(--ifm-color-gray-700);
   font-size: 1.6rem !important;
 }
+.home-section h3 {
+  font-size: 1.4rem !important;
+  font-weight: normal;
+}
+
 
 [data-theme='dark'] .home-section h2 {
   color: var(--ifm-color-gray-100);
@@ -312,15 +326,82 @@ h2 {
   .home-section h2 {
     font-size: 2rem !important;
   }
+  .home-section h3 {
+    font-size: 1.6rem !important;
+  }
   .home-section p {
     font-size: 1.2rem;
   }
 }
 
+.steps {
+  background-color: var(--ifm-color-gray-800);
+  color: var(--ifm-color-white);
+}
+
+.steps h3 {
+  margin-bottom:
+}
+
+.step {
+  margin-bottom: 3rem;
+}
+
+.step .step-text {
+  text-align: center;
+}
+.step .step-no {
+  color: var(--ifm-color-gray-500);
+  margin-right: 1rem;
+}
+
+@media (min-width: 997px) {
+  .steps h3 {
+    display: flex;
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+  .step {
+    margin-bottom: 0;
+  }
+  .step:first-child {
+    background:
+        linear-gradient(to bottom,
+          var(--ifm-color-gray-800) 0%,
+          var(--ifm-color-gray-800) 50px,
+          transparent 50px,
+          transparent 100%);
+  }
+
+  .screenshot-col {
+    background: linear-gradient(to right,
+        transparent 0%,
+        transparent calc(50% - 8px),
+        var(--ifm-color-gray-600) calc(50% - 8px),
+        var(--ifm-color-gray-600) calc(50% + 8px),
+        transparent calc(50% + 8px),
+        transparent 100%);
+    padding-bottom: 3rem;
+  }
+  .step:last-child .screenshot-col {
+    padding-bottom: 0;
+  }
+}
+
+.step-screenshot {
+  background-color: var(--ifm-color-white);
+  border-radius: var(--ifm-card-border-radius);
+  padding: 1rem;
+  width: 100%;
+  max-width: 640px;
+  vertical-align: middle;
+  box-sizing: inherit;
+}
+
 .supported-services {
   text-align: center;
   padding: 2rem 0;
-  background-color: var(--ifm-color-gray-100);
+  background-color: var(--ifm-color-white);
 }
 
 [data-theme='dark'] .supported-services {

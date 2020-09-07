@@ -51,6 +51,7 @@ function Home() {
                   Get Started
                 </Link>
                 </div>
+                <p class="open-source-label">Infracost is <strong>free</strong> and <strong>open-source</strong></p>
                 <iframe
                   className="display--mobile-only"
                   src={`https://ghbtns.com/github-btn.html?user=infracost&repo=infracost&type=star&count=true&size=small`}
@@ -72,7 +73,7 @@ function Home() {
             </div>
             <div className="col col--8">
               <div className="hero__screenshot">
-                <img src={useBaseUrl("img/screenshot_hero.png")} alt="Infracost screenshot" />
+                <img src={useBaseUrl("img/screenshot-hero.png")} alt="Infracost screenshot" />
               </div>
             </div>
           </div>
@@ -89,6 +90,36 @@ function Home() {
             </p>
           </div>
         </section>
+
+        <section className="home-section steps">
+          <div class="container">
+            <div className="row step">
+              <div class="col col--4 step-text">
+                <h3><span class="step-no">1.</span> Developer proposes a change to the infrastructure</h3>
+              </div>
+              <div class="col col--8 screenshot-col">
+                <img src={useBaseUrl("img/pr-step-1.png")} class="step-screenshot" alt="Infracost pull request step 1" />
+              </div>
+            </div>
+            <div className="row step">
+              <div class="col col--4 step-text">
+                <h3><span class="step-no">2.</span> Infracost shows the cost estimate of the change as a comment in the pull request</h3>
+              </div>
+              <div class="col col--8 screenshot-col">
+                <img src={useBaseUrl("img/pr-step-2.png")} class="step-screenshot" alt="Infracost pull request step 2" />
+              </div>
+            </div>
+            <div className="row step">
+              <div class="col col--4 step-text">
+                <h3><span class="step-no">3.</span> Team discusses the cost implications</h3>
+              </div>
+              <div class="col col--8 screenshot-col last">
+                <img src={useBaseUrl("img/pr-step-3.png")} class="step-screenshot" alt="Infracost pull request step 3" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {supportedServices && supportedServices.length > 0 && (
           <section className="supported-services">
             <div className="container">
