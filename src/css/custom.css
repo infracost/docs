@@ -293,7 +293,7 @@ h2 {
 
 .home-section {
   text-align: center;
-  padding: 4rem 0;
+  padding: 2rem 0;
 }
 
 .home-section h2 {
@@ -339,8 +339,9 @@ h2 {
   color: var(--ifm-color-white);
 }
 
-.steps h3 {
-  margin-bottom:
+.steps h2 {
+  color: var(--ifm-color-white);
+  margin-bottom: 2rem;
 }
 
 .step {

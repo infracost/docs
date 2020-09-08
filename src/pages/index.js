@@ -93,6 +93,7 @@ function Home() {
 
         <section className="home-section steps">
           <div class="container">
+            <h2>Bringing costs into system development</h2>
             <div className="row step">
               <div class="col col--4 step-text">
                 <h3><span class="step-no">1.</span> Developer proposes a change to the infrastructure</h3>
