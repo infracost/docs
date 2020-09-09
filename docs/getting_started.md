@@ -18,6 +18,14 @@ curl --silent --location "https://github.com/infracost/infracost/releases/latest
 sudo mv /tmp/infracost-$(uname -s | tr '[:upper:]' '[:lower:]')-amd64 /usr/local/bin/infracost
 ```
 
+### Install via `brew`
+
+[Homebrew](https://brew.sh/) users can install by:
+
+```sh
+$ brew install infracost
+```
+
 ## Basic usage
 
 Generate a cost breakdown from a Terraform directory:
