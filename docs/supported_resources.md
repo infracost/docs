@@ -13,14 +13,15 @@ Support for the following is not currently included:
 | ---                        | ---   |
 | `aws_autoscaling_group`    | |
 | `aws_db_instance`          | | 
-| `aws_dynamodb_table`       | Provisioned capacity mode only |
+| `aws_dynamodb_table`       | Provisioned capacity mode only. |
 | `aws_ebs_snapshot_copy`    | |
 | `aws_ebs_snapshot`         | |
-| `aws_ecs_service`          | Fargate on-demand only |
 | `aws_ebs_volume`           | |
+| `aws_ecs_service`          | Fargate on-demand only. |
 | `aws_elb`                  | |
 | `aws_instance`             | Non-Linux EC2 instances such as Windows and RHEL are not supported, a lookup is needed to find the OS of AMIs. | 
-| `aws_lb`                   | |
+| `aws_lambda_function`      | Provisioned concurrency is not yet supported. |
+| `aws_lb / aws_alb`         | |
 | `aws_nat_gateway`          | |
 | `aws_rds_cluster_instance` | |
 | `aws_rds_cluster`          | |
