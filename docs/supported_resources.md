@@ -32,4 +32,4 @@ We're regularly adding support for new Terraform AWS resources - be sure to watc
 
 You can help by:
 1. [Creating an issue](https://github.com/infracost/infracost/issues/new) and mentioning the resource you need and a little about your use-case; we'll try to prioritize it depending on the community feedback.
-2. [Contributing to Infracost](https://github.com/infracost/infracost#contributing), we're working on making it easier to add new resources. You can join our [Discord community](https://discord.gg/Cu9ftEg) if you need help contributing.
+2. [Contributing to Infracost](https://github.com/infracost/infracost#contributing), we're working on making it easier to add new resources. You can join our [Discord community](https://discord.gg/Q37zznA) if you need help contributing.
