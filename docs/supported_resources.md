@@ -25,6 +25,7 @@ Support for the following is not currently included:
 | `aws_nat_gateway`          | |
 | `aws_rds_cluster_instance` | |
 | `aws_rds_cluster`          | |
+| `aws_eks_node_group`         | |
 
 ## The resource I want isn't supported
 
