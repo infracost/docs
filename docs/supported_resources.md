@@ -9,23 +9,24 @@ Support for the following is not currently included:
   * any costs that are not specified in the Terraform configuration, e.g. S3 storage costs, data out costs.
   * Any non On-Demand pricing, such as Reserved Instances.
 
-| Terraform resource         | Notes |
-| ---                        | ---   |
-| `aws_autoscaling_group`    | |
-| `aws_db_instance`          | | 
-| `aws_dynamodb_table`       | Provisioned capacity mode only. |
-| `aws_ebs_snapshot_copy`    | |
-| `aws_ebs_snapshot`         | |
-| `aws_ebs_volume`           | |
-| `aws_ecs_service`          | Fargate on-demand only. |
-| `aws_elb`                  | |
-| `aws_instance`             | Non-Linux EC2 instances such as Windows and RHEL are not supported, a lookup is needed to find the OS of AMIs. | 
-| `aws_lambda_function`      | Provisioned concurrency is not yet supported. |
-| `aws_lb / aws_alb`         | |
-| `aws_nat_gateway`          | |
-| `aws_rds_cluster_instance` | |
-| `aws_rds_cluster`          | |
+| Terraform resource           | Notes |
+| ---                          | ---   |
+| `aws_autoscaling_group`      | |
+| `aws_db_instance`            | | 
+| `aws_docdb_cluster_instance` | |
+| `aws_dynamodb_table`         | Provisioned capacity mode only. |
+| `aws_ebs_snapshot_copy`      | |
+| `aws_ebs_snapshot`           | |
+| `aws_ebs_volume`             | |
+| `aws_ecs_service`            | Fargate on-demand only. |
 | `aws_eks_node_group`         | |
+| `aws_elb`                    | |
+| `aws_instance`               | Non-Linux EC2 instances such as Windows and RHEL are not supported, a lookup is needed to find the OS of AMIs. | 
+| `aws_lambda_function`        | Provisioned concurrency is not yet supported. |
+| `aws_lb / aws_alb`           | |
+| `aws_nat_gateway`            | |
+| `aws_rds_cluster_instance`   | |
+| `aws_rds_cluster`            | |
 
 ## The resource I want isn't supported
 
