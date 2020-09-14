@@ -20,6 +20,7 @@ Support for the following is not currently included:
 | `aws_ebs_volume`             | |
 | `aws_ecs_service`            | Fargate on-demand only. |
 | `aws_elb`                    | |
+| `aws_elasticsearch_domain`   | |
 | `aws_instance`               | Non-Linux EC2 instances such as Windows and RHEL are not supported, a lookup is needed to find the OS of AMIs. | 
 | `aws_lambda_function`        | Provisioned concurrency is not yet supported. |
 | `aws_lb / aws_alb`           | |
