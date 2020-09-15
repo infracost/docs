@@ -37,7 +37,66 @@ The [Infracost GitHub action](https://github.com/marketplace/actions/run-infraco
 
 <img src="https://raw.githubusercontent.com/infracost/infracost-gh-action/master/screenshot.png" width="550px" alt="Example infracost diff usage" />
 
-### Usage options
+## Cost estimation of usage-based resources
+
+Infracost distinguishes the **price** of a resource from its **cost**. Price is the per-unit price advertised by a cloud vendor. The cost of a resource is calculated by multiplying its price by its usage. For example, an EC2 instance might be priced at $0.02 per hour, and if run for 10 hours (its usage), it'll cost $2.00. Supported resources in Infracost will always show prices, but if a resource has a usage-based cost component, we can't show its cost as we don't know how much it'll be used. For example, an AWS Lambda resource shows zero hourly/monthly costs for duration and requests:
+
+  ```
+  NAME                              MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
+
+  aws_lambda_function.lambda
+  ├─ Duration                                 0  GB-seconds    2e-05       0.0000        0.0000
+  └─ Requests                                 0  requests      2e-07       0.0000        0.0000
+  Total                                                                    0.0000        0.0000
+  ```
+
+To solve this problem, the [Infracost Terraform Provider](https://registry.terraform.io/providers/infracost/infracost/latest/docs) can be used to describe usage estimates, which are used to calculate costs. As shown in the following example, it is easy to add this to Terraform projects. Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates in their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
+
+  Enable terraform-provider-infracost: 
+  ```hcl
+  terraform {
+    required_providers {
+      aws = { source = "hashicorp/aws" }
+      infracost = { source = "infracost/infracost" }
+    }
+  }
+  provider "infracost" {}
+  ```
+
+  A Lambda function with usage estimates:
+  ```
+  resource "aws_lambda_function" "my_lambda" {
+    function_name = "lambda_function_name"
+    role          = "arn:aws:lambda:us-east-1:account-id:resource-id"
+    handler       = "exports.test"
+    runtime       = "nodejs12.x"
+    memory_size   = 512
+  }
+
+  data "infracost_aws_lambda_function" "lambda" {
+    resources = [aws_lambda_function.my_lambda.id]
+
+    monthly_requests {
+      value = 100000000
+    }
+
+    average_request_duration {
+      value = 350
+    }
+  }
+  ```
+
+  Infracost can now show hourly/monthly cost estimates:
+  ```
+  NAME                              MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
+
+  aws_lambda_function.lambda
+  ├─ Duration                          20000000  GB-seconds    2e-05       0.4566      333.3340
+  └─ Requests                         100000000  requests      2e-07       0.0274       20.0000
+  Total                                                                    0.4840      353.3340
+  ```
+
+## Useful options
 
 To change the path to your `terraform` binary you can set the `TERRAFORM_BINARY` env variable:
 ```sh
@@ -59,10 +118,10 @@ terraform show -json plan.save > plan.json
 infracost --tfjson plan.json
 ```
 
-### How does it work?
+## How does it work?
 
 Prices are retrieved using [https://github.com/infracost/cloud-pricing-api](https://github.com/infracost/cloud-pricing-api). There is a demo version of that service deployed at [https://pricing.infracost.io/graphql](https://pricing.infracost.io/graphql), which `infracost` uses by default. On this service, spot prices are refreshed once per hour.
 
-You can run `infracost` in your terraform directories without worrying about security or privacy issues as no terraform secrets/tags/IDs etc are sent to the pricing service (only generic price-related attributes are used). Also, do not be alarmed by seeing the `terraform init` in output, no changes are made to your terraform or cloud resources. As a security precaution, read-only AWS IAM creds can be used.
+You can run `infracost` in your terraform directories without worrying about security or privacy issues as no terraform secrets/tags/IDs etc are sent to the pricing service (only generic price-related attributes are used). Also, do not be alarmed by seeing the `terraform init` in output, no changes are made to your terraform or cloud resources. Read-only AWS IAM creds can be used as a security precaution in CI pipelines that run `infracost`.
 
 You can also deploy the price list API yourself and specify it by setting the `infracost_API_URL` env variable or passing the `--api-url` option.
