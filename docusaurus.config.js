@@ -7,6 +7,8 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.png',
+  twitterImage: 'img/social-image.png',
+  ogImage: 'img/social-image.png',
   organizationName: 'infracost',
   projectName: 'docs',
   plugins: [
