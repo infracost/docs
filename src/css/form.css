@@ -1,0 +1,38 @@
+.input {
+  border: none;
+  border-radius: var(--ifm-global-radius);
+  font-size: var(--ifm-font-size-base);
+  padding: 10px 12px;
+  width: 20rem;
+  line-height: 1.5rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field .label {
+  color: var(--ifm-color-emphasis-300);
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.field .error {
+  color: var(--ifm-color-red-500);
+  display: block;
+}
+
+.form .alert {
+  margin-top: 1rem;
+}
+
+.robots-only {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}

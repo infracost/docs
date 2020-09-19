@@ -4,6 +4,7 @@ title: Getting started
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import SignUp from '../src/components/SignUp';
 
 Infracost shows hourly and monthly cost estimates for a Terraform project. This helps developers, DevOps et al. quickly see the cost breakdown and compare different deployment options upfront.
 
@@ -25,6 +26,17 @@ sudo mv /tmp/infracost-$(uname -s | tr '[:upper:]' '[:lower:]')-amd64 /usr/local
 ```sh
 $ brew install infracost
 ```
+
+
+<div className="important" id="api-key">
+
+## Get an API key
+
+We can add any messaging here.
+
+<SignUp source="getting_started" />
+
+</div>
 
 ## Basic usage
 
