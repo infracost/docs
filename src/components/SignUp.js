@@ -26,7 +26,7 @@ function SignUp({ source }) {
 
     var resp;
     try {
-      resp = await api.post(`/apiKeys?source=${source}`, data);
+      resp = await api.post(`/apiKeys?source=browser-${source}`, data);
       setSubmitSuccess(`Thank you ${data.name}! Your API key has been sent to ${data.email}`);
       reset();
     } catch(err) {
