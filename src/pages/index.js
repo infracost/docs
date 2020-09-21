@@ -41,7 +41,7 @@ function Home() {
       <header className="hero hero--dark">
         <div className="container">
           <div className="row">
-            <div className="col col--4">
+          <div className="col col--4">
               <p className="hero__title">Cost estimates for Terraform</p>
               <p className="hero__subtitle">In your pull requests</p>
               <div className="buttons">
@@ -57,7 +57,7 @@ function Home() {
                   src={`https://ghbtns.com/github-btn.html?user=infracost&repo=infracost&type=star&count=true&size=small`}
                   frameBorder="0"
                   scrolling="0"
-                  width="100"
+                  width="110"
                   height="20"
                   title="Star Infracost on GitHub">  
                 </iframe>
@@ -66,7 +66,7 @@ function Home() {
                   src={`https://ghbtns.com/github-btn.html?user=infracost&repo=infracost&type=star&count=true&size=large`}
                   frameBorder="0"
                   scrolling="0"
-                  width="146"
+                  width="160"
                   height="30"
                   title="Star Infracost on GitHub">  
                 </iframe>
