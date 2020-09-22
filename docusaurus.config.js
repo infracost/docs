@@ -1,8 +1,8 @@
 const path = require('path');
 
-let infracostWebApiEndpoint = 'https://api-dev.infracost.io/web';
+let infracostDashboardApiEndpoint = 'https://dashboard.api-dev.infracost.io';
 if (process.env.NODE_ENV === 'production') {
-  infracostWebApiEndpoint = 'https://api.infracost.io/web';
+  infracostDashboardApiEndpoint = 'https://dashboard.api.infracost.io';
 }
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
   organizationName: 'infracost',
   projectName: 'docs',
   customFields: {
-    infracostWebApiEndpoint,
+    infracostDashboardApiEndpoint,
   },
   plugins: [
     [

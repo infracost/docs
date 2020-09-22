@@ -13,7 +13,7 @@ function SignUp({ source }) {
   const { siteConfig } = useDocusaurusContext();
 
   const api = axios.create({
-    baseURL: siteConfig.customFields.infracostWebApiEndpoint,
+    baseURL: siteConfig.customFields.infracostDashboardApiEndpoint,
     headers: {
       'Content-Type': 'application/json',
     },
