@@ -46,7 +46,11 @@ function Home() {
               <p className="hero__title">Cost estimates for Terraform</p>
               <p className="hero__subtitle">In your pull requests</p>
               <div style={{"margin": "2rem 0"}}>
-                <SignUp source="home" />
+                <Link
+                  className="button button--primary button--lg"
+                  to={useBaseUrl('docs/')}>
+                  Get Started
+                </Link>
               </div>
               <p className="open-source-label">Infracost is <strong>free</strong> and <strong>open-source</strong></p>
               <iframe
