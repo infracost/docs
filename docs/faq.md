@@ -5,7 +5,7 @@ title: FAQ
 
 ## Does Infracost need my AWS credentials?
 
-Infracost itself does not need any AWS credentials itself, but Infracost uses your existing `terraform` binary to execute `terraform init` and `terraform plan` to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output). This process requires Terraform having access to your cloud credentials. The Terraform commands used by Infracost do not make any changes to your Terraform state or cloud resources,
+Infracost itself does not need any AWS credentials, but Infracost uses your existing `terraform` binary to execute `terraform init` and `terraform plan` to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output). This process requires Terraform to have access to your cloud credentials. The Terraform commands used by Infracost do not make any changes to your Terraform state or cloud resources,
 
 ## How does Infracost get its prices?
 Infracost gets its prices from a [pricing API](https://github.com/infracost/cloud-pricing-api). These prices are continually updated with the latest AWS prices.
