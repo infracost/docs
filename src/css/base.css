@@ -1,0 +1,196 @@
+:root {
+  --ifm-font-family-base: 'Lato', sans-serif;
+  --ifm-code-font-size: 95%;
+
+  /* https://www.colorbox.io/#steps=9#hue_start=214#hue_end=214#hue_curve=linear#sat_start=5#sat_end=90#sat_curve=easeOutSine#sat_rate=130#lum_start=100#lum_end=29#lum_curve=easeOutQuint#minor_steps_map=none */
+  --ifm-color-blue-100: #eef6ff;
+  --ifm-color-blue-200: #b9d7ff;
+  --ifm-color-blue-300: #82b8ff;
+  --ifm-color-blue-400: #4d99fd;
+  --ifm-color-blue-500: #1e7df9;
+  --ifm-color-blue-600: #0067ef;
+  --ifm-color-blue-700: #005dd6;
+  --ifm-color-blue-800: #0046a1;
+  --ifm-color-blue-900: #00204a;
+
+  /* https://www.colorbox.io/#steps=9#hue_start=33#hue_end=33#hue_curve=linear#sat_start=5#sat_end=90#sat_curve=easeOutSine#sat_rate=130#lum_start=100#lum_end=29#lum_curve=easeOutQuint#minor_steps_map=none */
+  --ifm-color-orange-100: #fff8ee;
+  --ifm-color-orange-200: #ffdfb9;
+  --ifm-color-orange-300: #ffc682;
+  --ifm-color-orange-400: #fdae4d;
+  --ifm-color-orange-500: #f9971e;
+  --ifm-color-orange-600: #ef8300;
+  --ifm-color-orange-700: #d67600;
+  --ifm-color-orange-800: #a15900;
+  --ifm-color-orange-900: #4a2900;
+
+  /* https://www.colorbox.io/#steps=9#hue_start=0#hue_end=0#hue_curve=linear#sat_start=5#sat_end=90#sat_curve=easeOutSine#sat_rate=130#lum_start=100#lum_end=29#lum_curve=easeOutQuint#minor_steps_map=none */
+  --ifm-color-red-100: #ffeeee;
+  --ifm-color-red-200: #ffb9b9;
+  --ifm-color-red-300: #ff8282;
+  --ifm-color-red-400: #fd4d4d;
+  --ifm-color-red-500: #f91e1e;
+  --ifm-color-red-600: #ef0000;
+  --ifm-color-red-700: #d60000;
+  --ifm-color-red-800: #a10000;
+  --ifm-color-red-900: #4a0000;
+
+  /* https://www.colorbox.io/#steps=9#hue_start=158#hue_end=158#hue_curve=linear#sat_start=5#sat_end=90#sat_curve=easeOutSine#sat_rate=130#lum_start=100#lum_end=29#lum_curve=easeOutQuint#minor_steps_map=none */
+  --ifm-color-green-100: #eefff9;
+  --ifm-color-green-200: #b9ffe5;
+  --ifm-color-green-300: #82ffd1;
+  --ifm-color-green-400: #4dfdbc;
+  --ifm-color-green-500: #1ef9a9;
+  --ifm-color-green-600: #00ef97;
+  --ifm-color-green-700: #00d688;
+  --ifm-color-green-800: #00a166;
+  --ifm-color-green-900: #004a2f;
+
+  /* https://www.colorbox.io/#steps=9#hue_start=0#hue_end=0#hue_curve=linear#sat_start=5#sat_end=100#sat_curve=easeOutSine#sat_rate=130#lum_start=97#lum_end=15#lum_curve=easeOutQuint#minor_steps_map=none */
+  --ifm-color-gray-0: var(--ifm-color-white);
+  --ifm-color-gray-100: #f0f4fb;
+  --ifm-color-gray-200: #d9e1ee;
+  --ifm-color-gray-300: #bbc5d6;
+  --ifm-color-gray-400: #96a0b5;
+  --ifm-color-gray-500: #6e788d;
+  --ifm-color-gray-600: #495165;
+  --ifm-color-gray-700: #2e3444;
+  --ifm-color-gray-800: #1c202c;
+  --ifm-color-gray-900: #0e0f11;
+  --ifm-color-gray-1000: var(--ifm-color-black);
+
+  --ifm-color-secondary: var(--ifm-color-gray-100);
+  --ifm-color-content-secondary: var(--ifm-color-gray-600);
+
+  --ifm-link-color: var(--ifm-color-blue-500);
+  --ifm-link-hover-color: var(--ifm-color-blue-600);
+
+  --ifm-navbar-padding-horizontal: 1.5rem;
+
+  --ifm-menu-link-padding-vertical: 0.75rem;
+  --ifm-menu-link-padding-horizontal: 1.5rem;
+
+  --ifm-navbar-link-color-active: var(--ifm-link-color);
+  --ifm-navbar-link-hover-color: var(--ifm-link-hover-color);
+  --ifm-menu-hover-color: var(--ifm-link-hover-color);
+
+  --ifm-menu-color-background-active: var(--ifm-color-gray-100);
+  --ifm-menu-color-background-hover: var(--ifm-color-gray-100);
+  --ifm-menu-color-active: var(--ifm-link-color);
+
+  --ifm-hr-border-color: var(--ifm-color-gray-200);
+
+  --ifm-h1-font-size: 2.2rem;
+}
+
+html[data-theme="dark"] {
+  --ifm-background-color: var(--ifm-color-gray-900);
+  --ifm-color-secondary: var(--ifm-color-gray-700);
+  --ifm-color-content-secondary: var(--ifm-color-gray-400);
+
+  --ifm-link-color: var(--ifm-color-blue-400);
+  --ifm-link-hover-color: var(--ifm-blue-500);
+
+  --ifm-navbar-background-color: var(--ifm-color-gray-800);
+  --ifm-navbar-shadow: none;
+
+  --ifm-menu-color-background-active: var(--ifm-color-gray-800);
+  --ifm-menu-color-background-hover: var(--ifm-color-gray-900);
+}
+
+@media (min-width: 769px) {
+  .display--mobile-only {
+    display: none
+  }
+}
+
+@media (max-width: 768px) {
+  .display--tablet {
+    display: none
+  }
+}
+
+/* Todo delete these when we can swizzle the components (https://v2.docusaurus.io/docs/using-themes/#swizzling-theme-components) */
+h1 {
+  font-size: var(--ifm-h1-font-size) !important;
+}
+h2 {
+  font-size: var(--ifm-h2-font-size) !important;
+}
+
+.alert--secondary {
+  --ifm-alert-background-color: var(--ifm-color-secondary);
+  --ifm-alert-border-color: var(--ifm-color-secondary);
+}
+
+.admonition-note {
+  --ra-admonition-icon-color: var(--ifm-font-color-base);
+  --ifm-heading-color: var(--ifm-font-color-base);
+  --ifm-alert-color: var(--ifm-font-color-base);
+}
+
+.alert--success {
+  --ifm-alert-background-color:  var(--ifm-color-green-800);
+  --ifm-alert-border-color:  var(--ifm-color-green-800);
+}
+
+.alert--info {
+  --ifm-alert-background-color:  var(--ifm-color-blue-500);
+  --ifm-alert-border-color:  var(--ifm-color-blue-500);
+}
+
+.alert--warning {
+  --ifm-alert-background-color:  var(--ifm-color-orange-500);
+  --ifm-alert-border-color:  var(--ifm-color-orange-500);
+}
+
+.alert--danger {
+  --ifm-alert-background-color:  var(--ifm-color-red-500);
+  --ifm-alert-border-color:  var(--ifm-color-red-500);
+}
+
+.alert p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown > h1 {
+  --ifm-h1-font-size: 2.2rem;
+}
+.markdown > h2 {
+  --ifm-h2-font-size: 1.8rem;
+}
+.markdown > h3 {
+  --ifm-h2-font-size: 1.6rem;
+}
+.markdown > h4 {
+  --ifm-h2-font-size: 1.4rem;
+}
+.markdown > h5 {
+  --ifm-h2-font-size: 1.2rem;
+}
+.markdown > h6 {
+  --ifm-h2-font-size: 1rem;
+}
+
+.footer--dark { 
+  --ifm-footer-background-color: var(--ifm-color-gray-800);
+  --ifm-footer-color: var(--ifm-color-white);
+  --ifm-footer-link-color:  var(--ifm-color-gray-300);
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgb(72, 77, 91);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+.important {
+  scroll-margin-top: 75px;
+  background-color: var(--ifm-color-gray-200);
+  margin-top: 2.5rem;
+  padding: 2.5rem;
+}
+html[data-theme="dark"] .important {
+  background-color: var(--ifm-color-gray-700);
+}

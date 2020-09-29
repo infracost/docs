@@ -1,5 +1,9 @@
 const path = require('path');
 
+let infracostDashboardApiEndpoint = 'https://dashboard.api-dev.infracost.io';
+if (process.env.NODE_ENV === 'production') {
+  infracostDashboardApiEndpoint = 'https://dashboard.api.infracost.io';
+}
 
 module.exports = {
   title: 'Infracost',
@@ -9,6 +13,9 @@ module.exports = {
   favicon: 'img/favicon.png',
   organizationName: 'infracost',
   projectName: 'docs',
+  customFields: {
+    infracostDashboardApiEndpoint,
+  },
   plugins: [
     [
       'docusaurus-plugin-plausible',
@@ -125,7 +132,7 @@ module.exports = {
           `https://github.com/infracost/docs/edit/master`,
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/index.css'),
         },
       },
     ],
