@@ -40,14 +40,34 @@ Infracost shows hourly and monthly cost estimates for a Terraform project. This 
 
 ## Basic usage
 
-Generate a cost breakdown from a Terraform directory:
+Generate a cost breakdown from a Terraform directory and pass any required Terraform flags using the `--tfflags` option:
 ```sh
-infracost --tfdir /my/code/path
+infracost --tfdir /path/to/code --tfflags "-var-file=myvars.tf"
 ```
 
 The [Infracost GitHub action](https://github.com/marketplace/actions/run-infracost) can be used to automatically add a PR comment showing the cost estimate `diff` between a pull request and the master branch whenever Terraform files change.
 
 <img src="https://raw.githubusercontent.com/infracost/infracost-gh-action/master/screenshot.png" width="550px" alt="Example infracost diff usage" />
+
+## Useful options
+
+To change the path to your `terraform` binary you can set the `TERRAFORM_BINARY` env variable:
+```sh
+TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir examples/terraform_0.13
+```
+
+Standard Terraform env variables such as `TF_*` can also be added if required, for example:
+```sh
+TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost --tfdir /path/to/code
+```
+
+Generate a cost breakdown from a Terraform plan JSON file:
+```sh
+cd examples/terraform
+terraform plan -out plan.save .
+terraform show -json plan.save > plan.json
+infracost --tfjson plan.json
+```
 
 ## Cost estimation of usage-based resources
 
@@ -107,33 +127,3 @@ To solve this problem, the [Infracost Terraform Provider](https://registry.terra
   └─ Requests                         100000000  requests      2e-07       0.0274       20.0000
   Total                                                                    0.4840      353.3340
   ```
-
-## Useful options
-
-To change the path to your `terraform` binary you can set the `TERRAFORM_BINARY` env variable:
-```sh
-TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir examples/terraform_0.13
-```
-
-Standard Terraform env variables such as `TF_CLI_ARGS` can also be added if required:
-```sh
-TF_VAR_key=value infracost --tfdir examples/terraform
-# or
-TF_CLI_ARGS_plan="-var-file=my.tfvars" infracost --tfdir examples/terraform
-```
-
-Generate a cost breakdown from a Terraform plan JSON file:
-```sh
-cd examples/terraform
-terraform plan -out plan.save .
-terraform show -json plan.save > plan.json
-infracost --tfjson plan.json
-```
-
-## How does it work?
-
-Prices are retrieved using [https://github.com/infracost/cloud-pricing-api](https://github.com/infracost/cloud-pricing-api). There is a demo version of that service deployed at [https://pricing.infracost.io/graphql](https://pricing.infracost.io/graphql), which `infracost` uses by default. On this service, spot prices are refreshed once per hour.
-
-You can run `infracost` in your terraform directories without worrying about security or privacy issues as no terraform secrets/tags/IDs etc are sent to the pricing service (only generic price-related attributes are used). Also, do not be alarmed by seeing the `terraform init` in output, no changes are made to your terraform or cloud resources. Read-only AWS IAM creds can be used as a security precaution in CI pipelines that run `infracost`.
-
-You can also deploy the price list API yourself and specify it by setting the `infracost_API_URL` env variable or passing the `--api-url` option.
