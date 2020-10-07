@@ -11,22 +11,28 @@ Support for the following is not currently included:
 
 | Terraform resource           | Notes |
 | ---                          | ---   |
-| `aws_autoscaling_group`      | |
-| `aws_db_instance`            | | 
-| `aws_docdb_cluster_instance` | |
-| `aws_dynamodb_table`         | Provisioned capacity mode only. |
-| `aws_ebs_snapshot_copy`      | |
-| `aws_ebs_snapshot`           | |
-| `aws_ebs_volume`             | |
-| `aws_ecs_service`            | Fargate on-demand only. |
-| `aws_elb`                    | |
-| `aws_elasticsearch_domain`   | |
-| `aws_instance`               | Non-Linux EC2 instances such as Windows and RHEL are not supported, a lookup is needed to find the OS of AMIs. | 
-| `aws_lambda_function`        | Provisioned concurrency is not yet supported. |
-| `aws_lb / aws_alb`           | |
-| `aws_nat_gateway`            | |
-| `aws_rds_cluster_instance`   | |
-| `aws_rds_cluster`            | |
+| `aws_alb` |  |
+| `aws_autoscaling_group` |  See aws_instance<br />  |
+| `aws_db_instance` |  |
+| `aws_docdb_cluster_instance` |  |
+| `aws_dynamodb_table` |  DAX is not yet supported.<br />  |
+| `aws_ebs_snapshot` |  |
+| `aws_ebs_snapshot_copy` |  |
+| `aws_ebs_volume` |  |
+| `aws_ecs_cluster` |  |
+| `aws_ecs_service` |  Only supports Fargate on-demand.<br />  |
+| `aws_ecs_task_definition` |  |
+| `aws_elasticsearch_domain` |  |
+| `aws_elb` |  |
+| `aws_instance` |  Costs associated with non-standard Linux AMIs, such as Windows and RHEL are not supported.<br />  EC2 detailed monitoring assumes the standard 7 metrics and the lowest tier of prices for CloudWatch.<br />  If a root volume is not specified then an 8Gi gp2 volume is assumed.<br />  |
+| `aws_lambda_function` |  Provisioned concurrency is not yet supported.<br />  |
+| `aws_launch_configuration` |  |
+| `aws_launch_template` |  |
+| `aws_lb` |  |
+| `aws_nat_gateway` |  |
+| `aws_rds_cluster` |  |
+| `aws_rds_cluster_instance` |  |
+
 
 ## The resource I want isn't supported
 
