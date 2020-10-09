@@ -34,6 +34,12 @@ Infracost shows hourly and monthly cost estimates for a Terraform project. This 
     Docker:
     ```sh
     docker pull infracost/infracost
+    docker run --rm \
+      -e INFRACOST_API_KEY=see_following_steps_on_how_to_get_this \
+      -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+      -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+      -v $PWD/:/code/ infracost/infracost --tfdir /code/
+      # add other required flags for infracost or envs for Terraform
     ```
 
 2.	Use our free hosted API for cloud prices by registering for an API key:
@@ -53,7 +59,7 @@ Infracost shows hourly and monthly cost estimates for a Terraform project. This 
 
 Generate a cost breakdown from a Terraform directory and pass any required Terraform flags using the `--tfflags` option:
 ```sh
-infracost --tfdir /path/to/code --tfflags "-var-file=myvars.tf"
+infracost --tfdir /path/to/code --tfflags "-var-file=myvars.tfvars"
 ```
 
 The [Infracost GitHub action](https://github.com/marketplace/actions/run-infracost) can be used to automatically add a PR comment showing the cost estimate `diff` between a pull request and the master branch whenever Terraform files change.
@@ -62,7 +68,9 @@ The [Infracost GitHub action](https://github.com/marketplace/actions/run-infraco
 
 ## Useful options
 
-To change the path to your `terraform` binary you can set the `TERRAFORM_BINARY` env variable:
+Run `infracost --help` to see the available options.
+
+To change the path to the `terraform` binary, set the `TERRAFORM_BINARY` env variable:
 ```sh
 TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir examples/terraform_0.13
 ```
@@ -72,7 +80,9 @@ Standard Terraform env variables such as `TF_*` can also be added if required, f
 TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost --tfdir /path/to/code
 ```
 
-Generate a cost breakdown from a Terraform plan JSON file:
+In CI systems, the `INFRACOST_SKIP_UPDATE_CHECK=true` env variable can be set to skip the Infracost update check.
+
+To generate a cost breakdown from a Terraform plan JSON file:
 ```sh
 cd examples/terraform
 terraform plan -out plan.save .
@@ -81,6 +91,8 @@ infracost --tfjson plan.json
 ```
 
 ## Cost estimation of usage-based resources
+
+This is an experimental feature with limited support; please email [hello@infracost.io](mailto:hello@infracost.io) if you use it so we can better understand your use-case and improve the feature.
 
 Infracost distinguishes the **price** of a resource from its **cost**. Price is the per-unit price advertised by a cloud vendor. The cost of a resource is calculated by multiplying its price by its usage. For example, an EC2 instance might be priced at $0.02 per hour, and if run for 100 hours (its usage), it'll cost $2.00. Supported resources in Infracost will always show prices, but if a resource has a usage-based cost component, we can't show its cost as we don't know how much it'll be used. For example, an AWS Lambda resource shows zero hourly/monthly costs for duration and requests:
 
