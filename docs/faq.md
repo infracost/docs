@@ -13,7 +13,7 @@ Infracost gets its prices from a [pricing API](https://github.com/infracost/clou
 We offer a free hosted pricing API. There is also the option of running your own pricing API and configuring your infracost installation to point to it.
 
 ## What data is sent to the hosted pricing API?
-The pricing API needs the relevant data to return a unique AWS price point. The count of unsupported Terraform resource types is also sent to the pricing API to enable us to better prioritize adding new resources. No cloud credentials, secrets, tags or Terraform resource identifiers are sent to the pricing API.
+The pricing API needs the relevant data to return a unique AWS price point. The count of Terraform resource types is also sent to the pricing API to enable us to better prioritize adding new resources. No cloud credentials, secrets, tags or Terraform resource identifiers are sent to the pricing API.
 
 Here is an example request to the pricing API for a t3.micro instance and the returned response:
 
