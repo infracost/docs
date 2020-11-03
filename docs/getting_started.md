@@ -4,36 +4,52 @@ title: Getting started
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import SignUp from '../src/components/SignUp';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Infracost shows hourly and monthly cost estimates for a Terraform project. This helps developers, DevOps et al. quickly see the cost breakdown and compare different deployment options upfront.
+Infracost shows hourly and monthly cost estimates for a Terraform project. This helps users quickly see the cost breakdown and compare different deployment options upfront.
 
 <img alt="Example infracost output" width="600px" src={useBaseUrl('img/screenshot.png')} />
 
 ## Installation
 
-1. Download and install the latest Infracost release
+1. Install the latest Infracost release:
+  <Tabs
+    defaultValue="macos-homebrew"
+    values={[
+      {label: 'macOS (Homebrew)', value: 'macos-homebrew'},
+      {label: 'macOS (manual)', value: 'macos-manual'},
+      {label: 'Linux', value: 'linux'},
+      {label: 'Docker', value: 'docker'}
+    ]}>
+    <TabItem value="macos-homebrew">
 
-    Linux:
-    ```sh
-    curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz | tar xz -C /tmp && \
-    sudo mv /tmp/infracost-linux-amd64 /usr/local/bin/infracost
-    ```
-
-    macOS (Homebrew):
     ```sh
     brew install infracost
     ```
 
-    macOS (manual):
+    </TabItem>
+    <TabItem value="macos-manual">
+
     ```sh
     curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-darwin-amd64.tar.gz | tar xz -C /tmp && \
     sudo mv /tmp/infracost-darwin-amd64 /usr/local/bin/infracost
     ```
 
-    Docker:
+    </TabItem>
+    <TabItem value="linux">
+
+    ```sh
+    curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz | tar xz -C /tmp && \
+    sudo mv /tmp/infracost-linux-amd64 /usr/local/bin/infracost
+    ```
+
+    </TabItem>
+    <TabItem value="docker">
+
     ```sh
     docker pull infracost/infracost
+
     docker run --rm \
       -e INFRACOST_API_KEY=see_following_step_on_how_to_get_this \
       -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
@@ -42,14 +58,23 @@ Infracost shows hourly and monthly cost estimates for a Terraform project. This 
       # add other required flags for infracost or envs for Terraform
     ```
 
+    </TabItem>
+  </Tabs>
+
 2.	Use our free hosted API for cloud prices by registering for an API key:
     ```sh
     infracost register
     ```
 
-    Alternatively you can run your [own pricing API](https://github.com/infracost/cloud-pricing-api) and set the `INFRACOST_PRICING_API_ENDPOINT` environment variable to point to it.
-    
-    The `INFRACOST_API_KEY` environment variable can be used to set to the API key in CI systems.
+    The `INFRACOST_API_KEY` environment variable can be used to set the API key in CI systems.
+    If you prefer, you can run your own [pricing API](faq#can-i-run-my-own-pricing-api).
+
+3.	Run `infracost` using our example Terraform project to see how it works. You can also play with the `main.tf` file in the example:
+
+    ```sh
+    git clone https://github.com/infracost/example-terraform.git
+    infracost --tfdir example-terraform
+    ```
 
 ## Basic usage
 
