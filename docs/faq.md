@@ -3,6 +3,10 @@ slug: /faq
 title: FAQ
 ---
 
+## What Terraform versions are supported?
+
+Infracost works with Terraform v0.12 and above.
+
 ## Does Infracost need my AWS credentials?
 
 Infracost itself does not need any AWS credentials, but Infracost uses your existing `terraform` binary to execute `terraform init` and `terraform plan` to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output). This process requires Terraform to have access to your cloud credentials. The Terraform commands used by Infracost do not make any changes to your Terraform state or cloud resources,
