@@ -111,19 +111,21 @@ terraform show -json plan.save > plan.json
 infracost --tfjson plan.json
 ```
 
+The `--output json` flag can be useful for processing the output of Infracost.
+
 ## Cost estimation of usage-based resources
 
 This is an experimental feature with limited support; please email [hello@infracost.io](mailto:hello@infracost.io) if you use it so we can better understand your use-case and improve the feature.
 
-Infracost distinguishes the **price** of a resource from its **cost**. Price is the per-unit price advertised by a cloud vendor. The cost of a resource is calculated by multiplying its price by its usage. For example, an EC2 instance might be priced at $0.02 per hour, and if run for 100 hours (its usage), it'll cost $2.00. Supported resources in Infracost will always show prices, but if a resource has a usage-based cost component, we can't show its cost as we don't know how much it'll be used. For example, an AWS Lambda resource shows zero hourly/monthly costs for duration and requests:
+Infracost distinguishes the **price** of a resource from its **cost**. Price is the per-unit price advertised by a cloud vendor. The cost of a resource is calculated by multiplying its price by its usage. For example, an EC2 instance might be priced at $0.02 per hour, and if run for 100 hours (its usage), it'll cost $2.00. Supported resources in Infracost will always show prices, but if a resource has a usage-based cost component, we can't show its cost as we don't know how much it'll be used. For example, an AWS Lambda resource shows zero hourly/monthly costs for requests and duration:
 
   ```
-  NAME                              MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
+  NAME                                        MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
 
-  aws_lambda_function.lambda
-  ├─ Duration                                 0  GB-seconds    2e-05       0.0000        0.0000
-  └─ Requests                                 0  requests      2e-07       0.0000        0.0000
-  Total                                                                    0.0000        0.0000
+  aws_lambda_function.hello_world
+  ├─ Requests                                           -  1M requests  0.2000            -             -
+  └─ Duration                                           -  GB-seconds    2e-05            -             -
+  Total                                                                                   -             -
   ```
 
 To solve this problem, the [Infracost Terraform Provider](https://registry.terraform.io/providers/infracost/infracost/latest/docs) can be used to describe usage estimates, which are used to calculate costs. As shown in the following example, it is easy to add this to Terraform projects. Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates in their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
@@ -141,33 +143,28 @@ To solve this problem, the [Infracost Terraform Provider](https://registry.terra
 
   A Lambda function with usage estimates:
   ```
-  resource "aws_lambda_function" "my_lambda" {
-    function_name = "lambda_function_name"
+  resource "aws_lambda_function" "hello_world" {
+    function_name = "hello_world"
     role          = "arn:aws:lambda:us-east-1:account-id:resource-id"
     handler       = "exports.test"
     runtime       = "nodejs12.x"
-    memory_size   = 512
+    memory_size   = 128
   }
 
-  data "infracost_aws_lambda_function" "lambda" {
-    resources = [aws_lambda_function.my_lambda.id]
-
-    monthly_requests {
-      value = 100000000
-    }
-
-    average_request_duration {
-      value = 350
-    }
+  # Get cost estimates for Lambda requests and duration
+  data "infracost_aws_lambda_function" "hello_world_usage" {
+    resources = [aws_lambda_function.hello_world.id]
+    monthly_requests { value = 100000000 }
+    average_request_duration { value = 250 }
   }
   ```
 
   Infracost can now show hourly/monthly cost estimates:
   ```
-  NAME                              MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
+  NAME                                        MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
 
-  aws_lambda_function.lambda
-  ├─ Duration                          20000000  GB-seconds    2e-05       0.4566      333.3340
-  └─ Requests                         100000000  requests      2e-07       0.0274       20.0000
-  Total                                                                    0.4840      353.3340
+  aws_lambda_function.hello_world
+  ├─ Requests                                         100  1M requests  0.2000       0.0274       20.0000
+  └─ Duration                                   3,750,000  GB-seconds    2e-05       0.0856       62.5001
+  Total                                                                              0.1130       82.5001
   ```
