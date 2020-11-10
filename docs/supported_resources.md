@@ -23,7 +23,7 @@ Infracost currently supports the following Terraform resources, using On-Demand 
 | Lambda | `aws_lambda_function` |  Provisioned concurrency is not yet supported. |
 | Lightsail | `aws_lightsail_instance` |  |
 | Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | S3 replication time control data transfer, and batch operations are not supported by Terraform. |
-| Simple Queue Service (SQS) | `aws_sqs_queue*` | |
+| Simple Queue Service (SQS) | `aws_sqs_queue` | |
 | Relational Database Service (RDS) | `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone` |  |
 | Virtual Private Cloud (VPC) | `aws_nat_gateway` | |
