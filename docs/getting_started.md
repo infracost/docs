@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Infracost shows hourly and monthly cost estimates for a Terraform project. This helps users quickly see the cost breakdown and compare different deployment options upfront.
 
-<img alt="Example infracost output" width="600px" src={useBaseUrl('img/screenshot.png')} />
+The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template](integrations#gitlab-ci) can be used to automatically add a PR comment showing the cost estimate `diff` between a pull/merge request and the master branch.
 
 ## Installation
 
@@ -69,102 +69,87 @@ Infracost shows hourly and monthly cost estimates for a Terraform project. This 
     The `INFRACOST_API_KEY` environment variable can be used to set the API key in CI systems.
     If you prefer, you can run your own [pricing API](faq#can-i-run-my-own-pricing-api).
 
-3.	Run `infracost` using our example Terraform project to see how it works. You can also play with the `main.tf` file in the example:
+3.	Run Infracost using our example Terraform project to see how it works. You can also play with the `main.tf` file in the example:
 
     ```sh
     git clone https://github.com/infracost/example-terraform.git
     infracost --tfdir example-terraform
     ```
 
-## Basic usage
+## Usage methods
 
-Generate a cost breakdown from a Terraform directory and pass any required Terraform flags using the `--tfflags` option:
-```sh
-infracost --tfdir /path/to/code --tfflags "-var-file=myvars.tfvars"
-```
+Infracost can be run with different options depending on the use-case, for example:
 
-The [Infracost GitHub action](https://github.com/marketplace/actions/run-infracost) can be used to automatically add a PR comment showing the cost estimate `diff` between a pull request and the master branch whenever Terraform files change.
+### 1. Terraform directory
 
-<img src="https://raw.githubusercontent.com/infracost/infracost-gh-action/master/screenshot.png" width="550px" alt="Example infracost diff usage" />
+This is the default method. Point to the Terraform directory using `--tfdir` and pass any required Terraform flags using `--tfflags`. Internally Infracost runs Terraform `init`, `plan` and `show`; `init` requires cloud credentials to be set, e.g. via the usual `AWS_ACCESS_KEY_ID` environment variables. This method works with remote state too.
+  ```sh
+  infracost --tfdir /path/to/code --tfflags "-var-file=myvars.tfvars"
+  ```
+
+### 2. Terraform state file
+
+Point to the Terraform directory using `--tfdir` and instruct Infracost to use the Terraform state file using `--use-tfstate`. This implies that you have already run Terraform `init`, thus Infracost just runs Terraform `show`, which does not require cloud creds to be set. This method takes less time to run compared with method #1 and also works with remote state.
+  ```sh
+  terraform init
+
+  infracost --tfdir /path/to/code --use-tfstate
+  ```
+
+### 3. Terraform plan JSON
+
+Point to an existing Terraform plan JSON file using `--tfjson`. This implies that the user has already run Terraform `init`, thus Infracost just runs Terraform `show`, which does not require cloud creds to be set.
+  ```sh
+  cd path/to/code
+  terraform init
+  terraform plan -out plan.save .
+  terraform show -json plan.save > plan.json
+
+  infracost --tfjson plan.json
+  ```
+
+### 4. Terraform plan file
+
+Point to the Terraform directory and use the Terraform plan. This implies that the user has already run Terraform `init`, thus Infracost just runs Terraform `show`, which does not require cloud creds to be set. This method works with remote state too.
+  ```sh
+  cd path/to/code
+  terraform init
+  terraform plan -out plan.save .  
+
+  infracost --tfdir /path/to/code --tfplan plan.save
+  ```
 
 ## Useful options
 
-Run `infracost --help` to see the available options.
-
-To change the path to the `terraform` binary, set the `TERRAFORM_BINARY` env variable:
+Run `infracost --help` to see the available options, which include:
 ```sh
-TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir examples/terraform_0.13
+--output value  Output format (json, table) (default: "table")
+--show-skipped  Show unsupported resources, some of which might be free (default: false)
+--no-color      Turn off colored output (default: false)
 ```
 
-Standard Terraform env variables such as `TF_*` can also be added if required, for example:
+### Environment variables
+
+`INFRACOST_API_KEY`: Infracost API key, run `infracost register` to get one.
+
+`TERRAFORM_BINARY`: used to change the path to the `terraform` binary:
+  ```sh
+  TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir /path/to/code
+  ```
+
+`INFRACOST_SKIP_UPDATE_CHECK=true`: can be useful in CI/CD systems to skip the Infracost update check.
+
+`INFRACOST_LOG_LEVEL`: can be set to `warn` in CI/CD systems to reduce noise.
+
+Standard Terraform environment variables such as `TF_*` can also be added if required, for example:
 ```sh
 TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost --tfdir /path/to/code
 ```
 
-In CI systems, the `INFRACOST_SKIP_UPDATE_CHECK=true` env variable can be set to skip the Infracost update check.
+### Terragrunt users
 
-To generate a cost breakdown from a Terraform plan JSON file:
-```sh
-cd examples/terraform
-terraform plan -out plan.save .
-terraform show -json plan.save > plan.json
-infracost --tfjson plan.json
-```
+Please subscribe to [this GitHub issue](https://github.com/infracost/infracost/issues/224) for updates as we're working on it.
 
-The `--output json` flag can be useful for processing the output of Infracost.
+### Terraform Cloud users
 
-## Cost estimation of usage-based resources
-
-This is an experimental feature with limited support; please email [hello@infracost.io](mailto:hello@infracost.io) if you use it so we can better understand your use-case and improve the feature.
-
-Infracost distinguishes the **price** of a resource from its **cost**. Price is the per-unit price advertised by a cloud vendor. The cost of a resource is calculated by multiplying its price by its usage. For example, an EC2 instance might be priced at $0.02 per hour, and if run for 100 hours (its usage), it'll cost $2.00. Supported resources in Infracost will always show prices, but if a resource has a usage-based cost component, we can't show its cost as we don't know how much it'll be used. For example, an AWS Lambda resource shows zero hourly/monthly costs for requests and duration:
-
-  ```
-  NAME                                        MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
-
-  aws_lambda_function.hello_world
-  ├─ Requests                                           -  1M requests  0.2000            -             -
-  └─ Duration                                           -  GB-seconds    2e-05            -             -
-  Total                                                                                   -             -
-  ```
-
-To solve this problem, the [Infracost Terraform Provider](https://registry.terraform.io/providers/infracost/infracost/latest/docs) can be used to describe usage estimates, which are used to calculate costs. As shown in the following example, it is easy to add this to Terraform projects. Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates in their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
-
-  Enable terraform-provider-infracost: 
-  ```hcl
-  terraform {
-    required_providers {
-      aws = { source = "hashicorp/aws" }
-      infracost = { source = "infracost/infracost" }
-    }
-  }
-  provider "infracost" {}
-  ```
-
-  A Lambda function with usage estimates:
-  ```
-  resource "aws_lambda_function" "hello_world" {
-    function_name = "hello_world"
-    role          = "arn:aws:lambda:us-east-1:account-id:resource-id"
-    handler       = "exports.test"
-    runtime       = "nodejs12.x"
-    memory_size   = 128
-  }
-
-  # Get cost estimates for Lambda requests and duration
-  data "infracost_aws_lambda_function" "hello_world_usage" {
-    resources = [aws_lambda_function.hello_world.id]
-    monthly_requests { value = 100000000 }
-    average_request_duration { value = 250 }
-  }
-  ```
-
-  Infracost can now show hourly/monthly cost estimates:
-  ```
-  NAME                                        MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
-
-  aws_lambda_function.hello_world
-  ├─ Requests                                         100  1M requests  0.2000       0.0274       20.0000
-  └─ Duration                                   3,750,000  GB-seconds    2e-05       0.0856       62.5001
-  Total                                                                              0.1130       82.5001
-  ```
+Infracost supports Terraform Cloud, AWS S3 or other remote state stores. If you use Terraform Cloud with Remote Execution Mode, please subscribe to [this GitHub issue](https://github.com/infracost/infracost/issues/221) for updates as we're working on supporting it too.

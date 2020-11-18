@@ -10,6 +10,10 @@ module.exports = {
     },
     {
       type: 'doc',
+      id: 'usage_based_resources',
+    },
+    {
+      type: 'doc',
       id: 'integrations',
     },
     {
