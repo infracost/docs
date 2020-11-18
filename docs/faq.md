@@ -7,19 +7,22 @@ title: FAQ
 
 Infracost works with Terraform v0.12 and above.
 
-## Does Infracost need my AWS credentials?
+To change the path to the `terraform` binary, set the `TERRAFORM_BINARY` env variable:
+```sh
+TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir /path/to/code
+```
 
-Infracost itself does not need any AWS credentials, but Infracost uses your existing `terraform` binary to execute `terraform init` and `terraform plan` to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output). This process requires Terraform to have access to your cloud credentials. The Terraform commands used by Infracost do not make any changes to your Terraform state or cloud resources,
+## Does Infracost need cloud credentials?
 
-## How does Infracost get its prices?
+Infracost itself does not need any cloud credentials. Infracost runs Terraform internally and depending on which Infracost [usage method](/docs/#usage-methods) is used, Terraform might need access to cloud credentials, e.g. when running `terraform init` and `terraform plan`. These commands are only used to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output) and no changes are made to your Terraform state or cloud resources.
 
-Infracost gets its prices from a [pricing API](https://github.com/infracost/cloud-pricing-api). These prices are continually updated with the latest AWS prices.
+## How does Infracost get cloud prices?
 
-We offer a free hosted pricing API. There is also the option of running your own pricing API and configuring your infracost installation to point to it.
+Infracost gets prices from the [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api). We offer a free hosted Cloud Pricing API and continually update it with the latest cloud vendor prices.
 
-## What data is sent to the hosted pricing API?
+## What data is sent to the hosted Cloud Pricing API?
 
-The pricing API needs the relevant data to return a unique AWS price point. The count of Terraform resource types is also sent to the pricing API to enable us to better prioritize adding new resources. No cloud credentials, secrets, tags or Terraform resource identifiers are sent to the pricing API.
+The Cloud Pricing API needs the relevant data to return a unique cloud price point. The count of Terraform resource types is also sent to the pricing API to enable us to better prioritize adding new resources. No cloud credentials, secrets, tags or Terraform resource identifiers are sent to the pricing API.
 
 Here is an example request to the pricing API for a t3.micro instance and the returned response:
 
@@ -69,6 +72,6 @@ Response:
 }
 ```
 
-## Can I run my own pricing API?
+## Can I run my own Cloud Pricing API?
 
-Yes! The [pricing API repo](https://github.com/infracost/cloud-pricing-api) has instructions on how it can be run. Set the `INFRACOST_PRICING_API_ENDPOINT` environment variable to point `infracost` to it.
+Yes! The [Cloud Pricing API repo](https://github.com/infracost/cloud-pricing-api) has instructions on how it can be run. Set the `INFRACOST_PRICING_API_ENDPOINT` environment variable to point `infracost` to it.
