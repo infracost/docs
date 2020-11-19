@@ -67,7 +67,7 @@ The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template
     ```
 
     The `INFRACOST_API_KEY` environment variable can be used to set the API key in CI systems.
-    If you prefer, you can run your own [pricing API](faq#can-i-run-my-own-pricing-api).
+    If you prefer, you can run your own [Cloud Pricing API](faq#can-i-run-my-own-cloud-pricing-api).
 
 3.	Run Infracost using our example Terraform project to see how it works. You can also play with the `main.tf` file in the example:
 
@@ -114,7 +114,7 @@ Point to the Terraform directory and use the Terraform plan. This implies that t
   ```sh
   cd path/to/code
   terraform init
-  terraform plan -out plan.save .  
+  terraform plan -out plan.save .
 
   infracost --tfdir /path/to/code --tfplan plan.save
   ```
