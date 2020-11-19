@@ -9,28 +9,48 @@ import SignUp from '../components/SignUp';
 const supportedServices = [
   {
     title: 'Terraform',
-    imageUrl: 'img/terraform-light.svg',
-    darkImageUrl: 'img/terraform-dark.svg'
+    imageUrl: 'img/terraform-light.png',
+    darkImageUrl: 'img/terraform-dark.png'
   },
   {
     title: 'AWS',
-    imageUrl: 'img/aws-light.svg',
-    darkImageUrl: 'img/aws-dark.svg'
+    imageUrl: 'img/aws-light.png',
+    darkImageUrl: 'img/aws-dark.png'
+  },
+  {
+    title: 'Google',
+    imageUrl: 'img/google-light.png',
+    darkImageUrl: 'img/google-dark.png'
+  },
+  {
+    spaceSize: 2,
+  },
+  {
+    title: 'GitHub',
+    imageUrl: 'img/github-light.png',
+    darkImageUrl: 'img/github-dark.png'
+  },
+  {
+    title: 'GitLab',
+    imageUrl: 'img/gitlab-light.png',
+    darkImageUrl: 'img/gitlab-dark.png'
   },
 ];
 
-function SupportedService({imageUrl, darkImageUrl, title}) {
+function SupportedService({imageUrl, darkImageUrl, title, spaceSize}) {
   const {isClient} = useDocusaurusContext();
   const {isDarkTheme} = useThemeContext();
   const imgUrl = useBaseUrl(isDarkTheme ? darkImageUrl : imageUrl);
   return (
-    <div className="col col--4">
-      {imgUrl && (
-        <div className="text--center">
-          <img className="supported-service-image" key={isClient} src={imgUrl} alt={title} />
-        </div>
-      )}
-    </div>
+    spaceSize ?
+      <div className={`col col--${spaceSize}`}></div> :
+      <div className="col col--4">
+        {imgUrl && (
+          <div className="text--center">
+            <img className="supported-service-image" key={isClient} src={imgUrl} alt={title} />
+          </div>
+        )}
+      </div>
   );
 }
 
@@ -126,7 +146,6 @@ function Home() {
             <div className="container">
               <h3>Currently supports</h3>
               <div className="row">
-                <div className="col col--2"></div>
                 {supportedServices.map((props, idx) => (
                   <SupportedService key={idx} {...props} />
                 ))}
