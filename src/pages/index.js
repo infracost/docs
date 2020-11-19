@@ -4,7 +4,6 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useThemeContext from '@theme/hooks/useThemeContext';
-import SignUp from '../components/SignUp';
 
 const supportedServices = [
   {
@@ -103,7 +102,7 @@ function Home() {
       <main>
         <section className="home-section">
           <div className="container">
-            <h2>AWS has over 300,000 prices 🤯</h2>
+            <h2>AWS has over 2 million prices 🤯</h2>
             <p>
               Developers don't know how much their cloud resources cost until they get the invoice at the end of the month.
               <br />
