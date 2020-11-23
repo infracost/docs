@@ -73,7 +73,7 @@ The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template
 
     ```sh
     git clone https://github.com/infracost/example-terraform.git
-    infracost --tfdir example-terraform
+    infracost --tfdir example-terraform/aws
     ```
 
 ## Usage methods
