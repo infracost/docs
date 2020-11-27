@@ -3,6 +3,8 @@ slug: integrations
 title: CI/CD integrations
 ---
 
+Infracost can be used in CI/CD pipelines using the [`infracost` binary](https://github.com/infracost/infracost/releases) or [Docker image](https://hub.docker.com/r/infracost/infracost). You might also find our [CI diff script](https://github.com/infracost/infracost/tree/master/scripts/ci) useful; it's used in the following integrations.
+
 ## GitHub Action
 
 The [Infracost GitHub Action](https://github.com/marketplace/actions/run-infracost) can be used to automatically add a pull request comment showing the cost estimate difference (similar to `git diff`) between a pull request and the master branch whenever Terraform files change.

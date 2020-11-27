@@ -82,7 +82,7 @@ module.exports = {
               to: 'docs/',
             },
             {
-              label: 'Integrations',
+              label: 'CI/CD integrations',
               to: 'docs/integrations',
             },
             {
