@@ -19,4 +19,4 @@ The [Infracost GitLab CI template](https://gitlab.com/infracost/infracost-gitlab
 
 ## CircleCI
 
-Please check [this](https://github.com/infracost/infracost-orb) for our work-in-progress and subscribe to [this GitHub issue](https://github.com/infracost/infracost/issues/56) for updates.
+The [Infracost CircleCI Orb](https://github.com/infracost/infracost-orb) can be used to automatically add a pull request comment showing the cost estimate difference (similar to `git diff`) between a pull request and the master branch. It supports GitHub and BitBucket.
