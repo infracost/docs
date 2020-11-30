@@ -5,7 +5,7 @@ title: Getting support
 
 ## I found a bug
 
-Please first [upgrade](/docs#installation) to the latest version of infracost to see if the bug has already been fixed. If not, [create an issue](https://github.com/infracost/infracost/issues/new) and describe the issue.
+Please first [upgrade](/docs#installation) to the latest version of `infracost` to see if the bug has already been fixed. If not, [create an issue](https://github.com/infracost/infracost/issues/new/choose) and describe the issue.
 
 ## The resource I want isn't supported
 
