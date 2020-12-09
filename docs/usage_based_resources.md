@@ -57,4 +57,4 @@ To solve the above problem, the [Infracost Terraform Provider](https://registry.
   Total                                                           0.1130       82.5001
   ```
 
-We'd love to hear feedback about this feature either via email [hello@infracost.io](mailto:hello@infracost.io) or our [Discord community](https://discord.gg/rXCTaH3) to chat with us.
+We'd love to hear feedback about this feature either via email [hello@infracost.io](mailto:hello@infracost.io) or our [community Slack channel](https://www.infracost.io/community-chat).

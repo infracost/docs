@@ -13,4 +13,4 @@ Please [see this section](supported_resources#the-resource-i-want-isnt-supported
 
 ## I want to talk to you about something else
 
-If you need help integrating Infracost in to your workflow, or want to talk about something else, please email [hello@infracost.io](mailto:hello@infracost.io). You can also join our [Discord community](https://discord.gg/rXCTaH3) to chat with us.
+If you need help integrating Infracost in to your workflow, or want to talk about something else, please email [hello@infracost.io](mailto:hello@infracost.io). You can also join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.
