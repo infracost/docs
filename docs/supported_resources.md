@@ -23,6 +23,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Elastic Kubernetes Service (EKS) | `aws_eks_cluster`, `aws_eks_fargate_profile`, `aws_eks_node_group` | |
 | ElastiCache | `aws_elasticache_cluster`, `aws_elasticache_replication_group` |  |
 | Elasticsearch Service | `aws_elasticsearch_domain` |  |
+| Key Management Service (KMS) | `aws_kms_external_key`, `aws_kms_key` |  |
 | Lambda | `aws_lambda_function` |  Provisioned concurrency is not yet supported. |
 | Lightsail | `aws_lightsail_instance` |  |
 | Managed Streaming for Apache Kafka (MSK) | `aws_msk_cluster` |  |
