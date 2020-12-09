@@ -14,6 +14,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | API Gateway | `aws_api_gateway_rest_api`, `aws_api_gateway_stage`, `aws_apigatewayv2_api` | |
+| CloudWatch | `aws_cloudwatch_dashboard`, `aws_cloudwatch_log_group`, `aws_cloudwatch_metric_alarm` | |
 | Database Migration Service (DMS) | `aws_dms_replication_instance` | |
 | DocumentDB | `aws_docdb_cluster_instance` | |
 | DynamoDB | `aws_dynamodb_table` |  DAX is not yet supported. |
