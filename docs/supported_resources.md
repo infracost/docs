@@ -19,6 +19,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | DocumentDB | `aws_docdb_cluster_instance` | |
 | DynamoDB | `aws_dynamodb_table` |  DAX is not yet supported. |
 | Elastic Compute Cloud (EC2) | `aws_instance`, `aws_ebs_volume`, `aws_ebs_snapshot`, `aws_ebs_snapshot_copy`, `aws_autoscaling_group`, `aws_eip` | Costs associated with non-standard Linux AMIs, such as Windows and RHEL are not supported.<br/>EC2 detailed monitoring assumes the standard 7 metrics and the lowest tier of prices for CloudWatch.<br/>If a root volume is not specified then an 8Gi gp2 volume is assumed. |
+| Elastic Container Registry (ECR) | `ecr_repository` | |
 | Elastic Container Service (ECS) | `aws_ecs_service` |  Only supports Fargate on-demand. |
 | Elastic Load Balancing | `aws_alb`, `aws_lb`, `aws_elb` | |
 | Elastic Kubernetes Service (EKS) | `aws_eks_cluster`, `aws_eks_fargate_profile`, `aws_eks_node_group` | |
@@ -29,10 +30,11 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Lightsail | `aws_lightsail_instance` |  |
 | Managed Streaming for Apache Kafka (MSK) | `aws_msk_cluster` |  |
 | Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | S3 replication time control data transfer, and batch operations are not supported by Terraform. |
+| Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
 | Simple Queue Service (SQS) | `aws_sqs_queue` | |
 | Relational Database Service (RDS) | `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone` |  |
-| Virtual Private Cloud (VPC) | `aws_nat_gateway` | |
+| Virtual Private Cloud/Network (VPC, VPN, PrivateLink) | `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |
 
 ### Google Cloud Platform (GCP)
 

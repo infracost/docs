@@ -123,9 +123,17 @@ Point to the Terraform directory and use the Terraform plan. This implies that t
 
 Run `infracost --help` to see the available options, which include:
 ```sh
---output value  Output format (json, table) (default: "table")
+--output value  Output format (json, table, html) (default: "table")
 --show-skipped  Show unsupported resources, some of which might be free (default: false)
 --no-color      Turn off colored output (default: false)
+```
+
+Run `infracost report` to create one report from multiple infracost JSON files, e.g.:
+```sh
+infracost --tfdir /path/to/module1 --output json > module1.json
+infracost --tfdir /path/to/module2 --output json > module2.json
+
+infracost report --output html module*.json > report.html
 ```
 
 ### Environment variables
