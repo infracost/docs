@@ -20,7 +20,8 @@ The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template
       {label: 'macOS (Homebrew)', value: 'macos-homebrew'},
       {label: 'macOS (manual)', value: 'macos-manual'},
       {label: 'Linux', value: 'linux'},
-      {label: 'Docker', value: 'docker'}
+      {label: 'Docker', value: 'docker'},
+      {label: 'Windows', value: 'windows'}
     ]}>
     <TabItem value="macos-homebrew">
 
@@ -57,6 +58,11 @@ The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template
       -v $PWD/:/code/ infracost/infracost --tfdir /code/
       # add other required flags for infracost or envs for Terraform
     ```
+
+    </TabItem>
+    <TabItem value="windows">
+
+    Download and uncompress the [infracost-windows-amd64.tar.gz](https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz) file; it contains the .exe file.
 
     </TabItem>
   </Tabs>
@@ -123,10 +129,22 @@ Point to the Terraform directory and use the Terraform plan. This implies that t
 
 Run `infracost --help` to see the available options, which include:
 ```sh
---output value  Output format (json, table) (default: "table")
---show-skipped  Show unsupported resources, some of which might be free (default: false)
+--output value  Output format: json, table, html (default: "table")
+--show-skipped  Show unsupported resources, some of which might be free. Only for table and HTML output (default: false)
 --no-color      Turn off colored output (default: false)
 ```
+
+### Report
+
+The `infracost report` command can be used to generate table or HTML reports from multiple infracost JSON files. These reports can be uploaded to object storage such as AWS S3 and shared with others.
+```sh
+infracost --tfdir /path/to/module1 --output json > module1.json
+infracost --tfdir /path/to/module2 --output json > module2.json
+
+infracost report --output html module*.json > report.html
+```
+
+Run `infracost report --help` to see the available options.
 
 ### Environment variables
 
@@ -137,7 +155,7 @@ Run `infracost --help` to see the available options, which include:
   TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir /path/to/code
   ```
 
-`INFRACOST_SKIP_UPDATE_CHECK=true`: can be useful in CI/CD systems to skip the Infracost update check.
+`INFRACOST_SKIP_UPDATE_CHECK=true`: can be useful in CI/CD systems to skip the Infracost update check. Be sure to upgrade regularly as we continually add new resources to Infracost.
 
 `INFRACOST_LOG_LEVEL`: can be set to `warn` in CI/CD systems to reduce noise.
 
