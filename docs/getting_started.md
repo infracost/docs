@@ -146,6 +146,8 @@ infracost report --output html module*.json > report.html
 
 Run `infracost report --help` to see the available options.
 
+<img src={useBaseUrl("img/html_report.png")} alt="Infracost HTML report" width="70%" />
+
 ### Environment variables
 
 `INFRACOST_API_KEY`: Infracost API key, run `infracost register` to get one.
@@ -154,6 +156,8 @@ Run `infracost report --help` to see the available options.
   ```sh
   TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir /path/to/code
   ```
+
+`TERRAFORM_CLOUD_API_TOKEN`: for Terraform Cloud/Enterprise users who use Remote Execution Mode, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan.
 
 `INFRACOST_SKIP_UPDATE_CHECK=true`: can be useful in CI/CD systems to skip the Infracost update check. Be sure to upgrade regularly as we continually add new resources to Infracost.
 
@@ -179,4 +183,10 @@ If you have any feedback about the above methods, please leave on comment on [th
 
 ### Terraform Cloud users
 
-Infracost supports Terraform Cloud, AWS S3 or other remote state stores. If you use Terraform Cloud with Remote Execution Mode, please subscribe to [this GitHub issue](https://github.com/infracost/infracost/issues/221) for updates as we're working on supporting it too.
+This section is only applicable for Terraform Cloud or Terraform Enterprise users who use _Remote Execution Mode_ (due to an [issue](https://github.com/hashicorp/terraform/issues/22779) in Terraform, the plan cannot be accessed easily).
+
+When running Infracost locally, it detects if Remote Execution Mode is being used and uses your Terraform CLI config file to access the plan.
+
+When running Infracost on CI/CD systems, you should set the `TERRAFORM_CLOUD_API_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) that Infracost will use to access the plan. The Terraform environment variable `TF_WORKSPACE` could be used to select a workspace.
+
+For both of the above use-cases, `TERRAFORM_CLOUD_API_TOKEN` needs to be set if `TF_CLI_CONFIG_FILE` is set.
