@@ -20,7 +20,8 @@ The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template
       {label: 'macOS (Homebrew)', value: 'macos-homebrew'},
       {label: 'macOS (manual)', value: 'macos-manual'},
       {label: 'Linux', value: 'linux'},
-      {label: 'Docker', value: 'docker'}
+      {label: 'Docker', value: 'docker'},
+      {label: 'Windows', value: 'windows'}
     ]}>
     <TabItem value="macos-homebrew">
 
@@ -57,6 +58,11 @@ The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template
       -v $PWD/:/code/ infracost/infracost --tfdir /code/
       # add other required flags for infracost or envs for Terraform
     ```
+
+    </TabItem>
+    <TabItem value="windows">
+
+    Download and uncompress the [infracost-windows-amd64.tar.gz](https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz) file; it contains the .exe file.
 
     </TabItem>
   </Tabs>
