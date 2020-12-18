@@ -7,9 +7,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Infracost shows hourly and monthly cost estimates for a Terraform project. This helps users quickly see the cost breakdown and compare different deployment options upfront.
+Infracost shows cloud cost estimates for a Terraform project. It helps developers, devops and others to quickly see the cost breakdown and compare different options upfront.
 
-The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template](integrations#gitlab-ci) can be used to automatically add a PR comment showing the cost estimate `diff` between a pull/merge request and the master branch.
+The [Infracost GitHub Action](integrations#github-action), [GitLab CI template](integrations#gitlab-ci) or [CircleCI Orb](integrations#circleci) can be used to automatically add a comment showing the cost estimate `diff` between a pull/merge request and the master branch.
 
 ## Installation
 
@@ -17,8 +17,8 @@ The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template
   <Tabs
     defaultValue="macos-homebrew"
     values={[
-      {label: 'macOS (Homebrew)', value: 'macos-homebrew'},
-      {label: 'macOS (manual)', value: 'macos-manual'},
+      {label: 'macOS Homebrew', value: 'macos-homebrew'},
+      {label: 'macOS manual', value: 'macos-manual'},
       {label: 'Linux', value: 'linux'},
       {label: 'Docker', value: 'docker'},
       {label: 'Windows', value: 'windows'}
@@ -67,7 +67,7 @@ The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template
     </TabItem>
   </Tabs>
 
-2.	Use our free hosted Cloud Pricing API by registering for an API key:
+2.	Use our free Cloud Pricing API by registering for an API key:
     ```sh
     infracost register
     ```
@@ -181,7 +181,7 @@ There are currently two methods of using Infracost with Terragrunt:
 
 2. For aggregating costs across multiple Terragrunt directories, i.e. in cases where you would run terragrunt *-all, you can use the `infracost report` command to combine multiple Infracost JSON files into a single table. For an example of a script that does this see [scripts/terragrunt/report_all.sh](https://github.com/infracost/infracost/blob/master/scripts/terragrunt/report_all.sh).
 
-If you have any feedback about the above methods, please leave on comment on [the GitHub issue](https://github.com/infracost/infracost/issues/224) or join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.
+If you have any feedback about the above methods, please leave on comment on [this GitHub issue](https://github.com/infracost/infracost/issues/224) or join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.
 
 ### Terraform Cloud users
 
