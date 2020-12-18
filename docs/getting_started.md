@@ -67,12 +67,12 @@ The [Infracost GitHub Action](integrations#github-action) or [GitLab CI template
     </TabItem>
   </Tabs>
 
-2.	Use our free hosted API for cloud prices by registering for an API key:
+2.	Use our free hosted Cloud Pricing API by registering for an API key:
     ```sh
     infracost register
     ```
 
-    The `INFRACOST_API_KEY` environment variable can be used to set the API key in CI systems.
+    The key is saved in `~/.config/infracost/config.yml`. The `INFRACOST_API_KEY` environment variable should be used to set the API key in CI systems.
     If you prefer, you can run your own [Cloud Pricing API](faq#can-i-run-my-own-cloud-pricing-api).
 
 3.	Run Infracost using our example Terraform project to see how it works. You can also play with the `main.tf` file in the example:
@@ -157,14 +157,16 @@ Run `infracost report --help` to see the available options.
   TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir /path/to/code
   ```
 
-`TERRAFORM_CLOUD_API_TOKEN`: for Terraform Cloud/Enterprise users who use Remote Execution Mode, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan.
+`TERRAFORM_CLOUD_TOKEN`: for Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan. Optionally, `TERRAFORM_CLOUD_HOST` can be used to override the default `app.terraform.io` backend host for Terraform Enterprise users.
 
 `INFRACOST_SKIP_UPDATE_CHECK=true`: can be useful in CI/CD systems to skip the Infracost update check. Be sure to upgrade regularly as we continually add new resources to Infracost.
 
 `INFRACOST_LOG_LEVEL`: can be set to `warn` in CI/CD systems to reduce noise.
 
-Standard Terraform environment variables such as `TF_*` can also be added if required, for example:
+Standard Terraform [environment variables](https://www.terraform.io/docs/commands/environment-variables.html) such as `TF_WORKSPACE` and `TF_CLI_CONFIG_FILE` can also be added if required, for example:
 ```sh
+TF_WORKSPACE=dev infracost --tfdir /path/to/code
+
 TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost --tfdir /path/to/code
 ```
 
@@ -183,10 +185,10 @@ If you have any feedback about the above methods, please leave on comment on [th
 
 ### Terraform Cloud users
 
-This section is only applicable for Terraform Cloud or Terraform Enterprise users who use _Remote Execution Mode_ (due to an [issue](https://github.com/hashicorp/terraform/issues/22779) in Terraform, the plan cannot be accessed easily).
+This section is only applicable for Terraform Cloud or Terraform Enterprise users.
 
-When running Infracost locally, it detects if Remote Execution Mode is being used and uses your Terraform CLI config file to access the plan.
+Running Infracost locally requires no additional steps as your Terraform CLI config file is used to access the plan.
 
-When running Infracost on CI/CD systems, you should set the `TERRAFORM_CLOUD_API_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) that Infracost will use to access the plan. The Terraform environment variable `TF_WORKSPACE` could be used to select a workspace.
-
-For both of the above use-cases, `TERRAFORM_CLOUD_API_TOKEN` needs to be set if `TF_CLI_CONFIG_FILE` is set.
+When running Infracost on CI/CD systems, you should **either**:
+1. Set the `TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html). Optionally, `TERRAFORM_CLOUD_HOST` can be used to override the default `app.terraform.io` backend host for Terraform Enterprise users.
+2. Set the Terraform environment variable [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) to the absolute path of your Terraform CLI config file.
