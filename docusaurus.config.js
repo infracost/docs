@@ -49,7 +49,11 @@ module.exports = {
         },
       },
     },
-
+    announcementBar: {
+      id: 'support_us',
+      content: '⭐️ If you like Infracost, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">GitHub</a>! ⭐️',
+      backgroundColor: '#fafbfc',
+    },
     navbar: {
       logo: {
         alt: 'Infracost logo',
@@ -62,6 +66,11 @@ module.exports = {
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
+        },
+        {
+          to: 'https://www.infracost.io/community-chat',
+          label: 'Slack',
+          position: 'right',
         },
         {
           href: `https://github.com/infracost/infracost`,
@@ -86,7 +95,7 @@ module.exports = {
               to: 'docs/integrations',
             },
             {
-              label: 'Getting support',
+              label: 'Support',
               to: 'docs/getting_support',
             },
           ],
