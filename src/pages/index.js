@@ -22,9 +22,6 @@ const supportedServices = [
     darkImageUrl: 'img/google-dark.png'
   },
   {
-    spaceSize: 2,
-  },
-  {
     title: 'GitHub',
     imageUrl: 'img/github-light.png',
     darkImageUrl: 'img/github-dark.png'
@@ -33,6 +30,11 @@ const supportedServices = [
     title: 'GitLab',
     imageUrl: 'img/gitlab-light.png',
     darkImageUrl: 'img/gitlab-dark.png'
+  },
+  {
+    title: 'CircleCI',
+    imageUrl: 'img/circleci-light.png',
+    darkImageUrl: 'img/circleci-dark.png'
   },
 ];
 

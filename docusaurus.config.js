@@ -121,12 +121,12 @@ module.exports = {
           title: 'More',
           items: [
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/infracost',
-            },
-            {
               label: 'hello@infracost.io',
               href: `mailto:hello@infracost.io`,
+            },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/infracost',
             },
           ],
         },
