@@ -16,16 +16,45 @@
   color: var(--ifm-navbar-link-color-active);
 }
 
+.navbar__github-icon {
+  justify-content: flex-start;
+}
+
+@media (min-width: 997px) {
+  .navbar__github-icon, .navbar__slack-icon {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0
+  }
+  .navbar__slack-icon {
+    margin-right: 0.5rem;
+  }
+}
+
 .navbar__github-icon::before {
   content: '';
   width: 24px;
   height: 24px;
+  margin-right: 0.5rem;
   display: flex;
   background-image: url('/img/github-mark-light.svg');
 }
 
 [data-theme='dark'] .navbar__github-icon::before {
   background-image: url('/img/github-mark-dark.svg');
+}
+
+.navbar__slack-icon {
+  justify-content: flex-start;
+}
+
+.navbar__slack-icon::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+  display: flex;
+  background-image: url('/img/slack.svg');
 }
 
 .react-toggle-track-check, .react-toggle-track-x {

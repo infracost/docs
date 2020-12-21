@@ -1,6 +1,6 @@
 ---
 slug: getting_support
-title: Getting support
+title: Support
 ---
 
 ## I found a bug
