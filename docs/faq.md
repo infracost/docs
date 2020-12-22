@@ -18,7 +18,7 @@ Infracost itself does not need any cloud credentials. Infracost runs Terraform i
 
 ## How does Infracost get cloud prices?
 
-Infracost gets prices from the [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api). We offer a free hosted Cloud Pricing API and continually update it with the latest cloud vendor prices.
+Infracost gets prices from the [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api). We offer a free Cloud Pricing API and continually update it with the latest cloud vendor prices.
 
 ## What data is sent to the hosted Cloud Pricing API?
 

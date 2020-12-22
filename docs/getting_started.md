@@ -11,7 +11,7 @@ Infracost shows cloud cost estimates for a Terraform project. It helps developer
 
 ## Installation
 
-1. Install the latest Infracost release:
+1. Assuming [Terraform](https://www.terraform.io/downloads.html) is already installed, get the latest Infracost release:
   <Tabs
     defaultValue="macos-homebrew"
     values={[
