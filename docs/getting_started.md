@@ -77,8 +77,8 @@ Infracost shows cloud cost estimates for a Terraform project. It helps developer
     ```sh
     git clone https://github.com/infracost/example-terraform.git
     cd example-terraform
+    # You can play with `aws/main.tf` and re-run infracost to compare costs
     infracost --tfdir aws
-    # You can play with `main.tf` and re-run infracost to compare costs
     ```
 
 The [Infracost GitHub Action](integrations#github-action), [GitLab CI template](integrations#gitlab-ci) or [CircleCI Orb](integrations#circleci) can be used to automatically add a comment showing the cost estimate `diff` between a pull/merge request and the master branch.
