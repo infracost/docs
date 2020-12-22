@@ -9,8 +9,6 @@ import TabItem from '@theme/TabItem';
 
 Infracost shows cloud cost estimates for a Terraform project. It helps developers, devops and others to quickly see the cost breakdown and compare different options upfront.
 
-The [Infracost GitHub Action](integrations#github-action), [GitLab CI template](integrations#gitlab-ci) or [CircleCI Orb](integrations#circleci) can be used to automatically add a comment showing the cost estimate `diff` between a pull/merge request and the master branch.
-
 ## Installation
 
 1. Install the latest Infracost release:
@@ -72,15 +70,18 @@ The [Infracost GitHub Action](integrations#github-action), [GitLab CI template](
     infracost register
     ```
 
-    The key is saved in `~/.config/infracost/config.yml`. The `INFRACOST_API_KEY` environment variable should be used to set the API key in CI systems.
-    If you prefer, you can run your own [Cloud Pricing API](faq#can-i-run-my-own-cloud-pricing-api).
+    The key is saved in `~/.config/infracost/config.yml`. If you prefer, you can run your own [Cloud Pricing API](faq#can-i-run-my-own-cloud-pricing-api).
 
-3.	Run Infracost using our example Terraform project to see how it works. You can also play with the `main.tf` file in the example:
+3.	Run Infracost using our example Terraform project to see how it works.
 
     ```sh
     git clone https://github.com/infracost/example-terraform.git
-    infracost --tfdir example-terraform/aws
+    cd example-terraform
+    infracost --tfdir aws
+    # You can play with `main.tf` and re-run infracost to compare costs
     ```
+
+The [Infracost GitHub Action](integrations#github-action), [GitLab CI template](integrations#gitlab-ci) or [CircleCI Orb](integrations#circleci) can be used to automatically add a comment showing the cost estimate `diff` between a pull/merge request and the master branch.
 
 ## Usage methods
 
