@@ -192,3 +192,5 @@ Running Infracost locally requires no additional steps as your Terraform CLI con
 When running Infracost on CI/CD systems, you should **either**:
 1. Set the `TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html). Optionally, `TERRAFORM_CLOUD_HOST` can be used to override the default `app.terraform.io` backend host for Terraform Enterprise users.
 2. Set the Terraform environment variable [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) to the absolute path of your Terraform CLI config file.
+
+If you use multiple Terraform workspaces, set the Terraform environment variable `TF_WORKSPACE` to select a workspace. Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported".
