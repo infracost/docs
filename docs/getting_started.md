@@ -27,6 +27,8 @@ Infracost shows cloud cost estimates for a Terraform project. It helps developer
     brew install infracost
     ```
 
+    Subsequent updates can be installed in the usual way: `brew upgrade infracost`
+
     </TabItem>
     <TabItem value="macos-manual">
 
@@ -162,7 +164,7 @@ Run `infracost report --help` to see the available options.
 
 `INFRACOST_SKIP_UPDATE_CHECK=true`: can be useful in CI/CD systems to skip the Infracost update check. Be sure to upgrade regularly as we continually add new resources to Infracost.
 
-`INFRACOST_LOG_LEVEL`: can be set to `warn` in CI/CD systems to reduce noise.
+`INFRACOST_LOG_LEVEL`: can be set to `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot.
 
 Standard Terraform [environment variables](https://www.terraform.io/docs/commands/environment-variables.html) such as `TF_WORKSPACE` and `TF_CLI_CONFIG_FILE` can also be added if required, for example:
 ```sh
