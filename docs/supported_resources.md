@@ -25,6 +25,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Elastic Kubernetes Service (EKS) | `aws_eks_cluster`, `aws_eks_fargate_profile`, `aws_eks_node_group` | |
 | ElastiCache | `aws_elasticache_cluster`, `aws_elasticache_replication_group` |  |
 | Elasticsearch Service | `aws_elasticsearch_domain` |  |
+| FSx for Windows File Server | `aws_fsx_windows_file_system` | Data deduplication is not supported by Terraform. |
 | Key Management Service (KMS) | `aws_kms_external_key`, `aws_kms_key` |  |
 | Lambda | `aws_lambda_function` |  Provisioned concurrency is not yet supported. |
 | Lightsail | `aws_lightsail_instance` |  |
@@ -34,7 +35,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Simple Queue Service (SQS) | `aws_sqs_queue` | |
 | Relational Database Service (RDS) | `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone` |  |
-| Virtual Private Cloud/Network (VPC, VPN, PrivateLink) | `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |
+| Virtual Private Cloud/Network (VPC, VPN, PrivateLink, Transit Gateway) | `aws_dx_gateway_association`, `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_ec2_transit_gateway_peering_attachment`, `aws_ec2_transit_vpc_attachment`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |
 
 ### Google Cloud Platform (GCP)
 
