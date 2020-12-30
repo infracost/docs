@@ -6,6 +6,14 @@ module.exports = {
     },
     {
       type: 'doc',
+      id: 'terraform_cloud_enterprise',
+    },
+    {
+      type: 'doc',
+      id: 'terragrunt',
+    },
+    {
+      type: 'doc',
       id: 'supported_resources',
     },
     {
@@ -15,6 +23,10 @@ module.exports = {
     {
       type: 'doc',
       id: 'integrations',
+    },
+    {
+      type: 'doc',
+      id: 'environment_variables',
     },
     {
       type: 'doc',

@@ -7,6 +7,9 @@ import useThemeContext from '@theme/hooks/useThemeContext';
 
 const supportedServices = [
   {
+    spaceSize: 3,
+  },
+  {
     title: 'Terraform',
     imageUrl: 'img/terraform-light.png',
     darkImageUrl: 'img/terraform-dark.png'
@@ -22,6 +25,12 @@ const supportedServices = [
     darkImageUrl: 'img/google-dark.png'
   },
   {
+    spaceSize: 3,
+  },
+  {
+    spaceSize: 2,
+  },
+  {
     title: 'GitHub',
     imageUrl: 'img/github-light.png',
     darkImageUrl: 'img/github-dark.png'
@@ -34,7 +43,12 @@ const supportedServices = [
   {
     title: 'CircleCI',
     imageUrl: 'img/circleci-light.png',
-    darkImageUrl: 'img/circleci-dark.png'
+    darkImageUrl: 'img/circleci-dark.png',
+  },
+  {
+    title: 'Bitbucket',
+    imageUrl: 'img/bitbucket-light.png',
+    darkImageUrl: 'img/bitbucket-dark.png'
   },
 ];
 
@@ -45,7 +59,7 @@ function SupportedService({imageUrl, darkImageUrl, title, spaceSize}) {
   return (
     spaceSize ?
       <div className={`col col--${spaceSize}`}></div> :
-      <div className="col col--4">
+      <div className="col col--2">
         {imgUrl && (
           <div className="text--center">
             <img className="supported-service-image" key={isClient} src={imgUrl} alt={title} />
