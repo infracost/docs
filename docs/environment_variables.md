@@ -3,7 +3,7 @@ slug: /environment_variables
 title: Environment variables
 ---
 
-Infracost refers to a number of environment variables to customize various aspects of its behavior; these can be particuarly useful in [CI/CD integrations](integrations).
+Infracost uses a number of environment variables to customize various aspects of its behavior; these can be particularly useful in [CI/CD integrations](integrations).
 
 ### INFRACOST_API_KEY
 Infracost API key, run `infracost register` to get one.
@@ -18,6 +18,8 @@ Set to `true` to skip the Infracost update check; can be useful in CI/CD systems
 Used to change the path to the `terraform` binary:
   ```sh
   TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir /path/to/code
+  # or
+  TERRAFORM_BINARY=terragrunt infracost --tfdir=/path/to/code
   ```
 ### TERRAFORM_CLOUD_TOKEN
 For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan.
