@@ -131,18 +131,26 @@ Point to the Terraform directory and use the Terraform plan. This implies that t
   infracost --tfdir /path/to/code --tfplan plan.save
   ```
 
+## Onboarding
+
+[Ali](https://www.linkedin.com/in/alikhajeh1/), co-founder of Infracost, does a personal onboarding with new users. This onboarding is customized to your goals and includes setting up CI/CD if required. Book your own [here](http://calendly.com/alikhajeh1/infracost-onboarding).
+
 ## Useful options
 
 Run `infracost --help` to see the available options, which include:
 ```sh
---output value  Output format: json, table, html (default: "table")
---show-skipped  Show unsupported resources, some of which might be free. Only for table and HTML output (default: false)
---no-color      Turn off colored output (default: false)
+--output value     Output format: json, table, html (default: "table")
+--show-skipped     Show unsupported resources, some of which might be free. Only for table and HTML output (default: false)
+--no-color         Turn off colored output (default: false)
+--log-level value  Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise
 ```
+
+Run `infracost feedback` if you'd like to submit feedback directly to the Infracost team.
 
 ## Report
 
-The `infracost report` command can be used to generate table or HTML reports from multiple infracost JSON files. These reports can be uploaded to object storage such as AWS S3 and shared with others.
+The `infracost report` command can be used to generate table, JSON or HTML reports from multiple infracost JSON files. These reports can be uploaded to object storage such as AWS S3 and shared with others. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
+
 ```sh
 infracost --tfdir /path/to/module1 --output json > module1.json
 infracost --tfdir /path/to/module2 --output json > module2.json

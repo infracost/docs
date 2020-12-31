@@ -9,7 +9,7 @@ Infracost uses a number of environment variables to customize various aspects of
 Infracost API key, run `infracost register` to get one.
 
 ### INFRACOST_LOG_LEVEL
-Can be set to `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot.
+Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot.
 
 ### INFRACOST_SKIP_UPDATE_CHECK
 Set to `true` to skip the Infracost update check; can be useful in CI/CD systems. Be sure to upgrade regularly as we continually add new resources to Infracost.
@@ -21,6 +21,7 @@ Used to change the path to the `terraform` binary:
   # or
   TERRAFORM_BINARY=terragrunt infracost --tfdir=/path/to/code
   ```
+
 ### TERRAFORM_CLOUD_TOKEN
 For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan.
 
