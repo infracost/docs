@@ -11,18 +11,18 @@ const supportedServices = [
   },
   {
     title: 'Terraform',
-    imageUrl: 'img/terraform-light.png',
-    darkImageUrl: 'img/terraform-dark.png'
+    imageUrl: 'img/supported-services/terraform-light.png',
+    darkImageUrl: 'img/supported-services/terraform-dark.png'
   },
   {
     title: 'AWS',
-    imageUrl: 'img/aws-light.png',
-    darkImageUrl: 'img/aws-dark.png'
+    imageUrl: 'img/supported-services/aws-light.png',
+    darkImageUrl: 'img/supported-services/aws-dark.png'
   },
   {
     title: 'Google',
-    imageUrl: 'img/google-light.png',
-    darkImageUrl: 'img/google-dark.png'
+    imageUrl: 'img/supported-services/google-light.png',
+    darkImageUrl: 'img/supported-services/google-dark.png'
   },
   {
     spaceSize: 3,
@@ -32,23 +32,23 @@ const supportedServices = [
   },
   {
     title: 'GitHub',
-    imageUrl: 'img/github-light.png',
-    darkImageUrl: 'img/github-dark.png'
+    imageUrl: 'img/supported-services/github-light.png',
+    darkImageUrl: 'img/supported-services/github-dark.png'
   },
   {
     title: 'GitLab',
-    imageUrl: 'img/gitlab-light.png',
-    darkImageUrl: 'img/gitlab-dark.png'
+    imageUrl: 'img/supported-services/gitlab-light.png',
+    darkImageUrl: 'img/supported-services/gitlab-dark.png'
   },
   {
     title: 'CircleCI',
-    imageUrl: 'img/circleci-light.png',
-    darkImageUrl: 'img/circleci-dark.png',
+    imageUrl: 'img/supported-services/circleci-light.png',
+    darkImageUrl: 'img/supported-services/circleci-dark.png',
   },
   {
     title: 'Bitbucket',
-    imageUrl: 'img/bitbucket-light.png',
-    darkImageUrl: 'img/bitbucket-dark.png'
+    imageUrl: 'img/supported-services/bitbucket-light.png',
+    darkImageUrl: 'img/supported-services/bitbucket-dark.png'
   },
 ];
 
@@ -109,7 +109,7 @@ function Home() {
             </div>
             <div className="col col--8">
               <div className="hero__screenshot">
-                <img src={useBaseUrl("img/screenshot-hero.png")} alt="Infracost screenshot" />
+                <img src={useBaseUrl("img/screenshots/screenshot-hero.png")} alt="Infracost screenshot" />
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@ function Home() {
                 <h3><span className="step-no">1.</span> Developer proposes a change to the infrastructure</h3>
               </div>
               <div className="col col--8 screenshot-col">
-                <img src={useBaseUrl("img/pr-step-1.png")} className="step-screenshot" alt="Infracost pull request step 1" />
+                <img src={useBaseUrl("img/screenshots/pr-step-1.png")} className="step-screenshot" alt="Infracost pull request step 1" />
               </div>
             </div>
             <div className="row step">
@@ -142,7 +142,7 @@ function Home() {
                 <h3><span className="step-no">2.</span> Infracost shows the cost estimate of the change as a comment in the pull request</h3>
               </div>
               <div className="col col--8 screenshot-col">
-                <img src={useBaseUrl("img/pr-step-2.png")} className="step-screenshot" alt="Infracost pull request step 2" />
+                <img src={useBaseUrl("img/screenshots/pr-step-2.png")} className="step-screenshot" alt="Infracost pull request step 2" />
               </div>
             </div>
             <div className="row step">
@@ -150,7 +150,7 @@ function Home() {
                 <h3><span className="step-no">3.</span> Team discusses the cost implications</h3>
               </div>
               <div className="col col--8 screenshot-col last">
-                <img src={useBaseUrl("img/pr-step-3.png")} className="step-screenshot" alt="Infracost pull request step 3" />
+                <img src={useBaseUrl("img/screenshots/pr-step-3.png")} className="step-screenshot" alt="Infracost pull request step 3" />
               </div>
             </div>
           </div>

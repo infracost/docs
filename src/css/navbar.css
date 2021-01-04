@@ -37,11 +37,11 @@
   height: 24px;
   margin-right: 0.5rem;
   display: flex;
-  background-image: url('/img/github-mark-light.svg');
+  background-image: url('/img/icons/github-mark-light.svg');
 }
 
 [data-theme='dark'] .navbar__github-icon::before {
-  background-image: url('/img/github-mark-dark.svg');
+  background-image: url('/img/icons/github-mark-dark.svg');
 }
 
 .navbar__slack-icon {
@@ -54,7 +54,7 @@
   height: 24px;
   margin-right: 0.5rem;
   display: flex;
-  background-image: url('/img/slack.svg');
+  background-image: url('/img/icons/slack.svg');
 }
 
 .react-toggle-track-check, .react-toggle-track-x {
