@@ -34,7 +34,7 @@ module.exports = {
         darkIcon: ' ',
         darkIconStyle: {
           marginLeft: '-2px',
-          backgroundImage: 'url("/img/sun.svg")',
+          backgroundImage: 'url("/img/icons/sun.svg")',
           backgroundSize: 'contain',
           height: '14px',
           width: '14px',
@@ -42,7 +42,7 @@ module.exports = {
         lightIcon: ' ',
         lightIconStyle: {
           marginLeft: '4px',
-          backgroundImage: 'url("/img/moon.svg")',
+          backgroundImage: 'url("/img/icons/moon.svg")',
           backgroundSize: 'contain',
           height: '14px',
           width: '14px',
@@ -67,6 +67,11 @@ module.exports = {
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
+        },
+        {
+          to: 'blog',
+          label: 'Blog',
+          position: 'left'
         },
         {
           href: `https://github.com/infracost/infracost`,
@@ -143,6 +148,15 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
           `https://github.com/infracost/docs/edit/master`,
+        },
+        blog: {
+          blogDescription: 'Infracost blog - Cost estimates for Terraform',
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: 'All posts',
+          include: ['**/*.md', '**/*.mdx'],
+          remarkPlugins: [
+            require('remark-external-links'),
+          ]
         },
         theme: {
           customCss: require.resolve('./src/css/index.css'),

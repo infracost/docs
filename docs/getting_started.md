@@ -160,4 +160,4 @@ infracost report --output html module*.json > report.html
 
 Run `infracost report --help` to see the available options.
 
-<img src={useBaseUrl("img/html_report.png")} alt="Infracost HTML report" width="70%" />
+<img src={useBaseUrl("img/screenshots/html_report.png")} alt="Infracost HTML report" width="70%" />

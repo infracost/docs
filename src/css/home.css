@@ -155,7 +155,7 @@
           transparent 100%);
   }
 
-  .screenshot-col {
+  .col.screenshot-col {
     background: linear-gradient(to right,
         transparent 0%,
         transparent calc(50% - 8px),
@@ -165,7 +165,7 @@
         transparent 100%);
     padding-bottom: 3rem;
   }
-  .step:last-child .screenshot-col {
+  .step:last-child .col.screenshot-col {
     padding-bottom: 0;
   }
 }
