@@ -22,7 +22,7 @@ Infracost gets prices from the [Cloud Pricing API](https://github.com/infracost/
 
 ## What data is sent to the hosted Cloud Pricing API?
 
-The Cloud Pricing API needs the relevant data to return a unique cloud price point. The count of Terraform resource types is also sent to the pricing API to enable us to better prioritize adding new resources. No cloud credentials, secrets, tags or Terraform resource identifiers are sent to the pricing API.
+The Cloud Pricing API needs the relevant data to return a unique cloud price point. We also send the count of Terraform resource types to the pricing API to enable us to better prioritize support for new resources. Error tracking events are also sent so we can identify and fix issues quickly.
 
 Here is an example request to the pricing API for a t3.micro instance and the returned response:
 
