@@ -3,7 +3,7 @@ slug: integrations
 title: CI/CD integrations
 ---
 
-The Infracost CI/CD integration can be used to automatically add a pull request comment showing the cost estimate difference (similar to `git diff`) if a percentage threshold is crossed.
+The Infracost CI/CD integration can be used to automatically add a pull request comment showing the cost estimate difference (similar to `git diff`) between the master branch and the working branch. You can also select to ignore changes with minor cost increase/decreases by setting a percentage threshold for the comment to be added - details are in each integration document.
 
 Infracost can be used in any CI/CD system using [our binary](https://github.com/infracost/infracost/releases) or [Docker image](https://hub.docker.com/r/infracost/infracost). You might also find our [CI diff script](https://github.com/infracost/infracost/tree/master/scripts/ci) useful; it's used in the following integrations.
 
