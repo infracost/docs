@@ -8,10 +8,10 @@
   --ifm-hero-text-color: var(--ifm-color-white);
 }
 
-.hero__title {
+h1.hero__title {
   font-weight: bold;
   line-height: 1.25;
-  font-size: 2rem;
+  font-size: 2rem !important;
 }
 
 .hero__subtitle {
@@ -33,8 +33,8 @@
   .hero {
     padding: 4rem 2rem;
   }
-  .hero__title {
-    font-size: 2.5rem;
+  h1.hero__title {
+    font-size: 2.5rem !important;
   }
   .hero__subtitle {
     font-size: 1.8rem;
@@ -44,7 +44,7 @@
   .hero {
     text-align: left;
   }
-  .hero__title {
+  h1.hero__title {
     max-width: 280px;
   }
   .hero__screenshot {

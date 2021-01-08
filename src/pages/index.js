@@ -78,7 +78,7 @@ function Home() {
         <div className="container">
           <div className="row">
           <div className="col col--4">
-              <p className="hero__title">Cost estimates for Terraform</p>
+              <h1 className="hero__title">Cost estimates for Terraform</h1>
               <p className="hero__subtitle">In your pull requests</p>
               <div style={{"margin": "2rem 0"}}>
                 <Link
