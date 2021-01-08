@@ -72,8 +72,8 @@ function SupportedService({imageUrl, darkImageUrl, title, spaceSize}) {
 function Home() {
   return (
     <Layout
-      title="Cost estimates for Terraform"
-      description="Cost estimates for Terraform - in your pull requests">
+      title="Cost estimates for Terraform - in your pull requests"
+      description="Infracost shows cloud cost estimates for Terraform projects. It integrates into pull requests and allows developers and DevOps to see cost breakdowns and compare options upfront.">
       <header className="hero hero--dark">
         <div className="container">
           <div className="row">
