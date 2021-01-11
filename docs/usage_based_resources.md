@@ -14,40 +14,20 @@ Infracost distinguishes the **price** of a resource from its **cost**. Price is 
   Total                                                                -             -
   ```
 
-## Infracost Terraform Provider
+## Usage file
 
-To solve the above problem, the [Infracost Terraform Provider](https://registry.terraform.io/providers/infracost/infracost/latest/docs) can be used to describe usage estimates, which are used to calculate costs. As shown in the following example, it is easy to add this to Terraform projects. Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates in their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
-
-  Enable terraform-provider-infracost: 
-  ```hcl
-  terraform {
-    required_providers {
-      aws = { source = "hashicorp/aws" }
-      infracost = { source = "infracost/infracost" }
-    }
-  }
-  provider "infracost" {}
-  ```
+To solve the above problem, a [usage file](https://github.com/infracost/infracost/blob/master/usage-file-example.yml) can be used to describe usage estimates, which are used to calculate costs. As shown in the following example, it is easy to add this to specify this when running Infracost. Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates alongside their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
 
   A Lambda function with usage estimates:
-  ```
-  resource "aws_lambda_function" "hello_world" {
-    function_name = "hello_world"
-    role          = "arn:aws:lambda:us-east-1:account-id:resource-id"
-    handler       = "exports.test"
-    runtime       = "nodejs12.x"
-    memory_size   = 128
-  }
-
-  # Get cost estimates for Lambda requests and duration
-  data "infracost_aws_lambda_function" "hello_world_usage" {
-    resources = [aws_lambda_function.hello_world.id]
-    monthly_requests { value = 100000000 }
-    average_request_duration { value = 250 }
-  }
+  ```yaml
+  version: v0.1
+  resource_usage:
+    aws_lambda_function.my_function:
+      monthly_requests: 100000000   # The estimated monthly requests to the Lambda function per month. See Usage values below for details on attributes.
+      average_request_duration: 250 # The estimated average duration of each request in milliseconds. See Usage values below for details on attributes.
   ```
 
-  Infracost can now show hourly/monthly cost estimates:
+  Infracost can now be run with `--usage-file=PATH/TO/USAGE/FILE.yml` to show hourly/monthly cost estimates:
   ```
   NAME                     MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
 
@@ -56,5 +36,7 @@ To solve the above problem, the [Infracost Terraform Provider](https://registry.
   └─ Duration                3,750,000  GB-seconds    2e-05       0.0856       62.5001
   Total                                                           0.1130       82.5001
   ```
+
+Adding resources using the [Infracost Terraform provider](https://github.com/infracost/terraform-provider-infracost) is still supported while we receive more feedback on the usage file.
 
 We'd love to hear feedback about this feature either via email [hello@infracost.io](mailto:hello@infracost.io) or our [community Slack channel](https://www.infracost.io/community-chat).

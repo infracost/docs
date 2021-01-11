@@ -140,6 +140,7 @@ Point to the Terraform directory and use the Terraform plan. This implies that t
 
 Run `infracost --help` to see the available options, which include:
 ```sh
+--usage-file       Path to Infracost usage file that specifies values for usage-based resources
 --output value     Output format: json, table, html (default: "table")
 --show-skipped     Show unsupported resources, some of which might be free. Only for table and HTML output (default: false)
 --no-color         Turn off colored output (default: false)
