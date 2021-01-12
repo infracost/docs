@@ -15,10 +15,11 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | ---          | ---                           | ---   |
 | API Gateway | `aws_api_gateway_rest_api`, `aws_api_gateway_stage`, `aws_apigatewayv2_api` | |
 | CloudWatch | `aws_cloudwatch_dashboard`, `aws_cloudwatch_log_group`, `aws_cloudwatch_metric_alarm` | |
+| Data transfer | Use `aws_data_transfer.my_region` in [infracost-usage.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) | Most expensive price tier is used. |
 | Database Migration Service (DMS) | `aws_dms_replication_instance` | |
 | DocumentDB | `aws_docdb_cluster_instance` | |
 | DynamoDB | `aws_dynamodb_table` |  DAX is not yet supported. |
-| Elastic Compute Cloud (EC2) | `aws_instance`, `aws_ebs_volume`, `aws_ebs_snapshot`, `aws_ebs_snapshot_copy`, `aws_autoscaling_group`, `aws_eip` | Costs associated with marketplace AMIs are not supported.<br/>For non-standard Linux AMIs such as Windows and RHEL, the operating system should be specified in [a usage file](/docs/usage_based_resources#usage-file).<br/>EC2 detailed monitoring assumes the standard 7 metrics and the lowest tier of prices for CloudWatch.<br/>If a root volume is not specified then an 8Gi gp2 volume is assumed. |
+| Elastic Compute Cloud (EC2) | `aws_instance`, `aws_ebs_volume`, `aws_ebs_snapshot`, `aws_ebs_snapshot_copy`, `aws_autoscaling_group`, `aws_eip` | Costs associated with marketplace AMIs are not supported. For non-standard Linux AMIs such as Windows and RHEL, the operating system should be specified in [the infracost-usage.yml file](/docs/usage_based_resources#infracost-usage-file). EC2 detailed monitoring assumes the standard 7 metrics and the most expensive price tier for CloudWatch. If a root volume is not specified then an 8Gi gp2 volume is assumed. |
 | Elastic Container Registry (ECR) | `ecr_repository` | |
 | Elastic Container Service (ECS) | `aws_ecs_service` |  Only supports Fargate on-demand. |
 | Elastic Load Balancing | `aws_alb`, `aws_lb`, `aws_elb` | |
@@ -30,9 +31,9 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Lambda | `aws_lambda_function` |  Provisioned concurrency is not yet supported. |
 | Lightsail | `aws_lightsail_instance` |  |
 | Managed Streaming for Apache Kafka (MSK) | `aws_msk_cluster` |  |
-| Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | S3 replication time control data transfer, and batch operations are not supported by Terraform. |
+| Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | Most expensive price tier is used. S3 replication time control data transfer, and batch operations are not supported by Terraform. |
 | Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
-| Simple Queue Service (SQS) | `aws_sqs_queue` | |
+| Simple Queue Service (SQS) | `aws_sqs_queue` | Most expensive price tier is used. |
 | Relational Database Service (RDS) | `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone` |  |
 | Virtual Private Cloud/Network (VPC, VPN, PrivateLink, Transit Gateway) | `aws_dx_gateway_association`, `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_ec2_transit_gateway_peering_attachment`, `aws_ec2_transit_vpc_attachment`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |

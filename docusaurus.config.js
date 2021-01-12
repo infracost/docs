@@ -130,6 +130,10 @@ module.exports = {
               href: `mailto:hello@infracost.io`,
             },
             {
+              label: 'Blog',
+              to: 'blog/',
+            },
+            {
               label: 'Twitter',
               href: 'https://twitter.com/infracost',
             },
