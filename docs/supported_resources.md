@@ -19,7 +19,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Database Migration Service (DMS) | `aws_dms_replication_instance` | |
 | DocumentDB | `aws_docdb_cluster_instance` | |
 | DynamoDB | `aws_dynamodb_table` |  DAX is not yet supported. |
-| Elastic Compute Cloud (EC2) | `aws_instance`, `aws_ebs_volume`, `aws_ebs_snapshot`, `aws_ebs_snapshot_copy`, `aws_autoscaling_group`, `aws_eip` | Costs associated with marketplace AMIs are not supported. For non-standard Linux AMIs such as Windows and RHEL, the operating system should be specified in [the infracost-usage.yml file](/docs/usage_based_resources#infracost-usage-file). EC2 detailed monitoring assumes the standard 7 metrics and the most expensive price tier for CloudWatch. If a root volume is not specified then an 8Gi gp2 volume is assumed. |
+| Elastic Compute Cloud (EC2) | `aws_instance`, `aws_ebs_volume`, `aws_ebs_snapshot`, `aws_ebs_snapshot_copy`, `aws_autoscaling_group`, `aws_eip` | Costs associated with marketplace AMIs are not supported. For non-standard Linux AMIs such as Windows, `operating_system` should be specified in [the infracost-usage.yml file](/docs/usage_based_resources#infracost-usage-file), `windows`, `rhel` and `suse` are supported. EC2 detailed monitoring assumes the standard 7 metrics and the most expensive price tier for CloudWatch. If a root volume is not specified then an 8Gi gp2 volume is assumed. |
 | Elastic Container Registry (ECR) | `ecr_repository` | |
 | Elastic Container Service (ECS) | `aws_ecs_service` |  Only supports Fargate on-demand. |
 | Elastic Load Balancing | `aws_alb`, `aws_lb`, `aws_elb` | |
