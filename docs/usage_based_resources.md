@@ -14,20 +14,20 @@ Infracost distinguishes the **price** of a resource from its **cost**. Price is 
   Total                                                                -             -
   ```
 
-## Usage file
+## Infracost usage file
 
-To solve the above problem, a [usage file](https://github.com/infracost/infracost/blob/master/usage-file-example.yml) can be used to describe usage estimates, which are used to calculate costs. As shown in the following example, it is easy to add this to specify this when running Infracost. Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates alongside their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
+To solve the above problem, an [infracost-usage.yml file](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) can be used to describe usage estimates, which are used to calculate costs. As shown in the following example, it is easy to add this to specify this when running Infracost. Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates alongside their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
 
   A Lambda function with usage estimates:
   ```yaml
   version: v0.1
   resource_usage:
     aws_lambda_function.my_function:
-      monthly_requests: 100000000   # The estimated monthly requests to the Lambda function per month. See Usage values below for details on attributes.
-      average_request_duration: 250 # The estimated average duration of each request in milliseconds. See Usage values below for details on attributes.
+      monthly_requests: 100000000   # Estimated monthly requests to the Lambda function.
+      average_request_duration: 250 # Estimated average duration of each request in milliseconds.
   ```
 
-  Infracost can now be run with `--usage-file=PATH/TO/USAGE/FILE.yml` to show hourly/monthly cost estimates:
+  Infracost can now be run with `--usage-file=path/to/infracost-usage.yml` to show hourly/monthly cost estimates:
   ```
   NAME                     MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
 

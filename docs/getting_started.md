@@ -83,8 +83,8 @@ Run Infracost using our example Terraform project to see how it works.
 ```sh
 git clone https://github.com/infracost/example-terraform.git
 cd example-terraform
-# You can play with `aws/main.tf` and re-run infracost to compare costs
-infracost --tfdir aws
+# You can play with `aws/main.tf` and `aws/infracost-usage.yml`, and re-run infracost to compare costs
+infracost --tfdir aws --usage-file aws/infracost-usage.yml
 ```
 
 Our [CI/CD integrations](integrations) can be used to automatically add a comment showing the cost estimate `diff` between a pull request and the master branch.
