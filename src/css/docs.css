@@ -1,0 +1,243 @@
+:root {
+  /* Base */
+  --emphasis-color: var(--nu10);
+  --docs-page-background-color: var(--white);
+  --docs-text-color: var(--nu50);
+  --docs-header-color: var(--nu40);
+  --docs-border-color: var(--nu20);
+
+  /* IFM */
+
+  --ifm-font-family-base: var(--font-family);
+
+  /* Layout */
+  --ifm-spacing-horizontal: 1.5rem;
+
+  /* Colors */
+  --ifm-color-primary: var(--primary);
+  --ifm-font-color-base: var(--docs-text-color);
+  --ifm-font-color-secondary: var(--docs-text-color);
+  --ifm-color-content-secondary: var(--docs-text-color);
+
+  /* Menus */
+  --doc-sidebar-width: 250px !important;
+  --ifm-navbar-background-color: var(--page-background-color);
+  --ifm-navbar-height: var(--navbar-height);
+  --ifm-background-surface-color: var(--page-background-color);
+  --ifm-toc-border-color: var(--docs-border-color);
+  --ifm-menu-color: var(--page-background-color);
+  --ifm-menu-color-background-active: var(--emphasis-color);
+  --ifm-menu-color-background-hover: var(--emphasis-color);
+
+  /* Code blocks */
+  --ifm-pre-background: var(--emphasis-color);
+  --ifm-pre-color: var(--nu50);
+  --ifm-code-background: var(--emphasis-color);
+  --ifm-code-color: var(--nu50);
+
+  /* Blockquotes */
+  --ifm-blockquote-color: var(--docs-text-color);
+
+  /* Table */
+  --ifm-table-border-color: var(--docs-border-color);
+  --ifm-table-stripe-background: var(--emphasis-color);
+}
+
+@media (max-width: 479px) {
+  :root {
+    --ifm-spacing-horizontal: 1rem;
+  }
+
+  .navbar.docs > .container {
+    padding: 0 1rem !important;
+  }
+}
+
+.DocSearch {
+  --docsearch-text-color: var(--text-color);
+  --docsearch-muted-color: var(--header-color);
+  --docsearch-searchbox-background: var(--page-background-secondary-color);
+  --docsearch-searchbox-focus-background: var(--page-background-color);
+  --docsearch-modal-background: var(--page-background-color);
+  --docsearch-modal-shadow: none;
+  --docsearch-footer-background: var(--page-background-color);
+  --docsearch-footer-shadow: none;
+
+  --docsearch-hit-background: var(--page-background-secondary-color);
+  --docsearch-hit-shadow: none;
+  --docsearch-hit-color: var(--text-color);
+
+  --docsearch-key-gradient: none;
+  --docsearch-key-shadow: none;
+}
+
+.DocSearch.DocSearch-Button {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-left: 1.5rem;
+  margin-right: 0;
+}
+
+@media (max-width: 997px) {
+  .DocSearch.DocSearch-Button {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .DocSearch.DocSearch-Button {
+    margin-left: 0.5rem;
+  }
+}
+
+.DocSearch.DocSearch-Button:hover {
+  border: 1px solid var(--primary);
+  box-shadow: none;
+}
+
+.DocSearch.DocSearch-Button .DocSearch-Button-Placeholder {
+  font-size: 0.875rem;
+}
+
+.DocSearch.DocSearch-Button .DocSearch-Button-Key {
+  background: none;
+  border: 1px solid var(--border-color);
+  box-shadow: none;
+  font-size: 0.875rem;
+  padding: 0.125rem;
+}
+
+.DocSearch-Modal {
+  border: 1px solid var(--border-color);
+}
+
+.DocSearch-Commands-Key {
+  border: 1px solid var(--border-color);
+}
+
+.DocSearch-Hit a {
+  border: 1px solid var(--border-color);
+}
+
+[class*="searchQueryColumn_"] {
+  padding: 0 !important;
+}
+
+[class^="searchQueryInput_"] {
+  outline: none;
+}
+
+.navbar.docs > .container {
+  max-width: 100%;
+  padding: 0 1.5rem;
+}
+
+.main-wrapper {
+  background-color: var(--docs-page-background-color);
+  color: var(--docs-text-color);
+}
+
+.main-wrapper h1, .main-wrapper h2, .main-wrapper h3, .main-wrapper h4, .main-wrapper h5, .main-wrapper h6 {
+  color: var(--docs-header-color);
+}
+
+.navbar.docs {
+  background-color: var(--ifm-navbar-background-color);
+  backdrop-filter: none;
+}
+
+.navbar.docs.at-top {
+  background-color: var(--ifm-navbar-background-color);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+}
+
+.navbar.docs.at-top .top .logo {
+  display: block;
+}
+
+@media (max-width: 997px) {
+  .navbar.docs.sidebar-open {
+    border-bottom: none;
+  }
+}
+
+[class^="docTitle_"] {
+  font-size: 2.5rem !important;
+}
+
+div[class^=docSidebarContainer_] {
+  max-width: 250px;
+}
+
+@media (max-width: 997px) {
+  main[class^=docMainContainer_] .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+div[class^=docItemContainer_] {
+  max-width: 768px;
+  padding: 0;
+}
+
+div[class^=codeBlockLines_] {
+  background-color: var(--nu40) !important;
+}
+
+.menu__list {
+  margin-top: 1rem;
+}
+
+.menu__link {
+  font-size: 0.875rem;
+}
+
+.menu__link:hover {
+  color: var(--link-hover-color);
+  text-decoration: none;
+}
+
+@media (max-width: 996px) {
+  .menu__list .menu__list-item a {
+    color: var(--text-color);
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  .menu__list .menu__list-item a:hover {
+    color: var(--link-hover-color);
+    background-color: var(--docs-header-color);
+  }
+
+
+  .menu__list .menu__link--active:not(.menu__link--sublist) {
+    color: var(--primary);
+    background-color: var(--docs-header-color);
+  }
+
+  .menu__link {
+    font-size: 1rem;
+  }
+}
+
+.pagination-nav__link {
+  border-color: var(--docs-border-color);
+}
+.pagination-nav__sublabel {
+  color: var(--nu30);
+}
+
+.tabs__item:hover {
+  background-color: var(--emphasis-color);
+}
+
+blockquote {
+  background-color: var(--emphasis-color);
+  border: 1px solid var(--docs-border-color);
+  box-shadow: inset 6px 0px 0px 0px var(--primary);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding: 1rem 1rem 1rem calc(1rem + 5px);
+}

@@ -1,77 +1,234 @@
-.navbar__logo {
-  margin-right: 0;
-  width: 120px;
-  padding: var(--ifm-navbar-item-padding-vertical) 0 calc(1.5 * var(--ifm-navbar-item-padding-vertical));
+:root {
+  --navbar-height: 73px;
+  --navbar-background-color: rgba(var(--nu50-rgb), 0.9);
 }
 
-.navbar__toggle {
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: var(--navbar-background-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.navbar a:hover {
+  color: var(--link-color);
+}
+
+.navbar.at-top {
+  background: none;
+  border-bottom: none;
+  position: relative;
+}
+
+.navbar > .container {
+  padding: 0 1.5rem;
+}
+
+.navbar img {
+  display: block;
+}
+
+.navbar .left, .navbar .right {
+  align-items: center;
+}
+
+.navbar .logo img {
+  height: 24px;
+}
+
+.navbar .icon {
+  height: 24px;
+}
+
+.navbar .hamburger {
+  cursor: pointer;
+  display: none;
+  margin-right: 1.5rem;
+}
+
+.navbar .navbar-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbar .navbar-item .icon {
+  margin-right: 0.5rem;
+}
+
+.navbar .navbar-item {
+  color: var(--white);
+}
+
+.navbar .top {
+  border-bottom: 1px solid var(--border-color);
+  height: var(--navbar-height);
+}
+
+.navbar.at-top .top .logo {
+  display: none;
+}
+
+.navbar .top .logo {
+  border-right: 1px solid var(--border-color);
+  margin-right: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.navbar .top .community {
+  display: flex;
+}
+
+.navbar .top .community .link-text {
+  display: none;
+}
+
+.navbar .top .community .navbar-item:not(:last-child) {
   margin-right: 1rem;
 }
 
-.navbar__item {
-  font-size: 110%;
+.navbar .top .menu {
+  display: flex;
 }
 
-.navbar__link--active {
-  color: var(--ifm-navbar-link-color-active);
+.navbar .top .menu .navbar-item:not(:last-child) {
+  margin-right: 1.5rem;
 }
 
-.navbar__github-icon {
-  justify-content: flex-start;
+.navbar .top .get-started {
+  display: none;
 }
 
-@media (min-width: 997px) {
-  .navbar__github-icon, .navbar__slack-icon {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    font-size: 0
+.navbar .sidebar-backdrop {
+  background-color: rgba(0,0,0,.6);
+  bottom: 0;
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 300;
+}
+
+.navbar .sidebar {
+  background-color: var(--page-background-secondary-color);
+  border-right: 1px solid var(--border-color);
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+  transition: transform 200ms ease;
+  width: 80%;
+  z-index: 400;
+}
+
+.navbar .sidebar .container {
+  height: 100%;
+  max-width: none;
+}
+
+.navbar .sidebar .header {
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  height: var(--navbar-height);
+}
+
+.navbar .sidebar .sidebar-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+}
+
+.navbar .sidebar .sidebar-content .navbar-section {
+  margin-bottom: 1.5rem;
+}
+
+.navbar .sidebar .sidebar-content h4 {
+  color: rgba(var(--nu20-rgb), 0.675);
+  font-size: 1.125rem;
+  font-weight: normal;
+}
+
+.navbar .sidebar .navbar-item {
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.navbar .sidebar .navbar-item .icon {
+  height: 16px;
+  width: 16px;
+}
+
+.navbar .sidebar .navbar-item .link-text {
+  margin-right: 0.75rem;
+}
+
+@media (max-width: 997px) {
+  .navbar.sidebar-open {
+    backdrop-filter: none;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
   }
-  .navbar__slack-icon {
+
+  .navbar.sidebar-open .sidebar {
+    transform: translateX(0%);
+  }
+
+  .navbar.sidebar-open .top {
+    display: none;
+  }
+
+  .navbar.sidebar-open .sidebar-backdrop {
+    display: block;
+  }
+
+  .navbar .hamburger {
+    display: block;
+  }
+
+  .navbar .top .left {
+    /* justify-content: space-between; */
+    width: 100%;
+  }
+
+  .navbar .top .community {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .navbar .top .slack {
+    display: none;
+  }
+
+  .navbar .top .menu {
+    display: none;
+  }
+}
+
+@media (min-width: 996px) {
+  .navbar.sidebar-open .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .navbar .sidebar-backdrop {
+    display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .navbar .hamburger {
+    margin-right: 1rem;
+  }
+
+  .navbar .top .logo {
+    padding-right: 1rem;
     margin-right: 0.5rem;
   }
-}
-
-.navbar__github-icon::before {
-  content: '';
-  width: 24px;
-  height: 24px;
-  margin-right: 0.5rem;
-  display: flex;
-  background-image: url('/img/icons/github-mark-light.svg');
-}
-
-[data-theme='dark'] .navbar__github-icon::before {
-  background-image: url('/img/icons/github-mark-dark.svg');
-}
-
-.navbar__slack-icon {
-  justify-content: flex-start;
-}
-
-.navbar__slack-icon::before {
-  content: '';
-  width: 24px;
-  height: 24px;
-  margin-right: 0.5rem;
-  display: flex;
-  background-image: url('/img/icons/slack.svg');
-}
-
-.react-toggle-track-check, .react-toggle-track-x {
-  height: 14px !important;
-  width: 14px !important;
-}
-
-.react-toggle-track {
-  background-color: var(--ifm-color-gray-800) !important;
-}
-
-[data-theme='dark'] .react-toggle-track {
-  background-color: var(--ifm-color-white) !important;
-  border: none !important;
-}
-
-[data-theme='dark'] .react-toggle .react-toggle-thumb, .react-toggle--checked .react-toggle-thumb {
-  background-color: var(--ifm-color-gray-800) !important;
-  border: none !important;
 }

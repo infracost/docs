@@ -22,75 +22,48 @@ module.exports = {
       {
         domain: 'infracost.io',
       },
-    ]
+    ],
   ],
   themeConfig: {
     image: 'img/social-image.png',
     colorMode: {
       defaultMode: 'light',
-      disableSwitch: false,
+      disableSwitch: true,
       respectPrefersColorScheme: true,
-      switchConfig: {
-        darkIcon: ' ',
-        darkIconStyle: {
-          marginLeft: '-2px',
-          backgroundImage: 'url("/img/icons/sun.svg")',
-          backgroundSize: 'contain',
-          height: '14px',
-          width: '14px',
-        },
-        lightIcon: ' ',
-        lightIconStyle: {
-          marginLeft: '4px',
-          backgroundImage: 'url("/img/icons/moon.svg")',
-          backgroundSize: 'contain',
-          height: '14px',
-          width: '14px',
-        },
-      },
     },
-    announcementBar: {
-      id: 'support_us',
-      content: '⭐️ If you like Infracost, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">GitHub</a>! ⭐️',
-      backgroundColor: '#3578e5',
-      textColor: '#fff',
+    prism: {
+      theme: require('prism-react-renderer/themes/dracula'),
+      additionalLanguages: ['hcl'],
+    },
+    algolia: {
+      apiKey: 'eda298ffac1d3706d1c694cc83eff045',
+      indexName: 'infracost',
+      contextualSearch: false,
+      searchParameters: {
+        facetFilters: [],
+      },
     },
     navbar: {
       logo: {
         alt: 'Infracost logo',
-        src: 'img/logo-light.svg',
-        srcDark: 'img/logo-dark.svg'
+        src: 'img/logo.svg',
       },
       items: [
         {
           to: 'docs/',
           activeBasePath: 'docs',
-          label: 'Docs',
-          position: 'left',
+          label: 'Documentation',
+          position: 'right',
         },
         {
           to: 'blog',
+          blog: 'blog',
           label: 'Blog',
-          position: 'left'
-        },
-        {
-          href: `https://github.com/infracost/infracost`,
-          className: 'navbar__github-icon',
-          position: 'right',
-          label: 'GitHub',
-          'aria-label': 'Infracost GitHub repository',
-        },
-        {
-          href: `https://www.infracost.io/community-chat`,
-          className: 'navbar__slack-icon',
-          position: 'right',
-          label: 'Slack',
-          'aria-label': 'Infracost Community Slack',
+          position: 'right'
         },
       ],
     },
     footer: {
-      style: 'dark',
       links: [
         {
           title: 'Docs',
@@ -154,7 +127,7 @@ module.exports = {
           `https://github.com/infracost/docs/edit/master`,
         },
         blog: {
-          blogDescription: 'Infracost blog - Cost estimates for Terraform',
+          blogDescription: 'Infracost blog - Cloud cost estimates for Terraform',
           blogSidebarCount: 'ALL',
           blogSidebarTitle: 'All posts',
           include: ['**/*.md', '**/*.mdx'],

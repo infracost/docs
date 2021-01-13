@@ -1,0 +1,54 @@
+footer {
+  background-color: var(--page-background-secondary-color);
+  border-top: 1px solid var(--border-color);
+  padding: 4rem 0;
+}
+
+footer .section {
+  margin-bottom: 2rem;
+}
+
+footer .section:not(:last-child) {
+  margin-right: 4rem;
+}
+
+@media (min-width: 768px) {
+  footer .sections {
+    display: flex;
+    margin-bottom: 3rem;
+  }
+
+  footer .section {
+    margin-bottom: 0;
+  }
+
+  footer .section.outreach {
+    flex: 1;
+    text-align: right;
+  }
+}
+
+footer h4 {
+  color: var(--header-color);
+  font-size: 1.125rem;
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+}
+
+footer ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+footer li {
+  line-height: 1.75rem;
+}
+
+footer a {
+  color: var(--text-color);
+}
+
+footer .copyright {
+  color: var(--header-color);
+  font-size: 1.125rem;
+}
