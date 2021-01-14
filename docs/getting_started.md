@@ -4,7 +4,6 @@ title: Getting started
 description: Get started with Infracost in your Terraform workflow, integrate it into your pull requests and CI pipeline and view cost estimates for your AWS/Google cloud infrastructure.
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -83,6 +82,7 @@ Run Infracost using our example Terraform project to see how it works.
 ```sh
 git clone https://github.com/infracost/example-terraform.git
 cd example-terraform
+
 # You can play with `aws/main.tf` and `aws/infracost-usage.yml`, and re-run infracost to compare costs
 infracost --tfdir aws --usage-file aws/infracost-usage.yml
 ```
@@ -132,10 +132,6 @@ Point to the Terraform directory and use the Terraform plan. This implies that t
   infracost --tfdir /path/to/code --tfplan plan.save
   ```
 
-## Onboarding
-
-[Ali](https://www.linkedin.com/in/alikhajeh1/), co-founder of Infracost, does a personal onboarding with new users. This onboarding is customized to your goals and includes setting up CI/CD if required. Book your own [here](http://calendly.com/alikhajeh1/infracost-onboarding).
-
 ## Useful options
 
 Run `infracost --help` to see the available options, which include:
@@ -149,17 +145,6 @@ Run `infracost --help` to see the available options, which include:
 
 Run `infracost feedback` if you'd like to submit feedback directly to the Infracost team.
 
-## Report
+## Onboarding
 
-The `infracost report` command can be used to generate table, JSON or HTML reports from multiple infracost JSON files. These reports can be uploaded to object storage such as AWS S3 and shared with others. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
-
-```sh
-infracost --tfdir /path/to/module1 --output json > module1.json
-infracost --tfdir /path/to/module2 --output json > module2.json
-
-infracost report --output html module*.json > report.html
-```
-
-Run `infracost report --help` to see the available options.
-
-<img src={useBaseUrl("img/screenshots/html_report.png")} alt="Infracost HTML report" width="70%" />
+[Ali](https://www.linkedin.com/in/alikhajeh1/), co-founder of Infracost, does a personal onboarding with new users. This onboarding is customized to your goals and includes setting up CI/CD if required. Book your own [here](http://calendly.com/alikhajeh1/infracost-onboarding).

@@ -29,5 +29,18 @@ See the [Infracost CircleCI Orb](https://github.com/infracost/infracost-orb) for
 
 See the [Infracost Bitbucket Pipeline](https://bitbucket.org/infracost/infracost-bitbucket-pipeline) for instructions, and a demo [here](https://bitbucket.org/infracost/circleci-bitbucket-demo).
 
-
 <img src="https://bytebucket.org/infracost/infracost-bitbucket-pipeline/raw/8fcac59619308deb44ebc11170bfec349e855ee6/screenshot.png" width="550px" alt="Example infracost diff usage" />
+
+## Infracost API
+
+Terraform plan JSON files can sent to the Infracost API, which runs the CLI and returns the results. Whilst this API deletes files from the server after they are processed, it is a good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this. This API can be useful for integrations where it might be easier to use `curl` or an HTTP library instead of installing the infracost CLI. The usual [infracost options](/docs/#useful-options) can also be set using multipart/form-data attributes, e.g with `curl -F 'show-skipped=true' -F 'output=html'`.
+
+```sh
+  cd path/to/code
+  terraform init
+  terraform plan -out plan.save .
+  terraform show -json plan.save > plan.json
+
+  curl -X POST -H "x-api-key: my-api-key" -F 'tfjson=@plan.json' \
+    https://pricing.api.infracost.io/tfjson
+```
