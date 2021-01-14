@@ -15,12 +15,19 @@ Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to t
 Set to `true` to skip the Infracost update check; can be useful in CI/CD systems. Be sure to upgrade regularly as we continually add new resources to Infracost.
 
 ### TERRAFORM_BINARY
-Used to change the path to the `terraform` binary:
+Used to change the path to the `terraform` binary, e.g.:
   ```sh
   TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir /path/to/code
   # or
   TERRAFORM_BINARY=terragrunt infracost --tfdir=/path/to/code
   ```
+
+#### CI/CD integrations
+If you're using a [CI/CD integration](integrations), our [Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the latest stable versions of terraform and terragrunt; so you can set this environment variable to:
+- `terraform` (default, version 0.14.4)
+- `terraform_0.12.30`
+- `terraform_0.13.6`
+- `terragrunt` (version 0.26.7)
 
 ### TERRAFORM_CLOUD_TOKEN
 For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan.
