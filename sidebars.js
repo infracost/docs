@@ -22,6 +22,10 @@ module.exports = {
     },
     {
       type: 'doc',
+      id: 'report',
+    },
+    {
+      type: 'doc',
       id: 'integrations',
     },
     {
