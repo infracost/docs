@@ -33,7 +33,7 @@ See the [Infracost Bitbucket Pipeline](https://bitbucket.org/infracost/infracost
 
 ## Infracost API
 
-Terraform plan JSON files can sent to the Infracost API, which runs the CLI and returns the results. Whilst this API deletes files from the server after they are processed, it is a good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this. This API can be useful for integrations where it might be easier to use `curl` or an HTTP library instead of installing the infracost CLI. The usual [infracost options](/docs/#useful-options) can also be set using multipart/form-data attributes, e.g with `curl -F 'show-skipped=true' -F 'output=html'`.
+Terraform plan JSON files can be sent to the Infracost API, which runs the CLI and returns the results. Whilst this API deletes files from the server after they are processed, it is a good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this. This API can be useful for integrations where it might be easier to use `curl` or an HTTP library instead of installing the Infracost CLI. The usual [Infracost options](/docs/#useful-options) can also be set using multipart/form-data attributes, e.g with `curl -F 'show-skipped=true' -F 'output=html'`.
 
 ```sh
   cd path/to/code
