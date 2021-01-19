@@ -63,7 +63,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   </TabItem>
   <TabItem value="windows">
 
-  Download and unzip the [infracost-windows-amd64.tar.gz](https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz) file. It has an .exe file that you should move to a folder that is in your `PATH` environment variable. [This Stack Overflow article](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows) contains instructions for setting the PATH on Windows through the user interface.
+  Download and unzip the [latest release](https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz). Rename the file `infracost-windows-amd64` to `infracost.exe`, then run it from the Command Prompt or Powershell using `.\infracost.exe --no-color` alongside other required flags/commands (color output has a bug we need to fix on Windows). You should also move the exe file to a folder that is in your `PATH` [environment variable](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows), e.g. `C:\Windows`.
 
   </TabItem>
 </Tabs>
