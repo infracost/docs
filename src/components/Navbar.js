@@ -37,20 +37,20 @@ function Navbar({ isDocs }) {
     <span className="hamburger" onClick={toggleSidebar}>
       <img src="/img/icons/hamburger.svg" alt="Menu" />
     </span>
-  )
+  );
 
   const logo = (
     <a className="logo" href="/" aria-label="Infracost logo">
-      <img src="/img/logo.svg" alt="Infracost logo" />
+      <img src="/img/logo.svg" className="logo-large" alt="Infracost logo" />
     </a>
-  )
+  );
 
   const topMenu = (
     <div className="menu">
       <a className="navbar-item navbar-link" href="/docs">Documentation</a>
       <a className="navbar-item navbar-link" href="/blog">Blog</a>
     </div>
-  )
+  );
 
   const docs = (
     <>
@@ -60,7 +60,7 @@ function Navbar({ isDocs }) {
       <a className="navbar-item" href="/docs/integrations" target="">
         CI/CD integrations
       </a>
-      <a className="navbar-item" href="/docs/support_resources">
+      <a className="navbar-item" href="/docs/supported_resources">
         Supported resources
       </a>
       <a className="navbar-item" href="/docs/support">
@@ -70,7 +70,8 @@ function Navbar({ isDocs }) {
         FAQ
       </a>
     </>
-  )
+  );
+
 
   const community = (
     <>
@@ -84,7 +85,7 @@ function Navbar({ isDocs }) {
         <span className="link-text">Slack</span>
       </a>
     </>
-  )
+  );
 
   const outreach = (
     <>
@@ -98,11 +99,11 @@ function Navbar({ isDocs }) {
         Twitter
       </a>
     </>
-  )
+  );
 
   const getStarted = (
     <a href="/docs" className="get-started button primary small">Get started</a>
-  )
+  );
 
   return (
     <nav className={`navbar ${atTop ? 'at-top': ''} ${showSidebar ? 'sidebar-open' : ''} ${isDocs ? 'docs' : ''}`}>
