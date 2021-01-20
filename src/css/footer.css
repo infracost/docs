@@ -70,7 +70,7 @@ footer .company-info li {
   margin-left: 1.5rem;
 }
 
-@media (max-width: 997px) {
+@media (max-width: 996px) {
   footer .company-info.level {
     display: block;
   }

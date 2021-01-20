@@ -169,7 +169,11 @@
   margin-right: 0.75rem;
 }
 
-@media (max-width: 997px) {
+@media (max-width: 996px) {
+  .navbar > .container {
+    padding: 0 1.5rem;
+  }
+
   .navbar.sidebar-open {
     backdrop-filter: none;
     background: transparent;
@@ -215,7 +219,7 @@
   }
 }
 
-@media (min-width: 996px) {
+@media (min-width: 997px) {
   .navbar.sidebar-open .sidebar {
     transform: translateX(-100%);
   }
@@ -227,7 +231,7 @@
 
 @media (max-width: 479px) {
   .navbar > .container {
-    padding: 0px 1rem;
+    padding: 0 1rem;
   }
 
   .navbar .hamburger {

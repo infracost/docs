@@ -78,7 +78,7 @@
   margin-right: 0;
 }
 
-@media (max-width: 997px) {
+@media (max-width: 996px) {
   .DocSearch.DocSearch-Button {
     margin-left: 1rem;
   }
@@ -156,7 +156,7 @@
   display: block;
 }
 
-@media (max-width: 997px) {
+@media (max-width: 996px) {
   .navbar.docs.sidebar-open {
     border-bottom: none;
   }
@@ -170,7 +170,7 @@ div[class^=docSidebarContainer_] {
   max-width: 250px;
 }
 
-@media (max-width: 997px) {
+@media (max-width: 996px) {
   main[class^=docMainContainer_] .container {
     padding-left: 0;
     padding-right: 0;
