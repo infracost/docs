@@ -1,5 +1,5 @@
 ---
-slug: getting_support
+slug: support
 title: Support
 ---
 

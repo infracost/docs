@@ -34,7 +34,7 @@ module.exports = {
     },
     {
       type: 'doc',
-      id: 'getting_support',
+      id: 'support',
     },
     {
       type: 'doc',

@@ -60,23 +60,28 @@ function Navbar({ isDocs }) {
       <a className="navbar-item" href="/docs/integrations" target="">
         CI/CD integrations
       </a>
+      <a className="navbar-item" href="/docs/support_resources">
+        Supported resources
+      </a>
       <a className="navbar-item" href="/docs/support">
         Support
+      </a>
+      <a className="navbar-item" href="/docs/faq">
+        FAQ
       </a>
     </>
   )
 
   const community = (
     <>
-      <a className="navbar-item slack" href="/community-slack" target="_blank" aria-label="Join our community slack">
-        <img className="icon" src="/img/icons/slack.svg" alt="Slack icon" />
-        <span className="link-text">Slack</span>
-      </a>
-
       <a className="navbar-item github" href="https://github.com/infracost/infracost" target="_blank" aria-label="Star us on GitHub">
         <img className="icon" src="/img/icons/github.svg" alt="GitHub icon" />
         <span className="link-text">GitHub</span>
         <GitHubStarCount />
+      </a>
+      <a className="navbar-item slack" href="https://www.infracost.io/community-chat" target="_blank" aria-label="Join our community slack">
+        <img className="icon" src="/img/icons/slack.svg" alt="Slack icon" />
+        <span className="link-text">Slack</span>
       </a>
     </>
   )

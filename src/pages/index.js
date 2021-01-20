@@ -24,7 +24,7 @@ function Home() {
             <div className="hero-content">
               <div className="left">
                 <h1 className="tagline">Cloud cost estimates for Terraform in pull requests</h1>
-                <p className="description">Infracost is an open-source tool that provides cloud cost estimates of infrastructure as code changes. You can use it in your CI/CD pipeline or CLI to see cost estimates before you deploy.</p>
+                <p className="description">Infracost is an open-source tool that helps DevOps and developers continuously reduce their cloud costs.</p>
                 <a href="/docs/" className="button primary">Get started</a>
               </div>
               <div className="right">
@@ -63,21 +63,21 @@ function Home() {
               <div className="column">
                 <div className="box full-height">
                   <h3>Cloud costs are complex</h3>
-                  <p>AWS has over 2 million prices. With this level of complexity, it is easy to see why there is so much waste. Infracost makes cloud costs understandable for Engineering teams.</p>
+                  <p>AWS has over 2 million prices. With this level of complexity, it is easy to see why there is so much waste. Infracost makes cloud costs understandable for engineering teams.</p>
                 </div>
               </div>
 
               <div className="column">
                 <div className="box full-height">
                   <h3>Costs are hidden from developers</h3>
-                  <p>Developers don't see how their changes affect the cloud costs, until they get a cloud bill or budget alert. Infracost links the costs directly to lines of code so they can continuously reduce their cloud costs.</p>
+                  <p>Developers don't see how their chxfanges affect the cloud costs, until they get a cloud bill or budget alert. Infracost links the costs directly to lines of code so they can continuously reduce their cloud costs.</p>
                 </div>
               </div>
 
               <div className="column">
                 <div className="box full-height">
                   <h3>Analyzing cloud bills is too late</h3>
-                  <p>Trying to optimize after you get the cloud bill is too late. It's frustrating to fix infrastructure changes after they have been deployed. Infracost shows engineers the effect their changes will have before they deploy.</p>
+                  <p>Trying to optimize after you get the cloud bill is too late. It's frustrating to fix infrastructure changes after they have been deployed. Infracost shows the costs upfront before deployment.</p>
                 </div>
               </div>
             </div>
@@ -123,7 +123,7 @@ function Home() {
                 <div className="step-content">
                   <span className="step-number">Step three</span>
                   <h3>Team discusses the cost implication</h3>
-                  <p>This enables the DevOps team to see how much each pull request costs, and to peer review costs alongside the code.</p>
+                  <p>This enables engineering teams to see how much each pull request costs, and to peer review costs alongside the code.</p>
                 </div>
                 <div className="step-screenshot">
                   <div className="image-wrapper">

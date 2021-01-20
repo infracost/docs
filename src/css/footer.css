@@ -1,7 +1,7 @@
 footer {
   background-color: var(--page-background-secondary-color);
   border-top: 1px solid var(--border-color);
-  padding: 4rem 0;
+  padding: 4rem 0 0;
 }
 
 footer .section {
@@ -29,7 +29,7 @@ footer .section:not(:last-child) {
 }
 
 footer h4 {
-  color: var(--header-color);
+  color: rgba(var(--nu20-rgb), 0.675);
   font-size: 1.125rem;
   font-weight: normal;
   margin-bottom: 0.5rem;
@@ -48,7 +48,39 @@ footer a {
   color: var(--text-color);
 }
 
-footer .copyright {
+footer .company-info {
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem 0;
+}
+
+footer .company-info ul {
+  margin-bottom: 0;
+}
+
+footer .company-info a {
   color: var(--header-color);
-  font-size: 1.125rem;
+}
+
+footer .company-info .copyright {
+  color: rgba(var(--nu20-rgb), 0.675);
+}
+
+footer .company-info li {
+  display: inline-block;
+  margin-left: 1.5rem;
+}
+
+@media (max-width: 997px) {
+  footer .company-info.level {
+    display: block;
+  }
+
+  footer .company-info .copyright {
+    margin-bottom: 1.5rem;
+  }
+
+  footer .company-info li {
+    display: block;
+    margin-left: 0;
+  }
 }

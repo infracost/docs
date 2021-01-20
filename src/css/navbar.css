@@ -194,13 +194,16 @@
   }
 
   .navbar .top .left {
-    /* justify-content: space-between; */
     width: 100%;
   }
 
   .navbar .top .community {
     flex: 1;
     justify-content: flex-end;
+  }
+
+  .navbar .top .community .navbar-item:not(:last-child) {
+    margin-right: 0;
   }
 
   .navbar .top .slack {
@@ -223,6 +226,10 @@
 }
 
 @media (max-width: 479px) {
+  .navbar > .container {
+    padding: 0px 1rem;
+  }
+
   .navbar .hamburger {
     margin-right: 1rem;
   }
