@@ -10,6 +10,7 @@ module.exports = {
   url: 'https://www.infracost.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.png',
   organizationName: 'infracost',
   projectName: 'docs',
