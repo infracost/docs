@@ -32,6 +32,12 @@ module.exports = {
       disableSwitch: true,
       respectPrefersColorScheme: true,
     },
+    // announcementBar: {
+    //   id: 'support_us',
+    //   content: '<span class="announcement-message"><img src="/img/icons/star-white.svg" class="star-left" alt="Star icon" />If you like Infracost, give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">star on GitHub</a>!<img src="/img/icons/star-white.svg" class="star-right" alt="Star icon" /></span>',
+    //   backgroundColor: '#2A2A5B',
+    //   textColor: '#EBEBF2',
+    // },
     prism: {
       theme: require('prism-react-renderer/themes/dracula'),
       additionalLanguages: ['hcl'],
