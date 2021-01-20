@@ -118,7 +118,7 @@ function Home() {
               <div className="column">
                 <div className="box full-height">
                   <h3>Cloud costs are complex</h3>
-                  <p>AWS has over 2 million prices. Infracost makes these prices understandable for engineering teams.</p>
+                  <p>AWS alone has over 2 million prices. Infracost makes these prices understandable for engineering teams.</p>
                 </div>
               </div>
 
