@@ -1,0 +1,92 @@
+.level {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.level .left, .level .right {
+  display: flex;
+}
+
+.button {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  font-weight: bold;
+  padding: 0.75rem 1.125rem;
+}
+
+.button.primary {
+  background: var(--button-primary-gradient);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 1px 0px rgba(255, 255, 255, 0.25);
+  font-size: 1.125rem;
+}
+
+.button.primary:hover {
+  background: var(--button-primary-hover-gradient);
+  color: var(--white);
+}
+
+.button.small {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.tag {
+  border-radius: 9999px;
+  display: inline-block;
+  color: var(--white);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 0.375rem 0.5rem;
+}
+
+.tag.green {
+  background-color: var(--green);
+}
+
+.github-stars {
+  align-self: flex-start;
+  background-color: var(--white);
+  border-radius: 4px;
+  color: var(--page-background-color);
+  display: inline-block;
+  font-size: 0.875rem;
+  height: auto;
+  line-height: 1.125rem;
+  padding: 0.25rem 0.5rem;
+  position: relative;
+}
+
+.github-stars .star-count {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.github-stars .star-icon {
+  float: left;
+  margin-right: 0.25rem;
+  margin-top: 2px;
+}
+
+.github-stars::before {
+  content:"\A";
+  border-style: solid;
+  border-width: 5px 6px 5px 0;
+  border-color: transparent var(--white) transparent transparent;
+  position: absolute;
+  left: -5px;
+  top: calc(50% - 5px);
+}
+
+.image-wrapper {
+  align-items: center;
+  background-color: var(--white);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  display: flex;
+
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.3));
+  padding: 0.5rem;
+}

@@ -4,7 +4,7 @@ title: Terraform cloud costs directly from pull request to management
 author: Hassan Khajeh-Hosseini
 author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
-description: Give direct cloud access to DevOps teams, and get cost estimates to the team leads and management.
+description: Give direct cloud access to DevOps teams, and get cloud cost estimates to the team leads and management.
 image: /img/blog/terraform-cloud-costs-directly-from-pull-request-to-management/infracost_html_output.png
 hide_table_of_contents: true
 Date: "2021-01-11T00:00:00Z"
