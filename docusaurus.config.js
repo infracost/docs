@@ -53,7 +53,7 @@ module.exports = {
     navbar: {
       logo: {
         alt: 'Infracost logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
         {

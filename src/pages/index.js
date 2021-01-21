@@ -21,7 +21,7 @@ function Home() {
         <div className="home-hero">
           <div className="container">
           <div className="logo-wrapper">
-              <img className="logo" src="/img/logo.svg" alt="Infracost logo" />
+              <img className="logo" src="/img/logo.png" alt="Infracost logo" />
             </div>
 
             <div className="hero-content">
