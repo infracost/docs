@@ -43,6 +43,10 @@
   --ifm-table-stripe-background: var(--emphasis-color);
 }
 
+.row {
+  margin: 0;
+}
+
 @media (max-width: 479px) {
   :root {
     --ifm-spacing-horizontal: 1rem;

@@ -34,7 +34,7 @@
   margin-bottom: 20px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .box.full-height {
     height: auto;
     margin-bottom: 0;
@@ -85,7 +85,7 @@
   display: flex;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .home-hero {
     padding-bottom: 6rem;
     padding-top: calc(3rem + var(--navbar-height));
@@ -138,6 +138,35 @@
 }
 
 /* PROBLEMS */
+
+.problems .col {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.problems .row .col {
+  flex-basis: 100%;
+}
+
+.problems .row .col:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+
+@media (min-width: 768px) {
+  .problems .row .col:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .problems .row .col.col.col {
+    flex-basis: auto;
+    flex: 1 0;
+  }
+
+  .problems .col:not(:last-child) {
+    padding-right: 1.5rem;
+  }
+}
 
 .problems h3 {
   font-size: 1.125rem;
@@ -258,7 +287,7 @@
   position: relative;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .social-mentions .cards {
     display: block;
     column-count: 3;
@@ -353,7 +382,7 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .cta {
     padding: 5rem 0;
   }

@@ -21,7 +21,7 @@ function Home() {
         <div className="home-hero">
           <div className="container">
           <div className="logo-wrapper">
-              <img className="logo" src="/img/logo.png" alt="Infracost logo" />
+              <img className="logo" src="/img/logo.svg" alt="Infracost logo" />
             </div>
 
             <div className="hero-content">
@@ -114,22 +114,22 @@ function Home() {
               <span className="subtitle">How Infracost helps your team</span>
             </div>
 
-            <div className="row gaps">
-              <div className="column">
+            <div className="row">
+              <div className="col">
                 <div className="box full-height">
                   <h3>Cloud costs are complex</h3>
                   <p>AWS alone has over 2 million prices. Infracost makes these prices understandable for engineering teams.</p>
                 </div>
               </div>
 
-              <div className="column">
+              <div className="col">
                 <div className="box full-height">
                   <h3>Costs are hidden from developers</h3>
                   <p>Infracost links the costs directly to lines of code so engineers can continuously reduce their cloud costs.</p>
                 </div>
               </div>
 
-              <div className="column">
+              <div className="col">
                 <div className="box full-height">
                   <h3>Analyzing cloud bills is too late</h3>
                   <p>Infracost shows costs upfront before resources are deployed so you don't need to wait for the cloud bill.</p>

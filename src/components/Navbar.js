@@ -41,7 +41,7 @@ function Navbar({ isDocs }) {
 
   const logo = (
     <a className="logo" href="/" aria-label="Infracost logo">
-      <img src="/img/logo.png" className="logo-large" alt="Infracost logo" />
+      <img src="/img/logo.svg" className="logo-large" alt="Infracost logo" />
     </a>
   );
 
