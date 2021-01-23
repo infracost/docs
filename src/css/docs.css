@@ -40,7 +40,7 @@
 
   /* Table */
   --ifm-table-border-color: var(--docs-border-color);
-  --ifm-table-stripe-background: var(--emphasis-color);
+  --ifm-table-stripe-background: #f9f9fc;
 }
 
 .row {
