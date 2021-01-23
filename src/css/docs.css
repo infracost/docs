@@ -40,7 +40,11 @@
 
   /* Table */
   --ifm-table-border-color: var(--docs-border-color);
-  --ifm-table-stripe-background: var(--emphasis-color);
+  --ifm-table-stripe-background: #f9f9fc;
+}
+
+.row {
+  margin: 0;
 }
 
 @media (max-width: 479px) {
@@ -51,6 +55,32 @@
   .navbar.docs > .container {
     padding: 0 1rem !important;
   }
+}
+
+div[class^=announcementBar_] {
+  background: linear-gradient(243.9deg, #BD62B6 0%, #6658C5 100%) !important;
+  border-bottom: 1px solid var(--border-color);
+  height: 32px;
+}
+
+.announcement-message {
+  font-size: 0.875rem;
+  padding: 0.25rem 0;
+}
+
+.announcement-message .star-left {
+  margin-bottom: -1px;
+  margin-right: 0.5rem;
+}
+
+.announcement-message .star-right {
+  margin-bottom: -1px;
+  margin-left: 0.5rem;
+}
+
+.announcement-message a {
+  color: var(--white) !important;
+  text-decoration: underline !important;
 }
 
 .DocSearch {
