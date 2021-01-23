@@ -75,3 +75,12 @@ Response:
 ## Can I run my own Cloud Pricing API?
 
 Yes! The [Cloud Pricing API repo](https://github.com/infracost/cloud-pricing-api) has instructions on how it can be run. Set the `INFRACOST_PRICING_API_ENDPOINT` environment variable to point `infracost` to it.
+
+## What's the difference between Infracost and Terraform Cloud's cost estimation?
+
+The key differences are:
+1. Infracost is free and open-source, Terraform Cloud's cost estimation is paid and closed source.
+2. Infracost [supports more resources](/docs/supported_resources) than Terraform Cloud's cost estimation feature.
+3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations) into your workflows regardless of what source control and CI/CD system you use.
+4. Infracost can be used with [Terragrunt](/docs/terragrunt).
+5. Infracost can output [HTML reports](/docs/report) or JSON and used alongside other tools.
