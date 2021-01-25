@@ -23,11 +23,12 @@ Used to change the path to the `terraform` binary, e.g.:
   ```
 
 #### CI/CD integrations
-If you're using a [CI/CD integration](integrations), our [Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the latest stable versions of terraform and terragrunt; so you can set this environment variable to:
-- `terraform` (default, version 0.14.4)
-- `terraform_0.12.30`
-- `terraform_0.13.6`
-- `terragrunt` (version 0.26.7)
+If you're using a [CI/CD integration](integrations), our [Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the latest stable versions of terraform and terragrunt; so you can set this environment variable to: 
+- `terraform` (default, latest stable version of terraform)
+- `terraform_0.14` (latest patch version of 0.14)
+- `terraform_0.13` (latest patch version of 0.13)
+- `terraform_0.12` (latest patch version of 0.12)
+- `terragrunt` (latest patch version of 0.27, if you need other versions of Terragrunt in the Docker image, please create an [issue](https://github.com/infracost/infracost/issues/new/choose))
 
 ### TERRAFORM_CLOUD_TOKEN
 For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan.

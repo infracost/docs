@@ -142,9 +142,3 @@ Run `infracost --help` to see the available options, which include:
 --no-color         Turn off colored output (default: false)
 --log-level value  Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise
 ```
-
-Run `infracost feedback` if you'd like to submit feedback directly to the Infracost team.
-
-## Onboarding
-
-[Ali](https://www.linkedin.com/in/alikhajeh1/), co-founder of Infracost, does a personal onboarding with new users. This onboarding is customized to your goals and includes setting up CI/CD if required. Book your own [here](http://calendly.com/alikhajeh1/infracost-onboarding).

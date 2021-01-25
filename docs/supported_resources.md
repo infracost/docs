@@ -35,6 +35,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | Most expensive price tier is used. S3 replication time control data transfer, and batch operations are not supported by Terraform. |
 | Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
 | Simple Queue Service (SQS) | `aws_sqs_queue` | Most expensive price tier is used. |
+| Simple Systems Manager (SSM) | `aws_ssm_parameter`, `aws_ssm_activation` | |
 | Relational Database Service (RDS) | `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone` |  |
 | Virtual Private Cloud/Network (VPC, VPN, PrivateLink, Transit Gateway) | `aws_dx_gateway_association`, `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_ec2_transit_gateway_peering_attachment`, `aws_ec2_transit_vpc_attachment`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |

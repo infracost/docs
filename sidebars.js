@@ -30,6 +30,10 @@ module.exports = {
     },
     {
       type: 'doc',
+      id: 'infracost_api',
+    },
+    {
+      type: 'doc',
       id: 'environment_variables',
     },
     {
