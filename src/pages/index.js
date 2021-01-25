@@ -1,5 +1,7 @@
 import React from 'react';
+import LayoutProviders from '@theme/LayoutProviders';
 import LayoutHead from '@theme/LayoutHead';
+import AnnouncementBar from '@theme/AnnouncementBar';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SocialMentionCard from '../components/SocialMentionCard';
@@ -7,11 +9,12 @@ import SocialMentionCard from '../components/SocialMentionCard';
 
 function Home() {
   return (
-    <>
+    <LayoutProviders>
       <LayoutHead
         title="Cloud cost estimates for Terraform in pull requests"
         description="Infracost shows cloud cost estimates for Terraform projects. It integrates into pull requests and allows developers and DevOps to see cost breakdowns and compare options upfront." />
 
+      <AnnouncementBar />
       <div className="home">
         <Navbar />
 
@@ -49,38 +52,6 @@ function Home() {
               <li><img src="/img/services/circleci.svg" alt="CircleCI logo"/></li>
               <li><img src="/img/services/bitbucket.svg" alt="Bitbucket logo"/></li>
             </ul>
-          </div>
-        </div>
-
-        <div className="problems">
-          <div className="container">
-            <div className="heading">
-              <img src="/img/problem-icon.svg" alt="Problem icon" />
-              <h2>Problems Infracost solves</h2>
-            </div>
-
-            <div className="row gaps">
-              <div className="column">
-                <div className="box full-height">
-                  <h3>Cloud costs are complex</h3>
-                  <p>AWS has over 2 million prices. With this level of complexity, it is easy to see why there is so much waste. Infracost makes cloud costs understandable for engineering teams.</p>
-                </div>
-              </div>
-
-              <div className="column">
-                <div className="box full-height">
-                  <h3>Costs are hidden from developers</h3>
-                  <p>Developers don't see how their chxfanges affect the cloud costs, until they get a cloud bill or budget alert. Infracost links the costs directly to lines of code so they can continuously reduce their cloud costs.</p>
-                </div>
-              </div>
-
-              <div className="column">
-                <div className="box full-height">
-                  <h3>Analyzing cloud bills is too late</h3>
-                  <p>Trying to optimize after you get the cloud bill is too late. It's frustrating to fix infrastructure changes after they have been deployed. Infracost shows the costs upfront before deployment.</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -129,6 +100,39 @@ function Home() {
                   <div className="image-wrapper">
                     <img src="/img/screenshots/pr-step-3.png" alt="Discussion about cost impact of pull request" />
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="problems">
+          <div className="container">
+            <div className="heading">
+              <img src="/img/problem-icon.svg" alt="Problem icon" />
+              <h2>Cloud cost optimization for DevOps</h2>
+              <span className="subtitle">How Infracost helps your team</span>
+            </div>
+
+            <div className="row">
+              <div className="col">
+                <div className="box full-height">
+                  <h3>Cloud costs are complex</h3>
+                  <p>AWS alone has over 2 million prices. Infracost makes these prices understandable for engineering teams.</p>
+                </div>
+              </div>
+
+              <div className="col">
+                <div className="box full-height">
+                  <h3>Costs are hidden from developers</h3>
+                  <p>Infracost links the costs directly to lines of code so engineers can continuously reduce their cloud costs.</p>
+                </div>
+              </div>
+
+              <div className="col">
+                <div className="box full-height">
+                  <h3>Analyzing cloud bills is too late</h3>
+                  <p>Infracost shows costs upfront before resources are deployed so you don't need to wait for the cloud bill.</p>
                 </div>
               </div>
             </div>
@@ -220,7 +224,7 @@ function Home() {
       </div>
 
       <Footer />
-    </>
+    </LayoutProviders>
   );
 }
 

@@ -117,12 +117,14 @@
   background-color: var(--page-background-secondary-color);
   border-right: 1px solid var(--border-color);
   box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
-  position: fixed;
   height: 100vh;
   left: 0;
+  overflow-y: scroll;
+  position: fixed;
   top: 0;
   transform: translateX(-100%);
   transition: transform 200ms ease;
+  -webkit-overflow-scrolling: touch;
   width: 80%;
   z-index: 400;
 }
