@@ -38,6 +38,10 @@ module.exports = {
     },
     {
       type: 'doc',
+      id: 'terraform_modules',
+    },
+    {
+      type: 'doc',
       id: 'support',
     },
     {
