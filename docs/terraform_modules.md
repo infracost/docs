@@ -7,7 +7,7 @@ title: Terraform modules
 
 Infracost will include any modules that are included by `terraform plan` depending on the Terraform parameters you pass in. The output will show the total cost based on the sum of the costs of the modules.
 
-As an example, say you have a module that manages an EC2 instance and takes the instance type as an input. If you include the module like this
+As an example, say you have a module that manages an EC2 instance and takes the instance type as an input. If you include the module like this:
 
 ```hcl
 module "dev" {
@@ -23,7 +23,7 @@ module "prod" {
 }
 ```
 
-And then pass `--tfflags='-var=enable_prod=true'` to Infracost the output will show:
+And then pass `--tfflags='-var=enable_prod=true'` to Infracost, the output will show:
 
 ```
   NAME                                         MONTHLY QTY  UNIT       PRICE   HOURLY COST  MONTHLY COST
@@ -57,4 +57,4 @@ If you pass `--tfflags='-var=enable_prod=true -var=enable_dev=true'` to Infracos
   OVERALL TOTAL (USD)                                                               1.3479      983.9600
 ```
 
-In order to show a cost breakdown for each module individually one workaround at the moment is to run Infracost multiple times with different inputs.
+To show a cost breakdown for each module individually, one workaround at the moment is to run Infracost multiple times with different inputs. The [`report_all.sh`](docs/report#bulk-run) bash script might be helpful.
