@@ -57,4 +57,4 @@ If you pass `--tfflags='-var=enable_prod=true -var=enable_dev=true'` to Infracos
   OVERALL TOTAL (USD)                                                               1.3479      983.9600
 ```
 
-To show a cost breakdown for each module individually, one workaround at the moment is to run Infracost multiple times with different inputs. The [`report_all.sh`](docs/report#bulk-run) bash script might be helpful.
+To show a cost breakdown for each module individually, one workaround at the moment is to run Infracost multiple times with different inputs. The [`report_all.sh`](/docs/report#bulk-run) bash script might be helpful.
