@@ -32,6 +32,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Lambda | `aws_lambda_function` |  Provisioned concurrency is not yet supported. |
 | Lightsail | `aws_lightsail_instance` |  |
 | Managed Streaming for Apache Kafka (MSK) | `aws_msk_cluster` |  |
+| Secrets Manager | `aws_secretsmanager_secret` |  |
 | Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | Most expensive price tier is used. S3 replication time control data transfer, and batch operations are not supported by Terraform. |
 | Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
 | Simple Queue Service (SQS) | `aws_sqs_queue` | Most expensive price tier is used. |
