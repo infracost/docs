@@ -47,6 +47,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | ---          | ---                           | ---   |
 | Cloud DNS | `google_dns_managed_zone` ,`google_dns_record_set` | Most expensive price tier is used. |
 | Compute Engine | `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
+| Kubernetes Engine | `google_container_cluster`, `google_container_node_pool` | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
 
 ### The resource I want isn't supported
 
