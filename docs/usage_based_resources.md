@@ -39,6 +39,14 @@ Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, deve
   Total                                                           0.1130       82.5001
   ```
 
+The usage file also supports specifying usage for resources inside modules, by specifying the full path to the resource. This is the same value as Infracost outputs in the NAME column , e.g.:
+  ```yaml
+  version: v0.1
+  resource_usage:
+    module.my_module.aws_dynamodb_table.my_table:
+      storage_gb: 1000
+  ```
+
 ### Supported parameters
 
 This [infracost-usage-example.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) contains the list of all of the available parameters and their descriptions.
