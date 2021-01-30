@@ -86,3 +86,7 @@ The key differences are:
 3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations) into your workflows regardless of what source control and CI/CD system you use.
 4. Infracost can be used with [Terragrunt](/docs/terragrunt).
 5. Infracost can output [HTML reports](/docs/report) or JSON and used alongside other tools.
+
+## How do you make money?
+
+We're thinking about an enterprise edition that will connect to your cloud accounts, digest custom price books and discounts to provide more context during cost estimation. This could also include management reporting capabilities, e.g. show a consolidated view of all changes across a business unit.
