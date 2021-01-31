@@ -14,6 +14,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | API Gateway | `aws_api_gateway_rest_api`, `aws_api_gateway_stage`, `aws_apigatewayv2_api` | |
+| Certificate Manager (ACM) | `aws_acmpca_certificate_authority`, `aws_acm_certificate` | |
 | CloudFront | `aws_cloudfront_distribution` | |
 | CloudWatch | `aws_cloudwatch_dashboard`, `aws_cloudwatch_log_group`, `aws_cloudwatch_metric_alarm` | |
 | Data transfer | Use `aws_data_transfer.my_region` in [infracost-usage.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) | Most expensive price tier is used. |
@@ -32,6 +33,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Lambda | `aws_lambda_function` |  Provisioned concurrency is not yet supported. |
 | Lightsail | `aws_lightsail_instance` |  |
 | Managed Streaming for Apache Kafka (MSK) | `aws_msk_cluster` |  |
+| Secrets Manager | `aws_secretsmanager_secret` |  |
 | Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | Most expensive price tier is used. S3 replication time control data transfer, and batch operations are not supported by Terraform. |
 | Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
 | Simple Queue Service (SQS) | `aws_sqs_queue` | Most expensive price tier is used. |
@@ -44,7 +46,12 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
+| Cloud DNS | `google_dns_managed_zone` ,`google_dns_record_set` | Most expensive price tier is used. |
 | Compute Engine | `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
+| Cloud NAT | `google_compute_router_nat` | |
+| Cloud Pub/Sub | `google_pubsub_topic`, `google_pubsub_subscription` | |
+| Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
+| Kubernetes Engine (GKE) | `google_container_cluster`, `google_container_node_pool` | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
 
 ### The resource I want isn't supported
 
