@@ -16,18 +16,20 @@ Infracost distinguishes the **price** of a resource from its **cost**. Price is 
 
 ## Infracost usage file
 
-To solve the above problem, an [infracost-usage.yml file](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) can be used to describe usage estimates, which are used to calculate costs. As shown in the following example, it is easy to add this to specify this when running Infracost. Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates alongside their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
+Infracost solves the above problem by letting you describe usage estimates in a file called [`infracost-usage.yml`](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml), which can be passed to Infracost using the `--usage-file` option so it can calculate costs; as shown in the following example.
 
-  A Lambda function with usage estimates:
+Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates alongside their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
+
+  An `infracost-usage.yml` file with Lambda function usage estimates:
   ```yaml
   version: v0.1
   resource_usage:
     aws_lambda_function.my_function:
-      monthly_requests: 100000000   # Estimated monthly requests to the Lambda function.
-      average_request_duration: 250 # Estimated average duration of each request in milliseconds.
+      monthly_requests: 100000000   # Monthly requests to the Lambda function.
+      average_request_duration: 250 # Average duration of each request in milliseconds.
   ```
 
-  Infracost can now be run with `--usage-file=path/to/infracost-usage.yml` to show hourly/monthly cost estimates:
+  Running `infracost --tfdir=/path/to/project --usage-file=path/to/infracost-usage.yml` now shows hourly/monthly cost estimates:
   ```
   NAME                     MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
 
@@ -37,6 +39,8 @@ To solve the above problem, an [infracost-usage.yml file](https://github.com/inf
   Total                                                           0.1130       82.5001
   ```
 
-Adding resources using the [Infracost Terraform provider](https://github.com/infracost/terraform-provider-infracost) is still supported while we receive more feedback on the usage file.
+### Supported parameters
+
+This [infracost-usage-example.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) contains the list of all of the available parameters and their descriptions.
 
 We'd love to hear feedback about this feature either via email [hello@infracost.io](mailto:hello@infracost.io) or our [community Slack channel](https://www.infracost.io/community-chat).
