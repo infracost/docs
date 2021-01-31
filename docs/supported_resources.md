@@ -14,6 +14,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | API Gateway | `aws_api_gateway_rest_api`, `aws_api_gateway_stage`, `aws_apigatewayv2_api` | |
+| Certificate Manager (ACM) | `aws_acmpca_certificate_authority`, `aws_acm_certificate` | |
 | CloudFront | `aws_cloudfront_distribution` | |
 | CloudWatch | `aws_cloudwatch_dashboard`, `aws_cloudwatch_log_group`, `aws_cloudwatch_metric_alarm` | |
 | Data transfer | Use `aws_data_transfer.my_region` in [infracost-usage.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) | Most expensive price tier is used. |
@@ -49,7 +50,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Compute Engine | `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
 | Cloud NAT | `google_compute_router_nat` | |
 | Cloud Pub/Sub | `google_pubsub_topic`, `google_pubsub_subscription` | |
-| Cloud Storage | `google_storage_bucket` | |
+| Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
 | Kubernetes Engine (GKE) | `google_container_cluster`, `google_container_node_pool` | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
 
 ### The resource I want isn't supported
