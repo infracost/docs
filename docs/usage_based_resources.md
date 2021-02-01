@@ -45,6 +45,9 @@ The usage file also supports specifying usage for resources inside modules, by s
   resource_usage:
     module.my_module.aws_dynamodb_table.my_table:
       storage_gb: 1000
+    module.lambda_function.aws_lambda_function.this[0]:
+      monthly_requests: 20000
+      request_duration_ms: 600
   ```
 
 ### Supported parameters
