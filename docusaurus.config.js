@@ -24,6 +24,7 @@ module.exports = {
         domain: 'infracost.io',
       },
     ],
+    '@docusaurus/plugin-google-analytics',
   ],
   themeConfig: {
     image: 'img/social-image.png',
@@ -41,6 +42,9 @@ module.exports = {
     prism: {
       theme: require('prism-react-renderer/themes/dracula'),
       additionalLanguages: ['hcl'],
+    },
+    googleAnalytics: {
+      trackingID: 'G-9GFV9Z9NNZ',
     },
     algolia: {
       apiKey: 'eda298ffac1d3706d1c694cc83eff045',
