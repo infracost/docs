@@ -42,8 +42,9 @@ module.exports = {
       theme: require('prism-react-renderer/themes/dracula'),
       additionalLanguages: ['hcl'],
     },
-    googleAnalytics: {
+    gtag: {
       trackingID: 'G-9GFV9Z9NNZ',
+      anonymizeIP: true,
     },
     algolia: {
       apiKey: 'eda298ffac1d3706d1c694cc83eff045',
