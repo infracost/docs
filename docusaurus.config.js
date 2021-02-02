@@ -24,7 +24,6 @@ module.exports = {
         domain: 'infracost.io',
       },
     ],
-    '@docusaurus/plugin-google-analytics',
   ],
   themeConfig: {
     image: 'img/social-image.png',
