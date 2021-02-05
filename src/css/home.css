@@ -76,6 +76,16 @@
   color: var(--header-color);
 }
 
+.home-hero .backers {
+  color: var(--white);
+  display: flex;
+  margin-top: 3rem;
+}
+
+.home-hero .backers img {
+  margin-right: 0.6125rem;
+}
+
 .home-hero .screenshot-wrapper {
   background: var(--primary-gradient);
   background-size: cover;
@@ -87,7 +97,7 @@
 
 @media (min-width: 769px) {
   .home-hero {
-    padding-bottom: 6rem;
+    padding-bottom: 3rem;
     padding-top: calc(3rem + var(--navbar-height));
   }
 
