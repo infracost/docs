@@ -376,6 +376,43 @@
   margin-left: auto;
 }
 
+
+/* USERS */
+
+.users {
+  background-color: var(--page-background-secondary-color);
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+}
+
+.users .tagline {
+  color: rgba(var(--nu20-rgb), 0.675);
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.users ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.users ul li {
+  display: inline-block;
+  margin: 0 2rem 2rem;
+}
+
+.users img {
+  display: block;
+}
+
+
 /* CTA */
 
 .cta {
