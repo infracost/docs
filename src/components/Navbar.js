@@ -47,27 +47,26 @@ function Navbar({ isDocs }) {
 
   const topMenu = (
     <div className="menu">
-      <a className="navbar-item navbar-link" href="/docs">Documentation</a>
+      <a className="navbar-item navbar-link" href="/pricing">Pricing</a>
+      <a className="navbar-item navbar-link" href="/about">About</a>
       <a className="navbar-item navbar-link" href="/blog">Blog</a>
+      <a className="navbar-item navbar-link" href="/docs">Documentation</a>
     </div>
   );
 
   const docs = (
     <>
+      <a className="navbar-item" href="/pricing">
+        Pricing
+      </a>
+      <a className="navbar-item" href="/about">
+        About
+      </a>
+      <a className="navbar-item" href="/blog">
+        Blog
+      </a>
       <a className="navbar-item" href="/docs">
         Documentation
-      </a>
-      <a className="navbar-item" href="/docs/integrations" target="">
-        CI/CD integrations
-      </a>
-      <a className="navbar-item" href="/docs/supported_resources">
-        Supported resources
-      </a>
-      <a className="navbar-item" href="/docs/support">
-        Support
-      </a>
-      <a className="navbar-item" href="/docs/faq">
-        FAQ
       </a>
     </>
   );
@@ -91,9 +90,6 @@ function Navbar({ isDocs }) {
     <>
       <a className="navbar-item" href="mailto:hello@infracost.io" target="_blank">
         hello@infracost.io
-      </a>
-      <a className="navbar-item" href="/blog" target="">
-        Blog
       </a>
       <a className="navbar-item" href="https://twitter.com/infracost" target="_blank">
         Twitter
@@ -141,7 +137,7 @@ function Navbar({ isDocs }) {
             </div>
             <div className="sidebar-content">
               <div className="navbar-section">
-                <h4>Docs</h4>
+                {/* <h4>Docs</h4> */}
                 {docs}
               </div>
               <div className="navbar-section">

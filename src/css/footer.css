@@ -22,7 +22,7 @@ footer .section:not(:last-child) {
     margin-bottom: 0;
   }
 
-  footer .section.outreach {
+  footer .section.company {
     flex: 1;
     text-align: right;
   }

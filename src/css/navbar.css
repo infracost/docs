@@ -67,7 +67,7 @@
   height: var(--navbar-height);
 }
 
-.navbar.at-top .top .logo {
+.home .navbar.at-top .top .logo {
   display: none;
 }
 
