@@ -5,9 +5,9 @@ title: Terragrunt
 
 There are currently two methods of using Infracost with Terragrunt:
 
-1. For costs for a single Terragrunt directory you can run infracost with the `TERRAFORM_BINARY` environment variable set to `terragrunt`. For example:
+1. For costs for a single Terragrunt directory you can run infracost with the `INFRACOST_TERRAFORM_BINARY` environment variable set to `terragrunt`. For example:
   ```sh
-  TERRAFORM_BINARY=terragrunt infracost --tfdir=/path/to/code
+  INFRACOST_TERRAFORM_BINARY=terragrunt infracost --terraform-dir=/path/to/code
   ```
 
 2. For aggregating costs across multiple Terragrunt directories, i.e. in cases where you would run terragrunt *-all, you can use the `infracost report` command to combine multiple Infracost JSON files into a single table. For an example of a script that does this see [scripts/terragrunt/report_all.sh](https://github.com/infracost/infracost/blob/master/scripts/terragrunt/report_all.sh).

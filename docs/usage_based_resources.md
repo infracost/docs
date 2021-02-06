@@ -29,7 +29,7 @@ Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, deve
       average_request_duration: 250 # Average duration of each request in milliseconds.
   ```
 
-  Running `infracost --tfdir=/path/to/project --usage-file=path/to/infracost-usage.yml` now shows hourly/monthly cost estimates:
+  Running `infracost --terraform-dir=/path/to/project --usage-file=path/to/infracost-usage.yml` now shows hourly/monthly cost estimates:
   ```
   NAME                     MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
 

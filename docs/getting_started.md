@@ -56,7 +56,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
     -e INFRACOST_API_KEY=see_following_step_on_how_to_get_this \
     -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-    -v $PWD/:/code/ infracost/infracost --tfdir /code/
+    -v $PWD/:/code/ infracost/infracost --terraform-dir /code/
     # add other required flags for infracost or envs for Terraform
   ```
 
@@ -84,7 +84,7 @@ git clone https://github.com/infracost/example-terraform.git
 cd example-terraform
 
 # You can play with `aws/main.tf` and `aws/infracost-usage.yml`, and re-run infracost to compare costs
-infracost --tfdir aws --usage-file aws/infracost-usage.yml
+infracost --terraform-dir aws --usage-file aws/infracost-usage.yml
 ```
 
 Our [CI/CD integrations](integrations) can be used to automatically add a comment showing the cost estimate `diff` between a pull request and the master branch.
@@ -95,30 +95,30 @@ Infracost can be run with different options depending on the use-case. As mentio
 
 ### 1. Terraform directory
 
-This is the default method. Point to the Terraform directory using `--tfdir` and pass any required Terraform flags using `--tfflags`. Internally Infracost runs Terraform `init`, `plan` and `show`; `init` requires cloud credentials to be set, e.g. via the usual `AWS_ACCESS_KEY_ID` environment variables. This method works with remote state too.
+This is the default method. Point to the Terraform directory using `--terraform-dir` and pass any required Terraform flags using `--terraform-plan-flags`. Internally Infracost runs Terraform `init`, `plan` and `show`; `init` requires cloud credentials to be set, e.g. via the usual `AWS_ACCESS_KEY_ID` environment variables. This method works with remote state too.
   ```sh
-  infracost --tfdir /path/to/code --tfflags "-var-file=myvars.tfvars"
+  infracost --terraform-dir /path/to/code --terraform-plan-flags "-var-file=myvars.tfvars"
   ```
 
 ### 2. Terraform state file
 
-Point to the Terraform directory using `--tfdir` and instruct Infracost to use the Terraform state file using `--use-tfstate`. This implies that you have already run Terraform `init`, thus Infracost just runs Terraform `show`, which does not require cloud creds to be set. This method takes less time to run compared with method #1 and also works with remote state.
+Point to the Terraform directory using `--terraform-dir` and instruct Infracost to use the Terraform state file using `--terraform-use-state`. This implies that you have already run Terraform `init`, thus Infracost just runs Terraform `show`, which does not require cloud creds to be set. This method takes less time to run compared with method #1 and also works with remote state.
   ```sh
   terraform init
 
-  infracost --tfdir /path/to/code --use-tfstate
+  infracost --terraform-dir /path/to/code --terraform-use-state
   ```
 
 ### 3. Terraform plan JSON
 
-Point to an existing Terraform plan JSON file using `--tfjson`. This implies that the user has already run Terraform `init`, thus Infracost just runs Terraform `show`, which does not require cloud creds to be set.
+Point to an existing Terraform plan JSON file using `--terraform-json-file`. This implies that the user has already run Terraform `init`, thus Infracost just runs Terraform `show`, which does not require cloud creds to be set.
   ```sh
   cd path/to/code
   terraform init
   terraform plan -out plan.save .
   terraform show -json plan.save > plan.json
 
-  infracost --tfjson plan.json
+  infracost --terraform-json-file plan.json
   ```
 
 ### 4. Terraform plan file
@@ -129,7 +129,7 @@ Point to the Terraform directory and use the Terraform plan. This implies that t
   terraform init
   terraform plan -out plan.save .
 
-  infracost --tfdir /path/to/code --tfplan plan.save
+  infracost --terraform-dir /path/to/code --terraform-plan-file plan.save
   ```
 
 ## Useful options
@@ -137,7 +137,7 @@ Point to the Terraform directory and use the Terraform plan. This implies that t
 Run `infracost --help` to see the available options, which include:
 ```sh
 --usage-file       Path to Infracost usage file that specifies values for usage-based resources
---output value     Output format: json, table, html (default: "table")
+--format value     Output format: json, table, html (default: "table")
 --show-skipped     Show unsupported resources, some of which might be free. Only for table and HTML output (default: false)
 --no-color         Turn off colored output (default: false)
 --log-level value  Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise

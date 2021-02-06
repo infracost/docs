@@ -7,17 +7,17 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Infracost command's `--output table|json|html` option can be used to change the output format. The JSON option can be used to generate files that can then be consumed by the `infracost report` command to generate a combined report. The report command can generate table, JSON or HTML reports.
+The Infracost command's `--format table|json|html` option can be used to change the output format. The JSON option can be used to generate files that can then be consumed by the `infracost report` command to generate a combined report. The report command can generate table, JSON or HTML reports.
 
 These reports can be uploaded to object storage such as AWS S3 and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
 
 Run `infracost report --help` to see the available options.
 
 ```sh
-infracost --tfdir /path/to/module1 --output json > module1.json
-infracost --tfdir /path/to/module2 --output json > module2.json
+infracost --terraform-dir /path/to/module1 --format json > module1.json
+infracost --terraform-dir /path/to/module2 --format json > module2.json
 
-infracost report --output html module*.json > report.html
+infracost report --format html module*.json > report.html
 ```
 
 <Tabs
@@ -29,7 +29,7 @@ infracost report --output html module*.json > report.html
   ]}>
   <TabItem value="html">
     <img src={useBaseUrl("img/screenshots/html_report.png")} alt="Infracost HTML report" />
-  </TabItem>  
+  </TabItem>
   <TabItem value="json">
 
   ```sh
@@ -155,7 +155,7 @@ infracost report --output html module*.json > report.html
 
   OVERALL TOTAL (USD)                                                                 1.0173      742.6400
   ```
-  </TabItem>  
+  </TabItem>
 </Tabs>
 
 ## Bulk run
