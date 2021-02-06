@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 
-function PageLayout({ title, description, pageClass, children}) {
+function PageLayout({ title, description, pageClass, children, hideCTA }) {
   return (
     <LayoutProviders>
       <LayoutHead
@@ -20,7 +20,7 @@ function PageLayout({ title, description, pageClass, children}) {
         {children}
       </div>
 
-      <CTA />
+      {!hideCTA && (<CTA />)}
       <Footer />
     </LayoutProviders>
   );

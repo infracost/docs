@@ -1,0 +1,82 @@
+.pricing .pricing-wrapper {
+  background: url('/img/bg.svg') right bottom no-repeat;
+  padding-bottom: 3rem;
+}
+
+.pricing .intro {
+  background: none;
+  padding-bottom: 2rem;
+}
+
+.pricing .plans {
+  margin: 0 auto;
+}
+
+.pricing .plan {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 2rem;
+  max-width: 360px;
+}
+
+@media (min-width: 997px) {
+  .pricing .plans {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+  }
+
+  .pricing .plan {
+    margin: 0 0 2rem 0;
+    flex-basis: 50%;
+  }
+
+  .pricing .plan:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+.pricing .plan .heading {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.pricing .plan .action {
+  text-align: center;
+}
+
+.pricing .plan h2 {
+  font-size: 1rem;
+  color: rgba(var(--nu20-rgb), 0.675);
+  margin-bottom: 0.5rem;
+}
+
+.pricing .plan .price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--white);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.pricing .plan ul {
+  flex: 1;
+  list-style-type: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.pricing .plan li {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.pricing .plan li .icon {
+  margin-top: 2px;
+  margin-right: 0.5rem;
+}
+
+.pricing .used-by {
+  background-color: var(--page-background-color);
+  border-bottom: none;
+}
