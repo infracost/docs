@@ -17,6 +17,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Certificate Manager (ACM) | `aws_acmpca_certificate_authority`, `aws_acm_certificate` | |
 | CloudFront | `aws_cloudfront_distribution` | |
 | CloudWatch | `aws_cloudwatch_dashboard`, `aws_cloudwatch_log_group`, `aws_cloudwatch_metric_alarm` | |
+| CodeBuild | `aws_codebuild_project` | |
 | Data transfer | Use `aws_data_transfer.my_region` in [infracost-usage.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) | Most expensive price tier is used. |
 | Database Migration Service (DMS) | `aws_dms_replication_instance` | |
 | DocumentDB | `aws_docdb_cluster_instance` | |
