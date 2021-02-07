@@ -10,10 +10,6 @@ module.exports = {
     },
     {
       type: 'doc',
-      id: 'terragrunt',
-    },
-    {
-      type: 'doc',
       id: 'supported_resources',
     },
     {
@@ -22,11 +18,15 @@ module.exports = {
     },
     {
       type: 'doc',
+      id: 'integrations',
+    },
+    {
+      type: 'doc',
       id: 'report',
     },
     {
       type: 'doc',
-      id: 'integrations',
+      id: 'config_file',
     },
     {
       type: 'doc',
@@ -35,6 +35,10 @@ module.exports = {
     {
       type: 'doc',
       id: 'environment_variables',
+    },
+    {
+      type: 'doc',
+      id: 'terragrunt',
     },
     {
       type: 'doc',

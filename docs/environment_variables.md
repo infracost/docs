@@ -22,12 +22,6 @@ Used to change the path to the `terraform` binary, e.g.:
   INFRACOST_TERRAFORM_BINARY=terragrunt infracost --terraform-dir=/path/to/code
   ```
 
-### INFRACOST_TERRAFORM_WORKSPACE
-Used to set the Terraform workspace, e.g.:
-  ```sh
-  INFRACOST_TERRAFORM_WORKSPACE=dev infracost --terraform-dir /path/to/code
-  ```
-
 #### CI/CD integrations
 If you're using a [CI/CD integration](integrations), our [Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the latest stable versions of terraform and terragrunt; so you can set this environment variable to:
 - `terraform` (default, latest stable version of terraform)
@@ -37,6 +31,14 @@ If you're using a [CI/CD integration](integrations), our [Docker image](https://
 - `terragrunt` (latest patch version of 0.27, if you need other versions of Terragrunt in the Docker image, please create an [issue](https://github.com/infracost/infracost/issues/new/choose))
 
 Infracost works with Terraform v0.12 and above.
+
+### INFRACOST_TERRAFORM_WORKSPACE
+Used to set the Terraform workspace (this sets the [`TF_WORKSPACE`](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_workspace) internally):
+  ```sh
+  INFRACOST_TERRAFORM_WORKSPACE=dev infracost --terraform-dir /path/to/code
+  ```
+
+Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported". If you see this error, try running `unset INFRACOST_TERRAFORM_WORKSPACE` and `unset TF_WORKSPACE`.
 
 ### INFRACOST_TERRAFORM_CLOUD_TOKEN
 For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan.
