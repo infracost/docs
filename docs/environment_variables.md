@@ -3,7 +3,10 @@ slug: /environment_variables
 title: Environment variables
 ---
 
-Infracost uses a number of environment variables to customize various aspects of its behavior; these can be particularly useful in [CI/CD integrations](integrations).
+Infracost uses a number of environment variables to customize various aspects of its behavior; these can be particularly useful in [CI/CD integrations](integrations). Configuration values are chosen in this order:
+1. CLI flags (run `infracost --help` to see them)
+2. Environment variables
+3. [Configuration file](/docs/config_file)
 
 ### INFRACOST_API_KEY
 Infracost API key, run `infracost register` to get one.

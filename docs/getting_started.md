@@ -93,9 +93,9 @@ Our [CI/CD integrations](integrations) can be used to automatically add a commen
 
 Infracost can be run with different options depending on the use-case. As mentioned in the [FAQ](/docs/faq), you can run Infracost in your Terraform directories without worrying about security or privacy issues as no cloud credentials, secrets, tags or Terraform resource identifiers are sent to the open-source [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api). Infracost does not make any changes to your Terraform state or cloud resources.
 
-### Config file
+### Configuration file
 
-The following usage methods are also supported by the Infracost config file. We recommend that you create an `infracost.yml` file in each of your Terraform project repos using [this example](https://github.com/infracost/infracost/blob/master/infracost-example.yml). This file can be passed to Infracost using the `--config-file` option and enables you to run Infracost without having to remember various flags.
+The following usage methods are also supported by the Infracost [configuration file](/docs/config_file). We recommend that you create an `infracost.yml` file in each of your Terraform project repos using [this example](https://github.com/infracost/infracost/blob/master/infracost-example.yml). This file can be passed to Infracost using the `--config-file` option and has [many advantages](/docs/config_file#advantages).
 
 ### 1. Terraform directory
 
