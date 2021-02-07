@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto 2rem;
-  max-width: 360px;
+  max-width: 320px;
 }
 
 @media (min-width: 997px) {
@@ -37,8 +37,8 @@
 }
 
 .pricing .plan .heading {
+  margin-bottom: 0.5rem;
   text-align: center;
-  margin-bottom: 1rem;
 }
 
 .pricing .plan .action {
@@ -46,14 +46,19 @@
 }
 
 .pricing .plan h2 {
-  font-size: 1rem;
-  color: rgba(var(--nu20-rgb), 0.675);
+  font-size: 1.5rem;
+  color: var(--nu20);
   margin-bottom: 0.5rem;
 }
 
+.pricing .plan h2 .coming-soon {
+  font-size: 1rem;
+  color: var(--faded-text);
+}
+
 .pricing .plan .price {
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-size: 1rem;
+  /* font-weight: bold; */
   color: var(--white);
   display: block;
   margin-bottom: 1rem;

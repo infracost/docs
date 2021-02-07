@@ -46,7 +46,7 @@ function Pricing() {
 
             <div className="plan box">
               <div class="heading">
-                <h2>Enterprise (coming soon)</h2>
+                <h2>Enterprise <span class="coming-soon">(coming soon)</span></h2>
                 <span className="price">Contact us for pricing</span>
               </div>
               <ul>
