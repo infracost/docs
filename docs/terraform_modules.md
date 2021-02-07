@@ -23,7 +23,7 @@ module "prod" {
 }
 ```
 
-And then pass `--tfflags='-var=enable_prod=true'` to Infracost, the output will show:
+And then pass `--terraform-plan-flags='-var=enable_prod=true'` to Infracost, the output will show:
 
 ```
   NAME                                         MONTHLY QTY  UNIT       PRICE   HOURLY COST  MONTHLY COST
@@ -37,7 +37,7 @@ And then pass `--tfflags='-var=enable_prod=true'` to Infracost, the output will 
   OVERALL TOTAL (USD)                                                               0.8959      654.0400
 ```
 
-If you pass `--tfflags='-var=enable_prod=true -var=enable_dev=true'` to Infracost it will show the costs for both:
+If you pass `--terraform-plan-flags='-var=enable_prod=true -var=enable_dev=true'` to Infracost it will show the costs for both:
 
 ```
   NAME                                         MONTHLY QTY  UNIT       PRICE   HOURLY COST  MONTHLY COST

@@ -7,9 +7,9 @@ title: FAQ
 
 Infracost works with Terraform v0.12 and above.
 
-To change the path to the `terraform` binary, set the `TERRAFORM_BINARY` env variable:
+To change the path to the `terraform` binary, set the `INFRACOST_TERRAFORM_BINARY` env variable:
 ```sh
-TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --tfdir /path/to/code
+INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --terraform-dir /path/to/code
 ```
 
 ## Does Infracost need cloud credentials?

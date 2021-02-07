@@ -21,10 +21,10 @@ Infracost now has a new `infracost report` command which generates a table or HT
 
 Example command:
 ```
-infracost --tfdir /path/to/module1 --output json > module1.json
-infracost --tfdir /path/to/module2 --output json > module2.json
+infracost --terraform-dir /path/to/module1 --format json > module1.json
+infracost --terraform-dir /path/to/module2 --format json > module2.json
 
-infracost report --output html module*.json > report.html
+infracost report --format html module*.json > report.html
 ```
 
 This is the output you'd get in HTML format. Notice that the filename and all tags are shown:
