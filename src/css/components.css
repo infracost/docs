@@ -148,7 +148,7 @@
 }
 
 .used-by .tagline {
-  color: rgba(var(--nu20-rgb), 0.675);
+  color: #8083ac;
   font-size: 0.875rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -171,6 +171,8 @@
 
 .used-by img {
   display: block;
+  max-width: 112px;
+  max-height: 56px;
 }
 
 /* CTA */

@@ -17,7 +17,7 @@
 }
 
 .about .team .contact {
-  color: rgba(var(--nu20-rgb), 0.675);
+  color: var(--faded-text);
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
@@ -95,7 +95,7 @@
 }
 
 .about .backers .tagline {
-  color: rgba(var(--nu20-rgb), 0.675);
+  color: var(--faded-text);
 }
 
 .about .backers .backer {

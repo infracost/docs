@@ -29,7 +29,7 @@ footer .section:not(:last-child) {
 }
 
 footer h4 {
-  color: rgba(var(--nu20-rgb), 0.675);
+  color: var(--faded-text);
   font-size: 1.125rem;
   font-weight: normal;
   margin-bottom: 0.5rem;
@@ -62,7 +62,7 @@ footer .company-info a {
 }
 
 footer .company-info .copyright {
-  color: rgba(var(--nu20-rgb), 0.675);
+  color: var(--faded-text);
 }
 
 footer .company-info li {

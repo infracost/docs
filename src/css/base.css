@@ -11,7 +11,6 @@
   --nu60: #0E0E26;
 
   --nu50-rgb: 20,20,50;
-  --nu20-rgb: 220,216,225;
 
   /* Named colors */
   --primary: #DB44B8;
@@ -28,6 +27,7 @@
   --header-color: var(--nu10);
   --link-color: var(--secondary);
   --link-hover-color: #cc21a5;
+  --faded-text: #7f819f;
 
   --border-color: var(--nu30);
   --page-background-color: var(--nu50);
