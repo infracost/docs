@@ -16,7 +16,7 @@ Infracost distinguishes the **price** of a resource from its **cost**. Price is 
 
 ## Infracost usage file
 
-Infracost solves the above problem by letting you describe usage estimates in a file called [`infracost-usage.yml`](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml), which can be passed to Infracost using the `--usage-file` option so it can calculate costs; as shown in the following example.
+Infracost solves the above problem by letting you describe usage estimates in a file called [`infracost-usage.yml`](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml), which can be passed to Infracost using the `--usage-file` option so it can calculate costs; as shown in the following example. This flag should not be confused with the `--config-file` option that is used to configure [how Infracost runs](https://github.com/infracost/infracost/blob/master/infracost-example.yml).
 
 Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates alongside their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
 

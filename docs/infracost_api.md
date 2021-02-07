@@ -9,13 +9,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The majority of users should use the [Infracost CLI](/docs/#installation), which **does not** send the Terraform statefile to the open-source [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api); instead it [sends](/docs/faq#what-data-is-sent-to-the-hosted-cloud-pricing-api) the relevant data for finding a unique cloud price point.
 
-The API described in this page can be useful for CI/CD integrations, such as Atlantis, where it might be easier to use `curl` or an HTTP library instead of installing the Infracost CLI. Terraform plan JSON files can be sent to this API, which runs the CLI and returns the results. Whilst this API deletes files from the server after they are processed, it is a good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this.
+The API described in this page can be useful for CI/CD integrations, such as [Atlantis](/docs/integrations#atlantis), where it might be easier to use `curl` or an HTTP library instead of installing the Infracost CLI. Terraform plan JSON files can be sent to this API, which runs the CLI and returns the results. Whilst this API deletes files from the server after they are processed, it is a good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this.
 
-To use this API, send an HTTP POST request to `https://pricing.api.infracost.io/tfjson` with the `tfjson` parameter using the multipart/form-data request body format, as shown in the following example curl request. The `x-api-key` header must be set to your [Infracost API key](/docs/#2-get-api-key).
+To use this API, send an HTTP POST request to https://pricing.api.infracost.io/terraform-json-file with the `terraform-json-file` parameter using the multipart/form-data request body format, as shown in the following example curl request. The `x-api-key` header must be set to your [Infracost API key](/docs/#2-get-api-key).
 
 | Parameter | Description | Required? | Notes |
 | ---       | ---         | ---       | ---   |
-| tfjson | Terraform plan JSON file | Yes | Use '@' to upload the file with curl, e.g. `-F "tfjson=@plan.json"` |
+| terraform-json-file | Terraform plan JSON file | Yes | Use '@' to upload the file with curl, e.g. `-F "terraform-json-file=@plan.json"` |
 | usage-file | Infracost [usage file](/docs/usage_based_resources) that specifies values for usage-based resources | No | Use '@' to upload the file with curl, e.g. `-F "usage-file=@infracost-usage.yml"` |
 | show-skipped | Show unsupported resources, some of which might be free. Only for table and HTML output | No | Defaults to false |
 | output | Output format: json, table, html | No | Defaults to table and returns a `text/plain` response. If output is set to `json`, an `application/json` response is returned; and if output is set to `html`, a `text/html` response is returned. |
@@ -37,8 +37,9 @@ To use this API, send an HTTP POST request to `https://pricing.api.infracost.io/
   terraform plan -out plan.save .
   terraform show -json plan.save > plan.json
 
-  curl -X POST -H "x-api-key: my-api-key" -F "tfjson=@plan.json" \
-    https://pricing.api.infracost.io/tfjson
+  curl -X POST -H "x-api-key: my-api-key" -F "ci-platform=atlantis" \
+       -F "terraform-json-file=@plan.json" \
+       https://pricing.api.infracost.io/terraform-json-file
   ```
 
   </TabItem>

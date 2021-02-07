@@ -12,7 +12,7 @@ Infracost API key, run `infracost register` to get one.
 Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot.
 
 ### INFRACOST_SKIP_UPDATE_CHECK
-Set to `true` to skip the Infracost update check; can be useful in CI/CD systems. Be sure to upgrade regularly as we continually add new resources to Infracost.
+Set to `true` to skip the Infracost update check; can be useful in CI/CD systems. We recommend watching the Infracost repo for releases by going to the [repo](https://github.com/infracost/infracost) page, click on the Watch button, select Custom, then Releases and hit Apply. Be sure to upgrade regularly as we continually add new resources to Infracost.
 
 ### INFRACOST_TERRAFORM_BINARY
 Used to change the path to the `terraform` binary, e.g.:
@@ -35,6 +35,8 @@ If you're using a [CI/CD integration](integrations), our [Docker image](https://
 - `terraform_0.13` (latest patch version of 0.13)
 - `terraform_0.12` (latest patch version of 0.12)
 - `terragrunt` (latest patch version of 0.27, if you need other versions of Terragrunt in the Docker image, please create an [issue](https://github.com/infracost/infracost/issues/new/choose))
+
+Infracost works with Terraform v0.12 and above.
 
 ### INFRACOST_TERRAFORM_CLOUD_TOKEN
 For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan.
