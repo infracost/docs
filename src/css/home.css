@@ -3,7 +3,7 @@
 }
 
 .home .heading {
-  margin: 4rem 0 2rem;
+  margin: 3rem 0 2rem;
   text-align: center;
 }
 
@@ -168,6 +168,10 @@
 }
 
 /* WALKTHROUGH */
+
+.walkthrough {
+  margin-bottom: 3rem;
+}
 
 .step {
   background: var(--page-background-secondary-color);
