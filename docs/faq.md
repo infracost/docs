@@ -16,7 +16,7 @@ INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --terraform-dir /path/
 
 Infracost itself does not need any cloud credentials.
 
-Infracost runs Terraform internally and depending on which Infracost [usage method](/docs/#usage-methods) is used, Terraform might need access to cloud credentials, e.g. when running `terraform init` and `terraform plan`. These commands are only used to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output) and no changes are made to your Terraform state or cloud resources.
+Infracost runs Terraform internally and depending on which Infracost [usage method](/docs/#usage-methods) is used, **Terraform** will need access to cloud credentials, e.g. when running `terraform init` and `terraform plan`. These commands are only used to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output) and no changes are made to your Terraform state or cloud resources.
 
 ## How does Infracost get cloud prices?
 
@@ -24,7 +24,9 @@ Infracost gets prices from the [Cloud Pricing API](https://github.com/infracost/
 
 ## What data is sent to the hosted Cloud Pricing API?
 
-The Cloud Pricing API needs the relevant data to return a unique cloud price point. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Error tracking events are also sent so we can identify and fix issues quickly.
+No cloud credentials, secrets, tags or Terraform resource identifiers are sent to the open-source [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api). Infracost does not make any changes to your Terraform state or cloud resources.
+
+The Cloud Pricing API needs the relevant data to return a unique cloud price point. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also sent alongside error tracking events so we can identify and fix issues quickly.
 
 Here is an example request to the Cloud Pricing API for a t3.micro instance and the returned response:
 
