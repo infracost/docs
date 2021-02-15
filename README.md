@@ -27,7 +27,3 @@ This command generates static content into the `build` directory and can be serv
 ### Deployment
 
 Merges to master automatically update www.infracost.io
-
-## License
-
-[Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)
