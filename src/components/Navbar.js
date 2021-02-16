@@ -3,6 +3,7 @@ import SearchBar from '@theme/SearchBar';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useLockBodyScroll from '@theme/hooks/useLockBodyScroll';
 import useWindowSize, {windowSizes} from '@theme/hooks/useWindowSize';
+import useHideableNavbar from '@theme/hooks/useHideableNavbar';
 import GitHubStarCount from '../components/GitHubStarCount';
 
 function Navbar({ isDocs }) {
@@ -32,6 +33,8 @@ function Navbar({ isDocs }) {
   function toggleSidebar() {
     setShowSidebar(!showSidebar);
   }
+
+  const { navbarRef } = useHideableNavbar(false);
 
   const hamburger = (
     <span className="hamburger" onClick={toggleSidebar}>
@@ -102,7 +105,7 @@ function Navbar({ isDocs }) {
   );
 
   return (
-    <nav className={`navbar ${atTop ? 'at-top': ''} ${showSidebar ? 'sidebar-open' : ''} ${isDocs ? 'docs' : ''}`}>
+    <nav ref={navbarRef} className={`navbar ${atTop ? 'at-top': ''} ${showSidebar ? 'sidebar-open' : ''} ${isDocs ? 'docs' : ''}`}>
       <div className="container">
         <div className="top level">
           <div className="left">
