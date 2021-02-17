@@ -32,101 +32,227 @@ infracost report --format html module*.json > report.html
   </TabItem>
   <TabItem value="json">
 
+  **Tip**: You can use `jq` to extract values. For example, to see the total monthly cost increase of a project you can use:
+
   ```sh
+  jq '.projects[0].diff.totalMonthlyCost'
+  ```
+
+  Here is an example of the full JSON output:
+
+  ```json
   {
-    "resources": [
-      {
-        "name": "aws_instance.web_app",
-        "metadata": null,
-        "hourlyCost": "1.017315068493150679",
-        "monthlyCost": "742.64",
-        "costComponents": [
-          {
-            "name": "Linux/UNIX usage (on-demand, m5.4xlarge)",
-            "unit": "hours",
-            "hourlyQuantity": "1",
-            "monthlyQuantity": "730",
-            "price": "0.768",
-            "hourlyCost": "0.768",
-            "monthlyCost": "560.64"
-          }
-        ],
-        "subresources": [
-          {
-            "name": "root_block_device",
-            "metadata": null,
-            "hourlyCost": "0.00684931506849315",
-            "monthlyCost": "5",
-            "costComponents": [
-              {
-                "name": "General Purpose SSD storage (gp2)",
-                "unit": "GB-months",
-                "hourlyQuantity": "0.0684931506849315",
-                "monthlyQuantity": "50",
-                "price": "0.1",
-                "hourlyCost": "0.00684931506849315",
-                "monthlyCost": "5"
-              }
-            ]
-          },
-          {
-            "name": "ebs_block_device[0]",
-            "metadata": null,
-            "hourlyCost": "0.242465753424657529",
-            "monthlyCost": "177",
-            "costComponents": [
-              {
-                "name": "Provisioned IOPS SSD storage (io1)",
-                "unit": "GB-months",
-                "hourlyQuantity": "1.3698630136986301",
-                "monthlyQuantity": "1000",
-                "price": "0.125",
-                "hourlyCost": "0.1712328767123287625",
-                "monthlyCost": "125"
-              },
-              {
-                "name": "Provisioned IOPS",
-                "unit": "IOPS-months",
-                "hourlyQuantity": "1.0958904109589041",
-                "monthlyQuantity": "800",
-                "price": "0.065",
-                "hourlyCost": "0.0712328767123287665",
-                "monthlyCost": "52"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "aws_lambda_function.hello_world",
-        "metadata": null,
-        "hourlyCost": null,
-        "monthlyCost": null,
-        "costComponents": [
-          {
-            "name": "Requests",
-            "unit": "1M requests",
-            "hourlyQuantity": null,
-            "monthlyQuantity": null,
-            "price": "0.2",
-            "hourlyCost": null,
-            "monthlyCost": null
-          },
-          {
-            "name": "Duration",
-            "unit": "GB-seconds",
-            "hourlyQuantity": null,
-            "monthlyQuantity": null,
-            "price": "0.0000166667",
-            "hourlyCost": null,
-            "monthlyCost": null
-          }
-        ]
-      }
-    ],
+
+    /* START - deprecated fields */
+    /* These fields will be deprecated in v0.8.0 since they are now covered in the project breakdowns */
     "totalHourlyCost": "1.017315068493150679",
     "totalMonthlyCost": "742.64",
-    "timeGenerated": "2021-01-23T13:06:59.369412325Z",
+    "resources": [
+      /* This contains a list of all the resources in projects[*].breakdown.resources. */
+    ],
+    /* END - deprecated fields */
+
+    "projects": [
+      {
+        /* This contains any resources that are in the prior Terraform state */
+        "pastBreakdown": {
+          "resources": [],
+          "totalHourlyCost": "0",
+          "totalMonthlyCost": "0"
+        },
+        /* This contains the breakdown of resources that are in the planned Terraform state */
+        "breakdown": {
+          "resources": [
+            {
+              "name": "aws_instance.web_app",
+              "metadata": null,
+              "hourlyCost": "1.017315068493150679",
+              "monthlyCost": "742.64",
+              "costComponents": [
+                {
+                  "name": "Linux/UNIX usage (on-demand, m5.4xlarge)",
+                  "unit": "hours",
+                  "hourlyQuantity": "1",
+                  "monthlyQuantity": "730",
+                  "price": "0.768",
+                  "hourlyCost": "0.768",
+                  "monthlyCost": "560.64"
+                }
+              ],
+              "subresources": [
+                {
+                  "name": "root_block_device",
+                  "metadata": null,
+                  "hourlyCost": "0.00684931506849315",
+                  "monthlyCost": "5",
+                  "costComponents": [
+                    {
+                      "name": "General Purpose SSD storage (gp2)",
+                      "unit": "GB-months",
+                      "hourlyQuantity": "0.0684931506849315",
+                      "monthlyQuantity": "50",
+                      "price": "0.1",
+                      "hourlyCost": "0.00684931506849315",
+                      "monthlyCost": "5"
+                    }
+                  ]
+                },
+                {
+                  "name": "ebs_block_device[0]",
+                  "metadata": null,
+                  "hourlyCost": "0.242465753424657529",
+                  "monthlyCost": "177",
+                  "costComponents": [
+                    {
+                      "name": "Provisioned IOPS SSD storage (io1)",
+                      "unit": "GB-months",
+                      "hourlyQuantity": "1.3698630136986301",
+                      "monthlyQuantity": "1000",
+                      "price": "0.125",
+                      "hourlyCost": "0.1712328767123287625",
+                      "monthlyCost": "125"
+                    },
+                    {
+                      "name": "Provisioned IOPS",
+                      "unit": "IOPS-months",
+                      "hourlyQuantity": "1.0958904109589041",
+                      "monthlyQuantity": "800",
+                      "price": "0.065",
+                      "hourlyCost": "0.0712328767123287665",
+                      "monthlyCost": "52"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "aws_lambda_function.hello_world",
+              "metadata": null,
+              "hourlyCost": null,
+              "monthlyCost": null,
+              "costComponents": [
+                {
+                  "name": "Requests",
+                  "unit": "1M requests",
+                  "hourlyQuantity": null,
+                  "monthlyQuantity": null,
+                  "price": "0.2",
+                  "hourlyCost": null,
+                  "monthlyCost": null
+                },
+                {
+                  "name": "Duration",
+                  "unit": "GB-seconds",
+                  "hourlyQuantity": null,
+                  "monthlyQuantity": null,
+                  "price": "0.0000166667",
+                  "hourlyCost": null,
+                  "monthlyCost": null
+                }
+              ]
+            }
+          ],
+          "totalHourlyCost": "1.017315068493150679",
+          "totalMonthlyCost": "742.64"
+        },
+        /* This contains the diff of the resources between the prioer state and planned state */
+        "diff": {
+          "resources": [
+            {
+              "name": "aws_instance.web_app",
+              "metadata": null,
+              "hourlyCost": "1.017315068493150679",
+              "monthlyCost": "742.64",
+              "costComponents": [
+                {
+                  "name": "Linux/UNIX usage (on-demand, m5.4xlarge)",
+                  "unit": "hours",
+                  "hourlyQuantity": "1",
+                  "monthlyQuantity": "730",
+                  "price": "0.768",
+                  "hourlyCost": "0.768",
+                  "monthlyCost": "560.64"
+                }
+              ],
+              "subresources": [
+                {
+                  "name": "root_block_device",
+                  "metadata": null,
+                  "hourlyCost": "0.00684931506849315",
+                  "monthlyCost": "5",
+                  "costComponents": [
+                    {
+                      "name": "General Purpose SSD storage (gp2)",
+                      "unit": "GB-months",
+                      "hourlyQuantity": "0.0684931506849315",
+                      "monthlyQuantity": "50",
+                      "price": "0.1",
+                      "hourlyCost": "0.00684931506849315",
+                      "monthlyCost": "5"
+                    }
+                  ]
+                },
+                {
+                  "name": "ebs_block_device[0]",
+                  "metadata": null,
+                  "hourlyCost": "0.242465753424657529",
+                  "monthlyCost": "177",
+                  "costComponents": [
+                    {
+                      "name": "Provisioned IOPS SSD storage (io1)",
+                      "unit": "GB-months",
+                      "hourlyQuantity": "1.3698630136986301",
+                      "monthlyQuantity": "1000",
+                      "price": "0.125",
+                      "hourlyCost": "0.1712328767123287625",
+                      "monthlyCost": "125"
+                    },
+                    {
+                      "name": "Provisioned IOPS",
+                      "unit": "IOPS-months",
+                      "hourlyQuantity": "1.0958904109589041",
+                      "monthlyQuantity": "800",
+                      "price": "0.065",
+                      "hourlyCost": "0.0712328767123287665",
+                      "monthlyCost": "52"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "aws_lambda_function.hello_world",
+              "metadata": null,
+              "hourlyCost": "0",
+              "monthlyCost": "0",
+              "costComponents": [
+                {
+                  "name": "Requests",
+                  "unit": "1M requests",
+                  "hourlyQuantity": "0",
+                  "monthlyQuantity": "0",
+                  "price": "0.2",
+                  "hourlyCost": "0",
+                  "monthlyCost": "0"
+                },
+                {
+                  "name": "Duration",
+                  "unit": "GB-seconds",
+                  "hourlyQuantity": "0",
+                  "monthlyQuantity": "0",
+                  "price": "0.0000166667",
+                  "hourlyCost": "0",
+                  "monthlyCost": "0"
+                }
+              ]
+            }
+          ],
+          "totalHourlyCost": "1.017315068493150679",
+          "totalMonthlyCost": "742.64"
+        }
+      }
+    ],
+    "timeGenerated": "2021-02-17T17:46:51.690235Z",
     "resourceSummary": {
       "unsupportedCounts": {}
     }
