@@ -91,7 +91,7 @@ Our [CI/CD integrations](integrations) can be used to automatically add a commen
 
 ## Usage methods
 
-Infracost can be run with different options depending on the use-case. As mentioned in the [FAQ](/docs/faq), you can run Infracost in your Terraform directories without worrying about security or privacy issues as no cloud credentials, secrets, tags or Terraform resource identifiers are sent to the open-source [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api). Infracost does not make any changes to your Terraform state or cloud resources.
+Infracost can be run with different options depending on the use-case. As mentioned in the [FAQ](/docs/faq), you can run Infracost in your Terraform directories without worrying about security or privacy issues as no cloud credentials, secrets, tags or Terraform resource identifiers are sent to the open-source [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api). Infracost does not make any changes to your Terraform state or cloud resources. The Cloud Pricing API does not become aware of your cloud spend; it returns price points to the CLI so calculations can be done on your machine.
 
 ### Configuration file
 
