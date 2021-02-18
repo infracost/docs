@@ -5,7 +5,7 @@ title: Supported resources
 
 The quickest way to find out if your Terraform resources are supported is to [run Infracost](/docs#usage-methods) with the `--show-skipped` option. This shows the unsupported resources, some of which might be free. You could also run the following command to only see the unsupported resources: `infracost --format=json --log-level=warn | jq ".resourceSummary.unsupportedCounts"`
 
-Infracost currently supports the following Terraform resources.
+Infracost supports the following Terraform resources. We do not take into account free tiers that apply to some resources as it can be difficult to detect which accounts they apply to; you can still see costs going up or down based on changes since we're consistent.
 
 ### Amazon Web Services (AWS)
 
