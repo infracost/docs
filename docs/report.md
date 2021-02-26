@@ -36,6 +36,8 @@ infracost report --format html module*.json > report.html
 
   ```sh
   jq '.projects[0].diff.totalMonthlyCost'
+  # or to see the sum of all projects:
+  jq '[.projects[].pastBreakdown.totalMonthlyCost | select (.!=null) | tonumber] | add'
   ```
 
   Here is an example of the full JSON output:
