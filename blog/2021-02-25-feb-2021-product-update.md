@@ -13,11 +13,11 @@ Here's what we released in February - big thanks to the community contributors! 
 
 ### Speed improvements
 
-The CLI now only runs `terraform init` if required since terraform commands aren't the fastest in the world (init usually takes 20+ secs for me, but it depends on how many plugins you have). Furthermore, calls to the Cloud Pricing API have been switched from sequential to parallel. Infracost should run much faster than before <img src="https://cultofthepartyparrot.com/parrots/hd/fastparrot.gif" width="16px" alt="fast" />
+The CLI now only runs `terraform init` if required since Terraform commands aren't the fastest in the world (init usually takes 20+ secs for me, but it depends on how many plugins you have). Furthermore, calls to the Cloud Pricing API have been switched from sequential to parallel. Infracost should run much faster than before <img src="https://cultofthepartyparrot.com/parrots/hd/fastparrot.gif" width="16px" alt="fast" />
 
 ### Config file
 
-Depending on your terraform workflow, you'll run Infracost with [different options](/docs/#usage-methods). Things can get complicated when you have multiple projects in a repo, each requiring their own terraform variables. For example, if you have two workspaces and want to see their total cost estimate, you would run something like this:
+Depending on your Terraform workflow, you'll run Infracost with [different options](/docs/#usage-methods). Things can get complicated when you have multiple projects in a repo, each requiring their own Terraform variables. For example, if you have two workspaces and want to see their total cost estimate, you would run something like this:
 
 ```sh
 terraform workspace select dev
@@ -35,14 +35,14 @@ You can now create an `infracost.yml` [config file](/docs/config_file) in your r
 
 ### Atlantis integration
 
-Infracost now [integrates with Atlantis](/docs/integrations#atlantis), which is a popular CI/CD tool that enables terraform pull request automation <img src="https://www.runatlantis.io/favicon-16x16.png" width="16px" alt="Atlantis" />
+Infracost now [integrates with Atlantis](/docs/integrations#atlantis), which is a popular CI/CD tool that enables Terraform pull request automation <img src="https://www.runatlantis.io/favicon-16x16.png" width="16px" alt="Atlantis" />
 
 ### Diff functionality in JSON output
 
-You can now get the monthly cost diff from the Infracost JSON output, e.g. the following shows the monthly cost is going to be increased by $1530 if the terraform plan is applied. You can also get `totalHourlyCost`, or add `--no-color=true --log-level=warn` if you don't want the spinners/logs/color 🤩
+You can now get the monthly cost diff from the Infracost JSON output, e.g. the following shows the monthly cost is going to be increased by $1530 if the Terraform plan is applied. You can also get `totalHourlyCost`, or add `--no-color=true --log-level=warn` if you don't want the spinners/logs/color 🤩
 
 ```
-infracost --terraform-dir=. --format=json | jq '[.projects[].pastBreakdown.totalMonthlyCost | select (.!=null) | tonumber] | add'
+infracost --terraform-dir=. --format=json | jq '[.projects[].diff.totalMonthlyCost | select (.!=null) | tonumber] | add'
 "+1530"
 ```
 

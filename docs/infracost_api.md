@@ -73,7 +73,7 @@ To use this API, send an HTTP POST request to https://pricing.api.infracost.io/t
   ```sh
   jq '.projects[0].diff.totalMonthlyCost'
   # or to see the sum of all projects:
-  jq '[.projects[].pastBreakdown.totalMonthlyCost | select (.!=null) | tonumber] | add'
+  jq '[.projects[].diff.totalMonthlyCost | select (.!=null) | tonumber] | add'
   ```
 
   Here is an example of the full JSON output:
