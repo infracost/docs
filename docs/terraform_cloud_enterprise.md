@@ -3,7 +3,7 @@ slug: /terraform_cloud_enterprise
 title: Terraform Cloud/Enterprise
 ---
 
-The environment variables mentioned in this page can also be set in the [infracost.yml](https://github.com/infracost/infracost/blob/master/infracost-example.yml) config file.
+The environment variables mentioned in this page can also be set in an Infracost [config file](/docs/config_file).
 
 ## Terraform Cloud users
 
@@ -23,6 +23,8 @@ When running Infracost locally or on CI/CD systems, you should set the **both** 
 
 ## Terraform workspaces
 
-If you use multiple Terraform workspaces, set the Terraform environment variable `INFRACOST_TERRAFORM_WORKSPACE` to select a workspace, this sets the [`TF_WORKSPACE`](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_workspace) internally.
+If you use multiple Terraform workspaces, you can select a workspace by **either**:
+1. using the `--terraform-workspace` flag
+2. setting the `INFRACOST_TERRAFORM_WORKSPACE` environment variable, this sets the [`TF_WORKSPACE`](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_workspace) internally.
 
 Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported". If you see this error, try running `unset INFRACOST_TERRAFORM_WORKSPACE` and `unset TF_WORKSPACE`.

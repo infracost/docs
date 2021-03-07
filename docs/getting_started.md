@@ -98,8 +98,8 @@ Use our [CI/CD integrations](integrations) to automatically add pull request com
 As mentioned in the [FAQ](/docs/faq), **no** cloud credentials, secrets, tags or resource identifiers are sent to Infracost's API. Infracost does not make any changes to your Terraform state or cloud resources. Our API does not become aware of your cloud spend; it simply returns cloud prices to the CLI so calculations can be done on your machine.
 
 The `infracost` CLI has the following main commands. Use the `--path` flag to point to a Terraform directory or plan JSON file:
- - `breakdown`: show full breakdown of costs
- - `diff`: show diff of monthly costs between current and planned state
+- `breakdown`: show full breakdown of costs
+- `diff`: show diff of monthly costs between current and planned state
 
 If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/config_file) to define them; their results will be combined into the same breakdown or diff output.
 
