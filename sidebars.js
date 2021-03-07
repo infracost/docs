@@ -51,6 +51,14 @@ module.exports = {
     {
       type: 'doc',
       id: 'faq',
-    }
+    },
+    {
+      type: 'category',
+      label: 'Guides',
+      collapsed: false,
+      items: [
+        'guides/v0.8_migration',
+      ],
+    },
   ]
 };
