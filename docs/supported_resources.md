@@ -64,6 +64,6 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 
 We're regularly adding support for new resources - be sure to [watch the repo](https://github.com/infracost/infracost/) for new releases. You can help by:
 1. [Creating an issue](https://github.com/infracost/infracost/issues/new/choose) and mentioning the resource you need and a little about your use-case; we'll try to prioritize it depending on the community feedback.
-2. [Contributing to Infracost](https://github.com/infracost/infracost#contributing). You can join our [community Slack channel](https://www.infracost.io/community-chat) if you need help contributing. We're looking for people to help us add new AWS and Google resources and are willing to pay for that. Please direct-message Ali Khajeh-Hosseini on our community Slack channel to find out more!
+2. [Contributing to Infracost](https://github.com/infracost/infracost#contributing). You can join our [community Slack channel](https://www.infracost.io/community-chat) if you need help contributing.
 
 We plan to add support for more cloud vendors ([Azure](https://github.com/infracost/infracost/issues/64)) and other IaC tools ([Pulumi](https://github.com/infracost/infracost/issues/187), [CloudFormation](https://github.com/infracost/infracost/issues/190)) too. Please watch and 👍 them if you'd like us to work on them sooner.

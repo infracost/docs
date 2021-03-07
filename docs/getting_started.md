@@ -28,7 +28,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   brew install infracost
   ```
 
-  Subsequent updates can be installed in the usual way: `brew upgrade infracost`
+  Subsequent updates can be installed in the usual way: `brew upgrade infracost` (you might need `brew update` first if your brew version is old)
 
   </TabItem>
   <TabItem value="macos-manual">

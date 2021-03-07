@@ -17,14 +17,6 @@ module.exports = {
   customFields: {
     infracostDashboardApiEndpoint,
   },
-  plugins: [
-    [
-      'docusaurus-plugin-plausible',
-      {
-        domain: 'infracost.io',
-      },
-    ],
-  ],
   themeConfig: {
     image: 'img/social-image.png',
     colorMode: {
