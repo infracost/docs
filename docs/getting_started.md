@@ -7,7 +7,7 @@ description: Get started with Infracost in your Terraform workflow, integrate it
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Infracost shows cloud cost estimates for Terraform projects. It helps developers, devops and others to quickly see the cost breakdown and compare different options upfront.
+Infracost shows cloud cost estimates for infrastructure-as-code projects such as Terraform. It helps developers, devops and others to quickly see a cost breakdown and compare different options upfront.
 
 ## Installation
 
@@ -57,20 +57,20 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
     -e INFRACOST_API_KEY=see_following_step_on_how_to_get_this \
     -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-    -v $PWD/:/code/ infracost/infracost --terraform-dir /code/
-    # add other required flags for infracost or envs for Terraform
+    -v $PWD/:/code/ infracost/infracost breakdown --path /code/
+    # add other required flags/envs for Infracost or Terraform
   ```
 
   </TabItem>
   <TabItem value="windows">
 
-  Download and unzip the [latest release](https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz). Rename the file `infracost-windows-amd64` to `infracost.exe`, then run it from the Command Prompt or Powershell using `.\infracost.exe --no-color` alongside other required flags/commands (color output has a bug we need to fix on Windows). You should also move the exe file to a folder that is in your `PATH` [environment variable](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows), e.g. `C:\Windows`.
+  Download and unzip the [latest release](https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz). Rename the file `infracost-windows-amd64` to `infracost.exe`, then run it from the Command Prompt or Powershell using `.\infracost.exe --no-color` alongside other required commands/flags (color output has a bug we need to fix on Windows). You should also move the exe file to a folder that is in your `PATH` [environment variable](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows), e.g. `C:\Windows`.
 
   </TabItem>
 </Tabs>
 
 ### 2. Get API key
-Use our free Cloud Pricing API by registering for an API key:
+Register for a free API key:
 ```sh
 infracost register
 ```
@@ -78,7 +78,7 @@ infracost register
 The key is saved in `~/.config/infracost/credentials.yml`.
 
 ### 3. Run it
-Run Infracost using our example Terraform project to see how it works.
+Run Infracost using our example Terraform project to see how it works:
 
 ```sh
 git clone https://github.com/infracost/example-terraform.git
@@ -91,17 +91,17 @@ infracost breakdown --path aws --usage-file aws/infracost-usage.yml
 infracost diff --path aws
 ```
 
-Use our [CI/CD integrations](integrations) to automatically add pull request comments showing cost estimate diffs.
+Use our [CI/CD integrations](/docs/integrations/cicd) to automatically add pull request comments showing cost estimate diffs.
 
 ## Usage
 
-As mentioned in the [FAQ](/docs/faq), **no** cloud credentials, secrets, tags or resource identifiers are sent to Infracost's API. Infracost does not make any changes to your Terraform state or cloud resources. Our API does not become aware of your cloud spend; it simply returns cloud prices to the CLI so calculations can be done on your machine.
+As mentioned in the [FAQ](/docs/faq), **no** cloud credentials, secrets, tags or resource identifiers are sent to the Cloud Pricing API. That API does not become aware of your cloud spend; it simply returns cloud prices to the CLI so calculations can be done on your machine. Infracost does not make any changes to your Terraform state or cloud resources.
 
 The `infracost` CLI has the following main commands. Use the `--path` flag to point to a Terraform directory or plan JSON file:
 - `breakdown`: show full breakdown of costs
 - `diff`: show diff of monthly costs between current and planned state
 
-If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/config_file) to define them; their results will be combined into the same breakdown or diff output.
+If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/multi_project/config_file) to define them; their results will be combined into the same breakdown or diff output.
 
 ### Terraform directory
 

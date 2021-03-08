@@ -7,25 +7,26 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Infracost command's `--format table|json|html` option can be used to change the output format. The JSON option can be used to generate files that can then be consumed by the `infracost report` command to generate a combined report. The report command can generate table, JSON or HTML reports.
+The `infracost breakdown` command has a `--format json|table|html` flag that can be used to change the output format. The JSON option can be used to generate files from individual projects that can then be consumed by the `infracost output` command to generate a combined report. The output command has a `--format json|diff|table|html` flag that sets the report format.
 
-These reports can be uploaded to object storage such as AWS S3 and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
+These reports can be uploaded to object storage such as AWS S3 or Google Cloud Storage and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
 
-Run `infracost report --help` to see the available options.
+Run `infracost output --help` to see the available options. Example usage:
 
 ```sh
-infracost --terraform-dir /path/to/module1 --format json > module1.json
-infracost --terraform-dir /path/to/module2 --format json > module2.json
+infracost breakdown --path /path/to/project1 --format json > project1.json
+infracost breakdown --path /path/to/project2 --format json > project2.json
 
-infracost report --format html module*.json > report.html
+infracost output --path project*.json --format html > report.html
 ```
 
 <Tabs
   defaultValue="html"
   values={[
     {label: 'Example HTML report', value: 'html'},
-    {label: 'JSON report', value: 'json'},
-    {label: 'Table report', value: 'table'},
+    {label: 'JSON output', value: 'json'},
+    {label: 'Table output', value: 'table'},
+    {label: 'Diff output', value: 'diff'},
   ]}>
   <TabItem value="html">
     <img src={useBaseUrl("img/screenshots/html_report.png")} alt="Infracost HTML report" />
@@ -44,16 +45,7 @@ infracost report --format html module*.json > report.html
 
   ```json
   {
-
-    /* START - deprecated fields */
-    /* These fields will be deprecated in v0.8.0 since they are now covered in the project breakdowns */
-    "totalHourlyCost": "1.017315068493150679",
-    "totalMonthlyCost": "742.64",
-    "resources": [
-      /* This contains a list of all the resources in projects[*].breakdown.resources. */
-    ],
-    /* END - deprecated fields */
-
+    "version": "0.1",
     "projects": [
       {
         /* This contains any resources that are in the prior Terraform state */
@@ -157,7 +149,7 @@ infracost report --format html module*.json > report.html
           "totalHourlyCost": "1.017315068493150679",
           "totalMonthlyCost": "742.64"
         },
-        /* This contains the diff of the resources between the prioer state and planned state */
+        /* This contains the diff of the resources between the prior state and planned state */
         "diff": {
           "resources": [
             {
@@ -255,9 +247,18 @@ infracost report --format html module*.json > report.html
       }
     ],
     "timeGenerated": "2021-02-17T17:46:51.690235Z",
-    "resourceSummary": {
-      "unsupportedCounts": {}
+    "summary": {
+      "unsupportedResourceCounts": {}
     }
+
+    /* START - deprecated fields */
+    /* These fields will be deprecated in v0.8.0 since they are now covered in the project breakdowns */
+    "totalHourlyCost": "1.017315068493150679",
+    "totalMonthlyCost": "742.64",
+    "resources": [
+      /* This contains a list of all the resources in projects[*].breakdown.resources. */
+    ],
+    /* END - deprecated fields */    
   }
   ```
 
@@ -265,27 +266,70 @@ infracost report --format html module*.json > report.html
   <TabItem value="table">
 
   ```sh
-  NAME                                         MONTHLY QTY  UNIT         PRICE   HOURLY COST  MONTHLY COST
+  Project: examples/terraform
+
+  Name                                     Quantity  Unit                Monthly Cost
 
   aws_instance.web_app
-  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)          730  hours        0.7680       0.7680      560.6400
+  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)   730  hours                    $560.64
   ├─ root_block_device
-  │  └─ General Purpose SSD storage (gp2)               50  GB-months    0.1000       0.0068        5.0000
+  │  └─ General Purpose SSD storage (gp2)        50  GB-months                  $5.00
   └─ ebs_block_device[0]
-     ├─ Provisioned IOPS SSD storage (io1)           1,000  GB-months    0.1250       0.1712      125.0000
-     └─ Provisioned IOPS                               800  IOPS-months  0.0650       0.0712       52.0000
-  Total                                                                               1.0173      742.6400
+      ├─ Provisioned IOPS SSD storage (io1)   1,000  GB-months                $125.00
+      └─ Provisioned IOPS                       800  IOPS-months               $52.00
 
   aws_lambda_function.hello_world
-  ├─ Requests                                            -  1M requests  0.2000            -             -
-  └─ Duration                                            -  GB-seconds    2e-05            -             -
-  Total                                                                                    -             -
+  ├─ Requests                       Cost depends on usage: $0.20 per 1M requests
+  └─ Duration                       Cost depends on usage: $0.0000166667 per GB-seconds
 
-  OVERALL TOTAL (USD)                                                                 1.0173      742.6400
+  PROJECT TOTAL                                                               $742.64
+
+  ----------------------------------
+  To estimate usage-based resources use --usage-file, see https://infracost.io/usage_file
   ```
   </TabItem>
+  <TabItem value="diff">
+
+  ```sh
+  Project: examples/terraform
+
+  + aws_instance.web_app
+    +$743
+
+      + Linux/UNIX usage (on-demand, m5.4xlarge)
+        +$561
+
+      + root_block_device
+
+          + General Purpose SSD storage (gp2)
+            +$5.00
+
+      + ebs_block_device[0]
+
+          + Provisioned IOPS SSD storage (io1)
+            +$125
+
+          + Provisioned IOPS
+            +$52.00
+
+  + aws_lambda_function.hello_world
+    Cost depends on usage
+
+      + Requests
+        Cost depends on usage
+          +$0.20 per 1M requests
+
+      + Duration
+        Cost depends on usage
+          +$0.0000166667 per GB-seconds
+
+  Monthly cost change for examples/terraform
+  Amount:  +$743 ($0.00 -> $743)
+
+  ----------------------------------
+  Key: ~ changed, + added, - removed
+
+  To estimate usage-based resources use --usage-file, see https://infracost.io/usage_file
+  ```
+  </TabItem>  
 </Tabs>
-
-## Bulk run
-
-The [`report_all.sh`](https://github.com/infracost/infracost/blob/master/scripts/report_all.sh) bash script runs Infracost on all subfolders that have `.tf` files and outputs the combined results using the [`infracost report`](/docs/report) command. You can customize it based on which folders it should exclude or how you run Infracost.

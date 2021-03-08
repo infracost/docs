@@ -1,9 +1,7 @@
 ---
-slug: /terraform_modules
+slug: terraform_modules
 title: Terraform modules
 ---
-
-## Terraform modules
 
 Infracost will include any modules that are included by `terraform plan` depending on the Terraform parameters you pass in. The output will show the total cost based on the sum of the costs of the modules.
 

@@ -53,24 +53,18 @@ function Navbar({ isDocs }) {
       <a className="navbar-item navbar-link" href="/pricing">Pricing</a>
       <a className="navbar-item navbar-link" href="/about">About</a>
       <a className="navbar-item navbar-link" href="/blog">Blog</a>
-      <a className="navbar-item navbar-link" href="/docs">Documentation</a>
+      <a className="navbar-item navbar-link" href="/docs/support">Support</a>
+      <a className="navbar-item navbar-link" href="/docs">Docs</a>
     </div>
   );
 
   const docs = (
     <>
-      <a className="navbar-item" href="/pricing">
-        Pricing
-      </a>
-      <a className="navbar-item" href="/about">
-        About
-      </a>
-      <a className="navbar-item" href="/blog">
-        Blog
-      </a>
-      <a className="navbar-item" href="/docs">
-        Documentation
-      </a>
+      <a className="navbar-item" href="/pricing">Pricing</a>
+      <a className="navbar-item" href="/about">About</a>
+      <a className="navbar-item" href="/blog">Blog</a>
+      <a className="navbar-item" href="/docs/support">Support</a>
+      <a className="navbar-item" href="/docs">Docs</a>
     </>
   );
 

@@ -34,14 +34,14 @@ Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, deve
   ```
   Name                               Quantity  Unit         Monthly Cost
 
-  aws_lambda_function.hello_world
+  aws_lambda_function.hi
   ├─ Requests                             100  1M requests        $20.00
   └─ Duration                      12,500,000  GB-seconds        $208.33
 
   PROJECT TOTAL                                                  $228.33
   ```
 
-The usage file also supports specifying usage for resources inside modules, by specifying the full path to the resource. This is the same value as Infracost outputs in the NAME column , e.g.:
+The usage file also supports specifying usage for resources inside modules, by specifying the full path to the resource. This is the same value as Infracost outputs in the Name column , e.g.:
   ```yaml
   version: 0.1
   resource_usage:
@@ -54,6 +54,4 @@ The usage file also supports specifying usage for resources inside modules, by s
 
 ### Supported parameters
 
-This [infracost-usage-example.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) contains the list of all of the available parameters and their descriptions.
-
-We'd love to hear feedback about this feature either via email [hello@infracost.io](mailto:hello@infracost.io) or our [community Slack channel](https://www.infracost.io/community-chat).
+The [infracost-usage-example.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) file contains the list of all of the available parameters and their descriptions. You can copy/paste resources you use from that file to create your own usage-file.

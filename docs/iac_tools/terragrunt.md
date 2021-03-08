@@ -1,5 +1,5 @@
 ---
-slug: /terragrunt
+slug: terragrunt
 title: Terragrunt
 ---
 

@@ -55,7 +55,7 @@ module.exports = {
         {
           to: 'docs/',
           activeBasePath: 'docs',
-          label: 'Documentation',
+          label: 'Docs',
           position: 'right',
         },
         {
@@ -77,7 +77,7 @@ module.exports = {
             },
             {
               label: 'CI/CD integrations',
-              to: 'docs/integrations',
+              to: 'docs/integrations/cicd',
             },
             {
               label: 'Support',

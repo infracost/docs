@@ -1,6 +1,6 @@
 ---
-slug: /config_file
-title: Multi-project config
+slug: config_file
+title: Config file
 ---
 
 We recommend that you create an `infracost.yml` file in each of your terraform project repos using [this example](https://github.com/infracost/infracost/blob/master/infracost-example.yml). This file can be passed to Infracost using the `--config-file` option. This flag should not be confused with the `--usage-file` option that is used to define resource [usage](/docs/usage_based_resources) estimates.
@@ -33,3 +33,7 @@ Configuration values are chosen in this order:
 1. CLI flags (run `infracost --help` to see them)
 2. [Environment variables](/docs/environment_variables)
 3. Configuration file
+
+## Bulk run
+
+The [`report_all.sh`](https://github.com/infracost/infracost/blob/master/scripts/report_all.sh) bash script runs Infracost on all subfolders that have `.tf` files and outputs the combined results using the [`infracost report`](/docs/report) command. You can customize it based on which folders it should exclude or how you run Infracost.

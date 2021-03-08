@@ -1,5 +1,5 @@
 ---
-slug: /environment_variables
+slug: environment_variables
 title: Environment variables
 ---
 

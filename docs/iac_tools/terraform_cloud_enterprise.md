@@ -1,5 +1,5 @@
 ---
-slug: /terraform_cloud_enterprise
+slug: terraform_cloud_enterprise
 title: Terraform Cloud/Enterprise
 ---
 

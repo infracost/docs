@@ -9,7 +9,7 @@ function Footer() {
             <h4>Docs</h4>
             <ul>
               <li><a href="/docs">Getting started</a></li>
-              <li><a href="/docs/integrations">CI/CD integrations</a></li>
+              <li><a href="/docs/integrations/cicd">CI/CD integrations</a></li>
               <li><a href="/docs/supported_resources">Supported resources</a></li>
               <li><a href="/docs/support">Support</a></li>
               <li><a href="/docs/faq">FAQ</a></li>
