@@ -15,7 +15,7 @@ Infracost API key, run `infracost register` to get one.
 Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot.
 
 ### INFRACOST_SKIP_UPDATE_CHECK
-Set to `true` to skip the Infracost update check; can be useful in CI/CD systems. We recommend watching the Infracost repo for releases by going to the [repo](https://github.com/infracost/infracost) page, clicking on the Watch button, selecting Custom, then Releases and clicking on Apply. Be sure to upgrade regularly as we continually add new resources to Infracost.
+Set to `true` to skip the Infracost update check; can be useful in CI/CD systems. We regularly add support for new resources so we recommend watching our repo for releases: goto the [repo](https://github.com/infracost/infracost) page, click on the Watch button > select Custom > Releases and click on Apply. Be sure to upgrade regularly.
 
 ### INFRACOST_TERRAFORM_BINARY
 Used to change the path to the `terraform` binary, e.g.:

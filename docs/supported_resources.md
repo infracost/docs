@@ -62,10 +62,16 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
 | Kubernetes Engine (GKE) | `google_container_cluster`, `google_container_node_pool` | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
 
+### Microsoft Azure
+
+Coming soon! Please watch [this issue](https://github.com/infracost/infracost/issues/64) for updates.
+
 ### The resource I want isn't supported
 
-We're regularly adding support for new resources - be sure to [watch the repo](https://github.com/infracost/infracost/) for new releases. You can help by:
+We regularly add support for new resources so we recommend watching our repo for releases: goto the [repo](https://github.com/infracost/infracost) page, click on the Watch button > select Custom > Releases and click on Apply.
+
+You can help by:
 1. [Creating an issue](https://github.com/infracost/infracost/issues/new/choose) and mentioning the resource you need and a little about your use-case; we'll try to prioritize it depending on the community feedback.
 2. [Contributing to Infracost](https://github.com/infracost/infracost#contributing). You can join our [community Slack channel](https://www.infracost.io/community-chat) if you need help contributing.
 
-We plan to add support for more cloud vendors ([Azure](https://github.com/infracost/infracost/issues/64)) and other IaC tools ([Pulumi](https://github.com/infracost/infracost/issues/187), [CloudFormation](https://github.com/infracost/infracost/issues/190)) too. Please watch and 👍 them if you'd like us to work on them sooner.
+We plan to add support for other IaC tools such as [Pulumi](https://github.com/infracost/infracost/issues/187) and [CloudFormation](https://github.com/infracost/infracost/issues/190). Please 👍 them if you'd like us to work on them sooner.
