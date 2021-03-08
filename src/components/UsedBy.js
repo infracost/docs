@@ -15,7 +15,7 @@ function UsedBy() {
           <li><img src="/img/users/accenture.svg" alt="Accenture logo"/></li>
           <li><img src="/img/users/dazn.svg" alt="DAZN logo"/></li>
           <li><img src="/img/users/daimler.svg" alt="Daimler logo"/></li>
-          <li><img src="/img/users/kabum.svg" alt="Kabum logo"/></li>
+          <li><img src="/img/users/picpay.svg" alt="PicPay logo"/></li>
           <li><img src="/img/users/jpmorgan.svg" alt="J.P. Morgan logo"/></li>
           <li><img src="/img/users/nbc_sports_group.png" alt="NBC Sports Group logo"/></li>
         </ul>
