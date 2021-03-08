@@ -18,8 +18,8 @@ To use this API, send an HTTP POST request to https://pricing.api.infracost.io/t
 | ---       | ---         | ---   |
 | terraform-json-file | Terraform plan JSON file | Required. Use '@' to upload the file with curl, e.g. `-F "terraform-json-file=@plan.json"` |
 | usage-file | Infracost [usage file](/docs/usage_based_resources) that specifies values for usage-based resources | Not required. Use '@' to upload the file with curl, e.g. `-F "usage-file=@infracost-usage.yml"` |
-| show-skipped | Show unsupported resources, some of which might be free. Only for table and HTML output | Not required. Defaults to false |
-| no-color | Turn off colored output, useful for table output or Windows users (color output has a bug we need to fix on Windows) | Not required. Defaults to false |
+| show-skipped | Show unsupported resources, some of which might be free. | Not required. Defaults to false |
+| no-color | Turn off colored output, useful for CI/CD or Windows users (color output has a bug we need to fix on Windows) | Not required. Defaults to false |
 
 ## Examples
 
