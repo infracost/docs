@@ -3,11 +3,9 @@ slug: cicd
 title: CI/CD integrations
 ---
 
-Infracost CI/CD integrations can be used to automatically add a pull request comment showing the cost estimate difference for the planned state. Minor cost increase/decrease changes can be ignored by setting a percentage threshold for the comment to be added - details are in each integration document.
+Infracost CI/CD integrations can be used to automatically add a pull request comment showing the diff of monthly costs between the current and planned state. Minor cost increase/decrease changes can be ignored by setting a percentage threshold for the comment to be added.
 
 Infracost can be used in any CI/CD system using [our binary](https://github.com/infracost/infracost/releases) or [Docker image](https://hub.docker.com/r/infracost/infracost). You might also find our [CI diff script](https://github.com/infracost/infracost/tree/master/scripts/ci/diff.sh) useful; it's used in the following integrations.
-
-If you run into any issues with CI/CD integrations, please follow the [troubleshooting steps](/docs/support#infracost-fails-to-run-in-cicd).
 
 ## GitHub Action
 
@@ -41,7 +39,7 @@ See the [Infracost Atlantis integration](https://github.com/infracost/infracost-
 
 Please try the following steps and if that doesn't help, [create an issue](https://github.com/infracost/infracost/issues/new/choose) or join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.
 
-1. Set the [`INFRACOST_LOG_LEVEL`](/docs/environment_variables#infracost_log_level) environment variable to `debug` in case that provides more useful details. For Atlantis, also set [`atlantis_debug=true`](https://github.com/infracost/infracost-atlantis/#atlantis_debug).
-2. Check the Terraform version that Infracost is using matches the version you need. Use the [`INFRACOST_TERRAFORM_BINARY`](/docs/environment_variables/#infracost_terraform_binary) environment variable to change that.
+1. Set the [`INFRACOST_LOG_LEVEL`](/docs/integrations/environment_variables#infracost_log_level) environment variable to `debug` in case that provides more useful details. For Atlantis, also set [`atlantis_debug=true`](https://github.com/infracost/infracost-atlantis/#atlantis_debug).
+2. Check the Terraform version that Infracost is using matches the version you need. Use the [`INFRACOST_TERRAFORM_BINARY`](/docs/integrations/environment_variables/#infracost_terraform_binary) environment variable to change that.
 3. Use `ls -lah` in the CI build to check for any `.terraform*` files/folders that might be confusing Terraform running in CI vs previous runs that were used to create them. Removing those files might help.
-4. Check the [Terraform Cloud/Enterprise](/docs/terraform_cloud_enterprise) or [Terragrunt](/docs/terragrunt) docs pages if applicable.
+4. Check the [Terraform Cloud/Enterprise](/docs/iac_tools/terraform_cloud_enterprise) or [Terragrunt](/docs/iac_tools/terragrunt) docs pages if applicable.

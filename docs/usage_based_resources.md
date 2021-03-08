@@ -6,13 +6,13 @@ title: Usage-based resources
 Infracost distinguishes the **price** of a resource from its **cost**. Price is the per-unit price advertised by a cloud vendor. The cost of a resource is calculated by multiplying its price by its usage. For example, an EC2 instance might be priced at $0.02 per hour, and if run for 100 hours (its usage), it'll cost $2. Supported resources in Infracost will always show prices, but if a resource has a usage-based cost component, we can't show its cost as we don't know how much it'll be used. For example, an AWS Lambda resource shows no monthly costs for requests and duration:
 
   ```
-  Name                             Quantity  Unit                  Monthly Cost
+  Name                             Quantity  Unit                 Monthly Cost
 
   aws_lambda_function.hi
   ├─ Requests              Cost depends on usage: $0.20 per 1M requests
   └─ Duration              Cost depends on usage: $0.0000166667 per GB-seconds
 
-  PROJECT TOTAL                                                           $0.00
+  PROJECT TOTAL                                                          $0.00
   ```
 
 ## Infracost usage file

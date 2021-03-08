@@ -7,12 +7,12 @@ title: FAQ
 
 Infracost works with Terraform v0.12 and above.
 
-To change the path to the `terraform` binary, set the `INFRACOST_TERRAFORM_BINARY` env variable:
+To change the path to the `terraform` binary, set the `INFRACOST_TERRAFORM_BINARY` environment variable:
 ```sh
 INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --path /path/to/code
 ```
 
-Terragrunt users should see [this page](/docs/iac_tools/iac_tools/terragrunt).
+Terragrunt users should see [this page](/docs/iac_tools/terragrunt).
 
 ## Does Infracost need cloud credentials?
 
@@ -88,5 +88,5 @@ The key differences are:
 1. Infracost is free and open-source, Terraform Cloud's cost estimation is paid and closed source.
 2. Infracost [supports more resources](/docs/supported_resources) than Terraform Cloud's cost estimation feature.
 3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of what source control and CI/CD system you use.
-4. Infracost can be used with [Terragrunt](/docs/terragrunt).
-5. Infracost can output [HTML reports](/docs/multi_project/report) or JSON and used alongside other tools.
+4. Infracost can be used with [Terragrunt](/docs/iac_tools/terragrunt).
+5. Infracost can output [HTML reports](/docs/multi_project/report) or JSON and be used alongside other tools.

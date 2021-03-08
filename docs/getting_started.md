@@ -107,7 +107,7 @@ If your repo has **multiple Terraform projects or workspaces**, use an Infracost
 
 As shown below, any required Terraform flags can be passed using `--terraform-plan-flags`. The `--terraform-workspace` flag can be used to define a workspace.
 
-Internally Infracost runs Terraform `init`, `plan` and `show`; `init` requires cloud credentials to be set, e.g. via the usual `AWS_ACCESS_KEY_ID` or `GOOGLE_CREDENTIALS` environment variables.
+Internally Infracost runs Terraform init, plan and show; init requires cloud credentials to be set, e.g. via the usual `AWS_ACCESS_KEY_ID` or `GOOGLE_CREDENTIALS` environment variables.
 
   ```sh
   infracost breakdown --path /code --terraform-plan-flags "-var-file=my.tfvars"
@@ -132,12 +132,16 @@ Point to a Terraform plan JSON file using `--path`. This implies that Terraform 
 
 ## Useful options
 
-Run `infracost --help` to see the available options, which include:
+Run `infracost breakdown --help` to see the available options, which include:
 
   ```sh
-  --config-file      Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
-  --usage-file       Path to Infracost usage file that specifies values for usage-based resources
-  --show-skipped     Show unsupported resources, some of which might be free
-  --no-color         Turn off colored output
-  --log-level value  Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise
+  --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
+  --format               Output format: json, table, html (default "table")
+  --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
+  --usage-file           Path to Infracost usage file that specifies values for usage-based resources
+  --show-skipped         Show unsupported resources, some of which might be free
+  --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise
+  --no-color             Turn off colored output
   ```
+
+The `infracost diff --help` and `infracost output --help` commands show related options, see the [advanced usage](/docs/guides/advanced_usage) guide for more details.

@@ -3,37 +3,81 @@ slug: config_file
 title: Config file
 ---
 
-We recommend that you create an `infracost.yml` file in each of your terraform project repos using [this example](https://github.com/infracost/infracost/blob/master/infracost-example.yml). This file can be passed to Infracost using the `--config-file` option. This flag should not be confused with the `--usage-file` option that is used to define resource [usage](/docs/usage_based_resources) estimates.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Advantages
+An Infracost config file can be created in each of your Terraform project repos to specify how Infracost should be run. This has three main advantages over CLI flags:
+1. Not having to remember or specify flags for each run.
+2. Ability to run Infracost with multiple Terraform projects or workspaces, and combine them into the same breakdown or diff output.
+3. Enable multi-project or workspace runs in [CI/CD integrations](/docs/integrations/cicd).
 
-Using a configuration file has many advantages over CLI flags:
-- Not having to remember/specify flags for each run
-- Specify multiple terraform directories, JSON/plan files and combine them into a single output
-- Specify multiple output formats per run, for example output the table format to the screen and save an HTML report
+## Usage
 
-In the future, we plan to extend the config file so you can select the output columns, level of detail, and breakdown levels (module, project). We might also enable you to specify wildcards to process all projects under a specific directory.
+1. Create an `infracost.yml` file in each of your Terraform project repos; you might find the following [examples](#examples) helpful.
+  ```yml
+  version: 0.1
+  projects:
+    - path: examples/terraform
+  ```
+2. Pass it to the `infracost breakdown` or `infracost diff` using the `--config-file` option. This flag should not be confused with the `--usage-file` option that is used to define resource [usage](/docs/usage_based_resources) estimates.
 
-## Supported parameters
+| Parameter             | Description | Notes |
+| ---                   | ---         | ---   |
+| path                  | | Required. |       
+| usage_file            | | Not required. |
+| terraform_binary      | | Not required. |
+| terraform_plan_flags  | | Not required. |
+| terraform_workspace   | | Not required. |
+| terraform_use_state   | | Not required. |
+| terraform_cloud_host  | | Not required. |
+| terraform_cloud_token | | Not required. If the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable is set, that'll be used for all projects instead of this parameter. |
 
-TODO:
-- path
-- usage_file
-- terraform_binary
-- terraform_plan_flags
-- terraform_workspace
-- terraform_use_state
-- terraform_cloud_host
-- terraform_cloud_token
+## Examples
 
-This [infracost-example.yml](https://github.com/infracost/infracost/blob/master/infracost-example.yml) contains the list of all of the available parameters and their descriptions.
+<Tabs
+  defaultValue="multi-workspaces"
+  values={[
+    {label: 'Multi-workspaces', value: 'multi-workspaces'},
+    {label: 'Multi-projects', value: 'multi-projects'},
+    {label: 'Terragrunt', value: 'terragrunt'},
+  ]}>
+  <TabItem value="multi-workspaces">
+
+  ```yml
+  version: 0.1
+  projects:
+    - path: examples/terraform
+      terraform_plan_flags: -var-file=prod.tfvars -var-file=us-east.tfvars 
+      terraform_workspace: prod
+    - path: examples/terraform
+      terraform_workspace: dev
+  ```
+  </TabItem>
+  <TabItem value="multi-projects">
+
+  ```yml
+  version: 0.1
+  projects:
+    - path: tfplans/project1.json
+      usage_file: project1-usage.yml
+    - path: tfplans/project2.json
+      usage_file: project2-usage.yml
+  ```
+  </TabItem>
+  <TabItem value="terragrunt">
+
+  ```yml
+  version: 0.1
+  projects:
+    - path: examples/project
+      terraform_binary: terragrunt
+  ```
+  </TabItem>
+</Tabs>
 
 ## Precedence
-Configuration values are chosen in this order:
+
+Infracost configuration values are chosen in this order:
 1. CLI flags (run `infracost --help` to see them)
-2. [Environment variables](/docs/environment_variables)
-3. Configuration file
-
-## Bulk run
-
-The [`report_all.sh`](https://github.com/infracost/infracost/blob/master/scripts/report_all.sh) bash script runs Infracost on all subfolders that have `.tf` files and outputs the combined results using the [`infracost report`](/docs/report) command. You can customize it based on which folders it should exclude or how you run Infracost.
+2. [Environment variables](/docs/integrations/environment_variables)
+3. Config file

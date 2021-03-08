@@ -11,6 +11,8 @@ The `infracost breakdown` command has a `--format json|table|html` flag that can
 
 These reports can be uploaded to object storage such as AWS S3 or Google Cloud Storage and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
 
+## Usage
+
 Run `infracost output --help` to see the available options. Example usage:
 
 ```sh
@@ -18,15 +20,19 @@ infracost breakdown --path /path/to/project1 --format json > project1.json
 infracost breakdown --path /path/to/project2 --format json > project2.json
 
 infracost output --path project*.json --format html > report.html
+
+infracost output --path project*.json --format diff
 ```
+
+## Examples
 
 <Tabs
   defaultValue="html"
   values={[
     {label: 'Example HTML report', value: 'html'},
-    {label: 'JSON output', value: 'json'},
-    {label: 'Table output', value: 'table'},
-    {label: 'Diff output', value: 'diff'},
+    {label: 'JSON format', value: 'json'},
+    {label: 'Table format', value: 'table'},
+    {label: 'Diff format', value: 'diff'},
   ]}>
   <TabItem value="html">
     <img src={useBaseUrl("img/screenshots/html_report.png")} alt="Infracost HTML report" />
@@ -48,6 +54,8 @@ infracost output --path project*.json --format html > report.html
     "version": "0.1",
     "projects": [
       {
+        "path": "examples/terraform",
+        "metadata": {},
         /* This contains any resources that are in the prior Terraform state */
         "pastBreakdown": {
           "resources": [],
@@ -59,7 +67,7 @@ infracost output --path project*.json --format html > report.html
           "resources": [
             {
               "name": "aws_instance.web_app",
-              "metadata": null,
+              "metadata": {},
               "hourlyCost": "1.017315068493150679",
               "monthlyCost": "742.64",
               "costComponents": [
@@ -76,7 +84,7 @@ infracost output --path project*.json --format html > report.html
               "subresources": [
                 {
                   "name": "root_block_device",
-                  "metadata": null,
+                  "metadata": {},
                   "hourlyCost": "0.00684931506849315",
                   "monthlyCost": "5",
                   "costComponents": [
@@ -93,7 +101,7 @@ infracost output --path project*.json --format html > report.html
                 },
                 {
                   "name": "ebs_block_device[0]",
-                  "metadata": null,
+                  "metadata": {},
                   "hourlyCost": "0.242465753424657529",
                   "monthlyCost": "177",
                   "costComponents": [
@@ -121,7 +129,7 @@ infracost output --path project*.json --format html > report.html
             },
             {
               "name": "aws_lambda_function.hello_world",
-              "metadata": null,
+              "metadata": {},
               "hourlyCost": null,
               "monthlyCost": null,
               "costComponents": [
@@ -154,7 +162,7 @@ infracost output --path project*.json --format html > report.html
           "resources": [
             {
               "name": "aws_instance.web_app",
-              "metadata": null,
+              "metadata": {},
               "hourlyCost": "1.017315068493150679",
               "monthlyCost": "742.64",
               "costComponents": [
@@ -171,7 +179,7 @@ infracost output --path project*.json --format html > report.html
               "subresources": [
                 {
                   "name": "root_block_device",
-                  "metadata": null,
+                  "metadata": {},
                   "hourlyCost": "0.00684931506849315",
                   "monthlyCost": "5",
                   "costComponents": [
@@ -188,7 +196,7 @@ infracost output --path project*.json --format html > report.html
                 },
                 {
                   "name": "ebs_block_device[0]",
-                  "metadata": null,
+                  "metadata": {},
                   "hourlyCost": "0.242465753424657529",
                   "monthlyCost": "177",
                   "costComponents": [
@@ -216,7 +224,7 @@ infracost output --path project*.json --format html > report.html
             },
             {
               "name": "aws_lambda_function.hello_world",
-              "metadata": null,
+              "metadata": {},
               "hourlyCost": "0",
               "monthlyCost": "0",
               "costComponents": [
@@ -333,3 +341,9 @@ infracost output --path project*.json --format html > report.html
   ```
   </TabItem>  
 </Tabs>
+
+## Bulk run
+
+The following bash scripts run Infracost on all subfolders that have `.tf` files and output the combined results using the `infracost output` command. You can customize them based on which folders they should exclude or how you run Infracost (e.g. pass `--terraform-plan-flags`).
+  - to run `infracost breakdown`, use [breakdown_all.sh](https://github.com/infracost/infracost/blob/master/scripts/breakdown_all.sh)
+  - to run `infracost diff`, use [diff_all.sh](https://github.com/infracost/infracost/blob/master/scripts/breakdown_all.sh)
