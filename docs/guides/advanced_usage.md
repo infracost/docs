@@ -21,7 +21,7 @@ Point to the Terraform directory and use the Terraform plan. This implies that t
   ```shell
   cd path/to/code
   terraform init
-  terraform plan -out plan.save .
+  terraform plan -out tfplan.binary .
 
-  infracost --terraform-dir /path/to/code --terraform-plan-file plan.save
+  infracost --terraform-dir /path/to/code --terraform-plan-file tfplan.binary
   ```

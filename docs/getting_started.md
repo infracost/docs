@@ -124,8 +124,8 @@ Point to a Terraform plan JSON file using `--path`. This implies that Terraform 
   ```shell
   cd path/to/code
   terraform init
-  terraform plan -out plan.save .
-  terraform show -json plan.save > plan.json
+  terraform plan -out tfplan.binary .
+  terraform show -json tfplan.binary > plan.json
 
   infracost breakdown --path plan.json
 
