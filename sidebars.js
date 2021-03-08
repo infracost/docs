@@ -6,12 +6,12 @@ module.exports = {
     },
     {
       type: 'doc',
-      id: 'usage_based_resources',
+      id: 'supported_resources',
     },
     {
       type: 'doc',
-      id: 'supported_resources',
-    },   
+      id: 'usage_based_resources',
+    },
     {
       type: 'doc',
       id: 'faq',
