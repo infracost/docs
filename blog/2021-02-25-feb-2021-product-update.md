@@ -19,7 +19,7 @@ The CLI now only runs `terraform init` if required since Terraform commands aren
 
 Depending on your Terraform workflow, you'll run Infracost with [different options](/docs/#usage-methods). Things can get complicated when you have multiple projects in a repo, each requiring their own Terraform variables. For example, if you have two workspaces and want to see their total cost estimate, you would run something like this:
 
-```sh
+```shell
 terraform workspace select dev
 infracost --terraform-dir code --format json \
           --terraform-plan-flags "-var-file=env.dev.tfvars" > dev.json

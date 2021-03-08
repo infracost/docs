@@ -19,7 +19,7 @@ Set to `true` to skip the Infracost update check; can be useful in CI/CD systems
 
 ### INFRACOST_TERRAFORM_BINARY
 Used to change the path to the `terraform` binary, e.g.:
-  ```sh
+  ```shell
   INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --terraform-dir /path/to/code
   # or
   INFRACOST_TERRAFORM_BINARY=terragrunt infracost breakdown --terraform-dir=/path/to/code
@@ -37,7 +37,7 @@ Infracost works with Terraform v0.12 and above.
 
 ### INFRACOST_TERRAFORM_WORKSPACE
 Used to set the Terraform workspace (this sets the [`TF_WORKSPACE`](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_workspace) internally). The `--terraform-workspace` flag can also be used.
-  ```sh
+  ```shell
   INFRACOST_TERRAFORM_WORKSPACE=dev infracost breakdown --terraform-dir /path/to/code
   ```
 
@@ -54,6 +54,6 @@ Set to `false` to opt-out of telemetry when using a self-hosted Cloud Pricing AP
 
 ### Terraform environment variables
 Standard Terraform [environment variables](https://www.terraform.io/docs/commands/environment-variables.html) such as `TF_CLI_CONFIG_FILE` can also be added if required, for example:
-```sh
+```shell
 TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost breakdown --terraform-dir /path/to/code
 ```

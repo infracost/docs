@@ -8,7 +8,7 @@ title: FAQ
 Infracost works with Terraform v0.12 and above.
 
 To change the path to the `terraform` binary, set the `INFRACOST_TERRAFORM_BINARY` environment variable:
-```sh
+```shell
 INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --path /path/to/code
 ```
 

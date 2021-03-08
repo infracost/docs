@@ -21,38 +21,35 @@ module "prod" {
 }
 ```
 
-And then pass `--terraform-plan-flags='-var=enable_prod=true'` to Infracost, the output will show:
+And then pass `--terraform-plan-flags='-var=enable_prod=true'` to `infracost breakdown`, the output will show:
 
 ```
-  NAME                                         MONTHLY QTY  UNIT       PRICE   HOURLY COST  MONTHLY COST
+  Name                                         Quantity  Unit                 Monthly Cost
 
   module.prod[0].aws_instance.web_app
-  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)          730  hours      0.8880       0.8880      648.2400
+  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)       730  hours                     $648.24
   └─ root_block_device
-     └─ General Purpose SSD storage (gp2)               50  GB-months  0.1160       0.0079        5.8000
-  Total                                                                             0.8959      654.0400
+     └─ General Purpose SSD storage (gp2)            50  GB-months                   $5.80
 
-  OVERALL TOTAL (USD)                                                               0.8959      654.0400
+  PROJECT TOTAL                                                                    $654.04
 ```
 
-If you pass `--terraform-plan-flags='-var=enable_prod=true -var=enable_dev=true'` to Infracost it will show the costs for both:
+If you pass `--terraform-plan-flags='-var=enable_prod=true -var=enable_dev=true'` to `infracost breakdown` it will show the costs for both:
 
 ```
-  NAME                                         MONTHLY QTY  UNIT       PRICE   HOURLY COST  MONTHLY COST
+  Name                                         Quantity  Unit                 Monthly Cost
 
   module.dev[0].aws_instance.web_app
-  ├─ Linux/UNIX usage (on-demand, m5.2xlarge)          730  hours      0.4440       0.4440      324.1200
+  ├─ Linux/UNIX usage (on-demand, m5.2xlarge)       730  hours                     $324.12
   └─ root_block_device
-     └─ General Purpose SSD storage (gp2)               50  GB-months  0.1160       0.0079        5.8000
-  Total                                                                             0.4519      329.9200
+     └─ General Purpose SSD storage (gp2)            50  GB-months                   $5.80
 
   module.prod[0].aws_instance.web_app
-  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)          730  hours      0.8880       0.8880      648.2400
+  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)       730  hours                     $648.24
   └─ root_block_device
-     └─ General Purpose SSD storage (gp2)               50  GB-months  0.1160       0.0079        5.8000
-  Total                                                                             0.8959      654.0400
+     └─ General Purpose SSD storage (gp2)            50  GB-months                   $5.80
 
-  OVERALL TOTAL (USD)                                                               1.3479      983.9600
+  PROJECT TOTAL                                                                    $983.96
 ```
 
 To show a cost breakdown for each module individually, one workaround at the moment is to run Infracost multiple times with different inputs. The [`report_all.sh`](/docs/report#bulk-run) bash script might be helpful.

@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Infracost shows cloud cost estimates for infrastructure-as-code projects such as Terraform. It helps developers, devops and others to quickly see a cost breakdown and compare different options upfront.
 
-If you're upgrading from older version to `v0.8.0`, please see the [migration guide](/guides/v0.8_migration).
+If you're upgrading from an older version to `v0.8.0`, please see the [migration guide](/docs/guides/v0.8_migration).
 
 ## Installation
 
@@ -26,16 +26,16 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ]}>
   <TabItem value="macos-homebrew">
 
-  ```sh
+  ```shell
   brew install infracost
   ```
 
-  Subsequent updates can be installed in the usual way: `brew upgrade infracost` (you might need `brew update` first if your brew version is old)
+  Subsequent updates can be installed in the usual way: `brew upgrade infracost` (you might need `brew update` first if your brew isn't up-to-date)
 
   </TabItem>
   <TabItem value="macos-manual">
 
-  ```sh
+  ```shell
   arch=$(uname -m | tr '[:upper:]' '[:lower:]' | sed -e s/x86_64/amd64/) && \
   curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-darwin-${arch}.tar.gz | tar xz -C /tmp && \
   sudo mv /tmp/infracost-darwin-${arch} /usr/local/bin/infracost
@@ -44,7 +44,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   </TabItem>
   <TabItem value="linux">
 
-  ```sh
+  ```shell
   curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz | tar xz -C /tmp && \
   sudo mv /tmp/infracost-linux-amd64 /usr/local/bin/infracost
   ```
@@ -52,7 +52,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   </TabItem>
   <TabItem value="docker">
 
-  ```sh
+  ```shell
   docker pull infracost/infracost
 
   docker run --rm \
@@ -73,7 +73,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
 
 ### 2. Get API key
 Register for a free API key:
-```sh
+```shell
 infracost register
 ```
 
@@ -82,7 +82,7 @@ The key is saved in `~/.config/infracost/credentials.yml`.
 ### 3. Run it
 Run Infracost using our example Terraform project to see how it works:
 
-```sh
+```shell
 git clone https://github.com/infracost/example-terraform.git
 cd example-terraform
 
@@ -111,7 +111,7 @@ As shown below, any required Terraform flags can be passed using `--terraform-pl
 
 Internally Infracost runs Terraform init, plan and show; init requires cloud credentials to be set, e.g. via the usual `AWS_ACCESS_KEY_ID` or `GOOGLE_CREDENTIALS` environment variables.
 
-  ```sh
+  ```shell
   infracost breakdown --path /code --terraform-plan-flags "-var-file=my.tfvars"
 
   infracost diff --path /code --terraform-plan-flags "-var-file=my.tfvars"
@@ -121,7 +121,7 @@ Internally Infracost runs Terraform init, plan and show; init requires cloud cre
 
 Point to a Terraform plan JSON file using `--path`. This implies that Terraform `init` has been run, thus Infracost just runs Terraform `show`, which does not require cloud creds to be set.
 
-  ```sh
+  ```shell
   cd path/to/code
   terraform init
   terraform plan -out plan.save .
@@ -136,7 +136,7 @@ Point to a Terraform plan JSON file using `--path`. This implies that Terraform 
 
 Run `infracost breakdown --help` to see the available options, which include:
 
-  ```sh
+  ```
   --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
   --format               Output format: json, table, html (default "table")
   --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
