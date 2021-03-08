@@ -16,6 +16,7 @@ An Infracost config file can be created in each of your Terraform project repos 
 1. Create an `infracost.yml` file in each of your Terraform project repos; you might find the following [examples](#examples) helpful.
   ```yml
   version: 0.1
+
   projects:
     - path: examples/terraform
   ```
@@ -45,10 +46,12 @@ An Infracost config file can be created in each of your Terraform project repos 
 
   ```yml
   version: 0.1
+
   projects:
     - path: examples/terraform
       terraform_plan_flags: -var-file=prod.tfvars -var-file=us-east.tfvars 
       terraform_workspace: prod
+
     - path: examples/terraform
       terraform_workspace: dev
   ```
@@ -57,9 +60,11 @@ An Infracost config file can be created in each of your Terraform project repos 
 
   ```yml
   version: 0.1
+
   projects:
     - path: tfplans/project1.json
       usage_file: project1-usage.yml
+
     - path: tfplans/project2.json
       usage_file: project2-usage.yml
   ```
@@ -68,6 +73,7 @@ An Infracost config file can be created in each of your Terraform project repos 
 
   ```yml
   version: 0.1
+
   projects:
     - path: examples/project
       terraform_binary: terragrunt
