@@ -24,6 +24,7 @@ Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, deve
   An `infracost-usage.yml` file with Lambda function usage estimates:
   ```yaml
   version: 0.1
+
   resource_usage:
     aws_lambda_function.hi:
       monthly_requests: 100000000 # Monthly requests to the Lambda function.
@@ -44,9 +45,11 @@ Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, deve
 The usage file also supports specifying usage for resources inside modules, by specifying the full path to the resource. This is the same value as Infracost outputs in the Name column , e.g.:
   ```yaml
   version: 0.1
+
   resource_usage:
     module.my_module.aws_dynamodb_table.my_table:
       storage_gb: 1000
+
     module.lambda_function.aws_lambda_function.this[0]:
       monthly_requests: 20000
       request_duration_ms: 600

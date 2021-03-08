@@ -15,7 +15,7 @@ These reports can be uploaded to object storage such as AWS S3 or Google Cloud S
 
 Run `infracost output --help` to see the available options. Example usage:
 
-```sh
+```shellell
 infracost breakdown --path /path/to/project1 --format json > project1.json
 infracost breakdown --path /path/to/project2 --format json > project2.json
 
@@ -41,7 +41,7 @@ infracost output --path project*.json --format diff
 
   **Tip**: You can use `jq` to extract values. For example, to see the total monthly cost increase of a project you can use:
 
-  ```sh
+  ```shell
   jq '.projects[0].diff.totalMonthlyCost'
   # or to see the sum of all projects:
   jq '[.projects[].diff.totalMonthlyCost | select (.!=null) | tonumber] | add'
@@ -273,7 +273,7 @@ infracost output --path project*.json --format diff
   </TabItem>
   <TabItem value="table">
 
-  ```sh
+  ```shell
   Project: examples/terraform
 
   Name                                     Quantity  Unit                Monthly Cost
@@ -298,7 +298,7 @@ infracost output --path project*.json --format diff
   </TabItem>
   <TabItem value="diff">
 
-  ```sh
+  ```shell
   Project: examples/terraform
 
   + aws_instance.web_app

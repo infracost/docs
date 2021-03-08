@@ -31,7 +31,7 @@ To use this API, send an HTTP POST request to https://pricing.api.infracost.io/t
   ]}>
   <TabItem value="request">
 
-  ```sh
+  ```shell
   cd path/to/code
   terraform init
   terraform plan -out plan.save .
@@ -45,7 +45,7 @@ To use this API, send an HTTP POST request to https://pricing.api.infracost.io/t
   </TabItem>
   <TabItem value="response">
 
-  ```sh
+  ```shell
   Project: examples/terraform
 
   + aws_instance.web_app
