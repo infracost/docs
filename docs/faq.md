@@ -80,7 +80,7 @@ Response:
 
 ## Can I run my own Cloud Pricing API?
 
-Yes, please email <a href="mailto:hello@infracost.io" target="_blank">hello@infracost.io</a> for details.
+Yes! Please email <a href="mailto:hello@infracost.io" target="_blank">hello@infracost.io</a> for details.
 
 ## What's the difference between Infracost and Terraform Cloud's cost estimation?
 
@@ -90,3 +90,7 @@ The key differences are:
 3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of what source control and CI/CD system you use.
 4. Infracost can be used with [Terragrunt](/docs/iac_tools/terragrunt).
 5. Infracost can output [HTML reports](/docs/multi_project/report) or JSON and be used alongside other tools.
+
+## Do you offer support?
+
+Yes! If you need help integrating Infracost in to your workflow, or want to talk about something else, please email [hello@infracost.io](mailto:hello@infracost.io). You can also join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.
