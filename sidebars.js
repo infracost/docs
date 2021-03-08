@@ -11,7 +11,11 @@ module.exports = {
     {
       type: 'doc',
       id: 'supported_resources',
-    },    
+    },   
+    {
+      type: 'doc',
+      id: 'faq',
+    },
     {
       type: 'category',
       label: 'Integrations',
@@ -20,6 +24,15 @@ module.exports = {
         'integrations/cicd',
         'integrations/environment_variables',
         'integrations/infracost_api',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'IaC tools',
+      collapsed: false,
+      items: [
+        'iac_tools/terraform_cloud_enterprise',
+        'iac_tools/terragrunt',
       ],
     },
     {
@@ -33,25 +46,12 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'IaC tools',
-      collapsed: false,
-      items: [
-        'iac_tools/terraform_cloud_enterprise',
-        'iac_tools/terragrunt',
-      ],
-    },
-    {
-      type: 'category',
       label: 'Guides',
-      collapsed: false,
+      collapsed: true,
       items: [
         'guides/v0.8_migration',
         'guides/terraform_modules',
       ],
     },
-    {
-      type: 'doc',
-      id: 'faq',
-    },    
   ]
 };
