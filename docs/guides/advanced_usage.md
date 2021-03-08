@@ -14,7 +14,6 @@ Point to the Terraform directory using `--terraform-dir` and instruct Infracost 
   ```
 
 
-
 ### 4. Terraform plan file
 
 Point to the Terraform directory and use the Terraform plan. This implies that the user has already run Terraform `init`, thus Infracost just runs Terraform `show`, which does not require cloud creds to be set. This method works with remote state too.

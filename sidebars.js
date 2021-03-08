@@ -50,6 +50,7 @@ module.exports = {
       collapsed: true,
       items: [
         'guides/v0.8_migration',
+        `guides/advanced_usage`,
         'guides/terraform_modules',
       ],
     },
