@@ -34,7 +34,7 @@ To use this API, send an HTTP POST request to https://pricing.api.infracost.io/t
   ```shell
   cd path/to/code
   terraform init
-  terraform plan -out tfplan.binary .
+  terraform plan -out tfplan.binary
   terraform show -json tfplan.binary > plan.json
 
   curl -X POST -H "x-api-key: my-api-key" -F "ci-platform=atlantis" \

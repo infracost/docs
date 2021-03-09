@@ -12,7 +12,7 @@ Infracost can be run against a Terraform plan file. This implies that you have a
   ```shell
   cd path/to/code
   terraform init
-  terraform plan -out tfplan.binary .
+  terraform plan -out tfplan.binary
 
   infracost breakdown --path tfplan.binary
 
