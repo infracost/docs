@@ -29,7 +29,7 @@ See the [Infracost CircleCI Orb](https://github.com/infracost/infracost-orb) for
 
 See the [Infracost Bitbucket Pipeline](https://bitbucket.org/infracost/infracost-bitbucket-pipeline) for instructions, and a demo [here](https://bitbucket.org/infracost/circleci-bitbucket-demo).
 
-<img src="https://bytebucket.org/infracost/infracost-bitbucket-pipeline/raw/8fcac59619308deb44ebc11170bfec349e855ee6/screenshot.png" width="550px" alt="Example Infracost diff output" />
+<img src="https://bitbucket.org/infracost/infracost-bitbucket-pipeline/raw/f90fbe9e8e93bd830575e24398c75255ba711c17/screenshot.png" width="550px" alt="Example Infracost diff output" />
 
 ## Atlantis
 
