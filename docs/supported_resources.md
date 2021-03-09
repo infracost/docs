@@ -54,6 +54,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | Cloud DNS | `google_dns_managed_zone` ,`google_dns_record_set` | Most expensive price tier is used. |
+| Cloud Monitoring | `google_monitoring_metric_descriptor` | |
 | Compute Engine | `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
 | Cloud Functions | `google_cloudfunctions_function` | |
 | Key Management Service (KMS) | `google_kms_crypto_key` | |
@@ -64,7 +65,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 
 ### Microsoft Azure
 
-Coming soon! Please watch [this issue](https://github.com/infracost/infracost/issues/64) for updates.
+Coming soon! Please 👍 [this issue](https://github.com/infracost/infracost/issues/64) to receive updates.
 
 ### The resource I want isn't supported
 
