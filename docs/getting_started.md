@@ -132,6 +132,8 @@ Point to a Terraform plan JSON file using `--path`. This implies that Terraform 
   infracost diff --path plan.json
   ```
 
+See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
+
 ## Useful options
 
 Run `infracost breakdown --help` to see the available options, which include:
@@ -146,4 +148,4 @@ Run `infracost breakdown --help` to see the available options, which include:
   --no-color             Turn off colored output
   ```
 
-The `infracost diff --help` and `infracost output --help` commands show related options, see the [advanced usage](/docs/guides/advanced_usage) guide for more details.
+The `infracost diff --help` and `infracost output --help` commands show related options.

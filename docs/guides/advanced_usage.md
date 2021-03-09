@@ -14,12 +14,14 @@ Infracost can be run against a Terraform plan file. This implies that you have a
   terraform init
   terraform plan -out tfplan.binary .
 
-  infracost --path path/to/tfplan.binary
+  infracost breakdown --path tfplan.binary
+
+  infracost diff --path tfplan.binary
   ```
 
 ## Terraform state file
 
-The `infracost breakdown` command has a `--terraform-use-state` flag that is useful if you want to see the cost breakdown of the current Terraform state. This implies that you have already run Terraform `init`, thus Infracost just runs Terraform `show`, which does not require cloud creds or `--terraform-plan-flags` to be set.
+The `infracost breakdown` command has a `--terraform-use-state` flag that is useful if you want to see the cost breakdown of the current Terraform state. This implies that you have already run Terraform `init` and `apply`, thus Infracost just runs Terraform `show`, which does not require cloud creds or `--terraform-plan-flags` to be set.
 
   ```shell
   terraform init
@@ -29,10 +31,11 @@ The `infracost breakdown` command has a `--terraform-use-state` flag that is use
 
 ## Terraform state JSON file
 
-Infracost can be run against a Terraform state JSON file. This implies that you have already run Terraform `init` and `apply`, thus Infracost just runs Terraform `show`, which does not require cloud creds or `--terraform-plan-flags` to be set.
+The `infracost breakdown` command can be run against a Terraform state JSON file. This is useful if you want to see the cost breakdown of the current Terraform state. This implies that you have already run Terraform `init` and `apply`, thus no cloud creds or `--terraform-plan-flags` need to be set.
 
   ```shell
   cd path/to/code
+  terraform init
   terraform show -json > tfstate.json
 
   infracost breakdown --path tfstate.json
