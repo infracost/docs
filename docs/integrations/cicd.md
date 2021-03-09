@@ -11,7 +11,7 @@ If you're upgrading your integrations from an older version to `v0.8.0`, please 
 
 ## GitHub Action
 
-See the [Infracost GitHub Action](https://github.com/marketplace/actions/infracost) for instructions, and a demo [here](https://github.com/infracost/gh-actions-demo)
+See the [Infracost GitHub Action](https://github.com/marketplace/actions/infracost) for instructions, and a demo [here](https://github.com/infracost/gh-actions-demo).
 
 <img src="https://raw.githubusercontent.com/infracost/infracost-gh-action/master/screenshot.png" width="550px" alt="Example Infracost diff output" />
 
@@ -45,3 +45,9 @@ Please try the following steps and if that doesn't help, [create an issue](https
 2. Check the Terraform version that Infracost is using matches the version you need. Use the [`INFRACOST_TERRAFORM_BINARY`](/docs/integrations/environment_variables/#infracost_terraform_binary) environment variable to change that.
 3. Use `ls -lah` in the CI build to check for any `.terraform*` files/folders that might be confusing Terraform running in CI vs previous runs that were used to create them. Removing those files might help.
 4. Check the [Terraform Cloud/Enterprise](/docs/iac_tools/terraform_cloud_enterprise) or [Terragrunt](/docs/iac_tools/terragrunt) docs pages if applicable.
+
+## My CI/CD isn't supported
+
+Please [create an issue](https://github.com/infracost/infracost/issues/new/choose); we'll try to prioritize it depending on the community feedback. There are already requests for [Jenkins](https://github.com/infracost/infracost/issues/406) and [BuildKite](https://github.com/infracost/infracost/issues/499). Please 👍 them if you'd like us to work on them sooner. You can also join our [community Slack channel](https://www.infracost.io/community-chat) if you like to work on an integration, the existing integrations can act as a blueprint.
+
+Please email [hello@infracost.io](mailto:hello@infracost.io) if you'd like to discuss integrations with GitHub Enterprise, GitLab Enterprise Edition, or Bitbucket Data Center.

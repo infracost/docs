@@ -36,11 +36,11 @@ function Pricing() {
                 </li>                
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>CI/CD integrations (GitHub, GitLab, CircleCI, Bitbucket, Atlantis)</span>
+                  <span>CI/CD integrations (GitHub, GitLab, CircleCI...)</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Works with Terraform Cloud/Enterprise &amp; Terragrunt</span>
+                  <span>Works with Terraform Cloud &amp; Terragrunt</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
@@ -72,7 +72,7 @@ function Pricing() {
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>On-premise source code integrations (GitHub, Bitbucket, GitLab)</span>
+                  <span>GitHub/GitLab Enterprise &amp; Bitbucket Data Center integration</span>
                 </li>                      
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
