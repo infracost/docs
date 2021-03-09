@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'IaC tools',
+      label: 'Infra-as-code tools',
       collapsed: false,
       items: [
         'iac_tools/terraform_cloud_enterprise',
