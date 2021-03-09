@@ -3,7 +3,7 @@ slug: terraform_modules
 title: Terraform modules
 ---
 
-Infracost will include any modules that are included by `terraform plan` depending on the Terraform parameters you pass in. The output will show the total cost based on the sum of the costs of the modules.
+Infracost will include any modules that are included by `terraform plan` depending on the Terraform parameters you pass via `--terraform-plan-flags`. The `infracost breakdown` output will show the total cost based on the sum of the costs of the modules.
 
 As an example, say you have a module that manages an EC2 instance and takes the instance type as an input. If you include the module like this:
 
@@ -52,4 +52,4 @@ If you pass `--terraform-plan-flags='-var=enable_prod=true -var=enable_dev=true'
   PROJECT TOTAL                                                                    $983.96
 ```
 
-To show a cost breakdown for each module individually, one workaround at the moment is to run Infracost multiple times with different inputs. The [`report_all.sh`](/docs/multi_project/report#bulk-run) bash script might be helpful.
+To show a cost breakdown for each module individually, one workaround at the moment is to run Infracost multiple times with different inputs. See the [`report_all.sh`](/docs/multi_project/report#bulk-run) bash script for an example of how to do this.
