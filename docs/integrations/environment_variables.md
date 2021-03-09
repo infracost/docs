@@ -1,12 +1,12 @@
 ---
-slug: /environment_variables
+slug: environment_variables
 title: Environment variables
 ---
 
-Infracost uses a number of environment variables to customize various aspects of its behavior; these can be particularly useful in [CI/CD integrations](integrations). Configuration values are chosen in this order:
+Infracost uses a number of environment variables to customize various aspects of its behavior; these can be particularly useful in [CI/CD integrations](/docs/integrations/cicd). Configuration values are chosen in this order:
 1. CLI flags (run `infracost --help` to see them)
 2. Environment variables
-3. [Configuration file](/docs/config_file)
+3. [Config file](/docs/multi_project/config_file)
 
 ### INFRACOST_API_KEY
 Infracost API key, run `infracost register` to get one.
@@ -15,18 +15,18 @@ Infracost API key, run `infracost register` to get one.
 Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot.
 
 ### INFRACOST_SKIP_UPDATE_CHECK
-Set to `true` to skip the Infracost update check; can be useful in CI/CD systems. We recommend watching the Infracost repo for releases by going to the [repo](https://github.com/infracost/infracost) page, clicking on the Watch button, selecting Custom, then Releases and clicking on Apply. Be sure to upgrade regularly as we continually add new resources to Infracost.
+Set to `true` to skip the Infracost update check; can be useful in CI/CD systems. We regularly add support for new resources so we recommend watching our repo for releases: goto the [repo](https://github.com/infracost/infracost) page, click on the Watch button > select Custom > Releases and click on Apply. Be sure to upgrade regularly.
 
 ### INFRACOST_TERRAFORM_BINARY
 Used to change the path to the `terraform` binary, e.g.:
-  ```sh
-  INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --terraform-dir /path/to/code
+  ```shell
+  INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --terraform-dir /path/to/code
   # or
-  INFRACOST_TERRAFORM_BINARY=terragrunt infracost --terraform-dir=/path/to/code
+  INFRACOST_TERRAFORM_BINARY=terragrunt infracost breakdown --terraform-dir=/path/to/code
   ```
 
 #### CI/CD integrations
-If you're using a [CI/CD integration](integrations), our [Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the latest stable versions of terraform and terragrunt; so you can set this environment variable to:
+If you're using a [CI/CD integration](/docs/integrations/cicd), our [Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the latest stable versions of terraform and terragrunt; so you can set this environment variable to:
 - `terraform` (default, latest stable version of terraform)
 - `terraform_0.14` (latest patch version of 0.14)
 - `terraform_0.13` (latest patch version of 0.13)
@@ -36,9 +36,9 @@ If you're using a [CI/CD integration](integrations), our [Docker image](https://
 Infracost works with Terraform v0.12 and above.
 
 ### INFRACOST_TERRAFORM_WORKSPACE
-Used to set the Terraform workspace (this sets the [`TF_WORKSPACE`](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_workspace) internally):
-  ```sh
-  INFRACOST_TERRAFORM_WORKSPACE=dev infracost --terraform-dir /path/to/code
+Used to set the Terraform workspace (this sets the [`TF_WORKSPACE`](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_workspace) internally). The `--terraform-workspace` flag can also be used.
+  ```shell
+  INFRACOST_TERRAFORM_WORKSPACE=dev infracost breakdown --terraform-dir /path/to/code
   ```
 
 Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported". If you see this error, try running `unset INFRACOST_TERRAFORM_WORKSPACE` and `unset TF_WORKSPACE`.
@@ -54,6 +54,6 @@ Set to `false` to opt-out of telemetry when using a self-hosted Cloud Pricing AP
 
 ### Terraform environment variables
 Standard Terraform [environment variables](https://www.terraform.io/docs/commands/environment-variables.html) such as `TF_CLI_CONFIG_FILE` can also be added if required, for example:
-```sh
-TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost --terraform-dir /path/to/code
+```shell
+TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost breakdown --terraform-dir /path/to/code
 ```

@@ -127,10 +127,6 @@ Additionally, you agree not to:
 
 We may use third-party Service Providers to monitor and analyze the use of our Service.
 
-Plausible
-
-Plausible Analytics is a web traffic analysis tool. You can read the Privacy Policy for Plausible here: https://plausible.io/privacy.
-
 Google Analytics
 
 Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualise and personalise the ads of its own advertising network.

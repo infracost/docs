@@ -7,26 +7,28 @@ title: FAQ
 
 Infracost works with Terraform v0.12 and above.
 
-To change the path to the `terraform` binary, set the `INFRACOST_TERRAFORM_BINARY` env variable:
-```sh
-INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost --terraform-dir /path/to/code
+To change the path to the `terraform` binary, set the `INFRACOST_TERRAFORM_BINARY` environment variable:
+```shell
+INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --path /path/to/code
 ```
+
+Terragrunt users should see [this page](/docs/iac_tools/terragrunt).
 
 ## Does Infracost need cloud credentials?
 
 Infracost itself does not need any cloud credentials.
 
-Infracost runs Terraform internally and depending on which Infracost [usage method](/docs/#usage-methods) is used, **Terraform** will need access to cloud credentials, e.g. when running `terraform init` and `terraform plan`. These commands are only used to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output) and no changes are made to your Terraform state or cloud resources.
+Infracost runs Terraform internally and if Infracost is run against a [Terraform directory](/docs/#terraform-directory), **Terraform** will need access to cloud credentials, e.g. when running `terraform init` and `terraform plan`. These commands are only used to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output) and no changes are made to your Terraform state or cloud resources.
 
 ## How does Infracost get cloud prices?
 
-Infracost gets prices from the [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api). We offer a free Cloud Pricing API and continually update it with the latest cloud vendor prices.
+Infracost gets prices from the Cloud Pricing API, which we continually update with the latest cloud vendor prices.
 
-## What data is sent to the hosted Cloud Pricing API?
+## What data is sent to the Cloud Pricing API?
 
-No cloud credentials, secrets, tags or Terraform resource identifiers are sent to the open-source [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api). Infracost does not make any changes to your Terraform state or cloud resources.
+**No** cloud credentials, secrets, tags or resource identifiers are sent to the Cloud Pricing API. That API does not become aware of your cloud spend; it simply returns cloud prices to the CLI so calculations can be done on your machine. Infracost does not make any changes to your Terraform state or cloud resources.
 
-The Cloud Pricing API does not become aware of your cloud spend; it returns price points to the CLI so calculations can be done on your machine. The Cloud Pricing API needs the relevant data to return a unique cloud price point. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also sent alongside error tracking events so we can identify and fix issues quickly.
+The Cloud Pricing API needs the relevant data to return a unique cloud price point. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also sent alongside error tracking events so we can identify and fix issues quickly.
 
 Here is an example request to the Cloud Pricing API for a t3.micro instance and the returned response:
 
@@ -78,13 +80,17 @@ Response:
 
 ## Can I run my own Cloud Pricing API?
 
-Yes! The [Cloud Pricing API repo](https://github.com/infracost/cloud-pricing-api) has instructions on how it can be run. You can point the Infracost CLI to your deployment using the `INFRACOST_PRICING_API_ENDPOINT` environment variable, e.g. https://cloud-pricing-api.mydomain.com.
+Yes! Please email <a href="mailto:hello@infracost.io" target="_blank">hello@infracost.io</a> for details.
 
 ## What's the difference between Infracost and Terraform Cloud's cost estimation?
 
 The key differences are:
 1. Infracost is free and open-source, Terraform Cloud's cost estimation is paid and closed source.
 2. Infracost [supports more resources](/docs/supported_resources) than Terraform Cloud's cost estimation feature.
-3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations) into your workflows regardless of what source control and CI/CD system you use.
-4. Infracost can be used with [Terragrunt](/docs/terragrunt).
-5. Infracost can output [HTML reports](/docs/report) or JSON and used alongside other tools.
+3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of what source control and CI/CD system you use.
+4. Infracost can be used with [Terragrunt](/docs/iac_tools/terragrunt).
+5. Infracost can output [HTML reports](/docs/multi_project/report) or JSON and be used alongside other tools.
+
+## Do you offer support?
+
+Yes! If you need help integrating Infracost in to your workflow, or want to talk about something else, please email [hello@infracost.io](mailto:hello@infracost.io). You can also join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.

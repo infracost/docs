@@ -216,8 +216,29 @@ div[class^=codeBlockLines_] {
   background-color: var(--nu40) !important;
 }
 
-.menu__list {
+.menu > .menu__list {
   margin-top: 1rem;
+}
+
+.menu__link.menu__link--sublist {
+  color: var(--faded-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.menu__link.menu__link--sublist:hover {
+  /* background: none; */
+  color: var(--docs-text-color);
+}
+
+.menu__link--sublist:after {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.25rem 1.25rem;
+  color: var(--faded-text);
+}
+
+.menu__link--sublist.menu__link--active {
+  color: var(--faded-text);
 }
 
 .menu__link {
@@ -270,4 +291,8 @@ blockquote {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   padding: 1rem 1rem 1rem calc(1rem + 5px);
+}
+
+.prism-code.language-shell .token.function {
+  color: rgb(248, 248, 242) !important;
 }

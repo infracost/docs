@@ -17,6 +17,47 @@ module.exports = {
   customFields: {
     infracostDashboardApiEndpoint,
   },
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: '/docs/integrations',
+            to: '/docs/integrations/cicd',
+          },
+          {
+            from: '/docs/environment_variables',
+            to: '/docs/integrations/environment_variables',
+          },
+          {
+            from: '/docs/infracost_api',
+            to: '/docs/integrations/infracost_api',
+          },
+          {
+            from: '/docs/terraform_cloud_enterprise',
+            to: '/docs/iac_tools/terraform_cloud_enterprise',
+          },
+          {
+            from: '/docs/terragrunt',
+            to: '/docs/iac_tools/terragrunt',
+          },
+          {
+            from: '/docs/config_file',
+            to: '/docs/multi_project/config_file',
+          },
+          {
+            from: '/docs/report',
+            to: '/docs/multi_project/report',
+          },
+          {
+            from: '/docs/terraform_modules',
+            to: '/docs/guides/terraform_modules',
+          },
+        ],
+      },
+    ],
+  ],
   themeConfig: {
     image: 'img/social-image.png',
     colorMode: {
@@ -55,7 +96,7 @@ module.exports = {
         {
           to: 'docs/',
           activeBasePath: 'docs',
-          label: 'Documentation',
+          label: 'Docs',
           position: 'right',
         },
         {
@@ -77,7 +118,7 @@ module.exports = {
             },
             {
               label: 'CI/CD integrations',
-              to: 'docs/integrations',
+              to: 'docs/integrations/cicd',
             },
             {
               label: 'Support',

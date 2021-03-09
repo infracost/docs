@@ -6,10 +6,10 @@ function Footer() {
       <div className="container">
         <div className="sections">
           <div className="section">
-            <h4>Docs</h4>
+            <h4>Documentation</h4>
             <ul>
               <li><a href="/docs">Getting started</a></li>
-              <li><a href="/docs/integrations">CI/CD integrations</a></li>
+              <li><a href="/docs/integrations/cicd">CI/CD integrations</a></li>
               <li><a href="/docs/supported_resources">Supported resources</a></li>
               <li><a href="/docs/support">Support</a></li>
               <li><a href="/docs/faq">FAQ</a></li>

@@ -17,32 +17,32 @@ The CLI now only runs `terraform init` if required since Terraform commands aren
 
 ### ⚙️ Config file
 
-Depending on your Terraform workflow, you'll run Infracost with [different options](/docs/#usage-methods). Things can get complicated when you have multiple projects in a repo, each requiring their own Terraform variables. For example, if you have two workspaces and want to see their total cost estimate, you would run something like this:
+Depending on your Terraform workflow, you'll run Infracost with [different options](/docs/#usage). Things can get complicated when you have multiple projects in a repo, each requiring their own Terraform variables. For example, if you have two workspaces and want to see their total cost estimate, you would run something like this:
 
-```sh
+```shell
 terraform workspace select dev
-infracost --terraform-dir code --format json \
+infracost breakdown --path code --format json \
           --terraform-plan-flags "-var-file=env.dev.tfvars" > dev.json
 
 terraform workspace select prod
-infracost --terraform-dir code --format json \
+infracost breakdown --path code --format json \
           --terraform-plan-flags "-var-file=env.prod.tfvars" > prod.json
 
-infracost report --format table dev.json prod.json
+infracost output --format table --path dev.json --path prod.json
 ```
 
-You can now create an `infracost.yml` [config file](/docs/config_file) in your repo to describe your setup, then just run `infracost --config-file infracost.yml`.
+You can now create an `infracost.yml` [config file](/docs/multi_project/config_file) in your repo to describe your setup, then just run `infracost --config-file infracost.yml`.
 
 ### 🌎 Atlantis integration
 
-Infracost now [integrates with Atlantis](/docs/integrations#atlantis), which is a popular CI/CD tool that enables Terraform pull request automation.
+Infracost now [integrates with Atlantis](/docs/integrations/cicd#atlantis), which is a popular CI/CD tool that enables Terraform pull request automation.
 
 ### 🗒️ Diff functionality in JSON output
 
 You can now get the monthly cost diff from the Infracost JSON output, e.g. the following shows the monthly cost is going to be increased by $1530 if the Terraform plan is applied. You can also get `totalHourlyCost`, or add `--no-color=true --log-level=warn` if you don't want the spinners/logs/color.
 
 ```
-infracost --terraform-dir=. --format=json | jq '[.projects[].diff.totalMonthlyCost | select (.!=null) | tonumber] | add'
+infracost breakdown --path=. --format=json | jq '[.projects[].diff.totalMonthlyCost | select (.!=null) | tonumber] | add'
 "+1530"
 ```
 

@@ -32,11 +32,19 @@ function Pricing() {
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Community supported</span>
+                  <span>Get cost breakdowns and diffs</span>
+                </li>                
+                <li>
+                  <span className="icon primary"><Check size={18} /></span>
+                  <span>CI/CD integrations (GitHub, GitLab, CircleCI...)</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>CI/CD integrations</span>
+                  <span>Works with Terraform Cloud &amp; Terragrunt</span>
+                </li>
+                <li>
+                  <span className="icon primary"><Check size={18} /></span>
+                  <span>Community supported</span>
                 </li>
               </ul>
               <div class="action">
@@ -60,15 +68,19 @@ function Pricing() {
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Management reporting</span>
+                  <span>Management dashboards</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Private cloud support</span>
+                  <span>GitHub/GitLab Enterprise &amp; Bitbucket Data Center integration</span>
+                </li>                      
+                <li>
+                  <span className="icon primary"><Check size={18} /></span>
+                  <span>Self-hosted option</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>SLA &amp; support</span>
+                  <span>Dedicated support &amp; SLA</span>
                 </li>
               </ul>
               <div class="action">

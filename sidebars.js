@@ -6,10 +6,6 @@ module.exports = {
     },
     {
       type: 'doc',
-      id: 'terraform_cloud_enterprise',
-    },
-    {
-      type: 'doc',
       id: 'supported_resources',
     },
     {
@@ -18,39 +14,45 @@ module.exports = {
     },
     {
       type: 'doc',
-      id: 'integrations',
-    },
-    {
-      type: 'doc',
-      id: 'report',
-    },
-    {
-      type: 'doc',
-      id: 'config_file',
-    },
-    {
-      type: 'doc',
-      id: 'infracost_api',
-    },
-    {
-      type: 'doc',
-      id: 'environment_variables',
-    },
-    {
-      type: 'doc',
-      id: 'terragrunt',
-    },
-    {
-      type: 'doc',
-      id: 'terraform_modules',
-    },
-    {
-      type: 'doc',
-      id: 'support',
-    },
-    {
-      type: 'doc',
       id: 'faq',
-    }
+    },
+    {
+      type: 'category',
+      label: 'Integrations',
+      collapsed: false,
+      items: [
+        'integrations/cicd',
+        'integrations/environment_variables',
+        'integrations/infracost_api',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Infra-as-code tools',
+      collapsed: false,
+      items: [
+        'iac_tools/terraform_cloud_enterprise',
+        'iac_tools/terragrunt',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Multi-project setups',
+      collapsed: false,
+      items: [
+        'multi_project/config_file',
+        'multi_project/report',
+      ], 
+    },
+    {
+      type: 'category',
+      label: 'Guides',
+      collapsed: true,
+      items: [
+        'guides/v0.8_migration',
+        `guides/advanced_usage`,
+        'guides/terraform_modules',
+      ],
+    },
   ]
 };
