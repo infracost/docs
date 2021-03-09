@@ -84,7 +84,7 @@ To use this API, send an HTTP POST request to https://pricing.api.infracost.io/t
   ----------------------------------
   Key: ~ changed, + added, - removed
 
-  To estimate usage-based resources use --usage-file, see https://infracost.io/usage_file
+  To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
   ```
 
   </TabItem>

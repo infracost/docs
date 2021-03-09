@@ -293,7 +293,7 @@ infracost output --path project*.json --format diff
   PROJECT TOTAL                                                               $742.64
 
   ----------------------------------
-  To estimate usage-based resources use --usage-file, see https://infracost.io/usage_file
+  To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
   ```
   </TabItem>
   <TabItem value="diff">
@@ -337,7 +337,7 @@ infracost output --path project*.json --format diff
   ----------------------------------
   Key: ~ changed, + added, - removed
 
-  To estimate usage-based resources use --usage-file, see https://infracost.io/usage_file
+  To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
   ```
   </TabItem>  
 </Tabs>
