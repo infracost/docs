@@ -29,11 +29,11 @@ The `infracost breakdown` command has a `--terraform-use-state` flag that is use
 
 ## Terraform state JSON file
 
-Infracost can be run against a Terraform state JSON file. This implies that you have already run Terraform `init`, thus Infracost just runs Terraform `show`, which does not require cloud creds or `--terraform-plan-flags` to be set.
+Infracost can be run against a Terraform state JSON file. This implies that you have already run Terraform `init` and `apply`, thus Infracost just runs Terraform `show`, which does not require cloud creds or `--terraform-plan-flags` to be set.
 
   ```shell
-  terraform init
-  # TODO steps to output tfstate.json
+  cd path/to/code
+  terraform show -json > tfstate.json
 
   infracost breakdown --path tfstate.json
   ```
