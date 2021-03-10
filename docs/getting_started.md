@@ -60,7 +60,10 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
     -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
     -v $PWD/:/code/ infracost/infracost breakdown --path /code/
-    # add other required flags/envs for Infracost or Terraform
+    # Add other required flags/envs for Infracost or Terraform
+    # For example, these might be required if you are using AWS assume-role:
+    # -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
+    # -e AWS_REGION=$AWS_REGION \
   ```
 
   </TabItem>
