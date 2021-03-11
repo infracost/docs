@@ -144,7 +144,7 @@ Run `infracost breakdown --help` to see the available options, which include:
   --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
   --usage-file           Path to Infracost usage file that specifies values for usage-based resources
   --show-skipped         Show unsupported resources, some of which might be free
-  --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise
+  --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise, turns off color output
   --no-color             Turn off colored output
   ```
 
