@@ -12,7 +12,7 @@ Infracost uses a number of environment variables to customize various aspects of
 Infracost API key, run `infracost register` to get one.
 
 ### INFRACOST_LOG_LEVEL
-Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot. Turns off color output.
+Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot. Turns off spinners in output.
 
 ### INFRACOST_SKIP_UPDATE_CHECK
 Set to `true` to skip the Infracost update check; can be useful in CI/CD systems. We regularly add support for new resources so we recommend watching our repo for releases: goto the [repo](https://github.com/infracost/infracost) page, click on the Watch button > select Custom > Releases and click on Apply. Be sure to upgrade regularly.
