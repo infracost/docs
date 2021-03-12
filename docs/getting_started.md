@@ -89,11 +89,11 @@ Run Infracost using our example Terraform project to see how it works:
 git clone https://github.com/infracost/example-terraform.git
 cd example-terraform
 
-# Play with aws/main.tf and aws/infracost-usage.yml, and re-run to compare costs
-infracost breakdown --path aws --usage-file aws/infracost-usage.yml
+# Play with sample1/main.tf and re-run to compare costs
+infracost breakdown --path sample1
 
-# Show diff of monthly costs
-infracost diff --path aws
+# Show diff of monthly costs, edit the yaml file and re-run to compare costs
+infracost diff --path sample1 --usage-file sample1/infracost-usage.yml
 ```
 
 Use our [CI/CD integrations](/docs/integrations/cicd) to automatically add pull request comments showing cost estimate diffs.
