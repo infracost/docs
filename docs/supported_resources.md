@@ -46,7 +46,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Simple Queue Service (SQS) | `aws_sqs_queue` | Most expensive price tier is used. |
 | Simple Systems Manager (SSM) | `aws_ssm_parameter`, `aws_ssm_activation` | |
 | Relational Database Service (RDS) | `aws_db_instance`, `aws_rds_cluster_instance` | |
-| Route 53 | `aws_route53_record`, `aws_route53_zone`, `aws_route53_resolver_endpoint` |  |
+| Route 53 | `aws_route53_record`, `aws_route53_zone`, `aws_route53_resolver_endpoint`, `aws_route53_health_check` |  |
 | Virtual Private Cloud/Network (VPC, VPN, PrivateLink, Transit Gateway) | `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_ec2_transit_gateway_peering_attachment`, `aws_ec2_transit_vpc_attachment`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |
 
 ### Google Cloud Platform (GCP)
@@ -54,13 +54,14 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | Cloud DNS | `google_dns_managed_zone` ,`google_dns_record_set` | Most expensive price tier is used. |
-| Cloud Monitoring | `google_monitoring_metric_descriptor` | |
-| Compute Engine | `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
 | Cloud Functions | `google_cloudfunctions_function` | |
-| Key Management Service (KMS) | `google_kms_crypto_key` | |
+| Cloud Logging | `google_logging_billing_account_bucket_config`, `google_logging_billing_account_sink`, `google_logging_folder_bucket_config`, `google_logging_folder_sink`, `google_logging_organization_bucket_config`, `google_logging_organization_sink`, `google_logging_project_bucket_config`, `google_logging_project_sink` | |
+| Cloud Monitoring | `google_monitoring_metric_descriptor` | |
 | Cloud NAT | `google_compute_router_nat` | |
 | Cloud Pub/Sub | `google_pubsub_topic`, `google_pubsub_subscription` | |
 | Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
+| Compute Engine | `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
+| Key Management Service (KMS) | `google_kms_crypto_key` | |
 | Kubernetes Engine (GKE) | `google_container_cluster`, `google_container_node_pool` | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
 
 ### Microsoft Azure

@@ -1,10 +1,10 @@
 ---
 slug: infracost-diff
-title: Cloud cost diffs
+title: Infracost diff - "git diff" but for cloud costs
 author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh1
 author_image_url: /img/avatars/ali.jpg
-description: Like git diff but for cloud costs!
+description: A new CLI tool for quickly understanding cloud costs with Terraform
 hide_table_of_contents: true
 Date: "2021-03-17T00:00:00Z"
 ---
@@ -28,4 +28,4 @@ Recently we [released](/docs/#installation) a new `infracost diff` command inspi
   ```
 4. Finally we show a summary at the bottom: the EC2 instance change reduces the cost by 17%, and you can use the above yaml file to do simple what-if analysis on the Lambda costs.
 
-The new `infracost diff` command is used by our [CI/CD integrations](/docs/integrations/cicd) and as always, we look forward to your hearing your use-cases and [issues](https://github.com/infracost/infracost/issues).
+The new `infracost diff` command is used by our [**CI/CD integrations**](/docs/integrations/cicd) and is open source alongside the rest of Infracost. We look forward to hearing what you do with it via [GitHub issues](https://github.com/infracost/infracost/issues) or our [community Slack](https://www.infracost.io/community-chat)!
