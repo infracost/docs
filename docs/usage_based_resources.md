@@ -17,7 +17,7 @@ Infracost distinguishes the **price** of a resource from its **cost**. Price is 
 
 ## Infracost usage file
 
-Infracost solves the above problem by enabling you to describe usage estimates in a file called [`infracost-usage.yml`](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml), which can be passed to Infracost using the `--usage-file` option so it can calculate costs. This flag should not be confused with the `--config-file` option that is used to [configure](/docs/multi_project/config_file) how Infracost runs.
+Infracost enables you to describe usage estimates in a file called [`infracost-usage.yml`](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml), which can be passed to Infracost using the `--usage-file` option so it can calculate costs. This flag should not be confused with the `--config-file` option that is used to [configure](/docs/multi_project/config_file) how Infracost runs.
 
 Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, you can check-in usage estimates into git alongside other code, get cost estimates from them, and adjust them when needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
 
@@ -25,7 +25,7 @@ Follow these simple steps to use this feature:
 
 ### 1. Generate usage file
 
-Use the `--sync-usage-file` to generate a new usage file or update an existing one. This option is a **safe** sync: it adds any missing resources, it does not overwrite any lines that you have changed in the yaml, and it deletes any resources that are not used in the Terraform project.
+Use the `--sync-usage-file` to generate a new usage file or update an existing one. This option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the yaml, and it deletes any resources that are not used in the Terraform project.
 
   ```sh
   infracost breakdown --sync-usage-file --usage-file infracost-usage.yml --path /code
