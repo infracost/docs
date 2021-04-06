@@ -17,11 +17,24 @@ Infracost distinguishes the **price** of a resource from its **cost**. Price is 
 
 ## Infracost usage file
 
-Infracost solves the above problem by enabling you to describe usage estimates in a file called [`infracost-usage.yml`](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml), which can be passed to Infracost using the `--usage-file` option so it can calculate costs; as shown in the following example. This flag should not be confused with the `--config-file` option that is used to [configure](/docs/multi_project/config_file) how Infracost runs.
+Infracost solves the above problem by enabling you to describe usage estimates in a file called [`infracost-usage.yml`](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml), which can be passed to Infracost using the `--usage-file` option so it can calculate costs. This flag should not be confused with the `--config-file` option that is used to [configure](/docs/multi_project/config_file) how Infracost runs.
 
-Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, developers can track their usage estimates alongside their code, get cost estimates from them, and adjust them if needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
+Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, you can check-in usage estimates into git alongside other code, get cost estimates from them, and adjust them when needed. This enables quick "what-if" analysis to be done too; for example, what happens to the cost estimate if a Lambda function gets 2x more requests.
 
-  An `infracost-usage.yml` file with Lambda function usage estimates:
+Follow these simple steps to use this feature:
+
+### 1. Generate usage file
+
+Use the `--sync-usage-file` to generate a new usage file or update an existing one. This option is a **safe** sync: it adds any missing resources, it does not overwrite any lines that you have changed in the yaml, and it deletes any resources that are not used in the Terraform project.
+
+  ```sh
+  infracost breakdown --sync-usage-file --usage-file infracost-usage.yml --path /code
+  ```
+
+### 2. Edit usage file
+
+Edit the generated usage file with your usage estimates, for example a Lambda function can have the following parameters. You can check-in usage estimates into git alongside other code, get cost estimates from them, and adjust them when needed.
+
   ```yaml
   version: 0.1
 
@@ -29,17 +42,6 @@ Instead of using cloud vendor cost calculators, spreadsheets or wiki pages, deve
     aws_lambda_function.hi:
       monthly_requests: 100000000 # Monthly requests to the Lambda function.
       request_duration_ms: 250 # Average duration of each request in milliseconds.
-  ```
-
-  Running `infracost breakdown --path=/code --usage-file=infracost-usage.yml` now shows monthly cost estimates:
-  ```
-  Name                               Quantity  Unit         Monthly Cost
-
-  aws_lambda_function.hi
-  ├─ Requests                             100  1M requests        $20.00
-  └─ Duration                      12,500,000  GB-seconds        $208.33
-
-  PROJECT TOTAL                                                  $228.33
   ```
 
 The usage file also supports specifying usage for resources inside modules, by specifying the full path to the resource. This is the same value as Infracost outputs in the Name column , e.g.:
@@ -55,6 +57,22 @@ The usage file also supports specifying usage for resources inside modules, by s
       request_duration_ms: 600
   ```
 
-### Supported parameters
+### 3. Run with usage file 
+
+Run `infracost breakdown` or `infracost diff` with the usage file to see monthly cost estimates:
+
+  ```sh
+  infracost breakdown --path /code --usage-file infracost-usage.yml
+
+  Name                               Quantity  Unit         Monthly Cost
+
+  aws_lambda_function.hi
+  ├─ Requests                             100  1M requests        $20.00
+  └─ Duration                      12,500,000  GB-seconds        $208.33
+
+  PROJECT TOTAL                                                  $228.33
+  ```
+
+## Supported parameters
 
 The [infracost-usage-example.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) file contains the list of all of the available parameters and their descriptions. You can copy/paste resources you use from that file to create your own usage-file.

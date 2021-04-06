@@ -26,14 +26,14 @@ An Infracost config file can be created in each of your Terraform project repos 
 
 | Parameter             | Description      | Notes |
 | ---                   | ---              | ---   |
-| path                  | Path to the Terraform directory or JSON/plan file | Required |
-| usage_file            | Path to Infracost usage file that specifies values for [usage-based resources](/docs/usage_based_resources) | Not required |
-| terraform_binary      | Used to change the path to the `terraform` binary | Not required, e.g. can be set to `terragrunt` or another path |
-| terraform_plan_flags  | Flags to pass to `terraform plan` with Terraform directory paths | Not required. Can be space delimited, e.g. `-var-file=prod.tfvars -var-file=us-east.tfvars` |
-| terraform_workspace   | Used to set the Terraform workspace | Not required. Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported" |
-| terraform_use_state   | Use Terraform state instead of generating a plan, useful if you want to see the breakdown of the current Terraform state. | Not required. Applicable when path is a Terraform directory. Can't be used with the `diff` command. |
-| terraform_cloud_host  | For Terraform Enterprise users, used to override the default `app.terraform.io` backend host | Not required |
-| terraform_cloud_token | For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan | Not required. If [this](/docs/integrations/environment_variables#infracost_terraform_cloud_token) environment variable is set, that'll be used for all projects instead of this parameter |
+| `path`                  | Path to the Terraform directory or JSON/plan file | Required |
+| `usage_file`          | Path to Infracost usage file that specifies values for [usage-based resources](/docs/usage_based_resources) | Not required |
+| `terraform_binary`      | Used to change the path to the `terraform` binary | Not required, e.g. can be set to `terragrunt` or another path |
+| `terraform_plan_flags`  | Flags to pass to `terraform plan` with Terraform directory paths | Not required. Can be space delimited, e.g. `-var-file=prod.tfvars -var-file=us-east.tfvars` |
+| `terraform_workspace`   | Used to set the Terraform workspace | Not required. Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported" |
+| `terraform_use_state`   | Use Terraform state instead of generating a plan, useful if you want to see the breakdown of the current Terraform state. | Not required. Applicable when path is a Terraform directory. Can't be used with the `diff` command. |
+| `terraform_cloud_host`  | For Terraform Enterprise users, used to override the default `app.terraform.io` backend host | Not required |
+| `terraform_cloud_token` | For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan | Not required. If [this](/docs/integrations/environment_variables#infracost_terraform_cloud_token) environment variable is set, that'll be used for all projects instead of this parameter |
 
 ## Examples
 

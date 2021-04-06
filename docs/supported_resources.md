@@ -24,7 +24,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Data transfer | Use `aws_data_transfer.my_region` in [infracost-usage.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) | Most expensive price tier is used. |
 | Database Migration Service (DMS) | `aws_dms_replication_instance` | |
 | Direct Connect | `aws_dx_gateway_association`, `aws_dx_connection` | |
-| DocumentDB | `aws_docdb_cluster_instance` | |
+| DocumentDB | `aws_docdb_cluster`, `aws_docdb_cluster_instance`, `aws_docdb_cluster_snapshot` | |
 | DynamoDB | `aws_dynamodb_table` |  DAX is not yet supported. |
 | EventBridge | `aws_cloudwatch_event_bus` | |
 | Elastic Compute Cloud (EC2) | `aws_instance`, `aws_ebs_volume`, `aws_ebs_snapshot`, `aws_ebs_snapshot_copy`, `aws_autoscaling_group`, `aws_eip` | Costs associated with marketplace AMIs are not supported. For non-standard Linux AMIs such as Windows, `operating_system` should be specified in [the infracost-usage.yml file](/docs/usage_based_resources#infracost-usage-file), `windows`, `rhel` and `suse` are supported. EC2 detailed monitoring assumes the standard 7 metrics and the most expensive price tier for CloudWatch. If a root volume is not specified then an 8Gi gp2 volume is assumed. Most expensive price tier is used for EBS IOPS. |
@@ -45,7 +45,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
 | Simple Queue Service (SQS) | `aws_sqs_queue` | Most expensive price tier is used. |
 | Simple Systems Manager (SSM) | `aws_ssm_parameter`, `aws_ssm_activation` | |
-| Relational Database Service (RDS) | `aws_db_instance`, `aws_rds_cluster_instance` | |
+| Relational Database Service (RDS) | `aws_rds_cluster`, `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone`, `aws_route53_resolver_endpoint`, `aws_route53_health_check` |  |
 | Virtual Private Cloud/Network (VPC, VPN, PrivateLink, Transit Gateway) | `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_ec2_transit_gateway_peering_attachment`, `aws_ec2_transit_vpc_attachment`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |
 
@@ -60,9 +60,10 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Cloud NAT | `google_compute_router_nat` | |
 | Cloud Pub/Sub | `google_pubsub_topic`, `google_pubsub_subscription` | |
 | Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
-| Compute Engine | `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
+| Compute Engine | `google_compute_image`, `google_compute_machine_image`, `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address`, `google_compute_snapshot` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
 | Key Management Service (KMS) | `google_kms_crypto_key` | |
 | Kubernetes Engine (GKE) | `google_container_cluster`, `google_container_node_pool` | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
+| Memorystore Redis | `google_redis_instance` | |
 
 ### Microsoft Azure
 

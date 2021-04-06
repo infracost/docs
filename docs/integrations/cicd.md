@@ -48,6 +48,6 @@ Please try the following steps and if that doesn't help, [create an issue](https
 
 ## My CI/CD isn't supported
 
-Please [create an issue](https://github.com/infracost/infracost/issues/new/choose); we'll try to prioritize it depending on the community feedback. There are already requests for [Jenkins](https://github.com/infracost/infracost/issues/406) and [BuildKite](https://github.com/infracost/infracost/issues/499). Please 👍 them if you'd like us to work on them sooner. You can also join our [community Slack channel](https://www.infracost.io/community-chat) if you like to work on an integration, the existing integrations can act as a blueprint.
+Please [create an issue](https://github.com/infracost/infracost/issues/new/choose); we'll try to prioritize it depending on the community feedback. There are already requests for [Jenkins](https://github.com/infracost/infracost/issues/406), [BuildKite](https://github.com/infracost/infracost/issues/499) and [Azure DevOps](https://github.com/infracost/infracost/issues/531). Please 👍 them if you'd like us to work on them sooner. You can also join our [community Slack channel](https://www.infracost.io/community-chat) if you like to work on an integration, the existing integrations can act as a blueprint.
 
 Please email [hello@infracost.io](mailto:hello@infracost.io) if you'd like to discuss integrations with GitHub Enterprise, GitLab Enterprise Edition, or Bitbucket Data Center.

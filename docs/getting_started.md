@@ -146,6 +146,7 @@ Run `infracost breakdown --help` to see the available options, which include:
   --format               Output format: json, table, html (default "table")
   --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
   --usage-file           Path to Infracost usage file that specifies values for usage-based resources
+  --sync-usage-file      Sync usage-file with missing resources, needs usage-file too (experimental)
   --show-skipped         Show unsupported resources, some of which might be free
   --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise, turns off spinners in output
   --no-color             Turn off colored output
