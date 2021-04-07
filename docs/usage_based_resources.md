@@ -25,7 +25,7 @@ Follow these simple steps to use this feature:
 
 ### 1. Generate usage file
 
-Use the `--sync-usage-file` to generate a new usage file or update an existing one. This option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the yaml, and it deletes any resources that are not used in the Terraform project.
+Use the `--sync-usage-file` option to generate a new usage file or update an existing one. This option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the YAML, and it deletes any resources that are not used in the Terraform project.
 
   ```sh
   infracost breakdown --sync-usage-file --usage-file infracost-usage.yml --path /code
@@ -40,8 +40,8 @@ Edit the generated usage file with your usage estimates, for example a Lambda fu
 
   resource_usage:
     aws_lambda_function.hi:
-      monthly_requests: 100000000 # Monthly requests to the Lambda function.
-      request_duration_ms: 250 # Average duration of each request in milliseconds.
+      monthly_requests: 0 # Monthly requests to the Lambda function.
+      request_duration_ms: 0 # Average duration of each request in milliseconds.
   ```
 
 The usage file also supports specifying usage for resources inside modules, by specifying the full path to the resource. This is the same value as Infracost outputs in the Name column , e.g.:
