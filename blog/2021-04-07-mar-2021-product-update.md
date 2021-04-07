@@ -1,10 +1,10 @@
 ---
 slug: mar-2021-product-update
-title: 'Mar 2021 update - new diff command and sync usage file!'
+title: 'Mar 2021 update - new diff command and usage file automation!'
 author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh
 author_image_url: /img/avatars/ali.jpg
-description: We shipped major new features - big thanks to the community contributors! Upgrade to pickup these goodies.
+description: We shipped major new features - big thanks to the community! Upgrade to pickup the new features.
 hide_table_of_contents: true
 Date: "2021-04-07T00:00:00Z"
 ---
