@@ -15,7 +15,7 @@ March was busy as we added major new features and had Y Combinator's demo day, w
 
 You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.8.3) to pickup the new features. If you are using v0.7 (or older) please follow the [v0.8 migration guide](/docs/guides/v0.8_migration).
 
-### 🗒️ See diff in CLI
+### 🗒️ See diffs in CLI
 
 A highly requested feature was the ability to see the difference in cost between the current state and the planned state of Terraform projects in the CLI (we already have this feature in CI/CD integrations). Check it out by running `infracost diff --help`. We have also updated the CI output to make it easier to read.
 
