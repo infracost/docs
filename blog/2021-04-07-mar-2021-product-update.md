@@ -13,17 +13,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 March was busy as we added major new features and had Y Combinator's demo day, where [Hassan](https://twitter.com/hassankhosseini) (our CEO) delivered an awesome 60 second pitch on a Zoom call with hundreds of investors!
 
-You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.8.3) to pickup the new features. If you are using v0.7 (or older) please follow the [v0.8 migration guide](docs/guides/v0.8_migration/).
+You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.8.3) to pickup the new features. If you are using v0.7 (or older) please follow the [v0.8 migration guide](/docs/guides/v0.8_migration).
 
 ### 🗒️ See diff in CLI
 
-A highly requested feature was to be able to see the difference in cost between the current state and the planned state of Terraform projects in the CLI (we already offer this feature in CI/CD integrations). Check it out by running `infracost diff`. We have also updated the CI output to make it easier to read.
+A highly requested feature was the ability to see the difference in cost between the current state and the planned state of Terraform projects in the CLI (we already have this feature in CI/CD integrations). Check it out by running `infracost diff --help`. We have also updated the CI output to make it easier to read.
 
 <img src={useBaseUrl("img/blog/infracost-diff/diff-screenshot.png")} alt="Infracost diff command" />
 
 ### ⚙️ Automated usage-based resource definitions
 
-Usage-based resources such as AWS Lambda or Google Cloud Storage require estimated usage infromation so Infracost can show costs in the output. You can define these in a YAML file, called a [usage file](/docs/usage_based_resources), and use that to get cost estimates for such resources.
+Usage-based resources, such as AWS Lambda or Google Cloud Storage, require estimated usage data so Infracost can show costs in the output. You can define these in a YAML file, called a [usage file](/docs/usage_based_resources), and use that to get cost estimates for such resources.
 
 Previously you had to create this file manually. You can now use the `--sync-usage-file` option to generate a new usage file or update an existing one from your Terraform project. This option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the YAML, and it deletes any resources that are not used in the Terraform project.
 
@@ -53,10 +53,10 @@ We've updated the [CI/CD integrations](/docs/integrations/cicd) to add a new `po
 
 ### ⛅ New cloud resources
 
-We are working on adding Microsoft Azure to Infracost. There are two steps before users can see Azure costs in outputs. The first is to add the prices to the Cloud Pricing API, then to add the resources to the CLI. We completed adding around 300,000 prices from Microsoft Azure to the Cloud Pricing API (step one) and now we're looking for volunteers to add resources to the CLI (step two) before the initial release, please email ali@infracost.io if you are an Azure user and would like to contribute (basic golang knowledge is required).
+We are working on adding Microsoft Azure to Infracost. This has two steps: the first is to add the prices to the Cloud Pricing API, then to add the resources to the CLI. We completed adding around 300,000 prices from Microsoft Azure to the Cloud Pricing API (step one), and now we're looking for volunteers to add resources to the CLI (step two) before the initial release. Please email [ali@infracost.io](mailto:ali@infracost.io) if you are an Azure user and would like to contribute (basic golang knowledge is required).
 
 We also added support for the following cloud resources:
 - **AWS**: Elastic File System (EFS), EBS GP3 volumes, DX Connection, Route53 Health checks, RDS Serverless
 - **Google**: Memorystore Redis, Cloud Monitoring and Logging, Compute Images and Snapshots
 
-Thanks for being part of the community! We are always looking forward to your [feedback](mailto:hello@infracost.io), and feel free to forward this email to your friends and collegues.
+Thanks for being part of the community! We are always looking forward to your [feedback](mailto:hello@infracost.io).
