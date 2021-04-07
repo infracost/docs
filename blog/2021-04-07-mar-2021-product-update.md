@@ -11,19 +11,19 @@ Date: "2021-04-07T00:00:00Z"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-March was busy as we shipped major new features and had Y Combinator's demo day, where [Hassan](https://twitter.com/hassankhosseini) (our CEO) delivered an awesome 60 second pitch on a Zoom call with hundreds of investors!
+March was busy as we added major new features and had Y Combinator's demo day, where [Hassan](https://twitter.com/hassankhosseini) (our CEO) delivered an awesome 60 second pitch on a Zoom call with hundreds of investors!
 
-You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.8.3) to pickup the new features. Users who are using v0.7 (or older) should follow the [v0.8 migration guide](docs/guides/v0.8_migration/).
+You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.8.3) to pickup the new features. If you are using v0.7 (or older) please follow the [v0.8 migration guide](docs/guides/v0.8_migration/).
 
-### 🗒️ New diff command
+### 🗒️ See diff in CLI
 
-We released a new `infracost diff` command inspired by `git diff`. This shows a diff of monthly cloud cost estimates between the current and planned state of Terraform projects. This was requested by many users as we already provided similar functionality in our CI/CD integrations, but it wasn't available in the CLI, and the CI output could be confusing. We've addressed both issues by adding this new command.
+A highly requested feature was to be able to see the difference in cost between the current state and the planned state of Terraform projects in the CLI (we already offer this feature in CI/CD integrations). Check it out by running `infracost diff`. We have also updated the CI output to make it easier to read.
 
 <img src={useBaseUrl("img/blog/infracost-diff/diff-screenshot.png")} alt="Infracost diff command" />
 
-### ⚙️ Sync usage file from Terraform project
+### ⚙️ Automated usage-based resource definitions
 
-Infracost enables you to define resource usage estimates in a YAML file, called a [usage file](/docs/usage_based_resources), and use that to get cost estimates for resources such as AWS Lambda or Google Cloud Storage.
+Usage-based resources such as AWS Lambda or Google Cloud Storage require estimated usage infromation so Infracost can show costs in the output. You can define these in a YAML file, called a [usage file](/docs/usage_based_resources), and use that to get cost estimates for such resources.
 
 Previously you had to create this file manually. You can now use the `--sync-usage-file` option to generate a new usage file or update an existing one from your Terraform project. This option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the YAML, and it deletes any resources that are not used in the Terraform project.
 
@@ -41,22 +41,22 @@ Previously you had to create this file manually. You can now use the `--sync-usa
 
 ### 😃 Simplified inputs, outputs and config file
 
-We like to make things easy for our users and customers:
+We like it when things are made easy:
 
 - **Inputs**: a new `path` flag has been introduced to replace the various methods of running Infracost. You can now simply point Infracost to the path of a Terraform directory, plan binary file, or plan JSON file and it'll just work. This lays some of the groundwork for supporting other IaC tools in the future.
 - **Outputs**: the dashes (-) in the output have been replaced with price descriptions such as `Cost depends on usage: $0.20 per 1M requests` so you can understand the pricing structure of usage-based resources such as AWS Lambda or Google Cloud Storage.
 - **Config file**: the [config file](/docs/multi_project/config_file) has been updated to support infra-as-code repos that have multiple workspaces and projects. This enables you to combine projects into the same breakdown or diff output. So if a Terraform module or variable is used across workspaces/projects, you can quickly see the cost impact of changing it.
 
-### 🚀 Pull request comments
+### 🚀 New Pull request comment options
 
-We've updated the [CI/CD integrations](/docs/integrations/cicd) to add a new `post_condition` option so you can decide if pull request comments should always be posted, only on diffs, or on a percentage threshold.
+We've updated the [CI/CD integrations](/docs/integrations/cicd) to add a new `post_condition` option so you can decide when you'd like cost comments to be shown in pull requests. Options include: always leave a cost comment, only comment when there is a change to the cost, or only comment when a percentage threshold has been reached (e.g. more than 5% increase or decrease in costs).
 
 ### ⛅ New cloud resources
 
-We completed adding around 300,000 prices from Microsoft Azure to the Cloud Pricing API (used by the CLI). Their pricing had quite a few quirks and twists. We're now looking for volunteers to add more resources before the initial release, please email ali@infracost.io if you are an Azure user and would like to contribute (basic golang knowledge is required).
+We are working on adding Microsoft Azure to Infracost. There are two steps before users can see Azure costs in outputs. The first is to add the prices to the Cloud Pricing API, then to add the resources to the CLI. We completed adding around 300,000 prices from Microsoft Azure to the Cloud Pricing API (step one) and now we're looking for volunteers to add resources to the CLI (step two) before the initial release, please email ali@infracost.io if you are an Azure user and would like to contribute (basic golang knowledge is required).
 
-We also shipped support for the following cloud resources:
+We also added support for the following cloud resources:
 - **AWS**: Elastic File System (EFS), EBS GP3 volumes, DX Connection, Route53 Health checks, RDS Serverless
 - **Google**: Memorystore Redis, Cloud Monitoring and Logging, Compute Images and Snapshots
 
-As always, looking forward to your [feedback](mailto:hello@infracost.io).
+Thanks for being part of the community! We are always looking forward to your [feedback](mailto:hello@infracost.io), and feel free to forward this email to your friends and collegues.
