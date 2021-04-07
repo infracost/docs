@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 March was busy as we shipped major new features and had Y Combinator's demo day, where [Hassan](https://twitter.com/hassankhosseini) (our CEO) delivered an awesome 60 second pitch on a Zoom call with hundreds of investors!
 
-You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.8.3) to pickup the new features. Users who are using v0.7 (or older) should follow the [v0.8 migration guide](https://www.infracost.io/docs/guides/v0.8_migration/).
+You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.8.3) to pickup the new features. Users who are using v0.7 (or older) should follow the [v0.8 migration guide](docs/guides/v0.8_migration/).
 
 ### 🗒️ New diff command
 
@@ -23,7 +23,7 @@ We released a new `infracost diff` command inspired by `git diff`. This shows a 
 
 ### ⚙️ Sync usage file from Terraform project
 
-Infracost enables you to define resource usage estimates in a YAML file (called the usage file) and use that to get cost estimates for resources such as AWS Lambda or Google Cloud Storage.
+Infracost enables you to define resource usage estimates in a YAML file, called a [usage file](/docs/usage_based_resources), and use that to get cost estimates for resources such as AWS Lambda or Google Cloud Storage.
 
 Previously you had to create this file manually. You can now use the `--sync-usage-file` option to generate a new usage file or update an existing one from your Terraform project. This option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the YAML, and it deletes any resources that are not used in the Terraform project.
 
@@ -43,13 +43,13 @@ Previously you had to create this file manually. You can now use the `--sync-usa
 
 We like to make things easy for our users and customers:
 
-- **Input**: a new `path` flag has been introduced to replace the various methods of running Infracost. You can now simply point Infracost to the path of a Terraform directory, plan binary file, or plan JSON file and it'll just work. This lays some of the groundwork for supporting other IaC tools in the future.
-- **Output**: the dashes (-) have been replaced with price descriptions such as `Cost depends on usage: $0.20 per 1M requests` so you can understand the pricing structure of usage-based resources such as AWS Lambda or Google Cloud Storage.
-- **Config file**: the config file has been updated to support infra-as-code repos that have multiple workspaces and projects. This command combines the projects into the same breakdown or diff output. So if a Terraform module or variable is used across workspaces/projects, you can quickly see the cost impact of changing it.
+- **Inputs**: a new `path` flag has been introduced to replace the various methods of running Infracost. You can now simply point Infracost to the path of a Terraform directory, plan binary file, or plan JSON file and it'll just work. This lays some of the groundwork for supporting other IaC tools in the future.
+- **Outputs**: the dashes (-) in the output have been replaced with price descriptions such as `Cost depends on usage: $0.20 per 1M requests` so you can understand the pricing structure of usage-based resources such as AWS Lambda or Google Cloud Storage.
+- **Config file**: the [config file](/docs/multi_project/config_file) has been updated to support infra-as-code repos that have multiple workspaces and projects. This enables you to combine projects into the same breakdown or diff output. So if a Terraform module or variable is used across workspaces/projects, you can quickly see the cost impact of changing it.
 
 ### 🚀 Pull request comments
 
-We've updated the CI/CD integrations to add a new `post_condition` option so you can decide if pull request comments should always be posted, only on diffs, or on a percentage threshold.
+We've updated the [CI/CD integrations](/docs/integrations/cicd) to add a new `post_condition` option so you can decide if pull request comments should always be posted, only on diffs, or on a percentage threshold.
 
 ### ⛅ New cloud resources
 
@@ -59,4 +59,4 @@ We also shipped support for the following cloud resources:
 - **AWS**: Elastic File System (EFS), EBS GP3 volumes, DX Connection, Route53 Health checks, RDS Serverless
 - **Google**: Memorystore Redis, Cloud Monitoring and Logging, Compute Images and Snapshots
 
-As always, looking forward to your feedback ([ali@infracost.io](mailto:ali@infracost.io)).
+As always, looking forward to your [feedback](mailto:hello@infracost.io).
