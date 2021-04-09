@@ -36,17 +36,16 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   <TabItem value="macos-manual">
 
   ```shell
-  arch=$(uname -m | tr '[:upper:]' '[:lower:]' | sed -e s/x86_64/amd64/) && \
-  curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-darwin-$arch.tar.gz | tar xz -C /tmp && \
-  sudo mv /tmp/infracost-darwin-${arch} /usr/local/bin/infracost
+  # Downloads the CLI based on your OS/arch and puts it in /usr/local/bin
+  curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
   ```
 
   </TabItem>
   <TabItem value="linux">
 
   ```shell
-  curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz | tar xz -C /tmp && \
-  sudo mv /tmp/infracost-linux-amd64 /usr/local/bin/infracost
+  # Downloads the CLI based on your OS/arch and puts it in /usr/local/bin
+  curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
   ```
 
   </TabItem>
