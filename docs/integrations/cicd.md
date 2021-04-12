@@ -7,7 +7,7 @@ Infracost CI/CD integrations can be used to automatically add a pull request com
 
 Infracost can be used in any CI/CD system using [our binary](https://github.com/infracost/infracost/releases) or [Docker image](https://hub.docker.com/r/infracost/infracost). You might also find our [CI diff script](https://github.com/infracost/infracost/tree/master/scripts/ci/diff.sh) useful; it's used in the following integrations.
 
-If you're upgrading your integrations from an older version to `v0.8.0`, please see the [**migration guide**](/docs/guides/v0.8_migration#cicd-integrations).
+If you're upgrading your integrations from an older version to `v0.8`, please see the [**migration guide**](/docs/guides/v0.8_migration#cicd-integrations).
 
 ## GitHub Action
 
