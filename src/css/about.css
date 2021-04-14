@@ -1,3 +1,7 @@
+.about .intro .tagline {
+  max-width: 50rem;
+}
+
 .about .team {
   border-bottom: 1px solid var(--border-color);
   border-top: 1px solid var(--border-color);

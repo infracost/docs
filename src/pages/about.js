@@ -13,8 +13,7 @@ function About() {
 
         <div className="intro">
           <div className="container">
-            <h1 className="tagline">Infracost exists to empower engineering teams to use cloud</h1>
-            <h1 className="tagline">infrastructure economically and efficiently</h1>
+            <h1 className="tagline">Infracost exists to empower engineering teams to use cloud infrastructure economically and efficiently</h1>
           </div>
         </div>
 
