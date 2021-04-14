@@ -8,13 +8,13 @@ function About() {
   return (
     <PageLayout
         title="About"
-        description="Infracost exists to help the people who are responsible for purchasing cloud resources easily understand cloud cost implications upfront."
+        description="Infracost exists to empower engineering teams to use cloud infrastructure economically and efficiently."
         pageClass="about">
 
         <div className="intro">
           <div className="container">
-            <h1 className="tagline">Creating cost-aware engineering organizations</h1>
-            <p className="sub-tagline">Infracost helps those responsible for purchasing cloud resources easily understand the cost implications upfront</p>
+            <h1 className="tagline">Infracost exists to empower engineering teams to use cloud</h1>
+            <h1 className="tagline">infrastructure economically and efficiently</h1>
           </div>
         </div>
 
