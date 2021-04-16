@@ -5,7 +5,7 @@ title: CI/CD integrations
 
 Infracost CI/CD integrations can be used to automatically add a pull request comment showing the diff of monthly costs between the current and planned state. Minor cost increase/decrease changes can be ignored by setting a percentage threshold for the comment to be added.
 
-Infracost can be used in any CI/CD system using [our binary](https://github.com/infracost/infracost/releases) or [Docker image](https://hub.docker.com/r/infracost/infracost). You might also find our [CI diff script](https://github.com/infracost/infracost/tree/master/scripts/ci/diff.sh) useful; it's used in the following integrations.
+Infracost can be used in any CI/CD system using the [infracost binary](https://github.com/infracost/infracost/releases) or the [infracost/infracost Docker image](https://hub.docker.com/r/infracost/infracost). You might also find our [CI diff script](https://github.com/infracost/infracost/tree/master/scripts/ci/diff.sh) useful; it's used in the following integrations.
 
 If you're upgrading your integrations from an older version to `v0.8`, please see the [**migration guide**](/docs/guides/v0.8_migration#cicd-integrations).
 
