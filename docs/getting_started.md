@@ -1,13 +1,13 @@
 ---
 slug: /
 title: Getting started
-description: Get started with Infracost in your Terraform workflow, integrate it into your pull requests and CI pipeline and view cost estimates for your AWS/Google cloud infrastructure.
+description: Get started with Infracost in your Terraform workflow, integrate it into your pull requests and CI pipeline and view cost estimates for your AWS/Google/Azure cloud infrastructure.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Infracost shows cloud cost estimates for infrastructure-as-code projects such as Terraform. It helps developers, devops and others to quickly see a cost breakdown and compare different options upfront.
+Infracost shows cloud cost estimates for infrastructure-as-code projects such as Terraform. It helps DevOps, SRE and developers to quickly see a cost breakdown and compare different options upfront.
 
 If you're upgrading from an older version to `v0.8`, please see the [**migration guide**](/docs/guides/v0.8_migration).
 
@@ -86,20 +86,20 @@ Run Infracost using our example Terraform project to see how it works:
 
 ```shell
 git clone https://github.com/infracost/example-terraform.git
-cd example-terraform
+cd example-terraform/sample1
 
-# Play with sample1/main.tf and re-run to compare costs
-infracost breakdown --path sample1
+# Play with main.tf and re-run to compare costs
+infracost breakdown --path .
 
-# Show diff of monthly costs, edit the yaml file and re-run to compare costs
-infracost diff --path sample1 --usage-file sample1/infracost-usage.yml
+# Show diff of monthly costs, edit the yml file and re-run to compare costs
+infracost diff --path . --sync-usage-file --usage-file infracost-usage.yml
 ```
 
 Use our [CI/CD integrations](/docs/integrations/cicd) to automatically add pull request comments showing cost estimate diffs.
 
 ## Usage
 
-As mentioned in the [FAQ](/docs/faq), **no** cloud credentials, secrets, tags or resource identifiers are sent to the Cloud Pricing API. That API does not become aware of your cloud spend; it simply returns cloud prices to the CLI so calculations can be done on your machine. Infracost does not make any changes to your Terraform state or cloud resources.
+As mentioned in the [FAQs](/docs/faq), **no** cloud credentials, secrets, tags or resource identifiers are sent to the Cloud Pricing API. That API does not become aware of your cloud spend; it simply returns cloud prices to the CLI so calculations can be done on your machine. Infracost does not make any changes to your Terraform state or cloud resources.
 
 The `infracost` CLI has the following main commands. Use the `--path` flag to point to a Terraform directory or plan JSON file:
 - `breakdown`: show full breakdown of costs
@@ -111,7 +111,7 @@ If your repo has **multiple Terraform projects or workspaces**, use an Infracost
 
 As shown below, any required Terraform flags can be passed using `--terraform-plan-flags`. The `--terraform-workspace` flag can be used to define a workspace.
 
-Internally Infracost runs Terraform init, plan and show; init requires cloud credentials to be set, e.g. via the usual `AWS_ACCESS_KEY_ID` or `GOOGLE_CREDENTIALS` environment variables.
+Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual `AWS_ACCESS_KEY_ID` or `GOOGLE_CREDENTIALS` environment variables.
 
   ```shell
   infracost breakdown --path /code --terraform-plan-flags "-var-file=my.tfvars"

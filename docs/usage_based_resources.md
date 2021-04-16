@@ -3,7 +3,7 @@ slug: usage_based_resources
 title: Usage-based resources
 ---
 
-Infracost distinguishes the **price** of a resource from its **cost**. Price is the per-unit price advertised by a cloud vendor. The cost of a resource is calculated by multiplying its price by its usage. For example, an EC2 instance might be priced at $0.02 per hour, and if run for 100 hours (its usage), it'll cost $2. Supported resources in Infracost will always show prices, but if a resource has a usage-based cost component, we can't show its cost as we don't know how much it'll be used. For example, an AWS Lambda resource shows no monthly costs for requests and duration:
+Infracost distinguishes the **price** of a resource from its **cost**. Price is the per-unit price published by a cloud vendor. The cost of a resource is calculated by multiplying its price by its usage. For usage-based resources such as AWS Lambda or Google Cloud Storage, Infracost will show prices:
 
   ```
   Name                             Quantity  Unit                 Monthly Cost
@@ -75,4 +75,28 @@ Run `infracost breakdown` or `infracost diff` with the usage file to see monthly
 
 ## Supported parameters
 
-The [infracost-usage-example.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) file contains the list of all of the available parameters and their descriptions. You can copy/paste resources you use from that file to create your own usage-file.
+The reference file [**infracost-usage-example.yml**](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) contains the list of all of the available parameters and their descriptions.
+
+### Terraform modules
+
+Usage for resources inside modules can be specified using the full path of the resource. This is the same value as Infracost outputs in the Name column, for example:
+
+```yaml
+module.my_module.aws_dynamodb_table.my_table:
+  storage_gb: 1000
+
+module.lambda_function.aws_lambda_function.this[0]:
+  monthly_requests: 20000
+  request_duration_ms: 600
+```
+
+### Resource arrays
+
+The wildcard character `[*]` can be used for an array of resources. Infracost will apply the usage values individually to each element of the array. If an array element (e.g. `this[0]`) and `[*]` are specified for a resource, only the array element's usage will be applied to that resource. This enables you to define default values using `[*]` and override specific elements using their index.
+
+```yaml
+aws_cloudwatch_log_group.my_log_group[*]:
+  storage_gb: 1000
+  monthly_data_ingested_gb: 1000
+  monthly_data_scanned_gb: 200
+```

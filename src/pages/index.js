@@ -20,7 +20,7 @@ function Home() {
           <div className="hero-content">
             <div className="left">
               <h1 className="tagline">Cloud cost estimates for Terraform in pull requests</h1>
-              <p className="description">Infracost is an open-source tool that helps DevOps and developers continuously reduce their cloud costs.</p>
+              <p className="description">Infracost is an open-source tool that helps DevOps, SRE and developers continuously reduce their cloud costs.</p>
               <a href="/docs/" className="button primary">Get started</a>
               <p className="backers"><img src="/img/yc.svg" alt="Y Combinator logo" /><span>Backed by <strong>Y Combinator</strong></span></p>
             </div>
