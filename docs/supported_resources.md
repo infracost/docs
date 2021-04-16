@@ -60,7 +60,9 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Cloud NAT | `google_compute_router_nat` | |
 | Cloud Pub/Sub | `google_pubsub_topic`, `google_pubsub_subscription` | |
 | Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
+| Cloud SQL | `google_sql_database_instance` | Cloud SQL network, SQL Server license, 1-3 years commitments costs are not yet supported. |
 | Compute Engine | `google_compute_image`, `google_compute_machine_image`, `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address`, `google_compute_snapshot` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
+| Container Registry | `google_container_registry` | |
 | Key Management Service (KMS) | `google_kms_crypto_key` | |
 | Kubernetes Engine (GKE) | `google_container_cluster`, `google_container_node_pool` | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
 | Memorystore Redis | `google_redis_instance` | |
@@ -69,12 +71,18 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 
 Coming soon! Please 👍 [this issue](https://github.com/infracost/infracost/issues/64) to receive updates.
 
+<!--
+| Service name | Main Terraform resources      | Notes |
+| ---          | ---                           | ---   |
+| Virtual Machines | `azurerm_linux_virtual_machine`, `azurerm_managed_disk`, `azurerm_windows_virtual_machine` | Non-standard images such as RHEL are not supported. Low priority, Spot and Reserved instances are not supported.
+-->
+
 ### The resource I want isn't supported
 
 We regularly add support for new resources so we recommend watching our repo for releases: goto the [repo](https://github.com/infracost/infracost) page, click on the Watch button > select Custom > Releases and click on Apply.
 
 You can help by:
-1. [Creating an issue](https://github.com/infracost/infracost/issues/new/choose) and mentioning the resource you need and a little about your use-case; we'll try to prioritize it depending on the community feedback.
+1. [Creating an issue](https://github.com/infracost/infracost/issues/new/choose) and mentioning the resource names you need; we'll try to prioritize it depending on the community feedback.
 2. [Contributing to Infracost](https://github.com/infracost/infracost#contributing). You can join our [community Slack channel](https://www.infracost.io/community-chat) if you need help contributing.
 
 We plan to add support for other IaC tools such as [Pulumi](https://github.com/infracost/infracost/issues/187) and [CloudFormation](https://github.com/infracost/infracost/issues/190). Please 👍 them if you'd like us to work on them sooner.
