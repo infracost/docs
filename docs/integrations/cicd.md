@@ -37,6 +37,13 @@ See the [Infracost Atlantis integration](https://github.com/infracost/infracost-
 
 <img src="https://raw.githubusercontent.com/infracost/infracost-atlantis/master/screenshot.png" width="550px" alt="Example Infracost diff output" />
 
+## Jenkins
+
+See the [Infracost Jenkins integration](https://github.com/infracost/infracost-jenkins/) for instructions.
+
+<img src="https://raw.githubusercontent.com/infracost/infracost-jenkins/master/screenshot.png" width="550px" alt="Example Infracost diff output" />
+
+
 ## CI/CD troubleshooting
 
 Please try the following steps and if that doesn't help, [create an issue](https://github.com/infracost/infracost/issues/new/choose) or join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.
