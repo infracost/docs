@@ -39,10 +39,9 @@ See the [Infracost Atlantis integration](https://github.com/infracost/infracost-
 
 ## Jenkins
 
-See the [Infracost Jenkins integration](https://github.com/infracost/infracost-jenkins/) for instructions.
+See the [Infracost Jenkins integration](https://github.com/infracost/infracost-jenkins/) for instructions, and a demo [here](https://github.com/infracost/jenkins-demo).
 
 <img src="https://raw.githubusercontent.com/infracost/infracost-jenkins/master/screenshot.png" width="550px" alt="Example Infracost diff output" />
-
 
 ## CI/CD troubleshooting
 

@@ -76,7 +76,7 @@ Coming soon! Please 👍 [this issue](https://github.com/infracost/infracost/iss
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | App Service | `azurerm_app_service_certificate_order` | |
-| Database    | `azurerm_mariadb_server`, `azurerm_mysql_server`, `azurerm_postgresql_server` |
+| Database    | `azurerm_mariadb_server`, `azurerm_mssql_database`, `azurerm_mysql_server`, `azurerm_postgresql_server` |
 | Virtual Machines | `azurerm_linux_virtual_machine`, `azurerm_managed_disk`, `azurerm_windows_virtual_machine` | Non-standard images such as RHEL are not supported. Low priority, Spot and Reserved instances are not supported. |
 | Virtual Machine Scale Sets | `azurerm_linux_virtual_machine_scale_set`, `azurerm_windows_virtual_machine_scale_set` | |
 -->
