@@ -11,13 +11,13 @@ Date: "2021-05-05T00:00:00Z"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-We hit two big milestones: we now support **over 100 AWS and Google resources** and we have **over 100 people** in our [community Slack channel](https://www.infracost.io/community-chat). We've been busy adding Azure resources and plan to announce it publicly in May!
+Two big milestones to celebrate this month: Infracost now supports **over 100 AWS and Google resources** and we have **over 100 people** in our [community Slack channel](https://www.infracost.io/community-chat).
 
-You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.8.6) to pickup the new features. If you are using v0.7 (or older) please follow the [v0.8 migration guide](/docs/guides/v0.8_migration).
+You can [upgrade](/docs/#1-install-infracost) to the latest version (v0.8.6) to pickup the new features. If you are using v0.7 (or older) please follow the [v0.8 migration guide](/docs/guides/v0.8_migration).
 
 ### 📉 EC2 reserved instances
 
-We've added support for AWS EC2 reserved instance (RI) prices in the Infracost [usage file](/docs/usage_based_resources#infracost-usage-file). The RI type, term and payment option can be defined as shown below, to quickly get a monthly cost estimate. This works with `aws_instance` as well as `aws_eks_node_group` and `aws_autoscaling_group` as they also create EC2 instances. [Let us know](https://github.com/infracost/infracost/issues/) if we should show the upfront costs too, or if you think that's best suited for managers/finance who usually buy RIs.
+You can now do what-if anlaysis on AWS EC2 Reserved Instances (RI), as we have added support for these in the Infracost [usage file](/docs/usage_based_resources#infracost-usage-file). The RI type, term and payment option can be defined as shown below, to quickly get a monthly cost estimate. This works with `aws_instance` as well as `aws_eks_node_group` and `aws_autoscaling_group` as they also create EC2 instances. Let us know how you'd like Infracost to show the upfront costs by [creating a GitHub issue](https://github.com/infracost/infracost/issues/).
 
   ```yml
   aws_instance.my_instance:
@@ -33,7 +33,7 @@ Our new Jenkins integration enables you to save an HTML page for each pipeline b
 
 ### ⚙️ Customize output fields
 
-The `infracost breakdown` and `infracost output` commands show the monthly quantity, units and monthly cost of resources by default. You can now use the new `--fields` flag to customize the table output to include price and hourly cost, or you can set it to only show the monthly cost if you prefer a simplified view (shown below). The HTML output format is being updated to support the same feature. The JSON output format will always include all fields.
+The `infracost breakdown` and `infracost output` commands show the monthly quantity, units and monthly cost of resources by default. You can now use the new `--fields` flag to customize the columns shown in the table output to include price and hourly cost, or you can set it to only show the monthly cost if you prefer a simplified view (shown below). The HTML output format is being updated to support the same feature ([GitHub issues 548](https://github.com/infracost/infracost/issues/548)). The JSON output format will always include all fields.
 
   ```sh
   Name                                                  Monthly Cost
@@ -65,6 +65,5 @@ We've addressed this issue by supporting the wildcard character `[*]` for resour
 We added support for the following cloud resources:
 - **AWS**: Redshift. The CPU-credit usage file params were improved for T2, T3 & T4 instances.
 - **Google**: Google SQL and Container Registry.
-- **Azure**: Will be announced in May! Here's a [video](https://www.youtube.com/watch?v=ab7TKRbMlzE) of me adding support for App Service Certificate Order. There are already five of us adding Azure resources, join our [community Slack channel](https://www.infracost.io/community-chat) if you'd like to help.
 
-Thanks for being part of the community! We are always looking forward to your [feedback](https://github.com/infracost/infracost/issues/).
+Thanks for being part of the community! We are always looking forward to your feedback, so please create [GitHub issues here](https://github.com/infracost/infracost/issues/). We read every single one.
