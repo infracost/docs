@@ -22,7 +22,7 @@ Infracost runs Terraform internally and if Infracost is run against a [Terraform
 
 ## How does Infracost get cloud prices?
 
-Infracost gets prices from the Cloud Pricing API, which we continually update with the latest cloud vendor prices.
+Infracost gets prices from the Cloud Pricing API, which we continually updated with the latest cloud vendor prices.
 
 ## What data is sent to the Cloud Pricing API?
 
