@@ -11,7 +11,7 @@ Infracost supports the following Terraform resources. We do not take into accoun
 
 ### Amazon Web Services (AWS)
 
-On-demand prices are used by default unless specified otherwise in the [usage file](/docs/usage_based_resources#infracost-usage-file).
+On-demand prices are used by default unless specified otherwise in the [usage file](/docs/usage_based_resources#infracost-usage-file). GovCloud regions are also supported.
 
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
@@ -73,6 +73,9 @@ On-demand prices are used by default unless specified otherwise in the [usage fi
 Coming soon! Please 👍 [this issue](https://github.com/infracost/infracost/issues/64) to receive updates.
 
 <!--
+
+GovCloud regions are also supported.
+
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | App Service | `azurerm_app_service_certificate_order` | |
