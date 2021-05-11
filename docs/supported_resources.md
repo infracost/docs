@@ -11,7 +11,7 @@ Infracost supports the following Terraform resources. We do not take into accoun
 
 ### Amazon Web Services (AWS)
 
-On-demand prices are used. In some cases, AWS Spot prices are also supported, but AWS Reserved Instance prices are not supported since it is difficult to tell from Terraform resources whether they could be utilized.
+On-demand prices are used by default unless specified otherwise in the [usage file](/docs/usage_based_resources#infracost-usage-file). GovCloud regions are also supported.
 
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
@@ -21,18 +21,18 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | CloudWatch | `aws_cloudwatch_dashboard`, `aws_cloudwatch_log_group`, `aws_cloudwatch_metric_alarm` | |
 | CodeBuild | `aws_codebuild_project` | |
 | Config | `aws_config_config_rule`, `aws_config_configuration_recorder`, `aws_config_organization_custom_rule`, `aws_config_organization_managed_rule` | |
-| Data transfer | Use `aws_data_transfer.my_region` in [infracost-usage.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) | Most expensive price tier is used. |
+| Data transfer | Use `aws_data_transfer.my_region` in the [usage file](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) | Most expensive price tier is used. |
 | Database Migration Service (DMS) | `aws_dms_replication_instance` | |
 | Direct Connect | `aws_dx_gateway_association`, `aws_dx_connection` | |
 | DocumentDB | `aws_docdb_cluster`, `aws_docdb_cluster_instance`, `aws_docdb_cluster_snapshot` | |
 | DynamoDB | `aws_dynamodb_table` |  DAX is not yet supported. |
 | EventBridge | `aws_cloudwatch_event_bus` | |
-| Elastic Compute Cloud (EC2) | `aws_instance`, `aws_ebs_volume`, `aws_ebs_snapshot`, `aws_ebs_snapshot_copy`, `aws_autoscaling_group`, `aws_eip` | Costs associated with marketplace AMIs are not supported. For non-standard Linux AMIs such as Windows, `operating_system` should be specified in [the infracost-usage.yml file](/docs/usage_based_resources#infracost-usage-file), `windows`, `rhel` and `suse` are supported. EC2 detailed monitoring assumes the standard 7 metrics and the most expensive price tier for CloudWatch. If a root volume is not specified then an 8Gi gp2 volume is assumed. Most expensive price tier is used for EBS IOPS. |
+| Elastic Compute Cloud (EC2) | `aws_instance`, `aws_ebs_volume`, `aws_ebs_snapshot`, `aws_ebs_snapshot_copy`, `aws_autoscaling_group`, `aws_eip` | Costs associated with marketplace AMIs are not supported. For non-standard Linux AMIs such as Windows, `operating_system` should be specified in the [usage file](/docs/usage_based_resources#infracost-usage-file), `windows`, `rhel` and `suse` are supported. Reserved instance settings can also be set in the usage file. EC2 detailed monitoring assumes the standard 7 metrics and the most expensive price tier for CloudWatch. If a root volume is not specified then an 8Gi gp2 volume is assumed. Most expensive price tier is used for EBS IOPS. |
 | Elastic Container Registry (ECR) | `ecr_repository` | |
-| Elastic Container Service (ECS) | `aws_ecs_service` | When using with EC2, number of instances in `aws_autoscaling_group` can be set in [infracost-usage.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) |
+| Elastic Container Service (ECS) | `aws_ecs_service` | When using with EC2, number of instances in `aws_autoscaling_group` can be set in the [usage file](/docs/usage_based_resources#infracost-usage-file) |
 | Elastic File Storage (EFS) | `aws_efs_file_system` | |
 | Elastic Load Balancing | `aws_alb`, `aws_lb`, `aws_elb` | |
-| Elastic Kubernetes Service (EKS) | `aws_eks_cluster`, `aws_eks_fargate_profile`, `aws_eks_node_group` | |
+| Elastic Kubernetes Service (EKS) | `aws_eks_cluster`, `aws_eks_fargate_profile`, `aws_eks_node_group` | Reserved instance settings can be set in the [usage file](/docs/usage_based_resources#infracost-usage-file). |
 | ElastiCache | `aws_elasticache_cluster`, `aws_elasticache_replication_group` |  |
 | Elasticsearch Service | `aws_elasticsearch_domain` |  |
 | FSx for Windows File Server | `aws_fsx_windows_file_system` | Data deduplication is not supported by Terraform. |
@@ -45,6 +45,7 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 | Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
 | Simple Queue Service (SQS) | `aws_sqs_queue` | Most expensive price tier is used. |
 | Simple Systems Manager (SSM) | `aws_ssm_parameter`, `aws_ssm_activation` | |
+| Redshift | `aws_redshift_cluster` | |
 | Relational Database Service (RDS) | `aws_rds_cluster`, `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone`, `aws_route53_resolver_endpoint`, `aws_route53_health_check` |  |
 | Virtual Private Cloud/Network (VPC, VPN, PrivateLink, Transit Gateway) | `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_ec2_transit_gateway_peering_attachment`, `aws_ec2_transit_vpc_attachment`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |
@@ -72,9 +73,15 @@ On-demand prices are used. In some cases, AWS Spot prices are also supported, bu
 Coming soon! Please 👍 [this issue](https://github.com/infracost/infracost/issues/64) to receive updates.
 
 <!--
+
+GovCloud regions are also supported.
+
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
-| Virtual Machines | `azurerm_linux_virtual_machine`, `azurerm_managed_disk`, `azurerm_windows_virtual_machine` | Non-standard images such as RHEL are not supported. Low priority, Spot and Reserved instances are not supported.
+| App Service | `azurerm_app_service_certificate_order` | |
+| Database    | `azurerm_mariadb_server`, `azurerm_mssql_database`, `azurerm_mysql_server`, `azurerm_postgresql_server` |
+| Virtual Machines | `azurerm_linux_virtual_machine`, `azurerm_managed_disk`, `azurerm_windows_virtual_machine` | Non-standard images such as RHEL are not supported. Low priority, Spot and Reserved instances are not supported. |
+| Virtual Machine Scale Sets | `azurerm_linux_virtual_machine_scale_set`, `azurerm_windows_virtual_machine_scale_set` | |
 -->
 
 ### The resource I want isn't supported

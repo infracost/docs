@@ -3,6 +3,9 @@ slug: usage_based_resources
 title: Usage-based resources
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Infracost distinguishes the **price** of a resource from its **cost**. Price is the per-unit price published by a cloud vendor. The cost of a resource is calculated by multiplying its price by its usage. For usage-based resources such as AWS Lambda or Google Cloud Storage, Infracost will show prices:
 
   ```
@@ -92,11 +95,53 @@ module.lambda_function.aws_lambda_function.this[0]:
 
 ### Resource arrays
 
-The wildcard character `[*]` can be used for an array of resources. Infracost will apply the usage values individually to each element of the array. If an array element (e.g. `this[0]`) and `[*]` are specified for a resource, only the array element's usage will be applied to that resource. This enables you to define default values using `[*]` and override specific elements using their index.
+The wildcard character `[*]` can be used for an array of resources, such as AWS CloudWatch Log Groups. Infracost will apply the usage values individually to each element of the array (they all get the same values). If an array element (e.g. `this[0]`) and `[*]` are specified for a resource, only the array element's usage will be applied to that resource. This enables you to define default values using `[*]` and override specific elements using their index.
 
-```yaml
-aws_cloudwatch_log_group.my_log_group[*]:
-  storage_gb: 1000
-  monthly_data_ingested_gb: 1000
-  monthly_data_scanned_gb: 200
-```
+<Tabs
+  defaultValue="using-array-wildcard"
+  values={[
+    {label: 'Using array wildcard', value: 'using-array-wildcard'},
+    {label: 'Without wildcard', value: 'without-wildcard'}
+  ]}>
+  <TabItem value="using-array-wildcard">
+
+  ```yml
+  aws_cloudwatch_log_group.my_group[*]:
+    storage_gb: 1000
+    monthly_data_ingested_gb: 1000
+    monthly_data_scanned_gb: 200
+  ```
+  </TabItem>
+  <TabItem value="without-wildcard">
+
+  ```yml
+  aws_cloudwatch_log_group.my_group[0]:
+    storage_gb: 1000
+    monthly_data_ingested_gb: 1000
+    monthly_data_scanned_gb: 200
+
+  aws_cloudwatch_log_group.my_group[1]:
+    storage_gb: 1000
+    monthly_data_ingested_gb: 1000
+    monthly_data_scanned_gb: 200
+
+  aws_cloudwatch_log_group.my_group[3]:
+    storage_gb: 1000
+    monthly_data_ingested_gb: 1000
+    monthly_data_scanned_gb: 200
+  ```
+
+  </TabItem>
+</Tabs>
+
+### EC2 reserved instances
+
+What-if anlaysis can be done on AWS EC2 Reserved Instances (RI) using the usage file. The RI type, term and payment option can be defined as shown below, to quickly get a monthly cost estimate. This works with `aws_instance` as well as `aws_eks_node_group` and `aws_autoscaling_group` as they also create EC2 instances. Let us know how you'd like Infracost to show the upfront costs by [creating a GitHub issue](https://github.com/infracost/infracost/issues/).
+
+  ```yml
+  aws_instance.my_instance:
+    operating_system: linux # Override the operating system of the instance, can be: linux, windows, suse, rhel.
+    reserved_instance_type: standard # Offering class for Reserved Instances. Can be: convertible, standard.
+    reserved_instance_term: 1_year # Term for Reserved Instances. Can be: 1_year, 3_year.
+    reserved_instance_payment_option: all_upfront # Payment option for Reserved Instances. Can be: no_upfront, partial_upfront, all_upfront.
+  ```
