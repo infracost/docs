@@ -47,19 +47,6 @@ Edit the generated usage file with your usage estimates, for example a Lambda fu
       request_duration_ms: 0 # Average duration of each request in milliseconds.
   ```
 
-The usage file also supports specifying usage for resources inside modules, by specifying the full path to the resource. This is the same value as Infracost outputs in the Name column , e.g.:
-  ```yaml
-  version: 0.1
-
-  resource_usage:
-    module.my_module.aws_dynamodb_table.my_table:
-      storage_gb: 1000
-
-    module.lambda_function.aws_lambda_function.this[0]:
-      monthly_requests: 20000
-      request_duration_ms: 600
-  ```
-
 ### 3. Run with usage file 
 
 Run `infracost breakdown` or `infracost diff` with the usage file to see monthly cost estimates:
