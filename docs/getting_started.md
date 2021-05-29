@@ -9,9 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Infracost shows cloud cost estimates for infrastructure-as-code projects such as Terraform. It helps DevOps, SRE and developers to quickly see a cost breakdown and compare different options upfront.
 
-If you're upgrading from an older version to `v0.8`, please see the [**migration guide**](/docs/guides/v0.8_migration).
-
-## Installation
+## Quick start
 
 ### 1. Install Infracost
 Assuming [Terraform](https://www.terraform.io/downloads.html) is already installed, get the latest Infracost release:
@@ -95,23 +93,25 @@ infracost breakdown --path .
 infracost diff --path . --sync-usage-file --usage-file infracost-usage.yml
 ```
 
+### 4. Add to CI/CD
+
 Use our [CI/CD integrations](/docs/integrations/cicd) to automatically add pull request comments showing cost estimate diffs.
 
 ## Usage
 
-As mentioned in the [FAQs](/docs/faq), **no** cloud credentials, secrets, tags or resource identifiers are sent to the Cloud Pricing API. That API does not become aware of your cloud spend; it simply returns cloud prices to the CLI so calculations can be done on your machine. Infracost does not make any changes to your Terraform state or cloud resources.
-
-The `infracost` CLI has the following main commands. Use the `--path` flag to point to a Terraform directory or plan JSON file:
+The `infracost` CLI has the following main commands. Use the `--path` flag to point to either a **Terraform directory** or **plan JSON file**:
 - `breakdown`: show full breakdown of costs
 - `diff`: show diff of monthly costs between current and planned state
 
 If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/multi_project/config_file) to define them; their results will be combined into the same breakdown or diff output.
 
-### Terraform directory
+As mentioned in our [FAQ](/docs/faq), no cloud credentials or secrets are sent to the Cloud Pricing API. Infracost does not make any changes to your Terraform state or cloud resources.
 
-As shown below, any required Terraform flags can be passed using `--terraform-plan-flags`. The `--terraform-workspace` flag can be used to define a workspace.
+### Option 1: Terraform directory
 
-Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual `AWS_ACCESS_KEY_ID` or `GOOGLE_CREDENTIALS` environment variables.
+This is the simplest way to run Infracost. As shown below, any required Terraform flags can be passed using `--terraform-plan-flags`. The `--terraform-workspace` flag can be used to define a workspace.
+
+Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
 
   ```shell
   infracost breakdown --path /code --terraform-plan-flags "-var-file=my.tfvars"
@@ -119,9 +119,9 @@ Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/
   infracost diff --path /code --terraform-plan-flags "-var-file=my.tfvars"
   ```
 
-### Terraform plan JSON
+### Option 2: Terraform plan JSON
 
-Point to a Terraform plan JSON file using `--path`. This implies that Terraform `init` has been run, thus Infracost just runs Terraform `show`, which does not require cloud creds to be set.
+If the above method does not work for your use-case, you can use Terraform to generate a plan JSON file (as shown below), and point Infracost to it using `--path`. In this case, cloud credentials are not needed by Infracost.
 
   ```shell
   cd path/to/code

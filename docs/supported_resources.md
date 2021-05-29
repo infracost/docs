@@ -3,15 +3,15 @@ slug: supported_resources
 title: Supported resources
 ---
 
+Infracost supports over 140 Terraform resources across AWS, Google and Azure. Over 470 free resources have also been identified; these are not shown in the CLI output since they are free.
+
 The quickest way to find out if your Terraform resources are supported is to run [`infracost breakdown`](/docs#usage) with the `--show-skipped` flag. This shows the unsupported resources, some of which might be free.
 
 You could also run the following command to only see the unsupported resources: `infracost breakdown --format=json --log-level=warn | jq ".summary.unsupportedResourceCounts"`.
 
-Infracost supports the following Terraform resources. We do not take into account free tiers that apply to some resources as it can be difficult to detect which accounts they apply to; you can still see costs going up or down based on changes since we're consistent.
-
 ### Amazon Web Services (AWS)
 
-On-demand prices are used by default unless specified otherwise in the [usage file](/docs/usage_based_resources#infracost-usage-file). GovCloud regions are also supported.
+GovCloud and China regions are also supported.
 
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
@@ -40,11 +40,13 @@ On-demand prices are used by default unless specified otherwise in the [usage fi
 | Lambda | `aws_lambda_function` |  Provisioned concurrency is not yet supported. |
 | Lightsail | `aws_lightsail_instance` |  |
 | Managed Streaming for Apache Kafka (MSK) | `aws_msk_cluster` |  |
+| MQ | `aws_mq_broker` | |
 | Secrets Manager | `aws_secretsmanager_secret` |  |
 | Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | Most expensive price tier is used. S3 replication time control data transfer, and batch operations are not supported by Terraform. |
 | Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
 | Simple Queue Service (SQS) | `aws_sqs_queue` | Most expensive price tier is used. |
 | Simple Systems Manager (SSM) | `aws_ssm_parameter`, `aws_ssm_activation` | |
+| Step Functions | `aws_sfn_state_machine` | |
 | Redshift | `aws_redshift_cluster` | |
 | Relational Database Service (RDS) | `aws_rds_cluster`, `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone`, `aws_route53_resolver_endpoint`, `aws_route53_health_check` |  |
@@ -70,19 +72,34 @@ On-demand prices are used by default unless specified otherwise in the [usage fi
 
 ### Microsoft Azure
 
-Coming soon! Please 👍 [this issue](https://github.com/infracost/infracost/issues/64) to receive updates.
-
-<!--
-
 GovCloud regions are also supported.
 
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
-| App Service | `azurerm_app_service_certificate_order` | |
+| App Service | `azurerm_app_service_certificate_binding`, `azurerm_app_service_certificate_order`, `azurerm_app_service_custom_hostname_binding`, `azurerm_app_service_environment`, `azurerm_app_service_plan` | |
+| API Management | `azurerm_api_management` | |
+| Container Registry | `azurerm_container_registry` | |
+| Content Delivery Network (CDN) | `azurerm_cdn_endpoint` | |
+| Cosmos DB | `azurerm_cosmosdb_cassandra_keyspace` | |
 | Database    | `azurerm_mariadb_server`, `azurerm_mssql_database`, `azurerm_mysql_server`, `azurerm_postgresql_server` |
-| Virtual Machines | `azurerm_linux_virtual_machine`, `azurerm_managed_disk`, `azurerm_windows_virtual_machine` | Non-standard images such as RHEL are not supported. Low priority, Spot and Reserved instances are not supported. |
-| Virtual Machine Scale Sets | `azurerm_linux_virtual_machine_scale_set`, `azurerm_windows_virtual_machine_scale_set` | |
--->
+| Databricks workspace | `azurerm_databricks_workspace` | |
+| Firewall | `azurerm_firewall` | |
+| Functions | `azurerm_function_app` | |
+| HDInsight | `azurerm_hdinsight_hadoop_cluster`, `azurerm_hdinsight_hbase_cluster`, `azurerm_hdinsight_interactive_query_cluster`, `azurerm_hdinsight_kafka_cluster`, `azurerm_hdinsight_spark_cluster` | |
+| Key Vault | `azurerm_key_vault_certificate`, `azurerm_key_vault_key`, `azurerm_key_vault_managed_hardware_security_module` | |
+| Logic Apps | `azurerm_integration_service_environment` | |
+| Kubernetes Service (AKS) | `azurerm_kubernetes_cluster`, `azurerm_kubernetes_cluster_node_pool` | |
+| Virtual Network | `azurerm_public_ip`, `azurerm_public_ip_prefix`, `azurerm_nat_gateway` | |
+| Notification Hubs | `azurerm_notification_hub_namespace` | |
+| Storage Account | `azurerm_storage_account` | |
+| Virtual Machines | `azurerm_linux_virtual_machine`, `azurerm_managed_disk`, `azurerm_virtual_machine`, `azurerm_windows_virtual_machine` | Non-standard images such as RHEL are not supported. Low priority, Spot and Reserved instances are not supported. |
+| Virtual Machine Scale Sets | `azurerm_linux_virtual_machine_scale_set`, `azurerm_virtual_machine_scale_set`, `azurerm_windows_virtual_machine_scale_set` | |
+
+### General notes
+
+Please note that:
+1. Free trials and free tiers, which are usually an insignificant part of the costs, cannot be taken into account. This because it is not possible to detect which resources they apply to, since free tiers are account-wide and there are often multiple Terraform projects in an account (Infracost can only see the Terraform projects it is run against).
+2. On-demand prices are used by default. You can also model EC2 Reserved Instances via the [usage file](/docs/usage_based_resources#infracost-usage-file).
 
 ### The resource I want isn't supported
 

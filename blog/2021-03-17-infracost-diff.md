@@ -11,7 +11,7 @@ Date: "2021-03-17T00:00:00Z"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Recently we [released](/docs/#installation) a new `infracost diff` command inspired by `git diff`. This shows a diff of monthly cloud cost estimates between the current and planned state of Terraform projects. At a high-level this might seems like a simple exercise of subtracting the current state's cost estimate from the planned state, but cloud costs are rarely that simple to deal with. Let's take a look at the following screenshot to understand some of the nuances.
+Recently we [released](/docs/#quick-start) a new `infracost diff` command inspired by `git diff`. This shows a diff of monthly cloud cost estimates between the current and planned state of Terraform projects. At a high-level this might seems like a simple exercise of subtracting the current state's cost estimate from the planned state, but cloud costs are rarely that simple to deal with. Let's take a look at the following screenshot to understand some of the nuances.
 
 <img src={useBaseUrl("img/blog/infracost-diff/diff-screenshot.png")} alt="Infracost diff command" />
 
