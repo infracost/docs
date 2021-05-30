@@ -7,8 +7,6 @@ Infracost CI/CD integrations can be used to automatically add a pull request com
 
 Infracost can be used in any CI/CD system using the [infracost binary](https://github.com/infracost/infracost/releases) or the [infracost/infracost Docker image](https://hub.docker.com/r/infracost/infracost). You might also find our [CI diff script](https://github.com/infracost/infracost/tree/master/scripts/ci/diff.sh) useful; it's used in the following integrations.
 
-If you're upgrading your integrations from an older version to `v0.8`, please see the [**migration guide**](/docs/guides/v0.8_migration#cicd-integrations).
-
 ## GitHub Action
 
 See the [Infracost GitHub Action](https://github.com/marketplace/actions/infracost) for instructions, and a demo [here](https://github.com/infracost/gh-actions-demo).
@@ -43,6 +41,12 @@ See the [Infracost Jenkins integration](https://github.com/infracost/infracost-j
 
 <img src="https://raw.githubusercontent.com/infracost/infracost-jenkins/master/screenshot.png" width="550px" alt="Example Infracost diff output" />
 
+## Azure DevOps
+
+See the [Infracost Azure DevOps integration](https://github.com/infracost/infracost-azure-devops/) for instructions. A demo of the Azure DevOps Repos (git) integration is [here](https://dev.azure.com/infracost/base/_git/azure-devops-repo-demo), and GitHub repos is [here](https://github.com/infracost/azure-devops-github-demo).
+
+<img src="https://raw.githubusercontent.com/infracost/infracost-azure-devops/master/screenshot.png" width="700px" alt="Example Infracost diff output" />
+
 ## CI/CD troubleshooting
 
 Please try the following steps and if that doesn't help, [create an issue](https://github.com/infracost/infracost/issues/new/choose) or join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.
@@ -54,6 +58,6 @@ Please try the following steps and if that doesn't help, [create an issue](https
 
 ## My CI/CD isn't supported
 
-Please [create an issue](https://github.com/infracost/infracost/issues/new/choose); we'll try to prioritize it depending on the community feedback. There are already requests for [Jenkins](https://github.com/infracost/infracost/issues/406), [BuildKite](https://github.com/infracost/infracost/issues/499) and [Azure DevOps](https://github.com/infracost/infracost/issues/531). Please 👍 them if you'd like us to work on them sooner. You can also join our [community Slack channel](https://www.infracost.io/community-chat) if you like to work on an integration, the existing integrations can act as a blueprint.
+Please [create an issue](https://github.com/infracost/infracost/issues/new/choose); we'll try to prioritize it depending on the community feedback. There is already a request for [BuildKite](https://github.com/infracost/infracost/issues/499). Please 👍 it if you'd like us to work on them sooner. You can also join our [community Slack channel](https://www.infracost.io/community-chat) if you like to work on an integration, the existing integrations can act as a blueprint.
 
 Please email [hello@infracost.io](mailto:hello@infracost.io) if you'd like to discuss integrations with GitHub Enterprise, GitLab Enterprise Edition, or Bitbucket Data Center.

@@ -32,7 +32,7 @@ This is what Infracost looks like if you put it into the CI pipeline, a comment 
 ### Our Theory
 We are working on validating this theory: can we get better cloud cost efficiency if we give developers clear visibility into potential cloud costs directly in their workflow with no added effort. I'd like to invite you to join this journey, and let's see if this theory is right or not.
 
-1. [Install Infracost](https://www.infracost.io/docs/#installation) - it's free and open source.
+1. [Install Infracost](https://www.infracost.io/docs/#quick-start) - it's free and open source.
 2. Write a blog, or a tweet about the impacts you see in the short, medium and long term. Do developers talk more about costs? Do they change their code? Are there comments in peer review process about costs? Do others suggest different resources to be used? What else are you seeing?
 3. Share the blogs with me, tag me in tweets etc, and I will collate all the results and write another blog with a summary and link to your results.
 

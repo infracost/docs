@@ -3,6 +3,11 @@ slug: /faq
 title: FAQ
 ---
 
+## How does Infracost work?
+
+Infracost has a CLI and a Cloud Pricing API backend service, as well as many [CI/CD integrations](/docs/integrations/cicd).
+The CLI parses the Terraform plan JSON file to find [supported resources](/docs/supported_resources) and uses [cost-related parameters](/docs/faq#example-request) to find any applicable prices for that resource. The Cloud Pricing API [returns the prices](/docs/faq#example-response), which the CLI then uses to calculate the monthly costs. The results can be output in table, HTML or JSON format.
+
 ## What Terraform versions are supported?
 
 Infracost works with Terraform v0.12 and above.
@@ -16,9 +21,9 @@ Terragrunt users should see [this page](/docs/iac_tools/terragrunt).
 
 ## Does Infracost need cloud credentials?
 
-Infracost itself does not need any cloud credentials.
-
-Infracost runs Terraform internally and if Infracost is run against a [Terraform directory](/docs/#terraform-directory), **Terraform** will need access to cloud credentials, e.g. when running `terraform init` and `terraform plan`. These commands are only used to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output) and no changes are made to your Terraform state or cloud resources.
+That depends on how you run Infracost, since we run Terraform internally, which sometimes needs cloud credentials:
+- When Infracost is run against a [Terraform directory](/docs/#option-1-terraform-directory), Terraform will need access to cloud credentials, e.g. when running `terraform init` and `terraform plan`. These commands are only used to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output) and no changes are made to your Terraform state or cloud resources.
+- When Infracost is run against a [Terraform plan JSON file](/docs/#option-2-terraform-plan-json), cloud credentials are not needed.
 
 ## How does Infracost get cloud prices?
 
@@ -26,13 +31,13 @@ Infracost gets prices from the Cloud Pricing API, which we continually update wi
 
 ## What data is sent to the Cloud Pricing API?
 
-**No** cloud credentials, secrets, tags or resource identifiers are sent to the Cloud Pricing API. That API does not become aware of your cloud spend; it simply returns cloud prices to the CLI so calculations can be done on your machine. Infracost does not make any changes to your Terraform state or cloud resources.
+No cloud credentials or secrets are sent to the Cloud Pricing API. Infracost does not make any changes to your Terraform state or cloud resources.
 
 The Cloud Pricing API needs the relevant data to return a unique cloud price point. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also sent alongside error tracking events so we can identify and fix issues quickly.
 
 Here is an example request to the Cloud Pricing API for a t3.micro instance and the returned response:
 
-Request:
+#### Example request:
 ```graphql
 query {
   products(
@@ -57,10 +62,9 @@ query {
     ) { priceHash, USD }
   }
 }
-
 ```
 
-Response:
+#### Example response:
 ```json
 {
   "data": {
@@ -85,9 +89,9 @@ Yes! Please email <a href="mailto:hello@infracost.io" target="_blank">hello@infr
 ## What's the difference between Infracost and Terraform Cloud's cost estimation?
 
 The key differences are:
-1. Infracost is free and open-source, Terraform Cloud's cost estimation is paid and closed source.
-2. Infracost [supports more resources](/docs/supported_resources) than Terraform Cloud's cost estimation feature.
-3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of what source control and CI/CD system you use.
+1. Infracost [supports over 140 resources](/docs/supported_resources). Terraform Cloud supports 43 resources.
+2. Infracost can be used to model [usage-based resources](/docs/usage_based_resources) and do what-if analysis.
+3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of the source control and CI/CD system being used.
 4. Infracost can be used with [Terragrunt](/docs/iac_tools/terragrunt).
 5. Infracost can output [HTML reports](/docs/multi_project/report) or JSON and be used alongside other tools.
 

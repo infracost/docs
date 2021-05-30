@@ -6,7 +6,7 @@ title: Infracost API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The majority of users should use the [Infracost CLI](/docs/#installation), which **does not** send the Terraform statefile to the Cloud Pricing API; instead it [sends](/docs/faq#what-data-is-sent-to-the-cloud-pricing-api) the relevant data for finding a unique cloud price point.
+The majority of users should use the [Infracost CLI](/docs/#quick-start), which **does not** send the Terraform statefile to the Cloud Pricing API; instead it [sends](/docs/faq#what-data-is-sent-to-the-cloud-pricing-api) the relevant data for finding a unique cloud price point.
 
 The API described in this page can be useful for CI/CD integrations, such as [Atlantis](/docs/integrations/cicd#atlantis), where it might be easier to use `curl` or an HTTP library instead of installing the Infracost CLI. Terraform plan JSON files can be sent to this API, which runs `infracost diff` and returns the results (`text/plain` response). Whilst this API deletes files from the server after they are processed, it is a good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this.
 
