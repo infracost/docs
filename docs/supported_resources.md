@@ -3,7 +3,7 @@ slug: supported_resources
 title: Supported resources
 ---
 
-Infracost supports over 140 Terraform resources across AWS, Google and Azure. Over 470 free resources have also been identified; these are not shown in the CLI output since they are free.
+Infracost supports over 160 Terraform resources across AWS, Google and Azure. Over 450 free resources have also been identified; these are not shown in the CLI output since they are free.
 
 The quickest way to find out if your Terraform resources are supported is to run [`infracost breakdown`](/docs#usage) with the `--show-skipped` flag. This shows the unsupported resources, some of which might be free.
 

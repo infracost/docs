@@ -49,7 +49,6 @@ module.exports = {
       label: 'Guides',
       collapsed: true,
       items: [
-        'guides/v0.9_migration',
         'guides/v0.8_migration',
         'guides/v0.9_migration',
         `guides/advanced_usage`,
