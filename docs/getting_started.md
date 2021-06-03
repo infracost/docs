@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 
 Infracost shows cloud cost estimates for infrastructure-as-code projects such as Terraform. It helps DevOps, SRE and developers to quickly see a cost breakdown and compare different options upfront.
 
+If you're upgrading from an older version to `v0.9`, please see the [**migration guide**](/docs/guides/v0.9_migration).
+
 ## Quick start
 
 ### 1. Install Infracost

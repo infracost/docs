@@ -51,6 +51,7 @@ module.exports = {
       items: [
         'guides/v0.9_migration',
         'guides/v0.8_migration',
+        'guides/v0.9_migration',
         `guides/advanced_usage`,
         'guides/terraform_modules',
       ],

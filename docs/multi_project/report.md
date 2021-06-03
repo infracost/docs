@@ -51,11 +51,13 @@ infracost output --path project*.json --format diff
 
   ```json
   {
-    "version": "0.1",
+    "version": "0.2",
     "projects": [
       {
-        "path": "examples/terraform",
-        "metadata": {},
+        "name": "infracost/infracost/examples/terraform",
+        "metadata": {
+          "path": "examples/terraform",
+        },
         /* This contains any resources that are in the prior Terraform state */
         "pastBreakdown": {
           "resources": [],
@@ -257,38 +259,31 @@ infracost output --path project*.json --format diff
     "timeGenerated": "2021-02-17T17:46:51.690235Z",
     "summary": {
       "unsupportedResourceCounts": {}
-    }
-
-    /* START - deprecated fields */
-    /* These fields will be deprecated in v0.8.0 since they are now covered in the project breakdowns */
+    },
     "totalHourlyCost": "1.017315068493150679",
     "totalMonthlyCost": "742.64",
-    "resources": [
-      /* This contains a list of all the resources in projects[*].breakdown.resources. */
-    ],
-    /* END - deprecated fields */    
   }
   ```
 
   </TabItem>
   <TabItem value="table">
 
-  ```shell
-  Project: examples/terraform
+  ```
+  Project: infracost/infracost/examples/terraform
 
-  Name                                     Quantity  Unit                Monthly Cost
+  Name                                     Quantity  Unit                           Monthly Cost
 
   aws_instance.web_app
-  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)   730  hours                    $560.64
+  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)   730  hours                              $560.64
   ├─ root_block_device
-  │  └─ General Purpose SSD storage (gp2)        50  GB-months                  $5.00
+  │  └─ General Purpose SSD storage (gp2)        50  GB                                   $5.00
   └─ ebs_block_device[0]
-      ├─ Provisioned IOPS SSD storage (io1)   1,000  GB-months                $125.00
-      └─ Provisioned IOPS                       800  IOPS-months               $52.00
+      ├─ Provisioned IOPS SSD storage (io1)   1,000  GB                                 $125.00
+      └─ Provisioned IOPS                       800  IOPS                                $52.00
 
   aws_lambda_function.hello_world
-  ├─ Requests                       Cost depends on usage: $0.20 per 1M requests
-  └─ Duration                       Cost depends on usage: $0.0000166667 per GB-seconds
+  ├─ Requests                       Monthly cost depends on usage: $0.20 per 1M requests
+  └─ Duration                       Monthly cost depends on usage: $0.0000166667 per GB-seconds
 
   PROJECT TOTAL                                                               $742.64
 
@@ -298,8 +293,8 @@ infracost output --path project*.json --format diff
   </TabItem>
   <TabItem value="diff">
 
-  ```shell
-  Project: examples/terraform
+  ```
+  Project: infracost/infracost/examples/terraform
 
   + aws_instance.web_app
     +$743
