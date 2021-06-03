@@ -51,6 +51,8 @@ GovCloud and China regions are also supported.
 | Relational Database Service (RDS) | `aws_rds_cluster`, `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone`, `aws_route53_resolver_endpoint`, `aws_route53_health_check` |  |
 | Virtual Private Cloud/Network (VPC, VPN, PrivateLink, Transit Gateway) | `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_ec2_transit_gateway_peering_attachment`, `aws_ec2_transit_vpc_attachment`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |
+| Web Application Firewall (WAF) | `aws_waf_web_acl`, `aws_wafv2_web_acl` |  |
+
 
 ### Google Cloud Platform (GCP)
 
@@ -80,9 +82,10 @@ GovCloud regions are also supported.
 | API Management | `azurerm_api_management` | |
 | Container Registry | `azurerm_container_registry` | |
 | Content Delivery Network (CDN) | `azurerm_cdn_endpoint` | |
-| Cosmos DB | `azurerm_cosmosdb_cassandra_keyspace` | |
-| Database    | `azurerm_mariadb_server`, `azurerm_mssql_database`, `azurerm_mysql_server`, `azurerm_postgresql_server` |
+| Cosmos DB | `azurerm_cosmosdb_cassandra_keyspace`, `azurerm_cosmosdb_cassandra_table`, `azurerm_cosmosdb_gremlin_database`, `azurerm_cosmosdb_gremlin_graph`, `azurerm_cosmosdb_mongo_collection`, `azurerm_cosmosdb_mongo_database`, `azurerm_cosmosdb_sql_container`, `azurerm_cosmosdb_sql_database`, `azurerm_cosmosdb_table` | |
+| Database    | `azurerm_mariadb_server`, `azurerm_mssql_database`, `azurerm_mysql_server`, `azurerm_postgresql_flexible_server`, `azurerm_postgresql_server` |
 | Databricks workspace | `azurerm_databricks_workspace` | |
+| DNS  | `azurerm_dns_zone`, `azurerm_private_dns_zone`, `azurerm_dns_a_record`, `azurerm_dns_aaaa_record`, `azurerm_dns_caa_record`, `azurerm_dns_cname_record`, `azurerm_dns_mx_record`, `azurerm_dns_ns_record`, `azurerm_dns_ptr_record`, `azurerm_dns_srv_record`, `azurerm_dns_txt_record`, `azurerm_private_dns_a_record`, `azurerm_private_dns_aaaa_record`, `azurerm_private_dns_cname_record`, `azurerm_private_dns_mx_record`, `azurerm_private_dns_ptr_record`, `azurerm_private_dns_srv_record`, `azurerm_private_dns_txt_record` |
 | Firewall | `azurerm_firewall` | |
 | Functions | `azurerm_function_app` | |
 | HDInsight | `azurerm_hdinsight_hadoop_cluster`, `azurerm_hdinsight_hbase_cluster`, `azurerm_hdinsight_interactive_query_cluster`, `azurerm_hdinsight_kafka_cluster`, `azurerm_hdinsight_spark_cluster` | |
