@@ -28,9 +28,11 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
 
   ```shell
   brew install infracost
+
+  infracost --version # Should show v0.9.0
   ```
 
-  Subsequent updates can be installed in the usual way: `brew upgrade infracost` (you might need `brew update` first if your brew isn't up-to-date)
+  If the version is old, please run `brew update` then `brew upgrade infracost`.
 
   </TabItem>
   <TabItem value="macos-manual">
