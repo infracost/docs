@@ -6,6 +6,7 @@ author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
 description: something
 hide_table_of_contents: true
+image: img/blog/azure-cloud-cost-estimates-pull-requests/infracost_azure.png
 date: "2021-06-07T00:00:00Z"
 ---
 
