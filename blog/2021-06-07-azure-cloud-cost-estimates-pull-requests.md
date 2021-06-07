@@ -42,7 +42,7 @@ But there is one more thing! We have also added support for Microsoft Azure DevO
 <br/><br/>
 
 **Get started! ** We have made it super simple to get up and running:
-```yml
+```
 1. brew install infracost # (docker, windows etc options available)
 2. infracost register
 3. az login # To set cloud creds, see note-1
