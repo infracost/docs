@@ -15,7 +15,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <br/><br/>
 
-Thanks to our awesome community, I'm very excited to announce that you can now get cloud cost estimates for Microsoft Azure in pull requests before cloud resources are launched via Infracost. [Try it now](https://www.infracost.io/docs/), it's free and open source!
+Thanks to our awesome community, I'm very excited to announce that you can now use Infracost to get cloud cost estimates for Microsoft Azure in pull requests. [Try it now](https://www.infracost.io/docs/), it's free and open source!
 
 <br/>
 
