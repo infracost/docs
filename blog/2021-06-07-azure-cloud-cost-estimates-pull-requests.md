@@ -21,7 +21,7 @@ Thanks to our awesome community, I'm very excited to announce that you can now u
 
 **Cloud costs for engineering teams**
 
-Cloud costs have become so complex that the industry (ourselves included) started addressing  issues around breached budgets after the bill arrived. This is not the way it should be. It is like going shopping and having no idea how much things cost till after your card has been charged.
+Cloud costs have become so complex that the industry (ourselves included) started addressing issues around breached budgets after the bill arrived. This is not the way it should be. It is like going shopping and having no idea how much things cost till after your card has been charged.
 
 We are on a mission to empower engineering teams to use cloud infrastructure economically and efficiently. We do this by fitting in the developer workflow via CI/CD integration, reading the Infrastructure-as-code project, picking up the parameters that have a price point, looking up the prices for the configurations and leaving a comment in the Pull Request like "This change will increase your cloud costs by 25%" with a detailed breakdown. This way, the whole team is aware of the cost implications of the change.
 
