@@ -29,7 +29,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ```shell
   brew install infracost
 
-  infracost --version # Should show v0.9.0
+  infracost --version # Should show v0.9.1
   ```
 
   If the version is old, please run `brew update` then `brew upgrade infracost`.
@@ -157,4 +157,4 @@ Run `infracost breakdown --help` to see the available options, which include:
   --no-color             Turn off colored output
   ```
 
-The `infracost diff --help` and `infracost output --help` commands show related options.
+The `infracost diff --help` and `infracost output --help` commands show related options. For shell completion scripts, see `infracost completion --help`.
