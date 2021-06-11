@@ -17,6 +17,7 @@ GovCloud and China regions are also supported.
 | ---          | ---                           | ---   |
 | API Gateway | `aws_api_gateway_rest_api`, `aws_api_gateway_stage`, `aws_apigatewayv2_api` | |
 | Certificate Manager (ACM) | `aws_acmpca_certificate_authority`, `aws_acm_certificate` | |
+| CloudFormation | `aws_cloudformation_stack`, `aws_cloudformation_stack_set` | |
 | CloudFront | `aws_cloudfront_distribution` | |
 | CloudWatch | `aws_cloudwatch_dashboard`, `aws_cloudwatch_log_group`, `aws_cloudwatch_metric_alarm` | |
 | CodeBuild | `aws_codebuild_project` | |
@@ -58,14 +59,17 @@ GovCloud and China regions are also supported.
 
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
+| BigQuery | `google_bigquery_dataset` ,`google_bigquery_table` | |
 | Cloud DNS | `google_dns_managed_zone` ,`google_dns_record_set` | Most expensive price tier is used. |
 | Cloud Functions | `google_cloudfunctions_function` | |
+| Cloud Load Balancing | `google_compute_forwarding_rule`, `google_compute_global_forwarding_rule`, `google_compute_target_grpc_proxy`, `google_compute_target_http_proxy`, `google_compute_target_https_proxy`, `google_compute_target_ssl_proxy`, `google_compute_target_tcp_proxy`, `google_compute_region_target_http_proxy`, `google_compute_region_target_https_proxy` | Price for additional forwarding rule is used. |
 | Cloud Logging | `google_logging_billing_account_bucket_config`, `google_logging_billing_account_sink`, `google_logging_folder_bucket_config`, `google_logging_folder_sink`, `google_logging_organization_bucket_config`, `google_logging_organization_sink`, `google_logging_project_bucket_config`, `google_logging_project_sink` | |
 | Cloud Monitoring | `google_monitoring_metric_descriptor` | |
 | Cloud NAT | `google_compute_router_nat` | |
 | Cloud Pub/Sub | `google_pubsub_topic`, `google_pubsub_subscription` | |
 | Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
 | Cloud SQL | `google_sql_database_instance` | Cloud SQL network, SQL Server license, 1-3 years commitments costs are not yet supported. |
+| Cloud VPN | `google_compute_vpn_tunnel`, `google_compute_vpn_gateway`, `google_compute_ha_vpn_gateway`, `google_compute_external_vpn_gateway` | |
 | Compute Engine | `google_compute_image`, `google_compute_machine_image`, `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address`, `google_compute_snapshot` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
 | Container Registry | `google_container_registry` | |
 | Key Management Service (KMS) | `google_kms_crypto_key` | |
@@ -80,6 +84,9 @@ GovCloud regions are also supported.
 | ---          | ---                           | ---   |
 | App Service | `azurerm_app_service_certificate_binding`, `azurerm_app_service_certificate_order`, `azurerm_app_service_custom_hostname_binding`, `azurerm_app_service_environment`, `azurerm_app_service_plan` | |
 | API Management | `azurerm_api_management` | |
+| Automation | `azurerm_automation_account`, `azurerm_automation_dsc_configuration`, `azurerm_automation_dsc_nodeconfiguration`, `azurerm_automation_job_schedule` | |
+| Cache for Redis | `azurerm_redis_cache` | |
+| Cognitive Search | `azurerm_search_service` | |
 | Container Registry | `azurerm_container_registry` | |
 | Content Delivery Network (CDN) | `azurerm_cdn_endpoint` | |
 | Cosmos DB | `azurerm_cosmosdb_cassandra_keyspace`, `azurerm_cosmosdb_cassandra_table`, `azurerm_cosmosdb_gremlin_database`, `azurerm_cosmosdb_gremlin_graph`, `azurerm_cosmosdb_mongo_collection`, `azurerm_cosmosdb_mongo_database`, `azurerm_cosmosdb_sql_container`, `azurerm_cosmosdb_sql_database`, `azurerm_cosmosdb_table` | |
