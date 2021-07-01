@@ -3,6 +3,8 @@ slug: cicd
 title: CI/CD integrations
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 Infracost CI/CD integrations can be used to automatically add a pull request comment showing the diff of monthly costs between the current and planned state. Minor cost increase/decrease changes can be ignored by setting a percentage threshold for the comment to be added.
 
 Infracost can be used in any CI/CD system using the [infracost binary](https://github.com/infracost/infracost/releases) or the [infracost/infracost Docker image](https://hub.docker.com/r/infracost/infracost). You might also find our [CI diff script](https://github.com/infracost/infracost/tree/master/scripts/ci/diff.sh) useful; it's used in the following integrations.
@@ -46,6 +48,12 @@ See the [Infracost Jenkins integration](https://github.com/infracost/infracost-j
 See the [Infracost Azure DevOps integration](https://github.com/infracost/infracost-azure-devops/) for instructions. A demo of the Azure DevOps Repos (git) integration is [here](https://dev.azure.com/infracost/base/_git/azure-devops-repo-demo), and GitHub repos is [here](https://github.com/infracost/azure-devops-github-demo).
 
 <img src="https://raw.githubusercontent.com/infracost/infracost-azure-devops/master/screenshot.png" width="700px" alt="Example Infracost diff output" />
+
+## Slack
+
+All of the above CI/CD integrations support also posting the pull request comment to a Slack channel. To enable it, create a [Slack Webhook](https://slack.com/intl/en-tr/help/articles/115005265063-Incoming-webhooks-for-Slack) and set its value to the `SLACK_WEBHOOK_URL` environment variable.
+
+<img src={useBaseUrl("img/screenshots/post_to_slack.png")} alt="Example Infracost diff output" />
 
 ## CI/CD troubleshooting
 
