@@ -89,7 +89,7 @@ Yes! Please email <a href="mailto:hello@infracost.io" target="_blank">hello@infr
 ## What's the difference between Infracost and Terraform Cloud's cost estimation?
 
 The key differences are:
-1. Infracost [supports over 140 resources](/docs/supported_resources). Terraform Cloud supports 43 resources.
+1. Infracost [supports over 200 resources](/docs/supported_resources). Terraform Cloud supports 43 resources.
 2. Infracost can be used to model [usage-based resources](/docs/usage_based_resources) and do what-if analysis.
 3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of the source control and CI/CD system being used.
 4. Infracost can be used with [Terragrunt](/docs/iac_tools/terragrunt).

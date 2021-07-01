@@ -3,7 +3,7 @@ slug: supported_resources
 title: Supported resources
 ---
 
-Infracost supports over 160 Terraform resources across AWS, Google and Azure. Over 450 free resources have also been identified; these are not shown in the CLI output since they are free.
+Infracost supports over 200 Terraform resources across AWS, Google and Azure. Over 500 free resources have also been identified; these are not shown in the CLI output since they are free.
 
 The quickest way to find out if your Terraform resources are supported is to run [`infracost breakdown`](/docs#usage) with the `--show-skipped` flag. This shows the unsupported resources, some of which might be free.
 
@@ -18,6 +18,7 @@ GovCloud and China regions are also supported.
 | API Gateway | `aws_api_gateway_rest_api`, `aws_api_gateway_stage`, `aws_apigatewayv2_api` | |
 | Certificate Manager (ACM) | `aws_acmpca_certificate_authority`, `aws_acm_certificate` | |
 | CloudFormation | `aws_cloudformation_stack`, `aws_cloudformation_stack_set` | |
+| Backup | `aws_backup_vault` | AWS Storage Gateway Volume Backup prices could not be found in the AWS pricing data. |
 | CloudFront | `aws_cloudfront_distribution` | |
 | CloudWatch | `aws_cloudwatch_dashboard`, `aws_cloudwatch_log_group`, `aws_cloudwatch_metric_alarm` | |
 | CodeBuild | `aws_codebuild_project` | |
@@ -38,10 +39,12 @@ GovCloud and China regions are also supported.
 | Elasticsearch Service | `aws_elasticsearch_domain` |  |
 | FSx for Windows File Server | `aws_fsx_windows_file_system` | Data deduplication is not supported by Terraform. |
 | Key Management Service (KMS) | `aws_kms_external_key`, `aws_kms_key` |  |
+| Kinesis | `aws_kinesis_analytics_application`, `aws_kinesisanalyticsv2_application`, `aws_kinesisanalyticsv2_application_snapshot`, `aws_kinesis_firehose_delivery_stream` | Terraform doesn’t currently support Analytics Studio, but when it does they will require 2 orchestration KPUs. |
 | Lambda | `aws_lambda_function` |  Provisioned concurrency is not yet supported. |
 | Lightsail | `aws_lightsail_instance` |  |
 | Managed Streaming for Apache Kafka (MSK) | `aws_msk_cluster` |  |
 | MQ | `aws_mq_broker` | |
+| Neptune | `aws_neptune_cluster`, `aws_neptune_cluster_instance`, `aws_neptune_cluster_snapshot` | |
 | Secrets Manager | `aws_secretsmanager_secret` |  |
 | Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | Most expensive price tier is used. S3 replication time control data transfer, and batch operations are not supported by Terraform. |
 | Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
@@ -82,8 +85,9 @@ GovCloud regions are also supported.
 
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
-| App Service | `azurerm_app_service_certificate_binding`, `azurerm_app_service_certificate_order`, `azurerm_app_service_custom_hostname_binding`, `azurerm_app_service_environment`, `azurerm_app_service_plan` | |
 | API Management | `azurerm_api_management` | |
+| App Service | `azurerm_app_service_certificate_binding`, `azurerm_app_service_certificate_order`, `azurerm_app_service_custom_hostname_binding`, `azurerm_app_service_environment`, `azurerm_app_service_plan` | |
+| Application Gateway | `azurerm_application_gateway` | |
 | Automation | `azurerm_automation_account`, `azurerm_automation_dsc_configuration`, `azurerm_automation_dsc_nodeconfiguration`, `azurerm_automation_job_schedule` | |
 | Cache for Redis | `azurerm_redis_cache` | |
 | Cognitive Search | `azurerm_search_service` | |
@@ -93,17 +97,20 @@ GovCloud regions are also supported.
 | Database    | `azurerm_mariadb_server`, `azurerm_mssql_database`, `azurerm_mysql_server`, `azurerm_postgresql_flexible_server`, `azurerm_postgresql_server` |
 | Databricks workspace | `azurerm_databricks_workspace` | |
 | DNS  | `azurerm_dns_zone`, `azurerm_private_dns_zone`, `azurerm_dns_a_record`, `azurerm_dns_aaaa_record`, `azurerm_dns_caa_record`, `azurerm_dns_cname_record`, `azurerm_dns_mx_record`, `azurerm_dns_ns_record`, `azurerm_dns_ptr_record`, `azurerm_dns_srv_record`, `azurerm_dns_txt_record`, `azurerm_private_dns_a_record`, `azurerm_private_dns_aaaa_record`, `azurerm_private_dns_cname_record`, `azurerm_private_dns_mx_record`, `azurerm_private_dns_ptr_record`, `azurerm_private_dns_srv_record`, `azurerm_private_dns_txt_record` |
+| Event Hubs | `azurerm_eventhub_namespace` | Premium namespaces are not supported by Terraform. |
 | Firewall | `azurerm_firewall` | |
 | Functions | `azurerm_function_app` | |
 | HDInsight | `azurerm_hdinsight_hadoop_cluster`, `azurerm_hdinsight_hbase_cluster`, `azurerm_hdinsight_interactive_query_cluster`, `azurerm_hdinsight_kafka_cluster`, `azurerm_hdinsight_spark_cluster` | |
 | Key Vault | `azurerm_key_vault_certificate`, `azurerm_key_vault_key`, `azurerm_key_vault_managed_hardware_security_module` | |
+| Load Balancer | `azurerm_lb`, `azurerm_lb_rule`, `azurerm_lb_outbound_rule` | |
 | Logic Apps | `azurerm_integration_service_environment` | |
 | Kubernetes Service (AKS) | `azurerm_kubernetes_cluster`, `azurerm_kubernetes_cluster_node_pool` | |
-| Virtual Network | `azurerm_public_ip`, `azurerm_public_ip_prefix`, `azurerm_nat_gateway` | |
+| Monitor | `azurerm_application_insights`, `azurerm_application_insights_web_test` | |
 | Notification Hubs | `azurerm_notification_hub_namespace` | |
 | Storage Account | `azurerm_storage_account` | |
 | Virtual Machines | `azurerm_linux_virtual_machine`, `azurerm_managed_disk`, `azurerm_virtual_machine`, `azurerm_windows_virtual_machine` | Non-standard images such as RHEL are not supported. Low priority, Spot and Reserved instances are not supported. |
 | Virtual Machine Scale Sets | `azurerm_linux_virtual_machine_scale_set`, `azurerm_virtual_machine_scale_set`, `azurerm_windows_virtual_machine_scale_set` | |
+| Virtual Network | `azurerm_public_ip`, `azurerm_public_ip_prefix`, `azurerm_nat_gateway` | |
 
 ### General notes
 
