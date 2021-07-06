@@ -27,4 +27,5 @@ This command generates static content into the `build` directory and can be serv
 ### Deployment
 
 Merges to master automatically update www.infracost.io
+
 Check that the image loads on https://cards-dev.twitter.com/validator for new blog post URLs
