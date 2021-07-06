@@ -251,12 +251,17 @@ infracost output --path project*.json --format diff
               ]
             }
           ],
+          // The summary format is not finalized and is subject to change
+          "summary": {
+            "unsupportedResourceCounts": {}
+          },
           "totalHourlyCost": "1.017315068493150679",
           "totalMonthlyCost": "742.64"
         }
       }
     ],
     "timeGenerated": "2021-02-17T17:46:51.690235Z",
+    // The summary format is not finalized and is subject to change
     "summary": {
       "unsupportedResourceCounts": {}
     },
