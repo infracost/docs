@@ -48,17 +48,27 @@
   color: var(--text-color);
   font-size: 1.25rem;
   line-height: 1.75rem;
-  margin-bottom: 2rem;
 }
 
 .home-hero .description strong {
   color: var(--header-color);
 }
 
+.home-hero .open-source-label {
+  color: var(--white);
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 3rem;
+}
+
+.home-hero .open-source-label .icon {
+  margin-right: 0.6125rem;
+  padding: 0.1875rem;
+}
+
 .home-hero .backers {
   color: var(--white);
   display: flex;
-  margin-top: 3rem;
 }
 
 .home-hero .backers img {
@@ -127,43 +137,49 @@
   display: block;
 }
 
-/* PROBLEMS */
+/* USE CASES */
 
-.problems .col {
+.use-cases .col {
   padding-left: 0;
   padding-right: 0;
 }
 
-.problems .row .col {
+.use-cases .row .col {
   flex-basis: 100%;
 }
 
-.problems .row .col:not(:last-child) {
+.use-cases .row .col:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 
-
 @media (min-width: 768px) {
-  .problems .row .col:not(:last-child) {
+  .use-cases .row .col:not(:last-child) {
     margin-bottom: 0;
   }
 
-  .problems .row .col.col.col {
+  .use-cases .row .col.col.col {
     flex-basis: auto;
     flex: 1 0;
   }
 
-  .problems .col:not(:last-child) {
+  .use-cases .col:not(:last-child) {
     padding-right: 1.5rem;
   }
 }
 
-.problems h3 {
-  font-size: 1.125rem;
+.use-cases .box {
+  margin: 0 auto 1.5rem;
+  max-width: 900px;
 }
 
-.problems p {
-  font-size: 0.875rem;
+
+.use-cases h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.use-cases p {
+  font-size: 1rem;
   margin-bottom: 0;
 }
 
@@ -188,12 +204,12 @@
 }
 
 .step-content {
-  font-size: 0.875rem;
+  font-size: 1rem;
   margin-bottom: 2rem;
 }
 
 .step-content h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .step-number {
