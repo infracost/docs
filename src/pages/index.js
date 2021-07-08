@@ -9,7 +9,7 @@ function Home() {
   return (
     <PageLayout
         title="Cloud cost estimates for Terraform in pull requests"
-        description="Infracost shows cloud cost estimates for Terraform projects. It integrates into pull requests and allows developers and DevOps to see cost breakdowns and compare options upfront."
+        description="Infracost helps engineers see cloud costs before launching resources. Map costs to code directly in pull requests. Take action directly in your workflow."
         pageClass="home">
 
       <div className="home-hero">
