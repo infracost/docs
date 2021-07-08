@@ -1,5 +1,6 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
+import Check from '../components/icons/Check';
 import SocialMentionCard from '../components/SocialMentionCard';
 import UsedBy from '../components/UsedBy';
 
@@ -19,10 +20,13 @@ function Home() {
 
           <div className="hero-content">
             <div className="left">
-              <h1 className="tagline">Cloud cost estimates for Terraform in pull requests</h1>
-              <p className="description">Infracost is an open-source tool that helps DevOps, SRE and developers continuously reduce their cloud costs.</p>
+              <h1 className="tagline">Love your cloud bill! 💰📉</h1>
+              <p className="description">Cloud cost estimates for Terraform in pull requests</p>
               <a href="/docs/" className="button primary">Get started</a>
-              <p className="backers"><img src="/img/yc.svg" alt="Y Combinator logo" /><span>Backed by <strong>Y Combinator</strong></span></p>
+              <p className="open-source-label"><span className="icon"><Check size={18} /></span>Open source</p>
+              <p className="backers">
+                <img src="/img/yc.svg" alt="Y Combinator logo" /><span>Backed by <strong>Y Combinator</strong></span>
+              </p>
             </div>
             <div className="right">
               <div className="screenshot-wrapper">
@@ -42,15 +46,13 @@ function Home() {
           <div className="heading">
             <img src="/img/product-walkthrough-icon.svg" alt="Product walkthrough icon" />
             <h2>See the cost of each pull request</h2>
-            <span className="subtitle">Infracost easily integrates into your CI/CD pipeline</span>
           </div>
 
           <div className="steps">
             <div className="step">
               <div className="step-content">
-                <span className="step-number">Step one</span>
-                <h3>Developer proposes a change to the infrastructure</h3>
-                <p>A developer makes changes to the infrastructure as code file, and creates a pull/merge request.</p>
+                <h3>Know costs before you buy</h3>
+                <p>Infracost scans your Terraform code and checks over 3 million prices to create a simple, understandable cost estimate before you launch resources.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
@@ -61,9 +63,8 @@ function Home() {
 
             <div className="step">
               <div className="step-content">
-                <span className="step-number">Step two</span>
-                <h3>Infracost calculates the cost of the change</h3>
-                <p>Infracost looks at the changes made to the Terraform file and shows the pre and post-change costs as a comment in the pull request: “This change will increase your bill by 27%”</p>
+                <h3>Map costs to lines of code</h3>
+                <p>Infracost maps costs to resources in your pull requests, so you know which lines of code have the biggest cost impact.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
@@ -74,9 +75,8 @@ function Home() {
 
             <div className="step">
               <div className="step-content">
-                <span className="step-number">Step three</span>
-                <h3>Team discusses the cost implication</h3>
-                <p>This enables engineering teams to see how much each pull request costs, and to peer review costs alongside the code.</p>
+                <h3>Take action</h3>
+                <p>Infracost integrates into your CI/CD so you can discuss the cost impact of changes with your team in your existing workflow.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
@@ -104,33 +104,28 @@ function Home() {
         </div>
       </div>
 
-      <div className="problems">
+      <div className="use-cases">
         <div className="container">
           <div className="heading">
             <img src="/img/problem-icon.svg" alt="Problem icon" />
-            <h2>Cloud cost optimization for DevOps</h2>
-            <span className="subtitle">How Infracost helps your team</span>
+            <h2>How people are using Infracost</h2>
           </div>
 
           <div className="row">
             <div className="col">
-              <div className="box full-height">
-                <h3>Cloud costs are complex</h3>
-                <p>AWS alone has over 2 million prices. Infracost makes these prices understandable for engineering teams.</p>
+              <div className="box">
+                <h3>Cost aware engineering organization</h3>
+                <p>Hundreds of companies have implemented Infracost to show their engineers how much cloud resources cost before they are launched. Engineers build up knowledge of which services and options have the biggest cost impact. Being more cost aware means they can make better decisions from the start.</p>
               </div>
-            </div>
 
-            <div className="col">
-              <div className="box full-height">
-                <h3>Costs are hidden from developers</h3>
-                <p>Infracost links the costs directly to lines of code so engineers can continuously reduce their cloud costs.</p>
+              <div className="box">
+                <h3>Set cost policies in workflow</h3>
+                <p>Policies enable engineers to move fast and only be notified when a specific cost policy has been exceeded. Soft policies inform the engineering team when something needs to be checked, while hard policies will stop something that will blow the budget from going live. Policies can be set around a specific dollar amount (e.g anything over $5K) or a percentage increase (e.g more than 15%).</p>
               </div>
-            </div>
 
-            <div className="col">
-              <div className="box full-height">
-                <h3>Analyzing cloud bills is too late</h3>
-                <p>Infracost shows costs upfront before resources are deployed so you don't need to wait for the cloud bill.</p>
+              <div className="box">
+                <h3>What-if analysis &amp; forecasting</h3>
+                <p>Using the Infracost CLI, you can run scenarios to see the cost impact of any changes to your infrastructure. What if you changed instance type, region, or cloud provider. What if usage increases by 2x or 10x. Infracost can be used as a calculator to simplify the 3 million price points from the cloud providers and provide a forecast.</p>
               </div>
             </div>
           </div>
