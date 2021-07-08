@@ -7,7 +7,7 @@ description: Get started with Infracost in your Terraform workflow, integrate it
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Infracost shows cloud cost estimates for infrastructure-as-code projects such as Terraform. It helps DevOps, SRE and developers to quickly see a cost breakdown and compare different options upfront.
+Infracost shows cloud cost estimates for Terraform in pull requests, CLI and CI/CD. This helps you understand the cost of services before you buy them, know exactly which services and options have the biggest impact on cloud costs, and take action to reduce costs within your existing workflow.
 
 If you're upgrading from an older version to `v0.9`, please see the [**migration guide**](/docs/guides/v0.9_migration).
 
@@ -84,7 +84,7 @@ infracost register
 The key is saved in `~/.config/infracost/credentials.yml`.
 
 ### 3. Run it
-Run Infracost using our example Terraform project to see how it works:
+As mentioned in our FAQ, no cloud credentials or secrets are sent to the API. Infracost does not make any changes to your Terraform state or cloud resources. Run Infracost using our example Terraform project to see how it works:
 
 ```shell
 git clone https://github.com/infracost/example-terraform.git
@@ -108,8 +108,6 @@ The `infracost` CLI has the following main commands. Use the `--path` flag to po
 - `diff`: show diff of monthly costs between current and planned state
 
 If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/multi_project/config_file) to define them; their results will be combined into the same breakdown or diff output.
-
-As mentioned in our [FAQ](/docs/faq), no cloud credentials or secrets are sent to the Cloud Pricing API. Infracost does not make any changes to your Terraform state or cloud resources.
 
 ### Option 1: Terraform directory
 

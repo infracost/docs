@@ -32,6 +32,7 @@ function Footer() {
               <li><a href="/about">About</a></li>
               <li><a href="/blog">Blog</a></li>
               <li><a href="https://twitter.com/infracost" target="_blank">Twitter</a></li>
+              <li><a href="https://www.notion.so/infracost/Join-the-team-6512e4f4a89d4fc5b7a112583c0a1c3c">Careers</a></li>
               <li><a href="mailto:hello@infracost.io" target="_blank">hello@infracost.io</a></li>
             </ul>
           </div>
