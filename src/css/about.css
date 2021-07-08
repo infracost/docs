@@ -46,7 +46,7 @@
 }
 
 .about .profile-image {
-  margin-bottom: 0 auto 0.5rem;
+  margin: 0 auto 0.5rem;
   height: 160px;
   width: 160px;
   overflow: hidden;
