@@ -68,7 +68,10 @@ function About() {
 
             <p>Hassan, Ali and Alistair have been working together in the cloud computing space since 2012. Their experience is wide-reaching from founding multiple startups and leading them through acquisitions, to creating highly scalable software used by enterprises including Sony, Samsung, PBS, Disney, Netflix and Forbes.</p>
 
+            <p><a href="https://www.notion.so/infracost/Join-the-team-6512e4f4a89d4fc5b7a112583c0a1c3c">Join us</a> on our mission to help developers fall in love with their cloud bills! </p>
+
             <p className="contact">Contact us: <a href="mailto:hello@infracost.io" target="_blank">hello@infracost.io</a></p>
+
           </div>
 
           <div className="backers">
