@@ -38,10 +38,10 @@
 }
 
 .home-hero h1.tagline {
-  font-size: 2.25rem;
+  font-size: 1.8125rem;
   font-weight: 900;
   line-height: 2.5rem;
-  margin: 2rem 0 0.5rem;
+  margin: 2rem 0 0.75rem;
 }
 
 .home-hero .description {
@@ -88,6 +88,11 @@
   .home-hero {
     padding-bottom: 3rem;
     padding-top: calc(3rem + var(--navbar-height));
+  }
+
+  .home-hero h1.tagline {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
   }
 
   .home-hero .logo-wrapper {
