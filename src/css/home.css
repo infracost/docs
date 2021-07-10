@@ -38,7 +38,7 @@
 }
 
 .home-hero h1.tagline {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 900;
   line-height: 2.5rem;
   margin: 2rem 0 0.75rem;
@@ -87,7 +87,6 @@
   padding: 1.5rem 1.5rem 0;
   display: flex;
 }
-
 
 @media (min-width: 478px) {
   .home-hero h1.tagline {
