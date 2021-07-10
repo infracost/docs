@@ -38,10 +38,14 @@
 }
 
 .home-hero h1.tagline {
-  font-size: 1.8125rem;
+  font-size: 1.75rem;
   font-weight: 900;
   line-height: 2.5rem;
   margin: 2rem 0 0.75rem;
+}
+
+.home-hero h1.tagline .emojis {
+  white-space: nowrap;
 }
 
 .home-hero .description {
@@ -84,6 +88,13 @@
   display: flex;
 }
 
+
+@media (min-width: 478px) {
+  .home-hero h1.tagline {
+    font-size: 1.875rem;
+  }
+}
+
 @media (min-width: 769px) {
   .home-hero {
     padding-bottom: 3rem;
@@ -91,7 +102,7 @@
   }
 
   .home-hero h1.tagline {
-    font-size: 2.25rem;
+    font-size: 2.rem;
     margin-bottom: 0.5rem;
   }
 
@@ -111,6 +122,12 @@
   .hero-content .right {
     margin-top: 0;
     width: 50%;
+  }
+}
+
+@media (min-width: 997px) {
+  .home-hero h1.tagline {
+    font-size: 2.25rem;
   }
 }
 

@@ -20,7 +20,7 @@ function Home() {
 
           <div className="hero-content">
             <div className="left">
-              <h1 className="tagline">Love your cloud bill! 💰📉</h1>
+              <h1 className="tagline">Love your cloud bill! <span class="emojis">💰📉</span></h1>
               <p className="description">Cloud cost estimates for Terraform in pull requests</p>
               <a href="/docs/" className="button primary">Get started</a>
               <p className="open-source-label"><span className="icon"><Check size={18} /></span>Open source</p>
