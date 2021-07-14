@@ -10,6 +10,7 @@ An Infracost config file can be created in each of your Terraform project repos 
 1. Not having to remember or specify flags for each run.
 2. Ability to run Infracost with multiple Terraform projects or workspaces, and combine them into the same breakdown or diff output.
 3. Enable multi-project or workspace runs in [CI/CD integrations](/docs/integrations/cicd).
+4. Enable multi-directory [Terragrunt projects](/docs/iac_tools/terragrunt).
 
 ## Usage
 
@@ -26,7 +27,7 @@ An Infracost config file can be created in each of your Terraform project repos 
 
 | Parameter             | Description      | Notes |
 | ---                   | ---              | ---   |
-| `path`                  | Path to the Terraform directory or JSON/plan file | Required |
+| `path`                  | Path to the Terraform directory or JSON/plan file. A path can be repeated with different parameters, e.g. for multiple workspaces. | Required |
 | `usage_file`          | Path to Infracost usage file that specifies values for [usage-based resources](/docs/usage_based_resources) | Not required |
 | `terraform_binary`      | Used to change the path to the `terraform` binary | Not required, e.g. can be set to `terragrunt` or another path |
 | `terraform_plan_flags`  | Flags to pass to `terraform plan` with Terraform directory paths | Not required. Can be space delimited, e.g. `-var-file=prod.tfvars -var-file=us-east.tfvars` |
@@ -81,7 +82,15 @@ An Infracost config file can be created in each of your Terraform project repos 
   version: 0.1
 
   projects:
-    - path: examples/project
+    - path: my/module1
+      terraform_binary: terragrunt
+      terraform_plan_flags: -var-file=prod.tfvars -var-file=us-east.tfvars
+    
+    - path: my/module1
+      terraform_binary: terragrunt
+      terraform_plan_flags: -var-file=dev.tfvars
+    
+    - path: my/module2
       terraform_binary: terragrunt
   ```
   </TabItem>
