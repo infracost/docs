@@ -26,7 +26,7 @@ No. The CLI parses the Terraform plan JSON file to find [cost-related parameters
 
 No cloud credentials or secrets are sent to the Cloud Pricing API. Infracost does not make any changes to your Terraform state or cloud resources.
 
-The Cloud Pricing API needs the relevant data to return a unique cloud price point, so it parses the plan JSON file to find those. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also sent alongside error tracking events so we can identify and fix issues quickly.
+The Cloud Pricing API needs the relevant data to return a unique cloud price point. The plan JSON file is parsed by the Infracost CLI to extract the relevant data to make requests to the Cloud Pricing API. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also sent alongside error tracking events so we can identify and fix issues quickly.
 
 Here is an example request to the Cloud Pricing API for a t3.micro instance and the returned response:
 
