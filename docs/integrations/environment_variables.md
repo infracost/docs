@@ -28,6 +28,7 @@ Used to change the path to the `terraform` binary, e.g.:
 #### CI/CD integrations
 If you're using a [CI/CD integration](/docs/integrations/cicd), the [infracost/infracost Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the latest stable versions of terraform and terragrunt; so you can set this environment variable to:
 - `terraform` (default, latest stable version of terraform)
+- `terraform_1.0` (latest patch version of 1.0)
 - `terraform_0.15` (latest patch version of 0.15)
 - `terraform_0.14` (latest patch version of 0.14)
 - `terraform_0.13` (latest patch version of 0.13)

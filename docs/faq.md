@@ -6,18 +6,7 @@ title: FAQ
 ## How does Infracost work?
 
 Infracost has a CLI and a Cloud Pricing API backend service, as well as many [CI/CD integrations](/docs/integrations/cicd).
-The CLI parses the Terraform plan JSON file to find [supported resources](/docs/supported_resources) and uses [cost-related parameters](/docs/faq#example-request) to find any applicable prices for that resource. The Cloud Pricing API [returns the prices](/docs/faq#example-response), which the CLI then uses to calculate the monthly costs. The results can be output in table, HTML or JSON format.
-
-## What Terraform versions are supported?
-
-Infracost works with Terraform v0.12 and above.
-
-To change the path to the `terraform` binary, set the `INFRACOST_TERRAFORM_BINARY` environment variable:
-```shell
-INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --path /path/to/code
-```
-
-Terragrunt users should see [this page](/docs/iac_tools/terragrunt).
+The CLI parses the Terraform plan JSON file to find [supported resources](/docs/supported_resources) and uses [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size, to find applicable cloud prices for that resource. The Cloud Pricing API [returns the prices](/docs/faq#example-response), which the CLI then uses to calculate the monthly costs. The results can be output in table, HTML or JSON format.
 
 ## Does Infracost need cloud credentials?
 
@@ -29,11 +18,15 @@ That depends on how you run Infracost, since we run Terraform internally, which 
 
 Infracost gets prices from the Cloud Pricing API, which we continually update with the latest cloud vendor prices.
 
+## Does the CLI send the Terraform plan to the Cloud Pricing API?
+
+No. The CLI parses the Terraform plan JSON file to find [cost-related parameters](/docs/faq#example-request) and uses those to lookup cloud prices. See the following FAQ for more details.
+
 ## What data is sent to the Cloud Pricing API?
 
 No cloud credentials or secrets are sent to the Cloud Pricing API. Infracost does not make any changes to your Terraform state or cloud resources.
 
-The Cloud Pricing API needs the relevant data to return a unique cloud price point. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also sent alongside error tracking events so we can identify and fix issues quickly.
+The Cloud Pricing API needs the relevant data to return a unique cloud price point. The plan JSON file is parsed by the Infracost CLI to extract the relevant data to make requests to the Cloud Pricing API. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also sent alongside error tracking events so we can identify and fix issues quickly.
 
 Here is an example request to the Cloud Pricing API for a t3.micro instance and the returned response:
 
@@ -84,7 +77,7 @@ query {
 
 ## Can I run my own Cloud Pricing API?
 
-Yes! Please email <a href="mailto:hello@infracost.io" target="_blank">hello@infracost.io</a> for details.
+Yes! Please subscribe/comment on [this GitHub issue](https://github.com/infracost/cloud-pricing-api/issues/52) for updates as we're working on it.
 
 ## What's the difference between Infracost and Terraform Cloud's cost estimation?
 
@@ -94,6 +87,17 @@ The key differences are:
 3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of the source control and CI/CD system being used.
 4. Infracost can be used with [Terragrunt](/docs/iac_tools/terragrunt).
 5. Infracost can output [HTML reports](/docs/multi_project/report) or JSON and be used alongside other tools.
+
+## What Terraform versions are supported?
+
+Infracost works with Terraform v0.12 and above.
+
+To change the path to the `terraform` binary, set the `INFRACOST_TERRAFORM_BINARY` environment variable:
+```shell
+INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --path /path/to/code
+```
+
+Terragrunt users should see [this page](/docs/iac_tools/terragrunt).
 
 ## Do you offer support?
 
