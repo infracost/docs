@@ -82,13 +82,14 @@ module.lambda_function.aws_lambda_function.this[0]:
 
 ### Resource arrays
 
-The wildcard character `[*]` can be used for an array of resources, such as AWS CloudWatch Log Groups. Infracost will apply the usage values individually to each element of the array (they all get the same values). If an array element (e.g. `this[0]`) and `[*]` are specified for a resource, only the array element's usage will be applied to that resource. This enables you to define default values using `[*]` and override specific elements using their index.
+The wildcard character `[*]` can be used for resource arrays (resources with [`count` meta-argument](https://www.terraform.io/docs/language/meta-arguments/count.html)) and resource maps (resources with [`for_each` meta-argument](https://www.terraform.io/docs/language/meta-arguments/for_each.html)), such as AWS CloudWatch Log Groups. Infracost will apply the usage values individually to each element of the array/map (they all get the same values). If both an array element such as `this[0]` (or map allement such as `this["foo"]`) and `[*]` are specified for a resource, only the array/map element's usage will be applied to that resource. This enables you to define default values using `[*]` and override specific elements using their index or key.
 
 <Tabs
   defaultValue="using-array-wildcard"
   values={[
-    {label: 'Using array wildcard', value: 'using-array-wildcard'},
-    {label: 'Without wildcard', value: 'without-wildcard'}
+    {label: 'Using array or map wildcard', value: 'using-array-wildcard'},
+    {label: 'Array without wildcard', value: 'array-without-wildcard'},
+    {label: 'Map without wildcard', value: 'map-without-wildcard'}
   ]}>
   <TabItem value="using-array-wildcard">
 
@@ -99,7 +100,7 @@ The wildcard character `[*]` can be used for an array of resources, such as AWS 
     monthly_data_scanned_gb: 200
   ```
   </TabItem>
-  <TabItem value="without-wildcard">
+  <TabItem value="array-without-wildcard">
 
   ```yml
   aws_cloudwatch_log_group.my_group[0]:
@@ -117,7 +118,15 @@ The wildcard character `[*]` can be used for an array of resources, such as AWS 
     monthly_data_ingested_gb: 1000
     monthly_data_scanned_gb: 200
   ```
+  </TabItem>
+  <TabItem value="map-without-wildcard">
 
+  ```yml
+  aws_cloudwatch_log_group.my_group["foo"]:
+    storage_gb: 1000
+    monthly_data_ingested_gb: 1000
+    monthly_data_scanned_gb: 200
+  ```
   </TabItem>
 </Tabs>
 
