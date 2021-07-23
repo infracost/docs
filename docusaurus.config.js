@@ -67,7 +67,7 @@ module.exports = {
     },
     announcementBar: {
       id: 'support_us',
-      content: '<span class="announcement-message">If you like Infracost, give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">star on GitHub</a>!<img src="/img/icons/star-white.svg" class="star-right" alt="Star icon" /></span>',
+      content: '<span class="announcement-message">Interested in <a target="_blank" rel="noopener noreferrer" href="https://www.infracost.io/join-the-team">joining the Infracost team?</a></span>',
       backgroundColor: '#2A2A5B',
       textColor: '#EBEBF2',
     },
