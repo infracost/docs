@@ -47,7 +47,7 @@ Edit the generated usage file with your usage estimates, for example a Lambda fu
       request_duration_ms: 0 # Average duration of each request in milliseconds.
   ```
 
-### 3. Run with usage file 
+### 3. Run with usage file
 
 Run `infracost breakdown` or `infracost diff` with the usage file to see monthly cost estimates:
 
@@ -80,7 +80,7 @@ module.lambda_function.aws_lambda_function.this[0]:
   request_duration_ms: 600
 ```
 
-### Resource arrays
+### Resource arrays/maps
 
 The wildcard character `[*]` can be used for resource arrays (resources with [`count` meta-argument](https://www.terraform.io/docs/language/meta-arguments/count.html)) and resource maps (resources with [`for_each` meta-argument](https://www.terraform.io/docs/language/meta-arguments/for_each.html)), such as AWS CloudWatch Log Groups. Infracost will apply the usage values individually to each element of the array/map (they all get the same values). If both an array element such as `this[0]` (or map element such as `this["foo"]`) and `[*]` are specified for a resource, only the array/map element's usage will be applied to that resource. This enables you to define default values using `[*]` and override specific elements using their index or key.
 
