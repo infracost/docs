@@ -46,6 +46,15 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Cloud Pricing API',
+      collapsed: true,
+      items: [
+        'cloud_pricing_api/api_usage',
+        'cloud_pricing_api/self_hosted',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Guides',
       collapsed: true,
       items: [

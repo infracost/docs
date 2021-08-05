@@ -51,11 +51,14 @@ For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API 
 ### INFRACOST_TERRAFORM_CLOUD_HOST
 For Terraform Enterprise users, used to override the default `app.terraform.io` backend host.
 
-### INFRACOST_SELF_HOSTED_TELEMETRY
-Set to `false` to opt-out of telemetry when using a self-hosted Cloud Pricing API.
-
 ### Terraform environment variables
 Standard Terraform [environment variables](https://www.terraform.io/docs/commands/environment-variables.html) such as `TF_CLI_CONFIG_FILE` can also be added if required, for example:
 ```shell
 TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost breakdown --path /path/to/code
 ```
+
+### INFRACOST_SELF_HOSTED_TELEMETRY
+Set to `false` in the self-hosted Cloud Pricing API to opt-out of telemetry.
+
+### SELF_HOSTED_INFRACOST_API_KEY
+Controls the API key that CLI users will need to authenticate with your self-hosted Cloud Pricing API. This can be updated to rotate the API key.
