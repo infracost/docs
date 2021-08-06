@@ -3,8 +3,6 @@ slug: environment_variables
 title: Environment variables
 ---
 
-## CLI environment variables
-
 The Infracost CLI uses a number of environment variables to customize various aspects of its behavior; these can be particularly useful in [CI/CD integrations](/docs/integrations/cicd). Configuration values are chosen in this order:
 1. CLI flags (run `infracost --help` to see them)
 2. Environment variables
@@ -58,11 +56,3 @@ Standard Terraform [environment variables](https://www.terraform.io/docs/command
 ```shell
 TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost breakdown --path /path/to/code
 ```
-
-## Self-hosted Cloud Pricing API
-
-### DISABLE_TELEMETRY
-Set to `true` to opt-out of telemetry.
-
-### SELF_HOSTED_INFRACOST_API_KEY
-Controls the API key that CLI users will need to authenticate with your self-hosted Cloud Pricing API. This can be updated to rotate the API key.

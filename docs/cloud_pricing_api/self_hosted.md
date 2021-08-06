@@ -6,8 +6,8 @@ title: Self-hosting
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 It should take around 15 mins to deploy the Cloud Pricing API. Two deployment methods are supported:
-1. If you have a Kubernetes cluster, we recommend using [our Helm Chart](https://github.com/infracost/helm-charts/tree/master/charts/cloud-pricing-api).
-2. If you prefer to deploy in your machine or a VM, we recommend using [our Docker compose file](https://github.com/infracost/cloud-pricing-api#docker-compose).
+1. If you have a Kubernetes cluster, we recommend using **[our Helm Chart](https://github.com/infracost/helm-charts/tree/master/charts/cloud-pricing-api)**.
+2. If you prefer to deploy in your machine or a VM, we recommend using [**our Docker compose file**](https://github.com/infracost/cloud-pricing-api#docker-compose).
 
 Either way, the PostgreSQL DB is run on a single container/pod, which should be fine if your high-availability requirements allow for a few second downtime on container/pod restarts. No critical data is stored in the DB and the DB can be quickly recreated in the unlikely event of data corruption issues. Managed databases, such as a small AWS RDS or Azure Database for PostgreSQL, can also be used (PostgreSQL version >= 13).
 
