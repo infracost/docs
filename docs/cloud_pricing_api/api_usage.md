@@ -43,7 +43,7 @@ The main properties of Prices are:
 | `purchaseOption` | Purchase option varies between vendors | `on_demand`, `reserved`, `spot`, `Consumption`, `preemptible` |
 | `termPurchaseOption` | Term of the purchase option | `termPurchaseOption: All Upfront`
 | `termLength` | Length of the purchase option | `termLength: 1yr` |
-| `termOfferingClass` | Offering class or type of the term | `termOfferingClass": standard` |
+| `termOfferingClass` | Offering class or type of the term | `termOfferingClass: standard` |
 
 Multiple currencies are not yet supported since vendors handle these differently in their pricing data. Subscribe to [this GitHub issue](https://github.com/infracost/infracost/issues/819) for updates.
 

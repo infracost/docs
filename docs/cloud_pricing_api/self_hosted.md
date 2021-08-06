@@ -46,10 +46,10 @@ For the PostgreSQL DB, a small instance with 2 vCPU and 2GB of RAM should be eno
 ## Migration from old version
 
 If you had previously deployed the Cloud Pricing API that used MongoDB, we recommend you:
-1. Follow the above instructions to deploy the new version using our Helm chart or Docker compose.
-2. Upgrade your Infracost CLI to the latest version.
-3. [Point your CLI](#usage-with-infracost-cli) to your new self-hosted Cloud Pricing API and test that it works as expected with your self-hosted API key.
-4. [Update your CI/CD systems](#usage-with-infracost-cli) to use the latest CLI version AND point to the new self-hosted Cloud Pricing API using the required two environment variables.
+1. Follow the above instructions to deploy the new version using [our Helm Chart](https://github.com/infracost/helm-charts/tree/master/charts/cloud-pricing-api) or [our Docker compose file](https://github.com/infracost/cloud-pricing-api#docker-compose).
+2. [Upgrade](/docs/#1-install-infracost) the Infracost CLI on your dev machine to the latest version.
+3. [Point your CLI](#usage-with-infracost-cli) to your new self-hosted Cloud Pricing API using the two required commands. Test it by generating a cost estimate.
+4. [Update your CI/CD systems](#usage-with-infracost-cli) to point to the new self-hosted Cloud Pricing API using the required two environment variables. If you're not using our official CI/CD integrations, you should also upgrade your integration to use the latest version of the CLI (the official integrations use the latest released CLI version by default).
 5. Destroy your old instance of the Cloud Pricing API.
 
-Please join our [community Slack channel](https://www.infracost.io/community-chat) or [email us](hello@infracost.io) if you run into any issues. We'd be happy to jump on a Zoom call and fix it ASAP.
+Please join our [community Slack channel](https://www.infracost.io/community-chat) or [email us](hello@infracost.io) if you run into any issues. We'd be happy to jump on a Zoom call and fix it with you ASAP.
