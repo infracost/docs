@@ -1,18 +1,18 @@
 ---
 slug: cloud-pricing-api
-title: "Self-hosted Cloud Pricing API: 3M prices from AWS, Azure and Google"
+title: "July 2021 update - self-hosted Cloud Pricing API"
 author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh
 author_image_url: /img/avatars/ali.jpg
-description: The Cloud Pricing API is an open source GraphQL-based API that includes all public prices from AWS, Azure and Google; it contains over 3 million prices!
+description: In July we improved the self-hosting experience of the Cloud Pricing API. This is open source GraphQL-based API that includes all 3M public prices from AWS, Azure and Google!
 hide_table_of_contents: true
 image: img/blog/cloud-pricing-api/deployment-overview.png
-date: "2021-08-09T00:00:00Z"
+date: "2021-08-10T00:00:00Z"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Whilst many [Infracost CLI](https://github.com/infracost/infracost) users connect to our hosted [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) (since no cloud credentials or secrets are sent to it), large enterprises who have restrictive security policies require self-hosting. Thus in July we focused on improving the self-hosting experience of the Cloud Pricing API. This is a GraphQL-based API that includes all public prices from AWS, Azure and Google; it contains over **3 million prices** just now!
+Whilst many [Infracost CLI](https://github.com/infracost/infracost) users connect to our hosted [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) (since no cloud credentials or secrets are sent to it), large enterprises that have restrictive security policies require self-hosting. Thus in July we focused on improving the self-hosting experience of the Cloud Pricing API. This is a GraphQL-based API that includes all public prices from AWS, Azure and Google; it contains over **3 million prices** just now!
 
 This is actually the third Cloud Pricing API our team has built; the complexity in cloud pricing has increased significantly in the last 10 years:
 - In **2010** (as part of PlanForCloud), we developed scrapers to fetch cloud prices as vendors didn't offer APIs then. There were over 10,000 prices at the time.
