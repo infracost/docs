@@ -36,11 +36,15 @@ function Pricing() {
                 </li>                
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>CI/CD integrations (GitHub, GitLab, CircleCI...)</span>
+                  <span>CI/CD integrations (GitHub, GitLab, Atlantis, CircleCI...)</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
                   <span>Works with Terraform Cloud &amp; Terragrunt</span>
+                </li>
+                <li>
+                  <span className="icon primary"><Check size={18} /></span>
+                  <span>Use our hosted Cloud Pricing API or self-host</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
@@ -64,11 +68,11 @@ function Pricing() {
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Multi-team support</span>
+                  <span>Management dashboards</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Management dashboards</span>
+                  <span>Multi-team support</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>

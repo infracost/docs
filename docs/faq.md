@@ -5,7 +5,8 @@ title: FAQ
 
 ## How does Infracost work?
 
-Infracost has a CLI and a Cloud Pricing API backend service, as well as many [CI/CD integrations](/docs/integrations/cicd).
+Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd).
+
 The CLI parses the Terraform plan JSON file to find [supported resources](/docs/supported_resources) and uses [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size, to find applicable cloud prices for that resource. The Cloud Pricing API [returns the prices](/docs/faq#example-response), which the CLI then uses to calculate the monthly costs. The results can be output in table, HTML or JSON format.
 
 ## Does Infracost need cloud credentials?
@@ -52,7 +53,7 @@ query {
       filter: {
         purchaseOption: "on_demand"
       }
-    ) { priceHash, USD }
+    ) { USD }
   }
 }
 ```
@@ -65,7 +66,6 @@ query {
       {
         "prices": [
           {
-            "priceHash": "2f1bc092c9e34dc084a4d96d19ef47ca-d2c98780d7b6e36641b521f1f8145c6f",
             "USD": "0.0104000000"
           }
         ]
@@ -77,7 +77,7 @@ query {
 
 ## Can I run my own Cloud Pricing API?
 
-Yes! Please subscribe/comment on [this GitHub issue](https://github.com/infracost/cloud-pricing-api/issues/52) for updates as we're working on it.
+Yes! Please see the [self-hosting guide](/docs/cloud_pricing_api/self_hosted) for details.
 
 ## What's the difference between Infracost and Terraform Cloud's cost estimation?
 

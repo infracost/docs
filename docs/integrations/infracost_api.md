@@ -1,6 +1,6 @@
 ---
 slug: infracost_api
-title: Infracost API
+title: Plan JSON API
 ---
 
 import Tabs from '@theme/Tabs';
@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 The majority of users should use the [Infracost CLI](/docs/#quick-start), which **does not** send the Terraform plan file to the Cloud Pricing API; instead it [sends](/docs/faq#what-data-is-sent-to-the-cloud-pricing-api) cost-related parameters, such as the instance type or disk size, so cloud prices can be found.
 :::
 
-The API described in this page is separate from the Cloud Pricing API, and it can be useful for CI/CD integrations such as [Atlantis](/docs/integrations/cicd#atlantis). In such cases, it might be easier to use `curl` or an HTTP library instead of installing the Infracost CLI. Terraform plan JSON files can be sent to this API, which runs `infracost diff` and returns the results (`text/plain` response). Whilst this API deletes files from the server after they are processed, it is a good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this.
+We plan to move and open source the API described in this page to the Cloud Pricing API, as it can be useful for CI/CD integrations such as [Atlantis](/docs/integrations/cicd#atlantis). In such cases, it might be easier to use `curl` or an HTTP library instead of installing the Infracost CLI. Terraform plan JSON files can be sent to this API, which runs `infracost diff` and returns the results (`text/plain` response). Whilst this API deletes files from the server after they are processed, it is a good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this.
 
 ## Usage
 
