@@ -40,7 +40,7 @@ The main properties of Prices are:
 
 Multiple currencies are not yet supported since vendors handle these differently in their pricing data. Subscribe to [this GitHub issue](https://github.com/infracost/infracost/issues/819) for updates.
 
-## Example usage
+## Usage
 
 Infracost runs a hosted version of this API that you can use:
 1. Register for an API key by [downloading infracost](/docs/#quick-start) and running `infracost register`.
