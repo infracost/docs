@@ -77,7 +77,7 @@ query {
 
 ## Can I run my own Cloud Pricing API?
 
-Yes! Please see the [deployment guide](/docs/guides/self_hosted_cloud_pricing_api) for details.
+Yes! Please see the [self-hosting guide](/docs/cloud_pricing_api/self_hosted) for details.
 
 ## What's the difference between Infracost and Terraform Cloud's cost estimation?
 

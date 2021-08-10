@@ -62,4 +62,4 @@ If you had previously deployed the Cloud Pricing API that used MongoDB, we recom
 4. [Update your CI/CD systems](#usage-with-infracost-cli) to point to the new self-hosted Cloud Pricing API using the required two environment variables. If you're not using our official CI/CD integrations, you should also upgrade your integration to use the latest version of the CLI (the official integrations use the latest released CLI version by default).
 5. Destroy your old instance of the Cloud Pricing API.
 
-Please join our [community Slack channel](https://www.infracost.io/community-chat) or [email us](hello@infracost.io) if you run into any issues. We'd be happy to jump on a Zoom call and fix it with you ASAP.
+Please join our [community Slack channel](https://www.infracost.io/community-chat) or [email us](mailto:hello@infracost.io) if you run into any issues. We'd be happy to jump on a Zoom call and fix it with you ASAP.

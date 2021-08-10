@@ -116,4 +116,4 @@ Infracost runs a hosted version of this API that you can use:
 
 ## What will you build?
 
-Whilst our main use-case for developing the Cloud Pricing API is the Infracost CLI, we're excited to see what the community does with this API. Please share your use-cases and issues with us on [GitHub](https://github.com/infracost/cloud-pricing-api/issues) or [Slack](https://www.infracost.io/community-chat) or [email](hello@infracost.io).
+Whilst our main use-case for developing the Cloud Pricing API is the Infracost CLI, we're excited to see what the community does with this API. Please share your use-cases and issues with us on [GitHub](https://github.com/infracost/cloud-pricing-api/issues) or [Slack](https://www.infracost.io/community-chat) or [email](mailto:hello@infracost.io).
