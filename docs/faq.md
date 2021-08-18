@@ -99,6 +99,15 @@ INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --path /path
 
 Terragrunt users should see [this page](/docs/iac_tools/terragrunt).
 
+## Can I show costs in a different currency?
+
+Sure!  Use the configure command to set your preferred ISO 4217 currency:
+```shell
+infracost configure set currency CURRENCY_CODE  
+```
+
+The prices will be converted from USD using the current exchange rate.
+
 ## Do you offer support?
 
 Yes! If you need help integrating Infracost in to your workflow, or want to talk about something else, please email [hello@infracost.io](mailto:hello@infracost.io). You can also join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.
