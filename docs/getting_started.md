@@ -7,7 +7,7 @@ description: Get started with Infracost in your Terraform workflow, integrate it
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Infracost shows cloud cost estimates for Terraform in pull requests, CLI and CI/CD. This helps you understand the cost of services before you buy them, know exactly which services and options have the biggest impact on cloud costs, and take action to reduce costs within your existing workflow.
+Infracost calculates cloud costs based on Terraform. Cost estimates can be shown in the terminal or put in pull requests using our CI/CD integrations. This helps you understand the cost of services before you use them, and take action to optimize costs within your existing workflow.
 
 If you're upgrading from an older version to `v0.9`, please see the [**migration guide**](/docs/guides/v0.9_migration).
 
@@ -76,7 +76,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
 </Tabs>
 
 ### 2. Get API key
-Register for a free API key:
+Register for a free API key, which is used by the CLI to query the Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are sent to the API. 
 ```shell
 infracost register
 ```
@@ -84,7 +84,7 @@ infracost register
 The key is saved in `~/.config/infracost/credentials.yml`.
 
 ### 3. Run it
-As mentioned in our FAQ, no cloud credentials or secrets are sent to the API. Infracost does not make any changes to your Terraform state or cloud resources. Run Infracost using our example Terraform project to see how it works:
+Infracost does not make any changes to your Terraform state or cloud resources. Run Infracost using our example Terraform project to see how it works:
 
 ```shell
 git clone https://github.com/infracost/example-terraform.git
@@ -98,8 +98,7 @@ infracost diff --path . --sync-usage-file --usage-file infracost-usage.yml
 ```
 
 ### 4. Add to CI/CD
-
-Use our [CI/CD integrations](/docs/integrations/cicd) to automatically add pull request comments showing cost estimate diffs.
+Use our [CI/CD integrations](/docs/integrations/cicd) to automatically add pull request comments showing cost estimate diffs. This can also provide a safetynet as teams can discuss the cost impact of changes as part of their workflow.
 
 ## Usage
 

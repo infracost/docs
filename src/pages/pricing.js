@@ -58,37 +58,19 @@ function Pricing() {
 
             <div className="plan box">
               <div class="heading">
-                <h2>Enterprise <span class="coming-soon">(coming soon)</span></h2>
-                <span className="price">Contact us for pricing</span>
+                <h2>Enterprise <span class="coming-soon"></span></h2>
+                <span className="price">Coming soon</span>
               </div>
               <ul>
                 <li>
-                  <span className="icon primary"><Check size={18} /></span>
-                  <span>All community features</span>
-                </li>
-                <li>
-                  <span className="icon primary"><Check size={18} /></span>
-                  <span>Management dashboards</span>
-                </li>
-                <li>
-                  <span className="icon primary"><Check size={18} /></span>
-                  <span>Multi-team support</span>
-                </li>
-                <li>
-                  <span className="icon primary"><Check size={18} /></span>
-                  <span>GitHub/GitLab Enterprise &amp; Bitbucket Data Center integration</span>
-                </li>                      
-                <li>
-                  <span className="icon primary"><Check size={18} /></span>
-                  <span>Self-hosted option</span>
-                </li>
-                <li>
-                  <span className="icon primary"><Check size={18} /></span>
-                  <span>Dedicated support &amp; SLA</span>
+                  <span className="icon primary"></span>
+                  <span>We're designing our enterprise product, which will include support for custom price books, visibility dashboards
+                    across all runs so you can see which are the expensive pull requests, multi-user/team setup and dedicated support.
+                  </span>
                 </li>
               </ul>
               <div class="action">
-                Contact us: <a href="mailto:hello@infracost.io?subject=Infracost Enterprise pricing">hello@infracost.io</a>
+                We love hearing your feedback on what features you think should be in the paid product, please email us on <a href="mailto:hello@infracost.io?subject=Infracost Enterprise pricing">hello@infracost.io</a>
               </div>
             </div>
           </div>
