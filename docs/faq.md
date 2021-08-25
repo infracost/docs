@@ -99,6 +99,15 @@ INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --path /path
 
 Terragrunt users should see [this page](/docs/iac_tools/terragrunt).
 
+## Can I show costs in a different currency?
+
+Sure! Use `infracost configure` to set your preferred [ISO 4217 currency](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) (e.g. EUR, BRL or INR):
+```shell
+infracost configure set currency CURRENCY_CODE
+```
+
+The environment variable `INFRACOST_CURRENCY` can be used to set the currency in CI/CD pipelines. Cloud vendors usually publish prices in USD so the costs will be converted from USD to your preferred currency using the current exchange rate when the CLI is run.
+
 ## Do you offer support?
 
 Yes! If you need help integrating Infracost in to your workflow, or want to talk about something else, please email [hello@infracost.io](mailto:hello@infracost.io). You can also join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.

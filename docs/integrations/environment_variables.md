@@ -11,6 +11,9 @@ The Infracost CLI uses a number of environment variables to customize various as
 ### INFRACOST_API_KEY
 Infracost API key, run `infracost register` to get one.
 
+### INFRACOST_CURRENCY
+The currency ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) prices should be converted to. Defaults to USD.
+
 ### INFRACOST_LOG_LEVEL
 Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot. Turns off spinners in output.
 

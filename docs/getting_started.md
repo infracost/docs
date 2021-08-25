@@ -29,7 +29,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ```shell
   brew install infracost
 
-  infracost --version # Should show v0.9.5
+  infracost --version # Should show v0.9.6
   ```
 
   If the version is old, please run `brew update` then `brew upgrade infracost`.
@@ -154,4 +154,8 @@ Run `infracost breakdown --help` to see the available options, which include:
   --no-color             Turn off colored output
   ```
 
-The `infracost diff --help` and `infracost output --help` commands show related options. For shell completion scripts, see `infracost completion --help`.
+Other useful commands:
+- `infracost diff --help` to show diff of monthly costs between current and planned state
+- `infracost output --help` to combine and output Infracost JSON files in different formats
+- `infracost completion --help` for shell completion scripts
+- `infracost configure --help` for global configs, including currency settings
