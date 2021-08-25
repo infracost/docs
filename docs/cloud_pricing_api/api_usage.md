@@ -28,7 +28,7 @@ The main properties of Prices are:
 
 | Name | Description | Example |
 | ---       | ---    | ---   |
-| `USD` | Price from the cloud vendor | `USD: 0.2810000000` |
+| `USD` | Price from the cloud vendor in the preferred [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) (e.g. EUR, BRL or INR).  For non-USD currencies, prices are converted from USD to the preferred currency at query time. | `USD: 0.2810000000` |
 | `unit` | Unit for the price | `unit: Hrs` |
 | `description` | Any additional description | `description: Upfront Fee` |
 | `startUsageAmount` | Start usage amount for price tier, only applicable for tiered pricing | `startUsageAmount: 0` |
@@ -37,8 +37,6 @@ The main properties of Prices are:
 | `termPurchaseOption` | Term of the purchase option | `termPurchaseOption: All Upfront`
 | `termLength` | Length of the purchase option | `termLength: 1yr` |
 | `termOfferingClass` | Offering class or type of the term | `termOfferingClass: standard` |
-
-Multiple currencies are not yet supported since vendors handle these differently in their pricing data. Subscribe to [this GitHub issue](https://github.com/infracost/infracost/issues/819) for updates.
 
 ## Usage
 
@@ -61,7 +59,7 @@ Infracost runs a hosted version of this API that you can use:
     -H 'X-Api-Key: YOUR_API_KEY_HERE' \
     -H 'Content-Type: application/json' \
     --data '
-    {"query": "{ products(filter: {vendorName: \"aws\", service: \"AmazonEC2\", region: \"us-east-1\", attributeFilters: [{key: \"instanceType\", value: \"m3.large\"}, {key: \"operatingSystem\", value: \"Linux\"}, {key: \"tenancy\", value: \"Shared\"}, {key: \"capacitystatus\", value: \"Used\"}, {key: \"preInstalledSw\", value: \"NA\"}]}) { attributes { key, value } prices(filter: {purchaseOption: \"on_demand\"}) { USD } } } "}
+    {"query": "{ products(filter: {vendorName: \"aws\", service: \"AmazonEC2\", region: \"us-east-1\", attributeFilters: [{key: \"instanceType\", value: \"m3.large\"}, {key: \"operatingSystem\", value: \"Linux\"}, {key: \"tenancy\", value: \"Shared\"}, {key: \"capacitystatus\", value: \"Used\"}, {key: \"preInstalledSw\", value: \"NA\"}]}) { prices(filter: {purchaseOption: \"on_demand\"}) { USD } } } "}
     '
   ```
 
