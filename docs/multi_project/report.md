@@ -52,6 +52,7 @@ infracost output --path project*.json --format diff
   ```json
   {
     "version": "0.2",
+    "currency": "USD",
     "projects": [
       {
         "name": "infracost/infracost/examples/terraform",
