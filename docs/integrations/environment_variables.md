@@ -39,7 +39,7 @@ Used to change the path to the `terraform` binary, e.g.:
   ```shell
   INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --path /path/to/code
   # or
-  INFRACOST_TERRAFORM_BINARY=terragrunt infracost breakdown --path=/path/to/code
+  INFRACOST_TERRAFORM_BINARY=~/bin/terragrunt_0.29 infracost breakdown --path=/path/to/code
   ```
 
 #### CI/CD integrations
