@@ -29,7 +29,7 @@ An Infracost config file can be created in each of your Terraform project repos 
 | ---                   | ---              | ---   |
 | `path`                  | Path to the Terraform directory or JSON/plan file. A path can be repeated with different parameters, e.g. for multiple workspaces. | Required |
 | `usage_file`          | Path to Infracost usage file that specifies values for [usage-based resources](/docs/usage_based_resources) | Not required |
-| `terraform_binary`      | Used to change the path to the `terraform` binary | Not required, e.g. can be set to `terragrunt` or another path |
+| `terraform_binary`      | Used to change the path to the `terraform` or `terragrunt` binary | Not required, e.g. can be set to `~/bin/terraform_0.13` or another path |
 | `terraform_plan_flags`  | Flags to pass to `terraform plan` with Terraform directory paths | Not required. Can be space delimited, e.g. `-var-file=prod.tfvars -var-file=us-east.tfvars` |
 | `terraform_workspace`   | Used to set the Terraform workspace | Not required. Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported" |
 | `terraform_use_state`   | Use Terraform state instead of generating a plan, useful if you want to see the breakdown of the current Terraform state. | Not required. Applicable when path is a Terraform directory. Can't be used with the `diff` command. |
@@ -43,7 +43,6 @@ An Infracost config file can be created in each of your Terraform project repos 
   values={[
     {label: 'Multi-workspaces', value: 'multi-workspaces'},
     {label: 'Multi-projects', value: 'multi-projects'},
-    {label: 'Terragrunt', value: 'terragrunt'},
   ]}>
   <TabItem value="multi-workspaces">
 
@@ -74,24 +73,6 @@ An Infracost config file can be created in each of your Terraform project repos 
 
     - path: my/terraform/plans/project2.json
       usage_file: project2-usage.yml
-  ```
-  </TabItem>
-  <TabItem value="terragrunt">
-
-  ```yml
-  version: 0.1
-
-  projects:
-    - path: my/module1
-      terraform_binary: terragrunt
-      terraform_plan_flags: -var-file=prod.tfvars -var-file=us-east.tfvars
-    
-    - path: my/module1
-      terraform_binary: terragrunt
-      terraform_plan_flags: -var-file=dev.tfvars
-    
-    - path: my/module2
-      terraform_binary: terragrunt
   ```
   </TabItem>
 </Tabs>
