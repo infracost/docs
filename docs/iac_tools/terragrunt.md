@@ -12,13 +12,23 @@ infracost breakdown --path=path/to/terragrunt/code
 infracost diff --path=path/to/terragrunt/code
 ```
 
-## Terragrunt CLI Options
+## Usage
+
+### Terragrunt CLI Options
 
 Standard Terragrunt [CLI options](https://terragrunt.gruntwork.io/docs/reference/cli-options/#cli-options) such as `TERRAGRUNT_PARALLELISM` can be passed as environment variables such as:
 
 ```shell
 TERRAGRUNT_PARALLELISM=4 infracost breakdown --path=path/to/terragrunt/code
 ```
+
+### Usage file
+
+If your Terragrunt project has multiple modules, you can specify per-module usages using the [`projects` array in the usage file](/docs/usage_based_resources#multi-project-setups).
+
+### CI/CD
+
+The [infracost/infracost Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the latest stable version of Terragrunt.
 
 ## Migrating from older versions of Infracost (pre v0.9.7)
 
@@ -34,7 +44,3 @@ Pre v0.9.7 Infracost did not have native support for Terragrunt. Old configurati
 2. If Terragrunt is detected Infracost runs `terragrunt run-all plan -out <tmpfile>` against the directory to generate plan files for all projects.
 3. Infracost loops through all the Terragrunt modules and runs `terragrunt show <tmpfile>` for each. This currently does not use the `terragrunt run-all` functionality since it's not possible to match the output from that to a specific module.
 4. Infracost outputs a diff or breakdown for each Terragrunt module.
-
-## CI/CD
-
-The [infracost/infracost Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the latest stable version of Terragrunt.
