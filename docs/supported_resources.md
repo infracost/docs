@@ -85,6 +85,7 @@ GovCloud regions are also supported.
 
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
+| Active Directory Domain Services | `azurerm_active_directory_domain_service` | |
 | API Management | `azurerm_api_management` | |
 | App Service | `azurerm_app_service_certificate_binding`, `azurerm_app_service_certificate_order`, `azurerm_app_service_custom_hostname_binding`, `azurerm_app_service_environment`, `azurerm_app_service_plan` | |
 | Application Gateway | `azurerm_application_gateway` | |
@@ -107,10 +108,11 @@ GovCloud regions are also supported.
 | Kubernetes Service (AKS) | `azurerm_kubernetes_cluster`, `azurerm_kubernetes_cluster_node_pool` | |
 | Monitor | `azurerm_application_insights`, `azurerm_application_insights_web_test` | |
 | Notification Hubs | `azurerm_notification_hub_namespace` | |
-| Storage Account | `azurerm_storage_account` | |
+| Storage Account | `azurerm_storage_account` | Only BlockBlobStorage and FileStorage accounts are currently supported. |
 | Virtual Machines | `azurerm_linux_virtual_machine`, `azurerm_managed_disk`, `azurerm_virtual_machine`, `azurerm_windows_virtual_machine` | Non-standard images such as RHEL are not supported. Low priority, Spot and Reserved instances are not supported. |
 | Virtual Machine Scale Sets | `azurerm_linux_virtual_machine_scale_set`, `azurerm_virtual_machine_scale_set`, `azurerm_windows_virtual_machine_scale_set` | |
 | Virtual Network | `azurerm_public_ip`, `azurerm_public_ip_prefix`, `azurerm_nat_gateway` | |
+| VPN Gateway | `azurerm_virtual_network_gateway` | |
 
 ### General notes
 
