@@ -141,3 +141,34 @@ What-if anlaysis can be done on AWS EC2 Reserved Instances (RI) using the usage 
     reserved_instance_term: 1_year # Term for Reserved Instances. Can be: 1_year, 3_year.
     reserved_instance_payment_option: all_upfront # Payment option for Reserved Instances. Can be: no_upfront, partial_upfront, all_upfront.
   ```
+
+### Multi-project setups
+
+If you are using Infracost with Terragrunt or a multi-project setup, you can specify per-project usages using the following `projects` array like below:
+
+  ```yaml
+  version: 0.1
+
+  # Default usages
+  resource_usage:
+    aws_lambda_function.my_function:
+      request_duration_ms: 600
+      
+  # This has any overrides/per-project usage
+  projects:
+    - path: my/dev/project
+      resource_usage:
+        aws_dynamodb_table.my_table:
+          storage_gb: 10
+
+        aws_lambda_function.my_function:
+          monthly_requests: 100
+
+    - path: my/prod/project
+      resource_usage:
+        aws_dynamodb_table.my_table:
+          storage_gb: 10000
+
+        aws_lambda_function.my_function:
+          monthly_requests: 200000
+  ```
