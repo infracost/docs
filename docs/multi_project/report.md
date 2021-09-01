@@ -15,13 +15,13 @@ These reports can be uploaded to object storage such as AWS S3 or Google Cloud S
 
 Run `infracost output --help` to see the available options. Example usage:
 
-```shellell
+```shell
 infracost breakdown --path /path/to/project1 --format json > project1.json
 infracost breakdown --path /path/to/project2 --format json > project2.json
 
-infracost output --path project*.json --format html > report.html
+infracost output --path "project*.json" --format html > report.html
 
-infracost output --path project*.json --format diff
+infracost output --path "project*.json" --format diff
 ```
 
 ## Examples
