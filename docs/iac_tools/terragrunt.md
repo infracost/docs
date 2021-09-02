@@ -25,7 +25,7 @@ TERRAGRUNT_PARALLELISM=4 infracost breakdown --path=path/to/terragrunt/code
 
 ### Usage file
 
-If your Terragrunt project has multiple modules, you can specify per-module usages using the [`projects` array in the usage file](/docs/usage_based_resources#multi-project-setups).
+If your Terragrunt project has multiple modules, you can specify per-module usages using the Infracost [config file](/docs/multi_project/config_file).
 
 ### CI/CD
 
@@ -43,5 +43,5 @@ The [infracost/infracost Docker image](https://hub.docker.com/repository/docker/
 Pre v0.9.7 Infracost did not have native support for Terragrunt. Old configurations will still work, but can now be simplified.
 
 * You no longer need to set `INFRACOST_TERRAFORM_BINARY` to `terragrunt` unless you are using a non-standard binary path.
-* You no longer need to specify multiple Terragrunt modules in your Infracost [config file](/docs/multi_project/config_file). Infracost will now detect all the Terragrunt modules that exist under the specified `--path`.
+* You no longer need to specify multiple Terragrunt modules in your Infracost [config file](/docs/multi_project/config_file), unless you want to specify per-project usage. Infracost will now detect all the Terragrunt modules that exist under the specified `--path`.
 * The Terragrunt [breakdown_all.sh](https://github.com/infracost/infracost/blob/v0.9.6/scripts/terragrunt/breakdown_all.sh) and [diff_all.sh](https://github.com/infracost/infracost/blob/v0.9.6/scripts/terragrunt/diff_all.sh) will be deprecated and will no longer be maintained. The functionality provided by these is now supported within the Infracost binary.
