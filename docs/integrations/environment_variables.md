@@ -50,7 +50,7 @@ If you're using a [CI/CD integration](/docs/integrations/cicd), the [infracost/i
 - `terraform_0.14` (latest patch version of 0.14)
 - `terraform_0.13` (latest patch version of 0.13)
 - `terraform_0.12` (latest patch version of 0.12)
-- `terragrunt` (latest patch version of 0.29, if you need other versions of Terragrunt in that Docker image, please create an [issue](https://github.com/infracost/infracost/issues/new/choose))
+- `terragrunt` (latest patch version of 0.31, if you need other versions of Terragrunt in that Docker image, please create an [issue](https://github.com/infracost/infracost/issues/new/choose))
 
 Infracost works with Terraform v0.12 and above.
 
