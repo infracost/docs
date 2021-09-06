@@ -43,6 +43,7 @@ An Infracost config file can be created in each of your Terraform project repos 
   values={[
     {label: 'Multi-workspaces', value: 'multi-workspaces'},
     {label: 'Multi-projects', value: 'multi-projects'},
+    {label: 'Terragrunt with multi-usage files', value: 'terragrunt-multi-usage'},
   ]}>
   <TabItem value="multi-workspaces">
 
@@ -73,6 +74,18 @@ An Infracost config file can be created in each of your Terraform project repos 
 
     - path: my/terraform/plans/project2.json
       usage_file: project2-usage.yml
+  ```
+  </TabItem>
+  <TabItem value="terragrunt-multi-usage">
+
+  ```yml
+  version: 0.1
+  projects:
+    - path: my/terragrunt/dev
+      usage_file: dev-usage.yml
+
+    - path: my/terragrunt/prod
+      usage_file: prod-usage.yml
   ```
   </TabItem>
 </Tabs>
