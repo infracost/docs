@@ -25,7 +25,9 @@ TERRAGRUNT_PARALLELISM=4 infracost breakdown --path=path/to/terragrunt/code
 
 ### Usage file
 
-If your Terragrunt project has multiple modules, you can specify per-module usages using the Infracost [config file](/docs/multi_project/config_file).
+If your Terragrunt project has multiple modules and you want to specify different usage files for each module, you will need to add each Terragrunt subdirectory and usage file to the Infracost [config file](/docs/multi_project/config_file#examples).
+
+If you have any feedback about how we should support multiple usage files with Terragrunt in the future, please [comment on or follow this issue](https://github.com/infracost/infracost/issues/934).
 
 ### CI/CD
 
