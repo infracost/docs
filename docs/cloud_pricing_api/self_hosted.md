@@ -47,9 +47,13 @@ Your self-hosted Cloud Pricing API endpoint (e.g. http://localhost:4000 if runni
 
 ## Resource requirements
 
-Our Helm chart comes with [commented-out recommendations](https://github.com/infracost/helm-charts/blob/master/charts/cloud-pricing-api/values.yaml) about resource requests/limits for the API and price update job pods:
-- API: 1 vCPU and 600MB of RAM
-- Price update job: 0.5 vCPU and 600MB of RAM
+Our Helm chart comes with [cdefault ecommendations](https://github.com/infracost/helm-charts/blob/master/charts/cloud-pricing-api/values.yaml) about resource requests/limits for the API and price update job pods:
+- API:
+  - Minimum: 50 millicores, 64MB of RAM
+  - Limit per pod: 1 core, 512MB of RAM
+- Price update job:
+  - Minimum: 50 millicores, 128MB of RAM
+  - Limit per pod: 200 millicore, 640MB of RAM
 
 For the PostgreSQL DB, a small instance with 2 vCPU and 2GB of RAM should be enough.
 
