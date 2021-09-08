@@ -25,6 +25,7 @@
   --ifm-navbar-height: var(--navbar-height);
   --ifm-background-surface-color: var(--page-background-color);
   --ifm-toc-border-color: var(--docs-border-color);
+  --ifm-toc-link-color: var(--docs-text-color);
   --ifm-menu-color: var(--page-background-color);
   --ifm-menu-color-background-active: var(--emphasis-color);
   --ifm-menu-color-background-hover: var(--emphasis-color);
