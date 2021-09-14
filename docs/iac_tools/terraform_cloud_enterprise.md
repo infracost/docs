@@ -21,6 +21,12 @@ When running Infracost locally or on CI/CD systems, you should set **both** of t
 1. `INFRACOST_TERRAFORM_CLOUD_TOKEN` to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html).
 2. `INFRACOST_TERRAFORM_CLOUD_HOST` to your backend host, this overrides the default `app.terraform.io` value.
 
+## Terraform Run Tasks (beta)
+
+[Run Tasks](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html) are a new Terraform Cloud feature that can be used to integrate Infracost into the Terraform Cloud pipeline.  
+1. [Generate the required HMAC key and hook endpoint URL.](https://dashboard.infracost.io/tfcSignup) 
+2. Follow the [instructions for configuring a Run Task](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html#configuring-a-run-task) in Terraform Cloud.
+
 ## Terraform workspaces
 
 If you use multiple Terraform workspaces, use an Infracost [config file](/docs/multi_project/config_file) to define them; their results will be combined into the same breakdown or diff output.
