@@ -20,7 +20,9 @@ To setup the integration:
 
 Notes: As this integration is directly within Terraform Cloud, three things are not supported yet: pull request comments are not created; multiple currencies are not supported; the usage-file is not supported. Please create a GitHub issue or contact us if you're interested in these features.
 
-<img src={useBaseUrl("img/screenshots/tfc_integration.png")} alt="Infracost running as a Run Task" width="550px" />
+| Terraform Cloud dashboard | Details link |
+|--------------|-----------|
+<img src={useBaseUrl("img/screenshots/tfc_integration.png")} alt="Infracost running as a Run Task" width="550px" /> | <img src={useBaseUrl("img/screenshots/infracost_dashboard.png")} alt="Infracost details link" width="550px" />
 
 ## Terraform Cloud users
 
