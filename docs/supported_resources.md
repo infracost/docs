@@ -73,7 +73,7 @@ GovCloud and China regions are also supported.
 | Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
 | Cloud SQL | `google_sql_database_instance` | Cloud SQL network, SQL Server license, 1-3 years commitments costs are not yet supported. |
 | Cloud VPN | `google_compute_vpn_tunnel`, `google_compute_vpn_gateway`, `google_compute_ha_vpn_gateway`, `google_compute_external_vpn_gateway` | |
-| Compute Engine | `google_compute_image`, `google_compute_machine_image`, `google_compute_instance`, `google_compute_disk`, `google_compute_address`, `google_compute_global_address`, `google_compute_snapshot` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
+| Compute Engine | `google_compute_disk`, `google_compute_image`, `google_compute_machine_image`, `google_compute_instance`, `compute_instance_group_manager`, `compute_region_instance_group_manager`, `google_compute_address`, `google_compute_global_address`, `google_compute_snapshot` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
 | Container Registry | `google_container_registry` | |
 | Key Management Service (KMS) | `google_kms_crypto_key` | |
 | Kubernetes Engine (GKE) | `google_container_cluster`, `google_container_node_pool` | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
@@ -111,7 +111,7 @@ GovCloud regions are also supported.
 | Storage Account | `azurerm_storage_account` | Only BlockBlobStorage and FileStorage accounts are currently supported. |
 | Virtual Machines | `azurerm_linux_virtual_machine`, `azurerm_managed_disk`, `azurerm_virtual_machine`, `azurerm_windows_virtual_machine` | Non-standard images such as RHEL are not supported. Low priority, Spot and Reserved instances are not supported. |
 | Virtual Machine Scale Sets | `azurerm_linux_virtual_machine_scale_set`, `azurerm_virtual_machine_scale_set`, `azurerm_windows_virtual_machine_scale_set` | |
-| Virtual Network | `azurerm_public_ip`, `azurerm_public_ip_prefix`, `azurerm_nat_gateway` | |
+| Virtual Network / PrivateLink | `azurerm_private_endpoint`, `azurerm_public_ip`, `azurerm_public_ip_prefix`, `azurerm_nat_gateway` | |
 | VPN Gateway | `azurerm_virtual_network_gateway` | |
 
 ### General notes
