@@ -49,6 +49,12 @@ See the [Infracost Azure DevOps integration](https://github.com/infracost/infrac
 
 <img src="https://raw.githubusercontent.com/infracost/infracost-azure-devops/master/screenshot.png" width="700px" alt="Example Infracost diff output" />
 
+## Terraform Cloud Run Tasks
+
+See the [Run Tasks integration](/docs/iac_tools/terraform_cloud_enterprise#terraform-cloud-run-tasks) for instructions and the following screenshot for a demo. [Run Tasks](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html) is a beta Terraform Cloud feature that can be used to integrate Infracost into the Terraform Cloud pipeline directly. This enables Infracost to work with Terraform Cloud natively, meaning you do not need to install/upgrade our CLI into your CI/CD systems.
+
+<img src={useBaseUrl("img/screenshots/tfc_integration.png")} alt="Infracost running as a Run Task" width="550px" />
+
 ## Slack
 
 All of the above CI/CD integrations support also posting the pull request comment to a Slack channel. To enable it, create a [Slack Webhook](https://slack.com/intl/en-tr/help/articles/115005265063-Incoming-webhooks-for-Slack) and set its value to the `SLACK_WEBHOOK_URL` environment variable.
@@ -67,5 +73,3 @@ Please try the following steps and if that doesn't help, [create an issue](https
 ## My CI/CD isn't supported
 
 Please [create an issue](https://github.com/infracost/infracost/issues/new/choose); we'll try to prioritize it depending on the community feedback. There is already a request for [BuildKite](https://github.com/infracost/infracost/issues/499). Please 👍 it if you'd like us to work on them sooner. You can also join our [community Slack channel](https://www.infracost.io/community-chat) if you like to work on an integration, the existing integrations can act as a blueprint.
-
-Please email [hello@infracost.io](mailto:hello@infracost.io) if you'd like to discuss integrations with GitHub Enterprise, GitLab Enterprise Edition, or Bitbucket Data Center.
