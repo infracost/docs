@@ -14,11 +14,11 @@ Infracost is a HashiCorp partner and we work together to ensure that Infracost c
 Please email [hello@infracost.io](mailto:hello@infracost.io) if you'd like to get access to the beta program.
 
 To setup the integration:
-1. [Generate](https://dashboard.infracost.io/tfcSignup) your unique Infracost hook endpoint URL and HMAC key. If you already have an Infracost API key, you can re-use that.
+1. [Generate](https://dashboard.infracost.io/tfcSignup) a unique Infracost hook endpoint URL and HMAC key. These will be used in the next step.
 2. Follow the [instructions for configuring a Run Task](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html#configuring-a-run-task) in Terraform Cloud. There are two steps you need to do: setup the integration, and enable it in your workspaces.
-3. After you've setup the integration, and enabled it on one or more of your workspaces, your runs will show the Infracost run task output. 
+3. After you've setup the integration, and enabled it on one or more of your workspaces, your runs will show the Infracost run task output.
 
-Unlike other CI/CD integrations, pull request comments are not created by this integration; please create a GitHub issue or contact us if you're interested in that.
+Notes: As this integration is directly within Terraform Cloud, three things are not supported yet: pull request comments are not created; multiple currencies are not supported; the usage-file is not supported. Please create a GitHub issue or contact us if you're interested in these features.
 
 <img src={useBaseUrl("img/screenshots/tfc_integration.png")} alt="Infracost running as a Run Task" width="550px" />
 
