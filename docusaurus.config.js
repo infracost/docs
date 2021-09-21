@@ -1,4 +1,5 @@
 const path = require('path');
+const remarkExternalLinks = require('remark-external-links');
 
 let infracostDashboardApiEndpoint = 'https://dashboard.api-dev.infracost.io';
 if (process.env.NODE_ENV === 'production') {
@@ -175,9 +176,12 @@ module.exports = {
           blogSidebarCount: 'ALL',
           blogSidebarTitle: 'All posts',
           include: ['**/*.md', '**/*.mdx'],
-          remarkPlugins: [
-            require('remark-external-links'),
-          ]
+          remarkPlugins: [[
+            remarkExternalLinks,
+            {
+              rel: ['noopener'],
+            }
+          ]]
         },
         theme: {
           customCss: require.resolve('./src/css/index.css'),
