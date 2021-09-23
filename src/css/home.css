@@ -58,25 +58,19 @@
   color: var(--header-color);
 }
 
-.home-hero .open-source-label {
-  color: var(--white);
-  display: flex;
-  margin-bottom: 0.5rem;
+.home-hero .labels {
   margin-top: 3rem;
 }
 
-.home-hero .open-source-label .icon {
-  margin-right: 0.6125rem;
-  padding: 0.1875rem;
-}
-
-.home-hero .backers {
+.home-hero .label {
   color: var(--white);
   display: flex;
+  margin-bottom: 0.5rem;
 }
 
-.home-hero .backers img {
+.home-hero .label .icon {
   margin-right: 0.6125rem;
+  padding: 0.1875rem;
 }
 
 .home-hero .screenshot-wrapper {
