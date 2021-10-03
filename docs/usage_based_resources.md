@@ -28,7 +28,7 @@ Follow these simple steps to use this feature:
 
 ### 1. Generate usage file
 
-Use the `--sync-usage-file` option to generate a new usage file or update an existing one in the location specified by the `--usage-file` flag. This option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the YAML, and it deletes any resources that are not used in the Terraform project.
+Use the `--sync-usage-file` option to generate a new usage file or update an existing one. You must specify the location of the new or existing usage file using the `--usage-file` flag. This `--sync-usage-file` option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the YAML, and it deletes any resources that are not used in the Terraform project.
 
   ```sh
   infracost breakdown --sync-usage-file --usage-file infracost-usage.yml --path /code
