@@ -1,6 +1,6 @@
 ---
 slug: feb-2021-product-update
-title: 'Feb 2021 update - faster runs, new resources and Atlantis!'
+title: 'Feb 2021: Faster runs, new resources and Atlantis!'
 author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh
 author_image_url: /img/avatars/ali.jpg
