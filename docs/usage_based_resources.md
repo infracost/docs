@@ -36,9 +36,10 @@ Use the `--sync-usage-file` option to generate a new usage file or update an exi
 
 #### Fetch from CloudWatch
 
-As of Infracost CLI `v0.9.8`, we're experimenting with fetching the following usage file values from CloudWatch when `--sync-usage-file` is used (falling back to using 0). This enables you to quickly see what the last 30-day usage for those resources have been and adjust if needed. If the CLI can fetch the following values from CloudWatch, it will overwrite them in the usage file.
+As of Infracost CLI `v0.9.8`, we're experimenting with fetching the following usage file values from CloudWatch or other cloud APIs when `--sync-usage-file` is used (falling back to using 0). This enables you to quickly see what the last 30-day usage for those resources have been and adjust if needed. If the CLI can fetch the following values from CloudWatch, it will overwrite them in the usage file.
 - `aws_dynamodb_table`: data storage, read capacity and write capacity units
 - `aws_lambda_function`: function duration and requests
+- `aws_instance`, `aws_autoscaling_group`, `aws_eks_node_group`: operating system (based on the AMI)
 
 Please use [this GitHub discussion](https://github.com/infracost/infracost/discussions/985) to let us know if you find this useful or have feedback.
 
