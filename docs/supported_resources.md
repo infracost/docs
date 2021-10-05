@@ -90,6 +90,7 @@ GovCloud regions are also supported.
 | App Service | `azurerm_app_service_certificate_binding`, `azurerm_app_service_certificate_order`, `azurerm_app_service_custom_hostname_binding`, `azurerm_app_service_environment`, `azurerm_app_service_plan` | |
 | Application Gateway | `azurerm_application_gateway` | |
 | Automation | `azurerm_automation_account`, `azurerm_automation_dsc_configuration`, `azurerm_automation_dsc_nodeconfiguration`, `azurerm_automation_job_schedule` | |
+| Bastion | `azurerm_bastion_host` | |
 | Cache for Redis | `azurerm_redis_cache` | |
 | Cognitive Search | `azurerm_search_service` | |
 | Container Registry | `azurerm_container_registry` | |
