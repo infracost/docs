@@ -1,6 +1,6 @@
 ---
 slug: mar-2021-product-update
-title: 'March 2021 update - new diff command and usage file automation!'
+title: 'March 2021: New diff command and usage file automation!'
 author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh
 author_image_url: /img/avatars/ali.jpg

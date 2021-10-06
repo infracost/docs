@@ -3,7 +3,7 @@ slug: supported_resources
 title: Supported resources
 ---
 
-Infracost supports over 200 Terraform resources across AWS, Google and Azure. Over 500 free resources have also been identified; these are not shown in the CLI output since they are free.
+Infracost supports over 200 Terraform resources across AWS, Google and Azure. Over 500 free resources have also been identified; these are not shown in the CLI output since they are free. Free resources can be seen when running the CLI with the `--log-level debug` flag, look for "Skipping free resource" lines.
 
 The quickest way to find out if your Terraform resources are supported is to run [`infracost breakdown`](/docs#usage) with the `--show-skipped` flag. This shows the unsupported resources, some of which might be free.
 
@@ -73,7 +73,7 @@ GovCloud and China regions are also supported.
 | Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
 | Cloud SQL | `google_sql_database_instance` | Cloud SQL network, SQL Server license, 1-3 years commitments costs are not yet supported. |
 | Cloud VPN | `google_compute_vpn_tunnel`, `google_compute_vpn_gateway`, `google_compute_ha_vpn_gateway`, `google_compute_external_vpn_gateway` | |
-| Compute Engine | `google_compute_disk`, `google_compute_image`, `google_compute_machine_image`, `google_compute_instance`, `compute_instance_group_manager`, `compute_region_instance_group_manager`, `google_compute_address`, `google_compute_global_address`, `google_compute_snapshot` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
+| Compute Engine | `google_compute_disk`, `google_compute_image`, `google_compute_machine_image`, `google_compute_instance`, `google_compute_instance_group_manager`, `google_compute_region_instance_group_manager`, `google_compute_address`, `google_compute_global_address`, `google_compute_snapshot` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
 | Container Registry | `google_container_registry` | |
 | Key Management Service (KMS) | `google_kms_crypto_key` | |
 | Kubernetes Engine (GKE) | `google_container_cluster`, `google_container_node_pool` | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
@@ -90,6 +90,7 @@ GovCloud regions are also supported.
 | App Service | `azurerm_app_service_certificate_binding`, `azurerm_app_service_certificate_order`, `azurerm_app_service_custom_hostname_binding`, `azurerm_app_service_environment`, `azurerm_app_service_plan` | |
 | Application Gateway | `azurerm_application_gateway` | |
 | Automation | `azurerm_automation_account`, `azurerm_automation_dsc_configuration`, `azurerm_automation_dsc_nodeconfiguration`, `azurerm_automation_job_schedule` | |
+| Bastion | `azurerm_bastion_host` | |
 | Cache for Redis | `azurerm_redis_cache` | |
 | Cognitive Search | `azurerm_search_service` | |
 | Container Registry | `azurerm_container_registry` | |
