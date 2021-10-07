@@ -33,6 +33,8 @@ If you have any feedback about how we should support multiple usage files with T
 
 The [infracost/infracost Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the [latest stable version](/docs/integrations/environment_variables#cicd-integrations) of Terragrunt.
 
+By default, that Dockerfile uses Terraform 0.15.5, but you can set the environment variable `TERRAGRUNT_TFPATH` to any of the [supported versions](/docs/integrations/environment_variables#cicd-integrations) so Terragrunt uses that version, e.g. `TERRAGRUNT_TFPATH=terraform_1.0`.
+
 ## How the Terragrunt integration works
 
 1. Infracost detects a Terragrunt project by checking for a Terragrunt config file in the specified path, which will be `terragunt.hcl`, `terragrunt.hcl.json` or the value of the `TERRAGRUNT_CONFIG` environment variable. If Infracost does not detect your project as a Terragrunt project, make sure this file exists in the specified path or in any of the subdirectories with a depth less than 5.
