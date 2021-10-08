@@ -43,6 +43,7 @@ GovCloud and China regions are also supported.
 | Lambda | `aws_lambda_function` |  Provisioned concurrency is not yet supported. |
 | Lightsail | `aws_lightsail_instance` |  |
 | Managed Streaming for Apache Kafka (MSK) | `aws_msk_cluster` |  |
+| Managed Workflows for Apache Airflow | `aws_mwaa_environment` |  |
 | MQ | `aws_mq_broker` | |
 | Neptune | `aws_neptune_cluster`, `aws_neptune_cluster_instance`, `aws_neptune_cluster_snapshot` | |
 | Secrets Manager | `aws_secretsmanager_secret` |  |
