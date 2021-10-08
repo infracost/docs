@@ -40,6 +40,7 @@ As of Infracost CLI `v0.9.8`, we're experimenting with fetching the following us
 - `aws_dynamodb_table`: data storage, read capacity and write capacity units
 - `aws_lambda_function`: function duration and requests
 - `aws_instance`, `aws_autoscaling_group`, `aws_eks_node_group`: operating system (based on the AMI)
+- `aws_autoscaling_group`: instance count
 
 Please use [this GitHub discussion](https://github.com/infracost/infracost/discussions/985) to let us know if you find this useful or have feedback.
 
