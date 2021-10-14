@@ -28,11 +28,14 @@ Follow these simple steps to use this feature:
 
 ### 1. Generate usage file
 
-Use the `--sync-usage-file` option to generate a new usage file or update an existing one. You must specify the location of the new or existing usage file using the `--usage-file` flag. This `--sync-usage-file` option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the YAML, and it deletes any resources that are not used in the Terraform project.
+Use the `--sync-usage-file` option to generate a new usage file or update an existing one. You must specify the location of the new or existing usage file using the `--usage-file` flag. The `--sync-usage-file` updates the usage file as below:
+- Attempts to pull usage data from CloudWatch and updates any fields with those values. [See here](#fetch-from-cloudwatch) for more information about which resources and fields are supported.
+- Adds any missing resources or fields as comments with a zero value.
+- Deletes any resources that are not used in the Terraform project.
 
-  ```sh
-  infracost breakdown --sync-usage-file --usage-file infracost-usage.yml --path /code
-  ```
+```sh
+infracost breakdown --sync-usage-file --usage-file infracost-usage.yml --path /code
+```
 
 When using the `--usage-file` flag with the `breakdown` command, cost components with a 0 hourly/monthly quantity are not shown in table and HTML formats so the output is less noisy. These are included in the JSON format.
 
