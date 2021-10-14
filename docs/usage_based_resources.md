@@ -37,7 +37,7 @@ Use the `--sync-usage-file` option to generate a new usage file or update an exi
 infracost breakdown --sync-usage-file --usage-file infracost-usage.yml --path /code
 ```
 
-When using the `--usage-file` flag with the `breakdown` command, cost components with a 0 hourly/monthly quantity are not shown in table and HTML formats so the output is less noisy. These are included in the JSON format.
+When using the `--usage-file` flag with the `breakdown` or `output` commands, cost components with a 0 hourly/monthly quantity are not shown in table and HTML formats so the output is less noisy. These are included in the JSON format.
 
 #### Fetch from CloudWatch
 
