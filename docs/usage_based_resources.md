@@ -42,8 +42,11 @@ As of Infracost CLI `v0.9.8`, we're experimenting with fetching the following us
 - `aws_dynamodb_table`: `storage_gb`, `monthly_read_request_units` and `monthly_write_request_units`
 - `aws_lambda_function`: `monthly_requests` and `request_duration_ms`
 - `aws_instance`, `aws_autoscaling_group`, `aws_eks_node_group`: `operating_system` (based on the AMI, detected as one of: `linux`, `windows`, `suse`, `rhel`)
-- `aws_autoscaling_group` and `aws_eks_node_group`: `instances` TODO is it an average or current count?
-- `aws_s3_bucket`: TODO which params?
+- `aws_autoscaling_group` and `aws_eks_node_group`: `instances`. If unable to fetch the last 30-day average from CloudWatch this will fetch the current instance count from the AWS API instead.
+- `aws_s3_bucket`:
+  - Standard storage class: `storage_gb`, `monthly_tier_1_requests`, `monthly_tier_2_requests`, `monthly_select_data_scanned_gb` and `monthly_select_data_returned_gb`
+  - Intelligent tiering storage class: `frequent_access_storage_gb`, `infrequent_access_storage_gb`, `archive_access_storage_gb` and `deep_archive_storage_gb`
+  - Other storage classes: `storage_gb`
 
 Please use [this GitHub discussion](https://github.com/infracost/infracost/discussions/985) to let us know if you find this useful or have feedback.
 
