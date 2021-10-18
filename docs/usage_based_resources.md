@@ -28,18 +28,28 @@ Follow these simple steps to use this feature:
 
 ### 1. Generate usage file
 
-Use the `--sync-usage-file` option to generate a new usage file or update an existing one. You must specify the location of the new or existing usage file using the `--usage-file` flag. This `--sync-usage-file` option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the YAML, and it deletes any resources that are not used in the Terraform project.
+Use the `--sync-usage-file` option to generate a new usage file or update an existing one. You must specify the location of the new or existing usage file using the `--usage-file` flag. The `--sync-usage-file` updates the usage file as below:
+1. Attempts to pull usage data from CloudWatch and updates any fields with those values. [See here](#fetch-from-cloudwatch) for more information about which resources and fields are supported.
+2. Adds any missing resources or fields as comments with a zero value.
+3. Deletes any resources that are not used in the Terraform project.
 
-  ```sh
-  infracost breakdown --sync-usage-file --usage-file infracost-usage.yml --path /code
-  ```
+```sh
+infracost breakdown --sync-usage-file --usage-file infracost-usage.yml --path /code
+```
+
+When using the `--usage-file` flag with the `breakdown` or `output` commands, cost components with a 0 hourly/monthly quantity are not shown in table and HTML formats so the output is less noisy. These are included in the JSON format.
 
 #### Fetch from CloudWatch
 
 As of Infracost CLI `v0.9.8`, we're experimenting with fetching the following usage file values from CloudWatch or other cloud APIs when `--sync-usage-file` is used (falling back to using 0). This enables you to quickly see what the last 30-day usage for those resources have been and adjust if needed. If the CLI can fetch the following values from CloudWatch, it will overwrite them in the usage file.
-- `aws_dynamodb_table`: data storage, read capacity and write capacity units
-- `aws_lambda_function`: function duration and requests
-- `aws_instance`, `aws_autoscaling_group`, `aws_eks_node_group`: operating system (based on the AMI)
+- `aws_dynamodb_table`: `storage_gb`, `monthly_read_request_units` and `monthly_write_request_units`
+- `aws_lambda_function`: `monthly_requests` and `request_duration_ms`
+- `aws_s3_bucket`:
+  - Standard storage class: `storage_gb`, `monthly_tier_1_requests`, `monthly_tier_2_requests`, `monthly_select_data_scanned_gb` and `monthly_select_data_returned_gb`
+  - Intelligent tiering storage class: `frequent_access_storage_gb`, `infrequent_access_storage_gb`, `archive_access_storage_gb` and `deep_archive_storage_gb`
+  - Other storage classes: `storage_gb`
+- `aws_instance`, `aws_autoscaling_group`, `aws_eks_node_group`: `operating_system` (based on the AMI, detected as one of: `linux`, `windows`, `suse`, `rhel`)
+- `aws_autoscaling_group` and `aws_eks_node_group`: `instances`. If unable to fetch the last 30-day average from CloudWatch this will fetch the current instance count from the AWS API instead.
 
 Please use [this GitHub discussion](https://github.com/infracost/infracost/discussions/985) to let us know if you find this useful or have feedback.
 
@@ -92,6 +102,10 @@ module.lambda_function.aws_lambda_function.this[0]:
 ### Resource arrays/maps
 
 The wildcard character `[*]` can be used for resource arrays (resources with [`count` meta-argument](https://www.terraform.io/docs/language/meta-arguments/count.html)) and resource maps (resources with [`for_each` meta-argument](https://www.terraform.io/docs/language/meta-arguments/for_each.html)), such as AWS CloudWatch Log Groups. Infracost will apply the usage values individually to each element of the array/map (they all get the same values). If both an array element such as `this[0]` (or map element such as `this["foo"]`) and `[*]` are specified for a resource, only the array/map element's usage will be applied to that resource. This enables you to define default values using `[*]` and override specific elements using their index or key.
+
+When wildcard entries exist in the usage file and `--sync-usage-file` is used: 
+- values are generated for each element of the wildcard.
+- entries are added for each wildcard element when usage data is [fetched from AWS CloudWatch](#fetch-from-cloudwatch), which overrides the wildcard value.
 
 <Tabs
   defaultValue="using-array-wildcard"
