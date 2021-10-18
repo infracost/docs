@@ -7,6 +7,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Infracost is a HashiCorp partner and we work together to ensure that Infracost can be used alongside Terraform Cloud and integrated into your workflow.
 
+If you're a Terraform Cloud user, we recommend starting with Run Tasks. Run Tasks are currently not available in Terraform Enterprise, thus you can use the details below to integrate using our other CI/CD integrations.
+
 ## Terraform Cloud Run Tasks
 
 [Run Tasks](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html) is a beta Terraform Cloud feature that can be used to integrate Infracost into the Terraform Cloud pipeline directly. This enables Infracost to work with Terraform Cloud natively, meaning you do not need to install/upgrade our CLI into your CI/CD systems. As shown in the following screenshot, Infracost adds a comment showing the cost diff in Terraform Cloud's dashboard and you can click on the Details link to see the cost breakdown or diff in the same way you would see it when you run the CLI yourself.
