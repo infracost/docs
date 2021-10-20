@@ -26,6 +26,7 @@ GovCloud and China regions are also supported.
 | Data transfer | Use `aws_data_transfer.my_region` in the [usage file](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) | Most expensive price tier is used. |
 | Database Migration Service (DMS) | `aws_dms_replication_instance` | |
 | Direct Connect | `aws_dx_gateway_association`, `aws_dx_connection` | |
+| Directory Service | `aws_directory_service_directory` | |
 | DocumentDB | `aws_docdb_cluster`, `aws_docdb_cluster_instance`, `aws_docdb_cluster_snapshot` | |
 | DynamoDB | `aws_dynamodb_table` |  DAX is not yet supported. |
 | EventBridge | `aws_cloudwatch_event_bus` | |
