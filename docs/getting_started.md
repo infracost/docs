@@ -112,7 +112,7 @@ If your repo has **multiple Terraform projects or workspaces**, use an Infracost
 
 This is the simplest way to run Infracost. As shown below, any required Terraform flags can be passed using `--terraform-plan-flags`. The `--terraform-workspace` flag can be used to define a workspace.
 
-Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.  To speed up subsequent runs, Infracost will temporarily cache the terraform plan. 
+Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
 
   ```shell
   infracost breakdown --path /code --terraform-plan-flags "-var-file=my.tfvars"
@@ -150,7 +150,7 @@ Run `infracost breakdown --help` to see the available options, which include:
   --fields               Comma separated list of output fields: all,price,monthlyQuantity,unit,hourlyCost,monthlyCost.
                          Only supported by table output format (default [monthlyQuantity,unit,monthlyCost])
   --show-skipped         Show unsupported resources, some of which might be free
-  --no-cache             Don't attempt to cache the terraform plan
+  --no-cache             Don't attempt to cache Terraform plans
   --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise, turns off spinners in output
   --no-color             Turn off colored output
   ```
