@@ -99,18 +99,16 @@
   text-align: center;
 }
 
-.about .backers .tagline {
-  color: var(--faded-text);
-}
-
-.about .backers .backer {
-  justify-content: center;
+.about .backers .backer-list {
   display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
   align-items: center;
-  font-size: 1.75rem;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .about .backers .backer img {
-  height: 42px;
   margin-right: 0.625rem;
 }

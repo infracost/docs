@@ -77,10 +77,17 @@ function About() {
           <div className="backers">
             <div className="container">
               <p className="tagline">Backed by</p>
-              <span className="backer">
-                <img src="/img/yc.svg" alt="Y Combinator logo" />
-                <span>Combinator</span>
-              </span>
+              <div className="backer-list">
+                <div className="backer-item">
+                  <img src="/img/investors/yc_aligned.svg" alt="Y Combinator logo" />
+                </div>
+                <div className="backer-item">
+                  <img src="/img/investors/sequoia_aligned.svg" alt="Sequoia logo" />
+                </div>
+                <div className="backer-item">
+                  <img src="/img/investors/sv_angel_aligned.svg" alt="SV Angel logo" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

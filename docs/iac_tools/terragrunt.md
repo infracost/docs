@@ -33,10 +33,12 @@ If you have any feedback about how we should support multiple usage files with T
 
 The [infracost/infracost Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the [latest stable version](/docs/integrations/environment_variables#cicd-integrations) of Terragrunt.
 
+By default, that Dockerfile uses Terraform 0.15.5, but you can set the environment variable `TERRAGRUNT_TFPATH` to any of the [supported versions](/docs/integrations/environment_variables#cicd-integrations) so Terragrunt uses that version, e.g. `TERRAGRUNT_TFPATH=terraform_1.0`.
+
 ## How the Terragrunt integration works
 
-1. Infracost detects a Terragrunt project by checking for a Terragrunt config file in the specified path, which will be `terragunt.hcl`, `terragrunt.hcl.json` or the value of the `TERRAGRUNT_CONFIG` environment variable. If Infracost does not detect your project as a Terragrunt project, try adding an empty `terragunt.hcl` file in the specified path directory (this is our current work around until we think more about something like `--project-type=terragrunt` or running a deep search for any `terragrunt.hcl` files, but we might need to put a time limit/depth limit on it).
-2. If Terragrunt is detected Infracost runs `terragrunt run-all plan -out <tmpfile>` against the directory to generate plan files for all projects. We use the `--terragrunt-ignore-external-dependencies` flag to limit the cost estimate to only include infrastructure defined in the current directory.
+1. Infracost detects a Terragrunt project by checking for a Terragrunt config file in the specified path, which will be `terragunt.hcl`, `terragrunt.hcl.json` or the value of the `TERRAGRUNT_CONFIG` environment variable. If Infracost does not detect your project as a Terragrunt project, make sure this file exists in the specified path or in any of the subdirectories with a depth less than 5.
+2. If Terragrunt is detected Infracost runs `terragrunt run-all plan -out <tmpfile>` against the directory to generate plan files for **all** projects. We use the `--terragrunt-ignore-external-dependencies` flag to limit the cost estimate to only include infrastructure defined in the current directory.
 3. Infracost loops through all the Terragrunt modules and runs `terragrunt show <tmpfile>` for each. This currently does not use the `terragrunt run-all` functionality since it's not possible to match the output from that to a specific module.
 4. Infracost outputs a diff or breakdown for each Terragrunt module.
 

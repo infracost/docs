@@ -23,10 +23,10 @@ function Home() {
               <h1 className="tagline">Love your cloud bill! <span class="emojis">💰📉</span></h1>
               <p className="description">Cloud cost estimates for Terraform in pull requests</p>
               <a href="/docs/" className="button primary">Get started</a>
-              <p className="open-source-label"><span className="icon"><Check size={18} /></span>Open source</p>
-              <p className="backers">
-                <img src="/img/yc.svg" alt="Y Combinator logo" /><span>Backed by <strong>Y Combinator</strong></span>
-              </p>
+              <div class="labels">
+                <p className="label"><span className="icon"><Check size={18} /></span>Open source</p>
+                <p className="label"><span className="icon"><Check size={18} /></span>Backed by Y Combinator &amp; Sequoia</p>
+              </div>
             </div>
             <div className="right">
               <div className="screenshot-wrapper">
