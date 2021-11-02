@@ -12,13 +12,13 @@ The majority of users should use the [Infracost CLI](/docs/#quick-start), which 
 
 We plan to move and open source the API described in this page to the Cloud Pricing API, as it can be useful for CI/CD integrations such as [Atlantis](/docs/integrations/cicd#atlantis). In such cases, it might be easier to use `curl` or an HTTP library instead of installing the Infracost CLI. Terraform plan JSON files can be sent to this API, which runs `infracost` and returns the results. Whilst this API deletes files from the server after they are processed, it is a good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this.
 
-To use this API, send an HTTP POST request to desired endpoint (e.g. https://pricing.api.infracost.io/diff) with a terraform plan json file sent in the `path` parameter using the multipart/form-data request body format, as shown in the following example curl request. The `x-api-key` header must be set to your [Infracost API key](/docs/#2-get-api-key).
+To use this API, send an HTTP POST request to desired endpoint (e.g. https://pricing.api.infracost.io/diff) with a Terraform plan JSON file sent in the `path` parameter using the multipart/form-data request body format, as shown in the following example curl request. The `x-api-key` header must be set to your [Infracost API key](/docs/#2-get-api-key).
 
 ## Breakdown
 
-Show full breakdown of costs
+Show full breakdown of costs.
 
-https://pricing.api.infracost.io/breakdown
+Send an HTTP POST to: https://pricing.api.infracost.io/breakdown
 
 | Header | Description | Notes |
 | ---       | ---         | ---   |
@@ -29,9 +29,9 @@ https://pricing.api.infracost.io/breakdown
 | path | Terraform plan JSON file | Required. Use '@' to upload the file with curl, e.g. `-F "path=@plan.json"` |
 | usage-file | Infracost [usage file](/docs/usage_based_resources) that specifies values for usage-based resources | Not required. Use '@' to upload the file with curl, e.g. `-F "usage-file=@infracost-usage.yml"` |
 | show-skipped | Show unsupported resources, some of which might be free. | Not required. Defaults to false |
-| no-color | Turn off colored output, useful for CI/CD or Windows users (color output has a bug we need to fix on Windows) | Not required. Defaults to false |
+| no-color | Turn off colored output, useful for CI/CD users | Not required. Defaults to false |
 | format | Content type of the response | Not required.  Must be one of `table`, `html` or `json`.  Defaults to `table` |
-| fields | Fields to include in the response | Not required, supported by `table` and `html` formats.  Must be a comma separated list of fields: all,price,monthlyQuantity,unit,hourlyCost,monthlyCost.  Defaults to `monthlyQuantity,unit,monthlyCost` |
+| fields | Fields to include in the response | Not required, supported by `table` and `html` formats.  Must be a comma separated list of fields: all, price, monthlyQuantity, unit, hourlyCost, monthlyCost.  Defaults to `monthlyQuantity,unit,monthlyCost` |
 
 ### Examples
 
@@ -84,9 +84,9 @@ values={[
 
 ## Diff 
 
-Show diff of monthly costs between current and planned state
+Show diff of monthly costs between current and planned state.
 
-https://pricing.api.infracost.io/diff
+Send an HTTP POST to: https://pricing.api.infracost.io/diff
 
 | Header | Description | Notes |
 | ---       | ---         | ---   |
@@ -97,7 +97,7 @@ https://pricing.api.infracost.io/diff
 | path | Terraform plan JSON file | Required. Use '@' to upload the file with curl, e.g. `-F "path=@plan.json"` |
 | usage-file | Infracost [usage file](/docs/usage_based_resources) that specifies values for usage-based resources | Not required. Use '@' to upload the file with curl, e.g. `-F "usage-file=@infracost-usage.yml"` |
 | show-skipped | Show unsupported resources, some of which might be free. | Not required. Defaults to false |
-| no-color | Turn off colored output, useful for CI/CD or Windows users (color output has a bug we need to fix on Windows) | Not required. Defaults to false |
+| no-color | Turn off colored output, useful for CI/CD users | Not required. Defaults to false |
 
 ### Examples
 
