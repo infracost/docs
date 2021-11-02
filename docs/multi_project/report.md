@@ -42,9 +42,9 @@ infracost output --path "project*.json" --format diff
   **Tip**: You can use `jq` to extract values. For example, to see the total monthly cost increase of a project you can use:
 
   ```shell
-  jq '.projects[0].diff.totalMonthlyCost'
+  jq -r '.projects[0].diff.totalMonthlyCost'
   # or to see the sum of all projects:
-  jq '[.projects[].diff.totalMonthlyCost | select (.!=null) | tonumber] | add'
+  jq -r '.diffTotalMonthlyCost'
   ```
 
   Here is an example of the full JSON output:
@@ -268,6 +268,10 @@ infracost output --path "project*.json" --format diff
     },
     "totalHourlyCost": "1.017315068493150679",
     "totalMonthlyCost": "742.64",
+    "pastTotalHourlyCost": "0",
+    "pastTotalMonthlyCost": "0",
+    "diffTotalHourlyCost": "1.017315068493150679",
+    "diffTotalMonthlyCost": "742.64",
   }
   ```
 
