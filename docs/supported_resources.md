@@ -56,6 +56,7 @@ GovCloud and China regions are also supported.
 | Redshift | `aws_redshift_cluster` | |
 | Relational Database Service (RDS) | `aws_rds_cluster`, `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone`, `aws_route53_resolver_endpoint`, `aws_route53_health_check` |  |
+| Transfer Family | `aws_transfer_server` | |
 | Virtual Private Cloud/Network (VPC, VPN, PrivateLink, Transit Gateway) | `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_ec2_transit_gateway_peering_attachment`, `aws_ec2_transit_vpc_attachment`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |
 | Web Application Firewall (WAF) | `aws_waf_web_acl`, `aws_wafv2_web_acl` |  |
 
