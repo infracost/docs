@@ -77,3 +77,13 @@ h1, h2, h3, h4, h5, h6 {
 .page-content {
   margin: 2rem 0 4rem;
 }
+
+.default-page-header {
+  background: url('/img/bg.svg') right bottom no-repeat;
+  padding-bottom: 3rem;
+}
+
+.default-page-header .intro {
+  background: none;
+  padding-bottom: 2rem;
+}
