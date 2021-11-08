@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { URLSearchParams } from 'url';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import PageLayout from '../../components/PageLayout';
 
 function FeedbackSubmit() {
+  const { isClient } = useDocusaurusContext();
   const { siteConfig } = useDocusaurusContext();
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(null);
-  
-  const urlParams = new URLSearchParams(window.location.search);
-  const value = urlParams.get('value');
 
   const api = axios.create({
     baseURL: siteConfig.customFields.infracostDashboardApiEndpoint,
@@ -21,6 +20,9 @@ function FeedbackSubmit() {
   async function submitFeedback(data) {
     setSubmitSuccess(false);
     setSubmitError(null);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const value = urlParams.get('value');
 
     var resp;
     try {
@@ -39,9 +41,11 @@ function FeedbackSubmit() {
       setSubmitError(msg);
     }
   }
-  
+
   useEffect(() => {
-    submitFeedback();
+    if (isClient) {
+      submitFeedback();
+    }
   }, []);
 
   return (
