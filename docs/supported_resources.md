@@ -16,9 +16,9 @@ GovCloud and China regions are also supported.
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | API Gateway | `aws_api_gateway_rest_api`, `aws_api_gateway_stage`, `aws_apigatewayv2_api` | |
+| Backup | `aws_backup_vault` | AWS Storage Gateway Volume Backup prices could not be found in the AWS pricing data. |
 | Certificate Manager (ACM) | `aws_acmpca_certificate_authority`, `aws_acm_certificate` | |
 | CloudFormation | `aws_cloudformation_stack`, `aws_cloudformation_stack_set` | |
-| Backup | `aws_backup_vault` | AWS Storage Gateway Volume Backup prices could not be found in the AWS pricing data. |
 | CloudFront | `aws_cloudfront_distribution` | |
 | CloudWatch | `aws_cloudwatch_dashboard`, `aws_cloudwatch_log_group`, `aws_cloudwatch_metric_alarm` | |
 | CodeBuild | `aws_codebuild_project` | |
@@ -29,7 +29,6 @@ GovCloud and China regions are also supported.
 | Directory Service | `aws_directory_service_directory` | |
 | DocumentDB | `aws_docdb_cluster`, `aws_docdb_cluster_instance`, `aws_docdb_cluster_snapshot` | |
 | DynamoDB | `aws_dynamodb_table` |  DAX is not yet supported. |
-| EventBridge | `aws_cloudwatch_event_bus` | |
 | Elastic Compute Cloud (EC2) | `aws_instance`, `aws_ebs_volume`, `aws_ebs_snapshot`, `aws_ebs_snapshot_copy`, `aws_autoscaling_group`, `aws_eip` | Costs associated with marketplace AMIs are not supported. For non-standard Linux AMIs such as Windows, `operating_system` should be specified in the [usage file](/docs/usage_based_resources#infracost-usage-file), `windows`, `rhel` and `suse` are supported. Reserved instance settings can also be set in the usage file. EC2 detailed monitoring assumes the standard 7 metrics and the most expensive price tier for CloudWatch. If a root volume is not specified then an 8Gi gp2 volume is assumed. Most expensive price tier is used for EBS IOPS. |
 | Elastic Container Registry (ECR) | `ecr_repository` | |
 | Elastic Container Service (ECS) | `aws_ecs_service` | When using with EC2, number of instances in `aws_autoscaling_group` can be set in the [usage file](/docs/usage_based_resources#infracost-usage-file) |
@@ -38,6 +37,7 @@ GovCloud and China regions are also supported.
 | Elastic Kubernetes Service (EKS) | `aws_eks_cluster`, `aws_eks_fargate_profile`, `aws_eks_node_group` | Reserved instance settings can be set in the [usage file](/docs/usage_based_resources#infracost-usage-file). |
 | ElastiCache | `aws_elasticache_cluster`, `aws_elasticache_replication_group` |  |
 | Elasticsearch Service | `aws_elasticsearch_domain` |  |
+| EventBridge | `aws_cloudwatch_event_bus` | |
 | FSx for Windows File Server | `aws_fsx_windows_file_system` | Data deduplication is not supported by Terraform. |
 | Key Management Service (KMS) | `aws_kms_external_key`, `aws_kms_key` |  |
 | Kinesis | `aws_kinesis_analytics_application`, `aws_kinesisanalyticsv2_application`, `aws_kinesisanalyticsv2_application_snapshot`, `aws_kinesis_firehose_delivery_stream` | Terraform doesn’t currently support Analytics Studio, but when it does they will require 2 orchestration KPUs. |
@@ -47,15 +47,15 @@ GovCloud and China regions are also supported.
 | Managed Workflows for Apache Airflow | `aws_mwaa_environment` |  |
 | MQ | `aws_mq_broker` | |
 | Neptune | `aws_neptune_cluster`, `aws_neptune_cluster_instance`, `aws_neptune_cluster_snapshot` | |
-| Secrets Manager | `aws_secretsmanager_secret` |  |
-| Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | Most expensive price tier is used. S3 replication time control data transfer, and batch operations are not supported by Terraform. |
-| Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
-| Simple Queue Service (SQS) | `aws_sqs_queue` | Most expensive price tier is used. |
-| Simple Systems Manager (SSM) | `aws_ssm_parameter`, `aws_ssm_activation` | |
-| Step Functions | `aws_sfn_state_machine` | |
 | Redshift | `aws_redshift_cluster` | |
 | Relational Database Service (RDS) | `aws_rds_cluster`, `aws_db_instance`, `aws_rds_cluster_instance` | |
 | Route 53 | `aws_route53_record`, `aws_route53_zone`, `aws_route53_resolver_endpoint`, `aws_route53_health_check` |  |
+| Secrets Manager | `aws_secretsmanager_secret` |  |
+| Simple Notification Service (SNS) | `sns_topic` `sns_topic_subscription` | SMS and mobile push are not yet supported. |
+| Simple Queue Service (SQS) | `aws_sqs_queue` | Most expensive price tier is used. |
+| Simple Storage Service (S3) | `aws_s3_bucket`, `aws_s3_bucket_inventory`, `aws_s3_bucket_analytics_configuration` | Most expensive price tier is used. S3 replication time control data transfer, and batch operations are not supported by Terraform. |
+| Simple Systems Manager (SSM) | `aws_ssm_parameter`, `aws_ssm_activation` | |
+| Step Functions | `aws_sfn_state_machine` | |
 | Virtual Private Cloud/Network (VPC, VPN, PrivateLink, Transit Gateway) | `aws_ec2_client_vpn_endpoint`, `aws_ec2_client_vpn_network_association`, `aws_ec2_traffic_mirror_session`, `aws_ec2_transit_gateway_peering_attachment`, `aws_ec2_transit_vpc_attachment`, `aws_nat_gateway`, `aws_vpc_connection`, `aws_vpc_endpoint` | |
 | Web Application Firewall (WAF) | `aws_waf_web_acl`, `aws_wafv2_web_acl` |  |
 
@@ -64,16 +64,16 @@ GovCloud and China regions are also supported.
 
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
-| BigQuery | `google_bigquery_dataset` ,`google_bigquery_table` | |
-| Cloud DNS | `google_dns_managed_zone` ,`google_dns_record_set` | Most expensive price tier is used. |
+| BigQuery | `google_bigquery_dataset`, `google_bigquery_table` | |
+| Cloud DNS | `google_dns_managed_zone`, `google_dns_record_set` | Most expensive price tier is used. |
 | Cloud Functions | `google_cloudfunctions_function` | |
 | Cloud Load Balancing | `google_compute_forwarding_rule`, `google_compute_global_forwarding_rule`, `google_compute_target_grpc_proxy`, `google_compute_target_http_proxy`, `google_compute_target_https_proxy`, `google_compute_target_ssl_proxy`, `google_compute_target_tcp_proxy`, `google_compute_region_target_http_proxy`, `google_compute_region_target_https_proxy` | Price for additional forwarding rule is used. |
 | Cloud Logging | `google_logging_billing_account_bucket_config`, `google_logging_billing_account_sink`, `google_logging_folder_bucket_config`, `google_logging_folder_sink`, `google_logging_organization_bucket_config`, `google_logging_organization_sink`, `google_logging_project_bucket_config`, `google_logging_project_sink` | |
 | Cloud Monitoring | `google_monitoring_metric_descriptor` | |
 | Cloud NAT | `google_compute_router_nat` | |
 | Cloud Pub/Sub | `google_pubsub_topic`, `google_pubsub_subscription` | |
-| Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
 | Cloud SQL | `google_sql_database_instance` | Cloud SQL network, SQL Server license, 1-3 years commitments costs are not yet supported. |
+| Cloud Storage | `google_storage_bucket` | Minimum storage duration is assumed.  |
 | Cloud VPN | `google_compute_vpn_tunnel`, `google_compute_vpn_gateway`, `google_compute_ha_vpn_gateway`, `google_compute_external_vpn_gateway` | |
 | Compute Engine | `google_compute_disk`, `google_compute_image`, `google_compute_machine_image`, `google_compute_instance`, `google_compute_instance_group_manager`, `google_compute_region_instance_group_manager`, `google_compute_address`, `google_compute_global_address`, `google_compute_snapshot` | Sustained use discounts are applied to monthly costs, but not to hourly costs. Costs associated with non-standard Linux images, such as Windows and RHEL are not supported. Custom machine types are not supported. Sole-tenant VMs are not supported. |
 | Container Registry | `google_container_registry` | |
