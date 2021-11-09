@@ -25,7 +25,7 @@ function FeedbackSubmit() {
 
     try {
       await api.post(`/event`, {
-        event: 'infracost-feedback-submitted',
+        event: 'infracost-feedback-submit',
         env: {
           value,
         }
