@@ -151,6 +151,7 @@ Run `infracost breakdown --help` to see the available options, which include:
                          Only supported by table output format (default [monthlyQuantity,unit,monthlyCost])
   --show-skipped         Show unsupported resources, some of which might be free
   --no-cache             Don't attempt to cache Terraform plans
+  --out-file string      Save output to a file, helpful with format flag
   --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise, turns off spinners in output
   --no-color             Turn off colored output
   ```
