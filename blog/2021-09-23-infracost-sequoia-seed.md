@@ -28,7 +28,7 @@ The way we solve this problem is to show engineering teams how much resources, a
 
 Ali, Alistair and I launched Infracost in late 2020 as an open source project, and have gained over 4,000 GitHub stars, with a community who are helping direct the roadmap as well as contributing code. We currently track over 3 million price points from AWS, Google Cloud and Microsoft Azure; have support for popular CI/CD systems such as GitHub Actions, GitLab CI, CircleCI, Bitbucket Pipelines, Jenkins; and support Terraform, with more IaC tools coming soon.
 
-There are many super interesting problems we still need to solve, ranging from supporting many different types of cloud resources, cloud providers and charges, custom pricing discounts for large enterprises, usage-based resources and their consumption estimates (e.g. how much data-transfer will go through these resources, so we can calculate the cost) just to name a few. Just check out our [GitHub issue board](https://github.com/infracost/infracost/issues). With that, I’d love to invite you to [join us](https://www.notion.so/infracost/Join-the-team-6512e4f4a89d4fc5b7a112583c0a1c3c) as a founding engineer.
+There are many super interesting problems we still need to solve, ranging from supporting many different types of cloud resources, cloud providers and charges, custom pricing discounts for large enterprises, usage-based resources and their consumption estimates (e.g. how much data-transfer will go through these resources, so we can calculate the cost) just to name a few. Just check out our [GitHub issue board](https://github.com/infracost/infracost/issues).
 
 I want to thank our amazing open source community of users and contributors for helping us reach this milestone. I hope to see you around 😊
 
