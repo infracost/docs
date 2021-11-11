@@ -55,6 +55,10 @@ module.exports = {
             from: '/docs/terraform_modules',
             to: '/docs/guides/terraform_modules',
           },
+          {
+            from: '/docs/supported_resources',
+            to: '/docs/supported_resources/overview',
+          },
         ],
       },
     ],
