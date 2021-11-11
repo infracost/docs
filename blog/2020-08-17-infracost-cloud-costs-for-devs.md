@@ -18,7 +18,7 @@ The complexity of cloud costs keeps increasing - When we were building PlanForCl
 
 We found existing tools fit in too late in the process and are not aimed at the people in control of the infrastructure. It's difficult to get cost estimations when you are building and deploying your services, which often leads to bill shock and no easy way to track down these costs. So we wanted to build a CLI tool that can plug into your existing development and operations processes and bring cost visibility to the engineers.
 
-Currently Infracost supports AWS and Terraform, but we will add support for more cloud vendors ([GCP](/docs/supported_resources/google), [Azure](https://github.com/infracost/infracost/issues/64)) and other IaC tools ([Pulumi](https://github.com/infracost/infracost/issues/187)).
+Currently Infracost supports [AWS and Terraform](/docs/supported_resources/aws), but we will add support for more cloud vendors ([GCP](/docs/supported_resources/google), [Azure](/docs/supported_resources/azure)) and other IaC tools ([Pulumi](https://github.com/infracost/infracost/issues/187)).
 
 **Update 25 Nov 2020 : We have now added initial support for Google cloud.**
 
