@@ -6,15 +6,22 @@ module.exports = {
     },
     {
       type: 'doc',
-      id: 'supported_resources',
-    },
-    {
-      type: 'doc',
       id: 'usage_based_resources',
     },
     {
       type: 'doc',
       id: 'faq',
+    },
+    {
+      type: 'category',
+      label: 'Supported resources',
+      collapsed: false,
+      items: [
+        `supported_resources/overview`,
+        'supported_resources/aws',
+        'supported_resources/azure',
+        'supported_resources/google',
+      ],
     },
     {
       type: 'category',
