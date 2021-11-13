@@ -19,7 +19,7 @@ Run `infracost output --help` to see the available options. Example usage:
 infracost breakdown --path /path/to/project1 --format json --out-file project1.json
 infracost breakdown --path /path/to/project2 --format json --out-file project2.json
 
-infracost output --path "project*.json" --format html --out-file report.html
+infracost output --path "project*.json" --format html --out-file report.html # glob patterns need quotes
 
 infracost output --path "project*.json" --format diff
 ```
