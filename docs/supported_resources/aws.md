@@ -162,6 +162,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_dx_private_virtual_interface` |
 | `aws_dx_public_virtual_interface` |
 | `aws_dx_transit_virtual_interface` |
+| `aws_dynamodb_table_item` |
+| `aws_ebs_default_kms_key` |
 | `aws_ebs_encryption_by_default` |
 | `aws_ec2_client_vpn_authorization_rule` |
 | `aws_ec2_client_vpn_route` |
