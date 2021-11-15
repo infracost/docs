@@ -11,6 +11,8 @@ Please create a GitHub issue if the resource you want [isn't supported](overview
 
 ## Paid resources
 
+There are Terraform resources that Infracost supports, and Google charges for.
+
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | BigQuery | `google_bigquery_dataset`, `google_bigquery_table` | |
@@ -31,6 +33,8 @@ Please create a GitHub issue if the resource you want [isn't supported](overview
 | Memorystore Redis | `google_redis_instance` | |
 
 ## Free resources
+
+There are Terraform resources that Infracost supports, and we classify as free.
 
 | Terraform resources |
 | ---                 |

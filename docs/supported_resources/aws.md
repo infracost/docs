@@ -12,6 +12,8 @@ Please create a GitHub issue if the resource you want [isn't supported](overview
 
 ## Paid resources
 
+There are Terraform resources that Infracost supports, and AWS charges for.
+
 | Service name | Main Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | API Gateway | `aws_api_gateway_rest_api`, `aws_api_gateway_stage`, `aws_apigatewayv2_api` | |
@@ -63,6 +65,8 @@ Please create a GitHub issue if the resource you want [isn't supported](overview
 | Web Application Firewall (WAF) | `aws_waf_web_acl`, `aws_wafv2_web_acl` |  |
 
 ## Free resources
+
+There are Terraform resources that Infracost supports, and we classify as free.
 
 | Terraform resources |
 | ---                 |
@@ -158,6 +162,8 @@ Please create a GitHub issue if the resource you want [isn't supported](overview
 | `aws_dx_private_virtual_interface` |
 | `aws_dx_public_virtual_interface` |
 | `aws_dx_transit_virtual_interface` |
+| `aws_dynamodb_table_item` |
+| `aws_ebs_default_kms_key` |
 | `aws_ebs_encryption_by_default` |
 | `aws_ec2_client_vpn_authorization_rule` |
 | `aws_ec2_client_vpn_route` |
