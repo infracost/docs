@@ -5,7 +5,7 @@ title: Overview
 
 Infracost supports over **200** Terraform resources across [AWS](aws), [Azure](azure) and [Google](google). Over **500** free resources have also been identified.
 
-The quickest way to find out if your Terraform resources are supported is to run [`infracost breakdown`](/docs#usage) with the `--show-skipped` flag. This shows the unsupported resources, some of which might be free.
+The quickest way to find out if your Terraform resources are supported is to run [`infracost breakdown`](/docs#usage) with the `--show-skipped` flag. This shows the unsupported resources.
 
 You could also run the following command to only see the unsupported resources:
 `infracost breakdown --format=json | jq ".summary.unsupportedResourceCounts"`

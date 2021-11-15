@@ -12,6 +12,8 @@ Please create a GitHub issue if the resource you want [isn't supported](overview
 
 ## Paid resources
 
+There are Terraform resources that Infracost supports, and Azure charges for.
+
 | Service name | Terraform resources      | Notes |
 | ---          | ---                           | ---   |
 | Active Directory Domain Services | `azurerm_active_directory_domain_service` | |
@@ -46,6 +48,8 @@ Please create a GitHub issue if the resource you want [isn't supported](overview
 | VPN Gateway | `azurerm_virtual_network_gateway` | |
 
 ## Free resources
+
+There are Terraform resources that Infracost supports, and we classify as free.
 
 | Terraform resources |
 | ---                 |
