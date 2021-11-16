@@ -13,6 +13,7 @@ Infracost API key, run `infracost register` to get one.
 
 ### INFRACOST_CURRENCY
 The currency ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) prices should be converted to. Defaults to USD.
+This is only used by the `infracost breakdown` and `diff` commands. The `output` command uses the currency from the Infracost JSON file.
 
 ### INFRACOST_LOG_LEVEL
 Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot. Turns off spinners in output.
