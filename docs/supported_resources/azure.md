@@ -32,6 +32,7 @@ There are Terraform resources that Infracost supports, and Azure charges for.
 | DNS  | `azurerm_dns_zone`, `azurerm_private_dns_zone`, `azurerm_dns_a_record`, `azurerm_dns_aaaa_record`, `azurerm_dns_caa_record`, `azurerm_dns_cname_record`, `azurerm_dns_mx_record`, `azurerm_dns_ns_record`, `azurerm_dns_ptr_record`, `azurerm_dns_srv_record`, `azurerm_dns_txt_record`, `azurerm_private_dns_a_record`, `azurerm_private_dns_aaaa_record`, `azurerm_private_dns_cname_record`, `azurerm_private_dns_mx_record`, `azurerm_private_dns_ptr_record`, `azurerm_private_dns_srv_record`, `azurerm_private_dns_txt_record` |
 | Event Hubs | `azurerm_eventhub_namespace` | Premium namespaces are not supported by Terraform. |
 | Firewall | `azurerm_firewall` | |
+| Front Door | `azurerm_frontdoor`, `azurerm_frontdoor_firewall_policy` |
 | Functions | `azurerm_function_app` | |
 | HDInsight | `azurerm_hdinsight_hadoop_cluster`, `azurerm_hdinsight_hbase_cluster`, `azurerm_hdinsight_interactive_query_cluster`, `azurerm_hdinsight_kafka_cluster`, `azurerm_hdinsight_spark_cluster` | |
 | Key Vault | `azurerm_key_vault_certificate`, `azurerm_key_vault_key`, `azurerm_key_vault_managed_hardware_security_module` | |
@@ -132,6 +133,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_firewall_network_rule_collection` |
 | `azurerm_firewall_policy_rule_collection_group` |
 | `azurerm_firewall_policy` |
+| `azurerm_frontdoor_custom_https_configuration` |
+| `azurerm_frontdoor_rules_engine` |
 | `azurerm_key_vault_access_policy` |
 | `azurerm_key_vault_certificate_data` |
 | `azurerm_key_vault_certificate_issuer` |
