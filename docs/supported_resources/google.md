@@ -31,6 +31,7 @@ There are Terraform resources that Infracost supports, and Google charges for.
 | Key Management Service (KMS) | `google_kms_crypto_key` | |
 | Kubernetes Engine (GKE) | `google_container_cluster`, `google_container_node_pool` | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
 | Memorystore Redis | `google_redis_instance` | |
+| Secret Manager | `google_secret_manager_secret`, `google_secret_manager_secret_version` |
 
 ## Free resources
 
@@ -149,6 +150,9 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `google_pubsub_topic_iam_binding` |
 | `google_pubsub_topic_iam_member` |
 | `google_pubsub_topic_iam_policy` |
+| `google_secret_manager_secret_iam_binding` |
+| `google_secret_manager_secret_iam_member` |
+| `google_secret_manager_secret_iam_policy` |
 | `google_service_account_iam_binding` |
 | `google_service_account_iam_member` |
 | `google_service_account_iam_policy` |
