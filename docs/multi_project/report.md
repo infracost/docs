@@ -7,9 +7,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The `infracost breakdown` command has a `--format json|table|html` flag that can be used to change the output format. The JSON option can be used to generate files from individual projects that can then be consumed by the `infracost output` command to generate a combined report. The output command has a `--format json|diff|table|html` flag that sets the report format.
+The Infracost CLI tool has a JSON output format, which can be generated using the following command:
 
-These reports can be uploaded to object storage such as AWS S3 or Google Cloud Storage and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
+```sh
+infracost breakdown --path ... --format json --out-file infracost.json
+```
+
+This JSON option can be used to generate files from individual projects that can then be consumed by the `infracost output` command to generate a combined report. The output command has a `--format json|diff|table|html|github-comment|slack-comment` flag.
+
+These reports can be used to integrate Infracost with other tools, or uploaded to object storage such as AWS S3 or Google Cloud Storage and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
 
 ## Usage
 
@@ -19,24 +25,28 @@ Run `infracost output --help` to see the available options. Example usage:
 infracost breakdown --path /path/to/project1 --format json --out-file project1.json
 infracost breakdown --path /path/to/project2 --format json --out-file project2.json
 
-infracost output --path "project*.json" --format html --out-file report.html # glob patterns need quotes
+# Merge above Infracost JSON files, glob patterns need quotes
+infracost output --path "project*.json" --format json --out-file infracost.json
 
-infracost output --path "project*.json" --format diff
+# HTML output
+infracost output --path infracost.json --format html --out-file report.html
+
+# Diff output
+infracost output --path infracost.json --format diff
 ```
 
 ## Examples
 
 <Tabs
-  defaultValue="html"
+  defaultValue="json"
   values={[
-    {label: 'Example HTML report', value: 'html'},
     {label: 'JSON format', value: 'json'},
-    {label: 'Table format', value: 'table'},
-    {label: 'Diff format', value: 'diff'},
+    {label: 'HTML', value: 'html'},
+    {label: 'Table', value: 'table'},
+    {label: 'Diff', value: 'diff'},
+    {label: 'GitHub comment', value: 'github-comment'},
+    {label: 'Slack message', value: 'slack-message'}
   ]}>
-  <TabItem value="html">
-    <img src={useBaseUrl("img/screenshots/html_report.png")} alt="Infracost HTML report" />
-  </TabItem>
   <TabItem value="json">
 
   **Tip**: You can use `jq` to extract values. For example, to see the total monthly cost increase of a project you can use:
@@ -276,6 +286,9 @@ infracost output --path "project*.json" --format diff
   ```
 
   </TabItem>
+  <TabItem value="html">
+    <img src={useBaseUrl("img/screenshots/html_report.png")} alt="Infracost HTML report" />
+  </TabItem>
   <TabItem value="table">
 
   ```
@@ -344,7 +357,13 @@ infracost output --path "project*.json" --format diff
 
   To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
   ```
-  </TabItem>  
+  </TabItem> 
+  <TabItem value="github-comment">
+    <img src={useBaseUrl("img/screenshots/github-comment-format.png")} alt="Infracost GitHub comment report" />
+  </TabItem>
+  <TabItem value="slack-message">
+    <img src={useBaseUrl("img/screenshots/slack-message-format.png")} alt="Infracost Slack message report" />
+  </TabItem>
 </Tabs>
 
 ## Bulk run
