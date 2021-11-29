@@ -40,7 +40,7 @@ There are Terraform resources that Infracost supports, and Azure charges for.
 | Kubernetes Service (AKS) | `azurerm_kubernetes_cluster`, `azurerm_kubernetes_cluster_node_pool` | |
 | Monitor | `azurerm_application_insights`, `azurerm_application_insights_web_test` | |
 | Notification Hubs | `azurerm_notification_hub_namespace` | |
-| Storage Account | `azurerm_storage_account` | Only BlockBlobStorage and FileStorage accounts are currently supported. |
+| Storage Account | `azurerm_storage_account` | Only StorageV2, BlockBlobStorage and FileStorage accounts are currently supported. |
 | Synapse Analytics | `azurerm_synapse_spark_pool`, `azurerm_synapse_sql_pool`, `azurerm_synapse_workspace` | The total costs consist of several resources that should be viewed as a whole. |
 | Virtual Machines | `azurerm_linux_virtual_machine`, `azurerm_managed_disk`, `azurerm_virtual_machine`, `azurerm_windows_virtual_machine` | Non-standard images such as RHEL are not supported. Low priority, Spot and Reserved instances are not supported. |
 | Virtual Machine Scale Sets | `azurerm_linux_virtual_machine_scale_set`, `azurerm_virtual_machine_scale_set`, `azurerm_windows_virtual_machine_scale_set` | |
