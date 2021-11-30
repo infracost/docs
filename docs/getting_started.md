@@ -98,7 +98,7 @@ infracost diff --path . --sync-usage-file --usage-file infracost-usage.yml
 ```
 
 ### 4. Add to CI/CD
-Use our [CI/CD integrations](/docs/integrations/cicd) to automatically add pull request comments showing cost estimate diffs. This can also provide a safetynet as teams can discuss the cost impact of changes as part of their workflow.
+Use our [CI/CD integrations](/docs/integrations/cicd) to add cost estimates to pull request comments. This provides a safety net as teams can discuss the cost impact of changes as part of their workflow.
 
 ## Usage
 
