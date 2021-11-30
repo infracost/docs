@@ -5,15 +5,15 @@ title: CI/CD integrations
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost CI/CD integrations can be used to automatically add a pull request comment showing the diff of monthly costs between the current and planned state. Minor cost increase/decrease changes can be ignored by setting a percentage threshold for the comment to be added.
+Infracost CI/CD integrations can be used to automatically add a pull request comment showing the diff of monthly costs between the current and planned state. Minor cost increase/decrease changes can be ignored by setting a threshold for the comment to be added.
 
 Infracost can be used in any CI/CD system using the [infracost binary](https://github.com/infracost/infracost/releases) or the [infracost/infracost Docker image](https://hub.docker.com/r/infracost/infracost). You might also find our [CI diff script](https://github.com/infracost/infracost/tree/master/scripts/ci/diff.sh) useful; it's used in the following integrations.
 
 ## GitHub Action
 
-See the [Infracost GitHub Action](https://github.com/marketplace/actions/infracost) for instructions, and a demo [here](https://github.com/infracost/gh-actions-demo).
+See our new [Infracost actions](https://github.com/infracost/actions/) repo for instructions and examples. If you used the older [infracost-gh-actions](https://github.com/infracost/infracost-gh-action) repo, please see our [migration guide](guides/actions_migration.md).
 
-<img src="https://raw.githubusercontent.com/infracost/infracost-gh-action/master/screenshot.png" width="550px" alt="Example Infracost diff output" />
+<img src="https://raw.githubusercontent.com/infracost/actions/master/.github/assets/screenshot.png" width="550px" alt="Example Infracost diff output" />
 
 ## GitLab CI
 

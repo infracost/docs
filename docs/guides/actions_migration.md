@@ -46,7 +46,7 @@ The `target-type` describes where the commented should be posted against, which 
 
 ## Migration guide
 
-1. Follow the [Quick start guide](https://github.com/infracost/actions/) to see how the actions can be used together with `setup-terraform`.
+1. Follow the [Quick start guide](https://github.com/infracost/actions/#quick-start) to see how the actions can be used together with `setup-terraform`.
 
 2. Find [an example](https://github.com/infracost/actions/#examples) that is the closest to your use-case and adapt the example as required. We have developed examples for:
 
