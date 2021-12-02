@@ -16,12 +16,12 @@ Follow this page to migrate from our old [infracost-gh-actions](https://github.c
 ### Composable actions
 
 The actions repo contains two main actions as well as many examples demonstrating how they can be used in different workflows. One of the workflows this enables is matrix builds, where one cost estimate comment can be created from a group of Terraform projects. The new actions are:
-- setup: downloads and installs the Infracost CLI in your GitHub Actions workflow.
+- setup: install the Infracost CLI in your GitHub Actions workflow.
 - comment: adds comments to pull requests.
 
 Composable actions provide three key benefits:
-1. No need for a bloated Docker image: The Infracost CLI setup has been split out from the Terraform/Terragrunt setup. This avoids needing a large Docker image and enables other GitHub Actions (such as the official [setup-terraform](https://github.com/hashicorp/setup-terraform) action) to be used to install required versions of Terraform/Terragrunt.
-2. Safe version upgrades: the Infracost setup action has a `version` field for the CLI, which supports [Semver Ranges](https://www.npmjs.com/package/semver#ranges). So instead of a [full version](https://github.com/infracost/infracost/releases) string, you can use `0.9.x`. This enables you to automatically get the latest backward compatible changes in the 0.9 release (e.g. new resources or bug fixes) without worrying about CI/CD pipelines breaking.
+1. No need for a bloated Docker image: The Infracost CLI setup has been split out from the Terraform/Terragrunt setup. This avoids needing a large Docker image and enables other actions to be used to to install required versions of [Terraform](https://github.com/hashicorp/setup-terraform) and [Terragrunt](https://github.com/autero1/action-terragrunt).
+2. Safe version upgrades: the Infracost setup action has a `version` field for the CLI, which supports [Semver Ranges](https://www.npmjs.com/package/semver#ranges). So instead of a [full version](https://github.com/infracost/infracost/releases) string, you can use `0.9.x`. This enables you to automatically get the latest backward compatible changes in the 0.9 release (e.g. new resources/features and bug fixes) without worrying about CI/CD pipelines breaking.
 3. Versioning for the integration itself: the integration has a version, `infracost/action@v1`, which also supports Semver. So you can use v1 to get backward compatible updates for the integration (e.g. bug fixes).
 
 ### CI-specific formats
@@ -37,12 +37,12 @@ As shown by in the screenshot at the top of this page, comments now include a su
 The comment action includes a `behavior` and a `target` attribute.
 
 Behavior describes how and when comments should be posted; we support four options:
-- `update`: Create a single comment and update it on changes. This is the "quietest" option. The GitHub comments UI shows what/when changed when the comment is updated. Pull request followers will only be notified on the comment create (not updates), and the comment will stay at the same location in the comment history.
+- `update`: Create a single comment and update it on changes. This is the "quietest" option. The GitHub comments UI shows [what/when changed](https://docs.github.com/en/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment) when the comment is updated. Pull request followers will only be notified on the comment create (not updates), and the comment will stay at the same location in the comment history.
 - `delete-and-new`: Delete previous cost estimate comments and create a new one. Pull request followers will be notified on each comment.
 - `hide-and-new`: Minimize previous cost estimate comments and create a new one. Pull request followers will be notified on each comment.
 - `new`: Create a new cost estimate comment. Pull request followers will be notified on each comment.
 
-The `target-type` describes where the commented should be posted against, which can be either `pull-request` (default) or `commit`.
+The `target-type` describes where the comment should be posted against, which can be either `pull-request` (default) or `commit`.
 
 ## Migration guide
 
