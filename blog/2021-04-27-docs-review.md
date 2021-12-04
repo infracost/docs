@@ -16,7 +16,7 @@ David and Stephanie have around 20 years of experience between them, with a spec
 
 —
 
-<iframe width="90%" height="350" src="https://www.youtube.com/embed/-J7O4nVu_Ug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+<iframe width="90%" height="350" src="https://www.youtube.com/embed/-J7O4nVu_Ug" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
 
 The following is lightly edited transcript of our meeting:
 

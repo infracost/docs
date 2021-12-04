@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '@theme/SearchBar';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import useLockBodyScroll from '@theme/hooks/useLockBodyScroll';
 import useWindowSize from '@theme/hooks/useWindowSize';
 import useHideableNavbar from '@theme/hooks/useHideableNavbar';
 import GitHubStarCount from '../components/GitHubStarCount';
 
 function Navbar({ isDocs }) {
-  const { isClient } = useDocusaurusContext();
+  const isBrowser = useIsBrowser();
 
   const [atTop, setAtTop] = useState(true);
   const [showSidebar, setShowSidebar] = useState(false);
   const [isSearchBarExpanded, setIsSearchBarExpanded] = useState(false);
 
-  if (isClient) {
+  if (isBrowser) {
     const checkAtTop = () => {
       setAtTop(window.scrollY <= 64);
     }
