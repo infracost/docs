@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from '@theme/SearchBar';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useLockBodyScroll from '@theme/hooks/useLockBodyScroll';
-import useWindowSize, {windowSizes} from '@theme/hooks/useWindowSize';
+import useWindowSize from '@theme/hooks/useWindowSize';
 import useHideableNavbar from '@theme/hooks/useHideableNavbar';
 import GitHubStarCount from '../components/GitHubStarCount';
 
@@ -25,7 +25,7 @@ function Navbar({ isDocs }) {
 
   const windowSize = useWindowSize();
   useEffect(() => {
-    if (windowSize === windowSizes.desktop) {
+    if (windowSize === 'desktop') {
       setShowSidebar(false);
     }
   }, [windowSize]);
