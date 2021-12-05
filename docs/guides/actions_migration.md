@@ -21,7 +21,7 @@ The actions repo contains two main actions as well as many examples demonstratin
 
 Composable actions provide three key benefits:
 1. No need for a bloated Docker image: The Infracost CLI setup has been split out from the Terraform/Terragrunt setup. This avoids needing a large Docker image and enables other actions to be used to to install required versions of [Terraform](https://github.com/hashicorp/setup-terraform) and [Terragrunt](https://github.com/autero1/action-terragrunt).
-2. Safe version upgrades: the Infracost setup action has a `version` field for the CLI, which supports [Semver Ranges](https://www.npmjs.com/package/semver#ranges). So instead of a [full version](https://github.com/infracost/infracost/releases) string, you can use `0.9.x`. This enables you to automatically get the latest backward compatible changes in the 0.9 release (e.g. new resources/features and bug fixes) without worrying about CI/CD pipelines breaking.
+2. Safe version upgrades: the Infracost setup action has a `version` field for the CLI, which supports [SemVer ranges](https://www.npmjs.com/package/semver#ranges). So instead of a [full version](https://github.com/infracost/infracost/releases) string, you can use `0.9.x`. This enables you to automatically get the latest backward compatible changes in the 0.9 release (e.g. new resources/features and bug fixes) without worrying about CI/CD pipelines breaking.
 3. Versioning for the integration itself: the integration has a version, `infracost/action@v1`, which also supports Semver. So you can use v1 to get backward compatible updates for the integration (e.g. bug fixes).
 
 ### CI-specific formats
