@@ -7,7 +7,7 @@ Please note:
 1. Free trials and free tiers, which are usually **not** a significant part of cloud costs, are ignored. This because Infracost can only see the Terraform projects it is run against but free tiers are account-wide and there are often multiple Terraform projects in an account.
 2. Google Cloud Platform (GCP) on-demand prices are used by default.
 
-Please create a GitHub issue if the resource you want [isn't supported](overview#the-resource-i-want-isnt-supported) or your cost estimate [looks wrong](overview#my-cost-estimate-looks-wrong).
+Please create a GitHub issue if the resource you want [isn't supported](/docs/supported_resources/overview#the-resource-i-want-isnt-supported) or your cost estimate [looks wrong](/docs/supported_resources/overview#my-cost-estimate-looks-wrong).
 
 ## Paid resources
 
