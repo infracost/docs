@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import PageLayout from '../../components/PageLayout';
 
 function FeedbackSubmit() {
-  const { isClient } = useDocusaurusContext();
+  const isBrowser = useIsBrowser();
   const { siteConfig } = useDocusaurusContext();
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(null);
@@ -41,10 +42,10 @@ function FeedbackSubmit() {
   }
 
   useEffect(() => {
-    if (isClient) {
+    if (isBrowser) {
       submitFeedback();
     }
-  }, [isClient]);
+  }, [isBrowser]);
 
   return (
     <PageLayout

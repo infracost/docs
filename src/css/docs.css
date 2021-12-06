@@ -11,13 +11,16 @@
   --ifm-font-family-base: var(--font-family);
 
   /* Layout */
-  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-spacing-horizontal: 1rem;
 
   /* Colors */
   --ifm-color-primary: var(--primary);
   --ifm-font-color-base: var(--docs-text-color);
   --ifm-font-color-secondary: var(--docs-text-color);
   --ifm-color-content-secondary: var(--docs-text-color);
+  
+  /* Text */
+  --ifm-h1-font-size: 2.5rem;
 
   /* Menus */
   --doc-sidebar-width: 250px !important;
@@ -44,8 +47,18 @@
   --ifm-table-stripe-background: #f9f9fc;
 }
 
-.row {
-  margin: 0;
+.docs-wrapper footer {
+  background-color: inherit;
+  border-top: inherit;
+  padding: inherit;
+}
+
+.docs-wrapper footer a {
+  color: var(--link-color);
+}
+
+.docs-wrapper footer a:hover {
+  color: var(--link-hover-color);
 }
 
 @media (max-width: 479px) {
@@ -82,6 +95,12 @@ div[class^=announcementBar_] {
 .announcement-message a {
   color: var(--white) !important;
   text-decoration: underline !important;
+}
+
+@media (max-width: 996px) {
+  div[class^=searchBox_] {
+    position: inherit;
+  }
 }
 
 .DocSearch {
@@ -193,19 +212,8 @@ div[class^=announcementBar_] {
   }
 }
 
-[class^="docTitle_"] {
-  font-size: 2.5rem !important;
-}
-
 div[class^=docSidebarContainer_] {
   max-width: 250px;
-}
-
-@media (max-width: 996px) {
-  main[class^=docMainContainer_] .container {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
 div[class^=docItemContainer_] {
@@ -213,7 +221,7 @@ div[class^=docItemContainer_] {
   padding: 0;
 }
 
-div[class^=codeBlockLines_] {
+code[class^=codeBlockLines_] {
   background-color: var(--nu40) !important;
 }
 
@@ -279,6 +287,11 @@ div[class^=codeBlockLines_] {
 }
 .pagination-nav__sublabel {
   color: var(--nu30);
+}
+
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2.5rem;
+  padding-top: 1rem;
 }
 
 .tabs__item:hover {
