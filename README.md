@@ -32,4 +32,3 @@ Update the version mentioned in docs/docs/getting_started.md as some users with 
 Merges to master automatically update www.infracost.io
 
 Check that the image loads on https://cards-dev.twitter.com/validator for new blog post URLs
-
