@@ -14,14 +14,14 @@ function Pricing() {
 
       <div className="pricing-wrapper">
         <div className="container">
-          <div class="intro">
+          <div className="intro">
             <h1 className="tagline">Pricing</h1>
             <p className="sub-tagline">Infracost is open source and free for the community</p>
           </div>
 
           <div className="plans">
             <div className="plan box">
-              <div class="heading">
+              <div className="heading">
                 <h2>Community</h2>
                 <span className="price">Free</span>
               </div>
@@ -51,14 +51,14 @@ function Pricing() {
                   <span>Community supported</span>
                 </li>
               </ul>
-              <div class="action">
+              <div className="action">
                 <a href="/docs/" className="button primary">Get started</a>
               </div>
             </div>
 
             <div className="plan box">
-              <div class="heading">
-                <h2>Enterprise <span class="coming-soon"></span></h2>
+              <div className="heading">
+                <h2>Enterprise <span className="coming-soon"></span></h2>
                 <span className="price">Coming soon</span>
               </div>
               <ul>
@@ -69,7 +69,7 @@ function Pricing() {
                   </span>
                 </li>
               </ul>
-              <div class="action">
+              <div className="action">
                 We love hearing your feedback on what features you think should be in the paid product, please email us on <a href="mailto:hello@infracost.io?subject=Infracost Enterprise pricing">hello@infracost.io</a>
               </div>
             </div>

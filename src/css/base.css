@@ -87,3 +87,12 @@ h1, h2, h3, h4, h5, h6 {
   background: none;
   padding-bottom: 2rem;
 }
+
+.close {
+  color: var(--nu-10);
+  opacity: 1;
+}
+
+.close:hover {
+  opacity: 1;
+}
