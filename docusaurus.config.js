@@ -12,7 +12,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
-  trailingSlash: false,
+  trailingSlash: true,
   favicon: 'img/favicon.png',
   organizationName: 'infracost',
   projectName: 'docs',
