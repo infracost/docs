@@ -21,6 +21,12 @@ Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to t
 ### INFRACOST_SKIP_UPDATE_CHECK
 Set to `true` to skip the Infracost update check; can be useful in CI/CD systems. We regularly add support for new resources so we recommend watching our repo for releases: goto the [repo](https://github.com/infracost/infracost) page, click on the Watch button > select Custom > Releases and click on Apply. Be sure to upgrade regularly.
 
+### INFRACOST_TERRAGRUNT_FLAGS
+Used to add flags to `terragrunt run-all` calls e.g.:
+  ```shell
+  INFRACOST_TERRAGRUNT_FLAGS="--terragrunt-exclude-dir dev" infracost breakdown --path /path/to/code
+  ```
+
 ### INFRACOST_TERRAFORM_WORKSPACE
 Used to set the Terraform workspace (this sets the [`TF_WORKSPACE`](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_workspace) internally). The `--terraform-workspace` flag can also be used.
   ```shell
