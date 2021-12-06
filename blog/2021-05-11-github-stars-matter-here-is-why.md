@@ -34,7 +34,7 @@ I say to a lesser extent as contributing, by creating a GitHub issue or submitti
 
 In addition to helping projects get users, GitHub stars can help the project creators **meet investors** who are familiar with open source. Early on in Infracost's journey, we were surprised to get cold emails from VCs congratulating us on our star count. After speaking with a few, it became clear that they either had systems in place to monitor stars[^4], or had analysts who reviewed Trending Repos on GitHub for potential investment opportunities[^5]. Some have gone even further. For example, the VC firm Runa Capital, who invested in Nginx and MariaDB, has started to track the fastest growing open source startups using GitHub stars and forks. Infracost was recently placed 5th on the ROSS Index[^6].
 
-<img src={useBaseUrl("img/blog/github-stars-matter-here-is-why/star-chart.png")} width="70%" alt="Infracost GitHub stars" className="image-wrapper" />
+<img src={useBaseUrl("img/blog/github-stars-matter-here-is-why/star-chart.png")} width="70%" alt="Infracost GitHub stars" />
 
 ### Future of GitHub stars
 
