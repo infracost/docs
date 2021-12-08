@@ -39,6 +39,32 @@ export INFRACOST_PRICING_API_ENDPOINT=https://endpoint
 export INFRACOST_API_KEY=$SELF_HOSTED_INFRACOST_API_KEY
 ```
 
+### Using a self-signed certificate
+
+You can configure the Infracost CLI to work with a self-hosted Cloud Pricing API that uses a self-signed certificate by either configuring it not to verify the certificate or by passing the path to your CA certificate.
+
+**Note:** self-signed certificates must use the SAN extension since this is now a requirement in [recent Golang versions](https://go.dev/doc/go1.15#commonname).
+
+**Option 1: Skip certificate verification**
+```sh
+infracost configure set tls_insecure_skip_verify true
+```
+
+Or for CI/CD:
+```sh
+export INFRACOST_TLS_INSECURE_SKIP_VERIFY=true
+```
+
+**Option 2: Pass the path to the CA certificate**
+```sh
+infracost configure set tls_ca_cert_file /path/to/ca.crt
+```
+
+Or for CI/CD:
+```sh
+export INFRACOST_TLS_CA_CERT_FILE=/path/to/ca.crt
+```
+
 ## Stats page
 
 Your self-hosted Cloud Pricing API endpoint (e.g. http://localhost:4000 if running locally with Docker compose), will show if prices are up-to-date and some statistics.
