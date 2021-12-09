@@ -47,6 +47,7 @@ There are Terraform resources that Infracost supports, and Azure charges for.
 | Virtual Machine Scale Sets | `azurerm_linux_virtual_machine_scale_set`, `azurerm_virtual_machine_scale_set`, `azurerm_windows_virtual_machine_scale_set` | |
 | Virtual Network / PrivateLink | `azurerm_private_endpoint`, `azurerm_public_ip`, `azurerm_public_ip_prefix`, `azurerm_nat_gateway` | |
 | VPN Gateway | `azurerm_virtual_network_gateway` | |
+| Virtual WAN | `azurerm_virtual_hub`, `azurerm_vpn_gateway`, `azurerm_point_to_site_vpn_gateway`, `azurerm_express_route_gateway`, `azurerm_vpn_gateway_connection`, `azurerm_express_route_connection` | NVA Infrastructure Unit, Routing Infrastructure Unit and Secured Virtual WAN with Firewall are currently not supported. |
 
 ## Free resources
 
@@ -213,3 +214,4 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_virtual_desktop_workspace` |
 | `azurerm_virtual_machine_data_disk_attachment` |
 | `azurerm_virtual_network` |
+| `azurerm_virtual_wan` |
