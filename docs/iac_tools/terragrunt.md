@@ -23,6 +23,12 @@ Standard Terragrunt [CLI options](https://terragrunt.gruntwork.io/docs/reference
 TERRAGRUNT_PARALLELISM=4 infracost breakdown --path=path/to/terragrunt/code
 ```
 
+CLI flags can also be passed to Terragrunt through the `INFRACOST_TERRAGRUNT_FLAGS` environment variable:
+
+```shell
+INFRACOST_TERRAGRUNT_FLAGS="--terragrunt-exclude-dir dev" infracost breakdown --path /path/to/terragrunt/code
+```
+
 ### Usage file
 
 If your Terragrunt project has multiple modules and you want to specify different usage files for each module, you will need to add each Terragrunt subdirectory and usage file to the Infracost [config file](/docs/multi_project/config_file#examples).
