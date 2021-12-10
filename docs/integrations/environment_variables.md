@@ -49,6 +49,9 @@ Used to change the path to the `terraform` binary, e.g.:
   INFRACOST_TERRAFORM_BINARY=~/bin/terragrunt_0.29 infracost breakdown --path=/path/to/code
   ```
 
+### INFRACOST_PARALLELISM
+If using multiple projects using a [config_file](/docs/multi_project/config_file) this limits the number of projects processed in parallel. By default the parallelization level is set to 4×CPU count but capped at 16. To help with debugging set this to `1` so that the projects are processed synchronously.
+
 #### CI/CD integrations
 
 Only for *non-GitHub-Actions* [CI/CD integration](/docs/integrations/cicd): the [infracost/infracost Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the latest stable versions of terraform and terragrunt; so you can set this environment variable to:
