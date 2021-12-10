@@ -15,6 +15,8 @@ import TabItem from '@theme/TabItem';
 
 The [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) is an open source GraphQL-based API that includes all public prices from AWS, Azure and Google; it contains over **3 million prices!** The prices are automatically updated via a weekly job. You can use our hosted version or [self-host](/docs/cloud_pricing_api/self_hosted) (it should take less than 15mins to deploy).
 
+<!--truncate-->
+
 We needed a multi-cloud pricing API that we could use to explore pricing data structures (e.g. what are the various price components for AWS EC2) and filter for specific prices for the [Infracost CLI](https://github.com/infracost/infracost). The cloud vendor pricing APIs do not address these use-cases so we developed and open sourced the Cloud Pricing API, which can also be used independently of the Infracost CLI.
 
 GraphQL is a natural fit for cloud pricing as it can model the JSON structure used by cloud vendors. This enables you to query nested JSON structures using vendor-specific parameters, and request only the attributes you need to be returned in the response. For example, you can find all prices that match AWS EC2 m3.large instance in us-east-1 (over 400 prices), then explore the 30+ attributes that AWS return to describe instances (e.g. `clockSpeed` or `networkPerformance`).

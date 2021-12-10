@@ -16,6 +16,8 @@ I sat down with [David Julia](https://twitter.com/DavidJulia), who is the Head o
 
 The following is lightly edited transcript (from YouTube) of the introduction section of our chat:
 
+<!--truncate-->
+
 **Ali**: Hey everyone, I have David Julia here who is the head of engineering at Eagle.io. David thank you very much for taking time to speak with me today. Would you like to introduce yourself?
 
 **David**: Yeah absolutely, so David Julia head of engineering at Eagle.io. We do environmental IoT so we're an environmental IoT data platform essentially, you connect up all sorts of devices to us were used in water monitoring, natural resource monitoring, various other things. We are used to monitor the cracks in Mount Rushmore for example, how Mount Rushmore is splitting and how that's going and whether they need to remediate anything so you know a broad variety of use cases, all these data loggers centers, connected to the platform and analytics and processing logic on that. A fun gig for me. I just started that a couple of months ago before that I was
