@@ -50,7 +50,7 @@ Used to change the path to the `terraform` binary, e.g.:
   ```
 
 ### INFRACOST_PARALLELISM
-If using multiple projects using a [config_file](/docs/multi_project/config_file) this limits the number of projects processed in parallel. By default the parallelization level is set to 4×CPU count (max 16). To help with debugging set this to `1` so that the projects are processed synchronously.
+If using multiple projects using a [config_file](/docs/multi_project/config_file) this limits the number of projects processed in parallel. By default the parallelization level is set to 4×CPU count but capped at 16. To help with debugging set this to `1` so that the projects are processed synchronously.
 
 #### CI/CD integrations
 
