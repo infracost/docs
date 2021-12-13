@@ -8,5 +8,19 @@
 
 .blog-wrapper article:not(:last-of-type) {
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
+}
+
+.blog-wrapper footer {
+  background-color: inherit;
+  border-top: inherit;
+  padding: inherit;
+}
+
+.blog-wrapper footer a {
+  color: var(--link-color);
+}
+
+.blog-wrapper footer a:hover {
+  color: var(--link-hover-color);
 }

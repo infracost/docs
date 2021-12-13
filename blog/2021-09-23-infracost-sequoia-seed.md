@@ -22,6 +22,8 @@ People are often surprised to learn that DevOps and SREs, who are launching clou
 
 The way we solve this problem is to show engineering teams how much resources, and the specific options they have selected, cost. This happens within their workflow before anything goes to production.
 
+<!--truncate-->
+
 <div style={{textAlign: 'center'}}>
   <img src={useBaseUrl("img/blog/infracost-sequoia-seed/mindblown.gif")} width="50%" alt="smile"/>
 </div>
