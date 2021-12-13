@@ -20,11 +20,13 @@ To setup the integration:
 2. Follow the [instructions for configuring a Run Task](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html#configuring-a-run-task) in Terraform Cloud. There are two steps you need to do: setup the integration, and enable it in your workspaces.
 3. After you've setup the integration, and enabled it on one or more of your workspaces, your runs will show the Infracost Run Task output and a link to the details; see example [here](https://dashboard.infracost.io/results/285db4b2-1467-41c0-a162-382ae7f87e89?token=932c8505d6cd3dd7c3cba4d45188eeec9988976ae0d366ccc5ae813ed1b4fc395dfba94d14d54babef943c23042787f66076f04a29a37dced8d0ae963e5cefd5).
 
-Notes: As this integration is directly within Terraform Cloud, three things are not supported yet: pull request comments are not created; multiple currencies are not supported; the usage-file is not supported. Please create a GitHub issue or contact us if you're interested in these features.
+Notes: As this integration is directly within Terraform Cloud, three things are not supported yet: pull request comments are not created; multiple currencies are not supported; the usage-file is not supported. Please create a GitHub issue or contact us if you're interested in these features. If you use GitHub, you can use the [Infracost GitHub Actions](https://github.com/infracost/actions/) to use those features (in addition to Cloud Run Tasks).
 
 | Terraform Cloud dashboard | Details link |
 |--------------|-----------|
 <img src={useBaseUrl("img/screenshots/tfc_integration.png")} alt="Infracost running as a Run Task" width="550px" /> | <img src={useBaseUrl("img/screenshots/infracost_dashboard.png")} alt="Infracost details link" width="550px" />
+
+Infracost is a [verified](https://www.hashicorp.com/partners/tech/infracost) Terraform Cloud integration. Terraform Cloud only sends the plan JSON file to Infracost during cost estimation, no other secrets/logs are sent, and once the cost estimate is generated, the temporary plan file is deleted from our servers.
 
 ## Terraform Cloud users
 
