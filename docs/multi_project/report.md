@@ -44,7 +44,7 @@ infracost output --path infracost.json --format diff
     {label: 'HTML', value: 'html'},
     {label: 'Table', value: 'table'},
     {label: 'Diff', value: 'diff'},
-    {label: 'GitHub comment', value: 'github-comment'},
+    {label: 'GitHub/GitLab comment', value: 'github-gitlab-comment'},
     {label: 'Slack message', value: 'slack-message'}
   ]}>
   <TabItem value="json">
@@ -358,7 +358,7 @@ infracost output --path infracost.json --format diff
   To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
   ```
   </TabItem> 
-  <TabItem value="github-comment">
+  <TabItem value="github-gitlab-comment">
     <img src={useBaseUrl("img/screenshots/github-comment-format.png")} alt="Infracost GitHub comment report" />
   </TabItem>
   <TabItem value="slack-message">
