@@ -5,29 +5,14 @@ module.exports = {
       id: 'getting_started',
     },
     {
-      type: 'doc',
-      id: 'usage_based_resources',
-    },
-    {
-      type: 'doc',
-      id: 'faq',
-    },
-    {
-      type: 'category',
-      label: 'Supported resources',
-      collapsed: false,
-      items: [
-        `supported_resources/overview`,
-        'supported_resources/aws',
-        'supported_resources/azure',
-        'supported_resources/google',
-      ],
-    },
-    {
       type: 'category',
       label: 'Integrations',
       collapsed: false,
       items: [
+        'integrations/github_actions',
+        'integrations/gitlab_ci',
+        'integrations/atlantis',
+        'integrations/terraform_cloud_enterprise',
         'integrations/cicd',
         'integrations/environment_variables',
         'integrations/infracost_api',
@@ -35,21 +20,26 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Infra-as-code tools',
+      label: 'Features',
       collapsed: false,
       items: [
-        'iac_tools/terraform_cloud_enterprise',
-        'iac_tools/terragrunt',
+        'features/cli_commands',
+        'features/config_file',
+        'features/usage_based_resources',
+        'features/share_links',
+        'features/terragrunt',
       ],
     },
     {
       type: 'category',
-      label: 'Multi-project setups',
-      collapsed: false,
+      label: 'Supported clouds',
+      collapsed: true,
       items: [
-        'multi_project/config_file',
-        'multi_project/report',
-      ], 
+        `supported_resources/overview`,
+        'supported_resources/aws',
+        'supported_resources/azure',
+        'supported_resources/google',
+      ],
     },
     {
       type: 'category',
@@ -71,6 +61,10 @@ module.exports = {
         `guides/advanced_usage`,
         'guides/terraform_modules',
       ],
+    },
+    {
+      type: 'doc',
+      id: 'faq',
     },
   ]
 };

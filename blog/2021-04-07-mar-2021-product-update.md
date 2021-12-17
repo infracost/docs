@@ -45,7 +45,7 @@ We like it when things are made easy:
 
 - **Inputs**: a new `path` flag has been introduced to replace the various methods of running Infracost. You can now simply point Infracost to the path of a Terraform directory, plan binary file, or plan JSON file and it'll just work. This lays some of the groundwork for supporting other IaC tools in the future.
 - **Outputs**: the dashes (-) in the output have been replaced with price descriptions such as `Cost depends on usage: $0.20 per 1M requests` so you can understand the pricing structure of usage-based resources such as AWS Lambda or Google Cloud Storage.
-- **Config file**: the [config file](/docs/multi_project/config_file) has been updated to support infra-as-code repos that have multiple workspaces and projects. This enables you to combine projects into the same breakdown or diff output. So if a Terraform module or variable is used across workspaces/projects, you can quickly see the cost impact of changing it.
+- **Config file**: the [config file](/docs/features/config_file) has been updated to support infra-as-code repos that have multiple workspaces and projects. This enables you to combine projects into the same breakdown or diff output. So if a Terraform module or variable is used across workspaces/projects, you can quickly see the cost impact of changing it.
 
 ### 🚀 New Pull request comment options
 

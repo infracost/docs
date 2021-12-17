@@ -38,19 +38,19 @@ module.exports = {
           },
           {
             from: '/docs/terraform_cloud_enterprise',
-            to: '/docs/iac_tools/terraform_cloud_enterprise',
+            to: '/docs/integrations/terraform_cloud_enterprise',
           },
           {
             from: '/docs/terragrunt',
-            to: '/docs/iac_tools/terragrunt',
+            to: '/docs/features/terragrunt',
           },
           {
             from: '/docs/config_file',
-            to: '/docs/multi_project/config_file',
+            to: '/docs/features/config_file',
           },
           {
             from: '/docs/report',
-            to: '/docs/multi_project/report',
+            to: '/docs/features/cli_commands',
           },
           {
             from: '/docs/terraform_modules',
@@ -59,6 +59,26 @@ module.exports = {
           {
             from: '/docs/supported_resources',
             to: '/docs/supported_resources/overview',
+          },
+          {
+            from: '/docs/iac_tools/terraform_cloud_enterprise',
+            to: '/docs/integrations/terraform_cloud_enterprise',
+          },
+          {
+            from: '/docs/iac_tools/terragrunt',
+            to: '/docs/features/terragrunt',
+          },
+          {
+            from: '/docs/multi_project/config_file',
+            to: '/docs/features/config_file',
+          },
+          {
+            from: '/docs/usage_based_resources/',
+            to: '/docs/features/usage_based_resources/',
+          },
+          {
+            from: '/docs/multi_project/report',
+            to: '/docs/features/cli_commands',
           },
         ],
       },

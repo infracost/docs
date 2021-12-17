@@ -1,16 +1,18 @@
 ---
 slug: config_file
-title: Config file
+title: Multi-projects/workspaces
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-An Infracost config file can be created in each of your Terraform project repos to specify how Infracost should be run. The main advantages of this over CLI flags are:
-1. Not having to remember or specify flags for each run.
+An Infracost config file can be created in each of your Terraform repos to specify how Infracost should be run. The main advantages of this over CLI flags are:
+1. Not having to remember or specify flags for each run. Just run `infracost breakdown --config-file infracost.yml` instead.
 2. Ability to run Infracost with multiple Terraform projects or workspaces, and combine them into the same breakdown or diff output.
 3. Enable multi-project or workspace runs in [CI/CD integrations](/docs/integrations/cicd).
 4. Enable multi-directory [Terragrunt projects](/docs/iac_tools/terragrunt).
+
+If you're looking to combine cost estimates from multiple runs (e.g. from a CI build matrix), see the [`infracost output`](/docs/features/cli_commands/#combined-output-formats) command's docs.
 
 ## Usage
 
