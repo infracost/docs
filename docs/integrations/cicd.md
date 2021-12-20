@@ -11,25 +11,25 @@ Infracost can be used in any CI/CD system using the [infracost binary](https://g
 
 ## Azure DevOps
 
-See the [Infracost Azure DevOps integration](https://github.com/infracost/infracost-azure-devops/) for instructions. A demo of the Azure DevOps Repos (git) integration is [here](https://dev.azure.com/infracost/base/_git/azure-devops-repo-demo), and GitHub repos is [here](https://github.com/infracost/azure-devops-github-demo).
+See the [Infracost Azure DevOps integration](https://github.com/infracost/infracost-azure-devops/) for instructions and demos using Azure DevOps Repos (git) and GitHub repos.
 
 <img src="https://raw.githubusercontent.com/infracost/infracost-azure-devops/master/screenshot.png" width="700px" alt="Example Infracost diff output" />
 
 ## Jenkins
 
-See the [Infracost Jenkins integration](https://github.com/infracost/infracost-jenkins/) for instructions, and a demo [here](https://github.com/infracost/jenkins-demo).
+See the [Infracost Jenkins integration](https://github.com/infracost/infracost-jenkins/) for instructions and a demo.
 
 <img src="https://raw.githubusercontent.com/infracost/infracost-jenkins/master/screenshot.png" width="550px" alt="Example Infracost diff output" />
 
 ## Bitbucket Pipelines
 
-See the [Infracost Bitbucket Pipeline](https://bitbucket.org/infracost/infracost-bitbucket-pipeline) for instructions, and a demo [here](https://bitbucket.org/infracost/bitbucket-pipelines-demo).
+See the [Infracost Bitbucket Pipeline](https://bitbucket.org/infracost/infracost-bitbucket-pipeline) for instructions and a demo.
 
 <img src="https://bitbucket.org/infracost/infracost-bitbucket-pipeline/raw/f90fbe9e8e93bd830575e24398c75255ba711c17/screenshot.png" width="550px" alt="Example Infracost diff output" />
 
 ## CircleCI
 
-See the [Infracost CircleCI Orb](https://github.com/infracost/infracost-orb) for instructions; it supports GitHub and Bitbucket. A demo of the GitHub integration is [here](https://github.com/infracost/circleci-github-demo), and Bitbucket is [here](https://bitbucket.org/infracost/circleci-bitbucket-demo)
+See the [Infracost CircleCI Orb](https://github.com/infracost/infracost-orb) for instructions and a demo of using it with GitHub and Bitbucket.
 
 ## Slack
 
