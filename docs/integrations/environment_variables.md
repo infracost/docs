@@ -16,7 +16,7 @@ The currency ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) p
 This is only used by the `infracost breakdown` and `diff` commands. The `output` command uses the currency from the Infracost JSON file.
 
 ### INFRACOST_ENABLE_DASHBOARD
-Can be set to `true` to enable the Infracost Dashboard, which provides an easy way of [sharing reports](/docs/features/share_links.md)
+Can be set to `true` to enable the Infracost Dashboard, which provides an easy way of [sharing reports](/docs/features/share_links)
 
 ### INFRACOST_LOG_LEVEL
 Controls the log verbosity level. Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot. Turns off spinners in output.
