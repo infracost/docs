@@ -26,7 +26,7 @@ module.exports = {
         redirects: [
           {
             from: '/docs/integrations',
-            to: '/docs/integrations/cicd',
+            to: '/docs/integrations/github_actions',
           },
           {
             from: '/docs/environment_variables',

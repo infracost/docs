@@ -99,7 +99,7 @@ If you're looking to combine cost estimates from multiple runs (e.g. from a CI b
   </TabItem>
 </Tabs>
 
-If your requirements cannot be satisfied with a config file, please [create an issue](https://github.com/infracost/infracost/issues/new/choose) so we can understand the use-case. Also consider using [these bash](/docs/multi_project/report#bulk-run) scripts that demonstrate how Infracost commands can be combined.
+If your requirements cannot be satisfied with a config file, please [create an issue](https://github.com/infracost/infracost/issues/new/choose) so we can understand the use-case. Also consider using [these bash](/docs/features/config_file/#bulk-run) scripts that demonstrate how Infracost commands can be combined.
 
 ## Precedence
 

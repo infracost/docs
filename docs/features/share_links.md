@@ -18,4 +18,4 @@ Once enabled, the Infracost CLI sends its [JSON output](/docs/features/cli_comma
 
 A link is generated each time you run `infracost breakdown`, `diff` or `output`, and it's included in the `table`, `diff` and `json` formats. The link can also be parsed and used in your workflow, for example by sending it to Slack. The `infracost output` command generates a new link for the combined cost estimate.
 
-There is currently no way for you to expire links, you can [contact us](/docs/support) if you'd like us to disable a link.
+There is currently no way for you to expire links, you can [contact us](/docs/support) if you'd like us to disable a link. [Currency support](/docs/faq/#can-i-show-costs-in-a-different-currency) in the dashboard is coming soon.
