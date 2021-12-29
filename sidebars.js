@@ -66,6 +66,7 @@ module.exports = {
       collapsed: true,
       items: [
         'guides/actions_migration',
+        'guides/gitlab_ci_migration',
         'guides/v0.8_migration',
         'guides/v0.9_migration',
         `guides/advanced_usage`,
