@@ -1,6 +1,8 @@
 import React from 'react';
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer>
       <div className="container">
@@ -38,7 +40,7 @@ function Footer() {
         </div>
         <div className="company-info level">
           <div className="left">
-            <span className="copyright">Copyright © 2021 Infracost Inc.</span>
+            <span className="copyright">Copyright © {currentYear} Infracost Inc.</span>
           </div>
           <div className="right">
             <ul>
