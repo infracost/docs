@@ -77,7 +77,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
 </Tabs>
 
 ### 2. Get API key
-Register for a free API key, which is used by the CLI to query the Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are sent to the API. 
+Register for a free API key, which is used by the CLI to query the Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API. 
 ```shell
 infracost register
 ```

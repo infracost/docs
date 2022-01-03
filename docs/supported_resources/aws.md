@@ -6,7 +6,7 @@ title: AWS
 Please note:
 1. Amazon Web Services (AWS) GovCloud and China regions are also supported.
 2. Free trials and free tiers, which are usually **not** a significant part of cloud costs, are ignored. This because Infracost can only see the Terraform projects it is run against but free tiers are account-wide and there are often multiple Terraform projects in an account.
-3. On-demand prices are used by default. You can also model EC2 Reserved Instances via the [usage file](/docs/features/features#infracost-usage-file). 
+3. On-demand prices are used by default. You can also model EC2 Reserved Instances via the [usage file](/docs/features#infracost-usage-file). 
 
 Please create a GitHub issue if the resource you want [isn't supported](/docs/supported_resources/overview#the-resource-i-want-isnt-supported) or your cost estimate [looks wrong](/docs/supported_resources/overview#my-cost-estimate-looks-wrong).
 

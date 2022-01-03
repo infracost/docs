@@ -1,5 +1,6 @@
 ---
-slug: azure title: Azure
+slug: azure
+title: Azure
 ---
 
 Please note:
