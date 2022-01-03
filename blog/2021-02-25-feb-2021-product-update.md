@@ -31,7 +31,7 @@ infracost breakdown --path code --format json \
 infracost output --format table --path dev.json --path prod.json
 ```
 
-You can now create an `infracost.yml` [config file](/docs/multi_project/config_file) in your repo to describe your setup, then just run `infracost --config-file infracost.yml`.
+You can now create an `infracost.yml` [config file](/docs/features/config_file) in your repo to describe your setup, then just run `infracost --config-file infracost.yml`.
 
 ### 🌎 Atlantis integration
 

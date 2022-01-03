@@ -86,7 +86,7 @@ The key differences are:
 2. Infracost can be used to model [usage-based resources](/docs/usage_based_resources) and do what-if analysis.
 3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of the source control and CI/CD system being used.
 4. Infracost can be used with [Terragrunt](/docs/iac_tools/terragrunt).
-5. Infracost can output [HTML reports](/docs/multi_project/report) or JSON and be used alongside other tools.
+5. Infracost can output JSON and be used alongside other tools such as Open Policy Agent.
 
 ## What Terraform versions are supported?
 

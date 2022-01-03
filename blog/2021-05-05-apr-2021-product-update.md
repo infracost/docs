@@ -20,7 +20,7 @@ You can [upgrade](/docs/#1-install-infracost) to the latest version (v0.8.6) to 
 
 ### 📉 EC2 reserved instances
 
-You can now do what-if anlaysis on AWS EC2 Reserved Instances (RI), as we have added support for these in the Infracost [usage file](/docs/usage_based_resources#infracost-usage-file). The RI type, term and payment option can be defined as shown below, to quickly get a monthly cost estimate. This works with `aws_instance` as well as `aws_eks_node_group` and `aws_autoscaling_group` as they also create EC2 instances. Let us know how you'd like Infracost to show the upfront costs by [creating a GitHub issue](https://github.com/infracost/infracost/issues/).
+You can now do what-if anlaysis on AWS EC2 Reserved Instances (RI), as we have added support for these in the Infracost [usage file](/docs/features/usage_based_resources#infracost-usage-file). The RI type, term and payment option can be defined as shown below, to quickly get a monthly cost estimate. This works with `aws_instance` as well as `aws_eks_node_group` and `aws_autoscaling_group` as they also create EC2 instances. Let us know how you'd like Infracost to show the upfront costs by [creating a GitHub issue](https://github.com/infracost/infracost/issues/).
 
   ```yml
   aws_instance.my_instance:
@@ -54,7 +54,7 @@ The `infracost breakdown` and `infracost output` commands show the monthly quant
 
 ### * Array wildcards in usage file
 
-The Infracost [usage file](/docs/usage_based_resources#infracost-usage-file) enables you to define resource usage estimates using their resource path, e.g. storage for `aws_dynamodb_table.my_table`. This can be cumbersome for resource arrays, such as AWS CloudWatch Log Groups, since you'd have to define the array items individually.
+The Infracost [usage file](/docs/features/usage_based_resources#infracost-usage-file) enables you to define resource usage estimates using their resource path, e.g. storage for `aws_dynamodb_table.my_table`. This can be cumbersome for resource arrays, such as AWS CloudWatch Log Groups, since you'd have to define the array items individually.
 
 We've addressed this issue by supporting the wildcard character `[*]` for resource arrays. Infracost will apply the usage values individually to each element of the array (they all get the same values). If an array element (e.g. `this[0]`) and `[*]` are specified for a resource, only the array element's usage will be applied to that resource. This enables you to define default values using `[*]` and override specific elements using their index.
 

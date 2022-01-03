@@ -5,9 +5,9 @@ title: Terraform Cloud/Enterprise
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost is a HashiCorp partner and we work together to ensure that Infracost can be used alongside Terraform Cloud and integrated into your workflow.
+Infracost is an official HashiCorp partner. We work together to ensure that Infracost can be used alongside Terraform Cloud and integrated into your workflow.
 
-If you're a Terraform Cloud user, we recommend starting with Run Tasks. Run Tasks are currently not available in Terraform Enterprise, thus you can use the details below to integrate using our other CI/CD integrations.
+If you're a Terraform Cloud user, we recommend starting with Run Tasks. Run Tasks are not yet available in Terraform Enterprise, so you can use the [details below](#terraform-enterprise-users) to integrate using our other [CI/CD integrations](/docs/integrations/cicd/).
 
 ## Terraform Cloud Run Tasks
 
