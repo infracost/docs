@@ -72,9 +72,9 @@ The breakdown and diff commands have many useful flags, run with `--help` to see
 
 ## Combined output formats
 
-The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment` and `slack-comment`.
+The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment` and `slack-comment`.
 
-Please 👍 [this issue](https://github.com/infracost/infracost/issues/1173) for `bitbucket-comment` and [this issue](https://github.com/infracost/infracost/issues/1208) for `azure-repos-comment`.
+Please 👍 [this issue](https://github.com/infracost/infracost/issues/1173) for `bitbucket-comment`.
 
 ### Usage
 

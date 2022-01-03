@@ -27,6 +27,7 @@ module.exports = {
         'features/config_file',
         'features/usage_based_resources',
         'features/share_links',
+        'features/cost_policies',
         'features/terragrunt',
       ],
     },
