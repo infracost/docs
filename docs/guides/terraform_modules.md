@@ -52,4 +52,4 @@ If you pass `--terraform-plan-flags='-var=enable_prod=true -var=enable_dev=true'
   PROJECT TOTAL                                                                    $983.96
 ```
 
-To show a cost breakdown for each module individually, one workaround at the moment is to run Infracost multiple times with different inputs. See the [`report_all.sh`](/docs/multi_project/report#bulk-run) bash script for an example of how to do this.
+To show a cost breakdown for each module individually, one workaround at the moment is to run Infracost multiple times with different inputs. See the [`report_all.sh`](/docs/features/config_file/#bulk-run) bash script for an example of how to do this.

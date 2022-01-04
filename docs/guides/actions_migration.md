@@ -34,7 +34,7 @@ As shown by in the screenshot at the top of this page, comments now include a su
 
 ### Comment behaviors
 
-The comment action includes a `behavior` and a `target` attribute.
+The comment action includes a `behavior` and a `target-type` attribute.
 
 Behavior describes how and when comments should be posted; we support four options:
 - `update`: Create a single comment and update it on changes. This is the "quietest" option. The GitHub comments UI shows [what/when changed](https://docs.github.com/en/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment) when the comment is updated. Pull request followers will only be notified on the comment create (not updates), and the comment will stay at the same location in the comment history.
@@ -58,7 +58,12 @@ The `target-type` describes where the comment should be posted against, which ca
     - Multi-project using build matrix: multiple Terraform projects using GitHub Actions build matrix
     - Multi-Terraform workspace: multiple Terraform workspaces using the Infracost config file
     - Private Terraform module: a Terraform project using a private Terraform module
-    - Thresholds: only post a comment when cost thresholds are exceeded
-    - Slack: send cost estimates to Slack
 
-If you encounter any issues while migrating, please [create an issue](https://github.com/infracost/actions/issues/new) and we'll address them as soon as possible.
+    And cost policy examples:
+
+    - Thresholds: only post a comment when cost thresholds are exceeded
+    - Conftest: check Infracost cost estimates against policies using Conftest
+    - OPA: check Infracost cost estimates against policies using Open Policy Agent
+    - Sentinel: check Infracost cost estimates against policies using Hashicorp's Sentinel 
+
+If you encounter any issues while migrating, please [create an issue](https://github.com/infracost/actions/issues/new) or join our [community Slack](https://www.infracost.io/community-chat) and we'll address them as soon as possible.

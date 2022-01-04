@@ -1,15 +1,16 @@
 ---
 slug: /
 title: Getting started
-description: Get started with Infracost in your Terraform workflow, integrate it into your pull requests and CI pipeline and view cost estimates for your AWS/Google/Azure cloud infrastructure.
+description: Get started with Infracost in your Terraform workflow, integrate it into your CI pipeline and view cost estimates for your AWS/Azure/Google infrastructure.
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Infracost calculates cloud costs based on Terraform. Cost estimates can be shown in the terminal or put in pull requests using our CI/CD integrations. This helps you understand the cost of services before you use them, and take action to optimize costs within your existing workflow.
 
-If you're upgrading from an older version to `v0.9`, please see the [**migration guide**](/docs/guides/v0.9_migration).
+If you're upgrading from an older version to `v0.9`, please see the [migration guide](/docs/guides/v0.9_migration).
 
 ## Quick start
 
@@ -29,7 +30,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ```shell
   brew install infracost
 
-  infracost --version # Should show v0.9.15
+  infracost --version # Should show v0.9.16
   ```
 
   If the version is old, please run `brew update` then `brew upgrade infracost`.
@@ -76,7 +77,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
 </Tabs>
 
 ### 2. Get API key
-Register for a free API key, which is used by the CLI to query the Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are sent to the API. 
+Register for a free API key, which is used by the CLI to query the Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API. 
 ```shell
 infracost register
 ```
@@ -97,67 +98,17 @@ infracost breakdown --path .
 infracost diff --path . --sync-usage-file --usage-file infracost-usage.yml
 ```
 
+Screenshots of example outputs: [breakdown](https://github.com/infracost/infracost/raw/master/.github/assets/breakdown_screenshot.png), [diff](https://github.com/infracost/infracost/raw/master/.github/assets/diff_screenshot.png).
+
 ### 4. Add to CI/CD
-Use our [CI/CD integrations](/docs/integrations/cicd) to add cost estimates to pull request comments. This provides a safety net as teams can discuss the cost impact of changes as part of their workflow.
+Use our CI/CD integrations to add cost estimates to pull request comments. This provides a safety net as teams can discuss the cost impact of changes as part of their workflow.
+- [GitHub Actions](https://github.com/infracost/actions/)
+- [GitLab CI](https://gitlab.com/infracost/infracost-gitlab-ci)
+- [Atlantis](https://github.com/infracost/infracost-atlantis/)
+- [Terraform Cloud/Enterprise](/docs/integrations/terraform_cloud_enterprise/)
+- [Azure DevOps](https://github.com/infracost/infracost-azure-devops/)​
+- [Jenkins](https://github.com/infracost/infracost-jenkins/)​
+- [Bitbucket Pipelines](https://bitbucket.org/infracost/infracost-bitbucket-pipeline)​
+- [CircleCI​](https://github.com/infracost/infracost-orb)
 
-## Usage
-
-The `infracost` CLI has the following main commands. Use the `--path` flag to point to either a **Terraform directory** or **plan JSON file**:
-- `breakdown`: show full breakdown of costs
-- `diff`: show diff of monthly costs between current and planned state
-
-If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/multi_project/config_file) to define them; their results will be combined into the same breakdown or diff output.
-
-### Option 1: Terraform directory
-
-This is the simplest way to run Infracost. As shown below, any required Terraform flags can be passed using `--terraform-plan-flags`. The `--terraform-workspace` flag can be used to define a workspace.
-
-Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
-
-  ```shell
-  infracost breakdown --path /code --terraform-plan-flags "-var-file=my.tfvars"
-
-  infracost diff --path /code --terraform-plan-flags "-var-file=my.tfvars"
-  ```
-
-### Option 2: Terraform plan JSON
-
-If the above method does not work for your use-case, you can use Terraform to generate a plan JSON file (as shown below), and point Infracost to it using `--path`. In this case, cloud credentials are not needed by Infracost.
-
-  ```shell
-  cd path/to/code
-  terraform init
-  terraform plan -out tfplan.binary
-  terraform show -json tfplan.binary > plan.json
-
-  infracost breakdown --path plan.json
-
-  infracost diff --path plan.json
-  ```
-
-See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
-
-## Useful options
-
-Run `infracost breakdown --help` to see the available options, which include:
-
-  ```
-  --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
-  --format               Output format: json, table, html (default "table")
-  --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
-  --usage-file           Path to Infracost usage file that specifies values for usage-based resources
-  --sync-usage-file      Sync usage-file with missing resources, needs usage-file too (experimental)
-  --fields               Comma separated list of output fields: all,price,monthlyQuantity,unit,hourlyCost,monthlyCost.
-                         Only supported by table output format (default [monthlyQuantity,unit,monthlyCost])
-  --show-skipped         Show unsupported resources
-  --no-cache             Don't attempt to cache Terraform plans
-  --out-file string      Save output to a file, helpful with format flag
-  --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise, turns off spinners in output
-  --no-color             Turn off colored output
-  ```
-
-Other useful commands:
-- `infracost diff --help` to show diff of monthly costs between current and planned state
-- `infracost output --help` to combine and output Infracost JSON files in different formats
-- `infracost completion --help` for shell completion scripts
-- `infracost configure --help` for global configs, including currency settings
+<img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />

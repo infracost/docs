@@ -1,32 +1,95 @@
 ---
-slug: report
-title: Generate reports
+slug: cli_commands
+title: CLI commands
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Infracost CLI tool has a JSON output format, which can be generated using the following command:
+The Infracost CLI has the following commands, all of which support `--help`:
+
+- `register`: Register for a free Infracost API key
+- `breakdown`: Show full breakdown of costs
+- `diff`: Show diff of monthly costs between current and planned state
+- `output`: Combine and output Infracost JSON files in different formats
+- `configure`: Display or change global configuration, including currency settings
+- `completion`: Generate shell completion script
+
+## Breakdown and diff
+
+Infracost `breakdown` and `diff` both have a `--path` flag, so you can point to either your Terraform directory, or plan JSON file.
+
+If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown or diff output.
+
+### Option 1: Terraform directory
+
+This is the simplest way to run Infracost. As shown below, any required Terraform flags can be passed using `--terraform-plan-flags`. The `--terraform-workspace` flag can be used to define a workspace.
+
+Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
+
+  ```shell
+  infracost breakdown --path /code --terraform-plan-flags "-var-file=my.tfvars"
+
+  infracost diff --path /code --terraform-plan-flags "-var-file=my.tfvars"
+  ```
+
+### Option 2: Terraform plan JSON
+
+If the above method does not work for your use-case, you can use Terraform to generate a plan JSON file (as shown below), and point Infracost to it using `--path`. In this case, cloud credentials are not needed by Infracost.
+
+  ```shell
+  cd path/to/code
+  terraform init
+  terraform plan -out tfplan.binary
+  terraform show -json tfplan.binary > plan.json
+
+  infracost breakdown --path plan.json
+
+  infracost diff --path plan.json
+  ```
+
+See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
+
+### Useful flags
+
+The breakdown and diff commands have many useful flags, run with `--help` to see them. For example, breakdown supports:
+
+  ```  
+  --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
+  --format               Output format: json, table, html (default "table")
+  --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
+  --usage-file           Path to Infracost usage file that specifies values for usage-based resources
+  --sync-usage-file      Sync usage-file with missing resources, needs usage-file too (experimental)
+  --fields               Comma separated list of output fields: all,price,monthlyQuantity,unit,hourlyCost,monthlyCost.
+                         Only supported by table output format (default [monthlyQuantity,unit,monthlyCost])
+  --show-skipped         Show unsupported resources
+  --no-cache             Don't attempt to cache Terraform plans
+  --out-file string      Save output to a file, helpful with format flag
+  --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise, turns off spinners in output
+  --no-color             Turn off colored output
+  ```
+
+## Combined output formats
+
+The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment` and `slack-comment`.
+
+Please 👍 [this issue](https://github.com/infracost/infracost/issues/1173) for `bitbucket-comment`.
+
+### Usage
+
+The Infracost CLI tool has a JSON output format, which can be used to generate files from individual projects using the `breakdown` command:
 
 ```sh
-infracost breakdown --path ... --format json --out-file infracost.json
+infracost breakdown --path /project1 --format json --out-file infracost-p1.json
+infracost breakdown --path /project2 --format json --out-file infracost-p2.json
 ```
 
-This JSON option can be used to generate files from individual projects that can then be consumed by the `infracost output` command to generate a combined report. The output command has a `--format json|diff|table|html|github-comment|slack-comment` flag.
+The Infracost JSON files can then be consumed by the `infracost output` command to generate a combined cost estimate in many formats:
 
-These reports can be used to integrate Infracost with other tools, or uploaded to object storage such as AWS S3 or Google Cloud Storage and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
-
-## Usage
-
-Run `infracost output --help` to see the available options. Example usage:
-
-```shell
-infracost breakdown --path /path/to/project1 --format json --out-file project1.json
-infracost breakdown --path /path/to/project2 --format json --out-file project2.json
-
+```sh
 # Merge above Infracost JSON files, glob patterns need quotes
-infracost output --path "project*.json" --format json --out-file infracost.json
+infracost output --path "infracost-p*.json" --format json --out-file infracost.json
 
 # HTML output
 infracost output --path infracost.json --format html --out-file report.html
@@ -35,7 +98,9 @@ infracost output --path infracost.json --format html --out-file report.html
 infracost output --path infracost.json --format diff
 ```
 
-## Examples
+Run `infracost output --help` to see other options, such as `--fields` and `--show-skipped`. The above formats or reports can be used to integrate Infracost with other tools, or uploaded to object storage such as AWS S3 or Google Cloud Storage and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
+
+### Examples
 
 <Tabs
   defaultValue="json"
@@ -366,7 +431,7 @@ infracost output --path infracost.json --format diff
   </TabItem>
 </Tabs>
 
-## Bulk run
+### Bulk run
 
 The following bash scripts run Infracost on all subfolders that have `.tf` files and output the combined results using the `infracost output` command. You can customize them based on which folders they should exclude or how you run Infracost (e.g. pass `--terraform-plan-flags`).
   - to run `infracost breakdown`, use [breakdown_all.sh](https://github.com/infracost/infracost/blob/master/scripts/breakdown_all.sh)

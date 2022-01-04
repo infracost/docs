@@ -3,7 +3,7 @@ slug: terragrunt
 title: Terragrunt
 ---
 
-As of Infracost CLI v0.9.7, Terragrunt projects are automatically detected when passed in via the `--path` flag:
+Terragrunt projects are automatically detected when passed in via the `--path` flag:
 
 ```shell
 # Show breakdown of costs
@@ -13,29 +13,23 @@ infracost breakdown --path=path/to/terragrunt/code
 infracost diff --path=path/to/terragrunt/code
 ```
 
-## Usage
+## Terragrunt CLI Options
 
-### Terragrunt CLI Options
-
-Standard Terragrunt [CLI options](https://terragrunt.gruntwork.io/docs/reference/cli-options/#cli-options) such as `TERRAGRUNT_PARALLELISM` can be passed as environment variables such as:
-
-```shell
-TERRAGRUNT_PARALLELISM=4 infracost breakdown --path=path/to/terragrunt/code
-```
-
-CLI flags can also be passed to Terragrunt through the `INFRACOST_TERRAGRUNT_FLAGS` environment variable:
+Terragrunt [CLI flags](https://terragrunt.gruntwork.io/docs/reference/cli-options/#cli-options) can be passed through the `INFRACOST_TERRAGRUNT_FLAGS` environment variable:
 
 ```shell
 INFRACOST_TERRAGRUNT_FLAGS="--terragrunt-exclude-dir dev" infracost breakdown --path /path/to/terragrunt/code
 ```
 
-### Usage file
+The above can be used in addition to Terragrunt environment variables, e.g. `TERRAGRUNT_PARALLELISM=4 infracost breakdown --path=...`.
 
-If your Terragrunt project has multiple modules and you want to specify different usage files for each module, you will need to add each Terragrunt subdirectory and usage file to the Infracost [config file](/docs/multi_project/config_file#examples).
+## Usage file
+
+If your Terragrunt project has multiple modules and you want to specify different usage files for each module, you will need to add each Terragrunt subdirectory and [usage file](/docs/features/usage_based_resources/) to the Infracost config file, see an [example here](/docs/features/config_file#examples).
 
 If you have any feedback about how we should support multiple usage files with Terragrunt in the future, please [comment on or follow this issue](https://github.com/infracost/infracost/issues/934).
 
-### CI/CD
+## CI/CD
 
 The [infracost/infracost Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the [latest stable version](/docs/integrations/environment_variables#cicd-integrations) of Terragrunt.
 
@@ -53,5 +47,5 @@ By default, that Dockerfile uses Terraform 0.15.5, but you can set the environme
 Pre v0.9.7 Infracost did not have native support for Terragrunt. Old configurations will still work, but can now be simplified.
 
 * You no longer need to set `INFRACOST_TERRAFORM_BINARY` to `terragrunt` unless you are using a non-standard binary path.
-* You no longer need to specify multiple Terragrunt modules in your Infracost [config file](/docs/multi_project/config_file), unless you want to specify per-project usage. Infracost will now detect all the Terragrunt modules that exist under the specified `--path`.
+* You no longer need to specify multiple Terragrunt modules in your Infracost [config file](/docs/features/config_file), unless you want to specify per-project usage. Infracost will now detect all the Terragrunt modules that exist under the specified `--path`.
 * The Terragrunt [breakdown_all.sh](https://github.com/infracost/infracost/blob/v0.9.6/scripts/terragrunt/breakdown_all.sh) and [diff_all.sh](https://github.com/infracost/infracost/blob/v0.9.6/scripts/terragrunt/diff_all.sh) will be deprecated and will no longer be maintained. The functionality provided by these is now supported within the Infracost binary.
