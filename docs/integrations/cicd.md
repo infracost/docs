@@ -11,7 +11,7 @@ Infracost CI/CD integrations can be used to automatically add a pull request com
 
 Infracost can be used in any CI/CD system using our CI [Docker images](https://hub.docker.com/r/infracost/infracost/tags):
 - `infracost/infracost:ci-0.9` - **Recommended**. Use the latest 0.9.x version to pick up bug fixes and new resource costs.
-- `infracost/infracost:ci-0.9.15` - Lock the version.
+- `infracost/infracost:ci-0.9.17` - Lock the version.
 - `infracost/infracost:ci-latest` - Use the latest Infracost image. This might break when new minor or major versions are released.
 
 The images contain the Infracost [CLI binary](https://github.com/infracost/infracost), [Compost](https://github.com/infracost/compost) and [comment.sh](https://github.com/infracost/infracost/blob/master/scripts/ci/comment.sh). Our [GitLab CI](https://gitlab.com/infracost/infracost-gitlab-ci) examples demonstrate how these components can be used in a composable way to post pull request comments in any CI/CD system.

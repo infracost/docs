@@ -28,7 +28,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ```shell
   brew install infracost
 
-  infracost --version # Should show v0.9.16
+  infracost --version # Should show v0.9.17
   ```
 
   If the version is old, please run `brew update` then `brew upgrade infracost`.
