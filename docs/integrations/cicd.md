@@ -7,12 +7,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Infracost CI/CD integrations can be used to automatically add a pull request comment showing the diff of monthly costs between the current and planned state. Minor cost increase/decrease changes can be ignored by setting a threshold for the comment to be added.
 
-Infracost can be used in any CI/CD system using the [infracost binary](https://github.com/infracost/infracost/releases) or [Docker images](https://hub.docker.com/r/infracost/infracost/tags):
-- `infracost/infracost:ci-0.9` (recommended) - Use the latest 0.9.x version to pick up bug fixes and new resources.
-- `infracost/infracost:ci-0.9.15` - Lock to v0.9.15.
+## Docker images
+
+Infracost can be used in any CI/CD system using our CI [Docker images](https://hub.docker.com/r/infracost/infracost/tags):
+- `infracost/infracost:ci-0.9` - **Recommended**. Use the latest 0.9.x version to pick up bug fixes and new resource costs.
+- `infracost/infracost:ci-0.9.15` - Lock the version.
 - `infracost/infracost:ci-latest` - Use the latest Infracost image. This might break when new minor or major versions are released.
 
-You might also find our [CI scripts](https://github.com/infracost/infracost/tree/master/scripts/ci) useful.
+The images contain the Infracost [CLI binary](https://github.com/infracost/infracost), [Compost](https://github.com/infracost/compost) and our [CI scripts](https://github.com/infracost/infracost/tree/master/scripts/ci).
 
 ## Azure DevOps
 
