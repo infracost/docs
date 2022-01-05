@@ -11,7 +11,7 @@ The Infracost dashboard is part of our hosted services and you can enable it by 
 
 ```sh
 # in CLI:
-infracost configure set enable_dashboard true
+infracost configure set enable_dashboard true
 
 # in CI/CD:
 export INFRACOST_ENABLE_DASHBOARD=true
@@ -20,3 +20,5 @@ export INFRACOST_ENABLE_DASHBOARD=true
 A link is generated each time you run `infracost breakdown`, `diff` or `output`, and it's included in the `table`, `diff` and `json` formats. The link can also be parsed and used in your workflow, for example by sending it to Slack. The `infracost output` command generates a new link for the combined cost estimate.
 
 There is currently no way for you to expire links, you can [contact us](/docs/support) if you'd like us to disable a link.
+
+[<img src={useBaseUrl("img/screenshots/infracost-share-link.png")} alt="A demo of the new Infracost sharable link" />](https://dashboard.infracost.io/share/deaczrvclzv9z8yf76dex0t4dpxx9buj)
