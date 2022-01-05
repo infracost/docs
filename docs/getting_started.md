@@ -8,9 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Infracost calculates cloud costs based on Terraform. Cost estimates can be shown in the terminal or put in pull requests using our CI/CD integrations. This helps you understand the cost of services before you use them, and take action to optimize costs within your existing workflow.
-
-If you're upgrading from an older version to `v0.9`, please see the [migration guide](/docs/guides/v0.9_migration).
+Infracost shows cloud cost estimates for Terraform projects. It enables DevOps, SRE and engineers to quickly see a cost breakdown and compare different options upfront, either in their terminal or pull requests.
 
 ## Quick start
 
