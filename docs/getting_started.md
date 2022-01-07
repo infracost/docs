@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Infracost shows cloud cost estimates for Terraform projects. It enables DevOps, SRE and engineers to quickly see a cost breakdown and compare different options upfront, either in their terminal or pull requests.
+Infracost shows cloud cost estimates for Terraform. It enables DevOps, SRE and engineers to see a cost breakdown and understand costs **before making changes**, either in the terminal or pull requests. This provides your team with a safety net as people can discuss costs as part of the workflow.
 
 ## Quick start
 
@@ -75,12 +75,12 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
 </Tabs>
 
 ### 2. Get API key
-Register for a free API key, which is used by the CLI to query the Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API. 
+Register for a free API key, which is used by the CLI to query our Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API and you can also self-host it.
 ```shell
 infracost register
 ```
 
-The key is saved in `~/.config/infracost/credentials.yml`.
+The key can be retrieved with `infracost configure get api_key`.
 
 ### 3. Run it
 Infracost does not make any changes to your Terraform state or cloud resources. Run Infracost using our example Terraform project to see how it works:
@@ -96,17 +96,31 @@ infracost breakdown --path .
 infracost diff --path . --sync-usage-file --usage-file infracost-usage.yml
 ```
 
-Screenshots of example outputs: [breakdown](https://github.com/infracost/infracost/raw/master/.github/assets/breakdown_screenshot.png), [diff](https://github.com/infracost/infracost/raw/master/.github/assets/diff_screenshot.png).
+Screenshots of example outputs are [shown below](#screenshots).
 
 ### 4. Add to CI/CD
-Use our CI/CD integrations to add cost estimates to pull request comments. This provides a safety net as teams can discuss the cost impact of changes as part of their workflow.
+Use our CI/CD integrations to add cost estimates to pull requests. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
 - [GitHub Actions](https://github.com/infracost/actions/)
 - [GitLab CI](https://gitlab.com/infracost/infracost-gitlab-ci)
 - [Atlantis](https://github.com/infracost/infracost-atlantis/)
 - [Terraform Cloud/Enterprise](/docs/integrations/terraform_cloud_enterprise/)
-- [Azure DevOps](https://github.com/infracost/infracost-azure-devops/)​
-- [Jenkins](https://github.com/infracost/infracost-jenkins/)​
-- [Bitbucket Pipelines](https://bitbucket.org/infracost/infracost-bitbucket-pipeline)​
-- [CircleCI​](https://github.com/infracost/infracost-orb)
+- [Azure DevOps](https://github.com/infracost/infracost-azure-devops/)
+- [Jenkins](https://github.com/infracost/infracost-jenkins/)
+- [Bitbucket Pipelines](https://bitbucket.org/infracost/infracost-bitbucket-pipeline)
+- [CircleCI](https://github.com/infracost/infracost-orb)
+
+Other CI/CD systems can be supported using [our Docker images](/docs/integrations/cicd/#docker-images). If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'd be happy to help!
+
+## Screenshots 
+
+Infracost running in pull requests:
 
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
+
+Show full breakdown of costs, see the [CLI commands page](/docs/features/cli_commands/) for the other commands.
+
+<img src={useBaseUrl("img/screenshots/breakdown-screenshot.png")} alt="Infracost breakdown command" width="600"/>
+
+Show diff of monthly costs between current and planned state:
+
+<img src={useBaseUrl("img/screenshots/diff-screenshot.png")} alt="Infracost diff command" width="600" />
