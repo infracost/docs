@@ -41,7 +41,9 @@ When using the `--usage-file` flag with the `breakdown` or `output` commands, co
 
 #### Fetch from CloudWatch
 
-As of Infracost CLI `v0.9.8`, we're experimenting with fetching the following usage file values from CloudWatch or other cloud APIs when `--sync-usage-file` is used (falling back to using 0). This enables you to quickly see what the last 30-day usage for those resources have been and adjust if needed. If the CLI can fetch the following values from CloudWatch, it will overwrite them in the usage file.
+We're experimenting with fetching the following usage file values from CloudWatch or other cloud APIs when `--sync-usage-file` is used (falling back to using 0). This enables you to quickly see what the last 30-day usage for those resources have been and adjust if needed. This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environmment variables.
+
+If the CLI can fetch the following values from CloudWatch, it will overwrite them in the usage file.
 - `aws_dynamodb_table`: `storage_gb`, `monthly_read_request_units` and `monthly_write_request_units`
 - `aws_lambda_function`: `monthly_requests` and `request_duration_ms`
 - `aws_s3_bucket`:
