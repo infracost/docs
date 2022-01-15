@@ -14,6 +14,13 @@ An Infracost config file can be created in each of your Terraform repos to speci
 
 If you're looking to combine cost estimates from multiple runs (e.g. from a CI build matrix), see the [`infracost output`](/docs/features/cli_commands/#combined-output-formats) command's docs.
 
+## Precedence
+
+Infracost configuration values are chosen in this order:
+1. CLI flags (run `infracost --help` to see them)
+2. [Environment variables](/docs/integrations/environment_variables)
+3. Config file
+
 ## Usage
 
 1. Create an `infracost.yml` file in each of your Terraform project repos. Each project can have the parameters mentioned in the table below; you might find the following [examples](#examples) helpful.
@@ -89,6 +96,7 @@ If you're looking to combine cost estimates from multiple runs (e.g. from a CI b
 
   ```yml
   version: 0.1
+
   projects:
     - path: my/terragrunt/dev
       usage_file: dev-usage.yml
@@ -99,11 +107,35 @@ If you're looking to combine cost estimates from multiple runs (e.g. from a CI b
   </TabItem>
 </Tabs>
 
-If your requirements cannot be satisfied with a config file, please [create an issue](https://github.com/infracost/infracost/issues/new/choose) so we can understand the use-case. Also consider using [these bash](/docs/features/config_file/#bulk-run) scripts that demonstrate how Infracost commands can be combined.
+If your requirements cannot be satisfied with a config file, please [create an issue](https://github.com/infracost/infracost/issues/new/choose) so we can understand the use-case. Also consider using the following bash script that demonstrate how Infracost commands can be combined.
 
-## Precedence
+## Bulk run
 
-Infracost configuration values are chosen in this order:
-1. CLI flags (run `infracost --help` to see them)
-2. [Environment variables](/docs/integrations/environment_variables)
-3. Config file
+If using a config
+The following bash script runs Infracost on all subfolders that have `.tf` files and outputs the combined results using the [`infracost output`](/docs/features/cli_commands/#combined-output-formats) command. You can customize it based on which folders should be excluded or how you run Infracost (e.g. pass `--terraform-plan-flags`).
+
+```shell
+#!/usr/bin/env bash
+
+# Find all subfolders that have .tf files, but exclude "modules" folders, can be customized
+tfprojects=$(find . -type f -name '*.tf' | sed -E 's|/[^/]+$||' | grep -v modules | sort -u)
+
+# Run infracost on the folders individually
+while IFS= read -r tfproject; do
+  echo "Running infracost breakdown for $tfproject"
+  filename=$(echo $tfproject | sed 's:/:-:g' | cut -c3-)
+
+  # TODO: customize to how you run infracost, or run terraform first to generate a plan JSON file and pass that to --path
+  infracost breakdown --path $tfproject --format json --out-file "$filename-infracost-out.json"
+done <<< "$tfprojects"
+
+# Run infracost output to merge the subfolder results
+jsonfiles=($(find . -name "*-infracost-out.json" | tr '\n' ' '))
+infracost output --format diff $(echo ${jsonfiles[@]/#/--path })
+
+echo "Also saving the full breakdown in infracost-table.txt"
+infracost output --format table $(echo ${jsonfiles[@]/#/--path }) --out-file=infracost-table.txt
+
+# Remove temp json files
+rm $jsonfiles
+```

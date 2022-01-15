@@ -44,15 +44,6 @@ All of the above CI/CD integrations support also posting the pull request commen
 
 <img src={useBaseUrl("img/screenshots/post_to_slack.png")} alt="Example Infracost diff output" />
 
-## CI/CD troubleshooting
-
-Please try the following steps and if that doesn't help, [create an issue](https://github.com/infracost/infracost/issues/new/choose) or join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.
-
-1. Set the [`INFRACOST_LOG_LEVEL`](/docs/integrations/environment_variables#infracost_log_level) environment variable to `debug` in case that provides more useful details. For Atlantis, also set [`atlantis_debug=true`](https://github.com/infracost/infracost-atlantis/#atlantis_debug).
-2. Check the Terraform version that Infracost is using matches the version you need. Use the [`INFRACOST_TERRAFORM_BINARY`](/docs/integrations/environment_variables/#infracost_terraform_binary) environment variable to change that.
-3. Use `ls -lah` in the CI build to check for any `.terraform*` files/folders that might be confusing Terraform running in CI vs previous runs that were used to create them. Removing those files might help.
-4. Check the [Terraform Cloud/Enterprise](/docs/integrations/terraform_cloud_enterprise) or [Terragrunt](/docs/features/terragrunt) docs pages if applicable.
-
 ## My CI/CD isn't supported
 
-Please [create an issue](https://github.com/infracost/infracost/issues/new/choose); we'll try to prioritize it depending on the community feedback. There is already a request for [BuildKite](https://github.com/infracost/infracost/issues/499) and [Codefresh](https://github.com/infracost/infracost/issues/975). Please 👍 it if you'd like us to work on them sooner. You can also join our [community Slack channel](https://www.infracost.io/community-chat) if you like to work on an integration, the existing GitHub Actions integration can act as a blueprint.
+Please [create an issue](https://github.com/infracost/infracost/issues/new/choose); we'll try to prioritize it depending on the community feedback. There is already a request for [BuildKite](https://github.com/infracost/infracost/issues/499) and [Codefresh](https://github.com/infracost/infracost/issues/975). Please 👍 it if you'd like us to work on them sooner. You can also join our [community Slack channel](https://www.infracost.io/community-chat) if you like to work on an integration, the existing GitLab CI integration can act as a blueprint.

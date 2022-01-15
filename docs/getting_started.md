@@ -75,7 +75,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
 </Tabs>
 
 ### 2. Get API key
-Register for a free API key, which is used by the CLI to query our Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API and you can also self-host it.
+Register for a free API key, which is used by the CLI to query our Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API and you can also [self-host](/docs/cloud_pricing_api/self_hosted/) it.
 ```shell
 infracost register
 ```
@@ -83,7 +83,7 @@ infracost register
 The key can be retrieved with `infracost configure get api_key`.
 
 ### 3. Run it
-Infracost does not make any changes to your Terraform state or cloud resources. Run Infracost using our example Terraform project to see how it works:
+Infracost does not make any changes to your Terraform state or cloud resources. Run Infracost using our example Terraform project to see how it works. The [CLI commands](/docs/features/cli_commands/) page describes the options for `--path`, which can point to a Terraform directory or plan JSON file.
 
 ```shell
 git clone https://github.com/infracost/example-terraform.git
@@ -111,7 +111,7 @@ Use our CI/CD integrations to add cost estimates to pull requests. This provides
 
 Other CI/CD systems can be supported using [our Docker images](/docs/integrations/cicd/#docker-images). If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'd be happy to help!
 
-## Screenshots 
+### Screenshots
 
 Infracost running in pull requests:
 
