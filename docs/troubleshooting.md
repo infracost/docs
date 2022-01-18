@@ -7,12 +7,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Please try the following troubleshooting steps and if they don't help, either [create an issue](https://github.com/infracost/infracost/issues/new/choose) or join our [community Slack channel](https://www.infracost.io/community-chat) - we'll help you very quickly 😄🚀
 
-1. The Infracost CLI parses Terraform plan JSON files to estimate costs. If you're having trouble generating plan JSON files, see the relevant [Terraform CLI](#terraform-cli), [Terraform Cloud](#terraform-cloud) or [Terragrunt](#terragrunt) sections below.
-2. Use `ls -lah` in the CI build to check for any `.terraform*` files/folders that might be confusing Terraform running in CI vs previous runs that were used to create them. Removing those files might help.
-3. Check the Terraform version matches what you expect. Infracost works with Terraform v0.12 and above.
-4. If the Infracost CLI fails, re-run it with `--log-level=debug` or the `INFRACOST_LOG_LEVEL=debug` environment variable in case that provides helpful details.
+## 1. Enable additional logging
 
-## Generating plan JSON files
+If the Infracost CLI fails, re-run it with `--log-level=debug` or the `INFRACOST_LOG_LEVEL=debug` environment variable in case that provides helpful details.
+
+If the Terraform CLI fails, check their [debugging page](https://www.terraform.io/internals/debugging) for help. Likewise, if the Terragrunt CLI fails, check their [debugging page](https://terragrunt.gruntwork.io/docs/features/debugging/) for help.
+
+## 2. Generating plan JSON files
+
+The Infracost CLI parses Terraform plan JSON files to estimate costs. If you're having trouble generating plan JSON files, see the relevant [Terraform CLI](#terraform-cli), [Terraform Cloud](#terraform-cloud) or [Terragrunt](#terragrunt) sections below. These bash scripts can be modified and used in your CI/CD pipelines to generate Terraform plan JSON files.
 
 ### Terraform CLI
 
@@ -179,7 +182,12 @@ rm $plans
 rm $planjsons
 ```
 
-## Combining plan JSON files
+## 3. Check supported versions
+
+Check the Terraform version matches what you expect. Infracost works with Terraform v0.12 and above.
+Use `ls -lah` in the CI build to check for any `.terraform*` files/folders that might be confusing Terraform running in CI vs previous runs that were used to create them. Removing those files might help.
+
+## 4. Combining plan JSON files
 
 Once you have multiple Terraform plan JSON files, you can
 1. run [`infracost breakdown`](/docs/features/cli_commands/#breakdown-and-diff) with `--path plan-1.json --format json --out-file infracost-1.json` to generate an Infracost JSON file for each.
