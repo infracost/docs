@@ -52,4 +52,4 @@ If you pass `--terraform-plan-flags='-var=enable_prod=true -var=enable_dev=true'
   PROJECT TOTAL                                                                    $983.96
 ```
 
-To show a cost breakdown for each module individually, one workaround at the moment is to dynamically generate a [config file](/docs/features/config-file) using [this bash script](/docs/troubleshooting/#multi-projects) for an example of how to do this.
+To show a cost breakdown for each module individually, one workaround at the moment is to dynamically generate a [config file](/docs/features/config_file) using [this bash script](/docs/troubleshooting/#multi-projects) for an example of how to do this.
