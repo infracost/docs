@@ -14,6 +14,13 @@ An Infracost config file can be created in each of your Terraform repos to speci
 
 If you're looking to combine cost estimates from multiple runs (e.g. from a CI build matrix), see the [`infracost output`](/docs/features/cli_commands/#combined-output-formats) command's docs.
 
+## Precedence
+
+Infracost configuration values are chosen in this order:
+1. CLI flags (run `infracost --help` to see them)
+2. [Environment variables](/docs/integrations/environment_variables)
+3. Config file
+
 ## Usage
 
 1. Create an `infracost.yml` file in each of your Terraform project repos. Each project can have the parameters mentioned in the table below; you might find the following [examples](#examples) helpful.
@@ -55,7 +62,7 @@ If you're looking to combine cost estimates from multiple runs (e.g. from a CI b
 
   projects:
     - path: examples/terraform
-      terraform_plan_flags: -var-file=prod.tfvars -var-file=us-east.tfvars 
+      terraform_plan_flags: -var-file=prod.tfvars -var-file=us-east.tfvars
       terraform_workspace: prod
       env:
         AWS_ACCESS_KEY_ID: ${PROD_AWS_ACCESS_KEY_ID}
@@ -89,6 +96,7 @@ If you're looking to combine cost estimates from multiple runs (e.g. from a CI b
 
   ```yml
   version: 0.1
+
   projects:
     - path: my/terragrunt/dev
       usage_file: dev-usage.yml
@@ -99,11 +107,4 @@ If you're looking to combine cost estimates from multiple runs (e.g. from a CI b
   </TabItem>
 </Tabs>
 
-If your requirements cannot be satisfied with a config file, please [create an issue](https://github.com/infracost/infracost/issues/new/choose) so we can understand the use-case. Also consider using [these bash](/docs/features/config_file/#bulk-run) scripts that demonstrate how Infracost commands can be combined.
-
-## Precedence
-
-Infracost configuration values are chosen in this order:
-1. CLI flags (run `infracost --help` to see them)
-2. [Environment variables](/docs/integrations/environment_variables)
-3. Config file
+If your requirements cannot be satisfied with a config file, please [create an issue](https://github.com/infracost/infracost/issues/new/choose) so we can understand the use-case. Also consider using [this bash script](/docs/troubleshooting/#multi-projects) that demonstrates how to generate plan JSON files for multiple projects and dynamically create a config file that can be used with Infracost.

@@ -430,9 +430,3 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
     <img src={useBaseUrl("img/screenshots/slack-message-format.png")} alt="Infracost Slack message report" />
   </TabItem>
 </Tabs>
-
-### Bulk run
-
-The following bash scripts run Infracost on all subfolders that have `.tf` files and output the combined results using the `infracost output` command. You can customize them based on which folders they should exclude or how you run Infracost (e.g. pass `--terraform-plan-flags`).
-  - to run `infracost breakdown`, use [breakdown_all.sh](https://github.com/infracost/infracost/blob/master/scripts/breakdown_all.sh)
-  - to run `infracost diff`, use [diff_all.sh](https://github.com/infracost/infracost/blob/master/scripts/breakdown_all.sh)

@@ -7,13 +7,13 @@ title: FAQ
 
 Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd).
 
-The CLI parses the Terraform plan JSON file to find [supported resources](/docs/supported_resources/overview) and uses [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size, to find applicable cloud prices for that resource. The Cloud Pricing API [returns the prices](/docs/faq#example-response), which the CLI then uses to calculate the monthly costs. The results can be output in table, HTML or JSON format.
+The CLI parses the **Terraform plan JSON file** to find [supported resources](/docs/supported_resources/overview) and uses [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size, to find applicable cloud prices for that resource. The CLI **does not** send the actual plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response), which the CLI then uses to calculate the monthly costs. The results can be output in table, JSON format or [other formats](/docs/features/cli_commands/#combined-output-formats).
 
 ## Does Infracost need cloud credentials?
 
 That depends on how you run Infracost, since we run Terraform internally, which sometimes needs cloud credentials:
 - When Infracost is run against a [Terraform directory](/docs/#option-1-terraform-directory), Terraform will need access to cloud credentials, e.g. when running `terraform init` and `terraform plan`. These commands are only used to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output) and no changes are made to your Terraform state or cloud resources.
-- When Infracost is run against a [Terraform plan JSON file](/docs/#option-2-terraform-plan-json), cloud credentials are not needed.
+- When Infracost is run against a [Terraform plan JSON file](/docs/#option-2-terraform-plan-json), cloud credentials are not needed since the CLI parses the plan JSON file directly.
 
 ## How does Infracost get cloud prices?
 
@@ -110,4 +110,4 @@ The environment variable `INFRACOST_CURRENCY` can be used to set the currency in
 
 ## Do you offer support?
 
-Yes! If you need help integrating Infracost in to your workflow, or want to talk about something else, please email [hello@infracost.io](mailto:hello@infracost.io). You can also join our [community Slack channel](https://www.infracost.io/community-chat) to chat with us.
+Yes! We're happy to help you, see our [support page](/docs/support).
