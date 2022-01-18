@@ -56,7 +56,6 @@ module.exports = {
       label: 'Guides',
       collapsed: true,
       items: [
-        'guides/troubleshooting',
         'guides/actions_migration',
         'guides/gitlab_ci_migration',
         'guides/v0.8_migration',
@@ -68,6 +67,10 @@ module.exports = {
     {
       type: 'doc',
       id: 'faq',
+    },
+    {
+      type: 'doc',
+      id: 'troubleshooting',
     },
   ]
 };
