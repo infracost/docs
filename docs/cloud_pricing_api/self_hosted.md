@@ -5,7 +5,7 @@ title: Self-hosting
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Whilst most Infracost CLI users connect to our hosted Cloud Pricing API (since no cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to it), large enterprises that have restrictive security policies might require self-hosting. The following diagram shows an overview of the architecture.
+Whilst most Infracost CLI users connect to our hosted Cloud Pricing API (since [no cloud credentials or secrets are sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to it), large enterprises that have restrictive security policies might require self-hosting. The following diagram shows an overview of the architecture.
 
 ![Deployment overview](/img/docs/cloud_pricing_api/deployment_overview.png "Deployment overview")
 
