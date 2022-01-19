@@ -109,7 +109,7 @@ Use our CI/CD integrations to add cost estimates to pull requests. This provides
 - [Bitbucket Pipelines](https://bitbucket.org/infracost/infracost-bitbucket-pipeline)
 - [CircleCI](https://github.com/infracost/infracost-orb)
 
-Other CI/CD systems can be supported using [our Docker images](/docs/integrations/cicd/#docker-images). If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'd be happy to help!
+Other CI/CD systems can be supported using [our Docker images](/docs/integrations/cicd/#docker-images). If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
 ### Screenshots
 
