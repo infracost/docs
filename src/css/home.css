@@ -168,7 +168,7 @@
   padding: 2rem;
 }
 
-.step:nth-child(2) {
+.step:nth-child(2n) {
   flex-direction: row-reverse;
 }
 
@@ -217,7 +217,7 @@
     width: calc(50% - 2.5rem);
   }
 
-  .step:nth-child(2) .step-content {
+  .step:nth-child(2n) .step-content {
     margin-left: 2rem;
     margin-right: 0;
   }
@@ -229,7 +229,7 @@
     width: calc(50% + 2.5rem);
   }
 
-  .step:nth-child(2) .step-screenshot {
+  .step:nth-child(2n) .step-screenshot {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 0px;
     border-top-left-radius: 0;

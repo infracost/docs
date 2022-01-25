@@ -44,20 +44,15 @@ function Home() {
       <div className="walkthrough">
         <div className="container">
           <div className="heading">
-<<<<<<< HEAD
-            <img src="/img/product-walkthrough-icon.svg" alt="Product walkthrough icon" />
-            <h2>See the cost of each pull request</h2>
-=======
             <img src="/img/icons/product-walkthrough-icon.svg" alt="Product walkthrough icon" />
             <h2>Show the cloud cost of each Infrastructure change in CI/CD</h2>
->>>>>>> f704a18... fixup! feat: add use-cases page
           </div>
 
           <div className="steps">
             <div className="step">
               <div className="step-content">
-                <h3>Know costs before you buy</h3>
-                <p>Infracost scans your Terraform code and checks over 3 million prices to create a simple, understandable cost estimate before you launch resources.</p>
+                <h3>Cost visibility for engineering</h3>
+                <p>Infracost scans for Terraform code changes and checks over 3 million prices to create a simple, understandable cost estimate before any resources are launched.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
@@ -68,8 +63,8 @@ function Home() {
 
             <div className="step">
               <div className="step-content">
-                <h3>Map costs to lines of code</h3>
-                <p>Infracost maps costs to resources in your pull requests, so you know which lines of code have the biggest cost impact.</p>
+                <h3>Directly in developer workflow</h3>
+                <p>Infracost integrates into CI/CD so everyone knows the cost impact of changes without leaving the workflow.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
@@ -80,12 +75,24 @@ function Home() {
 
             <div className="step">
               <div className="step-content">
-                <h3>Take action</h3>
-                <p>Infracost integrates into your CI/CD so you can discuss the cost impact of changes with your team in your existing workflow.</p>
+                <h3>Cloud cost policies and guardrails</h3>
+                <p>Infracost integrates with Open Policy Agent, Sentinel and Conftest, enabling DevOps teams to set best practices as policies.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
                   <img src="/img/screenshots/pr-step-3.png" alt="Discussion about cost impact of pull request" />
+                </div>
+              </div>
+            </div>
+
+            <div className="step">
+              <div className="step-content">
+                <h3>Scenario modeling &amp; what-if analysis</h3>
+                <p>Infracost automatically creates detailed, shareable cost estimates which can be sent to clients and managers with different scenarios.</p>
+              </div>
+              <div className="step-screenshot">
+                <div className="image-wrapper">
+                  <img src="/img/screenshots/pr-step-4.png" alt="Infracost cost shareable estimate report" />
                 </div>
               </div>
             </div>
