@@ -44,8 +44,13 @@ function Home() {
       <div className="walkthrough">
         <div className="container">
           <div className="heading">
+<<<<<<< HEAD
             <img src="/img/product-walkthrough-icon.svg" alt="Product walkthrough icon" />
             <h2>See the cost of each pull request</h2>
+=======
+            <img src="/img/icons/product-walkthrough-icon.svg" alt="Product walkthrough icon" />
+            <h2>Show the cloud cost of each Infrastructure change in CI/CD</h2>
+>>>>>>> f704a18... fixup! feat: add use-cases page
           </div>
 
           <div className="steps">
@@ -104,38 +109,10 @@ function Home() {
         </div>
       </div>
 
-      <div className="use-cases">
-        <div className="container">
-          <div className="heading">
-            <img src="/img/problem-icon.svg" alt="Problem icon" />
-            <h2>How people are using Infracost</h2>
-          </div>
-
-          <div className="row">
-            <div className="col">
-              <div className="box">
-                <h3>Cost aware engineering organization</h3>
-                <p>Hundreds of companies have implemented Infracost to show their engineers how much cloud resources cost before they are launched. Engineers build up knowledge of which services and options have the biggest cost impact. Being more cost aware means they can make better decisions from the start.</p>
-              </div>
-
-              <div className="box">
-                <h3>Set cost policies in workflow</h3>
-                <p>Policies enable engineers to move fast and only be notified when a specific cost policy has been exceeded. Soft policies inform the engineering team when something needs to be checked, while hard policies will stop something that will blow the budget from going live. Policies can be set around a specific dollar amount (e.g anything over $5K) or a percentage increase (e.g more than 15%).</p>
-              </div>
-
-              <div className="box">
-                <h3>What-if analysis &amp; forecasting</h3>
-                <p>Using the Infracost CLI, you can run scenarios to see the cost impact of any changes to your infrastructure. What if you changed instance type, region, or cloud provider. What if usage increases by 2x or 10x. Infracost can be used as a calculator to simplify the 3 million price points from the cloud providers and provide a forecast.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="social-mentions">
         <div className="container">
           <div className="heading">
-            <img src="/img/social-icons.svg" alt="Twitter and LinkedIn logos" />
+            <img src="/img/icons/social-icons.svg" alt="Twitter and LinkedIn logos" />
             <h2>We love what people are saying about Infracost</h2>
             <span className="subtitle">Don't just take our word for it…</span>
           </div>

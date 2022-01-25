@@ -51,6 +51,7 @@ function Navbar({ isDocs }) {
   const topMenu = (
     <div className="menu">
       <a className="navbar-item navbar-link" href="/pricing">Pricing</a>
+      <a className="navbar-item navbar-link" href="/use-cases">Use Cases</a>
       <a className="navbar-item navbar-link" href="/about">About</a>
       <a className="navbar-item navbar-link" href="/blog">Blog</a>
       <a className="navbar-item navbar-link" href="/docs">Docs</a>
@@ -60,6 +61,7 @@ function Navbar({ isDocs }) {
   const docs = (
     <>
       <a className="navbar-item" href="/pricing">Pricing</a>
+      <a className="navbar-item" href="/use-cases">Use Cases</a>
       <a className="navbar-item" href="/about">About</a>
       <a className="navbar-item" href="/blog">Blog</a>
       <a className="navbar-item" href="/docs">Docs</a>
