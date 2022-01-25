@@ -1,0 +1,104 @@
+/* USE CASES */
+
+.use-cases .use-cases-background {
+  position: absolute;
+  height: 600px;
+  width: 100%;
+  z-index: -1;
+  background: url('/img/bg-top.svg') right bottom no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.use-cases .intro {
+  background: none;
+  padding-bottom: 2rem;
+}
+
+.use-cases .use-cases-list {
+  background: none;
+}
+
+.use-cases .use-cases-list .container {
+  padding-top: 2rem;
+}
+
+.use-cases .use-cases-list .col {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.use-cases .use-case {
+  margin: 0 auto 3rem;
+  max-width: 900px;
+}
+
+.use-cases .use-case h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.use-cases .use-case h3 img {
+  margin-bottom: -0.5rem;
+  margin-left: -0.5rem;
+  margin-right: 0.75rem;
+}
+
+.use-cases .use-case .box {
+  background-color: var(--page-background-secondary-color);
+}
+
+.use-cases .use-case .benefits {
+  margin-top: 1rem;
+}
+
+.use-cases .use-case .benefits ul {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+
+.use-cases .use-case .benefits li {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.use-cases .use-case .benefits li .icon {
+  margin-top: 3px;
+  margin-right: 0.5rem;
+}
+
+.use-cases .use-case .benefits .benefit-label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.use-cases .use-case .screenshot {
+  align-items: center;
+  background: var(--primary-gradient);
+  background-size: cover;
+  border-radius: 8px;
+  display: flex;
+  margin: 0 auto 2rem;
+  max-width: 460px;
+  padding: 0.75rem;
+}
+
+@media (min-width: 997px) {
+  .use-cases .use-case .use-case-content {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .use-cases .use-case .screenshot {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    margin-bottom: 0;
+    margin-left: 1.5rem;
+    margin-right: -1.5rem;
+    min-width: 460px;
+  }
+}
