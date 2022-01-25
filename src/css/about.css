@@ -2,16 +2,22 @@
   max-width: 50rem;
 }
 
+
 .about .team {
   border-bottom: 1px solid var(--border-color);
   border-top: 1px solid var(--border-color);
   background-color: var(--page-background-secondary-color);
-  padding: 4rem 0;
+  padding: 2rem 0 4rem 0;
 }
 
 .about .team .container {
   max-width: 900px;
   margin: 0 auto;
+}
+
+.about .team h3 {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .about .team p {
@@ -32,11 +38,15 @@
   text-align: center;
 }
 
-@media (min-width: 997px) {
+@media (min-width: 768px) {
   .about .profiles {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     text-align: center;
+    margin: 0 auto;
+    max-width: 640px;
+    column-gap: 2rem;
   }
 }
 
