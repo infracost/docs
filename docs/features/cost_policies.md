@@ -26,3 +26,7 @@ Infracost has a [JSON format](/docs/features/cli_commands/#usage) that can be us
   - [GitLab CI](https://gitlab.com/infracost/infracost-gitlab-ci#cost-policy-examples)
   - [Atlantis](https://github.com/infracost/infracost-atlantis/tree/master/examples/conftest)
   - [Azure DevOps](https://github.com/infracost/infracost-azure-devops#cost-policy-examples)
+
+Here is an end to end demo of the Infracost and Open Policy Agent integration:
+
+<iframe width="90%" height="450" src="https://www.youtube.com/embed/1rMIfebfd8M" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
