@@ -107,6 +107,7 @@
 
 .about .backers {
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 .about .backers .backer-list {
@@ -119,6 +120,10 @@
   align-content: center;
 }
 
-.about .backers .backer img {
-  margin-right: 0.625rem;
+.about .contributors {
+  text-align: center;
+}
+
+.about .contributors .tagline {
+  margin-bottom: 2rem;
 }
