@@ -19,13 +19,13 @@ If you encounter any issues while migrating, please join our [community Slack ch
 
 The example pipelines demonstrate how Infracost can be used in different workflows in your `.gitlab-ci.yml` file, e.g. if you're using Terragrunt, Terraform Cloud or you have multiple Terraform projects in your repo.
 
-The examples include steps to do the following: 
+The examples include steps to do the following:
 1. Run Terraform/Terragrunt to generate the Terraform plan JSONs.
 2. Pass these plan JSON files to `infracost breakdown` to generate Infracost JSON output.
-3. Run the Infracost `/script/ci/comment` script, which uses `infracost output` to combine the Infracost JSON files and post one comment on the merge request.
+3. Run the `infracost comment` command, which combines the Infracost JSON files and posts one comment on the merge request.
 
 The examples provide three key benefits:
-1. A smaller Docker image. The old images contained the Infracost CLI along with multiple versions of Terraform and Terragrunt. The `infracost:ci-*` Docker images only contains the Infracost CLI, [Compost](https://github.com/infracost/compost) and additional scripts that are useful in CI environments. For running Terraform and Terragrunt commands, the examples use the HashiCorp or alpine images. 
+1. A smaller Docker image. The old images contained the Infracost CLI along with multiple versions of Terraform and Terragrunt. The `infracost:ci-*` Docker images only contains the Infracost CLI and additional scripts that are useful in CI environments. For running Terraform and Terragrunt commands, the examples use the HashiCorp or alpine images.
 2. Safe version upgrades: You can specify the Infracost Docker image tag to lock to specific Infracost versions, or ensure you are getting updated bug fixes and new resources. For example:
   - `infracost/infracost:ci-0.9` (recommended) - Always use the latest 0.9.x version to pick up bug fixes and new resources.
   - `infracost/infracost:ci-0.9.18` - Lock the version.
@@ -34,7 +34,9 @@ The examples provide three key benefits:
 
 ### CI-specific formats
 
-The `infracost output` command now has two new format options: `gitlab-comment` and `slack-message`. We already have formats for GitHub which are used by our [GitHub actions](https://github.com/infracost/actions) and we will be adding formats for Azure DevOps repos and Bitbucket later.
+The `infracost comment` command has a dedicated `gitlab` format. We already have formats for GitHub which are used by our [GitHub actions](https://github.com/infracost/actions) and Azure DevOps Repos ([Infracost tasks](https://marketplace.visualstudio.com/items?itemName=Infracost.infracost-tasks)). We will be adding a format for Bitbucket later.
+
+For posting a Slack message the `infracost output` command has a dedicated `slack-message` option now. [This example](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/master/examples/slack) explains how to use it.
 
 ### Cost summary
 
@@ -42,14 +44,14 @@ As shown by in the screenshot at the top of this page, comments now include a su
 
 ### Comment behaviors
 
-The Infracost image's `comment` script supports different commenting behaviors and target types that can be specified using  `COMMENT_BEHAVIOR` and `COMMENT_TARGET_TYPE` variables.
+The `infracost comment` command supports different commenting behaviors and target types that can be specified using `--behavior` and `--merge-request`/`--commit` flags.
 
-The `COMMENT_BEHAVIOR` describes how and when comments should be posted; we support three options for GitLab:
+The `--behavior` describes how and when comments should be posted; we support three options for GitLab:
 - `update`: Create a single comment and update it on changes. This is the "quietest" option. Merge request followers will only be notified on the comment create (not updates), and the comment will stay at the same location in the comment history.
 - `delete-and-new`: Delete previous cost estimate comments and create a new one. Merge request followers will be notified on each comment.
 - `new`: Create a new cost estimate comment. Merge request followers will be notified on each comment.
 
-The `COMMENT_TARGET_TYPE` describes where the comment should be posted against, which can be either `merge-request` (default) or `commit`.
+The `--merge-request <merge-request-number>` flag instructs to post a comment on a merge request. `--commit <commit-sha>` flag instructs to post a comment on a merge request's commit. These flags are mutually exclusive, but the command requires one of them to be set.
 
 ## Migration guide
 
@@ -70,6 +72,6 @@ And cost policy examples:
   - Thresholds: only post a comment when cost thresholds are exceeded
   - Conftest: check Infracost cost estimates against policies using Conftest
   - OPA: check Infracost cost estimates against policies using Open Policy Agent
-  - Sentinel: check Infracost cost estimates against policies using Hashicorp's Sentinel 
+  - Sentinel: check Infracost cost estimates against policies using Hashicorp's Sentinel
 
 If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
