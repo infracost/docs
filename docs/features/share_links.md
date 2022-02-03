@@ -17,7 +17,7 @@ infracost configure set enable_dashboard true
 export INFRACOST_ENABLE_DASHBOARD=true
 ```
 
-A link is generated each time you run `infracost breakdown`, `diff` or `output`, and it's included in the `table`, `diff` and `json` formats. The link can also be parsed and used in your workflow, for example by sending it to Slack. The `infracost output` command generates a new link for the combined cost estimate.
+A link is generated each time you run `infracost breakdown`, `diff`, `output` or `comment`, and it's included in the `table`, `diff` and `json` formats. The link can also be parsed and used in your workflow, for example by sending it to Slack. The `infracost output` and `comment` commands generate a new link for the combined cost estimate.
 
 There is currently no way for you to expire links, you can [contact us](/docs/support) if you'd like us to disable a link.
 
