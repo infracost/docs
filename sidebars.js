@@ -59,6 +59,7 @@ module.exports = {
         'guides/actions_migration',
         'guides/gitlab_ci_migration',
         'guides/azure_devops_migration',
+        'guides/atlantis_migration',
         'guides/v0.8_migration',
         'guides/v0.9_migration',
         `guides/advanced_usage`,
