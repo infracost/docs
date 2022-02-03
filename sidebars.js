@@ -12,6 +12,7 @@ module.exports = {
         'integrations/github_actions',
         'integrations/gitlab_ci',
         'integrations/atlantis',
+        'integrations/azure_pipelines',
         'integrations/terraform_cloud_enterprise',
         'integrations/cicd',
         'integrations/environment_variables',
@@ -58,8 +59,8 @@ module.exports = {
       items: [
         'guides/actions_migration',
         'guides/gitlab_ci_migration',
-        'guides/azure_devops_migration',
         'guides/atlantis_migration',
+        'guides/azure_devops_migration',
         'guides/v0.8_migration',
         'guides/v0.9_migration',
         `guides/advanced_usage`,
