@@ -53,20 +53,20 @@ The `targetType` describes where the comment should be posted against, which can
 1. Follow the [Quick start guide](https://github.com/infracost/infracost-azure-devops/#quick-start) to see how the tasks can be used together with a simple `terraform plan` flow.
 2. Find [an example](https://github.com/infracost/infracost-azure-devops/#examples) that is the closest to your use-case and adapt the example as required. We have developed examples for:
 
-   - [Terraform directory](https://github.com/infracost/infracost-azure-devops/examples/terraform-directory): a Terraform directory containing HCL code
-   - [Terraform plan JSON](https://github.com/infracost/infracost-azure-devops/examples/terraform-plan-json): a Terraform plan JSON file
-   - [Terragrunt](https://github.com/infracost/infracost-azure-devops/examples/terragrunt): a Terragrunt project
-   - [Terraform Cloud/Enterprise](https://github.com/infracost/infracost-azure-devops/examples/terraform-cloud-enterprise): a Terraform project using Terraform Cloud/Enterprise
-   - [Multi-project using config file](https://github.com/infracost/infracost-azure-devops/examples/multi-project/README.md#using-an-infracost-config-file): multiple Terraform projects using the Infracost [config file](https://www.infracost.io/docs/multi_project/config_file)
-   - [Multi-project using ajob matrix](https://github.com/infracost/infracost-azure-devops/examples/multi-project/README.md#using-azure-devops-pipeline-matrix-strategy): multiple Terraform projects using Azure pipeline job matrix strategy
-   - [Multi-Terraform workspace](https://github.com/infracost/infracost-azure-devops/examples/multi-terraform-workspace): multiple Terraform workspaces using the Infracost [config file](https://www.infracost.io/docs/multi_project/config_file)
-   - [Private Terraform module](https://github.com/infracost/infracost-azure-devops/examples/private-terraform-module)
+   - [Terraform directory](https://github.com/infracost/infracost-azure-devops/tree/master/examples/terraform-directory): a Terraform directory containing HCL code
+   - [Terraform plan JSON](https://github.com/infracost/infracost-azure-devops/tree/master/examples/terraform-plan-json): a Terraform plan JSON file
+   - [Terragrunt](https://github.com/infracost/infracost-azure-devops/tree/master/examples/terragrunt): a Terragrunt project
+   - [Terraform Cloud/Enterprise](https://github.com/infracost/infracost-azure-devops/tree/master/examples/terraform-cloud-enterprise): a Terraform project using Terraform Cloud/Enterprise
+   - [Multi-project using config file](https://github.com/infracost/infracost-azure-devops/tree/master/examples/multi-project/README.md#using-an-infracost-config-file): multiple Terraform projects using the Infracost [config file](https://www.infracost.io/docs/multi_project/config_file)
+   - [Multi-project using ajob matrix](https://github.com/infracost/infracost-azure-devops/tree/master/examples/multi-project/README.md#using-azure-devops-pipeline-matrix-strategy): multiple Terraform projects using Azure pipeline job matrix strategy
+   - [Multi-Terraform workspace](https://github.com/infracost/infracost-azure-devops/tree/master/examples/multi-terraform-workspace): multiple Terraform workspaces using the Infracost [config file](https://www.infracost.io/docs/multi_project/config_file)
+   - [Private Terraform module](https://github.com/infracost/infracost-azure-devops/tree/master/examples/private-terraform-module)
 
    And cost policy examples:
 
-   - [Thresholds](https://github.com/infracost/infracost-azure-devops/examples/thresholds): only post a comment when cost thresholds are exceeded
-   - [Conftest](https://github.com/infracost/infracost-azure-devops/examples/conftest): check Infracost cost estimates against policies using Conftest
-   - [OPA](https://github.com/infracost/infracost-azure-devops/examples/opa): check Infracost cost estimates against policies using Open Policy Agent
-   - [Sentinel](https://github.com/infracost/infracost-azure-devops/examples/sentinel): check Infracost cost estimates against policies using Hashicorp's Sentinel
+   - [Thresholds](https://github.com/infracost/infracost-azure-devops/tree/master/examples/thresholds): only post a comment when cost thresholds are exceeded
+   - [Conftest](https://github.com/infracost/infracost-azure-devops/tree/master/examples/conftest): check Infracost cost estimates against policies using Conftest
+   - [OPA](https://github.com/infracost/infracost-azure-devops/tree/master/examples/opa): check Infracost cost estimates against policies using Open Policy Agent
+   - [Sentinel](https://github.com/infracost/infracost-azure-devops/tree/master/examples/sentinel): check Infracost cost estimates against policies using Hashicorp's Sentinel
 
 If you encounter any issues while migrating, please [create an issue](https://github.com/infracost/infracost-azure-devops/issues/new) or join our [community Slack](https://www.infracost.io/community-chat) and we'll address them as soon as possible.
