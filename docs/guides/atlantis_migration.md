@@ -7,6 +7,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Follow this page to migrate from our old [infracost_atlantis_diff.sh bash script](https://github.com/infracost/infracost-atlantis/blob/c510d9d8c3f8d226be1d0882d95f3f477b3fe058/README.md) to our new [integration](https://github.com/infracost/infracost-atlantis).
 
+If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+
 <img src={useBaseUrl("img/screenshots/atlantis-comment.png")} alt="Cost estimate comment for Atlantis" width="650px" />
 
 ## What's new?
@@ -43,6 +45,43 @@ The `infracost comment` command has a `behavior` flag, which can be used to desc
 
 ## Migration guide
 
-Follow the [infracost-atlantis README](https://github.com/infracost/infracost-atlantis) to see how to integrate Infracost with your existing Atlantis workflow. Since Atlantis does not have a plugins concept, you need to make two decisions to integrate it with Infracost, both of these are described in the readme.
+1. If you're already using one of the `infracost-atlantis` Docker images, we recommend you lock-down your deployment to one of the following tags so you get the latest backward-compatible patch upgrades without worrying about your deployment breaking:
+    * `infracost/infracost-atlantis:atlantis0.18-infracost0.9` latest patch version of Atlantis v0.18 and Infracost v0.9
+    * `infracost/infracost-atlantis:atlantis0.17-infracost0.9` latest patch version of Atlantis v0.17 and Infracost v0.9
 
-If you encounter any issues while migrating, please [create an issue](https://github.com/infracost/infracost-atlantis/issues/new) or join our [community Slack](https://www.infracost.io/community-chat) and we'll address them as soon as possible.
+2. If you're already creating your own custom Docker image, you can edit your Dockerfile to remove `node`, `npm`, `compost` and the old `atlantis_diff.sh` bash script. So you only need this:
+    ```Dockerfile
+    FROM ghcr.io/runatlantis/atlantis:v0.18.2
+
+    # Install required packages and latest 0.9 version of Infracost
+    RUN apk --update --no-cache add ca-certificates openssl openssh-client curl git jq
+    RUN \
+      curl -s -L https://infracost.io/downloads/v0.9/infracost-linux-amd64.tar.gz | tar xz -C /tmp && \
+      mv /tmp/infracost-linux-amd64 /usr/bin/infracost
+    ```
+
+3. If you want to use the new `infracost comment` command to post cost estimates as separate pull request comments, upgrade Infracost to v0.9.17 and update your repo.yml to follow one of these examples:
+<table>
+  <thead>
+    <tr>
+        <th></th>
+        <th>If you're using Atlantis 0.18.2 or newer</th>
+        <th>If you're using older than Atlantis 0.18.2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>a) Recommended:</b> combine cost estimates from multiple Terraform directories/workspaces into one Infracost pull request comment. Enables you to see the total cost estimate in one table.</td>
+      <td><a href="https://github.com/infracost/infracost-atlantis/tree/master/examples/combined-infracost-comment/README.md">Use this option</a></td>
+      <td>Not possible since post_workflow_hooks were added in Atlantis 0.18.2</td>
+    </tr>
+    <tr>
+      <td><b>b)</b> Post one Infracost pull request comment per Terraform directory/workspace. This is the best option for users who cannot upgrade Atlantis yet.</td>
+      <td colspan="2" align="center"><a href="https://github.com/infracost/infracost-atlantis/tree/master/examples/multiple-infracost-comments/README.md">Use this option</a></td>
+    </tr>
+  </tbody>
+</table>
+
+4. If you were previously using the `post_condition` environment variable, we recommend you switch to using [Conftest](https://github.com/infracost/infracost-atlantis/tree/master/examples/thresholds) or our [thresholds example](https://github.com/infracost/infracost-atlantis/tree/master/examples/thresholds) that uses `jq` and `bash`.
+
+If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄

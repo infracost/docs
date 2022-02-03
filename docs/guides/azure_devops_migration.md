@@ -7,6 +7,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Follow this page to migrate from our old [pipeline bash scripts](https://github.com/infracost/infracost-azure-devops/blob/0c662db3982f53666e89e69a406c572f48dc5c33/README.md) to our new [Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=Infracost.infracost-tasks).
 
+If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+
 <img src={useBaseUrl("img/screenshots/azure-pull-request.png")} alt="Cost estimate comment for azure pipeline" />
 
 ## What's new?
@@ -69,4 +71,4 @@ The `targetType` describes where the comment should be posted against, which can
    - [OPA](https://github.com/infracost/infracost-azure-devops/tree/master/examples/opa): check Infracost cost estimates against policies using Open Policy Agent
    - [Sentinel](https://github.com/infracost/infracost-azure-devops/tree/master/examples/sentinel): check Infracost cost estimates against policies using Hashicorp's Sentinel
 
-If you encounter any issues while migrating, please [create an issue](https://github.com/infracost/infracost-azure-devops/issues/new) or join our [community Slack](https://www.infracost.io/community-chat) and we'll address them as soon as possible.
+If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
