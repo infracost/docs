@@ -7,7 +7,7 @@ title: FAQ
 
 Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd).
 
-The CLI parses the **Terraform plan JSON file** to find [supported resources](/docs/supported_resources/overview) and uses [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size, to find applicable cloud prices for that resource. The CLI **does not** send the actual plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response), which the CLI then uses to calculate the monthly costs. The results can be output in table, JSON format or [other formats](/docs/features/cli_commands/#combined-output-formats).
+The CLI extracts only cost-related params from the Terraform plan JSON file to find [supported resources](/docs/supported_resources/overview). It then uses [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size, to retrieve applicable cloud prices for that resource. The CLI **does not** send the actual plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response), which the CLI then uses to calculate the monthly costs. The results can be output in table, JSON format or [other formats](/docs/features/cli_commands/#combined-output-formats).
 
 ## Does Infracost need cloud credentials?
 
@@ -17,7 +17,7 @@ That depends on how you run Infracost, since we run Terraform internally, which 
 
 ## How does Infracost get cloud prices?
 
-Infracost gets prices from the Cloud Pricing API, which we continually update with the latest cloud vendor prices.
+Infracost gets prices from our Cloud Pricing API, which is also open source and can be [self-hosted](/docs/cloud_pricing_api/self_hosted). This service continually updates itself with the latest cloud vendor prices.
 
 ## Does the CLI send the Terraform plan to the Cloud Pricing API?
 

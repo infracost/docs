@@ -7,6 +7,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Follow this page to migrate from our old [infracost-gh-actions](https://github.com/infracost/infracost-gh-action) repo to our new [actions](https://github.com/infracost/actions/) repo. The infracost-gh-actions repo will be deprecated in the next Infracost release.
 
+If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Cost estimate comment for multiple projects" />
 
 ## What's new?
@@ -66,4 +68,4 @@ The `target-type` describes where the comment should be posted against, which ca
     - OPA: check Infracost cost estimates against policies using Open Policy Agent
     - Sentinel: check Infracost cost estimates against policies using Hashicorp's Sentinel 
 
-If you encounter any issues while migrating, please [create an issue](https://github.com/infracost/actions/issues/new) or join our [community Slack](https://www.infracost.io/community-chat) and we'll address them as soon as possible.
+If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
