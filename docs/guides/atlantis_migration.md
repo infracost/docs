@@ -82,6 +82,6 @@ The `infracost comment` command has a `behavior` flag, which can be used to desc
   </tbody>
 </table>
 
-4. If you were previously using the `post_condition` environment variable, we recommend you switch to using [Conftest](https://github.com/infracost/infracost-atlantis/tree/master/examples/thresholds) or our [thresholds example](https://github.com/infracost/infracost-atlantis/tree/master/examples/thresholds) that uses `jq` and `bash`.
+4. If you were previously using the `post_condition` environment variable, we recommend you switch to using [Conftest](https://github.com/infracost/infracost-atlantis/tree/master/examples/conftest) or our [thresholds example](https://github.com/infracost/infracost-atlantis/tree/master/examples/thresholds) that uses `jq` and `bash`.
 
 If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
