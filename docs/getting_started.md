@@ -75,7 +75,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
 </Tabs>
 
 ### 2. Get API key
-Register for a free API key, which is used by the CLI to query our Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API and you can also [self-host](/docs/cloud_pricing_api/self_hosted/) it.
+Register for a free API key, which is used by the CLI to retrieve prices from our Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API and you can also [self-host](/docs/cloud_pricing_api/self_hosted/) it.
 ```shell
 infracost register
 ```
@@ -103,8 +103,8 @@ Use our CI/CD integrations to add cost estimates to pull requests. This provides
 - [GitHub Actions](https://github.com/infracost/actions/)
 - [GitLab CI](https://gitlab.com/infracost/infracost-gitlab-ci)
 - [Atlantis](https://github.com/infracost/infracost-atlantis/)
-- [Terraform Cloud/Enterprise](/docs/integrations/terraform_cloud_enterprise/)
 - [Azure DevOps](https://github.com/infracost/infracost-azure-devops/)
+- [Terraform Cloud/Enterprise](/docs/integrations/terraform_cloud_enterprise/)
 - [Jenkins](https://github.com/infracost/infracost-jenkins/)
 - [Bitbucket Pipelines](https://bitbucket.org/infracost/infracost-bitbucket-pipeline)
 - [CircleCI](https://github.com/infracost/infracost-orb)

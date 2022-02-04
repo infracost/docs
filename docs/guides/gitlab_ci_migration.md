@@ -7,6 +7,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Follow this page to migrate from our old [GitLab template](https://gitlab.com/infracost/infracost-gitlab-ci/-/blob/master/README-deprecated.md) to our new [GitLab pipeline examples](https://gitlab.com/infracost/infracost-gitlab-ci/).
 
+If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+
 <img src={useBaseUrl("img/screenshots/gitlab-comment.png")} alt="Cost estimate comment for multiple projects" />
 
 ## What's new?
@@ -70,4 +72,4 @@ And cost policy examples:
   - OPA: check Infracost cost estimates against policies using Open Policy Agent
   - Sentinel: check Infracost cost estimates against policies using Hashicorp's Sentinel 
 
-If you encounter any issues while migrating, please [create an issue](https://github.com/infracost/infracost/issues/new) or join our [community Slack](https://www.infracost.io/community-chat) and we'll address them as soon as possible.
+If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄

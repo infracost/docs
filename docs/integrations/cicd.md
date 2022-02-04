@@ -16,12 +16,6 @@ Infracost can be used in any CI/CD system using our CI [Docker images](https://h
 
 The images contain the Infracost [CLI binary](https://github.com/infracost/infracost), [Compost](https://github.com/infracost/compost) and [comment.sh](https://github.com/infracost/infracost/blob/master/scripts/ci/comment.sh). Our [GitLab CI](https://gitlab.com/infracost/infracost-gitlab-ci) examples demonstrate how these components can be used in a composable way to post pull request comments in any CI/CD system.
 
-## Azure DevOps
-
-See the [Infracost Azure DevOps integration](https://github.com/infracost/infracost-azure-devops/) for instructions and demos using Azure DevOps Repos (git) and GitHub repos.
-
-<img src="https://raw.githubusercontent.com/infracost/infracost-azure-devops/master/screenshot.png" width="700px" alt="Example Infracost diff output" />
-
 ## Jenkins
 
 See the [Infracost Jenkins integration](https://github.com/infracost/infracost-jenkins/) for instructions and a demo.
@@ -40,9 +34,21 @@ See the [Infracost CircleCI Orb](https://github.com/infracost/infracost-orb) for
 
 ## Slack
 
-All of the above CI/CD integrations support also posting the pull request comment to a Slack channel. To enable it, create a [Slack Webhook](https://slack.com/intl/en-tr/help/articles/115005265063-Incoming-webhooks-for-Slack) and set its value to the `SLACK_WEBHOOK_URL` environment variable.
+Most of our CI/CD integrations also support posting the pull request comment to a Slack channel. To enable it, create a [Slack Webhook](https://slack.com/intl/en-tr/help/articles/115005265063-Incoming-webhooks-for-Slack) and follow the instructions for that CI/CD integration.
 
 <img src={useBaseUrl("img/screenshots/post_to_slack.png")} alt="Example Infracost diff output" />
+
+## Scalr
+
+See the [Scalr docs](https://docs.scalr.com/en/latest/cost_estimate.html) to enable the Infracost integration.
+
+## Env0
+
+See the [Env0 docs](https://docs.env0.com/docs/cost-monitoring#cost-estimation) to enable the Infracost integration.
+
+## Spacelift
+
+See the [Spacelift docs](https://docs.spacelift.io/vendors/terraform/infracost) to enable the Infracost integration.
 
 ## My CI/CD isn't supported
 
