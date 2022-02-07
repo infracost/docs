@@ -7,14 +7,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Infracost CLI has the following commands, all of which support `--help`:
+Infracost has multiple commands, all of which support `--help`:
+- Basic commands:
+  - `infracost breakdown`: Show full breakdown of costs
+  - `infracost diff`: Show diff of monthly costs between current and planned state
 
-- `register`: Register for a free Infracost API key
-- `breakdown`: Show full breakdown of costs
-- `diff`: Show diff of monthly costs between current and planned state
-- `output`: Combine and output Infracost JSON files in different formats
-- `configure`: Display or change global configuration, including currency settings
-- `completion`: Generate shell completion script
+- The following commands work with the Infracost JSON output, which is generated via `infracost breakdown --format json`: 
+  - `infracost comment`: Post cost estimates to pull requests in GitHub, GitLab or Azure Repos
+  - `infracost output`: Combine and output Infracost JSON files in different formats
+
+- The following auxiliary commands are also helpful:
+  - `infracost configure`: Display or change global configuration, including currency settings
+  - `infracost register`: Register for a free Infracost API key
+  - `infracost completion`: Generate shell completion script
 
 ## Breakdown and diff
 
@@ -55,7 +60,7 @@ See the [advanced usage](/docs/guides/advanced_usage) guide for other usage opti
 
 The breakdown and diff commands have many useful flags, run with `--help` to see them. For example, breakdown supports:
 
-  ```  
+  ```shell
   --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
   --format               Output format: json, table, html (default "table")
   --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
@@ -70,35 +75,191 @@ The breakdown and diff commands have many useful flags, run with `--help` to see
   --no-color             Turn off colored output
   ```
 
+## Comment on pull requests
+
+The Infracost CLI can post cost estimates to pull request or commits on [GitHub](#github), [GitLab](#gitlab) and [Azure Repos](#azure-repos), which is useful in CI/CD pipelines.
+
+  ```shell
+  # Generate Infracost JSON files for each Terraform plan JSON or directory/workspace
+  infracost breakdown --path tf-plan-1.json --format json --out-file infracost-1.json
+  infracost breakdown --path tf-plan-2.json --format json --out-file infracost-2.json
+
+  # Post one comment with above Infracost JSON files, glob patterns need quotes
+  infracost comment github --path "infracost-*.json" ...
+  ```
+
+The following `--behavior` options are supported when posting cost estimate comments:
+  - `update` (good default): Create a single comment and update it. The "quietest" option.
+  - `hide-and-new`: Minimize previous comments and create a new one. Only supported by GitHub.
+  - `delete-and-new`: Delete previous comments and create a new one.
+  - `new`: Create a new cost estimate comment on every push.
+
+### GitHub
+
+Run `infracost comment github --help` to see the options. For example, GitHub Enterprise users can specify `--github-api-url` (e.g. in GitHub Actions you can set this to `$GITHUB_API_URL`). You might find the following common examples helpful.
+
+#### GitHub Actions
+
+```sh
+infracost comment github --path infracost.json \
+                         --repo $GITHUB_REPOSITORY \
+                         --pull-request $PR_NUMBER `# or --commit $GITHUB_SHA` \
+                         --github-token $GITHUB_TOKEN \
+                         --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo`: required, use the predefined `$GITHUB_REPOSITORY` environment variable.
+- `--pull-request`: required to post on a pull request, can be extracted from workflows's event and set as an environment variable: `PR_NUMBER: ${{ github.event.number }}`. Mutually exclusive with the `--commit` flag.
+- `--commit`: required to post on a pull request's commit, use `$GITHUB_SHA`. Mutually exclusive with `--pull-request` flag.
+- `--github-token`: required, use `$GITHUB_TOKEN`.
+
+#### Azure Pipelines with GitHub
+
+```sh
+infracost comment github --path infracost.json \
+                         --repo $BUILD_REPOSITORY_NAME \
+                         --pull-request $SYSTEM_PULLREQUEST_PULLREQUESTNUMBER `# or --commit $BUILD_SOURCEVERSION` \
+                         --github-token $GITHUB_TOKEN \
+                         --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo`: required, use the predefined `$BUILD_REPOSITORY_NAME` environment variable.
+- `--pull-request`: required to post on a pull request, `$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER`. Mutually exclusive with `--commit` flag.
+- `--commit`: required to post on a pull request's commit, use `$BUILD_SOURCEVERSION`. Mutually exclusive with `--pull-request` flag.
+- `--github-token`: required, use `$GITHUB_TOKEN`.
+
+#### Atlantis with GitHub
+
+```sh
+infracost comment github --path infracost.json \
+                         --repo $BASE_REPO_OWNER/$BASE_REPO_NAME \
+                         --pull-request $PULL_NUM `# or --commit $HEAD_COMMIT` \
+                         --github-token $GITHUB_TOKEN \
+                         --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo`: required, use this `$BASE_REPO_OWNER/$BASE_REPO_NAME` combination of predefined environment variables.
+- `--pull-request`: required to post on a pull request, use `$PULL_NUM`. Mutually exclusive with `--commit` flag.
+- `--commit`: required to post on a pull request's commit, use `$HEAD_COMMIT`. Mutually exclusive with `--pull-request` flag.
+- `--github-token`: required, provide your GitHub token, for example, as an environment variable `$GITHUB_TOKEN`.
+
+#### CircleCI with GitHub
+
+```sh
+infracost comment github --path infracost.json \
+                         --repo $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
+                         --pull-request ${CIRCLE_PULL_REQUEST##*/} `# or --commit $CIRCLE_SHA1` \
+                         --github-token $GITHUB_TOKEN \
+                         --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo`: required, use this `$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME` combination of predefined environment variables.
+- `--pull-request`: required to post on a pull request, use `${CIRCLE_PULL_REQUEST##*/}` to extract the pull request's number from its URL. Mutually exclusive with `--commit` flag.
+- `--commit`: required to post on a pull request's commit, use `$CIRCLE_SHA1`. Mutually exclusive with `--pull-request` flag.
+- `--github-token`: required, provide your GitHub token, for example, as an environment variable `$GITHUB_TOKEN`.
+
+### GitLab
+
+Run `infracost comment gitlab --help` to see the options. For example, GitLab for Enterprise users can specify `--gitlab-server-url` (e.g. in GitLab CI you can set this to `$CI_SERVER_URL`). You might find the following common examples helpful.
+
+#### GitLab CI
+
+```sh
+infracost comment gitlab --path infracost.json \
+                         --repo $CI_PROJECT_PATH \
+                         --merge-request $CI_MERGE_REQUEST_IID `# or --commit $CI_COMMIT_SHA` \
+                         --gitlab-token $GITLAB_TOKEN \
+                         --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo`: required, use the predefined `$CI_PROJECT_PATH` environment variable.
+- `--merge-request`: required to post on a merge request, use `$CI_MERGE_REQUEST_IID`. Mutually exclusive with `--commit` flag.
+- `--commit`: required to post on a merge request's commit, use `$CI_COMMIT_SHA`. Mutually exclusive with `--merge-request` flag.
+- `--gitlab-token`: required, use `$GITLAB_TOKEN`.
+
+#### Atlantis with GitLab
+
+```sh
+infracost comment gitlab --path infracost.json \
+                         --repo $BASE_REPO_OWNER/$BASE_REPO_NAME \
+                         --merge-request $PULL_NUM `# or --commit $HEAD_COMMIT` \
+                         --gitlab-token $GITLAB_TOKEN \
+                         --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo`: required, use this `$BASE_REPO_OWNER/$BASE_REPO_NAME` combination of predefined environment variables.
+- `--merge-request`: required to post on a merge request, use `$PULL_NUM`. Mutually exclusive with `--commit` flag.
+- `--commit`: required to post on a merge request's commit, use `$HEAD_COMMIT`. Mutually exclusive with `--merge-request` flag.
+- `--gitlab-token`: required, provide your GitLab token as an environment variable, for example as `$GITLAB_TOKEN`.
+
+### Azure Repos
+
+Run `infracost comment azure-repos --help` to see the options. You might find the following common examples helpful.
+
+#### Azure Pipelines with Azure Repos
+
+```sh
+infracost comment azure-repos --path infracost.json \
+                              --repo-url $BUILD_REPOSITORY_URI \
+                              --pull-request $SYSTEM_PULLREQUEST_PULLREQUESTID \
+                              --azure-access-token $SYSTEM_ACCESSTOKEN \
+                              --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo-url`: required, use `$BUILD_REPOSITORY_URI` predefined environment variable.
+- `--pull-request`: required to post on a pull request, `$SYSTEM_PULLREQUEST_PULLREQUESTID`.
+- `--azure-access-token`: required, use `$SYSTEM_ACCESSTOKEN`.
+
+#### Atlantis with Azure Repos
+
+```sh
+infracost comment azure-repos --path infracost.json \
+                              --repo-url $AZURE_REPO_URL \
+                              --pull-request $PULL_NUM \
+                              --azure-access-token $AZURE_ACCESS_TOKEN \
+                              --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo-url`: required, provide your repo's URL as an environment variable, for example as `$AZURE_REPO_URL`.
+- `--pull-request`: required to post on a pull request, use `$PULL_NUM`.
+- `--azure-access-token`: required, provide your Azure DevOps access token, for example, as an environment variable `$AZURE_ACCESS_TOKEN`.
+
+### Bitbucket
+
+Coming soon! Please 👍 [this issue](https://github.com/infracost/infracost/issues/1173) for Bitbucket support.
+
 ## Combined output formats
 
-The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment` and `slack-comment`.
+The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment` and `slack-comment`. To use them:
 
-Please 👍 [this issue](https://github.com/infracost/infracost/issues/1173) for `bitbucket-comment`.
+1. Generate Infracost JSON output for each Terraform project:
+  ```sh
+  infracost breakdown --path tf-plan-1.json --format json --out-file infracost-1.json
+  infracost breakdown --path tf-plan-2.json --format json --out-file infracost-2.json
+  ```
 
-### Usage
+2. Use the `infracost output` command to generate a combined cost estimate in the required format:
 
-The Infracost CLI tool has a JSON output format, which can be used to generate files from individual projects using the `breakdown` command:
+  ```sh
+  # Merge above Infracost JSON files, glob patterns need quotes
+  infracost output --path "infracost-*.json" --format json --out-file infracost.json
 
-```sh
-infracost breakdown --path /project1 --format json --out-file infracost-p1.json
-infracost breakdown --path /project2 --format json --out-file infracost-p2.json
-```
+  # HTML output
+  infracost output --path infracost.json --format html --out-file report.html
 
-The Infracost JSON files can then be consumed by the `infracost output` command to generate a combined cost estimate in many formats:
+  # Diff output
+  infracost output --path infracost.json --format diff
+  ```
 
-```sh
-# Merge above Infracost JSON files, glob patterns need quotes
-infracost output --path "infracost-p*.json" --format json --out-file infracost.json
-
-# HTML output
-infracost output --path infracost.json --format html --out-file report.html
-
-# Diff output
-infracost output --path infracost.json --format diff
-```
-
-Run `infracost output --help` to see other options, such as `--fields` and `--show-skipped`. The above formats or reports can be used to integrate Infracost with other tools, or uploaded to object storage such as AWS S3 or Google Cloud Storage and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
+Run `infracost output --help` to see other options, such as `--fields` and `--show-skipped`. The above formats or reports can be used to integrate Infracost with other tools such as Open Policy Agent. These can also be uploaded to object storage such as AWS S3 or Google Cloud Storage and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
 
 ### Examples
 
@@ -109,7 +270,7 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
     {label: 'HTML', value: 'html'},
     {label: 'Table', value: 'table'},
     {label: 'Diff', value: 'diff'},
-    {label: 'GitHub/GitLab comment', value: 'github-gitlab-comment'},
+    {label: 'Pull request comment', value: 'pull-request-comment'},
     {label: 'Slack message', value: 'slack-message'}
   ]}>
   <TabItem value="json">
@@ -422,8 +583,9 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
 
   To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
   ```
-  </TabItem> 
-  <TabItem value="github-gitlab-comment">
+  </TabItem>
+  <TabItem value="pull-request-comment">  
+    The following screenshot is for the 'github-comment' format. The 'gitlab-comment' and 'azure-repos-comment' formats produce similar output.
     <img src={useBaseUrl("img/screenshots/github-comment-format.png")} alt="Infracost GitHub comment report" />
   </TabItem>
   <TabItem value="slack-message">

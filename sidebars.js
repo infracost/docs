@@ -25,8 +25,8 @@ module.exports = {
       collapsed: false,
       items: [
         'features/cli_commands',
-        'features/config_file',
         'features/usage_based_resources',
+        'features/config_file',
         'features/share_links',
         'features/cost_policies',
         'features/terragrunt',
