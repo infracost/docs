@@ -229,7 +229,11 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_kms_ciphertext` |
 | `aws_kms_grant` |
 | `aws_lambda_alias` |
+| `aws_lambda_code_signing_config` |
+| `aws_lambda_event_source_mapping` |
 | `aws_lambda_function_event_invoke_config` |
+| `aws_lambda_layer_version` |
+| `aws_lambda_layer_version_permission` |
 | `aws_lambda_permission` |
 | `aws_launch_configuration` |
 | `aws_launch_template` |
