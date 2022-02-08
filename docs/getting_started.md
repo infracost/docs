@@ -36,19 +36,56 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   </TabItem>
   <TabItem value="macos-manual">
 
+  Download the relevant Infracost CLI tar for your architecture (this example follows amd64).
   ```shell
-  # Downloads the CLI based on your OS/arch and puts it in /usr/local/bin
-  curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
+  curl -L -O https://github.com/infracost/infracost/releases/latest/download/infracost-darwin-amd64.tar.gz
   ```
-
+  Verify the CLI tar checksums.
+  ```shell
+  curl -L -O https://github.com/infracost/infracost/releases/latest/download/infracost-darwin-amd64.tar.gz.sha256
+  shasum -c infracost-darwin-amd64.tar.gz.sha256 # should show: infracost-darwin-amd64.tar.gz: OK
+  ```
+  Unzip the tar file.
+  ```shell
+  tar -xvzf infracost-darwin-amd64.tar.gz
+  ```
+  Make the Infracost binary executable and move it into your PATH.
+  ```shell
+  chmod +x infracost-darwin-amd64
+  mv infracost-darwin-amd64 /usr/local/bin/infracost
+  ```
+  Check the Infracost version to make sure installation has succeeded.
+  ```shell
+  infracost --version # Should show v*.*.*
+  ```
   </TabItem>
   <TabItem value="linux">
 
+  Download the relevant Infracost CLI tar for your architecture (this example follows amd64).
   ```shell
-  # Downloads the CLI based on your OS/arch and puts it in /usr/local/bin
-  curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
+  curl -L -O https://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz
   ```
+  Verify the CLI tar checksums.
+  ```shell
+  curl -L -O https://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz.sha256
+  shasum -c infracost-linux-amd64.tar.gz.sha256 # should show: infracost-linux-amd64.tar.gz: OK
+  ```
+  >If you don't have the **shasum** cmd installed on your machine already. This can be installed through the **libdigest-sha-perl** package
+  on Debian, Ubuntu and Kali. It is provided through **perl-Digest-SHA-1** on Fedora and **perl** on Alpine and Arch.
 
+  Unzip the tar file.
+  ```shell
+  tar -xvzf infracost-linux-amd64.tar.gz
+  ```
+  Make the Infracost binary executable and move it into your PATH.
+  ```shell
+  chmod +x infracost-linux-amd64
+  mv infracost-linux-amd64 /usr/local/bin/infracost
+  ```
+  Check the Infracost version to make sure installation has succeeded.
+  ```shell
+  infracost --version # Should show v*.*.*
+  ```
   </TabItem>
   <TabItem value="docker">
 
@@ -69,8 +106,32 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   </TabItem>
   <TabItem value="windows">
 
-  Download and unzip the [latest release](https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz). Run it from the Command Prompt or Powershell using `.\infracost.exe --no-color` alongside other required commands/flags (color output has a bug we need to fix on Windows). You should also move the exe file to a folder that is in your `PATH` [environment variable](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows), e.g. `C:\Windows`.
+  This installation step assumes that you're using a Windows machine with curl installed. As of Windows 10 this comes as standard. If you don't have curl installed you can
+  install it through a number of package managers (chocolatey, scoop, pacman) or manually. See this [stack overflow response](https://stackoverflow.com/a/16216825) for a number of available options.
 
+  Download the relevant Infracost CLI tar for your architecture (this example follows amd64).
+  ```shell
+  curl -L -O https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz
+  ```
+  Verify the CLI tar checksums.
+  ```shell
+  curl -L -O https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz.sha256
+  certutil -hashfile infracost-windows-amd64.tar.gz sha256
+  # certutil should echo a hash to the command prompt, check this hash is the same
+  # as one contained in the infracost-windows-amd64.tar.gz.sha256
+  ```
+  Unzip the tar file.
+  ```shell
+  tar -xvzf infracost-windows-amd64.tar.gz
+  ```
+  Move the Infracost executable into your PATH. Then restart your command prompt.
+  ```shell
+  setx PATH "%PATH%;C:\Path\to\bin"
+  ```
+  Check the Infracost version to make sure installation has succeeded.
+  ```shell
+  infracost --version # Should show v*.*.*
+  ```
   </TabItem>
 </Tabs>
 
