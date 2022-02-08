@@ -14,7 +14,7 @@ Infracost can be used in any CI/CD system using our CI [Docker images](https://h
 - `infracost/infracost:ci-0.9.18` - Lock the version.
 - `infracost/infracost:ci-latest` - Use the latest Infracost image. This might break when new minor or major versions are released.
 
-The images contain the Infracost [CLI binary](https://github.com/infracost/infracost), [Compost](https://github.com/infracost/compost) and [comment.sh](https://github.com/infracost/infracost/blob/master/scripts/ci/comment.sh). Our [GitLab CI](https://gitlab.com/infracost/infracost-gitlab-ci) examples demonstrate how these components can be used in a composable way to post pull request comments in any CI/CD system.
+Checkout the [CLI commands](/docs/features/cli_commands) page for details of how the CLI commands can be used in a composable way in any CI/CD system. You might also find the [environment variables](/docs/integrations/environment_variables) page useful.
 
 ## Jenkins
 
