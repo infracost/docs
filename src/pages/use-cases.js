@@ -123,7 +123,7 @@ function UseCases() {
             <div className="use-case">
               <h3>
                 <img src="/img/icons/choices-icon.svg" />
-                <span>Consultants helping end clients adopt and scale on cloud</span>
+                <span>Consultants helping clients adopt and scale on cloud</span>
               </h3>
               <div className="box">
                 <div className="use-case-content">
