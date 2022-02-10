@@ -43,7 +43,7 @@ When using the `--usage-file` flag with the `breakdown` or `output` commands, co
 
 We're experimenting with fetching the following usage file values from CloudWatch or other cloud APIs when `--sync-usage-file` is used (falling back to using 0). This enables you to quickly see what the last 30-day usage for those resources have been and adjust if needed. This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environmment variables.
 
-Your AWS credentials need the following IAM permissions for this to work. These are likely to be already defined if you're using the same AWS credentials that you use for generating your Terraform plan JSON file. The following will be updated as we add support for more resources:
+Your AWS credentials need the following IAM permissions for this to work. These are likely to be already defined if you're using the same AWS credentials that you use for generating your Terraform plan JSON file. The following will be updated as we add support for more resources.
 
 ```json
 {
@@ -67,14 +67,14 @@ Your AWS credentials need the following IAM permissions for this to work. These 
 ```
 
 If the CLI can fetch the following values from CloudWatch, it will overwrite them in the usage file.
-- **aws_dynamodb_table**: `storage_gb`, `monthly_read_request_units` and `monthly_write_request_units`
-- **aws_lambda_function**: `monthly_requests` and `request_duration_ms`
+- **aws_dynamodb_table**: storage_gb, monthly_read_request_units and monthly_write_request_units
+- **aws_lambda_function**: monthly_requests and request_duration_ms
 - **aws_s3_bucket**:
-  - Standard storage class: `storage_gb`, `monthly_tier_1_requests`, `monthly_tier_2_requests`, `monthly_select_data_scanned_gb` and `monthly_select_data_returned_gb`
-  - Intelligent tiering storage class: `frequent_access_storage_gb`, `infrequent_access_storage_gb`, `archive_access_storage_gb` and `deep_archive_storage_gb`
-  - Other storage classes: `storage_gb`
-- **aws_instance**, **aws_autoscaling_group**, **aws_eks_node_group**: `operating_system` (based on the AMI, detected as one of: `linux`, `windows`, `suse`, `rhel`)
-- **aws_autoscaling_group** and **aws_eks_node_group**: `instances`. If unable to fetch the last 30-day average from CloudWatch this will fetch the current instance count from the AWS API instead.
+  - Standard storage class: storage_gb, monthly_tier_1_requests, monthly_tier_2_requests, monthly_select_data_scanned_gb and monthly_select_data_returned_gb
+  - Intelligent tiering storage class: frequent_access_storage_gb, infrequent_access_storage_gb, archive_access_storage_gb and deep_archive_storage_gb
+  - Other storage classes: storage_gb
+- **aws_instance**, **aws_autoscaling_group**, **aws_eks_node_group**: operating_system (based on the AMI, detected as one of: linux, windows, suse, rhel)
+- **aws_autoscaling_group** and **aws_eks_node_group**: instances. If unable to fetch the last 30-day average from CloudWatch this will fetch the current instance count from the AWS API instead.
 
 Please use [this GitHub discussion](https://github.com/infracost/infracost/discussions/985) to let us know if you find this useful or have feedback.
 
