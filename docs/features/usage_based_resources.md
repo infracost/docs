@@ -43,15 +43,38 @@ When using the `--usage-file` flag with the `breakdown` or `output` commands, co
 
 We're experimenting with fetching the following usage file values from CloudWatch or other cloud APIs when `--sync-usage-file` is used (falling back to using 0). This enables you to quickly see what the last 30-day usage for those resources have been and adjust if needed. This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environmment variables.
 
+Your AWS credentials need the following IAM permissions for this to work. These are likely to be already defined if you're using the same AWS credentials that you use for generating your Terraform plan JSON file. The following will be updated as we add support for more resources:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "InfracostSyncUsage",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeImages",
+                "eks:DescribeNodegroup",
+                "dynamodb:DescribeTable",
+                "autoscaling:DescribeAutoScalingGroups",
+                "s3:GetMetricsConfiguration",
+                "cloudwatch:GetMetricStatistics"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 If the CLI can fetch the following values from CloudWatch, it will overwrite them in the usage file.
-- `aws_dynamodb_table`: `storage_gb`, `monthly_read_request_units` and `monthly_write_request_units`
-- `aws_lambda_function`: `monthly_requests` and `request_duration_ms`
-- `aws_s3_bucket`:
+- **aws_dynamodb_table**: `storage_gb`, `monthly_read_request_units` and `monthly_write_request_units`
+- **aws_lambda_function**: `monthly_requests` and `request_duration_ms`
+- **aws_s3_bucket**:
   - Standard storage class: `storage_gb`, `monthly_tier_1_requests`, `monthly_tier_2_requests`, `monthly_select_data_scanned_gb` and `monthly_select_data_returned_gb`
   - Intelligent tiering storage class: `frequent_access_storage_gb`, `infrequent_access_storage_gb`, `archive_access_storage_gb` and `deep_archive_storage_gb`
   - Other storage classes: `storage_gb`
-- `aws_instance`, `aws_autoscaling_group`, `aws_eks_node_group`: `operating_system` (based on the AMI, detected as one of: `linux`, `windows`, `suse`, `rhel`)
-- `aws_autoscaling_group` and `aws_eks_node_group`: `instances`. If unable to fetch the last 30-day average from CloudWatch this will fetch the current instance count from the AWS API instead.
+- **aws_instance**, **aws_autoscaling_group**, **aws_eks_node_group**: `operating_system` (based on the AMI, detected as one of: `linux`, `windows`, `suse`, `rhel`)
+- **aws_autoscaling_group** and **aws_eks_node_group**: `instances`. If unable to fetch the last 30-day average from CloudWatch this will fetch the current instance count from the AWS API instead.
 
 Please use [this GitHub discussion](https://github.com/infracost/infracost/discussions/985) to let us know if you find this useful or have feedback.
 
@@ -105,7 +128,7 @@ module.lambda_function.aws_lambda_function.this[0]:
 
 The wildcard character `[*]` can be used for resource arrays (resources with [`count` meta-argument](https://www.terraform.io/docs/language/meta-arguments/count.html)) and resource maps (resources with [`for_each` meta-argument](https://www.terraform.io/docs/language/meta-arguments/for_each.html)), such as AWS CloudWatch Log Groups. Infracost will apply the usage values individually to each element of the array/map (they all get the same values). If both an array element such as `this[0]` (or map element such as `this["foo"]`) and `[*]` are specified for a resource, only the array/map element's usage will be applied to that resource. This enables you to define default values using `[*]` and override specific elements using their index or key.
 
-When wildcard entries exist in the usage file and `--sync-usage-file` is used: 
+When wildcard entries exist in the usage file and `--sync-usage-file` is used:
 - values are generated for each element of the wildcard.
 - entries are added for each wildcard element when usage data is [fetched from AWS CloudWatch](#fetch-from-cloudwatch), which overrides the wildcard value.
 
