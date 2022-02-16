@@ -13,7 +13,7 @@ Infracost has multiple commands, all of which support `--help`:
   - `infracost diff`: Show diff of monthly costs between current and planned state
 
 - The following commands work with the Infracost JSON output, which is generated via `infracost breakdown --format json`: 
-  - `infracost comment`: Post cost estimates to pull requests in GitHub, GitLab or Azure Repos
+  - `infracost comment`: Post cost estimates to pull requests in GitHub, GitLab, Azure Repos and Bitbucket
   - `infracost output`: Combine and output Infracost JSON files in different formats
 
 - The following auxiliary commands are also helpful:
@@ -77,7 +77,7 @@ The breakdown and diff commands have many useful flags, run with `--help` to see
 
 ## Comment on pull requests
 
-The Infracost CLI can post cost estimates to pull request or commits on [GitHub](#github), [GitLab](#gitlab) and [Azure Repos](#azure-repos), which is useful in CI/CD pipelines.
+The Infracost CLI can post cost estimates to pull request or commits on [GitHub](#github), [GitLab](#gitlab), [Azure Repos](#azure-repos) and [Bitbucket](#bitbucket), which is useful in CI/CD pipelines.
 
   ```shell
   # Generate Infracost JSON files for each Terraform plan JSON or directory/workspace
@@ -286,7 +286,7 @@ infracost comment bitbucket --path infracost.json \
 
 ## Combined output formats
 
-The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment` and `slack-comment`. To use them:
+The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-comment`. To use them:
 
 1. Generate Infracost JSON output for each Terraform project:
   ```sh
@@ -633,7 +633,7 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
   ```
   </TabItem>
   <TabItem value="pull-request-comment">  
-    The following screenshot is for the 'github-comment' format. The 'gitlab-comment' and 'azure-repos-comment' formats produce similar output.
+    The following screenshot is for the 'github-comment' format. The 'gitlab-comment', 'azure-repos-comment' and 'bitbucket-comment' formats produce similar output.
     <img src={useBaseUrl("img/screenshots/github-comment-format.png")} alt="Infracost GitHub comment report" />
   </TabItem>
   <TabItem value="slack-message">
