@@ -234,7 +234,55 @@ infracost comment azure-repos --path infracost.json \
 
 ### Bitbucket
 
-Coming soon! Please 👍 [this issue](https://github.com/infracost/infracost/issues/1173) for Bitbucket support.
+Run `infracost comment bitbucket --help` to see the options. For example, Bitbucket Server/Data Center users can specify `--bitbucket-server-url`. You might find the following common examples helpful.
+
+#### Bitbucket Pipelines
+
+```sh
+infracost comment bitbucket --path infracost.json \
+                            --repo $BITBUCKET_WORKSPACE/$BITBUCKET_REPO_SLUG \
+                            --pull-request $BITBUCKET_PR_ID `# or --commit $BITBUCKET_COMMIT` \
+                            --bitbucket-token $BITBUCKET_TOKEN \
+                            --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo`: required, use this `$BITBUCKET_WORKSPACE/$BITBUCKET_REPO_SLUG` combination of predefined environment variables.
+- `--pull-request`: required to post on a pull request, use `$BITBUCKET_PR_ID`. Mutually exclusive with `--commit` flag.
+- `--commit`: required to post on a pull request's commit, use `$BITBUCKET_COMMIT`. Mutually exclusive with `--pull-request` flag, available only for Bitbucket Cloud.
+- `--bitbucket-token`: required. For Bitbucket Cloud provide `username:$BITBUCKET_TOKEN`, where the token can be a user or App password. For Bitbucket Server provide only an HTTP access token.
+
+#### CircleCI with Bitbucket
+
+```sh
+infracost comment bitbucket --path infracost.json \
+                            --repo $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
+                            --pull-request ${CIRCLE_PULL_REQUEST##*/} `# or --commit $CIRCLE_SHA1` \
+                            --bitbucket-token $BITBUCKET_TOKEN \
+                            --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo`: required, use this `$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME` combination of predefined environment variables.
+- `--pull-request`: required to post on a pull request, use `${CIRCLE_PULL_REQUEST##*/}` to extract the pull request's number from its URL. Mutually exclusive with `--commit` flag.
+- `--commit`: required to post on a pull request's commit, use `$CIRCLE_SHA1`. Mutually exclusive with `--pull-request` flag, available only for Bitbucket Cloud.
+- `--bitbucket-token`: required. For Bitbucket Cloud provide `username:$BITBUCKET_TOKEN`, where the token can be a user or App password. For Bitbucket Server provide only an HTTP access token.
+
+#### Atlantis with Bitbucket
+
+```sh
+infracost comment bitbucket --path infracost.json \
+                            --repo $BASE_REPO_OWNER/$BASE_REPO_NAME \
+                            --pull-request $PULL_NUM `# or --commit $HEAD_COMMIT` \
+                            --bitbucket-token $BITBUCKET_TOKEN \
+                            --behavior update
+```
+
+- `--path`: required, path to Infracost JSON files, glob patterns need quotes.
+- `--repo`: required, use this `$BASE_REPO_OWNER/$BASE_REPO_NAME` combination of predefined environment variables.
+- `--pull-request`: required to post on a pull request, use `$PULL_NUM`. Mutually exclusive with `--commit` flag.
+- `--commit`: required to post on a pull request's commit, use `$HEAD_COMMIT`. Mutually exclusive with `--pull-request` flag, available only for Bitbucket Cloud.
+- `--bitbucket-token`: required. For Bitbucket Cloud provide `username:$BITBUCKET_TOKEN`, where the token can be a user or App password. For Bitbucket Server provide only an HTTP access token.
 
 ## Combined output formats
 

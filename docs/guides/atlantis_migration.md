@@ -31,9 +31,7 @@ If you already use a custom Docker image for Atlantis, copy the top RUN command 
 
 As shown in the screenshot at the top of this page, a separate Infracost comment is posted to show the total cost diff for any projects that have changed alongside the Atlantis comment.
 
-This uses the new `infracost comment` command to generate and post the comment. [Our examples](https://github.com/infracost/infracost-atlantis/tree/master/examples) show how to use this wth different GitHub, GitLab and Azure Repos.
-
-If you are using Atlantis with BitBucket, please 👍 [this GitHub issue](https://github.com/infracost/infracost/issues/1173) so you get a notification when we support it.
+This uses the new `infracost comment` command to generate and post the comment. [Our examples](https://github.com/infracost/infracost-atlantis/tree/master/examples) show how to use this wth different GitHub, GitLab, Azure Repos and Bitbucket.
 
 #### Comment behaviors
 
