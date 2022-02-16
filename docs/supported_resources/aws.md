@@ -182,6 +182,9 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_ecs_cluster` |
 | `aws_ecs_task_definition` |
 | `aws_egress_only_internet_gateway` |
+| `aws_efs_access_point` |
+| `aws_efs_file_system_policy` |
+| `aws_efs_mount_target` |
 | `aws_eip_association` |
 | `aws_elasticache_parameter_group` |
 | `aws_elasticache_security_group` |
@@ -226,7 +229,11 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_kms_ciphertext` |
 | `aws_kms_grant` |
 | `aws_lambda_alias` |
+| `aws_lambda_code_signing_config` |
+| `aws_lambda_event_source_mapping` |
 | `aws_lambda_function_event_invoke_config` |
+| `aws_lambda_layer_version` |
+| `aws_lambda_layer_version_permission` |
 | `aws_lambda_permission` |
 | `aws_launch_configuration` |
 | `aws_launch_template` |
