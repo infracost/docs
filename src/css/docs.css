@@ -18,7 +18,7 @@
   --ifm-font-color-base: var(--docs-text-color);
   --ifm-font-color-secondary: var(--docs-text-color);
   --ifm-color-content-secondary: var(--docs-text-color);
-  
+
   /* Text */
   --ifm-h1-font-size: 2.5rem;
 
@@ -285,6 +285,7 @@ code[class^=codeBlockLines_] {
 .pagination-nav__link {
   border-color: var(--docs-border-color);
 }
+
 .pagination-nav__sublabel {
   color: var(--nu30);
 }
@@ -309,4 +310,35 @@ blockquote {
 
 .prism-code.language-shell .token.function {
   color: rgb(248, 248, 242) !important;
+}
+
+.ci-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.ci-box {
+  background-color: var(--nu40);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.ci-box:hover {
+  background-color: var(--nu30);
+  cursor: pointer;
+}
+
+
+@media (min-width: 769px) {
+  .ci-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

@@ -29,6 +29,10 @@ module.exports = {
             to: '/docs/integrations/github_actions',
           },
           {
+            from: '/docs/integrations/cicd',
+            to: '/docs/integrations/overview',
+          },
+          {
             from: '/docs/environment_variables',
             to: '/docs/integrations/environment_variables',
           },
