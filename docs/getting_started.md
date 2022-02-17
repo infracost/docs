@@ -96,20 +96,12 @@ infracost breakdown --path .
 infracost diff --path . --sync-usage-file --usage-file infracost-usage.yml
 ```
 
-Screenshots of example outputs are [shown below](#screenshots).
-
 ### 4. Add to CI/CD
-Use our CI/CD integrations to add cost estimates to pull requests. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
-- [GitHub Actions](https://github.com/infracost/actions/)
-- [GitLab CI](https://gitlab.com/infracost/infracost-gitlab-ci)
-- [Atlantis](https://github.com/infracost/infracost-atlantis/)
-- [Azure DevOps](https://github.com/infracost/infracost-azure-devops/)
-- [Terraform Cloud/Enterprise](/docs/integrations/terraform_cloud_enterprise/)
-- [Jenkins](https://github.com/infracost/infracost-jenkins/)
-- [Bitbucket Pipelines](https://bitbucket.org/infracost/infracost-bitbucket-pipeline)
-- [CircleCI](https://github.com/infracost/infracost-orb)
+[Use our CI/CD integrations](/docs/integrations/cicd) to add cost estimates to pull requests, it only takes 15 minutes. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
 
-Other CI/CD systems can be supported using [our Docker images](/docs/integrations/cicd/#docker-images). If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+
+---
 
 ### Screenshots
 

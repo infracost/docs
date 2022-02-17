@@ -5,16 +5,8 @@ module.exports = {
       id: 'getting_started',
     },
     {
-      type: 'category',
-      label: 'Integrations',
-      collapsed: false,
-      items: [
-        'integrations/overview',
-        'integrations/terraform_cloud_enterprise',
-        'integrations/docker_images',
-        'integrations/environment_variables',
-        'integrations/infracost_api',
-      ],
+      type: 'doc',
+      id: 'integrations/cicd',
     },
     {
       type: 'category',
@@ -27,6 +19,21 @@ module.exports = {
         'features/share_links',
         'features/cost_policies',
         'features/terragrunt',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Integrations',
+      collapsed: true,
+      items: [
+        'integrations/github_actions',
+        'integrations/gitlab_ci',
+        'integrations/atlantis',
+        'integrations/azure_pipelines',
+        'integrations/terraform_cloud_enterprise',
+        'integrations/slack',
+        'integrations/environment_variables',
+        'integrations/infracost_api',
       ],
     },
     {

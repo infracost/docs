@@ -1,10 +1,12 @@
 ---
-slug: overview
-title: CI/CD Integrations
+slug: cicd
+title: Add to CI/CD
 ---
 
-Provide your team with a safety net and protect your infrastructure against costly changes by adding Infracost in CI.
-Use one of our many integrations and install Infracost in your pipeline now.
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Use one of our many integrations so DevOps, SRE and engineers see a cost estimate in pull requests **before making changes**.
+This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
 
 export const Grid = ({logos}) => {
     const items = logos.map((e, i) => {
@@ -61,10 +63,6 @@ export const CIBox = ({image, link, maxHeight, newWindow}) => (
       link: "/docs/integrations/terraform_cloud_enterprise/"
     },
     {
-      image: "/img/services/docker.png",
-      link: "/docs/integrations/docker_images/"
-    },
-    {
       image: "/img/services/jenkins.svg",
       link: "https://github.com/infracost/infracost-jenkins/",
       newWindow: true
@@ -80,11 +78,6 @@ export const CIBox = ({image, link, maxHeight, newWindow}) => (
       newWindow: true
     },
     {
-      image: "/img/services/slack.svg",
-      link: "/docs/integrations/slack",
-      maxHeight: "3rem"
-    },
-    {
       image: "/img/services/scalr.png",
       link: "https://docs.scalr.com/en/latest/cost_estimate.html",
       newWindow: true
@@ -92,7 +85,8 @@ export const CIBox = ({image, link, maxHeight, newWindow}) => (
     {
       image: "/img/services/env0.svg",
       link: "https://docs.env0.com/docs/cost-monitoring#cost-estimation",
-      newWindow: true
+      newWindow: true,
+      maxHeight: "1.2rem"
     },
     {
       image: "/img/services/spacelift.svg",
@@ -101,6 +95,23 @@ export const CIBox = ({image, link, maxHeight, newWindow}) => (
     },
 ]}/>
 
+<br/><br/>
+
+Screenshot of Infracost running in GitHub pull requests:
+
+<img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
+
 ### My CI/CD system isn't supported
 
-Please [create an issue](https://github.com/infracost/infracost/issues/new/choose); we'll try to prioritize it depending on the community feedback. There is already a request for [BuildKite](https://github.com/infracost/infracost/issues/499) and [Codefresh](https://github.com/infracost/infracost/issues/975). Please 👍 it if you'd like us to work on them sooner. You can also join our [community Slack channel](https://www.infracost.io/community-chat) if you like to work on an integration, the existing GitLab CI integration can act as a blueprint.
+Infracost can be used in any CI/CD system by:
+
+1. Using our CI [Docker images](https://hub.docker.com/r/infracost/infracost/tags):
+    - `infracost/infracost:ci-0.9` - **Recommended**. Use the latest 0.9.x version to pick up bug fixes and new resource costs.
+    - `infracost/infracost:ci-0.9.17` - Lock the version.
+    - `infracost/infracost:ci-latest` - Use the latest Infracost image. This might break when new minor or major versions are released.
+
+2. [Generate](/docs/troubleshooting/#2-generating-plan-json-files) Terraform plan JSON files from your projects.
+
+3. Run the [breakdown and comment commands](/docs/features/cli_commands/#comment-on-pull-requests) to generate a cost estimate and post a comment to GitHub, GitLab and Azure Repos or Bitbucket. You might also find the [environment variables](/docs/integrations/environment_variables) page useful.
+
+If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
