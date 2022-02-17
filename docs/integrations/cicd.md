@@ -11,7 +11,7 @@ Infracost CI/CD integrations can be used to automatically add a pull request com
 
 Infracost can be used in any CI/CD system using our CI [Docker images](https://hub.docker.com/r/infracost/infracost/tags):
 - `infracost/infracost:ci-0.9` - **Recommended**. Use the latest 0.9.x version to pick up bug fixes and new resource costs.
-- `infracost/infracost:ci-0.9.18` - Lock the version.
+- `infracost/infracost:ci-0.9.19` - Lock the version.
 - `infracost/infracost:ci-latest` - Use the latest Infracost image. This might break when new minor or major versions are released.
 
 Checkout the [CLI commands](/docs/features/cli_commands) page for details of how the CLI commands can be used in a composable way in any CI/CD system. You might also find the [environment variables](/docs/integrations/environment_variables) page useful.
