@@ -41,7 +41,7 @@ When using the `--usage-file` flag with the `breakdown` or `output` commands, co
 
 #### Fetch from CloudWatch
 
-We're experimenting with fetching the following usage file values from CloudWatch or other cloud APIs when `--sync-usage-file` is used (falling back to using 0). This enables you to quickly see what the last 30-day usage for those resources have been and adjust if needed. This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environmment variables.
+We're experimenting with fetching the following usage file values from CloudWatch or other cloud APIs when `--sync-usage-file` is used (falling back to using 0). This enables you to quickly see what the last 30-day usage for those resources have been and adjust if needed. This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
 
 Your AWS credentials need the following IAM permissions for this to work. These are likely to be already defined if you're using the same AWS credentials that you use for generating your Terraform plan JSON file. The following will be updated as we add support for more resources.
 
