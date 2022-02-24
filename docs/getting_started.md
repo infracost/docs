@@ -21,8 +21,9 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
     {label: 'macOS manual', value: 'macos-manual'},
     {label: 'Linux', value: 'linux'},
     {label: 'Docker', value: 'docker'},
-    {label: 'Windows', value: 'windows'}
-  ]}>
+    {label: 'Windows Chocolatey', value: 'windows-chocolatey'},
+    {label: 'Windows manual', value: 'windows-manual'}
+]}>
   <TabItem value="macos-homebrew">
 
   ```shell
@@ -67,7 +68,16 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ```
 
   </TabItem>
-  <TabItem value="windows">
+  <TabItem value="windows-chocolatey">
+
+  ```shell
+  choco install infracost
+
+  infracost --version # Should show v0.9.18
+  ```
+
+  </TabItem>
+  <TabItem value="windows-manual">
 
   Download and unzip the [latest release](https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.tar.gz). Run it from the Command Prompt or Powershell using `.\infracost.exe` alongside other required commands/flags. You should also move the exe file to a folder that is in your `PATH` [environment variable](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows), e.g. `C:\Windows`.
 
