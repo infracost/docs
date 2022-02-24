@@ -95,7 +95,7 @@ No. The Infracost CLI parses the Terraform plan JSON file to find [cost-related 
 
 ### Do you sell my data?
 
-No. Infracost is backed by top-tier investors including Y Combinator and Sequoia. In the future we intend on making money by developing an [enterprise product](/pricing). For more information about how we handle data see our [Privacy Policy](/privacy).
+No. Infracost is backed by top-tier investors including Y Combinator and Sequoia. In the future we intend on making money by developing an [enterprise product](/pricing). For more information about how we handle data see our [Privacy Policy](/docs/privacy-policy).
 
 ## Features
 
