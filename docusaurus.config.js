@@ -106,7 +106,8 @@ module.exports = {
       anonymizeIP: true,
     },
     algolia: {
-      apiKey: 'eda298ffac1d3706d1c694cc83eff045',
+      appId: 'ERN68FLCI1',
+      apiKey: 'e62759e664aae55a8bfef8e93ecf6111',
       indexName: 'infracost',
       contextualSearch: false,
       searchParameters: {
