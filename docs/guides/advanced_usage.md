@@ -49,10 +49,3 @@ Infracost can parse the Terraform HCL code directly without having to generate a
     --terraform-var "my_var=value" \       # Set a value for one of the input variables, similar to Terraform's -var flag
     --terraform-var "my_other_var=value"   # You can use the --terraform-var-file and --terraform-var flags multiple times
   ```
-
-
-My worry with the March plan so far is there's little engineering work:
-
-* We can do some things for security, but it might be worth waiting for Tony to have a look first which isn't going to happen until early March.
-* The Policy v2 stuff and the HCL parsing stuff doesn't need much.
-* We can always do resource adding and tech debt to fill the gap if we have one.
