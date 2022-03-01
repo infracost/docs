@@ -28,7 +28,7 @@ The examples provide three key benefits:
 1. A smaller Docker image. The old images contained the Infracost CLI along with multiple versions of Terraform and Terragrunt. The `infracost:ci-*` Docker images only contains the Infracost CLI and additional scripts that are useful in CI environments. For running Terraform and Terragrunt commands, the examples use the HashiCorp or alpine images.
 2. Safe version upgrades: You can specify the Infracost Docker image tag to lock to specific Infracost versions, or ensure you are getting updated bug fixes and new resources. For example:
   - `infracost/infracost:ci-0.9` (recommended) - Always use the latest 0.9.x version to pick up bug fixes and new resources.
-  - `infracost/infracost:ci-0.9.18` - Lock the version.
+  - `infracost/infracost:ci-0.9.19` - Lock the version.
   - `infracost/infracost:ci-latest` - Always use the latest Infracost image. This might break when new minor or major versions are released.
 3. Easier debugging: The examples show how to generate the Terraform plan JSON files prior to running Infracost. This means that Infracost doesn't need to wrap the Terraform or Terragrunt binaries, so it's easy to debug any issues that are Terraform-related.
 
