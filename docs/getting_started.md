@@ -28,7 +28,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ```shell
   brew install infracost
 
-  infracost --version # Should show v0.9.19
+  infracost --version # Should show v0.9.20
   ```
 
   If the version is old, please run `brew update` then `brew upgrade infracost`.
@@ -47,7 +47,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ```shell
   choco install infracost
 
-  infracost --version # Should show v0.9.19
+  infracost --version # Should show v0.9.20
   ```
 
   If the version is old, please run `choco upgrade infracost`.
