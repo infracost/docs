@@ -47,6 +47,7 @@ This method of running Infracost is an order of magnitude faster than generating
 We need your help to make this experiment work! Please run this new method using the following command, compare the output with the existing method, and create [GitHub issues](https://github.com/infracost/infracost/issues) if you find discrepancies so we can investigate them:
 
   ```shell
+  # Works with v0.9.19+
   infracost breakdown --path=path/to/code --terraform-parse-hcl \
     --terraform-var-file="myvars.tfvars" \ # Load variables from provided files, similar to Terraform's -var-file flag
     --terraform-var "my_var=value" \       # Set a value for one of the input variables, similar to Terraform's -var flag
