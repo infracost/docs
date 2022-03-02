@@ -106,6 +106,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_apigatewayv2_route` |
 | `aws_apigatewayv2_stage` |
 | `aws_apigatewayv2_vpc_link` |
+| `aws_appautoscaling_policy` |
+| `aws_appautoscaling_scheduled_action` |
 | `aws_app_cookie_stickiness_policy` |
 | `aws_backup_global_settings` |
 | `aws_backup_plan` |
