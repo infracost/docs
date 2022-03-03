@@ -4,6 +4,8 @@ title: Add to CI/CD
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Use one of our many integrations so DevOps, SRE and engineers see a cost estimate in pull requests **before making changes**.
 This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
@@ -105,10 +107,30 @@ Screenshot of Infracost running in GitHub pull requests:
 
 Infracost can be used in any CI/CD system using the following steps. Our [GitLab CI integration](https://gitlab.com/infracost/infracost-gitlab-ci/) follows these steps and has many [examples](https://gitlab.com/infracost/infracost-gitlab-ci/#examples) that you might find useful.
 
-1. Using our CI [Docker images](https://hub.docker.com/r/infracost/infracost/tags):
-    - `infracost/infracost:ci-0.9` - **Recommended**. Use the latest 0.9.x version to pick up bug fixes and new resource costs.
-    - `infracost/infracost:ci-0.9.19` - Lock the version.
-    - `infracost/infracost:ci-latest` - Use the latest Infracost image. This might break when new minor or major versions are released.
+1. Use one of the following options to add the Infracost CLI into your CI/CD:
+
+    <Tabs
+      defaultValue="docker"
+      values={[
+        {label: 'Docker images', value: 'docker'},
+        {label: 'CLI executable', value: 'cli-executable'},
+    ]}>
+      <TabItem value="docker">
+
+      We maintain specific [CI Docker images](https://hub.docker.com/r/infracost/infracost/tags):
+      ```text
+      infracost/infracost:ci-0.9 - Recommended, use latest 0.9.x version to pick up bug fixes and new resource costs
+      infracost/infracost:ci-0.9.19 - Lock the version
+      infracost/infracost:ci-latest - Use latest Infracost image, might break when new minor/major versions are released
+      ```
+
+      </TabItem>
+      <TabItem value="cli-executable">
+
+      Use `curl -s -L https://infracost.io/downloads/v0.9/infracost-linux-amd64.tar.gz` to download the latest 0.9.x version to pick up bug fixes and new resource costs. You can also use lock the version using our [releases](https://github.com/infracost/infracost/releases), or use [latest](tps://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz), which might break when new minor/major versions are released.
+
+      </TabItem>
+    </Tabs>
 
 2. [Generate](/docs/troubleshooting/#2-generating-plan-json-files) Terraform plan JSON files from your projects.
 
