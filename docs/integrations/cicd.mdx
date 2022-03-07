@@ -134,6 +134,10 @@ Infracost can be used in any CI/CD system using the following steps. Our [GitLab
 
 2. [Generate](/docs/troubleshooting/#2-generating-plan-json-files) Terraform plan JSON files from your projects.
 
-3. Run the [breakdown and comment commands](/docs/features/cli_commands/#comment-on-pull-requests) to generate a cost estimate and post a comment to GitHub, GitLab and Azure Repos or Bitbucket. You might also find the [environment variables](/docs/integrations/environment_variables) page useful.
+3. If your infra code is in GitHub, GitLab and Azure Repos or Bitbucket, run the [breakdown and comment commands](/docs/features/cli_commands/#comment-on-pull-requests) to generate a cost estimate and post a comment directly.
+
+  Otherwise, run the [breakdown and output commands](/docs/features/cli_commands/#combined-output-formats) to save the comment markdown (e.g. using `--format github-comment`) and post it from your CI/CD system using curl or other command line tools.
+
+  You might also find the [environment variables](/docs/integrations/environment_variables) page useful.
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
