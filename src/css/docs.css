@@ -336,6 +336,18 @@ blockquote {
   cursor: pointer;
 }
 
+.img-box {
+  background-color: var(--nu40);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: var(--ifm-code-border-radius);
+}
+
+.img-box img {
+  border-radius: var(--ifm-code-border-radius);
+  box-shadow: 5px 5px 2px 0 var(--nu50);
+}
+
 
 @media (min-width: 769px) {
   .ci-grid {
