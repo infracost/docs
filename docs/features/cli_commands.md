@@ -284,6 +284,16 @@ infracost comment bitbucket --path infracost.json \
 - `--commit`: required to post on a pull request's commit, use `$HEAD_COMMIT`. Mutually exclusive with `--pull-request` flag, available only for Bitbucket Cloud.
 - `--bitbucket-token`: required. For Bitbucket Cloud provide `username:$BITBUCKET_TOKEN`, where the token can be a user or App password. For Bitbucket Server provide only an HTTP access token.
 
+### Including cost policies
+
+<div className="img-box">
+  <img
+      src={useBaseUrl("img/screenshots/policy-failure-github.png")}
+      alt="Example cost policy failing in GitHub Actions"/>
+</div>
+
+Use the `--policy-path` flag to specify one or more paths to policy files containing Infracost policy rules. Read more about [cost policies here](/docs/features/cost_policies/).
+
 ## Combined output formats
 
 The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-comment`. To use them:
