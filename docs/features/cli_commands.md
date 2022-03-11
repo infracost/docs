@@ -94,6 +94,14 @@ The following `--behavior` options are supported when posting cost estimate comm
   - `delete-and-new`: Delete previous comments and create a new one.
   - `new`: Create a new cost estimate comment on every push.
 
+The optional and experimental `--policy-path` flag can be used to setup [cost policies](/docs/features/cost_policies/), which can be used to setup passing/failing policies in Infracost pull request comments (shown below) without having to install anything else.
+
+<div className="img-box">
+  <img
+      src={useBaseUrl("img/screenshots/policy-failure-github.png")}
+      alt="Example cost policy failing in GitHub Actions"/>
+</div>
+
 ### GitHub
 
 Run `infracost comment github --help` to see the options. For example, GitHub Enterprise users can specify `--github-api-url` (e.g. in GitHub Actions you can set this to `$GITHUB_API_URL`). You might find the following common examples helpful.
@@ -113,6 +121,7 @@ infracost comment github --path infracost.json \
 - `--pull-request`: required to post on a pull request, can be extracted from workflows's event and set as an environment variable: `PR_NUMBER: ${{ github.event.number }}`. Mutually exclusive with the `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$GITHUB_SHA`. Mutually exclusive with `--pull-request` flag.
 - `--github-token`: required, use `$GITHUB_TOKEN`.
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 #### Azure Pipelines with GitHub
 
@@ -129,6 +138,7 @@ infracost comment github --path infracost.json \
 - `--pull-request`: required to post on a pull request, `$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER`. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$BUILD_SOURCEVERSION`. Mutually exclusive with `--pull-request` flag.
 - `--github-token`: required, use `$GITHUB_TOKEN`.
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 #### Atlantis with GitHub
 
@@ -145,6 +155,7 @@ infracost comment github --path infracost.json \
 - `--pull-request`: required to post on a pull request, use `$PULL_NUM`. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$HEAD_COMMIT`. Mutually exclusive with `--pull-request` flag.
 - `--github-token`: required, provide your GitHub token, for example, as an environment variable `$GITHUB_TOKEN`.
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 #### CircleCI with GitHub
 
@@ -161,6 +172,7 @@ infracost comment github --path infracost.json \
 - `--pull-request`: required to post on a pull request, use `${CIRCLE_PULL_REQUEST##*/}` to extract the pull request's number from its URL. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$CIRCLE_SHA1`. Mutually exclusive with `--pull-request` flag.
 - `--github-token`: required, provide your GitHub token, for example, as an environment variable `$GITHUB_TOKEN`.
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 ### GitLab
 
@@ -181,6 +193,7 @@ infracost comment gitlab --path infracost.json \
 - `--merge-request`: required to post on a merge request, use `$CI_MERGE_REQUEST_IID`. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a merge request's commit, use `$CI_COMMIT_SHA`. Mutually exclusive with `--merge-request` flag.
 - `--gitlab-token`: required, use `$GITLAB_TOKEN`.
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 #### Atlantis with GitLab
 
@@ -197,6 +210,7 @@ infracost comment gitlab --path infracost.json \
 - `--merge-request`: required to post on a merge request, use `$PULL_NUM`. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a merge request's commit, use `$HEAD_COMMIT`. Mutually exclusive with `--merge-request` flag.
 - `--gitlab-token`: required, provide your GitLab token as an environment variable, for example as `$GITLAB_TOKEN`.
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 ### Azure Repos
 
@@ -216,6 +230,7 @@ infracost comment azure-repos --path infracost.json \
 - `--repo-url`: required, use `$BUILD_REPOSITORY_URI` predefined environment variable.
 - `--pull-request`: required to post on a pull request, `$SYSTEM_PULLREQUEST_PULLREQUESTID`.
 - `--azure-access-token`: required, use `$SYSTEM_ACCESSTOKEN`.
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 #### Atlantis with Azure Repos
 
@@ -231,6 +246,7 @@ infracost comment azure-repos --path infracost.json \
 - `--repo-url`: required, provide your repo's URL as an environment variable, for example as `$AZURE_REPO_URL`.
 - `--pull-request`: required to post on a pull request, use `$PULL_NUM`.
 - `--azure-access-token`: required, provide your Azure DevOps access token, for example, as an environment variable `$AZURE_ACCESS_TOKEN`.
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 ### Bitbucket
 
@@ -251,6 +267,7 @@ infracost comment bitbucket --path infracost.json \
 - `--pull-request`: required to post on a pull request, use `$BITBUCKET_PR_ID`. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$BITBUCKET_COMMIT`. Mutually exclusive with `--pull-request` flag, available only for Bitbucket Cloud.
 - `--bitbucket-token`: required. For Bitbucket Cloud provide `username:$BITBUCKET_TOKEN`, where the token can be a user or App password. For Bitbucket Server provide only an HTTP access token.
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 #### CircleCI with Bitbucket
 
@@ -267,6 +284,7 @@ infracost comment bitbucket --path infracost.json \
 - `--pull-request`: required to post on a pull request, use `${CIRCLE_PULL_REQUEST##*/}` to extract the pull request's number from its URL. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$CIRCLE_SHA1`. Mutually exclusive with `--pull-request` flag, available only for Bitbucket Cloud.
 - `--bitbucket-token`: required. For Bitbucket Cloud provide `username:$BITBUCKET_TOKEN`, where the token can be a user or App password. For Bitbucket Server provide only an HTTP access token.
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 #### Atlantis with Bitbucket
 
@@ -283,41 +301,39 @@ infracost comment bitbucket --path infracost.json \
 - `--pull-request`: required to post on a pull request, use `$PULL_NUM`. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$HEAD_COMMIT`. Mutually exclusive with `--pull-request` flag, available only for Bitbucket Cloud.
 - `--bitbucket-token`: required. For Bitbucket Cloud provide `username:$BITBUCKET_TOKEN`, where the token can be a user or App password. For Bitbucket Server provide only an HTTP access token.
-
-### Including cost policies
-
-<div className="img-box">
-  <img
-      src={useBaseUrl("img/screenshots/policy-failure-github.png")}
-      alt="Example cost policy failing in GitHub Actions"/>
-</div>
-
-Use the `--policy-path` flag to specify one or more paths to policy files containing Infracost policy rules. Read more about [cost policies here](/docs/features/cost_policies/).
+- `--policy-path`: Path to Infracost policy files, glob patterns need quotes (experimental).
 
 ## Combined output formats
 
-The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-comment`. To use them:
+The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-message`. To use them:
 
-1. Generate Infracost JSON output for each Terraform project:
+1. Generate Infracost JSON output for each Terraform project and combine them into one file. This is the recommended way to store the snapshot of a cost estimate; it can be used by the CLI to generate other formats. The JSON format can also be used to setup [cost policies](/docs/features/cost_policies/).
   ```sh
   infracost breakdown --path tf-plan-1.json --format json --out-file infracost-1.json
   infracost breakdown --path tf-plan-2.json --format json --out-file infracost-2.json
+
+  # Combine above Infracost JSON files, glob patterns need quotes
+  infracost output --path "infracost-*.json" --format json --out-file infracost.json    
   ```
 
-2. Use the `infracost output` command to generate a combined cost estimate in the required format:
+2. Use the `infracost output` command to generate different formats, for example:
 
   ```sh
-  # Merge above Infracost JSON files, glob patterns need quotes
-  infracost output --path "infracost-*.json" --format json --out-file infracost.json
-
-  # HTML output
-  infracost output --path infracost.json --format html --out-file report.html
+  # Slack output
+  infracost output --path infracost.json --format slack-message --out-file slack.md
 
   # Diff output
   infracost output --path infracost.json --format diff
+
+  # HTML output
+  infracost output --path infracost.json --format html --out-file report.html
   ```
 
-Run `infracost output --help` to see other options, such as `--fields` and `--show-skipped`. The above formats or reports can be used to integrate Infracost with other tools such as Open Policy Agent. These can also be uploaded to object storage such as AWS S3 or Google Cloud Storage and shared with others including team members or management. The HTML report also includes the file names and Terraform tags from the files that were used to generate it.
+  Cost estimates can be shared with others including team members or management using either:
+    - The [share reports](/docs/features/share_links/) feature (recommended).
+    - Generating the HTML format, uploading it to object storage such as AWS S3. This format also includes the file names and Terraform tags from the files that were used to generate it.
+
+Run `infracost output --help` to see other options, such as `--fields` and `--show-skipped`.
 
 ### Examples
 

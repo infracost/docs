@@ -92,14 +92,17 @@ Infracost does not make any changes to your Terraform state or cloud resources. 
 
 ```shell
 git clone https://github.com/infracost/example-terraform.git
+
 cd example-terraform/sample1
 
 # Play with main.tf and re-run to compare costs
 infracost breakdown --path .
 
-# Show diff of monthly costs, edit the yml file and re-run to compare costs
-infracost diff --path . --sync-usage-file --usage-file infracost-usage.yml
+# Show diff of monthly costs between current and planned state
+infracost diff --path .
 ```
+
+Infracost can also estimate [usage-based resources](/docs/features/usage_based_resources/) such as AWS S3 or Lambda.
 
 ### 4. Add to CI/CD
 [Use our CI/CD integrations](/docs/integrations/cicd) to add cost estimates to pull requests, it only takes 15 minutes. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
