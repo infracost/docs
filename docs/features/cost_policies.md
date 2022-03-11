@@ -128,7 +128,7 @@ To help you write cost policies we've created an [OPA playground](https://play.o
 
 Here is an end to end demo of the Infracost and Open Policy Agent integration:
 
-<iframe width="90%" height="450" src="https://www.youtube.com/embed/1rMIfebfd8M" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
+<iframe width="90%" height="450" src="https://www.youtube.com/embed/jFv9Gi_Vfyo" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
 
 ## Option 2: HashiCorp Sentinel
 
