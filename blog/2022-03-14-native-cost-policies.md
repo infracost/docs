@@ -16,7 +16,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <!--truncate-->
 
-I love cost policies! They give engineering teams confidence to **ship fast** without slowing down to check thingsgi manually, for example:
+I love cost policies! They give engineering teams confidence to **ship fast** without slowing down to check things manually, for example:
 - *Am I within the cloud budget?* Instead of asking management or FinOps about the budget for a product/project, we can code that in a policy file and check it automatically in CI/CD. If the budget is already set in cloud accounts, we can fetch/check it dynamically before deploying changes.
 - *Am I making any mistakes?* Many users have told us about cases when they saw an unexpected cost estimate when using Infracost. There are 3 million price points between AWS, Azure and Google; it's easy to make mistakes with this amount of complexity. Policies enable you to write <span style={{color: 'green'}}><strong>pass</strong></span> or <span style={{color: 'red'}}><strong>fail</strong></span> checks and catch mistakes in the development workflow: the earlier we catch mistakes, the easier they are to fix.
 
