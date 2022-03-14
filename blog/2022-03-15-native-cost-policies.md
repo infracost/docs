@@ -17,15 +17,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <!--truncate-->
 
 I love shipping fast! And to ship fast, as engineers we usually automate things: 
-- unit tests quickly tell me if me if my change broke something.
-- linters quickly tell me about obvious errors and coding standard mishaps.
+- unit tests quickly tell me if my change broke something.
+- linting tools quickly tell me about obvious errors and coding standard mishaps.
 - security scanning tools quickly tell me if there are potential issues in my code.
 
 The key benefit of these guardrails is that they **fit into my workflow and tell me something I didn't know**. And I like that because the earlier I know about issues, the easier they are to fix.
 
 Cost policies enable you to do the same with cloud costs; engineering teams need confidence to **ship fast** without slowing down to check things manually, for example:
-- *Am I within the cloud budget?* Instead of asking management or FinOps about the budget for a product/project, we can code that in a policy file and check it automatically in CI/CD. If the budget is already set in cloud accounts, we can fetch/check it dynamically before deploying changes.
 - *Am I making any mistakes?* Many users have told us about cases when they saw an unexpected cost estimate when using Infracost. There are 3 million price points between AWS, Azure and Google; it's easy to make mistakes with this amount of complexity. Just like unit tests, policies enable you to write your own <span style={{color: 'green'}}><strong>pass</strong></span> or <span style={{color: 'red'}}><strong>fail</strong></span> checks. For example, if a pull request increases the cost estimate by $1000, add a note so I review it in details; 80% of the time, this won't kick-in so I ship fast with confidence, I'm looking to flag that 20%.
+- *Am I within the cloud budget?* Instead of asking management or FinOps about the budget for a product/project, we can code that in a policy file and check it automatically in CI/CD. If the budget is already set in cloud accounts, we can fetch/check it dynamically before deploying changes.
 
   <img src={useBaseUrl("img/blog/native-cost-policies/giphy.gif")} alt="Ship fast!" width="600" height="300" />
 
