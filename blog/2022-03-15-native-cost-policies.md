@@ -1,11 +1,11 @@
 ---
 slug: native-cost-policies
-title: "Announcing cost policies inside pull request comments!"
+title: "New cost policies: catch mistakes and budget-breaking changes in CI"
 author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh
 author_image_url: /img/avatars/ali.jpg
 description: Build guardrails for engineering team with Infracost's native Open Policy Agent support.
-hide_table_of_contents: true 
+hide_table_of_contents: true
 image: img/blog/cloud-cost-policies/InfracostCloudCostPolicies.png
 date: "2022-03-15T00:00:00Z"
 ---
