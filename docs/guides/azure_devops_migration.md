@@ -15,20 +15,17 @@ If you encounter any issues while migrating, please join our [community Slack ch
 
 🚀 The new [Infracost Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=Infracost.infracost-tasks) provides a set of Azure Pipelines tasks offering a composable way of using Infracost in your pipeline. These JavaScript tasks simplify integrating Infracost into your Azure pipeline. In addition, we've added Azure specific output formats, a cost summary table, and different behaviors, so you can control when comments are posted.
 
-### Composable tasks
+### Infracost setup task
 
-The [Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=Infracost.infracost-tasks) contains two main tasks:
+The [Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=Infracost.infracost-tasks) includes a `InfracostSetup` that installs and makes available `infracost` CLI app in your pipeline.
 
-- InfracostSetup: install the Infracost CLI in your Azure pipeline.
-- InfracostComment: add comments to pull requests.
+We've complied an expansive list of [examples](https://github.com/infracost/infracost-azure-devops#examples) demonstrating how this task can be used in different pipelines.
 
-We've complied an expansive list of [examples](https://github.com/infracost/infracost-azure-devops#examples) demonstrating how these task can be used in different pipelines.
+Using this task has three key benefits:
 
-Composable tasks provide three key benefits:
-
-1. No need for a large setup steps: Installing the Infracost toolchain is now abstracted behind our nice new tasks, so there's no need for large "setup" steps that deal with pre-configuring Infracost dependencies.
+1. No need for a large setup steps: Installing the Infracost toolchain is now abstracted behind a single task, so there's no need for large "setup" steps that deal with pre-configuring Infracost dependencies.
 2. Safe version upgrades: The InfracostSetup task has a `version` field for the CLI, which supports [SemVer ranges](https://www.npmjs.com/package/semver#ranges). So instead of a [full version](https://github.com/infracost/infracost/releases) string, you can use `0.9.x`. This enables you to automatically get the latest backward-compatible changes in the 0.9 release (e.g. new resources/features and bug fixes) without worrying about CI/CD pipelines breaking.
-3. Versioning for the CI integration: Each Infracost task has a version, `InfracostSetup@0` & `InfracostComment@0`, which also supports Semver. So you can use `@0` to get backward-compatible updates for the extension (e.g. bug fixes).
+3. Versioning for the CI integration: the task itself has a version too, `InfracostSetup@0`, which also supports Semver. So you can use `@0` to get backward-compatible updates for the extension (e.g. bug fixes).
 
 ### CI-specific formats
 
@@ -40,7 +37,7 @@ As shown in the screenshot at the top of this page, comments now include a summa
 
 ### Comment behaviors
 
-The InfracostComment task includes a `behavior` and a `targetType` attributes.
+The `infracost comment` command supports a `behavior` and `pull-request`/`commit` flags.
 
 Behavior describes how and when comments should be posted; we support four options:
 - `update`: Create a single comment and update it on changes. This is the "quietest" option. For Azure DevOps Repos users, comments will simply be overwritten. GitHub users have additional UI that shows [what/when changed](https://docs.github.com/en/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment) when the comment is updated. Pull request followers will only be notified on the comment create (not updates), and the comment will stay at the same location in the comment history.
@@ -48,7 +45,7 @@ Behavior describes how and when comments should be posted; we support four optio
 - `hide-and-new`: Minimize previous cost estimate comments and create a new one. Pull request followers will be notified on each comment. This behavior is available only for GitHub.
 - `new`: Create a new cost estimate comment. Pull request followers will be notified on each comment.
 
-The `targetType` describes where the comment should be posted against, which can be either `pull-request` (default) or `commit`. `commit` is available only for GitHub.
+The `pull-request` flag expects a pull requests number where the comment should be posted against, `commit` expects a commit SHA to post a comment on a specific commit. `commit` is available only for GitHub.
 
 ## Migration guide
 
