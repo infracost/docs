@@ -28,10 +28,10 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ```shell
   brew install infracost
 
-  infracost --version # Should show v0.9.20
+  infracost --version
   ```
 
-  If the version is old, please run `brew update` then `brew upgrade infracost`.
+  To upgrade Infracost, run `brew update` then `brew upgrade infracost`.
 
   </TabItem>
   <TabItem value="macos-linux-manual">
