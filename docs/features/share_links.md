@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Cost estimates can be shared with other team members or management without having to manually upload files to object storage! See [this example](https://dashboard.infracost.io/share/deaczrvclzv9z8yf76dex0t4dpxx9buj).
 
-The Infracost dashboard is part of our hosted services and you can enable it by running the following command. Once enabled, the Infracost CLI sends its [JSON output](/docs/features/cli_commands/#examples) to the dashboard so it can generate unique share links. The Infracost JSON output does not contain any cloud credentials or secrets.
+The Infracost dashboard is part of our hosted services and you can enable it by running the following command. Once enabled, the Infracost CLI sends its [JSON output](/docs/features/cli_commands/#examples) to the dashboard so it can generate unique share links. Each link contains a unique token that is generated from your API key (similar idea to AWS S3's pre-authenticated links). The Infracost JSON output does not contain any cloud credentials or secrets.
 
 ```sh
 # in CLI:
