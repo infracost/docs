@@ -29,14 +29,14 @@ If your repo has **multiple Terraform projects or workspaces**, use an Infracost
 
 ### Option 1: Terraform directory
 
-This is the simplest way to run Infracost. As shown below, any required Terraform flags can be passed using `--terraform-plan-flags`. The `--terraform-workspace` flag can be used to define a workspace.
+This is the simplest way to run Infracost. As shown below, any required Terraform `init` and `plan` flags can be passed using `--terraform-init-flags` and `--terraform-plan-flags` respectively. The `--terraform-workspace` flag can be used to define a workspace.
 
 Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
 
   ```shell
-  infracost breakdown --path /code --terraform-plan-flags "-var-file=my.tfvars"
+  infracost breakdown --path /code --terraform-init-flags "-upgrade=true" --terraform-plan-flags "-var-file=my.tfvars"
 
-  infracost diff --path /code --terraform-plan-flags "-var-file=my.tfvars"
+  infracost diff --path /code --terraform-init-flags "-upgrade=true" --terraform-plan-flags "-var-file=my.tfvars"
   ```
 
 ### Option 2: Terraform plan JSON
