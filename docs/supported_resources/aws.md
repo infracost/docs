@@ -140,6 +140,7 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_config_remediation_configuration` |
 | `aws_customer_gateway` |
 | `aws_db_instance_role_association` |
+| `aws_db_option_group` |
 | `aws_db_parameter_group` |
 | `aws_db_subnet_group` |
 | `aws_default_network_acl` |
@@ -183,6 +184,7 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_ec2_transit_gateway` |
 | `aws_ecr_lifecycle_policy` |
 | `aws_ecr_repository_policy` |
+| `aws_ecs_account_setting_default` |
 | `aws_ecs_capacity_provider` |
 | `aws_ecs_cluster` |
 | `aws_ecs_task_definition` |
@@ -303,6 +305,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_security_group_rule` |
 | `aws_security_group` |
 | `aws_service_discovery_service` |
+| `aws_ses_domain_dkim` |
+| `aws_ses_domain_identity` |
 | `aws_sns_platform_application` |
 | `aws_sns_sms_preferences` |
 | `aws_sns_topic_policy` |
