@@ -97,6 +97,11 @@ No. The Infracost CLI parses the Terraform plan JSON file to find [cost-related 
 
 No. Infracost is backed by top-tier investors including Y Combinator and Sequoia. In the future we intend on making money by developing an [enterprise product](/pricing). For more information about how we handle data see our [Privacy Policy](/docs/privacy-policy).
 
+
+### How should I report a security vulnerability?
+
+If you believe you have found a vulnerability within Infracost, please let us know right away. Follow the process [outlined here](https://github.com/infracost/infracost/blob/master/SECURITY.md).
+
 ## Features
 
 ### What's the difference between Infracost and Terraform Cloud's cost estimation?
