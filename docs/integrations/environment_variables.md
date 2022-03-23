@@ -6,7 +6,7 @@ title: Environment variables
 The Infracost CLI uses a number of environment variables to customize various aspects of its behavior; these can be particularly useful in [CI/CD integrations](/docs/integrations/cicd). Configuration values are chosen in this order:
 1. CLI flags (run `infracost --help` to see them)
 2. Environment variables
-3. [Config file](/docs/multi_project/config_file)
+3. [Config file](/docs/features/config_file)
 
 ### INFRACOST_API_KEY
 Infracost API key, run `infracost register` to get one.
@@ -53,7 +53,7 @@ Used to change the path to the `terraform` binary, e.g.:
   ```
 
 ### INFRACOST_PARALLELISM
-If using multiple projects using a [config_file](/docs/multi_project/config_file) this limits the number of projects processed in parallel. By default the parallelization level is set to 4×CPU count but capped at 16. To help with debugging set this to `1` so that the projects are processed synchronously.
+If using multiple projects using a [config_file](/docs/features/config_file) this limits the number of projects processed in parallel. By default the parallelization level is set to 4×CPU count but capped at 16. To help with debugging set this to `1` so that the projects are processed synchronously.
 
 #### CI/CD integrations
 
