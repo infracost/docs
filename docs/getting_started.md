@@ -36,10 +36,32 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   </TabItem>
   <TabItem value="macos-linux-manual">
 
+  The easiest way is to use the following install script:
+
   ```shell
   # Downloads the CLI based on your OS/arch and puts it in /usr/local/bin
   curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
   ```
+
+  Or you can install it manually.
+
+  Download an archive with the latest version for your platform from the [release page](https://github.com/infracost/infracost/releases/latest). Unarchive and copy it to one of the directories in your `$PATH` (we'll use `/usr/local/bin`):
+
+  ```shell
+  tar xzf infracost-linux-amd64.tar.gz -C /tmp
+  mv /tmp/infracost-linux-amd64 /usr/local/bin/infracost
+  ```
+
+  Check that it works correctly:
+
+  ```shell
+  infracost --version
+  ```
+
+  You can use the same steps for upgrade. If you prefer compiling from source
+  code, you can follow [these instructions](https://github.com/infracost/infracost/blob/master/CONTRIBUTING.md#install) in the CLI repository.
+
+  The uninstall instructions can be found in [our FAQ](/docs/faq/#how-can-i-uninstall-infracost).
 
   </TabItem>
   <TabItem value="windows-chocolatey">

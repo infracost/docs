@@ -3,6 +3,9 @@ slug: /faq
 title: FAQ
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## How does Infracost work?
 
 Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd).
@@ -132,6 +135,38 @@ infracost configure set currency CURRENCY_CODE
 ```
 
 The environment variable `INFRACOST_CURRENCY` can be used to set the currency in CI/CD pipelines. Cloud vendors usually publish prices in USD so the costs will be converted from USD to your preferred currency using the current exchange rate when the CLI is run.
+
+### How can I uninstall Infracost?
+
+<Tabs
+  defaultValue="macos-homebrew"
+  values={[
+    {label: 'macOS brew', value: 'macos-homebrew'},
+    {label: 'macOS/Linux manual', value: 'macos-linux-manual'},
+    {label: 'Windows chocolatey', value: 'windows-chocolatey'},
+]}>
+  <TabItem value="macos-homebrew">
+
+  ```shell
+  brew uninstall infracost
+  ```
+
+  </TabItem>
+  <TabItem value="macos-linux-manual">
+
+  ```shell
+  rm -rf /usr/local/bin/infracost
+  ```
+
+  </TabItem>
+  <TabItem value="windows-chocolatey">
+
+  ```shell
+  choco uninstall infracost
+  ```
+
+  </TabItem>
+</Tabs>
 
 ### Do you offer support?
 
