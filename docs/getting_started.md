@@ -80,31 +80,63 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
 </Tabs>
 
 ### 2. Get API key
-Register for a free API key, which is used by the CLI to retrieve prices from our Cloud Pricing API, e.g. get prices for instance types. No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API and you can also [self-host](/docs/cloud_pricing_api/self_hosted/) it.
+Register for a free API key, which is used by the CLI to retrieve prices from our Cloud Pricing API, e.g. get prices for instance types.
+
+:::note
+
+No cloud credentials or secrets are [sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to the API and you can also [self-host](/docs/cloud_pricing_api/self_hosted/) it.
+
+:::
+
 ```shell
 infracost register
 ```
 
 The key can be retrieved with `infracost configure get api_key`.
 
-### 3. Run it
-Infracost does not make any changes to your Terraform state or cloud resources. Run Infracost using our example Terraform project to see how it works. The [CLI commands](/docs/features/cli_commands/) page describes the options for `--path`, which can point to a Terraform directory or plan JSON file.
+
+
+### 3. Test it
+Run Infracost using our example Terraform project to see how it works.  
 
 ```shell
 git clone https://github.com/infracost/example-terraform.git
 
 cd example-terraform/sample1
 
-# Play with main.tf and re-run to compare costs
-infracost breakdown --path .
+# Show diff of monthly costs between current and planned state.  Since 
+# the example terraform has not been applied, the baseline is $0.00.
+infracost diff --path .
+
+```
+
+Next, modify the terraform configuration (`sample1/main.tf`) by changing the instance type to **m5.8xlarge**.  Run `infracost diff --path .` to see the change in cost.
+
+:::tip
+
+Infracost can also estimate [usage-based resources](/docs/features/usage_based_resources/) such as AWS S3 or Lambda.
+
+:::
+
+### 4. Try it
+
+Navigate to your own terraform project, make some changes and run infracost to see the cost impact.  The [CLI commands](/docs/features/cli_commands/) page describes the options for `--path`, which can point to a Terraform directory or plan JSON file.
+
+:::info
+
+Infracost does not make any changes to your Terraform state or cloud resources.  The Terraform plan is processed locally to determine resource types and quantities needed to estimate costs.
+
+:::
+
+
+```shell
+cd path/to/my_terraform_project
 
 # Show diff of monthly costs between current and planned state
 infracost diff --path .
 ```
 
-Infracost can also estimate [usage-based resources](/docs/features/usage_based_resources/) such as AWS S3 or Lambda.
-
-### 4. Add to CI/CD
+### 5. Add to CI/CD
 [Use our CI/CD integrations](/docs/integrations/cicd) to add cost estimates to pull requests, it only takes 15 minutes. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
