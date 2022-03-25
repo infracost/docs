@@ -35,10 +35,24 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   </TabItem>
   <TabItem value="macos-linux-manual">
 
+  The easiest way is to use our install script:
   ```shell
   # Downloads the CLI based on your OS/arch and puts it in /usr/local/bin
   curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
   ```
+
+  Or you can install it manually:
+  1. Download the archive for your platform from our [releases](https://github.com/infracost/infracost/releases/latest).
+  2. Unarchive and copy it to one of the directories in your `$PATH`, e.g. `/usr/local/bin`:
+    ```shell
+    tar xzf infracost-linux-amd64.tar.gz -C /tmp
+    mv /tmp/infracost-linux-amd64 /usr/local/bin/infracost
+    ```
+  3. Check that it works correctly:
+    ```shell
+    infracost --version
+    ```
+
 
   </TabItem>
   <TabItem value="windows-chocolatey">
@@ -121,7 +135,7 @@ Infracost can also:
 Navigate to your own Terraform project, make some changes and run Infracost to see the cost impact. The [CLI commands](/docs/features/cli_commands/) page describes the options for `--path`, which can point to a Terraform directory or plan JSON file.
 
 :::note
-Infracost does not make any changes to your Terraform state or cloud resources.  The Terraform plan is processed locally to determine resource types and quantities needed to estimate costs.
+Infracost does not make any changes to your Terraform state or cloud resources.  The Terraform plan is parsed locally to determine resource types and quantities needed to estimate costs.
 :::
 
 ```shell

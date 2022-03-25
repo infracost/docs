@@ -69,6 +69,7 @@ module.exports = {
         'guides/v0.9_migration',
         `guides/advanced_usage`,
         'guides/terraform_modules',
+        'guides/uninstall',
       ],
     },
     {
