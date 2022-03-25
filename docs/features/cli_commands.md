@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Infracost has multiple commands, all of which support `--help`:
 - Basic commands:
-  - `infracost breakdown`: Show full breakdown of costs
+  - `infracost breakdown`: Show breakdown of costs
   - `infracost diff`: Show diff of monthly costs between current and planned state
 
 - The following commands work with the Infracost JSON output, which is generated via `infracost breakdown --format json`: 

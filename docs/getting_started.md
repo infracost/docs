@@ -162,6 +162,6 @@ Show `diff` of monthly costs between current and planned state:
 
 <img src={useBaseUrl("img/screenshots/diff-screenshot.png")} alt="Infracost diff command" width="600" />
 
-Show full `breakdown` of costs; see the [CLI commands](/docs/features/cli_commands/) page for other options:
+Show `breakdown` of costs; see the [CLI commands](/docs/features/cli_commands/) page for other options:
 
 <img src={useBaseUrl("img/screenshots/breakdown-screenshot.png")} alt="Infracost breakdown command" width="600"/>
