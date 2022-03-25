@@ -19,6 +19,7 @@ module.exports = {
         'features/share_links',
         'features/cost_policies',
         'features/terragrunt',
+        'features/environment_variables',
       ],
     },
     {
@@ -32,7 +33,6 @@ module.exports = {
         'integrations/azure_pipelines',
         'integrations/terraform_cloud_enterprise',
         'integrations/slack',
-        'integrations/environment_variables',
         'integrations/infracost_api',
       ],
     },

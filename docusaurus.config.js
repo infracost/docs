@@ -29,8 +29,8 @@ module.exports = {
             to: '/docs/integrations/github_actions',
           },
           {
-            from: '/docs/environment_variables',
-            to: '/docs/integrations/environment_variables',
+            from: ['/docs/environment_variables', '/docs/integrations/environment_variables'],
+            to: '/docs/features/environment_variables',
           },
           {
             from: '/docs/infracost_api',

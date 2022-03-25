@@ -31,9 +31,9 @@ If you have any feedback about how we should support multiple usage files with T
 
 ## CI/CD
 
-The [infracost/infracost Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the [latest stable version](/docs/integrations/environment_variables#cicd-integrations) of Terragrunt.
+The [infracost/infracost Docker image](https://hub.docker.com/repository/docker/infracost/infracost) ([Dockerfile](https://github.com/infracost/infracost/blob/master/Dockerfile)) has the [latest stable version](/docs/features/environment_variables#cicd-integrations) of Terragrunt.
 
-By default, that Dockerfile uses Terraform 0.15.5, but you can set the environment variable `TERRAGRUNT_TFPATH` to any of the [supported versions](/docs/integrations/environment_variables#cicd-integrations) so Terragrunt uses that version, e.g. `TERRAGRUNT_TFPATH=terraform_1.0`.
+By default, that Dockerfile uses Terraform 0.15.5, but you can set the environment variable `TERRAGRUNT_TFPATH` to any of the [supported versions](/docs/features/environment_variables#cicd-integrations) so Terragrunt uses that version, e.g. `TERRAGRUNT_TFPATH=terraform_1.0`.
 
 ## How the Terragrunt integration works
 
