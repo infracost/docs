@@ -118,7 +118,7 @@ cd example-terraform/sample1
 infracost diff --path .
 
 # Next, update the Terraform code by changing the instance type to m5.8xlarge.
-vi sample1/main.tf
+vi main.tf
 
 # Re-run diff, notice how expensive that instance type is? Costing over $1100/month! 
 infracost diff --path .
@@ -139,6 +139,7 @@ Infracost does not make any changes to your Terraform state or cloud resources. 
 :::
 
 ```shell
+# Make some changes to your Terraform project
 cd path/to/my_terraform_project
 
 # Show diff of monthly costs between current and planned state
