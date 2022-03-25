@@ -1,6 +1,6 @@
 ---
 slug: /
-title: Getting started
+title: Get started
 description: Get started with Infracost in your Terraform workflow, integrate it into your CI pipeline and view cost estimates for your AWS/Azure/Google infrastructure.
 ---
 
@@ -154,14 +154,14 @@ If you run into any issues, please join our [community Slack channel](https://ww
 
 ### Screenshots
 
-Infracost running in pull requests:
+Post cost estimates in pull requests:
 
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
-
-Show full `breakdown` of costs, see the [CLI commands page](/docs/features/cli_commands/) for the other commands.
-
-<img src={useBaseUrl("img/screenshots/breakdown-screenshot.png")} alt="Infracost breakdown command" width="600"/>
 
 Show `diff` of monthly costs between current and planned state:
 
 <img src={useBaseUrl("img/screenshots/diff-screenshot.png")} alt="Infracost diff command" width="600" />
+
+Show full `breakdown` of costs; see the [CLI commands](/docs/features/cli_commands/) page for other options:
+
+<img src={useBaseUrl("img/screenshots/breakdown-screenshot.png")} alt="Infracost breakdown command" width="600"/>
