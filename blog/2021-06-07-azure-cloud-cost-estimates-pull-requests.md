@@ -34,7 +34,7 @@ We are on a mission to empower engineering teams to use cloud infrastructure eco
 
 Today we are announcing that in addition to AWS and Google Cloud Platform, we have added support for Microsoft Azure. Not only has Azure support been requested by over 60 of our community members ([https://github.com/infracost/infracost/issues/64](https://github.com/infracost/infracost/issues/64)), but we have seen a lot of growth from Microsoft in terms of the number of resources offered and enterprise adoption.
 
-We have added support for over [65 Azure resources](https://www.infracost.io/docs/supported_resources#microsoft-azure) (and another 70 resources which are free), with many more planned. Visit [our GitHub issues page](https://github.com/infracost/infracost/issues) and put a thumbs up on the resources you'd like covered and we will prioritize them.
+We have added support for over [65 Azure resources](https://www.infracost.io/docs/supported_resources/azure) (and another 70 resources which are free), with many more planned. Visit [our GitHub issues page](https://github.com/infracost/infracost/issues) and put a thumbs up on the resources you'd like covered and we will prioritize them.
 
 But there is one more thing! We have also added support for Microsoft Azure DevOps Pipelines. This is in addition to our current supported CI/CD integrations such as GitHub Actions, GitLab CI, CircleCI, Bitbucket Pipelines, Atlantis and Jenkins.
 

@@ -10,7 +10,7 @@ An Infracost config file can be created in each of your Terraform repos to speci
 1. Not having to remember or specify flags for each run. Just run `infracost breakdown --config-file infracost.yml` instead.
 2. Ability to run Infracost with multiple Terraform projects or workspaces, and combine them into the same breakdown or diff output.
 3. Enable multi-project or workspace runs in [CI/CD integrations](/docs/integrations/cicd).
-4. Enable multi-directory [Terragrunt projects](/docs/iac_tools/terragrunt).
+4. Enable multi-directory [Terragrunt projects](/docs/features/terragrunt).
 
 If you're looking to combine cost estimates from multiple runs (e.g. from a CI build matrix), see the [`infracost output`](/docs/features/cli_commands/#combined-output-formats) command's docs.
 
@@ -32,12 +32,12 @@ Infracost configuration values are chosen in this order:
       # other params
     - path: another/project
   ```
-2. Pass the file to the `infracost breakdown` or `infracost diff` using the `--config-file` option. This flag should not be confused with the `--usage-file` option that is used to define resource [usage](/docs/usage_based_resources) estimates.
+2. Pass the file to the `infracost breakdown` or `infracost diff` using the `--config-file` option. This flag should not be confused with the `--usage-file` option that is used to define resource [usage](/docs/features/usage_based_resources) estimates.
 
 | Parameter             | Description      | Notes |
 | ---                   | ---              | ---   |
 | `path`                  | Path to the Terraform directory or JSON/plan file. A path can be repeated with different parameters, e.g. for multiple workspaces. | Required |
-| `usage_file`          | Path to Infracost usage file that specifies values for [usage-based resources](/docs/usage_based_resources) | Not required |
+| `usage_file`          | Path to Infracost usage file that specifies values for [usage-based resources](/docs/features/usage_based_resources) | Not required |
 | `terraform_binary`      | Used to change the path to the `terraform` or `terragrunt` binary | Not required, e.g. can be set to `~/bin/terraform_0.13` or another path |
 | `terraform_plan_flags`  | Flags to pass to `terraform plan` with Terraform directory paths | Not required. Can be space delimited, e.g. `-var-file=prod.tfvars -var-file=us-east.tfvars` |
 | `terraform_workspace`   | Used to set the Terraform workspace | Not required. Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported" |

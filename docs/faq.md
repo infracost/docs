@@ -108,9 +108,9 @@ If you believe you have found a vulnerability within Infracost, please let us kn
 
 The key differences are:
 1. Infracost [supports over 230 resources](/docs/supported_resources/overview). Terraform Cloud supports 43 resources.
-2. Infracost can be used to model [usage-based resources](/docs/usage_based_resources) and do what-if analysis.
+2. Infracost can be used to model [usage-based resources](/docs/features/usage_based_resources) and do what-if analysis.
 3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of the source control and CI/CD system being used.
-4. Infracost can be used with [Terragrunt](/docs/iac_tools/terragrunt).
+4. Infracost can be used with [Terragrunt](/docs/features/terragrunt).
 5. Infracost can output JSON and be used to create [cost policies](/docs/features/cost_policies) with Open Policy Agent, Conftest and HashiCorp Sentinel.
 
 ### What Terraform versions are supported?
@@ -122,7 +122,7 @@ To change the path to the `terraform` binary, set the `INFRACOST_TERRAFORM_BINAR
 INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --path /path/to/code
 ```
 
-Terragrunt users should see [this page](/docs/iac_tools/terragrunt).
+Terragrunt users should see [this page](/docs/features/terragrunt).
 
 ### Can I show costs in a different currency?
 

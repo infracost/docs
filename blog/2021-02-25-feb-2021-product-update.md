@@ -53,7 +53,7 @@ We also shipped support for the following cloud resources:
 - **Google**: Key Management Service (KMS), Google Cloud Functions
 - **Azure**: great progress is being made, [stay tuned](https://github.com/infracost/infracost/issues/64) for exciting news soon
 
-The [usage file](/docs/usage_based_resources) params for Google Cloud Functions are pretty cool; as shown below you can define 3 simple params and we'll estimate the cost for you, no need for you to decode how function memory maps to GHz-seconds and rounding.
+The [usage file](/docs/features/usage_based_resources) params for Google Cloud Functions are pretty cool; as shown below you can define 3 simple params and we'll estimate the cost for you, no need for you to decode how function memory maps to GHz-seconds and rounding.
 
 ```yml
 google_cloudfunctions_function.my_function:
