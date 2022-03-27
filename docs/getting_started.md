@@ -132,7 +132,7 @@ Infracost can also:
 :::
 
 ### 4. Try it
-Navigate to your own Terraform project, make some changes and run Infracost to see the cost impact. The [CLI commands](/docs/features/cli_commands/) page describes the options for `--path`, which can point to a Terraform directory or plan JSON file.
+Navigate to your own Terraform project, make some changes and run Infracost to see the cost impact. The [CLI commands](/docs/features/cli_commands/#breakdown-and-diff) page describes the options for `--path`, which can point to a Terraform directory or plan JSON file.
 
 :::note
 Infracost does not make any changes to your Terraform state or cloud resources.  The Terraform plan is parsed locally to determine resource types and quantities needed to estimate costs.
