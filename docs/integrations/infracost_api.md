@@ -28,7 +28,7 @@ Send an HTTP POST to: https://pricing.api.infracost.io/breakdown
 | Parameter | Description | Notes |
 | ---       | ---         | ---   |
 | path | Terraform plan JSON file | Required. Use '@' to upload the file with curl, e.g. `-F "path=@plan.json"` |
-| usage-file | Infracost [usage file](/docs/usage_based_resources) that specifies values for usage-based resources | Not required. Use '@' to upload the file with curl, e.g. `-F "usage-file=@infracost-usage.yml"` |
+| usage-file | Infracost [usage file](/docs/features/usage_based_resources) that specifies values for usage-based resources | Not required. Use '@' to upload the file with curl, e.g. `-F "usage-file=@infracost-usage.yml"` |
 | show-skipped | Show unsupported resources. | Not required. Defaults to false |
 | no-color | Turn off colored output, useful for CI/CD users | Not required. Defaults to false |
 | format | Content type of the response | Not required.  Must be one of `table`, `html` or `json`.  Defaults to `table` |
@@ -336,7 +336,7 @@ Send an HTTP POST to: https://pricing.api.infracost.io/diff
 | Parameter | Description | Notes |
 | ---       | ---         | ---   |
 | path | Terraform plan JSON file | Required. Use '@' to upload the file with curl, e.g. `-F "path=@plan.json"` |
-| usage-file | Infracost [usage file](/docs/usage_based_resources) that specifies values for usage-based resources | Not required. Use '@' to upload the file with curl, e.g. `-F "usage-file=@infracost-usage.yml"` |
+| usage-file | Infracost [usage file](/docs/features/usage_based_resources) that specifies values for usage-based resources | Not required. Use '@' to upload the file with curl, e.g. `-F "usage-file=@infracost-usage.yml"` |
 | show-skipped | Show unsupported resources. | Not required. Defaults to false |
 | no-color | Turn off colored output, useful for CI/CD users | Not required. Defaults to false |
 

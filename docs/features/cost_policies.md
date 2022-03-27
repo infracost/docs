@@ -123,6 +123,7 @@ To help you write cost policies we've created an [OPA playground](https://play.o
   ```
 
 6. Breath easy... now your team's infrastructure changes are protected against costly mistakes 🚀
+  Contribute to [this GitHub issue](https://github.com/infracost/infracost/issues/1472) if you have feedback about the policy behaviors.
 
 ### Demo
 

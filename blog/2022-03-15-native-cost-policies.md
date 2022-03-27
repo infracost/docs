@@ -39,6 +39,6 @@ Back in January [we announced](/blog/cloud-cost-policies/) integration with vari
 
 Today we're excited to release Infracost [v0.9.20](/docs/#1-install-infracost) that includes native integration with OPA! You can now evaluate cost policies written in OPA's policy language (Rego) directly through the Infracost CLI, and see the output inside pull request comments.
 
-Check out the following video for a guided tour of this new feature and read [our docs](/docs/features/cost_policies/) to get started.
+Check out the following video for a guided tour of this new feature and read [our docs](/docs/features/cost_policies/) to get started. Contribute to [this GitHub issue](https://github.com/infracost/infracost/issues/1472) if you have feedback about the policy behaviors.
 
 <iframe width="90%" height="350" src="https://www.youtube.com/embed/jFv9Gi_Vfyo" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>

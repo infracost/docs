@@ -19,7 +19,7 @@ A great way to help the end user optimize cloud costs before the showback/charge
 ![Self Service Portal](/img/blog/show-costs-in-self-service-portals/self-service-portal.png)
 
 #### 1. Show costs in your self service portal to the end user
-The first step is to show cost estimates in your self service portal. If you are using Terraform to launch resources, this is easy to do by integrating with Infracost. Read our [API documentation](https://www.infracost.io/docs/infracost_api) for more information. Infracost is free and open source.
+The first step is to show cost estimates in your self service portal. If you are using Terraform to launch resources, this is easy to do by integrating with Infracost. Read our [API documentation](https://www.infracost.io/docs/integrations/infracost_api) for more information. Infracost is free and open source.
 
 #### 2. Set expectations in management and finance
 The next step is to set expectations by giving visibility of the cost estimates to management and finance. You can use our [HTML output reports](https://www.infracost.io/blog/terraform-cloud-costs-directly-from-pull-request-to-management) to achieve this.

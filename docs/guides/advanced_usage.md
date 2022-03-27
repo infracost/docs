@@ -3,7 +3,7 @@ slug: advanced_usage
 title: Advanced usage
 ---
 
-The following advanced usage methods can be used in addition to the usage methods mentioned in the [Getting started](/docs/#usage) page. These methods can also be used via an Infracost [config file](/docs/multi_project/config_file).
+The following advanced usage methods can be used in addition to the usage methods mentioned in the [Getting started](/docs/#usage) page. These methods can also be used via an Infracost [config file](/docs/features/config_file).
 
 ## Terraform plan file
 

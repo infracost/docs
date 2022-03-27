@@ -23,7 +23,7 @@ A highly requested feature was the ability to see the difference in cost between
 
 ### ⚙️ Automated usage-based resource definitions
 
-Usage-based resources, such as AWS Lambda or Google Cloud Storage, require estimated usage data so Infracost can show costs in the output. You can define these in a YAML file, called a [usage file](/docs/usage_based_resources), and use that to get cost estimates for such resources.
+Usage-based resources, such as AWS Lambda or Google Cloud Storage, require estimated usage data so Infracost can show costs in the output. You can define these in a YAML file, called a [usage file](/docs/features/usage_based_resources), and use that to get cost estimates for such resources.
 
 Previously you had to create this file manually. You can now use the `--sync-usage-file` option to generate a new usage file or update an existing one from your Terraform project. This option is a **safe** sync: it adds any missing resources (with zeros for the usage estimates), it does not overwrite any lines that you have changed in the YAML, and it deletes any resources that are not used in the Terraform project.
 
