@@ -20,11 +20,10 @@ function Footer() {
           <div className="section">
             <h4>Community</h4>
             <ul>
-              <li><a href="https://www.infracost.io/community-chat" target="_blank">Slack</a></li>
+              <li><a href="https://community-chat.infracost.io" target="_blank">Slack</a></li>
               <li><a href="https://github.com/infracost/infracost" target="_blank">GitHub</a></li>
-              <li><a href="https://github.com/infracost/infracost/projects/2" target="_blank">Roadmap</a></li>
-              <li><a href="https://github.com/infracost/infracost/blob/master/CONTRIBUTING.md" target="_blank">Contribute</a></li>
               <li><a href="https://github.com/infracost/infracost/issues" target="_blank">Issues</a></li>
+              <li><a href="https://github.com/infracost/infracost/#community-and-contributing" target="_blank">Contribute</a></li>
             </ul>
           </div>
           <div className="section company">
