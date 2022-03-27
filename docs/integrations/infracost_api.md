@@ -17,7 +17,7 @@ To use this API, send an HTTP POST request to desired endpoint (e.g. https://pri
 
 ## Breakdown
 
-Show full breakdown of costs.
+Show breakdown of costs.
 
 Send an HTTP POST to: https://pricing.api.infracost.io/breakdown
 

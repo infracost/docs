@@ -51,6 +51,7 @@ There are Terraform resources that Infracost supports, and AWS charges for.
 | Managed Workflows for Apache Airflow                                   | `aws_mwaa_environment`                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | MQ                                                                     | `aws_mq_broker`                                                                                                                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Neptune                                                                | `aws_neptune_cluster`, `aws_neptune_cluster_instance`, `aws_neptune_cluster_snapshot`                                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Network Firewall                                                       | `aws_networkfirewall_firewall`                                                                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Redshift                                                               | `aws_redshift_cluster`                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Relational Database Service (RDS)                                      | `aws_rds_cluster`, `aws_db_instance`, `aws_rds_cluster_instance`                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Route 53                                                               | `aws_route53_record`, `aws_route53_zone`, `aws_route53_resolver_endpoint`, `aws_route53_health_check`                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -139,6 +140,7 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_config_remediation_configuration` |
 | `aws_customer_gateway` |
 | `aws_db_instance_role_association` |
+| `aws_db_option_group` |
 | `aws_db_parameter_group` |
 | `aws_db_subnet_group` |
 | `aws_default_network_acl` |
@@ -182,6 +184,7 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_ec2_transit_gateway` |
 | `aws_ecr_lifecycle_policy` |
 | `aws_ecr_repository_policy` |
+| `aws_ecs_account_setting_default` |
 | `aws_ecs_capacity_provider` |
 | `aws_ecs_cluster` |
 | `aws_ecs_task_definition` |
@@ -268,6 +271,9 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_network_interface_attachment` |
 | `aws_network_interface_sg_attachment` |
 | `aws_network_interface` |
+| `aws_networkfirewall_rule_group` |
+| `aws_networkfirewall_firewall_policy` |
+| `aws_networkfirewall_logging_configuration` |
 | `aws_ram_principal_association` |
 | `aws_ram_resource_association` |
 | `aws_ram_resource_share_accepter` |
@@ -299,6 +305,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_security_group_rule` |
 | `aws_security_group` |
 | `aws_service_discovery_service` |
+| `aws_ses_domain_dkim` |
+| `aws_ses_domain_identity` |
 | `aws_sns_platform_application` |
 | `aws_sns_sms_preferences` |
 | `aws_sns_topic_policy` |
