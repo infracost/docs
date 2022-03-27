@@ -158,7 +158,7 @@ module.exports = {
           items: [
             {
               label: 'Slack',
-              href: 'https://www.infracost.io/community-chat',
+              href: 'https://community-chat.infracost.io',
             },
             {
               label: 'GitHub',
