@@ -212,6 +212,7 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_ssh_public_key` |
 | `azurerm_storage_account_network_rules` |
 | `azurerm_storage_blob_inventory_policy` |
+| `azurerm_storage_container` |
 | `azurerm_storage_data_lake_gen2_filesystem` |
 | `azurerm_storage_management_policy` |
 | `azurerm_storage_table_entity` |
