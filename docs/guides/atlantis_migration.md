@@ -21,8 +21,8 @@ We've also updated our [`infracost/infracost-atlantis`](https://github.com/infra
 
 We provide pre-built Docker images that extend the official Atlantis image and include Infracost. We maintain tags for the latest two 0.x versions of Atlantis:
 
+* `infracost/infracost-atlantis:atlantis0.19-infracost0.9` latest patch version of Atlantis v0.19 and Infracost v0.9
 * `infracost/infracost-atlantis:atlantis0.18-infracost0.9` latest patch version of Atlantis v0.18 and Infracost v0.9
-* `infracost/infracost-atlantis:atlantis0.17-infracost0.9` latest patch version of Atlantis v0.17 and Infracost v0.9
 * `infracost/infracost-atlantis:latest` latest versions of Atlantis and Infracost
 
 If you already use a custom Docker image for Atlantis, copy the top RUN command from [this Dockerfile](https://github.com/infracost/infracost-atlantis/blob/master/Dockerfile) into your Dockerfile.
@@ -44,12 +44,12 @@ The `infracost comment` command has a `behavior` flag, which can be used to desc
 ## Migration guide
 
 1. If you're already using one of the `infracost-atlantis` Docker images, we recommend you lock-down your deployment to one of the following tags so you get the latest backward-compatible patch upgrades without worrying about your deployment breaking:
+    * `infracost/infracost-atlantis:atlantis0.19-infracost0.9` latest patch version of Atlantis v0.19 and Infracost v0.9
     * `infracost/infracost-atlantis:atlantis0.18-infracost0.9` latest patch version of Atlantis v0.18 and Infracost v0.9
-    * `infracost/infracost-atlantis:atlantis0.17-infracost0.9` latest patch version of Atlantis v0.17 and Infracost v0.9
 
 2. If you're already creating your own custom Docker image, you can edit your Dockerfile to remove `node`, `npm`, `compost` and the old `atlantis_diff.sh` bash script. So you only need this:
     ```Dockerfile
-    FROM ghcr.io/runatlantis/atlantis:v0.18.2
+    FROM ghcr.io/runatlantis/atlantis:v0.19.2
 
     # Install required packages and latest 0.9 version of Infracost
     RUN apk --update --no-cache add ca-certificates openssl openssh-client curl git jq
