@@ -80,6 +80,10 @@ module.exports = {
             from: '/docs/multi_project/report',
             to: '/docs/features/cli_commands',
           },
+          {
+            from: '/docs/guides/advanced_usage/#parsing-hcl-experimental',
+            to: '/docs/features/cli_commands/#option-3-parse-hcl-directly'
+          }
         ],
       },
     ],
