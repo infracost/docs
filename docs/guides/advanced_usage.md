@@ -38,18 +38,6 @@ The `infracost breakdown` command can be run against a Terraform state JSON file
   infracost breakdown --path tfstate.json
   ```
 
-## Parsing HCL (experimental)
+## Parse HCL directly
 
-Imagine you could add Infracost to [repo README files](https://github.com/infracost/infracost/issues/43), get cost estimates for Terraform modules **before** using them in your projects, and even see cost estimates in Visual Studio 🤯 That's why we're experimenting with parsing HCL directly, without relying on the Terraform binary, a plan JSON file or cloud credentials. Can you tell we have an [unhealthy obsession with cloud costs](https://www.youtube.com/watch?v=lefCU2ptsio)?
-
-This method of running Infracost is an order of magnitude faster than generating a plan JSON file, and it runs in the background alongside the existing method so we can compare their difference.
-
-We need your help to make this experiment work! Please run this new method using the following command, compare the output with the existing method, and create [GitHub issues](https://github.com/infracost/infracost/issues) if you find discrepancies so we can investigate them:
-
-  ```shell
-  # Works with v0.9.19+
-  infracost breakdown --path=path/to/code --terraform-parse-hcl \
-    --terraform-var-file="myvars.tfvars" \ # Load variables from provided files, similar to Terraform's -var-file flag
-    --terraform-var "my_var=value" \       # Set a value for one of the input variables, similar to Terraform's -var flag
-    --terraform-var "my_other_var=value"   # The --terraform-var-file and --terraform-var flags can be used multiple times
-  ```
+This docs section has moved [here](/docs/features/cli_commands/#option-3-parse-hcl-directly).

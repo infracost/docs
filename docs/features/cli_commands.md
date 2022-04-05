@@ -21,22 +21,22 @@ Infracost has multiple commands, all of which support `--help`:
   - `infracost register`: Register for a free Infracost API key
   - `infracost completion`: Generate shell completion script
 
-## Breakdown and diff
+## Breakdown
 
-Infracost `breakdown` and `diff` both have a `--path` flag, so you can point to either your Terraform directory, or plan JSON file.
+This command shows a breakdown of costs. You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag.
 
-If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown or diff output.
+If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown output.
 
 ### Option 1: Terraform directory
 
-This is the simplest way to run Infracost. As shown below, any required Terraform `init` and `plan` flags can be passed using `--terraform-init-flags` and `--terraform-plan-flags` respectively. The `--terraform-workspace` flag can be used to define a workspace.
+This is the simplest method to run `infracost breakdown`. Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
 
-Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
+Any required Terraform `init` and `plan` flags can be passed using `--terraform-init-flags` and `--terraform-plan-flags` respectively. The `--terraform-workspace` flag can be used to define a workspace.
 
   ```shell
-  infracost breakdown --path /code --terraform-init-flags "-upgrade=true" --terraform-plan-flags "-var-file=my.tfvars"
-
-  infracost diff --path /code --terraform-init-flags "-upgrade=true" --terraform-plan-flags "-var-file=my.tfvars"
+  infracost breakdown --path path/to/code \
+      --terraform-init-flags "-upgrade=true" \
+      --terraform-plan-flags "-var-file=my.tfvars"
   ```
 
 ### Option 2: Terraform plan JSON
@@ -50,17 +50,26 @@ If the above method does not work for your use-case, you can use Terraform to ge
   terraform show -json tfplan.binary > plan.json
 
   infracost breakdown --path plan.json
+  ```
 
-  infracost diff --path plan.json
+### Option 3: Parse HCL directly
+
+This method **does not require the Terraform binary** and is lightning fast. Internally Infracost parses the Terraform HCL directly and does not need cloud credentials. This makes it perfect for local development (it'll also be useful for CI/CD once we have a method to generate diffs too).
+
+  ```shell
+  infracost breakdown --path path/to/code \
+      --terraform-parse-hcl \
+      --terraform-var-file "my.tfvars" \
+      --terraform-var "my_var=value"
   ```
 
 See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
 
 ### Useful flags
 
-The breakdown and diff commands have many useful flags, run with `--help` to see them. For example, breakdown supports:
+The `breakdown` command has many useful flags, run it with `--help` to see them. For example, `breakdown` supports:
 
-  ```shell
+```shell
   --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
   --format               Output format: json, table, html (default "table")
   --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
@@ -73,7 +82,57 @@ The breakdown and diff commands have many useful flags, run with `--help` to see
   --out-file string      Save output to a file, helpful with format flag
   --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise, turns off spinners in output
   --no-color             Turn off colored output
-  ```
+```
+
+## Diff
+
+This command shows a diff of monthly costs between current and planned state. You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag.
+
+If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown output.
+
+### Option 1: Terraform directory
+
+This is the simplest way to run `infracost diff`. Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
+
+Any required Terraform `init` and `plan` flags can be passed using `--terraform-init-flags` and `--terraform-plan-flags` respectively. The `--terraform-workspace` flag can be used to define a workspace.
+
+```shell
+  infracost diff --path /code \
+      --terraform-init-flags "-upgrade=true" \
+      --terraform-plan-flags "-var-file=my.tfvars"
+```
+
+### Option 2: Terraform plan JSON
+
+If the above method does not work for your use-case, you can use Terraform to generate a plan JSON file (as shown below), and point Infracost to it using `--path`. In this case, cloud credentials are not needed by Infracost.
+
+```shell
+  cd path/to/code
+  terraform init
+  terraform plan -out tfplan.binary
+  terraform show -json tfplan.binary > plan.json
+  
+  infracost diff --path plan.json
+
+```
+
+See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
+
+### Useful flags
+
+The `diff` command has many useful flags, run with `--help` to see them. For example, `diff` supports:
+
+```shell
+  --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
+  --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
+  --usage-file           Path to Infracost usage file that specifies values for usage-based resources
+  --sync-usage-file      Sync usage-file with missing resources, needs usage-file too (experimental)
+  --show-skipped         Show unsupported resources
+  --no-cache             Don't attempt to cache Terraform plans
+  --out-file string      Save output to a file, helpful with format flag
+  --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise, turns off spinners in output
+  --no-color             Turn off colored output
+```
 
 ## Comment on pull requests
 
