@@ -37,3 +37,7 @@ The `infracost breakdown` command can be run against a Terraform state JSON file
 
   infracost breakdown --path tfstate.json
   ```
+
+## Parse HCL directly
+
+This docs section has moved [here](/docs/features/cli_commands/#option-3-parse-hcl-directly).

@@ -23,7 +23,7 @@ Infracost has multiple commands, all of which support `--help`:
 
 ## Breakdown
 
-You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag.
+This command shows a breakdown of costs. You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag.
 
 If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown output.
 
@@ -34,7 +34,9 @@ This is the simplest method to run `infracost breakdown`. Internally Infracost r
 Any required Terraform `init` and `plan` flags can be passed using `--terraform-init-flags` and `--terraform-plan-flags` respectively. The `--terraform-workspace` flag can be used to define a workspace.
 
   ```shell
-  infracost breakdown --path /code --terraform-init-flags "-upgrade=true" --terraform-plan-flags "-var-file=my.tfvars"
+  infracost breakdown --path path/to/code \
+      --terraform-init-flags "-upgrade=true" \
+      --terraform-plan-flags "-var-file=my.tfvars"
   ```
 
 ### Option 2: Terraform plan JSON
@@ -52,10 +54,13 @@ If the above method does not work for your use-case, you can use Terraform to ge
 
 ### Option 3: Parse HCL directly
 
-This method **does not require the Terraform binary** and is lightning fast. Internally Infracost parses the Terraform HCL directly and does not need cloud credentials. This makes it perfect for local development.
+This method **does not require the Terraform binary** and is lightning fast. Internally Infracost parses the Terraform HCL directly and does not need cloud credentials. This makes it perfect for local development (it'll also be useful for CI/CD once we have a method to generate diffs too).
 
   ```shell
-  infracost breakdown --path /code --terraform-parse-hcl --terraform-var-file "my.tfvars" --terraform-var "my_var=value"
+  infracost breakdown --path path/to/code \
+      --terraform-parse-hcl \
+      --terraform-var-file "my.tfvars" \
+      --terraform-var "my_var=value"
   ```
 
 See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
@@ -81,7 +86,7 @@ The `breakdown` command has many useful flags, run it with `--help` to see them.
 
 ## Diff
 
-You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag.
+This command shows a diff of monthly costs between current and planned state. You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag.
 
 If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown output.
 
@@ -92,7 +97,9 @@ This is the simplest way to run `infracost diff`. Internally Infracost runs Terr
 Any required Terraform `init` and `plan` flags can be passed using `--terraform-init-flags` and `--terraform-plan-flags` respectively. The `--terraform-workspace` flag can be used to define a workspace.
 
 ```shell
-  infracost diff --path /code --terraform-init-flags "-upgrade=true" --terraform-plan-flags "-var-file=my.tfvars"
+  infracost diff --path /code \
+      --terraform-init-flags "-upgrade=true" \
+      --terraform-plan-flags "-var-file=my.tfvars"
 ```
 
 ### Option 2: Terraform plan JSON
