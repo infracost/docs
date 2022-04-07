@@ -190,7 +190,7 @@ Use `ls -lah` in the CI build to check for any `.terraform*` files/folders that 
 ## 4. Combining plan JSON files
 
 Once you have multiple Terraform plan JSON files, you can
-1. run [`infracost breakdown`](/docs/features/cli_commands/#breakdown-and-diff) with `--path plan-1.json --format json --out-file infracost-1.json` to generate an Infracost JSON file for each.
+1. run [`infracost breakdown`](/docs/features/cli_commands/#breakdown) with `--path plan-1.json --format json --out-file infracost-1.json` to generate an Infracost JSON file for each.
 2. run [`infracost output`](/docs/features/cli_commands/#combined-output-formats) with `--path "infracost-*.json" --format diff` (glob patterns need quotes) to combine the Infracost JSON files into one output format. The `infracost output --help` command shows the other options.
 
 These steps are used by our [CI/CD integrations](/docs/#4-add-to-cicd) to post pull request comments.

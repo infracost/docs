@@ -105,7 +105,7 @@ infracost register
 
 The key can be retrieved with `infracost configure get api_key`.
 
-### 3. Test it
+### 3. Test with our example
 Run Infracost using our example Terraform project to see how it works.  
 
 ```shell
@@ -127,12 +127,12 @@ infracost diff --path .
 
 :::tip
 Infracost can also:
-- show a [breakdown](/docs/features/cli_commands/#breakdown-and-diff) of costs in addition to a diff
+- show a [breakdown](/docs/features/cli_commands/#diff) of costs in addition to a diff
 - estimate [usage-based resources](/docs/features/usage_based_resources/) such as AWS S3 or Lambda
 :::
 
-### 4. Try it
-Navigate to your own Terraform project, make some changes and run Infracost to see the cost impact. The [CLI commands](/docs/features/cli_commands/#breakdown-and-diff) page describes the options for `--path`, which can point to a Terraform directory or plan JSON file.
+### 4. Try on your project
+Navigate to your own Terraform project, make some changes and run Infracost to see the cost impact. The [CLI commands](/docs/features/cli_commands/#diff) page describes the options for `--path`, which can point to a Terraform directory or plan JSON file.
 
 :::note
 Infracost does not make any changes to your Terraform state or cloud resources.  The Terraform plan is parsed locally to determine resource types and quantities needed to estimate costs.
@@ -146,7 +146,7 @@ cd path/to/my_terraform_project
 infracost diff --path .
 ```
 
-### 5. Add to CI/CD
+### 5. Add to your CI/CD
 [Use our CI/CD integrations](/docs/integrations/cicd) to add cost estimates to pull requests, it only takes 15 minutes. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
