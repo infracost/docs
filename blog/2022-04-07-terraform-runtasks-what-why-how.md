@@ -12,7 +12,7 @@ date: "2022-04-07T00:00:00Z"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-In September 2021, Hahshicorp announced a beta feature called Terraform RunTasks. In this blog, I’d like to give the why, how and what of this feature as well as which tools currently work with it.
+In September 2021, Hashicorp announced a beta feature called Terraform RunTasks. In this blog, I’d like to give the why, how and what of this feature as well as which tools currently work with it.
 
 <a href="/blog/terraform-runtasks-what-why-how/"><img src={useBaseUrl("img/blog/terraform-runtasks/terraform-runtasks-partners.png")} alt="Hashicorp Terraform RunTasks: what, why, how and partners"/></a>
 
