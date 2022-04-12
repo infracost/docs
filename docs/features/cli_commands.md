@@ -63,6 +63,8 @@ This method **does not require the Terraform binary** and is lightning fast. Int
       --terraform-var "my_var=value"
   ```
 
+Usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform’s docs](https://www.terraform.io/language/modules/sources) for more information.
+
 See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
 
 ### Useful flags
