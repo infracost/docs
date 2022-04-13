@@ -86,7 +86,7 @@ deny[out] {
 
 To help you write cost policies we've created an [OPA playground](https://play.openpolicyagent.org/p/o1MLyC74CJ) with some example policy rules and Infracost output. Use this and the following steps to generate your very own policies.
 
-1. Generate a new Infracost [breakdown](/docs/features/cli_commands/#breakdown-and-diff) output using `infracost breakdown --path plan.json --format json --out-file infracost.json`, and paste the contents of `infracost.json` into the **INPUT** section to the right of the playground.
+1. Generate a new Infracost [breakdown](/docs/features/cli_commands/#breakdown) output using `infracost breakdown --path plan.json --format json --out-file infracost.json`, and paste the contents of `infracost.json` into the **INPUT** section to the right of the playground.
 
   <img src={useBaseUrl("img/screenshots/paste-output.png")}/>
 
