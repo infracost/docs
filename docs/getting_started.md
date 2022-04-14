@@ -108,21 +108,24 @@ The key can be retrieved with `infracost configure get api_key`.
 ### 3. Test with our example
 Run Infracost using our example Terraform project to see how it works.  
 
+
 ```shell
 git clone https://github.com/infracost/example-terraform.git
 
 cd example-terraform/sample1
 
-# Show diff of monthly costs between current and planned Terraform state.
-# Since this Terraform hasn't been applied, the baseline is $0 so the diff is $680.
-infracost diff --path .
+# Show diff of monthly costs between current and the base Infracost state.
+# Since this first time we've run Infracost, the baseline is $0 so the diff is $680.
+infracost diff --path . --terraform-parse-hcl
+
+# Generate an Infracost output JSON that represents a cost snapshot of the project.
+infracost breakdown --path . --format json --out-file infracost.json
 
 # Next, update the Terraform code by changing the instance type to m5.8xlarge.
 vi main.tf
 
-# Re-run diff, notice how expensive that instance type is? Costing over $1100/month! 
-infracost diff --path .
-
+# Run diff against the cost snapshot that we generated before the change.
+infracost diff --path . --terraform-parse-hcl --compare-to infracost.json
 ```
 
 :::tip

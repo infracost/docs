@@ -54,7 +54,7 @@ If the above method does not work for your use-case, you can use Terraform to ge
 
 ### Option 3: Parse HCL directly
 
-This method **does not require the Terraform binary** and is lightning fast. Internally Infracost parses the Terraform HCL directly and does not need cloud credentials. This makes it perfect for local development (it'll also be useful for CI/CD once we have a method to generate diffs too).
+This method **does not require the Terraform binary** and is lightning fast. Internally Infracost parses the Terraform HCL directly and does not need cloud credentials.
 
   ```shell
   infracost breakdown --path path/to/code \
@@ -74,6 +74,7 @@ The `breakdown` command has many useful flags, run it with `--help` to see them.
 ```shell
   --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
   --format               Output format: json, table, html (default "table")
+  --compare-to           Path to Infracost output JSON file to compare against
   --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
   --usage-file           Path to Infracost usage file that specifies values for usage-based resources
   --sync-usage-file      Sync usage-file with missing resources, needs usage-file too (experimental)
@@ -118,6 +119,29 @@ If the above method does not work for your use-case, you can use Terraform to ge
 
 ```
 
+
+### Option 3: Parse HCL directly
+
+This method **does not require the Terraform binary** and is lightning fast. Internally Infracost parses the Terraform HCL directly and does not need cloud credentials.
+
+```shell
+  # Generate a Infracost output JSON that represents a cost snapshot of your project.
+  infracost breakdown --path path/to/code \
+      --terraform-parse-hcl \
+      --terraform-var-file "my.tfvars" \
+      --terraform-var "my_var=value" \
+      --format json \
+      --out-file infracost.json
+
+  # Make a change to your project, e.g:
+  vim main.tf
+
+  # Compare the differences against the cost snapshot we generated before the change.
+  infracost diff --path . --terraform-parse-hcl --compare-to infracost.json
+```
+
+Usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
+
 See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
 
 ### Useful flags
@@ -126,6 +150,7 @@ The `diff` command has many useful flags, run with `--help` to see them. For exa
 
 ```shell
   --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
+  --compare-to           Path to Infracost output JSON file to compare against
   --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
   --usage-file           Path to Infracost usage file that specifies values for usage-based resources
   --sync-usage-file      Sync usage-file with missing resources, needs usage-file too (experimental)
