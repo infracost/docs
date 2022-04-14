@@ -37,10 +37,13 @@ By default, that Dockerfile uses Terraform 0.15.5, but you can set the environme
 
 ## How the Terragrunt integration works
 
+When the CLI's `--path` flag points to a Terragrunt directory:
 1. Infracost detects a Terragrunt project by checking for a Terragrunt config file in the specified path, which will be `terragunt.hcl`, `terragrunt.hcl.json` or the value of the `TERRAGRUNT_CONFIG` environment variable. If Infracost does not detect your project as a Terragrunt project, make sure this file exists in the specified path or in any of the subdirectories with a depth less than 5.
 2. If Terragrunt is detected Infracost runs `terragrunt run-all plan -out <tmpfile>` against the directory to generate plan files for **all** projects. We use the `--terragrunt-ignore-external-dependencies` flag to limit the cost estimate to only include infrastructure defined in the current directory.
 3. Infracost loops through all the Terragrunt modules and runs `terragrunt show <tmpfile>` for each. This currently does not use the `terragrunt run-all` functionality since it's not possible to match the output from that to a specific module.
 4. Infracost outputs a diff or breakdown for each Terragrunt module.
+
+Please create a [GitHub issue](https://github.com/infracost/infracost/issues/new) if the above approach does not work for your use-case, and in the meantime use [this bash script](/docs/troubleshooting/#terragrunt) to customize the behavior required in your CI/CD integration.
 
 ## Migrating from pre v0.9.7 Infracost CLI
 

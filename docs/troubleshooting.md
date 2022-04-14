@@ -135,7 +135,7 @@ rm plan.json
 
 ### Terragrunt
 
-Terragrunt does not provide a quick way of creating a Terraform plan JSON file for the whole project, thus the following bash script is needed:
+If the built-in [CLI integration with Terragrunt](/docs/features/terragrunt/#how-the-terragrunt-integration-works) does not work for your use-case, we recommend using/customizing the following bash script. This is required as Terragrunt does not provide a quick way of creating a Terraform plan JSON file for the whole project.
 
 ```bash
 # Path to Terraform code
