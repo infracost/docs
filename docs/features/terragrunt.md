@@ -42,6 +42,10 @@ By default, that Dockerfile uses Terraform 0.15.5, but you can set the environme
 3. Infracost loops through all the Terragrunt modules and runs `terragrunt show <tmpfile>` for each. This currently does not use the `terragrunt run-all` functionality since it's not possible to match the output from that to a specific module.
 4. Infracost outputs a diff or breakdown for each Terragrunt module.
 
+To improve performance and eliminate dependencies on the Terragrunt and Terraform binaries, Infracost will directly parse HCL when the `--terraform-parse-hcl` 
+flag is set.  Instead of running `terragrunt run-all plan ...`, Infracost will download any required source files to an `.infracost` 
+cache, detect Terragrunt defined inputs, then [parse the Terraform HCL directly](/docs/features/cli_commands/#option-3-parse-hcl-directly).
+
 ## Migrating from pre v0.9.7 Infracost CLI
 
 Pre v0.9.7 Infracost did not have native support for Terragrunt. Old configurations will still work, but can now be simplified.
