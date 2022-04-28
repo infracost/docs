@@ -748,3 +748,5 @@ infracost output --path infracost-last-week.json \
     --compare-to infracost-today.json \
     --format diff
 ```
+
+As a workaround to compare runs across different projects, edit the Infracost JSON files' `projects.name` manually so they match, and run the `infracost output` command as shown above.
