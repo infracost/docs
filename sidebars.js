@@ -67,6 +67,7 @@ module.exports = {
         'guides/azure_devops_migration',
         'guides/v0.8_migration',
         'guides/v0.9_migration',
+        'guides/v0.10_migration',
         `guides/advanced_usage`,
         'guides/terraform_modules',
         'guides/uninstall',
