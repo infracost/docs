@@ -84,7 +84,7 @@ rm $planjsons
 
 ### Terraform Cloud
 
-When Terraform Cloud's [remote execution mode](https://www.terraform.io/cloud-docs/workspaces/settings#execution-mode) is used, the Terraform CLI doesn't allow you to save the plan output directly. Thus the following bash script is needed to fetch the plan JSON from Terraform Cloud:
+When Terraform Cloud/Enterprise's [remote execution mode](https://www.terraform.io/cloud-docs/workspaces/settings#execution-mode) is used, the Terraform CLI doesn't allow you to save the plan output directly. Thus the following bash script is needed to fetch the plan JSON from Terraform Cloud:
 
 ```bash
 # Path to Terraform code
