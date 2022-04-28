@@ -34,14 +34,19 @@ Infracost is a [verified](https://www.hashicorp.com/partners/tech/infracost) Ter
 
 ## Terraform Enterprise
 
-When running Infracost locally or in CI/CD systems, you should set **both** of the following environment variables. These environment variables can also be set in the [config file](/docs/features/config_file).
+Run Tasks are not yet available in Terraform Enterprise, so when running Infracost locally or in CI/CD systems, you should set **both** of the following environment variables. This enables the Infracost CLI to fetch the Terraform plan JSON from the Terraform Enterprise APIs. These environment variables can also be set in the [config file](/docs/features/config_file).
 1. `INFRACOST_TERRAFORM_CLOUD_TOKEN` to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html).
 2. `INFRACOST_TERRAFORM_CLOUD_HOST` to your backend host, this overrides the default `app.terraform.io` value.
 
 ## Running Infracost on local dev machines
 If you are using Terraform Cloud, or Terraform workspaces, and you'd like to run Infracost locally on your dev machine, please follow the below instructions.
 
-#### Terraform workspaces
+#### With Terraform Cloud
+If you are a Terraform Cloud user, when running Infracost locally on your dev machine, you should **either**:
+1. Set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html). This environment variable can also be set in the [config file](/docs/features/config_file).
+2. Set the Terraform environment variable [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) to the absolute path of your Terraform CLI config file.
+
+#### With Terraform workspaces
 
 Terraform Cloud and Enterprise users who use multiple Terraform workspaces, can use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown or diff output.
 
@@ -50,8 +55,3 @@ If you'd like to select one workspace, you can do so by **either**:
 2. setting the `INFRACOST_TERRAFORM_WORKSPACE` environment variable (this sets the [`TF_WORKSPACE`](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_workspace) internally).
 
 Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported". If you see this error, try running `unset INFRACOST_TERRAFORM_WORKSPACE` and `unset TF_WORKSPACE`.
-
-#### Terraform Cloud
-If you are a Terraform Cloud user, when running Infracost locally on your dev machine, you should **either**:
-1. Set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html). This environment variable can also be set in the [config file](/docs/features/config_file).
-2. Set the Terraform environment variable [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) to the absolute path of your Terraform CLI config file.
