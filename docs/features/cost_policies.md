@@ -20,7 +20,7 @@ Infracost is often used in addition to budget alerts and cost management reports
 
 ## Usage options
 
-Infracost supports [Open Policy Agent](#quick-start-open-policy-agent-opa) policies out of the box. If you're new to policy-as-code, we recommend this option as Infracost has native support for it. However, since the Infracost CLI can [output JSON](/docs/features/cli_commands/#examples), it can also be integrated with [HashiCorp Sentinel](#quick-start-hashicorp-sentinel) and other policy checking tools such as [Conftest](https://github.com/open-policy-agent/conftest/).
+Infracost supports [Open Policy Agent](#quick-start-open-policy-agent-opa) policies out of the box. If you're new to policy-as-code, we recommend this option as Infracost has native support for it. However, since the Infracost CLI can [output JSON](/docs/features/cli_commands/#examples), it can also be integrated with [HashiCorp Sentinel](#option-2-hashicorp-sentinel) and other policy checking tools such as [Conftest](https://github.com/open-policy-agent/conftest/).
 
 If you need help writing policy code, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 

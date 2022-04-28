@@ -113,21 +113,19 @@ git clone https://github.com/infracost/example-terraform.git
 
 cd example-terraform/sample1
 
-# Show diff of monthly costs between current and planned Terraform state.
-# Since this Terraform hasn't been applied, the baseline is $0 so the diff is $680.
-infracost diff --path .
+# Generate JSON file from an Infracost run
+infracost breakdown --path . --terraform-parse-hcl --format json --out-file infracost-run.json
 
-# Next, update the Terraform code by changing the instance type to m5.8xlarge.
-vi main.tf
+# Update the Terraform code by changing the instance type to m5.8xlarge
+vim main.tf
 
-# Re-run diff, notice how expensive that instance type is? Costing over $1100/month! 
-infracost diff --path .
-
+# Show cost estimate diff
+infracost diff --path . --terraform-parse-hcl --compare-to infracost-run.json
 ```
 
 :::tip
 Infracost can also:
-- show a [breakdown](/docs/features/cli_commands/#diff) of costs in addition to a diff
+- show a [breakdown](/docs/features/cli_commands/#breakdown) of costs in addition to a diff
 - estimate [usage-based resources](/docs/features/usage_based_resources/) such as AWS S3 or Lambda
 :::
 
@@ -135,15 +133,20 @@ Infracost can also:
 Navigate to your own Terraform project, make some changes and run Infracost to see the cost impact. The [CLI commands](/docs/features/cli_commands/#diff) page describes the options for `--path`, which can point to a Terraform directory or plan JSON file.
 
 :::note
-Infracost does not make any changes to your Terraform state or cloud resources.  The Terraform plan is parsed locally to determine resource types and quantities needed to estimate costs.
+Infracost does not make any changes to your Terraform state or cloud resources. The Terraform project is parsed locally to determine resource types and quantities needed to estimate costs.
 :::
 
 ```shell
-# Make some changes to your Terraform project
 cd path/to/my_terraform_project
 
-# Show diff of monthly costs between current and planned state
-infracost diff --path .
+# Generate JSON file from an Infracost run
+infracost breakdown --path . --terraform-parse-hcl --format json --out-file infracost-run.json
+
+# Make some changes to your Terraform project
+vim main.tf
+
+# Show cost estimate diff
+infracost diff --path . --terraform-parse-hcl --compare-to infracost-run.json
 ```
 
 ### 5. Add to your CI/CD
