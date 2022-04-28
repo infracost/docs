@@ -19,7 +19,7 @@ Infracost can be run against a Terraform plan file. This implies that you have a
   infracost diff --path tfplan.binary
   ```
 
-## Use Terraform state
+## Terraform invoker - state only
 
 The `infracost breakdown` command has a `--terraform-use-state` flag that is useful if you want to see the cost breakdown of the current Terraform state. This implies that you have already run Terraform `apply`, thus Infracost just runs Terraform `show`, which does not require cloud credentials or `--terraform-plan-flags` to be set.
 
