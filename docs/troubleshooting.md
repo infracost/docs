@@ -144,7 +144,7 @@ TF_ROOT=path/to/code
 cd $TF_ROOT
 
 # Generate plan JSON files for all Terragrunt modules and add them to an Infracost config file
-terragrunt run-all plan -out tfplan.binary
+terragrunt run-all --terragrunt-ignore-external-dependencies plan -out tfplan.binary
 
 # Find the plan files
 plans=($(find . -name tfplan.binary))
