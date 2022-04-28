@@ -103,7 +103,7 @@ function Home() {
       <div className="supported-services">
         <div className="container">
           <ul>
-            <li><img src="/img/services/terraform.svg" alt="HashiCorp Terraform logo"/></li>
+            <li><img src="/img/services/hashicorp.svg" alt="HashiCorp logo"/></li>
             <li><img src="/img/services/aws.svg" alt="Amazon Web Services logo"/></li>
             <li><img src="/img/services/azure.svg" alt="Microsoft Azure logo"/></li>
             <li><img src="/img/services/google-cloud.svg" alt="Google Cloud logo"/></li>
@@ -112,6 +112,7 @@ function Home() {
             <li><img src="/img/services/circleci.svg" alt="CircleCI logo"/></li>
             <li><img src="/img/services/bitbucket.svg" alt="Bitbucket logo"/></li>
             <li><img src="/img/services/jenkins.svg" alt="Jenkins logo"/></li>
+            <li><img src="/img/services/terraform.svg" alt="HashiCorp Terraform logo"/></li>
           </ul>
         </div>
       </div>
