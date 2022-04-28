@@ -5,11 +5,106 @@ title: GitHub Actions migration
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Follow this page to migrate from our old [infracost-gh-actions](https://github.com/infracost/infracost-gh-action) repo to our new [actions](https://github.com/infracost/actions/) repo. The infracost-gh-actions repo will be deprecated in the next Infracost release.
-
-If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+Follow this page to migrate your [Infracost GitHub actions](https://github.com/infracost/actions) from V1 to V2. If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Cost estimate comment for multiple projects" />
+
+## What's new?
+
+The V1 actions used v0.9.x of the Infracost CLI, whereas V2 actions use v0.10.x, which parses Terraform HCL by default. This has three main benefits:
+1. Cost estimates can be generated without generating a Terraform plan. This removes our dependency on the Terraform binary - the Infracost CLI is now lightning-fast 🚀
+2. Since a Terraform plan is not needed, cloud credentials and Terraform secrets are also not required.
+3. Different Infracost runs can now be compared using a new `--compare-to` flag.
+
+## Migration guide
+
+Changing your workflow to work with the prase HCL option requires the following changes:
+
+1. You can remove any mention of `hashicorp/setup-terraform` or `autero1/action-terragrunt@` actions. These are no longer required 🎉
+2. You'll need to generate an Infracost JSON file from the target branch that the pull request references (e.g. main/master). This is required as the parse HCL option needs an Infracost run to compare against. Otherwise, your cost estimates will just show a 100% increase from a starting value of $0. You'll want to add the following to the top of your workflow:
+
+    ```yaml
+    - name: Checkout target branch
+      uses: actions/checkout@v2
+      with:
+        ref: '${{ github.event.pull_request.base.ref }}'
+
+    - name: Generate Infracost JSON from target branch
+      run: |
+        infracost breakdown --path path/to/your/terraform \
+                            --format json \
+                            --out-file /tmp/prior.json
+    ```
+
+3. Use the above Infracost JSON to compare against the Infracost run in your pull request. Make sure that you switch your git branch back to one that holds the pull request changes:
+
+    ```yml
+    - name: Checkout PR branch
+      uses: actions/checkout@v2
+
+    - name: Run Infracost
+      run: |
+        infracost breakdown --path path/to/your/terraform \
+                            --format json \
+                            --compare-to /tmp/prior.json \ # point this to the JSON output we generated in step 2
+                            --out-file /tmp/infracost.json
+    ```
+
+If we put this all together in a working example, it would look like this:
+
+```yml
+name: Terraform directory
+on: [pull_request]
+
+jobs:
+  terraform-directory:
+    name: Terraform directory
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout target branch
+        uses: actions/checkout@v2
+        with:
+          ref: '${{ github.event.pull_request.base.ref }}'
+
+      - name: Setup Infracost
+        uses: infracost/actions/setup@v1
+        with:
+          api-key: ${{ secrets.INFRACOST_API_KEY }}
+
+      - name: Generate Infracost JSON from target branch
+        run: |
+          infracost breakdown --path path/to/your/terraform \
+                              --format json \
+                              --out-file /tmp/prior.json
+
+      - name: Checkout PR branch
+        uses: actions/checkout@v2
+
+      - name: Run Infracost
+        run: |
+          infracost breakdown --path path/to/your/terraform \
+                              --format json \
+                              --compare-to /tmp/prior.json \
+                              --out-file /tmp/infracost.json
+
+      - name: Post Infracost comment
+        run: |
+          infracost comment github --path /tmp/infracost.json \
+                                   --repo $GITHUB_REPOSITORY \
+                                   --github-token ${{github.token}} \
+                                   --pull-request ${{github.event.pull_request.number}} \
+                                   --behavior update
+```
+
+We've updated [all our examples](https://github.com/infracost/actions/#examples) to use the new parsing HCL option. You can find one that is the closest to your use-case and adapt as required.
+
+<details>
+  <summary>Migrating from infracost/infracost-gh-actions (legacy) to infracost/actions</summary>
+
+Follow this page to migrate from our old [infracost-gh-actions](https://github.com/infracost/infracost-gh-action) repo to our new [actions](https://github.com/infracost/actions/) repo. The infracost-gh-actions is deprecated.
+
+If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
 ## What's new?
 
@@ -50,22 +145,7 @@ The `target-type` describes where the comment should be posted against, which ca
 
 1. Follow the [Quick start guide](https://github.com/infracost/actions/#quick-start) to see how the actions can be used together with `setup-terraform`.
 
-2. Find [an example](https://github.com/infracost/actions/#examples) that is the closest to your use-case and adapt the example as required. We have developed examples for:
-
-    - Terraform directory: a Terraform directory containing HCL code
-    - Terraform plan JSON: a Terraform plan JSON file
-    - Terragrunt: a Terragrunt project
-    - Terraform Cloud/Enterprise: a Terraform project using Terraform Cloud/Enterprise
-    - Multi-project using config file: multiple Terraform projects using the Infracost config file
-    - Multi-project using build matrix: multiple Terraform projects using GitHub Actions build matrix
-    - Multi-Terraform workspace: multiple Terraform workspaces using the Infracost config file
-    - Private Terraform module: a Terraform project using a private Terraform module
-
-    And cost policy examples:
-
-    - Thresholds: only post a comment when cost thresholds are exceeded
-    - Conftest: check Infracost cost estimates against policies using Conftest
-    - OPA: check Infracost cost estimates against policies using Open Policy Agent
-    - Sentinel: check Infracost cost estimates against policies using Hashicorp's Sentinel 
+2. Find [an example](https://github.com/infracost/actions/#examples) that is the closest to your use-case and adapt the example as required.
 
 If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+</details>
