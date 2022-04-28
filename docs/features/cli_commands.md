@@ -23,21 +23,45 @@ Infracost has multiple commands, all of which support `--help`:
 
 ## Breakdown
 
-This command shows a breakdown of costs. You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag.
+This command shows a breakdown of costs, but can also be used to generate Infracost JSON output. You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag. See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
 
 If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown output.
 
-### Option 1: Terraform directory
+### Option 1: Terraform dir (parse HCL)
 
-This is the simplest method to run `infracost breakdown`. Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
-
-Any required Terraform `init` and `plan` flags can be passed using `--terraform-init-flags` and `--terraform-plan-flags` respectively. The `--terraform-workspace` flag can be used to define a workspace.
+This method **does not** require the Terraform plan or the binary and is lightning fast. Internally Infracost parses the Terraform HCL directly and does not need cloud credentials.
 
   ```shell
   infracost breakdown --path path/to/code \
-      --terraform-init-flags "-upgrade=true" \
-      --terraform-plan-flags "-var-file=my.tfvars"
+      --terraform-parse-hcl \
+      --terraform-var-file "my.tfvars" \
+      --terraform-var "my_var=value"
   ```
+
+Usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
+
+See the following example to generate an Infracost JSON file that represents the changes between the two runs. This file can be stored as a CI artifact, or passed to the [`infracost comment`](#comment-on-pull-requests) command.
+
+<details><summary>Example to generate Infracost JSON file</summary>
+
+  ```shell
+  cd path/to/code
+
+  # Generate an Infracost JSON file for the run
+  git checkout main
+  infracost breakdown --path . --terraform-parse-hcl --format json --out-file infracost-main.json
+
+  # Checkout the feature branch for your infrastructure changes
+  git checkout mybranch
+
+  # Generate an Infracost JSON file that represents changes between the two runs (e.g. to store in CI or pass to `infracost comment`)
+  infracost breakdown --path . \
+      --terraform-parse-hcl \
+      --format json \
+      --compare-to infracost-main.json \
+      --out-file infracost-pull-request-123.json
+  ```
+</details>
 
 ### Option 2: Terraform plan JSON
 
@@ -52,50 +76,64 @@ If the above method does not work for your use-case, you can use Terraform to ge
   infracost breakdown --path plan.json
   ```
 
-### Option 3: Parse HCL directly
+### Option 3: Terraform dir (invoke terraform)
 
-This method **does not require the Terraform binary** and is lightning fast. Internally Infracost parses the Terraform HCL directly and does not need cloud credentials.
+With this option, Infracost runs Terraform init, plan and show internally. [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
+
+Any required Terraform `init` and `plan` flags can be passed using `--terraform-init-flags` and `--terraform-plan-flags` respectively. The `--terraform-workspace` flag can be used to define a workspace.
 
   ```shell
   infracost breakdown --path path/to/code \
+      --terraform-init-flags "-upgrade=true" \
+      --terraform-plan-flags "-var-file=my.tfvars"
+  ```
+
+## Diff
+
+This command shows a diff of monthly costs between current and planned state. You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag. See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
+
+If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown output.
+
+### Option 1: Terraform dir (parse HCL)
+
+This method **does not** require the Terraform plan or binary and is lightning fast. Internally Infracost parses the Terraform HCL directly and does not need cloud credentials. Since this option does not rely on a Terraform plan, a diff can only be generated by comparing two different Infracost runs; these can be generated before/after changes or from different git branches.
+
+  ```shell
+  cd path/to/code
+
+  # Generate an Infracost JSON file for the run
+  infracost breakdown --path . \
       --terraform-parse-hcl \
       --terraform-var-file "my.tfvars" \
-      --terraform-var "my_var=value"
+      --terraform-var "my_var=value" \
+      --format json \
+      --out-file infracost-main.json
+
+  # Make changes to your project
+  vim main.tf
+
+  # Generate a diff between previous and current run
+  infracost diff --path . --terraform-parse-hcl --compare-to infracost-main.json
   ```
 
 Usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
 
-See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
+### Option 2: Terraform plan JSON
 
-### Useful flags
+If the above method does not work for your use-case, you can use Terraform to generate a plan JSON file (as shown below), and point Infracost to it using `--path`. In this case, cloud credentials are not needed by Infracost.
 
-The `breakdown` command has many useful flags, run it with `--help` to see them. For example, `breakdown` supports:
+  ```shell
+  cd path/to/code
+  terraform init
+  terraform plan -out tfplan.binary
+  terraform show -json tfplan.binary > plan.json
 
-```shell
-  --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
-  --format               Output format: json, table, html (default "table")
-  --compare-to           Path to Infracost output JSON file to compare against
-  --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
-  --usage-file           Path to Infracost usage file that specifies values for usage-based resources
-  --sync-usage-file      Sync usage-file with missing resources, needs usage-file too (experimental)
-  --fields               Comma separated list of output fields: all,price,monthlyQuantity,unit,hourlyCost,monthlyCost.
-                         Only supported by table output format (default [monthlyQuantity,unit,monthlyCost])
-  --show-skipped         Show unsupported resources
-  --no-cache             Don't attempt to cache Terraform plans
-  --out-file string      Save output to a file, helpful with format flag
-  --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise, turns off spinners in output
-  --no-color             Turn off colored output
-```
+  infracost diff --path plan.json
+  ```
 
-## Diff
+### Option 3: Terraform dir (invoke terraform)
 
-This command shows a diff of monthly costs between current and planned state. You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag.
-
-If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown output.
-
-### Option 1: Terraform directory
-
-This is the simplest way to run `infracost diff`. Internally Infracost runs Terraform init, plan and show; [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
+With this option, Infracost runs Terraform init, plan and show internally. [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
 
 Any required Terraform `init` and `plan` flags can be passed using `--terraform-init-flags` and `--terraform-plan-flags` respectively. The `--terraform-workspace` flag can be used to define a workspace.
 
@@ -103,62 +141,6 @@ Any required Terraform `init` and `plan` flags can be passed using `--terraform-
   infracost diff --path /code \
       --terraform-init-flags "-upgrade=true" \
       --terraform-plan-flags "-var-file=my.tfvars"
-```
-
-### Option 2: Terraform plan JSON
-
-If the above method does not work for your use-case, you can use Terraform to generate a plan JSON file (as shown below), and point Infracost to it using `--path`. In this case, cloud credentials are not needed by Infracost.
-
-```shell
-  cd path/to/code
-  terraform init
-  terraform plan -out tfplan.binary
-  terraform show -json tfplan.binary > plan.json
-  
-  infracost diff --path plan.json
-
-```
-
-
-### Option 3: Parse HCL directly
-
-This method **does not require the Terraform binary** and is lightning fast. Internally Infracost parses the Terraform HCL directly and does not need cloud credentials.
-
-```shell
-  # Generate a Infracost output JSON that represents a cost snapshot of your project.
-  infracost breakdown --path path/to/code \
-      --terraform-parse-hcl \
-      --terraform-var-file "my.tfvars" \
-      --terraform-var "my_var=value" \
-      --format json \
-      --out-file infracost.json
-
-  # Make a change to your project, e.g:
-  vim main.tf
-
-  # Compare the differences against the cost snapshot we generated before the change.
-  infracost diff --path . --terraform-parse-hcl --compare-to infracost.json
-```
-
-Usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
-
-See the [advanced usage](/docs/guides/advanced_usage) guide for other usage options.
-
-### Useful flags
-
-The `diff` command has many useful flags, run with `--help` to see them. For example, `diff` supports:
-
-```shell
-  --terraform-workspace  Terraform workspace to use. Applicable when path is a Terraform directory
-  --compare-to           Path to Infracost output JSON file to compare against
-  --config-file          Path to Infracost config file. Cannot be used with path, terraform* or usage-file flags
-  --usage-file           Path to Infracost usage file that specifies values for usage-based resources
-  --sync-usage-file      Sync usage-file with missing resources, needs usage-file too (experimental)
-  --show-skipped         Show unsupported resources
-  --no-cache             Don't attempt to cache Terraform plans
-  --out-file string      Save output to a file, helpful with format flag
-  --log-level            Use "debug" to troubleshoot, can be set to "info" or "warn" in CI/CD systems to reduce noise, turns off spinners in output
-  --no-color             Turn off colored output
 ```
 
 ## Comment on pull requests
@@ -752,3 +734,13 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
     <img src={useBaseUrl("img/screenshots/slack-message-format.png")} alt="Infracost Slack message report" />
   </TabItem>
 </Tabs>
+
+## Compare Infracost runs
+
+The `infracost output` command can also be used to compare different Infracost runs. Assuming you generated `infracost-last-week.json` and `infracost-today.json` files using the `infracost breakdown --path /path/to/code --format json` commands, you can compare the runs using the following command:
+
+```shell
+infracost output --path infracost-last-week.json \
+    --compare-to infracost-today.json \
+    --format diff
+```
