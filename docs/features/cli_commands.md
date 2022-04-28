@@ -76,7 +76,7 @@ If the above method does not work for your use-case, you can use Terraform to ge
   infracost breakdown --path plan.json
   ```
 
-### Option 3: Terraform invoker
+### Option 3: Terraform CLI
 
 With this option, Infracost runs Terraform init, plan and show internally. [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
 
@@ -131,7 +131,7 @@ If the above method does not work for your use-case, you can use Terraform to ge
   infracost diff --path plan.json
   ```
 
-### Option 3: Terraform invoker
+### Option 3: Terraform CLI
 
 With this option, Infracost runs Terraform init, plan and show internally. [Terraform init](/docs/faq#does-infracost-need-cloud-credentials) requires cloud credentials to be set, e.g. via the usual [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#environment-variables), [Google](https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference#full-reference) or [Azure](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) environment variables or other methods.
 
@@ -737,7 +737,7 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
 
 ## Compare Infracost runs
 
-The `infracost output` command can also be used to compare different Infracost runs. Assuming you generated `infracost-last-week.json` and `infracost-today.json` files using the `infracost breakdown --path /path/to/code --format json` commands, you can compare the runs using the following command:
+The `infracost output` command can also be used to compare different Infracost runs. Assuming you generated `infracost-last-week.json` and `infracost-today.json` files using the `infracost breakdown --path /path/to/code --format json --out-file infracost.json` commands, you can compare the runs using the following command:
 
 ```shell
 infracost output --path infracost-last-week.json \
