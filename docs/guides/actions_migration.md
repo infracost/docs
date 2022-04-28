@@ -18,7 +18,7 @@ The V1 actions used v0.9.x of the Infracost CLI, whereas V2 actions use v0.10.x,
 
 ## Migration guide
 
-Changing your workflow to work with the prase HCL option requires the following changes:
+Changing your workflow to work with the parse HCL option requires the following changes:
 
 1. Bump the version of the `infracost/actions/setup` action to `v2`
 
