@@ -40,6 +40,8 @@ This method **does not** require the Terraform plan or the binary and is lightni
 
 Usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
 
+When Terraform Cloud/Enterprise's [remote execution mode](https://www.terraform.io/cloud-docs/workspaces/settings#execution-mode) is used to store variables, see [this docs section](/docs/integrations/terraform_cloud_enterprise/#terraform-cloud-users).
+
 See the following example to generate an Infracost JSON file that represents the changes between the two runs. This file can be stored as a CI artifact, or passed to the [`infracost comment`](#comment-on-pull-requests) command.
 
 <details><summary>Example to generate Infracost JSON file</summary>
@@ -117,6 +119,8 @@ This method **does not** require the Terraform plan or binary and is lightning f
   ```
 
 Usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
+
+When Terraform Cloud/Enterprise's [remote execution mode](https://www.terraform.io/cloud-docs/workspaces/settings#execution-mode) is used to store variables, see [this docs section](/docs/integrations/terraform_cloud_enterprise/#terraform-cloud-users).
 
 ### Option 2: Terraform plan JSON
 
