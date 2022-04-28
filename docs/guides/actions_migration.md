@@ -20,8 +20,17 @@ The V1 actions used v0.9.x of the Infracost CLI, whereas V2 actions use v0.10.x,
 
 Changing your workflow to work with the prase HCL option requires the following changes:
 
-1. You can remove any mention of `hashicorp/setup-terraform` or `autero1/action-terragrunt@` actions. These are no longer required 🎉
-2. You'll need to generate an Infracost JSON file from the target branch that the pull request references (e.g. main/master). This is required as the parse HCL option needs an Infracost run to compare against. Otherwise, your cost estimates will just show a 100% increase from a starting value of $0. You'll want to add the following to the top of your workflow:
+1. Bump the version of the `infracost/actions/setup` action to `v2`
+
+   ```yaml
+      - name: Setup Infracost
+        uses: infracost/actions/setup@v2
+        with:
+          api-key: ${{ secrets.INFRACOST_API_KEY }}
+   ```
+   
+2. You can remove any mention of `hashicorp/setup-terraform` or `autero1/action-terragrunt` actions. These are no longer required 🎉
+3. You'll need to generate an Infracost JSON file from the target branch that the pull request references (e.g. main/master). This is required as the parse HCL option needs an Infracost run to compare against. Otherwise, your cost estimates will just show a 100% increase from a starting value of $0. You'll want to add the following to the top of your workflow:
 
     ```yaml
     - name: Checkout target branch
@@ -36,7 +45,7 @@ Changing your workflow to work with the prase HCL option requires the following 
                             --out-file /tmp/prior.json
     ```
 
-3. Use the above Infracost JSON to compare against the Infracost run in your pull request. Make sure that you switch your git branch back to one that holds the pull request changes:
+4. Use the above Infracost JSON to compare against the Infracost run in your pull request. Make sure that you switch your git branch back to one that holds the pull request changes:
 
     ```yml
     - name: Checkout PR branch
@@ -68,7 +77,7 @@ jobs:
           ref: '${{ github.event.pull_request.base.ref }}'
 
       - name: Setup Infracost
-        uses: infracost/actions/setup@v1
+        uses: infracost/actions/setup@v2
         with:
           api-key: ${{ secrets.INFRACOST_API_KEY }}
 
