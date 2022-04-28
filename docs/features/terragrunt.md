@@ -44,7 +44,8 @@ By default, that Dockerfile uses Terraform 0.15.5, but you can set the environme
 
 To improve performance and eliminate dependencies on the Terragrunt and Terraform binaries, Infracost will directly parse HCL when the `--terraform-parse-hcl` 
 flag is set.  Instead of running `terragrunt run-all plan ...`, Infracost will download any required source files to an `.infracost` 
-cache, detect Terragrunt defined inputs, then [parse the Terraform HCL directly](/docs/features/cli_commands/#option-3-parse-hcl-directly).
+cache, detect Terragrunt defined inputs, then [parse the Terraform HCL directly](/docs/features/cli_commands/#option-3-parse-hcl-directly).  Note
+that outputs from `dependency` blocks can not be processed when this option is used.
 
 ## Migrating from pre v0.9.7 Infracost CLI
 
