@@ -744,8 +744,8 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
 The `infracost output` command can also be used to compare different Infracost runs. Assuming you generated `infracost-last-week.json` and `infracost-today.json` files using the `infracost breakdown --path /path/to/code --format json --out-file infracost.json` commands, you can compare the runs using the following command:
 
 ```shell
-infracost output --path infracost-last-week.json \
-    --compare-to infracost-today.json \
+infracost output --path infracost-today.json \
+    --compare-to infracost-last-week.json \
     --format diff
 ```
 
