@@ -114,13 +114,13 @@ git clone https://github.com/infracost/example-terraform.git
 cd example-terraform/sample1
 
 # Generate JSON file from an Infracost run
-infracost breakdown --path . --terraform-parse-hcl --format json --out-file infracost-run.json
+infracost breakdown --path . --terraform-parse-hcl --format json --out-file infracost-base.json
 
 # Update the Terraform code by changing the instance type to m5.8xlarge
 vim main.tf
 
 # Show cost estimate diff
-infracost diff --path . --terraform-parse-hcl --compare-to infracost-run.json
+infracost diff --path . --terraform-parse-hcl --compare-to infracost-base.json
 ```
 
 :::tip
@@ -140,13 +140,13 @@ Infracost does not make any changes to your Terraform state or cloud resources. 
 cd path/to/my_terraform_project
 
 # Generate JSON file from an Infracost run
-infracost breakdown --path . --terraform-parse-hcl --format json --out-file infracost-run.json
+infracost breakdown --path . --terraform-parse-hcl --format json --out-file infracost-base.json
 
 # Make some changes to your Terraform project
 vim main.tf
 
 # Show cost estimate diff
-infracost diff --path . --terraform-parse-hcl --compare-to infracost-run.json
+infracost diff --path . --terraform-parse-hcl --compare-to infracost-base.json
 ```
 
 ### 5. Add to your CI/CD
