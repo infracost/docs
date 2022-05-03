@@ -57,7 +57,7 @@ See the following example to generate an Infracost JSON file that represents the
   git checkout mybranch
 
   # Generate an Infracost JSON file that represents changes between the two runs (e.g. to store in CI or pass to `infracost comment`)
-  infracost breakdown --path . \
+  infracost diff --path . \
       --terraform-parse-hcl \
       --format json \
       --compare-to infracost-main.json \
@@ -738,15 +738,3 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
     <img src={useBaseUrl("img/screenshots/slack-message-format.png")} alt="Infracost Slack message report" />
   </TabItem>
 </Tabs>
-
-## Compare Infracost runs
-
-The `infracost output` command can also be used to compare different Infracost runs. Assuming you generated `infracost-last-week.json` and `infracost-today.json` files using the `infracost breakdown --path /path/to/code --format json --out-file infracost.json` commands, you can compare the runs using the following command:
-
-```shell
-infracost output --path infracost-today.json \
-    --compare-to infracost-last-week.json \
-    --format diff
-```
-
-As a workaround to compare runs across different projects, edit the Infracost JSON files' `projects.name` manually so they match, and run the `infracost output` command as shown above.
