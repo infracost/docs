@@ -27,7 +27,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ```shell
   brew install infracost
 
-  infracost --version # Should show 0.9.23
+  infracost --version # Should show 0.9.24
   ```
 
   To upgrade Infracost, run `brew update` then `brew upgrade infracost`.
@@ -50,7 +50,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
     ```
   3. Check that it works correctly:
     ```shell
-    infracost --version # Should show 0.9.23
+    infracost --version # Should show 0.9.24
     ```
 
 
@@ -60,7 +60,7 @@ Assuming [Terraform](https://www.terraform.io/downloads.html) is already install
   ```shell
   choco install infracost
 
-  infracost --version # Should show 0.9.23
+  infracost --version # Should show 0.9.24
   ```
 
   To upgrade Infracost, run `choco upgrade infracost`.
