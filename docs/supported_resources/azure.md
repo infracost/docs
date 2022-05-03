@@ -251,6 +251,14 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_sentinel_alert_rule_machine_learning_behavior_analytics` |
 | `azurerm_sentinel_alert_rule_ms_security_incident` |
 | `azurerm_sentinel_alert_rule_scheduled` |
+| `azurerm_sentinel_data_connector_aws_cloud_trail` |
+| `azurerm_sentinel_data_connector_azure_active_directory` |
+| `azurerm_sentinel_data_connector_azure_advanced_threat_protection` |
+| `azurerm_sentinel_data_connector_azure_security_center` |
+| `azurerm_sentinel_data_connector_microsoft_cloud_app_security` |
+| `azurerm_sentinel_data_connector_microsoft_defender_advanced_threat_protection` |
+| `azurerm_sentinel_data_connector_office_365` |
+| `azurerm_sentinel_data_connector_threat_intelligence` |
 | `azurerm_site_recovery_network_mapping` |
 | `azurerm_site_recovery_replication_policy` |
 | `azurerm_sql_firewall_rule` |
