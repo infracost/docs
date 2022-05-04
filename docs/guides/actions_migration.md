@@ -53,10 +53,10 @@ Changing your workflow to work with the parse HCL option requires the following 
 
     - name: Run Infracost
       run: |
-        infracost breakdown --path path/to/your/terraform \
-                            --format json \
-                            --compare-to /tmp/prior.json \ # point this to the JSON output we generated in step 2
-                            --out-file /tmp/infracost.json
+        infracost diff --path path/to/your/terraform \
+                       --format json \
+                       --compare-to /tmp/prior.json \ # point this to the JSON output we generated in step 2
+                       --out-file /tmp/infracost.json
     ```
 
 If we put this all together in a working example, it would look like this:
@@ -92,10 +92,10 @@ jobs:
 
       - name: Run Infracost
         run: |
-          infracost breakdown --path path/to/your/terraform \
-                              --format json \
-                              --compare-to /tmp/prior.json \
-                              --out-file /tmp/infracost.json
+          infracost diff --path path/to/your/terraform \
+                         --format json \
+                         --compare-to /tmp/prior.json \
+                         --out-file /tmp/infracost.json
 
       - name: Post Infracost comment
         run: |
