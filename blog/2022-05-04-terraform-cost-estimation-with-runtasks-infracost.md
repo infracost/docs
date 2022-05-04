@@ -20,7 +20,7 @@ Today, I’m super excited to announce, alongside our partner HashiCorp, that we
 
 We started Infracost to show engineers how their Infrastructure as Code changes will impact cloud costs before anything goes to production. It felt unfair not to have a ‘checkout screen’ for developers because when budgets were breached, they would not only be blamed but also be tasked with bringing costs down (again, with no indication of whether their changes are having the right cost impact).
 
-We didn’t want to create something that would slow engineers down. They want to ship great and efficient products fast. So we brought costs directly into the workflow by integrating into CI/CD systems. Infracost now leaves a comment like ‘this change will increase your costs by 15% next month’ with a detailed breakdown.’
+We didn’t want to create something that would slow engineers down. They want to ship great and efficient products fast. So we brought costs directly into the workflow by integrating into CI/CD systems. Infracost now leaves a comment like ‘this change will increase your costs by 15% next month’ with a detailed breakdown.
 
 Today, I’m super excited to announce, alongside our partner HashiCorp, that we have launched a direct integration into Terraform Cloud using the new Terraform run tasks feature. If you are using Terraform Cloud, you can show everyone a cost estimate of the infrastructure changes without leaving the TFC dashboard. The setup takes 3 minutes.
 
