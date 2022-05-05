@@ -162,10 +162,10 @@ Post cost estimates in pull requests:
 
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
 
-Show `diff` of monthly costs between current and planned state:
-
-<img src={useBaseUrl("img/screenshots/diff-screenshot.png")} alt="Infracost diff command" width="600" />
-
-Show `breakdown` of costs; see the [CLI commands](/docs/features/cli_commands/) page for other options:
+Output of `infracost breakdown`, see the [CLI commands](/docs/features/cli_commands/) page for other options:
 
 <img src={useBaseUrl("img/screenshots/breakdown-screenshot.png")} alt="Infracost breakdown command" width="600"/>
+
+Output of `infracost diff` shows monthly costs between current and planned state:
+
+<img src={useBaseUrl("img/screenshots/diff-screenshot.png")} alt="Infracost diff command" width="600" />

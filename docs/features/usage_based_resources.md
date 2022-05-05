@@ -19,8 +19,63 @@ Infracost distinguishes the **price** of a resource from its **cost**. Price is 
   ```
 
 There are two options for showing costs instead of prices:
-1. **Specify usage manually**: for doing what-if analysis. For example, what happens to the cost estimate if a Lambda function gets 2x more requests?
-2. **Fetch usage from CloudWatch/cloud APIs**: provides visibility of usage-based costs in the terminal and CI/CD. This currently only works for AWS.
+1. **Fetch usage from CloudWatch/cloud APIs**: provides visibility of usage-based costs in the terminal and CI/CD. This currently only works for AWS.
+2. **Specify usage manually**: for doing what-if analysis. For example, what happens to the cost estimate if a Lambda function gets 2x more requests?
+
+## Fetch from CloudWatch
+
+We're experimenting with fetching usage data from AWS CloudWatch/cloud APIs, which provides you with visibility of usage-based costs in the terminal and CI/CD:
+```
+infracost breakdown --path . --sync-usage-file --usage-file /tmp/ignore.yml
+```
+See the docs for the [usage file](/docs/features/usage_based_resources/#specify-usage-manually) if you're interested in editing it manually.
+
+This currently only works for AWS and enables you to quickly see the last 30-day usage (and costs) for the following resources:
+- **aws_dynamodb_table**: storage_gb, monthly_read_request_units and monthly_write_request_units
+- **aws_lambda_function**: monthly_requests and request_duration_ms
+- **aws_s3_bucket**:
+  - Standard storage class: storage_gb, monthly_tier_1_requests, monthly_tier_2_requests, monthly_select_data_scanned_gb and monthly_select_data_returned_gb
+  - Intelligent tiering storage class: frequent_access_storage_gb, infrequent_access_storage_gb, archive_access_storage_gb and deep_archive_storage_gb
+  - Other storage classes: storage_gb
+- **aws_instance**, **aws_autoscaling_group**, **aws_eks_node_group**: operating_system (based on the AMI, detected as one of: linux, windows, suse, rhel)
+- **aws_autoscaling_group** and **aws_eks_node_group**: instances. If unable to fetch the last 30-day average from CloudWatch this will fetch the current instance count from the AWS API instead.
+
+This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables. Your AWS credentials need the following IAM permissions for this to work. These are likely to be already defined if you're using the same AWS credentials that you use for generating your Terraform plan JSON file. The following will be updated as we add support for more resources.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "InfracostSyncUsage",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeImages",
+                "eks:DescribeNodegroup",
+                "dynamodb:DescribeTable",
+                "autoscaling:DescribeAutoScalingGroups",
+                "s3:GetMetricsConfiguration",
+                "cloudwatch:GetMetricStatistics"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+### See usage costs in CI/CD
+
+The following workaround can be used in the terminal or CI/CD systems so a usage file does not need to be created in advance. The `/tmp/ignore.yml` file can simply be ignored; in the future we might make this an optional flag, so usage data can be fetched from CloudWatch/cloud APIs without the need for a usage file.
+```sh
+# Generate an Infracost JSON file, including usage-based costs
+infracost breakdown --path . --sync-usage-file --usage-file /tmp/ignore.yml --format json --out-file infracost.json
+
+# Show a breakdown in text format, from the Infracost JSON file
+infracost output --path infracost.json --format table
+
+# Post a comment using the Infracost JSON file
+infracost comment github --path infracost.json ... (run `infracost comment --help` to see the options)
+```
 
 ## Specify usage manually
 
@@ -153,48 +208,3 @@ What-if anlaysis can be done on AWS EC2 Reserved Instances (RI) using the usage 
     reserved_instance_term: 1_year # Term for Reserved Instances. Can be: 1_year, 3_year.
     reserved_instance_payment_option: all_upfront # Payment option for Reserved Instances. Can be: no_upfront, partial_upfront, all_upfront.
   ```
-
-## Fetch from CloudWatch
-
-We're experimenting with fetching usage data from AWS CloudWatch/cloud APIs when `--sync-usage-file` is used (falling back to using 0). This provides you with visibility of usage-based costs in the terminal and CI/CD. 
-
-This currently only works for AWS and enables you to quickly see the last 30-day usage (and costs) for the following resources:
-- **aws_dynamodb_table**: storage_gb, monthly_read_request_units and monthly_write_request_units
-- **aws_lambda_function**: monthly_requests and request_duration_ms
-- **aws_s3_bucket**:
-  - Standard storage class: storage_gb, monthly_tier_1_requests, monthly_tier_2_requests, monthly_select_data_scanned_gb and monthly_select_data_returned_gb
-  - Intelligent tiering storage class: frequent_access_storage_gb, infrequent_access_storage_gb, archive_access_storage_gb and deep_archive_storage_gb
-  - Other storage classes: storage_gb
-- **aws_instance**, **aws_autoscaling_group**, **aws_eks_node_group**: operating_system (based on the AMI, detected as one of: linux, windows, suse, rhel)
-- **aws_autoscaling_group** and **aws_eks_node_group**: instances. If unable to fetch the last 30-day average from CloudWatch this will fetch the current instance count from the AWS API instead.
-
-This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables. Your AWS credentials need the following IAM permissions for this to work. These are likely to be already defined if you're using the same AWS credentials that you use for generating your Terraform plan JSON file. The following will be updated as we add support for more resources.
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "InfracostSyncUsage",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:DescribeImages",
-                "eks:DescribeNodegroup",
-                "dynamodb:DescribeTable",
-                "autoscaling:DescribeAutoScalingGroups",
-                "s3:GetMetricsConfiguration",
-                "cloudwatch:GetMetricStatistics"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
-
-### See usage costs in CI/CD
-
-The following workaround can be used in the terminal or CI/CD systems so a usage file does not need to be created in advance. The `/tmp/ignore.yml` file can simply be ignored; in the future we might make this an optional flag, so usage data can be fetched from CloudWatch/cloud APIs without the need for a usage file.
-```sh
-infracost breakdown --path . --sync-usage-file --usage-file /tmp/ignore.yml --format json --out-file infracost.json
-infracost comment github --path infracost.json
-```
