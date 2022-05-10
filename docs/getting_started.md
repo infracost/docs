@@ -159,6 +159,6 @@ Output of `infracost breakdown`, see the [CLI commands](/docs/features/cli_comma
 
 <img src={useBaseUrl("img/screenshots/breakdown-screenshot.png")} alt="Infracost breakdown command" width="600"/>
 
-Output of `infracost diff` shows monthly costs between current and planned state:
+Output of `infracost diff` (example shows diff between current and planned state):
 
 <img src={useBaseUrl("img/screenshots/diff-screenshot.png")} alt="Infracost diff command" width="600" />
