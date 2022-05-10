@@ -40,7 +40,22 @@ This currently only works for AWS and enables you to quickly see the last 30-day
 - **aws_instance**, **aws_autoscaling_group**, **aws_eks_node_group**: operating_system (based on the AMI, detected as one of: linux, windows, suse, rhel)
 - **aws_autoscaling_group** and **aws_eks_node_group**: instances. If unable to fetch the last 30-day average from CloudWatch this will fetch the current instance count from the AWS API instead.
 
-This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables. Your AWS credentials need the following IAM permissions for this to work. These are likely to be already defined if you're using the same AWS credentials that you use for generating your Terraform plan JSON file. The following will be updated as we add support for more resources.
+### Credentials
+
+This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables. If you're using AssumeRole, something like this should work:
+
+```shell
+aws sts assume-role --role-arn <arn> --role-session-name <session name>
+# extract the AccessKeyId, SecretAccessKey and SessionToken
+
+export AWS_ACCESS_KEY_ID=<AccessKeyId>
+export AWS_SECRET_ACCESS_KEY=<SecretAccessKey>
+export AWS_SESSION_TOKEN=<SessionToken>
+
+infracost breakdown --path . --sync-usage-file --usage-file /tmp/ignore.yml
+```
+
+Your AWS credentials need the following IAM permissions for this to work. These are likely to be already defined if you're using the same AWS credentials that you use for generating your Terraform plan JSON file. The following will be updated as we add support for more resources.
 
 ```json
 {
