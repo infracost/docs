@@ -114,7 +114,9 @@ The [`--path` flag](/docs/features/cli_commands/#breakdown) can point to a Terra
 ```shell
 # You can also clone https://github.com/infracost/example-terraform
 cd my-terraform-project
+```
 
+```shell
 # Generate Infracost JSON file, Terraform variables can be specified 
 # using --terraform-var-file or --terraform-var
 infracost breakdown --path . --terraform-parse-hcl \
@@ -137,7 +139,9 @@ Infracost can also estimate [usage-based resources](/docs/features/usage_based_r
 ```shell
 # Edit something in your Terraform project, such as an instance type
 vim main.tf
+```
 
+```shell
 # Generate a diff by comparing the latest code change with the baseline
 infracost diff --path . --terraform-parse-hcl --compare-to infracost-base.json
 ```
