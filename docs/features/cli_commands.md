@@ -51,7 +51,7 @@ See the following example to generate an Infracost JSON file that represents the
 
   # Generate an Infracost JSON file for the run
   git checkout main
-  infracost breakdown --path . --terraform-parse-hcl --format json --out-file infracost-main.json
+  infracost breakdown --path . --terraform-parse-hcl --format json --out-file infracost-base.json
 
   # Checkout the feature branch for your infrastructure changes
   git checkout mybranch
@@ -60,7 +60,7 @@ See the following example to generate an Infracost JSON file that represents the
   infracost diff --path . \
       --terraform-parse-hcl \
       --format json \
-      --compare-to infracost-main.json \
+      --compare-to infracost-base.json \
       --out-file infracost-pull-request-123.json
   ```
 </details>
@@ -108,14 +108,15 @@ This method **does not** require the Terraform plan or binary and is lightning f
       --terraform-parse-hcl \
       --terraform-var-file "my.tfvars" \
       --terraform-var "my_var=value" \
-      --format json \
-      --out-file infracost-main.json
+      --format json --out-file infracost-base.json
 
   # Make changes to your project
   vim main.tf
 
   # Generate a diff between previous and current run
-  infracost diff --path . --terraform-parse-hcl --compare-to infracost-main.json
+  infracost diff --path . \
+      --terraform-parse-hcl \
+      --compare-to infracost-base.json
   ```
 
 Usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
