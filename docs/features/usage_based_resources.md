@@ -68,13 +68,16 @@ This functionality uses the AWS credentials from the default AWS credential prov
 The following workaround can be used in the terminal or CI/CD systems so a usage file does not need to be created in advance. The `/tmp/ignore.yml` file can simply be ignored; in the future we might make this an optional flag, so usage data can be fetched from CloudWatch/cloud APIs without the need for a usage file.
 ```sh
 # Generate an Infracost JSON file, including usage-based costs
-infracost breakdown --path . --sync-usage-file --usage-file /tmp/ignore.yml --format json --out-file infracost.json
+infracost breakdown --path . \
+    --sync-usage-file --usage-file /tmp/ignore.yml \
+    --format json --out-file infracost-base.json
 
 # Show a breakdown in text format, from the Infracost JSON file
-infracost output --path infracost.json --format table
+infracost output --path infracost-base.json --format table
 
-# Post a comment using the Infracost JSON file
-infracost comment github --path infracost.json ... (run `infracost comment --help` to see the options)
+# Post a comment using the Infracost JSON file.
+# Run `infracost comment --help` to see the other required flags.
+infracost comment github --path infracost-base.json ...
 ```
 
 ## Specify usage manually
