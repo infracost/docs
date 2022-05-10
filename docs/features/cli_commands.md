@@ -183,7 +183,7 @@ Run `infracost comment github --help` to see the options. For example, GitHub En
 ```sh
 infracost comment github --path infracost.json \
                          --repo $GITHUB_REPOSITORY \
-                         --pull-request $PR_NUMBER `# or --commit $GITHUB_SHA` \
+                         --pull-request $PR_NUMBER \ # or --commit $GITHUB_SHA
                          --github-token $GITHUB_TOKEN \
                          --behavior update
 ```
@@ -200,7 +200,7 @@ infracost comment github --path infracost.json \
 ```sh
 infracost comment github --path infracost.json \
                          --repo $BUILD_REPOSITORY_NAME \
-                         --pull-request $SYSTEM_PULLREQUEST_PULLREQUESTNUMBER `# or --commit $BUILD_SOURCEVERSION` \
+                         --pull-request $SYSTEM_PULLREQUEST_PULLREQUESTNUMBER \ # or --commit $BUILD_SOURCEVERSION
                          --github-token $GITHUB_TOKEN \
                          --behavior update
 ```
@@ -217,7 +217,7 @@ infracost comment github --path infracost.json \
 ```sh
 infracost comment github --path infracost.json \
                          --repo $BASE_REPO_OWNER/$BASE_REPO_NAME \
-                         --pull-request $PULL_NUM `# or --commit $HEAD_COMMIT` \
+                         --pull-request $PULL_NUM \ # or --commit $HEAD_COMMIT
                          --github-token $GITHUB_TOKEN \
                          --behavior update
 ```
@@ -234,7 +234,7 @@ infracost comment github --path infracost.json \
 ```sh
 infracost comment github --path infracost.json \
                          --repo $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
-                         --pull-request ${CIRCLE_PULL_REQUEST##*/} `# or --commit $CIRCLE_SHA1` \
+                         --pull-request ${CIRCLE_PULL_REQUEST##*/} \ # or --commit $CIRCLE_SHA1
                          --github-token $GITHUB_TOKEN \
                          --behavior update
 ```
@@ -255,7 +255,7 @@ Run `infracost comment gitlab --help` to see the options. For example, GitLab fo
 ```sh
 infracost comment gitlab --path infracost.json \
                          --repo $CI_PROJECT_PATH \
-                         --merge-request $CI_MERGE_REQUEST_IID `# or --commit $CI_COMMIT_SHA` \
+                         --merge-request $CI_MERGE_REQUEST_IID \ # or --commit $CI_COMMIT_SHA
                          --gitlab-token $GITLAB_TOKEN \
                          --behavior update
 ```
@@ -272,7 +272,7 @@ infracost comment gitlab --path infracost.json \
 ```sh
 infracost comment gitlab --path infracost.json \
                          --repo $BASE_REPO_OWNER/$BASE_REPO_NAME \
-                         --merge-request $PULL_NUM `# or --commit $HEAD_COMMIT` \
+                         --merge-request $PULL_NUM \ # or --commit $HEAD_COMMIT
                          --gitlab-token $GITLAB_TOKEN \
                          --behavior update
 ```
@@ -329,7 +329,7 @@ Run `infracost comment bitbucket --help` to see the options. For example, Bitbuc
 ```sh
 infracost comment bitbucket --path infracost.json \
                             --repo $BITBUCKET_WORKSPACE/$BITBUCKET_REPO_SLUG \
-                            --pull-request $BITBUCKET_PR_ID `# or --commit $BITBUCKET_COMMIT` \
+                            --pull-request $BITBUCKET_PR_ID \ # or --commit $BITBUCKET_COMMIT
                             --bitbucket-token $BITBUCKET_TOKEN \
                             --behavior update
 ```
@@ -346,7 +346,7 @@ infracost comment bitbucket --path infracost.json \
 ```sh
 infracost comment bitbucket --path infracost.json \
                             --repo $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
-                            --pull-request ${CIRCLE_PULL_REQUEST##*/} `# or --commit $CIRCLE_SHA1` \
+                            --pull-request ${CIRCLE_PULL_REQUEST##*/} \ # or --commit $CIRCLE_SHA1
                             --bitbucket-token $BITBUCKET_TOKEN \
                             --behavior update
 ```
@@ -363,7 +363,7 @@ infracost comment bitbucket --path infracost.json \
 ```sh
 infracost comment bitbucket --path infracost.json \
                             --repo $BASE_REPO_OWNER/$BASE_REPO_NAME \
-                            --pull-request $PULL_NUM `# or --commit $HEAD_COMMIT` \
+                            --pull-request $PULL_NUM \ # or --commit $HEAD_COMMIT
                             --bitbucket-token $BITBUCKET_TOKEN \
                             --behavior update
 ```
