@@ -6,7 +6,7 @@ author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
 description: Get Terraform Cost Estimation directly in Terraform Cloud using Run Tasks with Infracost
 hide_table_of_contents: false
-image: img/blog/terraform-runtasks-ga-announcement/hashicorp-terraform-official-partner.png
+image: img/blog/terraform-cost-estimation-with-runtasks-infracost/hashicorp-terraform-official-partner.png
 date: "2022-05-05T00:00:00Z"
 ---
 
@@ -14,7 +14,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Today, I’m super excited to announce, alongside our partner HashiCorp, that we have launched a direct integration into Terraform Cloud using the new Terraform run tasks feature.
 
-<a href="/blog/terraform-cost-estimation-with-runtasks-infracost"><img src={useBaseUrl("img/blog/terraform-runtasks-ga-announcement/hashicorp-terraform-official-partner.png")} alt="Hashicorp Terraform Run Tasks now generally available to all"/></a>
+<a href="/blog/terraform-cost-estimation-with-runtasks-infracost"><img src={useBaseUrl("img/blog/terraform-cost-estimation-with-runtasks-infracost/hashicorp-terraform-official-partner.png")} alt="Hashicorp Terraform Run Tasks now generally available to all"/></a>
 
 <!--truncate-->
 
@@ -28,17 +28,17 @@ Today, I’m super excited to announce, alongside our partner HashiCorp, that we
 
 1. Log into Terraform Cloud > go to Settings (top menu) > Run tasks (left menu) > Create run task (button top right).
 
-<img src={useBaseUrl("img/blog/terraform-runtasks-ga-announcement/runtasks-step1.png")} alt="step 1 - Create a Terraform Run Task"/>
+<img src={useBaseUrl("img/blog/terraform-cost-estimation-with-runtasks-infracost/runtasks-step1.png")} alt="step 1 - Create a Terraform Run Task"/>
 
 2. Go to https://dashboard.infracost.io/tfc-sign-up and enter your name and email address to get an Infracost API key.
 
-<img src={useBaseUrl("img/blog/terraform-runtasks-ga-announcement/runtasks-step2.png")} alt="step 2 - Create an Infracost API key"/>
+<img src={useBaseUrl("img/blog/terraform-cost-estimation-with-runtasks-infracost/runtasks-step2.png")} alt="step 2 - Create an Infracost API key"/>
 
 3. Enter the Endpoint URL and the HMAC key from step 2 into Terraform Cloud (step 1).  Give the Run Task a name like ‘Infracost cost estimation’.
 
 4. Now we need to add a Run Task to a Workspace in Terraform Cloud, so go to Workspaces (top menu) > select your workspace > Settings > Run Tasks, and click the (+) button next to the ‘Infracost cost estimation’ Run Task that you just created.
 
-<img src={useBaseUrl("img/blog/terraform-runtasks-ga-announcement/runtasks-step3.png")} alt="step 3 - Add Run Tasks to workspaces"/>
+<img src={useBaseUrl("img/blog/terraform-cost-estimation-with-runtasks-infracost/runtasks-step3.png")} alt="step 3 - Add Run Tasks to workspaces"/>
 
 5. Select ‘Advisory’ as the enforcement level - this means that the cost estimation does not block a run from competing. Infracost does not yet support Mandatory enforcement in which a run can be blocked due to increased costs, but this will be a feature in the future.
 
