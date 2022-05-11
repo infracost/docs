@@ -7,7 +7,7 @@ author_image_url: /img/avatars/ali.jpg
 description: A look at the history of cloud computing costs, why are they so complex and an example walkthrough
 hide_table_of_contents: false
 image: img/blog/why-are-cloud-costs-so-complex/infracost-cloud-pricing-api.png
-date: "2022-05-11T00:00:00Z"
+date: "2022-05-12T00:00:00Z"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -25,7 +25,7 @@ In 2009 I started my PhD research to focus on the decisions that needed to be ma
 Over the last 13 years of working in cloud computing costs, many things have changed, but two things remained consistent:
 
 1. Cloud costs are an ever-green topic of discussion.
-2. Cloud cost complexity has increasing exponentially.
+2. Cloud cost complexity has increased exponentially.
 
 Back in 2012 when we were building PlanForCloud (the above tool), we were tracking around 10,000 price points from cloud providers. Today, as part of our new startup Infracost.io, our [Cloud Pricing API](https://www.infracost.io/docs/cloud_pricing_api/overview/) is tracking almost 4 million price points.
 
@@ -43,8 +43,8 @@ As the complexity has grown exponentially over time, it’s become impossible to
 This has resulted in three big impacts:
 
 1. Costs have become harder to predict, and so budgets and actuals are mis-aligned. We see this happen all the time and is sometimes covered under the umbrella ‘bill shock’.
-2. Costs have become so complex that we don’t actually know if the cloud providers are charging us the right amount. We’ve found on multiple occasions where the listed price on a cloud providers website is different to the charges that appear on the bill. One of our users [tweeted about a $4K surprise](https://twitter.com/rpadovani93/status/1523610219011788800) he found.
-3. It is painful and time consuming for the people responsible for designing systems and provisioning infrastructure to estimate the costs. The DevOps, SREs and platform engineers are under tremendous pressure to deliver, and end-up being the ones facing the sharp edge of the knife from management when something goes wrong.
+2. Costs have become so complex that sometimes we don’t actually know if the cloud providers are charging us the right amount. We’ve found on multiple occasions where the listed price on a cloud providers website is different to the charges that appear on the bill. One of our users [Tweeted about a $4K surprise](https://twitter.com/rpadovani93/status/1523610219011788800) he found.
+3. It is painful and time consuming for the people responsible for designing systems and provisioning infrastructure to estimate the costs. DevOps, SREs and platform engineers are under tremendous pressure to deliver, and end-up being the ones facing the sharp edge of the knife from management when something goes wrong.
 
 Here is what happens. Someone in the finance or management team gets surprised by a high bill. They need to understand what happened and that task requires context that only the engineering team has. First, the engineers get pulled away from the current sprint work to answer the ‘what happened’ question. Then, they are tasked with figuring out how to fix it, which usually comes in the form of a change that has to go through a release process (test, deploy to stage, then to prod) all the way to redesigning systems ‘to optimize cloud costs’.
 
@@ -57,4 +57,4 @@ We started an open source project called [Infracost.io](http://Infracost.io) ([G
 
 <img width="100%" src={useBaseUrl("img/blog/why-are-cloud-costs-so-complex/github-actions-screenshot.png")} alt="PlanForCloud was developed by the Infracost founders"/>
 
-Since 2009, I’ve had this unhealthy obsession with cloud costs. I love reading and talking about it and finding solutions that have worked, and ones which did not work. If you want to connect with me and chat, here is my [Twitter](https://twitter.com/AliKhajeh) and [LinkedIn](https://www.linkedin.com/in/alikhajeh1/). If you want to try Infracost out, here is our [getting started guide](https://www.infracost.io/docs/).
+Since 2009, I’ve had this unhealthy obsession with cloud costs! I love reading and talking about it and finding solutions that have worked, and ones which did not work. If you want to connect with me and chat, here is my [Twitter](https://twitter.com/AliKhajeh) and [LinkedIn](https://www.linkedin.com/in/alikhajeh1/). If you want to try Infracost out, here is our [getting started guide](https://www.infracost.io/docs/).
