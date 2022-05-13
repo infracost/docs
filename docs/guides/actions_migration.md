@@ -46,9 +46,9 @@ Changing your workflow to work with the parse HCL option requires the following 
 
    - name: Generate Infracost cost estimate baseline
      run: |
-       infracost breakdown --path path/to/your/project \
-                           --format json \
-                           --out-file /tmp/infracost-base.json
+       infracost breakdown --path=/code \
+                           --format=json \
+                           --out-file=/tmp/infracost-base.json
    ```
 
    :::note
@@ -81,10 +81,10 @@ Changing your workflow to work with the parse HCL option requires the following 
 
    - name: Run Infracost
      run: |
-       infracost diff --path path/to/your/terraform \
-                      --format json \
-                      --compare-to /tmp/infracost-base.json `# point this to the JSON output we generated in step 2`
-                      --out-file /tmp/infracost.json
+       infracost diff --path=/code \
+                      --format=json \
+                      --compare-to=/tmp/infracost-base.json `# point this to the JSON output we generated in step 2`
+                      --out-file=/tmp/infracost.json
 
        # Post pull request comment in the same was as before by running:
        # infracost comment github --path=/tmp/infracost.json ...
