@@ -83,7 +83,7 @@ Changing your workflow to work with the parse HCL option requires the following 
      run: |
        infracost diff --path path/to/your/terraform \
                       --format json \
-                      --compare-to /tmp/infracost-base.json \ # point this to the JSON output we generated in step 2
+                      --compare-to /tmp/infracost-base.json `# point this to the JSON output we generated in step 2`
                       --out-file /tmp/infracost.json
 
        # Post pull request comment in the same was as before by running:
