@@ -14,7 +14,7 @@ Follow this page to migrate your [Infracost GitHub actions](https://github.com/i
 
 ## What's new?
 
-The v1 actions used Infracost v0.9.x of the Infracost CLI, whereas v2 actions uses [Infracost v0.10.x](/docs/guides/v0.10_migration). With this new release there's two ways Infracost can generate cost estimates:
+The v1 actions used Infracost v0.9.x of the Infracost CLI, whereas the v2 actions use [Infracost v0.10.x](/docs/guides/v0.10_migration). With this new release, there are two ways Infracost can generate cost estimates:
 1. Parsing your Terraform HCL code directly (default and recommended)
 2. Parsing a provided Terraform plan JSON file
 
