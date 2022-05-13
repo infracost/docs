@@ -106,63 +106,50 @@ infracost register
 
 The key can be retrieved with `infracost configure get api_key`.
 
-### 3. Generate cost estimate baseline
-Navigate to your own Terraform project and run Infracost to generate a cost estimate baseline. The CLI parses the project locally to determine resource types and quantities needed to calculate costs.
-
-The [`--path` flag](/docs/features/cli_commands/#breakdown) can point to a Terraform directory or plan JSON file.
+### 3. Show cost estimate breakdown
+Infracost parses the project locally to determine resource types and quantities needed to calculate costs. The [`--path` flag](/docs/features/cli_commands/#breakdown) can point to a Terraform directory or plan JSON file.
 
 ```shell
 # You can also clone https://github.com/infracost/example-terraform
 cd my-terraform-project
+
+# Terraform variables can be set using --terraform-var-file or --terraform-var
+infracost breakdown --path . --terraform-parse-hcl
 ```
 
-```shell
-# Generate Infracost JSON file, Terraform variables can be specified 
-# using --terraform-var-file or --terraform-var
-infracost breakdown --path . --terraform-parse-hcl \
-    --format json --out-file infracost-base.json
-```
-
-### 4. Show cost estimate table
-
-Generate a cost estimate table from the Infracost JSON baseline:
-```shell
-infracost output --path infracost-base.json --format table
-```
+Example output:
+<img src={useBaseUrl("img/screenshots/get-started-breakdown.png")} alt="Infracost breakdown command" />
 
 :::tip
 Infracost can also estimate [usage-based resources](/docs/features/usage_based_resources/) such as AWS S3 or Lambda
 :::
 
-### 5. Generate cost estimate diff
+### 4. Show cost estimate diff
 
-```shell
-# Edit something in your Terraform project, such as an instance type
-vim main.tf
-```
+<ol type="a">
+  <li>Generate Infracost JSON file as the baseline:</li>
 
-```shell
-# Generate a diff by comparing the latest code change with the baseline
-infracost diff --path . --terraform-parse-hcl --compare-to infracost-base.json
-```
+  ```shell
+  infracost breakdown --path . \
+      --terraform-parse-hcl --format json --out-file infracost-base.json
+  ```
 
-### 6. Add to your CI/CD
+  <li>Edit something in your Terraform project, such as an instance type.</li>
+
+  <li>Generate a diff by comparing the latest code change with the baseline:</li>
+
+  ```shell
+  infracost diff --path . \
+      --terraform-parse-hcl --compare-to infracost-base.json
+  ```
+</ol>
+
+Example output:
+<img src={useBaseUrl("img/screenshots/get-started-diff.png")} alt="Infracost diff command" />
+
+### 5. Add to your CI/CD
 [Use our CI/CD integrations](/docs/integrations/cicd) to add cost estimates to pull requests, it only takes 15 minutes. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
----
-
-### Screenshots
-
-Post cost estimates in pull requests:
-
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
-
-Output of `infracost breakdown`, see the [CLI commands](/docs/features/cli_commands/) page for other options:
-
-<img src={useBaseUrl("img/screenshots/breakdown-screenshot.png")} alt="Infracost breakdown command" width="600"/>
-
-Output of `infracost diff` (example shows diff between current and planned state):
-
-<img src={useBaseUrl("img/screenshots/diff-screenshot.png")} alt="Infracost diff command" width="600" />
