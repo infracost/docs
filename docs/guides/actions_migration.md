@@ -87,7 +87,7 @@ Changing your workflow to work with the parse HCL option requires the following 
                       --out-file /tmp/infracost.json
 
        # Post pull request comment in the same was as before by running:
-       # infracost comment github --path /tmp/infracost.json ...
+       # infracost comment github --path=/tmp/infracost.json ...
    ```
 
 ## Examples
