@@ -34,7 +34,7 @@ Changing your workflow to work with the parse HCL option requires the following 
        api-key: ${{ secrets.INFRACOST_API_KEY }}
    ```
 
-2. Remove the Terraform and Terragrunt dependencies. You can remove any `hashicorp/setup-terraform` or `autero1/action-terragrunt` actions as Infracost now parses the HCL code directly so does not depend on these.
+2. Remove the Terraform and Terragrunt dependencies. You can remove any `hashicorp/setup-terraform` or `autero1/action-terragrunt` actions as Infracost now parses the HCL code directly, so it does not depend on these.
 
 3. Add a step for generating Infracost cost estimate baseline from the base branch of the pull request (e.g. main/master). This is needed so Infracost has the current state to compare against.
 
