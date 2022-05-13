@@ -19,7 +19,7 @@ The v1 actions used Infracost v0.9.x of the Infracost CLI, whereas the v2 action
 2. Parsing a provided Terraform plan JSON file
 
 <!-- TODO: update the example link -->
-If the new HCL parsing doesn't work for your use-case, there's [examples here](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples#plan-json-examples) of how to generate Terraform plan JSON files in GitHub Actions and pass them to Infracost.
+If the new HCL parsing doesn't work for your use-case, there are [examples here](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples#plan-json-examples) of generating Terraform plan JSON files in GitHub Actions and passing them to Infracost.
 
 ## Actions v2 migration guide
 
