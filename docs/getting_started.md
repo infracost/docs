@@ -134,7 +134,10 @@ Infracost can also estimate [usage-based resources](/docs/features/usage_based_r
       --terraform-parse-hcl --format json --out-file infracost-base.json
   ```
 
-  <li>Edit something in your Terraform project, such as an instance type.</li>
+  <li>Edit something in your Terraform project.  If you're using our sample project, open `main.tf` and change the instance type:</li>
+  ```shell
+  vim main.tf
+  ```
 
   <li>Generate a diff by comparing the latest code change with the baseline:</li>
 
