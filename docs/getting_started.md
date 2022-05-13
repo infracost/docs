@@ -117,8 +117,10 @@ cd my-terraform-project
 infracost breakdown --path . --terraform-parse-hcl
 ```
 
+<p>
 Example output:
 <img src={useBaseUrl("img/screenshots/get-started-breakdown.png")} alt="Infracost breakdown command" />
+</p>
 
 :::tip
 Infracost can also estimate [usage-based resources](/docs/features/usage_based_resources/) such as AWS S3 or Lambda
