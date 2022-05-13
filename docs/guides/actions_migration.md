@@ -46,7 +46,7 @@ Changing your workflow to work with the parse HCL option requires the following 
 
    - name: Generate Infracost cost estimate baseline
      run: |
-       infracost breakdown --path path/to/your/terraform \
+       infracost breakdown --path path/to/your/project \
                            --format json \
                            --out-file /tmp/infracost-base.json
    ```
