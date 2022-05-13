@@ -128,7 +128,7 @@ Infracost can also estimate [usage-based resources](/docs/features/usage_based_r
 
 ### 4. Show cost estimate diff
 
-<ol type="a">
+<ol type="i">
   <li>Generate Infracost JSON file as the baseline:</li>
 
   ```shell
@@ -136,7 +136,8 @@ Infracost can also estimate [usage-based resources](/docs/features/usage_based_r
       --terraform-parse-hcl --format json --out-file infracost-base.json
   ```
 
-  <li>Edit something in your Terraform project.  If you're using our sample project, open `main.tf` and change the instance type:</li>
+  <li>Edit your Terraform project. If you're using our example project, try changing the instance type:</li>
+
   ```shell
   vim main.tf
   ```
