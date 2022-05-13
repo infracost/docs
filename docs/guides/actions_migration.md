@@ -34,7 +34,7 @@ Changing your workflow to work with the parse HCL option requires the following 
 
 2. Remove the Terraform and Terragrunt dependencies. You can remove any `hashicorp/setup-terraform` or `autero1/action-terragrunt` actions as Infracost now parses the HCL code directly, so it does not depend on these.
 
-3. Add a step for generating an Infracost cost estimate baseline from the base branch of the pull request (e.g. main/master). This is needed so Infracost has the current state to compare against.
+3. After the "Setup Infracost" step, add a step for generating a cost estimate baseline from the base branch of the pull request (e.g. main/master). This is needed so Infracost has the current state to compare against.
 
    ```yaml
    - name: Checkout base branch
@@ -84,8 +84,8 @@ Changing your workflow to work with the parse HCL option requires the following 
                       --compare-to=/tmp/infracost-base.json `# point this to the JSON output we generated in step 2`
                       --out-file=/tmp/infracost.json
 
-       # Post pull request comment in the same was as before by running:
-       # infracost comment github --path=/tmp/infracost.json ...
+    # Post pull request comment in the same was as before by running:
+    # infracost comment github --path=/tmp/infracost.json ...
    ```
 
 ## Examples
