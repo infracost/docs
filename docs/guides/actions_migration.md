@@ -5,67 +5,90 @@ title: GitHub Actions migration
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Follow this page to migrate from our old [infracost-gh-actions](https://github.com/infracost/infracost-gh-action) repo to our new [actions](https://github.com/infracost/actions/) repo. The infracost-gh-actions repo will be deprecated in the next Infracost release.
+:::tip
+This is the migration guide for the upcoming v0.10 - which has not been released yet.
+A [beta](https://github.com/infracost/infracost/releases/tag/v0.10.0-beta.1) is available if you'd like to try an early version.
+:::
 
-If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
-
-<img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Cost estimate comment for multiple projects" />
+Follow this page to migrate your [Infracost GitHub actions](https://github.com/infracost/actions) from v1 to v2. If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
 ## What's new?
 
-🚀 The new Infracost actions repo provides a composable way of using our actions in your workflow. These JavaScript (not Docker) actions simplify integrating Infracost into your GitHub Actions. In addition, we've added CI-specific output formats, a cost summary table, and different behaviors so you can control when comments are be posted.
+The v1 actions used Infracost v0.9.x of the Infracost CLI, whereas the v2 actions use Infracost v0.10.x. With this new release, we'll support two ways to run Infracost with Terraform via `--path`:
+1. **Parsing HCL code (recommended)**: this is the default and recommend option as it has [4 key benefits](/docs/guides/v0.10_migration/#1-faster-cli). This page describes how you can migrate to this option.
+<!-- TODO: update the example link -->
+2. **Parsing plan JSON file**: this will continue to work as before. There are [examples here](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples#plan-json-examples) of generating Terraform plan JSON files in GitHub Actions and passing them to Infracost.
 
-### Composable actions
+## Actions v2 migration guide
 
-The actions repo contains two main actions as well as many examples demonstrating how they can be used in different workflows. One of the workflows this enables is matrix builds, where one cost estimate comment can be created from a group of Terraform projects. The new actions are:
-- setup: install the Infracost CLI in your GitHub Actions workflow.
-- comment: adds comments to pull requests.
+Changing your workflow to work with the parse HCL option requires the following changes:
 
-Composable actions provide three key benefits:
-1. No need for a bloated Docker image: The Infracost CLI setup has been split out from the Terraform/Terragrunt setup. This avoids needing a large Docker image and enables other actions to be used to to install required versions of [Terraform](https://github.com/hashicorp/setup-terraform) and [Terragrunt](https://github.com/autero1/action-terragrunt).
-2. Safe version upgrades: the Infracost setup action has a `version` field for the CLI, which supports [SemVer ranges](https://www.npmjs.com/package/semver#ranges). So instead of a [full version](https://github.com/infracost/infracost/releases) string, you can use `0.9.x`. This enables you to automatically get the latest backward compatible changes in the 0.9 release (e.g. new resources/features and bug fixes) without worrying about CI/CD pipelines breaking.
-3. Versioning for the integration itself: the integration has a version, `infracost/action@v1`, which also supports Semver. So you can use v1 to get backward compatible updates for the integration (e.g. bug fixes).
+1. Bump the version of the `infracost/actions/setup` action to `v2`:
 
-### CI-specific formats
+   ```yaml
+         - name: Setup Infracost
+           uses: infracost/actions/setup@v2
+           with:
+             api-key: ${{ secrets.INFRACOST_API_KEY }}
+   ```
 
-The `infracost output` command now has two new format options: `github-comment` and `slack-message`. We will be adding formats for GitLab, Azure DevOps repos and Bitbucket later.
+2. Remove the Terraform and Terragrunt dependencies. You can remove any `hashicorp/setup-terraform` or `autero1/action-terragrunt` actions as Infracost now parses the HCL code directly, so it does not depend on these.
 
-### Cost summary
+3. After the "Setup Infracost" step, add a step for generating a cost estimate baseline from the base branch of the pull request (e.g. main/master). This is needed so Infracost has the current state to compare against.
 
-As shown by in the screenshot at the top of this page, comments now include a summary table showing the total cost diff for any projects that have changed.
+   ```yaml
+   - name: Checkout base branch
+     uses: actions/checkout@v2
+     with:
+       ref: '${{ github.event.pull_request.base.ref }}'
 
-### Comment behaviors
+   - name: Generate Infracost cost estimate baseline
+     run: |
+       infracost breakdown --path=/code \
+                           --format=json \
+                           --out-file=/tmp/infracost-base.json
+   ```
 
-The comment action includes a `behavior` and a `target-type` attribute.
+   :::note
+   You should replace any `--terraform-plan-flags` flags with either `--terraform-var` to add variables or `--terraform-var-file` to point to var files. These work similarly to Terraform's `-var` and `-var-file` flags and can be repeated.
+   :::
 
-Behavior describes how and when comments should be posted; we support four options:
-- `update`: Create a single comment and update it on changes. This is the "quietest" option. The GitHub comments UI shows [what/when changed](https://docs.github.com/en/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment) when the comment is updated. Pull request followers will only be notified on the comment create (not updates), and the comment will stay at the same location in the comment history.
-- `delete-and-new`: Delete previous cost estimate comments and create a new one. Pull request followers will be notified on each comment.
-- `hide-and-new`: Minimize previous cost estimate comments and create a new one. Pull request followers will be notified on each comment.
-- `new`: Create a new cost estimate comment. Pull request followers will be notified on each comment.
+   :::note
+   If you have variables stored on Terraform Cloud/Enterprise Infracost will pull these in automatically if you add the following environment variables to your job:
 
-The `target-type` describes where the comment should be posted against, which can be either `pull-request` (default) or `commit`.
+   ```yaml
+   jobs:
+     infracost:
+       # ...
+       env:
+         INFRACOST_TERRAFORM_CLOUD_TOKEN: ${{ secrets.TFC_TOKEN }}
+         INFRACOST_TERRAFORM_CLOUD_HOST: app.terraform.io # Change this if you're using Terraform Enterprise
+   ```
+   :::
 
-## Migration guide
+   <!-- TODO: update the example link -->
+   :::note
+   If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples/multi-project-config-file#readme)
+   :::
 
-1. Follow the [Quick start guide](https://github.com/infracost/actions/#quick-start) to see how the actions can be used together with `setup-terraform`.
+4. Add steps for comparing against the Infracost cost estimate baseline. First make sure you check out the pull request branch, and also add any required variable or config file flags as per step 3 to the `infracost diff` command as well.
 
-2. Find [an example](https://github.com/infracost/actions/#examples) that is the closest to your use-case and adapt the example as required. We have developed examples for:
+   ```yml
+   - name: Checkout PR branch
+     uses: actions/checkout@v2
 
-    - Terraform directory: a Terraform directory containing HCL code
-    - Terraform plan JSON: a Terraform plan JSON file
-    - Terragrunt: a Terragrunt project
-    - Terraform Cloud/Enterprise: a Terraform project using Terraform Cloud/Enterprise
-    - Multi-project using config file: multiple Terraform projects using the Infracost config file
-    - Multi-project using build matrix: multiple Terraform projects using GitHub Actions build matrix
-    - Multi-Terraform workspace: multiple Terraform workspaces using the Infracost config file
-    - Private Terraform module: a Terraform project using a private Terraform module
+   - name: Run Infracost
+     run: |
+       infracost diff --path=/code \
+                      --format=json \
+                      --compare-to=/tmp/infracost-base.json `# point this to the JSON output we generated in step 2`
+                      --out-file=/tmp/infracost.json
 
-    And cost policy examples:
+    # Post pull request comment in the same was as before by running:
+    # infracost comment github --path=/tmp/infracost.json ...
+   ```
 
-    - Thresholds: only post a comment when cost thresholds are exceeded
-    - Conftest: check Infracost cost estimates against policies using Conftest
-    - OPA: check Infracost cost estimates against policies using Open Policy Agent
-    - Sentinel: check Infracost cost estimates against policies using Hashicorp's Sentinel 
+## Examples
 
-If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+<!-- TODO: update the example link -->
+We've updated [our examples](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples) to use the new parsing HCL option and added examples for generating a Terraform plan JSON file if required. You can find one that is the closest to your use-case and adapt as required.
