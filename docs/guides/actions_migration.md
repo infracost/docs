@@ -26,10 +26,10 @@ Changing your workflow to work with the parse HCL option requires the following 
 1. Bump the version of the `infracost/actions/setup` action to `v2`:
 
    ```yaml
-   - name: Setup Infracost
-     uses: infracost/actions/setup@v2
-     with:
-       api-key: ${{ secrets.INFRACOST_API_KEY }}
+         - name: Setup Infracost
+           uses: infracost/actions/setup@v2
+           with:
+             api-key: ${{ secrets.INFRACOST_API_KEY }}
    ```
 
 2. Remove the Terraform and Terragrunt dependencies. You can remove any `hashicorp/setup-terraform` or `autero1/action-terragrunt` actions as Infracost now parses the HCL code directly, so it does not depend on these.
