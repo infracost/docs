@@ -110,9 +110,11 @@ The key can be retrieved with `infracost configure get api_key`.
 Infracost parses the project locally to determine resource types and quantities needed to calculate costs. The [`--path` flag](/docs/features/cli_commands/#breakdown) can point to a Terraform directory or plan JSON file.
 
 ```shell
-# You can also clone https://github.com/infracost/example-terraform
+# You can also: git clone https://github.com/infracost/example-terraform
 cd my-terraform-project
+```
 
+```shell
 # Terraform variables can be set using --terraform-var-file or --terraform-var
 infracost breakdown --path . --terraform-parse-hcl
 ```
