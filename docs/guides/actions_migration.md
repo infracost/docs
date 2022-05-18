@@ -23,7 +23,12 @@ The v1 actions used Infracost v0.9.x of the Infracost CLI, whereas the v2 action
 
 Changing your workflow to work with the parse HCL option requires the following changes:
 
-1. Bump the version of the `infracost/actions/setup` action to `v2`:
+1. Remove the Terraform and Terragrunt dependencies:
+    - Delete any `hashicorp/setup-terraform` or `autero1/action-terragrunt` steps as Infracost now parses the HCL code directly, so it does not depend on these.
+    - Delete any step that runs `terraform` or `terragrunt`, e.g. "Terraform init", "Terraform plan" and "terraform show" are no longer needed.
+    - If you are not using the [fetch usage from CloudWatch](/docs/features/usage_based_resources/#fetch-from-cloudwatch) feature, delete any steps that set cloud credentials.
+
+2. Bump the version of the `infracost/actions/setup` action from `v1` to `v2`:
 
    ```yaml
          - name: Setup Infracost
@@ -32,9 +37,7 @@ Changing your workflow to work with the parse HCL option requires the following 
              api-key: ${{ secrets.INFRACOST_API_KEY }}
    ```
 
-2. Remove the Terraform and Terragrunt dependencies. You can remove any `hashicorp/setup-terraform` or `autero1/action-terragrunt` actions as Infracost now parses the HCL code directly, so it does not depend on these.
-
-3. After the "Setup Infracost" step, add a step for generating a cost estimate baseline from the base branch of the pull request (e.g. main/master). This is needed so Infracost has the current state to compare against.
+3. After the "Setup Infracost" step, add the following two steps for generating a cost estimate baseline from the main/master branch.
 
    ```yaml
    - name: Checkout base branch
@@ -62,7 +65,8 @@ Changing your workflow to work with the parse HCL option requires the following 
        # ...
        env:
          INFRACOST_TERRAFORM_CLOUD_TOKEN: ${{ secrets.TFC_TOKEN }}
-         INFRACOST_TERRAFORM_CLOUD_HOST: app.terraform.io # Change this if you're using Terraform Enterprise
+         # Change this if you're using Terraform Enterprise
+         INFRACOST_TERRAFORM_CLOUD_HOST: app.terraform.io
    ```
    :::
 
@@ -71,7 +75,7 @@ Changing your workflow to work with the parse HCL option requires the following 
    If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples/multi-project-config-file#readme)
    :::
 
-4. Add steps for comparing against the Infracost cost estimate baseline. First make sure you check out the pull request branch, and also add any required variable or config file flags as per step 3 to the `infracost diff` command as well.
+4. After the above, add the following two steps for comparing against the Infracost cost estimate baseline. If you added any required variable or config file flags in step 3, also add them to the `infracost diff` command below.
 
    ```yml
    - name: Checkout PR branch
@@ -81,14 +85,14 @@ Changing your workflow to work with the parse HCL option requires the following 
      run: |
        infracost diff --path=/code \
                       --format=json \
-                      --compare-to=/tmp/infracost-base.json `# point this to the JSON output we generated in step 2`
+                      --compare-to=/tmp/infracost-base.json \
                       --out-file=/tmp/infracost.json
 
     # Post pull request comment in the same was as before by running:
     # infracost comment github --path=/tmp/infracost.json ...
    ```
 
-## Examples
+## Complete examples
 
 <!-- TODO: update the example link -->
 We've updated [our examples](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples) to use the new parsing HCL option and added examples for generating a Terraform plan JSON file if required. You can find one that is the closest to your use-case and adapt as required.
