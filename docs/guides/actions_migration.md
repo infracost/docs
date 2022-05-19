@@ -10,7 +10,9 @@ This is the migration guide for the upcoming v0.10 - which has not been released
 A [beta](https://github.com/infracost/infracost/releases/tag/v0.10.0-beta.1) is available if you'd like to try an early version.
 :::
 
-Follow this page to migrate your [Infracost GitHub actions](https://github.com/infracost/actions) from v1 to v2. If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+Follow this page to migrate your [Infracost GitHub actions](https://github.com/infracost/actions) from v1 to v2.
+
+If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
 ## What's new?
 
@@ -22,7 +24,7 @@ The v1 actions used Infracost v0.9.x of the Infracost CLI, whereas the v2 action
     ```
 
 <!-- TODO: update the example link -->
-2. **Parsing plan JSON file**: this will continue to work as before. There are [examples here](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples#plan-json-examples) of generating Terraform plan JSON files in GitHub Actions and passing them to Infracost.
+2. **Parsing plan JSON file**: this will continue to work as before. There are [examples here](https://github.com/infracost/actions/tree/v2/examples#plan-json-examples) of generating Terraform plan JSON files in GitHub Actions and passing them to Infracost.
     ```shell
     cd /code
     terraform init
@@ -60,7 +62,7 @@ Changing your workflow to work with the parse HCL option requires the following 
 
    - name: Generate Infracost cost estimate baseline
      run: |
-       infracost breakdown --path=/code \
+       infracost breakdown --path=PATH/TO/YOUR_TERRAFORM_CODE \
                            --format=json \
                            --out-file=/tmp/infracost-base.json
    ```
@@ -85,7 +87,7 @@ Changing your workflow to work with the parse HCL option requires the following 
 
    <!-- TODO: update the example link -->
    :::note
-   If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples/multi-project-config-file#readme)
+   If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://github.com/infracost/actions/tree/v2/examples/multi-project-config-file#readme)
    :::
 
 4. After the above, add the following two steps for comparing against the Infracost cost estimate baseline. If you added any required variable or config file flags in step 3, also add them to the `infracost diff` command below.
@@ -96,7 +98,7 @@ Changing your workflow to work with the parse HCL option requires the following 
 
    - name: Run Infracost
      run: |
-       infracost diff --path=/code \
+       infracost diff --path=PATH/TO/YOUR_TERRAFORM_CODE \
                       --format=json \
                       --compare-to=/tmp/infracost-base.json \
                       --out-file=/tmp/infracost.json
@@ -105,7 +107,5 @@ Changing your workflow to work with the parse HCL option requires the following 
     # infracost comment github --path=/tmp/infracost.json ...
    ```
 
-## Complete examples
-
 <!-- TODO: update the example link -->
-We've updated [our examples](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples) to use the new parsing HCL option and added examples for generating a Terraform plan JSON file if required. You can find one that is the closest to your use-case and adapt as required.
+5. See [our full examples](https://github.com/infracost/actions/tree/v2/examples) that use the new parsing HCL option. You can find one that is the closest to your use-case and adapt as required.
