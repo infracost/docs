@@ -16,8 +16,21 @@ Follow this page to migrate your [Infracost GitHub actions](https://github.com/i
 
 The v1 actions used Infracost v0.9.x of the Infracost CLI, whereas the v2 actions use Infracost v0.10.x. With this new release, we'll support two ways to run Infracost with Terraform via `--path`:
 1. **Parsing HCL code (recommended)**: this is the default and recommend option as it has [4 key benefits](/docs/guides/v0.10_migration/#1-faster-cli). This page describes how you can migrate to this option.
+    ```shell
+    # Terraform variables can be set using --terraform-var-file or --terraform-var
+    infracost breakdown --path /code
+    ```
+
 <!-- TODO: update the example link -->
 2. **Parsing plan JSON file**: this will continue to work as before. There are [examples here](https://github.com/infracost/actions/tree/make-consistent-with-gitlab/examples#plan-json-examples) of generating Terraform plan JSON files in GitHub Actions and passing them to Infracost.
+    ```shell
+    cd /code
+    terraform init
+    terraform plan -out tfplan.binary
+    terraform show -json tfplan.binary > plan.json
+
+    infracost breakdown --path plan.json
+    ```
 
 ## Actions v2 migration guide
 
