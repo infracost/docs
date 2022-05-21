@@ -5,73 +5,99 @@ title: GitLab CI migration
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Follow this page to migrate from our old [GitLab template](https://gitlab.com/infracost/infracost-gitlab-ci/-/blob/master/README-deprecated.md) to our new [GitLab pipeline examples](https://gitlab.com/infracost/infracost-gitlab-ci/).
+:::tip
+This is the migration guide for the upcoming v0.10 - which has not been released yet.
+A [beta](https://github.com/infracost/infracost/releases/tag/v0.10.0-beta.1) is available if you'd like to try an early version.
+:::
+
+Follow this page to migrate your [Infracost GitLab CI integration](https://gitlab.com/infracost/infracost-gitlab-ci) to use Infracost v0.10.
 
 If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
-
-<img src={useBaseUrl("img/screenshots/gitlab-comment.png")} alt="Cost estimate comment for multiple projects" />
 
 ## What's new?
 
-🚀 The new Infracost GitLab CI repo provides a composable way of using Infracost in your workflow. It contains a collection of examples for integrating Infracost into your GitLab CI pipelines. In addition, we've added CI-specific output formats, a cost summary table, and different behaviors so you can control when comments are be posted.
+With the v0.10 release, we'll support two ways to run Infracost with Terraform via `--path`:
+1. **Parsing HCL code (recommended)**: this is the default and recommended option as it has [4 key benefits](/docs/guides/v0.10_migration/#1-faster-cli). This page describes how you can migrate to this option.
+    ```shell
+    # Terraform variables can be set using --terraform-var-file or --terraform-var
+    infracost breakdown --path /code
+    ```
 
-### Composable example pipelines
+<!-- TODO: update the example link -->
+2. **Parsing plan JSON file**: this will continue to work as before. There are [examples here](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/v0.10-examples/examples#plan-json-examples) of generating Terraform plan JSON files in GitLab CI and passing them to Infracost.
+    ```shell
+    cd /code
+    terraform init
+    terraform plan -out tfplan.binary
+    terraform show -json tfplan.binary > plan.json
 
-The example pipelines demonstrate how Infracost can be used in different workflows in your `.gitlab-ci.yml` file, e.g. if you're using Terragrunt, Terraform Cloud or you have multiple Terraform projects in your repo.
+    infracost breakdown --path plan.json
+    ```
 
-The examples include steps to do the following:
-1. Run Terraform/Terragrunt to generate the Terraform plan JSONs.
-2. Pass these plan JSON files to `infracost breakdown` to generate Infracost JSON output.
-3. Run the `infracost comment` command, which combines the Infracost JSON files and posts one comment on the merge request.
+## Infracost GitLab CI migration guide
 
-The examples provide three key benefits:
-1. A smaller Docker image. The old images contained the Infracost CLI along with multiple versions of Terraform and Terragrunt. The `infracost:ci-*` Docker images only contains the Infracost CLI and additional scripts that are useful in CI environments. For running Terraform and Terragrunt commands, the examples use the HashiCorp or alpine images.
-2. Safe version upgrades: You can specify the Infracost Docker image tag to lock to specific Infracost versions, or ensure you are getting updated bug fixes and new resources. For example:
-  - `infracost/infracost:ci-0.9` (recommended) - Always use the latest 0.9.x version to pick up bug fixes and new resources.
-  - `infracost/infracost:ci-0.9.x` - Lock the version. See versions in https://github.com/infracost/infracost/releases.
-  - `infracost/infracost:ci-latest` - Always use the latest Infracost image. This might break when new minor or major versions are released.
-3. Easier debugging: The examples show how to generate the Terraform plan JSON files prior to running Infracost. This means that Infracost doesn't need to wrap the Terraform or Terragrunt binaries, so it's easy to debug any issues that are Terraform-related.
+Changing your workflow to work with the parse HCL option requires the following changes:
 
-### CI-specific formats
+1. Remove the Terraform and Terragrunt dependencies:
+    - Delete any stages and jobs that runs `terraform` or `terragrunt`, e.g. "terraform init", "terraform plan" and "terraform show" are no longer needed.
+    - If you are not using the [fetch usage from CloudWatch](/docs/features/usage_based_resources/#fetch-from-cloudwatch) feature, delete any steps that set cloud credentials.
 
-The `infracost comment` command has a dedicated `gitlab` format. We already have formats for GitHub which are used by our [GitHub actions](https://github.com/infracost/actions) and Azure DevOps Repos ([Infracost tasks](https://marketplace.visualstudio.com/items?itemName=Infracost.infracost-tasks)). We will be adding a format for Bitbucket later.
+2. Bump the version of the Infracost Docker image from `infracost/infracost:ci-0.9` to `infracost/infracost:ci-0.10`:
 
-For posting a Slack message the `infracost output` command has a dedicated `slack-message` option now. [This example](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/master/examples/slack) explains how to use it.
+    ```yaml
+    infracost:
+      stage: infracost
+      image:
+        name: infracost/infracost:ci-0.10
+        entrypoint: [""]
+    ```
 
-### Cost summary
+3. Update the `infracost` job's script to add the following two steps for generating a cost estimate baseline from the main/master branch.
 
-As shown by in the screenshot at the top of this page, comments now include a summary table showing the total cost diff for any projects that have changed.
+    ```yaml
+    - git clone $CI_REPOSITORY_URL --branch=$CI_MERGE_REQUEST_TARGET_BRANCH_NAME --single-branch /tmp/base
 
-### Comment behaviors
+    - |
+      infracost breakdown --path=/tmp/base/${TF_ROOT} \
+                          --format=json \
+                          --out-file=infracost-base.json
+    ```
 
-The `infracost comment` command supports different commenting behaviors and target types that can be specified using `--behavior` and `--merge-request`/`--commit` flags.
+    :::note
+    You should replace any `--terraform-plan-flags` flags with either `--terraform-var` to add variables or `--terraform-var-file` to point to var files. These work similarly to Terraform's `-var` and `-var-file` flags and can be repeated.
+    :::
 
-The `--behavior` describes how and when comments should be posted; we support three options for GitLab:
-- `update`: Create a single comment and update it on changes. This is the "quietest" option. Merge request followers will only be notified on the comment create (not updates), and the comment will stay at the same location in the comment history.
-- `delete-and-new`: Delete previous cost estimate comments and create a new one. Merge request followers will be notified on each comment.
-- `new`: Create a new cost estimate comment. Merge request followers will be notified on each comment.
+    :::note
+    If you have variables stored on Terraform Cloud/Enterprise Infracost will pull these in automatically if you add the following environment variables to your job:
 
-The `--merge-request <merge-request-number>` flag instructs to post a comment on a merge request. `--commit <commit-sha>` flag instructs to post a comment on a merge request's commit. These flags are mutually exclusive, but the command requires one of them to be set.
+    ```yaml
+    infracost:
+      # ...
+      variables:
+        INFRACOST_TERRAFORM_CLOUD_TOKEN: $INFRACOST_TERRAFORM_CLOUD_TOKEN
+        # Change this if you're using Terraform Enterprise
+        INFRACOST_TERRAFORM_CLOUD_HOST: app.terraform.io
+    ```
+    :::
 
-## Migration guide
+    <!-- TODO: update the example link -->
+    :::note
+    If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/v0.10-examples/examples/multi-project-config-file)
+    :::
 
-Find [an example](https://gitlab.com/infracost/infracost-gitlab-ci#examples) that is the closest to your use-case and adapt the example as required. We have developed examples for:
+4. After the above, add the following two steps for comparing against the Infracost cost estimate baseline. If you added any required variable or config file flags in step 3, also add them to the `infracost diff` command below.
 
-  - Terraform directory: a Terraform directory containing HCL code
-  - GitLab Terraform: a Terraform directory using the gitlab-terraform Docker image
-  - Terraform plan JSON: a Terraform plan JSON file
-  - Terragrunt: a Terragrunt project
-  - Terraform Cloud/Enterprise: a Terraform project using Terraform Cloud/Enterprise
-  - Multi-project using parallel matrix jobs: multiple Terraform projects using parallel matrix jobs
-  - Multi-Terraform workspace: multiple Terraform workspaces using parallel matrix jobs
-  - Private Terraform module: a Terraform project using a private Terraform module
-  - Slack: send cost estimates to Slack
+    ```yml
+      - |
+        infracost diff --path=${TF_ROOT} \
+                      --compare-to=infracost-base.json \
+                      --format=json \
+                      --out-file=infracost.json
 
-And cost policy examples:
+      # Posts a comment in the same way as before
+      - |
+        infracost comment gitlab --path=infracost.json ...
+    ```
 
-  - Thresholds: only post a comment when cost thresholds are exceeded
-  - Conftest: check Infracost cost estimates against policies using Conftest
-  - OPA: check Infracost cost estimates against policies using Open Policy Agent
-  - Sentinel: check Infracost cost estimates against policies using Hashicorp's Sentinel
-
-If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+<!-- TODO: update the example link -->
+5. See [our full examples](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/v0.10-examples/examples) that use the new parsing HCL option. You can find one that is the closest to your use-case and adapt as required.

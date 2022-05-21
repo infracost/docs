@@ -17,7 +17,7 @@ If you encounter any issues while migrating, please join our [community Slack ch
 ## What's new?
 
 The v1 actions used Infracost v0.9.x of the Infracost CLI, whereas the v2 actions use Infracost v0.10.x. With this new release, we'll support two ways to run Infracost with Terraform via `--path`:
-1. **Parsing HCL code (recommended)**: this is the default and recommend option as it has [4 key benefits](/docs/guides/v0.10_migration/#1-faster-cli). This page describes how you can migrate to this option.
+1. **Parsing HCL code (recommended)**: this is the default and recommended option as it has [4 key benefits](/docs/guides/v0.10_migration/#1-faster-cli). This page describes how you can migrate to this option.
     ```shell
     # Terraform variables can be set using --terraform-var-file or --terraform-var
     infracost breakdown --path /code
@@ -40,72 +40,72 @@ Changing your workflow to work with the parse HCL option requires the following 
 
 1. Remove the Terraform and Terragrunt dependencies:
     - Delete any `hashicorp/setup-terraform` or `autero1/action-terragrunt` steps as Infracost now parses the HCL code directly, so it does not depend on these.
-    - Delete any step that runs `terraform` or `terragrunt`, e.g. "Terraform init", "Terraform plan" and "terraform show" are no longer needed.
+    - Delete any step that runs `terraform` or `terragrunt`, e.g. "terraform init", "terraform plan" and "terraform show" are no longer needed.
     - If you are not using the [fetch usage from CloudWatch](/docs/features/usage_based_resources/#fetch-from-cloudwatch) feature, delete any steps that set cloud credentials.
 
 2. Bump the version of the `infracost/actions/setup` action from `v1` to `v2`:
 
-   ```yaml
-         - name: Setup Infracost
-           uses: infracost/actions/setup@v2
-           with:
-             api-key: ${{ secrets.INFRACOST_API_KEY }}
-   ```
+    ```yaml
+          - name: Setup Infracost
+            uses: infracost/actions/setup@v2
+            with:
+              api-key: ${{ secrets.INFRACOST_API_KEY }}
+    ```
 
 3. After the "Setup Infracost" step, add the following two steps for generating a cost estimate baseline from the main/master branch.
 
-   ```yaml
-   - name: Checkout base branch
-     uses: actions/checkout@v2
-     with:
-       ref: '${{ github.event.pull_request.base.ref }}'
+    ```yaml
+    - name: Checkout base branch
+      uses: actions/checkout@v2
+      with:
+        ref: '${{ github.event.pull_request.base.ref }}'
 
-   - name: Generate Infracost cost estimate baseline
-     run: |
-       infracost breakdown --path=PATH/TO/YOUR_TERRAFORM_CODE \
-                           --format=json \
-                           --out-file=/tmp/infracost-base.json
-   ```
+    - name: Generate Infracost cost estimate baseline
+      run: |
+        infracost breakdown --path=PATH/TO/YOUR_TERRAFORM_CODE \
+                            --format=json \
+                            --out-file=/tmp/infracost-base.json
+    ```
 
-   :::note
-   You should replace any `--terraform-plan-flags` flags with either `--terraform-var` to add variables or `--terraform-var-file` to point to var files. These work similarly to Terraform's `-var` and `-var-file` flags and can be repeated.
-   :::
+    :::note
+    You should replace any `--terraform-plan-flags` flags with either `--terraform-var` to add variables or `--terraform-var-file` to point to var files. These work similarly to Terraform's `-var` and `-var-file` flags and can be repeated.
+    :::
 
-   :::note
-   If you have variables stored on Terraform Cloud/Enterprise Infracost will pull these in automatically if you add the following environment variables to your job:
+    :::note
+    If you have variables stored on Terraform Cloud/Enterprise Infracost will pull these in automatically if you add the following environment variables to your job:
 
-   ```yaml
-   jobs:
-     infracost:
-       # ...
-       env:
-         INFRACOST_TERRAFORM_CLOUD_TOKEN: ${{ secrets.TFC_TOKEN }}
-         # Change this if you're using Terraform Enterprise
-         INFRACOST_TERRAFORM_CLOUD_HOST: app.terraform.io
-   ```
-   :::
+    ```yaml
+    jobs:
+      infracost:
+        # ...
+        env:
+          INFRACOST_TERRAFORM_CLOUD_TOKEN: ${{ secrets.TFC_TOKEN }}
+          # Change this if you're using Terraform Enterprise
+          INFRACOST_TERRAFORM_CLOUD_HOST: app.terraform.io
+    ```
+    :::
 
-   <!-- TODO: update the example link -->
-   :::note
-   If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://github.com/infracost/actions/tree/v2/examples/multi-project-config-file#readme)
-   :::
+    <!-- TODO: update the example link -->
+    :::note
+    If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://github.com/infracost/actions/tree/v2/examples/multi-project-config-file#readme)
+    :::
 
 4. After the above, add the following two steps for comparing against the Infracost cost estimate baseline. If you added any required variable or config file flags in step 3, also add them to the `infracost diff` command below.
 
-   ```yml
-   - name: Checkout PR branch
-     uses: actions/checkout@v2
+    ```yml
+    - name: Checkout PR branch
+      uses: actions/checkout@v2
 
-   - name: Run Infracost
-     run: |
-       infracost diff --path=PATH/TO/YOUR_TERRAFORM_CODE \
+    - name: Run Infracost
+      run: |
+        infracost diff --path=PATH/TO/YOUR_TERRAFORM_CODE \
                       --format=json \
                       --compare-to=/tmp/infracost-base.json \
                       --out-file=/tmp/infracost.json
 
-    # Post pull request comment in the same was as before by running:
+    # Post pull request comment in the same way as before by running:
     # infracost comment github --path=/tmp/infracost.json ...
-   ```
+    ```
 
 <!-- TODO: update the example link -->
 5. See [our full examples](https://github.com/infracost/actions/tree/v2/examples) that use the new parsing HCL option. You can find one that is the closest to your use-case and adapt as required.
