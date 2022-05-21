@@ -5,67 +5,107 @@ title: Azure DevOps migration
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Follow this page to migrate from our old [pipeline bash scripts](https://github.com/infracost/infracost-azure-devops/blob/0c662db3982f53666e89e69a406c572f48dc5c33/README.md) to our new [Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=Infracost.infracost-tasks).
+:::tip
+This is the migration guide for the upcoming v0.10 - which has not been released yet.
+A [beta](https://github.com/infracost/infracost/releases/tag/v0.10.0-beta.1) is available if you'd like to try an early version.
+:::
+
+Follow this page to migrate your [Infracost Azure Pipelines integration](https://github.com/infracost/infracost-azure-devops) to use Infracost v0.10.
 
 If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
-
-<img src={useBaseUrl("img/screenshots/azure-pull-request.png")} alt="Cost estimate comment for azure pipeline" />
 
 ## What's new?
 
-🚀 The new [Infracost Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=Infracost.infracost-tasks) provides a set of Azure Pipelines tasks offering a composable way of using Infracost in your pipeline. These JavaScript tasks simplify integrating Infracost into your Azure pipeline. In addition, we've added Azure specific output formats, a cost summary table, and different behaviors, so you can control when comments are posted.
+The InfracostSetup@0 task used Infracost v0.9.x of the Infracost CLI, whereas the InfracostSetup@1 task use Infracost v0.10.x. With this new release, we'll support two ways to run Infracost with Terraform via `--path`:
+1. **Parsing HCL code (recommended)**: this is the default and recommended option as it has [4 key benefits](/docs/guides/v0.10_migration/#1-faster-cli). This page describes how you can migrate to this option.
+    ```shell
+    # Terraform variables can be set using --terraform-var-file or --terraform-var
+    infracost breakdown --path /code
+    ```
 
-### Infracost setup task
+<!-- TODO: update the example link -->
+2. **Parsing plan JSON file**: this will continue to work as before. There are [examples here](https://github.com/infracost/infracost-azure-devops/tree/v0.10-examples/examples#plan-json-examples) of generating Terraform plan JSON files in Azure Pipelines and passing them to Infracost.
+    ```shell
+    cd /code
+    terraform init
+    terraform plan -out tfplan.binary
+    terraform show -json tfplan.binary > plan.json
 
-The [Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=Infracost.infracost-tasks) includes a `InfracostSetup` that installs and makes available `infracost` CLI app in your pipeline.
+    infracost breakdown --path plan.json
+    ```
 
-We've complied an expansive list of [examples](https://github.com/infracost/infracost-azure-devops#examples) demonstrating how this task can be used in different pipelines.
+## Infracost Azure Pipelines migration guide
 
-Using this task has three key benefits:
+Changing your workflow to work with the parse HCL option requires the following changes:
 
-1. No need for a large setup steps: Installing the Infracost toolchain is now abstracted behind a single task, so there's no need for large "setup" steps that deal with pre-configuring Infracost dependencies.
-2. Safe version upgrades: The InfracostSetup task has a `version` field for the CLI, which supports [SemVer ranges](https://www.npmjs.com/package/semver#ranges). So instead of a [full version](https://github.com/infracost/infracost/releases) string, you can use `0.9.x`. This enables you to automatically get the latest backward-compatible changes in the 0.9 release (e.g. new resources/features and bug fixes) without worrying about CI/CD pipelines breaking.
-3. Versioning for the CI integration: the task itself has a version too, `InfracostSetup@0`, which also supports Semver. So you can use `@0` to get backward-compatible updates for the extension (e.g. bug fixes).
+1. Remove the Terraform and Terragrunt dependencies:
+    - Delete any `TerraformInstaller` steps as Infracost now parses the HCL code directly, so it does not depend on these.
+    - Delete any stages and jobs that runs `terraform` or `terragrunt`, e.g. "terraform init", "terraform plan" and "terraform show" are no longer needed.
+    - If you are not using the [fetch usage from CloudWatch](/docs/features/usage_based_resources/#fetch-from-cloudwatch) feature, delete any steps that set cloud credentials.
 
-### CI-specific formats
+2. Bump the version of the InfracostSetup task from `0` to `1`:
 
-The `infracost output` command now has two new format options: `azure-repos-comment` and `slack-message`. We already have formats for GitHub & GitLab which are used by our [GitHub Actions](https://github.com/infracost/actions) and [GitLab CI](https://gitlab.com/infracost/infracost-gitlab-ci/) integrations.
+    ```yaml
+      - task: InfracostSetup@1
+          displayName: Setup Infracost
+          inputs:
+            apiKey: $(infracostApiKey)
+    ```
 
-### Cost summary
+3. After the "Setup Infracost" step, add the following two steps for generating a cost estimate baseline from the main/master branch.
 
-As shown in the screenshot at the top of this page, comments now include a summary table showing the total cost diff for any projects that have changed.
+    ```yaml
+      - bash: |
+          branch=$(System.PullRequest.TargetBranch)
+          branch=${branch#refs/heads/}
+          git clone $(Build.Repository.Uri) --branch=${branch} --single-branch /tmp/base
+        displayName: Checkout base branch
 
-### Comment behaviors
+      - bash: |
+          infracost breakdown --path=$(TF_ROOT) \
+                              --format=json \
+                              --out-file=/tmp/infracost-base.json
+        displayName: Generate Infracost cost estimate baseline
+    ```
 
-The `infracost comment` command supports a `behavior` and `pull-request`/`commit` flags.
+    :::note
+    You should replace any `--terraform-plan-flags` flags with either `--terraform-var` to add variables or `--terraform-var-file` to point to var files. These work similarly to Terraform's `-var` and `-var-file` flags and can be repeated.
+    :::
 
-Behavior describes how and when comments should be posted; we support four options:
-- `update`: Create a single comment and update it on changes. This is the "quietest" option. For Azure DevOps Repos users, comments will simply be overwritten. GitHub users have additional UI that shows [what/when changed](https://docs.github.com/en/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment) when the comment is updated. Pull request followers will only be notified on the comment create (not updates), and the comment will stay at the same location in the comment history.
-- `delete-and-new`: Delete previous cost estimate comments and create a new one. Pull request followers will be notified on each comment.
-- `hide-and-new`: Minimize previous cost estimate comments and create a new one. Pull request followers will be notified on each comment. This behavior is available only for GitHub.
-- `new`: Create a new cost estimate comment. Pull request followers will be notified on each comment.
+    :::note
+    If you have variables stored on Terraform Cloud/Enterprise Infracost will pull these in automatically if you add the following environment variables to your job:
 
-The `pull-request` flag expects a pull requests number where the comment should be posted against, `commit` expects a commit SHA to post a comment on a specific commit. `commit` is available only for GitHub.
+    ```yaml
+    jobs:
+      - job: infracost
+        # ...
+        env:
+          INFRACOST_TERRAFORM_CLOUD_TOKEN: $(tfcToken)
+          # Change this if you're using Terraform Enterprise
+          INFRACOST_TERRAFORM_CLOUD_HOST: app.terraform.io
+    ```
+    :::
 
-## Migration guide
+    <!-- TODO: update the example link -->
+    :::note
+    If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://github.com/infracost/infracost-azure-devops/tree/v0.10-examples/examples/multi-project-config-file#readme)
+    :::
 
-1. Follow the [Quick start guide](https://github.com/infracost/infracost-azure-devops/#quick-start) to see how the tasks can be used together with a simple `terraform plan` flow.
-2. Find [an example](https://github.com/infracost/infracost-azure-devops/#examples) that is the closest to your use-case and adapt the example as required. We have developed examples for:
+4. After the above, add the following two steps for comparing against the Infracost cost estimate baseline. If you added any required variable or config file flags in step 3, also add them to the `infracost diff` command below.
 
-   - [Terraform directory](https://github.com/infracost/infracost-azure-devops/tree/master/examples/terraform-directory): a Terraform directory containing HCL code
-   - [Terraform plan JSON](https://github.com/infracost/infracost-azure-devops/tree/master/examples/terraform-plan-json): a Terraform plan JSON file
-   - [Terragrunt](https://github.com/infracost/infracost-azure-devops/tree/master/examples/terragrunt): a Terragrunt project
-   - [Terraform Cloud/Enterprise](https://github.com/infracost/infracost-azure-devops/tree/master/examples/terraform-cloud-enterprise): a Terraform project using Terraform Cloud/Enterprise
-   - [Multi-project using config file](https://github.com/infracost/infracost-azure-devops/tree/master/examples/multi-project/README.md#using-an-infracost-config-file): multiple Terraform projects using the Infracost [config file](https://www.infracost.io/docs/features/config_file)
-   - [Multi-project using ajob matrix](https://github.com/infracost/infracost-azure-devops/tree/master/examples/multi-project/README.md#using-azure-devops-pipeline-matrix-strategy): multiple Terraform projects using Azure pipeline job matrix strategy
-   - [Multi-Terraform workspace](https://github.com/infracost/infracost-azure-devops/tree/master/examples/multi-terraform-workspace): multiple Terraform workspaces using the Infracost [config file](https://www.infracost.io/docs/features/config_file)
-   - [Private Terraform module](https://github.com/infracost/infracost-azure-devops/tree/master/examples/private-terraform-module)
+    ```yml
+      - bash: |
+          infracost diff --path=$(TF_ROOT) \
+                         --format=json \
+                         --compare-to=/tmp/infracost-base.json \
+                         --out-file=/tmp/infracost.json
+        displayName: Generate Infracost diff
 
-   And cost policy examples:
+      # Posts a comment in the same way as before
+      - bash: |
+          infracost comment github --path=/tmp/infracost.json ...
+        displayName: Post Infracost comment
+    ```
 
-   - [Thresholds](https://github.com/infracost/infracost-azure-devops/tree/master/examples/thresholds): only post a comment when cost thresholds are exceeded
-   - [Conftest](https://github.com/infracost/infracost-azure-devops/tree/master/examples/conftest): check Infracost cost estimates against policies using Conftest
-   - [OPA](https://github.com/infracost/infracost-azure-devops/tree/master/examples/opa): check Infracost cost estimates against policies using Open Policy Agent
-   - [Sentinel](https://github.com/infracost/infracost-azure-devops/tree/master/examples/sentinel): check Infracost cost estimates against policies using Hashicorp's Sentinel
-
-If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+<!-- TODO: update the example link -->
+5. See [our full examples](https://github.com/infracost/infracost-azure-devops/tree/v0.10-examples/examples) that use the new parsing HCL option. You can find one that is the closest to your use-case and adapt as required.
