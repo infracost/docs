@@ -42,13 +42,14 @@ Changing your workflow to work with the parse HCL option requires the following 
     - Delete any stages and jobs that runs `terraform` or `terragrunt`, e.g. "terraform init", "terraform plan" and "terraform show" are no longer needed.
     - If you are not using the [fetch usage from CloudWatch](/docs/features/usage_based_resources/#fetch-from-cloudwatch) feature, delete any steps that set cloud credentials.
 
-2. Bump the version of the Infracost Docker image from `infracost/infracost:ci-0.9` to `infracost/infracost:ci-0.10`:
+<!-- TODO: update the docker image to ci-0.10 -->
+2. Bump the version of the Infracost Docker image from `infracost/infracost:ci-0.9` to `infracost/infracost:ci-0.10.0-beta.1`:
 
     ```yaml
     infracost:
       stage: infracost
       image:
-        name: infracost/infracost:ci-0.10
+        name: infracost/infracost:ci-0.10.0-beta.1
         entrypoint: [""]
     ```
 
