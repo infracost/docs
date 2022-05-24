@@ -39,7 +39,7 @@ Infracost configuration values are chosen in this order:
 
 | Parameter             | Description      | Notes |
 | ---                   | ---              | ---   |
-| `path`                  | Path to the Terraform directory or JSON/plan file. A path can be repeated with different parameters, e.g. for multiple workspaces. | Required |
+| `path`                  | Path to the Terraform directory or JSON/plan file. A path can be repeated with different parameters, e.g. for multiple workspaces. | Required. The path is relative to the present working directory. |
 | `usage_file`          | Path to Infracost usage file that specifies values for [usage-based resources](/docs/features/usage_based_resources) | Optional |
 | `env`                  | A map of environment variables, also supports referencing existing environment variables. | Optional. Useful if you want to define each project's AWS credentials used to [fetch data](/docs/features/usage_based_resources/#fetch-from-cloudwatch) from CloudWatch |
 | `terraform_vars`        | Input variables to use when parsing HCL, similar to Terraform's `-var` flag. | Optional |
