@@ -42,9 +42,10 @@ Run Tasks are not yet available in Terraform Enterprise, so when running Infraco
 If you are using Terraform Cloud, or Terraform workspaces, and you'd like to run Infracost locally on your dev machine, please follow the below instructions.
 
 #### With Terraform Cloud
-If you are a Terraform Cloud user, when running Infracost locally on your dev machine, you should **either**:
-1. Set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html). This environment variable can also be set in the [config file](/docs/features/config_file).
-2. Set the Terraform environment variable [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) to the absolute path of your Terraform CLI config file.
+
+When Terraform Cloud/Enterprise's [remote execution mode](https://www.terraform.io/cloud-docs/workspaces/settings#execution-mode) is used, Infracost will use the token in the Terraform CLI config file to automatically retrieve the variables. If that does not satisfy your use-case, you can **either**:
+1. Set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html). `INFRACOST_TERRAFORM_CLOUD_HOST` can also be set for Terraform Enterprise users (e.g. to avoid using app.terraform.io). These environment variables can also be set in the [config file](/docs/features/config_file).
+2. Set the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) to the absolute path of your Terraform CLI config file.
 
 #### With Terraform workspaces
 

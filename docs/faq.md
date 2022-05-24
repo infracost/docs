@@ -10,7 +10,7 @@ Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Prici
 When the CLI is run, it:
 
 1. **Extracts cost-related parameters**<br />
-  The CLI runs any required Terraform commands to generate the Terraform plan JSON and extracts only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size, to retrieve applicable cloud prices for that resource.
+  The CLI parses Terraform HCL code to extract only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size.
 
 2. **Retrieves prices from the Cloud Pricing API**<br />
   The CLI retrieves prices from the Cloud Pricing API. The CLI **does not** send the actual plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response).
@@ -26,7 +26,7 @@ Security is of paramount importance to us. If you have any questions or concerns
 
 No cloud credentials or secrets are sent to the Cloud Pricing API. Infracost does not make any changes to your Terraform state or cloud resources.
 
-The Cloud Pricing API needs the relevant data to return a unique cloud price point. The plan JSON file is parsed by the Infracost CLI to extract the relevant data to make requests to the Cloud Pricing API. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also sent alongside error tracking events so we can identify and fix issues quickly.
+The Cloud Pricing API needs the relevant data to return a unique cloud price point. The Terraform HCL code is parsed by the Infracost CLI to extract the relevant data to make requests to the Cloud Pricing API. We also send the count of Terraform resource types to the Cloud Pricing API to enable us to better prioritize support for new resources. Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also sent alongside error tracking events so we can identify and fix issues quickly.
 
 Here is an example request to the Cloud Pricing API for a t3.micro instance and the returned response:
 
@@ -80,14 +80,7 @@ Yes! Please see the [self-hosting guide](/docs/cloud_pricing_api/self_hosted) fo
 
 ### Does Infracost need cloud credentials?
 
-It depends on how you run Infracost, since we run Terraform internally, which sometimes needs cloud credentials. These credentials are used by the Terraform CLI locally and not sent to our Cloud Pricing API.
-
-Infracost **doesn't need** cloud credentials when:
-- It is run against a [Terraform plan JSON file](/docs/#option-2-terraform-plan-json), cloud credentials are not needed since the CLI parses the plan JSON file directly.
-
-Infracost **does need** cloud credentials when:
-- It is run against a [Terraform directory](/docs/#option-1-terraform-directory), Terraform will need access to cloud credentials, e.g. when running `terraform init` and `terraform plan`. These commands are only used to produce [plan JSON files](https://www.terraform.io/docs/commands/show.html#json-output) and no changes are made to your Terraform state or cloud resources.
-- You are using Infracost with the [sync-usage-file](/docs/features/usage_based_resources#generate-usage-file) flag and want to pull usage data from your AWS account. In this case Infracost needs read-only access to some resources, as per this [example IAM](/docs/features/usage_based_resources#fetch-from-cloud-watch).
+No. However, if you want Infracost to fetch usage data from your AWS account, you need to give it [read-only access](/docs/features/usage_based_resources/#credentials).
 
 ### Does the Infracost CLI send the Terraform plan to the Cloud Pricing API?
 
@@ -108,21 +101,15 @@ If you believe you have found a vulnerability within Infracost, please let us kn
 
 The key differences are:
 1. Infracost [supports over 230 resources](/docs/supported_resources/overview). Terraform Cloud supports 43 resources.
-2. Infracost can be used to model [usage-based resources](/docs/features/usage_based_resources) and do what-if analysis.
-3. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of the source control and CI/CD system being used.
-4. Infracost can be used with [Terragrunt](/docs/features/terragrunt).
-5. Infracost can output JSON and be used to create [cost policies](/docs/features/cost_policies) with Open Policy Agent, Conftest and HashiCorp Sentinel.
+2. Infracost parses HCL code directly, which makes it super-fast as a Terraform plan is not needed.
+3. Infracost can be used to model [usage-based resources](/docs/features/usage_based_resources) and do what-if analysis.
+4. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of the source control and CI/CD system being used.
+5. Infracost can be used with [Terragrunt](/docs/features/terragrunt).
+6. Infracost can output JSON and be used to create [cost policies](/docs/features/cost_policies) with Open Policy Agent, Conftest and HashiCorp Sentinel.
 
 ### What Terraform versions are supported?
 
 Infracost works with Terraform v0.12 and above.
-
-To change the path to the `terraform` binary, set the `INFRACOST_TERRAFORM_BINARY` environment variable:
-```shell
-INFRACOST_TERRAFORM_BINARY=~/bin/terraform_0.13 infracost breakdown --path /path/to/code
-```
-
-Terragrunt users should see [this page](/docs/features/terragrunt).
 
 ### Can I show costs in a different currency?
 

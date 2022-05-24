@@ -17,7 +17,7 @@ If you encounter any issues while migrating, please join our [community Slack ch
 ## What's new?
 
 With the v0.10 release, we'll support two ways to run Infracost with Terraform via `--path`:
-1. **Parsing HCL code**: this is the default CLI option as it has [4 key benefits](/docs/guides/v0.10_migration/#1-faster-cli).
+1. **Parsing HCL code**: this is the default CLI option as it has [5 key benefits](/docs/guides/v0.10_migration/#1-faster-cli).
     ```shell
     # Terraform variables can be set using --terraform-var-file or --terraform-var
     infracost breakdown --path /code

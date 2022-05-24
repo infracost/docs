@@ -23,40 +23,62 @@ Infracost configuration values are chosen in this order:
 
 ## Usage
 
-1. Create an `infracost.yml` file in each of your Terraform project repos. Each project can have the parameters mentioned in the table below; you might find the following [examples](#examples) helpful.
+1. Create an `infracost.yml` file in the root of your repo. Each project can have the parameters mentioned in the table below; you might find the following [examples](#examples) helpful.
   ```yml
   version: 0.1
 
   projects:
-    - path: path/to/my_terraform
-      # other params
-    - path: another/project
+    - path: dev
+      terraform_var_files:
+        - dev.tfvars
+
+    - path: dev
+      terraform_var_files:
+        - prod.tfvars
   ```
-2. Pass the file to the `infracost breakdown` or `infracost diff` using the `--config-file` option. This flag should not be confused with the `--usage-file` option that is used to define resource [usage](/docs/features/usage_based_resources) estimates.
 
 | Parameter             | Description      | Notes |
 | ---                   | ---              | ---   |
 | `path`                  | Path to the Terraform directory or JSON/plan file. A path can be repeated with different parameters, e.g. for multiple workspaces. | Required |
-| `usage_file`          | Path to Infracost usage file that specifies values for [usage-based resources](/docs/features/usage_based_resources) | Not required |
-| `terraform_binary`      | Used to change the path to the `terraform` or `terragrunt` binary | Not required, e.g. can be set to `~/bin/terraform_0.13` or another path |
-| `terraform_plan_flags`  | Flags to pass to `terraform plan` with Terraform directory paths | Not required. Can be space delimited, e.g. `-var-file=prod.tfvars -var-file=us-east.tfvars` |
-| `terraform_workspace`   | Used to set the Terraform workspace | Not required. Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported" |
-| `terraform_use_state`   | Use Terraform state instead of generating a plan, useful if you want to see the breakdown of the current Terraform state. | Not required. Applicable when path is a Terraform directory. Can't be used with the `diff` command. |
-| `terraform_cloud_host`  | For Terraform Enterprise users, used to override the default `app.terraform.io` backend host | Not required |
-| `terraform_cloud_token` | For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan | Not required. If [this](/docs/features/environment_variables#infracost_terraform_cloud_token) environment variable is set, that'll be used for all projects instead of this parameter |
-| `terraform_vars`        | Input variables to use when parsing HCL, similar to Terraform's -var flag.
-| `terraform_var_files`   | Variable files to use when parsing HCL, similar to Terraform's -var-file flag. |
-| `env`                  | Any environment variables to pass when running `terraform` commands | Not required. These should be specified as a map and also supports referencing existing environment variables. This is useful if you want to pass different AWS credentials to different projects (see the Multi-workspaces example below). |
+| `usage_file`          | Path to Infracost usage file that specifies values for [usage-based resources](/docs/features/usage_based_resources) | Optional |
+| `env`                  | A map of environment variables, also supports referencing existing environment variables. | Optional. Useful if you want to define each project's AWS credentials used to [fetch data](/docs/features/usage_based_resources/#fetch-from-cloudwatch) from CloudWatch |
+| `terraform_vars`        | Input variables to use when parsing HCL, similar to Terraform's `-var` flag. | Optional |
+| `terraform_var_files`   | Variable files to use when parsing HCL, similar to Terraform's `-var-file` flag. | Optional |
+| `terraform_workspace`   | Used to set the Terraform workspace | Optional. Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported" |
+| `terraform_cloud_host`  | For Terraform Enterprise users, used to override the default `app.terraform.io` backend host | Optional |
+| `terraform_cloud_token` | For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can automatically retrieve variables | Optional. If [this](/docs/features/environment_variables#infracost_terraform_cloud_token) environment variable is set, that'll be used for all projects instead of this parameter |
+
+2. Run `infracost breakdown --config-file infracost.yml` or `infracost diff --config-file infracost.yml`. The `--config-file` option can be used alongside `--sync-usage-file` and `--show-skipped`.
 
 ## Examples
 
 <Tabs
-  defaultValue="multi-workspaces"
+  defaultValue="mono-repo"
   values={[
+    {label: 'Mono-repo', value: 'mono-repo'},
     {label: 'Multi-workspaces', value: 'multi-workspaces'},
-    {label: 'Multi-projects', value: 'multi-projects'},
+    {label: 'Multi-plans', value: 'multi-plans'},
     {label: 'Terragrunt with multi-usage files', value: 'terragrunt-multi-usage'},
   ]}>
+  <TabItem value="mono-repo">
+
+  ```yml
+  version: 0.1
+
+  projects:
+    - path: dev
+      usage_file: dev/infracost-usage.yml
+      env:
+        AWS_PROFILE: my-dev
+
+    - path: prod
+      usage_file: prod/infracost-usage.yml
+      env:
+        AWS_ACCESS_KEY_ID: ${PROD_AWS_ACCESS_KEY_ID}
+        AWS_SECRET_ACCESS_KEY: ${PROD_AWS_SECRET_ACCESS_KEY}
+  ```
+  </TabItem>
+
   <TabItem value="multi-workspaces">
 
   ```yml
@@ -64,28 +86,21 @@ Infracost configuration values are chosen in this order:
 
   projects:
     - path: examples/terraform
-      terraform_plan_flags: -var-file=prod.tfvars -var-file=us-east.tfvars
+      terraform_workspace: dev
+
+    - path: examples/terraform
+      terraform_workspace: stage
+      terraform_var_files:
+        - stage.tfvars
+
+    - path: examples/terraform
       terraform_workspace: prod
       terraform_var_files:
-        - prod.input.tfvars
-      terraform_vars:
-        block2_ebs_volume_size: 2000
-      env:
-        AWS_ACCESS_KEY_ID: ${PROD_AWS_ACCESS_KEY_ID}
-        AWS_SECRET_ACCESS_KEY: ${PROD_AWS_SECRET_ACCESS_KEY}
-
-    - path: examples/terraform
-      terraform_plan_flags: -var-file=stage.tfvars
-      terraform_workspace: stage
-      env:
-        AWS_ACCESS_KEY_ID: ${STAGE_AWS_ACCESS_KEY_ID}
-        AWS_SECRET_ACCESS_KEY: ${STAGE_AWS_SECRET_ACCESS_KEY}
-
-    - path: examples/terraform
-      terraform_workspace: dev
+        - prod.tfvars
+        - us-east.tfvars
   ```
   </TabItem>
-  <TabItem value="multi-projects">
+  <TabItem value="multi-plans">
 
   ```yml
   version: 0.1
