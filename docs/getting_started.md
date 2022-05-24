@@ -27,7 +27,7 @@ Get the latest Infracost release:
   ```shell
   brew install infracost
 
-  infracost --version # Should show 0.9.24
+  infracost --version # Should show 0.10.0
   ```
 
   To upgrade Infracost, run `brew update` then `brew upgrade infracost`.
@@ -50,7 +50,7 @@ Get the latest Infracost release:
     ```
   3. Check that it works correctly:
     ```shell
-    infracost --version # Should show 0.9.24
+    infracost --version # Should show 0.10.0
     ```
 
 
@@ -60,7 +60,7 @@ Get the latest Infracost release:
   ```shell
   choco install infracost
 
-  infracost --version # Should show 0.9.24
+  infracost --version # Should show 0.10.0
   ```
 
   To upgrade Infracost, run `choco upgrade infracost`.
@@ -74,20 +74,13 @@ Get the latest Infracost release:
   <TabItem value="docker">
 
   ```shell
-  docker pull infracost/infracost
+  docker pull infracost/infracost:ci-latest
 
   docker run --rm \
     -e INFRACOST_API_KEY=see_following_step_on_how_to_get_this \
-    -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
-    -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-    -v $PWD/:/code/ infracost/infracost breakdown --path /code/
-    # Add other required flags/envs for Infracost or Terraform
-    # For example, these might be required if you are using AWS assume-role:
-    # -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
-    # -e AWS_REGION=$AWS_REGION \
+    -v $PWD/:/code/ infracost/infracost:ci-latest breakdown --path /code/
+    # Add other required flags/envs, e.g. --terraform-var-file or --terraform-var
   ```
-
-  We also have dedicated [CI/CD images](/docs/integrations/cicd/#my-cicd-system-isnt-supported).
 
   </TabItem>
 </Tabs>
@@ -116,7 +109,7 @@ cd my-terraform-project
 
 ```shell
 # Terraform variables can be set using --terraform-var-file or --terraform-var
-infracost breakdown --path . --terraform-parse-hcl
+infracost breakdown --path .
 ```
 
 <p>
@@ -131,11 +124,10 @@ Infracost can also estimate [usage-based resources](/docs/features/usage_based_r
 ### 4. Show cost estimate diff
 
 <ol type="i">
-  <li>Generate Infracost JSON file as the baseline:</li>
+  <li>Generate an Infracost JSON file as the baseline:</li>
 
   ```shell
-  infracost breakdown --path . \
-      --terraform-parse-hcl --format json --out-file infracost-base.json
+  infracost breakdown --path . --format json --out-file infracost-base.json
   ```
 
   <li>Edit your Terraform project. If you're using our example project, try changing the instance type:</li>
@@ -147,8 +139,7 @@ Infracost can also estimate [usage-based resources](/docs/features/usage_based_r
   <li>Generate a diff by comparing the latest code change with the baseline:</li>
 
   ```shell
-  infracost diff --path . \
-      --terraform-parse-hcl --compare-to infracost-base.json
+  infracost diff --path . --compare-to infracost-base.json
   ```
 </ol>
 

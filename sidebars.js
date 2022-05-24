@@ -68,7 +68,6 @@ module.exports = {
         'guides/gitlab_ci_migration',
         'guides/atlantis_migration',
         'guides/azure_devops_migration',
-        `guides/advanced_usage`,
         'guides/terraform_modules',
         'guides/uninstall',
       ],

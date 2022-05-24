@@ -15,7 +15,7 @@ If the Terraform CLI fails, check their [debugging page](https://www.terraform.i
 
 ## 2. Generating plan JSON files
 
-The Infracost CLI parses Terraform plan JSON files to estimate costs. If you're having trouble generating plan JSON files, see the relevant [Terraform CLI](#terraform-cli), [Terraform Cloud](#terraform-cloud) or [Terragrunt](#terragrunt) sections below. These bash scripts can be modified and used in your CI/CD pipelines to generate Terraform plan JSON files.
+By default, the Infracost CLI parses Terraform HCL code to estimate costs. If that does not work for your use-case, or you already have a Terraform plan JSON file, Infracost can also parse that. See the relevant [Terraform CLI](#terraform-cli), [Terraform Cloud](#terraform-cloud) or [Terragrunt](#terragrunt) sections below on how to generate plans. These bash scripts can be modified and used in your CI/CD pipelines.
 
 ### Terraform CLI
 
