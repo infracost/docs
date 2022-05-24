@@ -10,6 +10,8 @@ import TabItem from '@theme/TabItem';
 
 Infracost shows cloud cost estimates for Terraform. It lets DevOps, SRE and engineers see a cost breakdown and understand costs **before making changes**, either in the terminal or pull requests. This provides your team with a safety net as people can discuss costs as part of the workflow.
 
+If you're upgrading from an older version, see the [v0.10 migration guide](/docs/guides/v0.10_migration/).
+
 ### 1. Install Infracost
 Get the latest Infracost release:
 
