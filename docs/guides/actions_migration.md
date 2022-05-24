@@ -5,11 +5,6 @@ title: GitHub Actions migration
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::tip
-This is the migration guide for the upcoming v0.10 - which has not been released yet.
-A [beta](https://github.com/infracost/infracost/releases/tag/v0.10.0-beta.1) is available if you'd like to try an early version.
-:::
-
 Follow this page to migrate your [Infracost GitHub actions](https://github.com/infracost/actions) from v1 to v2.
 
 If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄

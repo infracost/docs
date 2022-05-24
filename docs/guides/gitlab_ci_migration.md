@@ -5,11 +5,6 @@ title: GitLab CI migration
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::tip
-This is the migration guide for the upcoming v0.10 - which has not been released yet.
-A [beta](https://github.com/infracost/infracost/releases/tag/v0.10.0-beta.1) is available if you'd like to try an early version.
-:::
-
 Follow this page to migrate your [Infracost GitLab CI integration](https://gitlab.com/infracost/infracost-gitlab-ci) to use Infracost v0.10.
 
 If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
@@ -43,13 +38,13 @@ Changing your workflow to work with the parse HCL option requires the following 
     - If you are not using the [fetch usage from CloudWatch](/docs/features/usage_based_resources/#fetch-from-cloudwatch) feature, delete any steps that set cloud credentials.
 
 <!-- TODO: update the docker image to ci-0.10 -->
-2. Bump the version of the Infracost Docker image from `infracost/infracost:ci-0.9` to `infracost/infracost:ci-0.10.0-beta.1`:
+2. Bump the version of the Infracost Docker image from `infracost/infracost:ci-0.9` to `infracost/infracost:ci-0.10`:
 
     ```yaml
     infracost:
       stage: infracost
       image:
-        name: infracost/infracost:ci-0.10.0-beta.1
+        name: infracost/infracost:ci-0.10
         entrypoint: [""]
     ```
 
