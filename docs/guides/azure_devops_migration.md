@@ -18,8 +18,7 @@ The InfracostSetup@0 task used Infracost v0.9.x of the Infracost CLI, whereas th
     infracost breakdown --path /code
     ```
 
-<!-- TODO: update the example link -->
-2. **Parsing plan JSON file**: this will continue to work as before. There are [examples here](https://github.com/infracost/infracost-azure-devops/tree/v0.10-examples/examples#plan-json-examples) of generating Terraform plan JSON files in Azure Pipelines and passing them to Infracost.
+2. **Parsing plan JSON file**: this will continue to work as before. There are [examples here](https://github.com/infracost/infracost-azure-devops/tree/master/examples#plan-json-examples) of generating Terraform plan JSON files in Azure Pipelines and passing them to Infracost.
     ```shell
     cd /code
     terraform init
@@ -81,9 +80,8 @@ Changing your workflow to work with the parse HCL option requires the following 
     ```
     :::
 
-    <!-- TODO: update the example link -->
     :::note
-    If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://github.com/infracost/infracost-azure-devops/tree/v0.10-examples/examples/multi-project-config-file#readme)
+    If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://github.com/infracost/infracost-azure-devops/tree/master/examples/multi-project-config-file#readme)
     :::
 
 4. After the above, add the following two steps for comparing against the Infracost cost estimate baseline. If you added any required variable or config file flags in step 3, also add them to the `infracost diff` command below.
@@ -102,5 +100,4 @@ Changing your workflow to work with the parse HCL option requires the following 
         displayName: Post Infracost comment
     ```
 
-<!-- TODO: update the example link -->
-5. See [our full examples](https://github.com/infracost/infracost-azure-devops/tree/v0.10-examples/examples) that use the new parsing HCL option. You can find one that is the closest to your use-case and adapt as required.
+5. See [our full examples](https://github.com/infracost/infracost-azure-devops/tree/master/examples) that use the new parsing HCL option. You can find one that is the closest to your use-case and adapt as required.

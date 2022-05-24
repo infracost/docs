@@ -18,8 +18,7 @@ With the v0.10 release, we'll support two ways to run Infracost with Terraform v
     infracost breakdown --path /code
     ```
 
-<!-- TODO: update the example link -->
-2. **Parsing plan JSON file**: this will continue to work as before. There are [examples here](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/v0.10-examples/examples#plan-json-examples) of generating Terraform plan JSON files in GitLab CI and passing them to Infracost.
+2. **Parsing plan JSON file**: this will continue to work as before. There are [examples here](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/master/examples#plan-json-exampless) of generating Terraform plan JSON files in GitLab CI and passing them to Infracost.
     ```shell
     cd /code
     terraform init
@@ -37,7 +36,6 @@ Changing your workflow to work with the parse HCL option requires the following 
     - Delete any stages and jobs that runs `terraform` or `terragrunt`, e.g. "terraform init", "terraform plan" and "terraform show" are no longer needed.
     - If you are not using the [fetch usage from CloudWatch](/docs/features/usage_based_resources/#fetch-from-cloudwatch) feature, delete any steps that set cloud credentials.
 
-<!-- TODO: update the docker image to ci-0.10 -->
 2. Bump the version of the Infracost Docker image from `infracost/infracost:ci-0.9` to `infracost/infracost:ci-0.10`:
 
     ```yaml
@@ -76,9 +74,8 @@ Changing your workflow to work with the parse HCL option requires the following 
     ```
     :::
 
-    <!-- TODO: update the example link -->
     :::note
-    If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/v0.10-examples/examples/multi-project-config-file)
+    If you have a Terraform mono-repo and you want to pass separate variables to each Terraform project you can create a [config file](/docs/features/config_file) and pass that with the `--config-file` flag as per [this example](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/master/examples/multi-project-config-file)
     :::
 
 4. After the above, add the following two steps for comparing against the Infracost cost estimate baseline. If you added any required variable or config file flags in step 3, also add them to the `infracost diff` command below.
@@ -95,5 +92,4 @@ Changing your workflow to work with the parse HCL option requires the following 
         infracost comment gitlab --path=infracost.json ...
     ```
 
-<!-- TODO: update the example link -->
-5. See [our full examples](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/v0.10-examples/examples) that use the new parsing HCL option. You can find one that is the closest to your use-case and adapt as required.
+5. See [our full examples](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/master/examples) that use the new parsing HCL option. You can find one that is the closest to your use-case and adapt as required.
