@@ -41,11 +41,9 @@ This is the default and recommended option. It does not require a Terraform plan
 #### Notes
 
 Usually no extra setup is needed for handling:
-- **Private modules** since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
+- **Private modules** see [this page](/docs/guides/terraform_modules/) for more details.
 - **Terragrunt** see [this page](/docs/features/terragrunt/) for more details.
-- **Terraform Cloud/Enterprise's** [remote execution mode](https://www.terraform.io/cloud-docs/workspaces/settings#execution-mode) as Infracost will use the token in the Terraform CLI config file to automatically retrieve the variables. If that does not satisfy your use-case, you can either:
-  - Set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html). `INFRACOST_TERRAFORM_CLOUD_HOST` can also be set for Terraform Enterprise users (e.g. to avoid using app.terraform.io). These environment variables can also be set in the [config file](/docs/features/config_file).
-  - Set the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) to the absolute path of your Terraform CLI config file.
+- **Terraform Cloud/Enterprise** see [this page](/docs/integrations/terraform_cloud_enterprise/#running-infracost-on-local-dev-machines) for more details.
 
 ### Option 2: Terraform plan JSON
 
