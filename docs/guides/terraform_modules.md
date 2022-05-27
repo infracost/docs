@@ -14,6 +14,7 @@ In CI/CD integrations, you can an environment variable or secret with your priva
   mkdir -p ~/.ssh
   eval `ssh-add -s`
   echo "$GIT_SSH_KEY" | tr -d '\r' | ssh-add -
+  # Update this to github.com, gitlab.com, bitbucket.org, ssh.dev.azure.com or your source control server's domain
   ssh-keyscan github.com >> ~/.ssh/known_hosts
 
   # Run Infracost commands as usual
