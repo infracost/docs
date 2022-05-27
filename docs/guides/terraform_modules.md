@@ -5,6 +5,8 @@ title: Terraform modules
 
 Infracost cost estimates include any modules that are used by your Terraform or Terragrunt projects.
 
+### Private modules
+
 Usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
 
 In CI/CD integrations, you can an environment variable or secret with your private key so Infracost access private repositories (similar to how Terraform/Terragrunt does):
