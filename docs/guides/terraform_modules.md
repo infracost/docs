@@ -9,10 +9,10 @@ Usually no extra setup is needed for handling private modules since Infracost do
 
 In CI/CD integrations, you can an environment variable or secret with your private key so Infracost access private repositories (similar to how Terraform/Terragrunt does):
   ```shell
-  mkdir -p .ssh
-  echo "$GIT_SSH_KEY" > .ssh/git_ssh_key
-  chmod 400 .ssh/git_ssh_key
-  export GIT_SSH_COMMAND="ssh -i $(pwd)/.ssh/git_ssh_key -o 'StrictHostKeyChecking=no'"
+  mkdir -p ~/.ssh
+  eval `ssh-add -s`
+  echo "$GIT_SSH_KEY" | tr -d '\r' | ssh-add -
+  ssh-keyscan github.com >> ~/.ssh/known_hosts
 
   # Run Infracost commands as usual
   infracost breakdown --path /code
