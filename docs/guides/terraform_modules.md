@@ -5,14 +5,17 @@ title: Terraform modules
 
 Infracost cost estimates include any modules that are used by your Terraform or Terragrunt projects.
 
+### Private modules
+
 Usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. for github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
 
 In CI/CD integrations, you can an environment variable or secret with your private key so Infracost access private repositories (similar to how Terraform/Terragrunt does):
   ```shell
-  mkdir -p .ssh
-  echo "$GIT_SSH_KEY" > .ssh/git_ssh_key
-  chmod 400 .ssh/git_ssh_key
-  export GIT_SSH_COMMAND="ssh -i $(pwd)/.ssh/git_ssh_key -o 'StrictHostKeyChecking=no'"
+  mkdir -p ~/.ssh
+  eval `ssh-add -s`
+  echo "$GIT_SSH_KEY" | tr -d '\r' | ssh-add -
+  # Update this to github.com, gitlab.com, bitbucket.org, ssh.dev.azure.com or your source control server's domain
+  ssh-keyscan github.com >> ~/.ssh/known_hosts
 
   # Run Infracost commands as usual
   infracost breakdown --path /code
