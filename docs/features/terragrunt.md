@@ -13,6 +13,18 @@ infracost breakdown --path=path/to/terragrunt/code
 infracost diff --path=path/to/terragrunt/code
 ```
 
+## Known issues
+
+The following known issues exist with Terragrunt and Infracost **v0.10**:
+
+1. If the CLI crashes when used with Terragrunt, please see [this GitHub issue](https://github.com/infracost/infracost/issues/1695) for a workaround.
+2. The `INFRACOST_TERRAGRUNT_FLAGS` environment variable is no longer supported as Infracost parses HCL code directly. Subscribe to [this issue](https://github.com/infracost/infracost/issues/1682) for updates.
+3. HCL parsing does not work with modules that have a `source` in a private Terraform registry. Subscribe to [this issue](https://github.com/infracost/infracost/issues/1667) for updates.
+
+We'd like to fix these issues in upcoming releases. To unblock yourself until then, you can either:
+- Use the workaround in [this GitHub issue](https://github.com/infracost/infracost/issues/1695).
+- [Generate plan JSON files](/docs/troubleshooting/#terragrunt) and pass those to Infracost to get a cost estimate.
+
 ## Usage file
 
 If your Terragrunt project has multiple modules and you want to specify different usage files for each module, you will need to add each Terragrunt subdirectory and [usage file](/docs/features/usage_based_resources/) to the Infracost config file, see an [example here](/docs/features/config_file#examples).
@@ -21,16 +33,9 @@ If you have any feedback about how we should support multiple usage files with T
 
 ## How the Terragrunt integration works
 
-When the CLI's `--path` flag points to a Terragrunt directory:
+With v0.10, when the CLI's `--path` flag points to a Terragrunt directory:
 1. Infracost detects a Terragrunt project by checking for a Terragrunt config file in the specified path, which will be `terragunt.hcl`, `terragrunt.hcl.json` or the value of the `TERRAGRUNT_CONFIG` environment variable. If Infracost does not detect your project as a Terragrunt project, make sure this file exists in the specified path or in any of the subdirectories with a depth less than 5.
 
 2. If Terragrunt is detected, Infracost downloads any required source files to an `.infracost` cache, detects Terragrunt defined inputs, then parses HCL directly.
 
 3. Infracost outputs a diff or breakdown for each Terragrunt module.
-
-## Known issues
-
-1. The `INFRACOST_TERRAGRUNT_FLAGS` environment variable is no longer supported as Infracost parses HCL code directly. Comment on [this issue](https://github.com/infracost/infracost/issues/1682) if you'd like a way to exclude certain directories.
-2. HCL parsing does not work with private **remote** modules, subscribe to [this issue](https://github.com/infracost/infracost/issues/1667) for updates.
-
-As a workaround you can still [generate plan JSONs](/docs/troubleshooting/#terragrunt) and pass the plan JSON to Infracost to get a cost estimate. We are looking to fix these issues in upcoming patch releases.
