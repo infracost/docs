@@ -83,7 +83,7 @@ Screenshot of Infracost running in GitHub pull requests:
 
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
 
-### My CI/CD system isn't supported
+### Other CI/CD systems
 
 Infracost can be used in any CI/CD system using the following steps. Our [GitLab CI integration](https://gitlab.com/infracost/infracost-gitlab-ci/) follows these steps and has [examples](https://gitlab.com/infracost/infracost-gitlab-ci/#examples) that you might find useful.
 
@@ -122,7 +122,7 @@ If you run into any issues, please join our [community Slack channel](https://ww
 
 ### Deployment systems
 
-The above CI/CD integrations parse Terraform HCL code directly (with the exception of Atlantis). That is our recommended way of running Infracost since it's faster and does not require cloud credentials to generate a Terraform plan JSON. However, Infracost can also be used alongside deployment systems that already generate a Terraform plan JSON file, for example:
+The above CI/CD integrations [parse Terraform HCL code](/docs/features/cli_commands/#option-1-terraform-directory) directly (with the exception of Atlantis). That is our recommended way of running Infracost since it's faster and does not require cloud credentials to generate a Terraform plan JSON. However, Infracost can also be used alongside deployment systems that already generate a Terraform plan JSON file, for example:
   - [Terraform Cloud/Enterprise Run Tasks](/docs/integrations/terraform_cloud_enterprise/)
   - [Scalr](https://docs.scalr.com/en/latest/cost_estimate.html)
   - [Spacelift](https://docs.spacelift.io/vendors/terraform/infracost)
