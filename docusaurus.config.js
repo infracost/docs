@@ -53,10 +53,6 @@ module.exports = {
             to: '/docs/features/cli_commands',
           },
           {
-            from: '/docs/terraform_modules',
-            to: '/docs/guides/terraform_modules',
-          },
-          {
             from: '/docs/supported_resources',
             to: '/docs/supported_resources/overview',
           },
@@ -79,6 +75,14 @@ module.exports = {
           {
             from: '/docs/multi_project/report',
             to: '/docs/features/cli_commands',
+          },
+          {
+            from: '/docs/terraform_modules',
+            to: '/docs/features/terraform_modules',
+          },
+          {
+            from: '/docs/guides/terraform_modules',
+            to: '/docs/features/terraform_modules',
           },
         ],
       },

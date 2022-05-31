@@ -19,7 +19,7 @@ The following known issues exist with Terragrunt and Infracost **v0.10**:
 
 1. If the CLI crashes when used with Terragrunt, please see [this GitHub issue](https://github.com/infracost/infracost/issues/1695) for a workaround.
 2. The `INFRACOST_TERRAGRUNT_FLAGS` environment variable is no longer supported as Infracost parses HCL code directly. Subscribe to [this issue](https://github.com/infracost/infracost/issues/1682) for updates.
-3. HCL parsing does not work with modules that have a `source` in a private Terraform registry. Subscribe to [this issue](https://github.com/infracost/infracost/issues/1667) for updates.
+3. HCL parsing does not work with modules that have a `source` in a private Terraform registry. Comment on [this issue](https://github.com/infracost/infracost/issues/1667) if you need this.
 
 We'd like to fix these issues in upcoming releases. To unblock yourself until then, you can either:
 - Use the workaround in [this GitHub issue](https://github.com/infracost/infracost/issues/1695).
