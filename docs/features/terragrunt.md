@@ -3,14 +3,15 @@ slug: terragrunt
 title: Terragrunt
 ---
 
-Terragrunt projects are automatically detected when passed in via the `--path` flag:
+The Infracost `breakdown` and `diff` commands automatically detect Terragrunt projects:
 
 ```shell
-# Show breakdown of costs
-infracost breakdown --path=path/to/terragrunt/code
+infracost breakdown --path=path/to/terragrunt/repo
+```
 
-# Show diff of costs
-infracost diff --path=path/to/terragrunt/code
+The `--exclude-path` flag can be used to exclude any directories/modules that should not be run, for example:
+```shell
+infracost breakdown --path=. --exclude-path=dev --exclude-path=test
 ```
 
 ## Known issues
@@ -18,8 +19,7 @@ infracost diff --path=path/to/terragrunt/code
 The following known issues exist with Terragrunt and Infracost **v0.10**:
 
 1. If the CLI crashes when used with Terragrunt, please see [this GitHub issue](https://github.com/infracost/infracost/issues/1695) for a workaround.
-2. The `INFRACOST_TERRAGRUNT_FLAGS` environment variable is no longer supported as Infracost parses HCL code directly. Subscribe to [this issue](https://github.com/infracost/infracost/issues/1682) for updates.
-3. HCL parsing does not work with modules that have a `source` in a private Terraform registry. Comment on [this issue](https://github.com/infracost/infracost/issues/1667) if you need this.
+2. HCL parsing does not work with modules that have a `source` in a private Terraform registry. Comment on [this issue](https://github.com/infracost/infracost/issues/1667) if you need this.
 
 We'd like to fix these issues in upcoming releases. To unblock yourself until then, you can either:
 - Use the workaround in [this GitHub issue](https://github.com/infracost/infracost/issues/1695).
