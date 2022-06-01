@@ -41,7 +41,7 @@ This is the default and recommended option. It does not require a Terraform plan
 #### Notes
 
 Usually no extra setup is needed for handling:
-- **Private modules** see [this page](/docs/guides/terraform_modules/) for more details.
+- **Private modules** see [this page](/docs/features/terraform_modules/) for more details.
 - **Terragrunt** see [this page](/docs/features/terragrunt/) for more details.
 - **Terraform Cloud/Enterprise** see [this page](/docs/integrations/terraform_cloud_enterprise/#running-infracost-on-local-dev-machines) for more details.
 
