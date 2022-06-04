@@ -56,6 +56,13 @@
   color: var(--faded-text);
 }
 
+.pricing h3 {
+  font-size: 1rem;
+  color: var(--nu20);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
 .pricing .plan .price {
   font-size: 1rem;
   /* font-weight: bold; */
