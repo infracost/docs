@@ -74,7 +74,7 @@ function Pricing() {
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Notification of budget-breaking pull requests</span>
+                  <span><a href="https://github.com/infracost/infracost/issues/1727">Notification of budget-breaking pull requests</a></span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
@@ -82,7 +82,7 @@ function Pricing() {
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Support for Enterprise Agreement discounts and custom price books</span>
+                  <span><a href="https://github.com/infracost/infracost/issues/1725">Support for Enterprise Agreement discounts and custom price books</a></span>
                 </li>
               </ul>
             </div>
