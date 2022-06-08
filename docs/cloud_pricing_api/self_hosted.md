@@ -83,6 +83,30 @@ Our Helm chart comes with [cdefault ecommendations](https://github.com/infracost
 
 For the PostgreSQL DB, a small instance with 2 vCPU and 2GB of RAM should be enough.
 
+## Troubleshooting
+
+The following curl commands can help identify communication issues between the Infracost CLI and the Cloud Pricing API. Running the CLI with [debug log level](/docs/features/environment_variables/#infracost_log_level), and checking the Cloud Pricing API logs can also help.
+
+Please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+
+```shell
+$ export INFRACOST_PRICING_API_ENDPOINT=https://endpoint
+
+$ curl -i $INFRACOST_PRICING_API_ENDPOINT/health
+
+Should show HTTP 200 {"status":"success"}
+
+$ curl -i $INFRACOST_PRICING_API_ENDPOINT/graphql -H "X-Api-Key: WRONG_API_KEY"
+
+Should show HTTP 403 {"error":"Invalid API key"}
+Confirms that the Cloud Pricing API, not a proxy or Cloudflare, is throwing the 403.
+
+$ curl -i $INFRACOST_PRICING_API_ENDPOINT/graphql -H "X-Api-Key: CORRECT_API_KEY"
+
+Should show HTTP 400 "GET query missing"
+Confirms that the Cloud Pricing API is receiving authenticated requests.
+```
+
 ## Migration from old version
 
 If you had previously deployed the Cloud Pricing API that used MongoDB, we recommend you:
