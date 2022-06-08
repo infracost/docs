@@ -8,7 +8,7 @@ function Pricing() {
   return (
     <PageLayout
         title="Pricing"
-        description="Infracost is open source and free for the community."
+      description="Cloud cost estimates for engineers"
         pageClass="pricing"
         hideCTA={true}>
 
@@ -16,13 +16,13 @@ function Pricing() {
         <div className="container">
           <div className="intro">
             <h1 className="tagline">Pricing</h1>
-            <p className="sub-tagline">Infracost is open source and free for the community</p>
+            <p className="sub-tagline">Infracost provides cloud cost estimates for engineers</p>
           </div>
 
           <div className="plans">
             <div className="plan box">
               <div className="heading">
-                <h2>Community</h2>
+                <h2>Infracost Community</h2>
                 <span className="price">Free</span>
               </div>
               <ul>
@@ -36,7 +36,7 @@ function Pricing() {
                 </li>                
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>CI/CD integrations (GitHub, GitLab, Atlantis, CircleCI...)</span>
+                  <span>CI/CD integrations (GitHub, GitLab, Bitbucket, Azure DevOps...)</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
@@ -58,22 +58,36 @@ function Pricing() {
 
             <div className="plan box">
               <div className="heading">
-                <h2>Enterprise <span className="coming-soon"></span></h2>
-                <span className="price">Coming soon</span>
+                <h2>Infracost Cloud <span className="coming-soon"></span></h2>
+                <span className="price">Email <a href="mailto:hello@infracost.io?subject=Infracost Cloud">hello@infracost.io</a> for early access</span>
               </div>
               <ul>
                 <li>
-                  <span className="icon primary"></span>
-                  <span>We're designing our enterprise product, which will include support for custom price books, visibility dashboards
-                    across all runs so you can see which are the expensive pull requests, multi-user/team setup and dedicated support.
-                  </span>
+                  <span><b>In addition to Infracost Community:</b></span>
+                </li>
+                <li>
+                  <span className="icon primary"><Check size={18} /></span>
+                  <span>Team lead visibility across all changes. See most expensive pull requests.</span>
+                </li>
+                <li>
+                  <span><b>Coming soon:</b></span>
+                </li>
+                <li>
+                  <span className="icon primary"><Check size={18} /></span>
+                  <span><a href="https://github.com/infracost/infracost/issues/1727">Notification of budget-breaking pull requests</a></span>
+                </li>
+                <li>
+                  <span className="icon primary"><Check size={18} /></span>
+                  <span>Best practice recommendations directly in pull requests</span>
+                </li>
+                <li>
+                  <span className="icon primary"><Check size={18} /></span>
+                  <span><a href="https://github.com/infracost/infracost/issues/1725">Support for Enterprise Agreement discounts and custom price books</a></span>
                 </li>
               </ul>
-              <div className="action">
-                We love hearing your feedback on what features you think should be in the paid product, please email us on <a href="mailto:hello@infracost.io?subject=Infracost Enterprise pricing">hello@infracost.io</a>
-              </div>
             </div>
           </div>
+          <h3>Enterprise support can be added onto any plan, email <a href="mailto:hello@infracost.io?subject=Enterprise support">hello@infracost.io</a> for details.</h3>
         </div>
       </div>
 
