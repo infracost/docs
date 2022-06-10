@@ -7,7 +7,7 @@ title: FAQ
 
 Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd).
 
-When the CLI is run, it:
+When the CLI runs, it:
 
 1. **Extracts cost-related parameters**<br />
   The CLI parses Terraform HCL code to extract only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size.
