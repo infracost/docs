@@ -25,6 +25,14 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Infracost Cloud',
+      collapsed: true,
+      items: [
+        'infracost_cloud/authentication',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Integrations',
       collapsed: true,
       items: [
