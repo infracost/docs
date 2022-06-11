@@ -15,8 +15,8 @@ If you're a Terraform Cloud user, the best way to integrate Infracost and Terraf
 
 [Terraform Run Tasks](https://www.infracost.io/blog/terraform-runtasks-what-why-how/) can be used to integrate Infracost into the Terraform Cloud pipeline directly. It sits between the plan and apply stage and shows the difference between the expected monthly cost before and after the change that is about to be applied. There is also a shareable Details link which will open a pre-authenticated link with a detailed breakdown of costs per resource.
 
-#### 1. Generate HMAC key
-[Generate](https://dashboard.infracost.io/tfc-sign-up) a unique Infracost hook endpoint URL and HMAC key. These will be used in the next step.
+#### 1. Generate Infracost Endpoint
+Sign up or log in to [Infracost Cloud](https://dashboard.infracost.io/tfc-sign-up) and enable the Terraform Cloud integration. This creates an Infracost endpoint URL and HMAC key that you'll use in the next step. You can also create an organization in Infracost to match the organization name you have in Terraform Cloud.
 
 #### 2. Configure a Run Task
 Follow the [instructions for configuring a Run Task](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html#configuring-a-run-task) in Terraform Cloud. There are two steps you need to do: setup the integration, and enable it in your workspaces.
