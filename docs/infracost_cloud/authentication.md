@@ -20,6 +20,8 @@ You can sign up or log in via the the web or CLI. Email addresses are unique in 
 1. Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in.
 2. Follow the [Get Started](/docs) guide to use Infracost as usual but do not run `infracost register`. Instead go to Settings page and copy your API key to use in the CLI or CI/CD integrations.
 
+If you signed up using an email/password, you can change your password by logging out and clicking on "Don't remember your password?".
+
 #### CLI
 1. [Upgrade](/docs/#1-install-infracost) to Infracost v0.10.3 and run `infracost auth login`.
 2. Follow the [Get Started](/docs) guide to use Infracost as usual. If you need to create a new organization or retrieve your API key, use our [web](#web) UI.
