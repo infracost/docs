@@ -26,11 +26,11 @@ Today, I’m super excited to announce, alongside our partner HashiCorp, that we
 
 ### The 3 minute setup - start here
 
-1. Log into Terraform Cloud > go to Settings (top menu) > Run tasks (left menu) > Create run task (button top right).
+1. Log into [Terraform Cloud](https://app.terraform.io) > go to Settings (top menu) > Run tasks (left menu) > Create run task (button top right).
 
 <img src={useBaseUrl("img/blog/terraform-cost-estimation-with-runtasks-infracost/runtasks-step1.png")} alt="step 1 - Create a Terraform Run Task"/>
 
-2. Go to https://dashboard.infracost.io/tfc-sign-up and enter your name and email address to get an Infracost API key.
+2. Log into [Infracost Cloud](https://dashboard.infracost.io/tfc-sign-up) > go to Integrations > Terraform Cloud > Enable.
 
 <img src={useBaseUrl("img/blog/terraform-cost-estimation-with-runtasks-infracost/runtasks-step2.png")} alt="step 2 - Create an Infracost API key"/>
 

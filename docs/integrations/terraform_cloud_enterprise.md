@@ -13,7 +13,7 @@ Infracost is an [official HashiCorp partner](https://www.hashicorp.com/partners/
 
 There are two integration options:
 1. [Version control systems](#option-1-version-control-systems): our CI/CD integrations run the Infracost CLI and parse Terraform HCL code directly. This option enables you to post pull request comments and use all Infracost features.
-2. [Terraform Run Tasks](#option-2-terraform-run-tasks): this is our managed integration that uses the Terraform plan JSON that Terraform Cloud/Enterprise generates. Posting pull request comments, multiple currencies and modelling usage-based resources via the usage-file are not supported in this integration. Please [contact us](mailto:hello@infracost.io) if you need these features.
+2. [Terraform Run Tasks](#option-2-terraform-run-tasks): this is our managed integration that uses the Terraform plan JSON that Terraform Cloud/Enterprise generates. The following features are not currently supported by this option: posting pull request comments, multiple currencies, modelling usage-based resources via the usage-file. Please [contact us](mailto:hello@infracost.io) if you need these features.
 
 Some Infracost users enable both integrations, so they can see cost estimates at the code review stage in systems such as GitHub, and also at the deployment stage in Terraform Cloud. This ensures that everyone involved, engineers at the code review stage and DevOps/SREs at the deployment stage have cost visibility.
 
@@ -25,8 +25,8 @@ See our [CI/CD integrations](/docs/integrations/cicd/) for details.
 
 [Terraform Run Tasks](https://www.infracost.io/blog/terraform-runtasks-what-why-how/) can be used to integrate Infracost into Terraform Cloud/Enterprise directly. It sits between the plan and apply stage and shows a cost estimate for the changes that are about to be deployed. There is also a shareable details link that will open a pre-authenticated link with a detailed breakdown of costs per resource.
 
-#### 1. Generate HMAC key
-[Generate](https://dashboard.infracost.io/tfc-sign-up) a unique Infracost hook endpoint URL and HMAC key. These will be used in the next step.
+#### 1. Generate Infracost Endpoint
+Sign up or log in to [Infracost Cloud](https://dashboard.infracost.io/tfc-sign-up) and enable the Terraform Cloud integration. This creates an Infracost endpoint URL and HMAC key that you'll use in the next step. You can also create an organization in Infracost to match the organization name you have in Terraform Cloud.
 
 #### 2. Configure a Run Task
 Follow the [instructions for configuring a Run Task](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html#configuring-a-run-task) in Terraform Cloud. There are two steps you need to do: setup the integration, and enable it in your workspaces.

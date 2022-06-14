@@ -7,7 +7,7 @@ title: FAQ
 
 Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd).
 
-When the CLI is run, it:
+When the CLI runs, it:
 
 1. **Extracts cost-related parameters**<br />
   The CLI parses Terraform HCL code to extract only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size.
@@ -105,7 +105,8 @@ The key differences are:
 3. Infracost can be used to model [usage-based resources](/docs/features/usage_based_resources) and do what-if analysis.
 4. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of the source control and CI/CD system being used.
 5. Infracost can be used with [Terragrunt](/docs/features/terragrunt).
-6. Infracost can output JSON and be used to create [cost policies](/docs/features/cost_policies) with Open Policy Agent, Conftest and HashiCorp Sentinel.
+6. Infracost can be used with [Terraform modules](/docs/features/terraform_modules).
+7. Infracost can output JSON and be used to create [cost policies](/docs/features/cost_policies) with Open Policy Agent, Conftest and HashiCorp Sentinel.
 
 ### What Terraform versions are supported?
 
