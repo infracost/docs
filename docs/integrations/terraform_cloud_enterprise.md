@@ -23,7 +23,7 @@ See our [CI/CD integrations](/docs/integrations/cicd/) for details.
 
 ### Option 2: Terraform Run Tasks
 
-[Terraform Run Tasks](https://www.infracost.io/blog/terraform-runtasks-what-why-how/) can be used to integrate Infracost into Terraform Cloud/Enterprise directly. It sits between the plan and apply stage and shows a cost estimate for the changes that are about to be deployed. There is also a shareable details link that will open a pre-authenticated link with a detailed breakdown of costs per resource.
+[Terraform Run Tasks](/blog/terraform-runtasks-what-why-how/) can be used to integrate Infracost into Terraform Cloud/Enterprise directly. It sits between the plan and apply stage and shows a cost estimate for the changes that are about to be deployed. There is also a shareable details link that will open a pre-authenticated link with a detailed breakdown of costs per resource.
 
 #### 1. Generate Infracost Endpoint
 Sign up or log in to [Infracost Cloud](https://dashboard.infracost.io/tfc-sign-up) and enable the Terraform Cloud integration. This creates an Infracost endpoint URL and HMAC key that you'll use in the next step. You can also create an organization in Infracost to match the organization name you have in Terraform Cloud.
