@@ -14,7 +14,7 @@ This service can be used to:
 
 ## Sign up or log in
 
-You can sign up or log in via the the web or CLI. Email addresses are unique in Infracost Cloud. Thus when you log in with GitHub, Google or an email/password, if the email associated with the login is the same as a previous login, you will log in to the same account.
+You can sign up or log in via the the web (and soon the CLI). Email addresses are unique in Infracost Cloud. Thus when you log in with GitHub, Google or an email/password, if the email associated with the login is the same as a previous login, you will log in to the same account.
 
 ### Web
 1. Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in.
@@ -25,6 +25,7 @@ You can sign up or log in via the the web or CLI. Email addresses are unique in 
 
 If you signed up using an email/password, you can change your password by logging out and clicking on "Don't remember your password?".
 
+<!--
 ### CLI
 1. [Upgrade](/docs/#1-install-infracost) to Infracost v0.10.3 or later, and run `infracost auth login`.
 
@@ -33,6 +34,7 @@ If you signed up using an email/password, you can change your password by loggin
 2. Run Infracost [commands](/docs/features/cli_commands) as usual.
 
    If you need to create a new organization or retrieve your API key, use our [web](#web) UI.
+-->
 
 ## Notes for existing users
 
