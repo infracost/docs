@@ -194,3 +194,12 @@ Once you have multiple Terraform plan JSON files, you can
 2. run [`infracost output`](/docs/features/cli_commands/#combined-output-formats) with `--path "infracost-*.json" --format diff` (glob patterns need quotes) to combine the Infracost JSON files into one output format. The `infracost output --help` command shows the other options.
 
 These steps are used by our [CI/CD integrations](/docs/#4-add-to-cicd) to post pull request comments.
+
+## 5. Posting comments
+
+If you're having issues posting pull request comments, please review the troubleshooting section for your version control system:
+
+- [GitHub](https://github.com/infracost/actions/#permissions-issue)
+- [GitLab](https://gitlab.com/infracost/infracost-gitlab-ci#troubleshooting)
+- [Azure Repos](https://github.com/infracost/infracost-azure-devops#troubleshooting)
+- [Bitbucket](https://bitbucket.org/infracost/infracost-bitbucket-pipeline) > see the Troubleshooting section

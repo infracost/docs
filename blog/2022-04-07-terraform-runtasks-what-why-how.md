@@ -27,7 +27,7 @@ RunTasks is beneficial for both Hashicorp and the ecosystem. Hashicorp can becom
 ### Prerequisites and requirements
 The RunTasks feature needs to be enabled for your Terraform organization, and for that you will need the ‘organization owner’ permission; then the RunTask has to be enabled for a Terraform Cloud workspace, which will require the ‘workspace administrator’ permission.
 
-Note also that RunTasks is currently a feature within Hashicorp’s paid Terraform products (Terraform Cloud; and coming soon to Terraform Enterprise).
+Note also that RunTasks is currently a feature within Hashicorp’s paid Terraform products (Terraform Cloud and Terraform Enterprise are both supported).
 
 ### How does Terraform RunTasks work
 
