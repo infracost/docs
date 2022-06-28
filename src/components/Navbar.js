@@ -3,6 +3,9 @@ import SearchBar from '@theme/SearchBar';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import useLockBodyScroll from '@theme/hooks/useLockBodyScroll';
 import useWindowSize from '@theme/hooks/useWindowSize';
+import {
+  useMobileSecondaryMenuRenderer,
+} from '@docusaurus/theme-common';
 import useHideableNavbar from '@theme/hooks/useHideableNavbar';
 import GitHubStarCount from '../components/GitHubStarCount';
 
@@ -12,6 +15,7 @@ function Navbar({ isDocs }) {
   const [atTop, setAtTop] = useState(true);
   const [showSidebar, setShowSidebar] = useState(false);
   const [isSearchBarExpanded, setIsSearchBarExpanded] = useState(false);
+  const [mobileDocsSidebarState, setMobileDocsSidebarState] = useState(null); // 'show' | 'hide' or null
 
   if (isBrowser) {
     const checkAtTop = () => {
@@ -30,9 +34,26 @@ function Navbar({ isDocs }) {
     }
   }, [windowSize]);
 
+  let docsMenuContent = null;
+
+  function resetMobileDocsSidebar() {
+    setMobileDocsSidebarState(null);
+  }
+
   function toggleSidebar() {
+    resetMobileDocsSidebar();
     setShowSidebar(!showSidebar);
   }
+
+  docsMenuContent = useMobileSecondaryMenuRenderer()?.({
+    toggleSidebar,
+  });
+
+  useEffect(() => {
+    if (isDocs && showSidebar && !!docsMenuContent && mobileDocsSidebarState !== 'hide') {
+      setMobileDocsSidebarState('show');
+    }
+  }, [showSidebar, docsMenuContent]);
 
   const { navbarRef } = useHideableNavbar(false);
 
@@ -132,24 +153,42 @@ function Navbar({ isDocs }) {
                 {getStarted}
               </div>
             </div>
-            <div className="sidebar-content">
-              <div className="navbar-section">
-                {/* <h4>Docs</h4> */}
-                {docs}
+            {mobileDocsSidebarState === 'show' ? (
+              <MobileDocsSidebar content={docsMenuContent} onHide={() => setMobileDocsSidebarState('hide')} />
+            ) : (
+              <div className="sidebar-content">
+                <div className="navbar-section">
+                  {/* <h4>Docs</h4> */}
+                  {docs}
+                </div>
+                <div className="navbar-section">
+                  <h4>Community</h4>
+                  {community}
+                </div>
+                <div className="navbar-section">
+                  <h4>Outreach</h4>
+                  {outreach}
+                </div>
               </div>
-              <div className="navbar-section">
-                <h4>Community</h4>
-                {community}
-              </div>
-              <div className="navbar-section">
-                <h4>Outreach</h4>
-                {outreach}
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
     </nav>
+  );
+}
+
+function MobileDocsSidebar({ content, onHide }) {
+  return (
+    <>
+      <button
+        type="button"
+        className="back navbar-item"
+        onClick={onHide}>
+          ← Back to main menu
+      </button>
+      {content}
+    </>
   );
 }
 
