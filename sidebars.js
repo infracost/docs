@@ -42,6 +42,7 @@ module.exports = {
         'integrations/azure_pipelines',
         'integrations/terraform_cloud_enterprise',
         'integrations/slack',
+        'integrations/vscode',
         'integrations/infracost_api',
       ],
     },
