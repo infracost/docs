@@ -15,8 +15,8 @@ Infracost API key, run `infracost register` to get one.
 The currency ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) prices should be converted to. Defaults to USD.
 This is only used by the `infracost breakdown` and `diff` commands. The `output` command uses the currency from the Infracost JSON file.
 
-### INFRACOST_ENABLE_DASHBOARD
-Can be set to `true` to enable the Infracost Dashboard, which provides an easy way of [sharing reports](/docs/features/share_links)
+### INFRACOST_ENABLE_CLOUD
+Can be set to `true` to enable [Infracost Cloud](/docs/infracost_cloud/overview/). The main use-case for this is in CI/CD and it should only be set for the `infracost diff` command so only the Infracost JSON output from that step is sent to your Infracost Cloud account.
 
 ### INFRACOST_LOG_LEVEL
 Controls the log verbosity level. Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot. Turns off spinners in output. Setting this environment variable is the same as using the `--log-level` flag.
