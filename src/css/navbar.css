@@ -130,6 +130,18 @@
   z-index: 400;
 }
 
+.navbar .sidebar .back {
+  background-color: var(--page-background-secondary-color);
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+  width: calc(100% + 3rem);
+  margin: -1px 0 0 -1.5rem;
+}
+
+.navbar .sidebar .back:hover {
+  color: var(--link-hover-color);
+}
+
 .navbar .sidebar .container {
   height: 100%;
   max-width: none;
