@@ -28,6 +28,7 @@ module.exports = {
       label: 'Infracost Cloud',
       collapsed: true,
       items: [
+        'infracost_cloud/overview',
         'infracost_cloud/authentication',
       ],
     },

@@ -67,7 +67,7 @@ function Pricing() {
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Team lead visibility across all changes. See most expensive pull requests.</span>
+                  <span><a href="/docs/infracost_cloud/overview/">Team lead visibility across all changes. See most expensive pull requests</a></span>
                 </li>
                 <li>
                   <span><b>Coming soon:</b></span>

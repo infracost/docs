@@ -116,6 +116,25 @@ If the above method does not work for your use-case, you can use Terraform to ge
   infracost diff --path plan.json
   ```
 
+## Project names
+
+Project names appear in the CLI output, CI/CD integrations and Infracost Cloud. They default to the path or git repo name when the CLI is run, for example:
+
+```text
+# Default project name that you can override
+Project: infracost/infracost/examples/terraform
+
+Name                                                 Monthly Qty  Unit   Monthly Cost
+
+aws_instance.web_app
+├─ Instance usage (Linux/UNIX, on-demand, m5.4xlarge)  730        hours  $560.64
+...
+```
+
+The `infracost breakdown` and `diff` commands support a `--project-name` flag that you should use to override the auto-generated project name. The `name` attribute in [config-files](/docs/features/config_file/) provides the same functionality.
+
+When you use `--project-name`, you should use it consistently for both `infracost breakdown` and `diff` commands in CI/CD integrations otherwise the diff will not be able to match the projects from the first breakdown run. Failing to do this results in odd diffs.
+
 ## Comment on pull requests
 
 The Infracost CLI can post cost estimates to pull request or commits on [GitHub](#github), [GitLab](#gitlab), [Azure Repos](#azure-repos) and [Bitbucket](#bitbucket), which is useful in CI/CD pipelines.
@@ -432,10 +451,33 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
     {
       "name": "infracost/infracost/examples/terraform",
       "metadata": {
-        "path": ".",
+        "path": "examples/terraform",
         "type": "terraform_dir",
+        /* can be "breakdown" or "diff" so it's clear how the JSON file was generated */
+        "infracostCommand": "breakdown",
+        /* name of the branch that was used to generate the estimate */
+        "branch": "master",
+        /* long commit SHA of the branch that was used to generate the estimate */
+        "commit": "1af413ad15ad6cbdfca667361231231231231231",
+        /* git author name of the commit */
+        "commitAuthorName": "Ali Khajeh-Hosseini",
+        /* git email of author of commit */
+        "commitAuthorEmail": "ali@email.com",
+        /* timestamp of the commit, ISO 8601 UTC string */
+        "commitTimestamp": "2022-06-27T16:03:44Z",
+        /* the commit message */
+        "commitMessage": "feat: change instance type",
         "vcsRepoUrl": "git@github.com:infracost/infracost.git",
         "vcsSubPath": "examples/terraform"
+        /*
+        The following metadata are currently only populated for GitHub Action and GitLab CI:
+        "vcsProvider": name of the VCS provider (github, gitlab, azure_repos, bitbucket)
+        "vcsBaseBranch": name of the base branch that the pull request is being merged into
+        "vcsPullRequestTitle": name of the pull request
+        "vcsPullRequestUrl": link to the pull request
+        "vcsPullRequestID": the unique identifier of the pull request for the vcsProvider
+        "vcsPullRequestAuthor": name of the person who opened the pull request, this is probably the same as commitAuthor most of the time but it's helpful to see this if they're different
+        "vcsPipelineRunId": a way to differentiate pipelines that are run within one pull request, this is the top-level pipeline ID, not individual jobs/runs within it. */
       },
       /* When Infracost is used with a Terraform plan JSON, this contains any 
       resources that are in the prior Terraform state.
