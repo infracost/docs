@@ -19,24 +19,10 @@ If you signed up using an email/password, you can change your password by loggin
 
   This opens an authentication web page and saves the API key locally. If you run into issues, follow the [web](#web) log in and set the CLI API key manually.
 
-2. Run Infracost [commands](/docs/features/cli_commands) as usual.
-
-   If you need to create a new organization or retrieve your API key, use our [web](#web) UI.
-
-## API keys
-
-Infracost API keys are associated with organizations and can be retrieved from the Org Settings page. If you revoke an API key and generate a new one in its place, you must update all CI/CD integrations and CLI installations that used the old API key.
-
-## Multi-user support
-
-In Infracost Cloud, organizations are are used to manage API keys and associated settings. Every Infracost user has a default organization for personal use. We recommend creating a new organization for your company API key as in the future you'll be able to add other users to organizations.
-
-As a temporary workaround until we add support for multiple users and permissions, you can log in using a team email/password and share access to your account.
-
-Email addresses are unique in Infracost Cloud. Thus when you log in with GitHub, Google or an email/password, if the email associated with the login is the same as a previous login, you will be given the option to link the accounts together, so you can log in using either method.
+2. Run Infracost [commands](/docs/features/cli_commands) as usual. If you need to create a new organization or retrieve your API key, use our [web](#web) UI.
 
 ## Notes for existing users
 
-1. Existing Infracost API keys will continue to work.
-2. Currently there is no automated migration of your old API keys since they were only used by the CLI to retrieve prices from our Cloud Pricing API, e.g. get prices for instance types. We recommend using Infracost Cloud if you'd like to create organizations or regenerate API keys. You can simply discard your old API keys.
+1. Old Infracost API keys, ones that **do not** start with `ico-`, will continue to work in the CLI and Cloud Pricing API, but not with Infracost Cloud.
+2. Currently there is no automated migration of your old API keys since they were only used by the CLI to retrieve prices from our Cloud Pricing API, e.g. get prices for instance types. We recommend you switch to using your API key from Infracost Cloud if you'd like to create organizations or regenerate API keys. You can simply discard your old API keys.
 3. We recommend [Terraform Cloud Run Task](/docs/integrations/terraform_cloud_enterprise/#option-2-terraform-run-tasks) users to sign up to Infracost Cloud and create a new Run Task integration so they can associate that with an organization.

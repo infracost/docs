@@ -118,22 +118,21 @@ If the above method does not work for your use-case, you can use Terraform to ge
 
 ## Project names
 
-Project names appear in the CLI output, CI/CD integrations and Infracost Cloud. They default to the path or git repo name when the CLI is run, for example:
+Project names default to the path or git repo name, and appear in the CLI output, pull request comments, and Infracost Cloud.
 
-```text
-# Default project name that you can override
-Project: infracost/infracost/examples/terraform
+Use the `--project-name` flag with `infracost breakdown` and `diff` to override the auto-generated project name:
 
-Name                                                 Monthly Qty  Unit   Monthly Cost
+```shell
+infracost breakdown --path plan.json --project-name my-project-123
 
-aws_instance.web_app
-├─ Instance usage (Linux/UNIX, on-demand, m5.4xlarge)  730        hours  $560.64
-...
+infracost diff --path plan.json --project-name my-project-123
 ```
 
-The `infracost breakdown` and `diff` commands support a `--project-name` flag that you should use to override the auto-generated project name. The `name` attribute in [config-files](/docs/features/config_file/) provides the same functionality.
+:::tip
+The `--project-name` flag should be set to the same value for both `infracost breakdown` and `diff` commands in CI/CD integrations. Otherwise the diff command will not be able to match the projects from the first breakdown run. Failing to do this results in odd diffs.
+:::
 
-When you use `--project-name`, you should use it consistently for both `infracost breakdown` and `diff` commands in CI/CD integrations otherwise the diff will not be able to match the projects from the first breakdown run. Failing to do this results in odd diffs.
+The `name` attribute in [config-files](/docs/features/config_file/) provides the same functionality as `--project-name`.
 
 ## Comment on pull requests
 

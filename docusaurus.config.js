@@ -84,6 +84,10 @@ module.exports = {
             from: '/docs/guides/terraform_modules',
             to: '/docs/features/terraform_modules',
           },
+          {
+            from: '/docs/infracost_cloud/overview',
+            to: '/docs/infracost_cloud/get_started',
+          },
         ],
       },
     ],
