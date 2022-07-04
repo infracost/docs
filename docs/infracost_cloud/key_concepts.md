@@ -23,7 +23,7 @@ Infracost API keys are associated with organizations and can be retrieved from t
 
 Projects are a flexible concept in Infracost that are used to represent code repos, deployment environments, workspaces etc.
 
-Project names default to the path or git repo name, and appear in the CLI output, pull request comments, and Infracost Cloud as shown below.
+Infracost auto-generates project names based on the user-provided path, or git repo name. The name appears in the CLI output, pull request comments and Infracost Cloud as shown below.
 
 <img src={useBaseUrl("img/infracost-cloud/cli-project-name.png")} alt="Auto-generated project name in CLI" />
 
@@ -35,9 +35,11 @@ Project names default to the path or git repo name, and appear in the CLI output
 
 <img src={useBaseUrl("img/infracost-cloud/infracost-cloud-project-name.png")} alt="Project name in Infracost Cloud" />
 
-### Override default project names
+### Override project names
 
-In Infracost Cloud, projects with the same name are grouped together, so it can be useful to override default project names. This is specially useful when running Infracost with [plan JSON files](/docs/features/cli_commands/#option-2-terraform-plan-json) as the auto-generated project name is the file path.
+There are two main reasons why you might want to override the project name:
+1. When paths such as `plan.json` are used, so you can use a more understandable name instead.
+2. Infracost Cloud groups projects with the same name together, so if you'd like multiple cost estimates to be associated with a project, use the same name for them.
 
 Use the `--project-name` flag with `infracost breakdown` and `diff` to override the auto-generated project name:
 

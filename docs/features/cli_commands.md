@@ -118,9 +118,7 @@ If the above method does not work for your use-case, you can use Terraform to ge
 
 ## Project names
 
-Project names default to the path or git repo name, and appear in the CLI output, pull request comments, and Infracost Cloud.
-
-Use the `--project-name` flag with `infracost breakdown` and `diff` to override the auto-generated project name:
+Infracost auto-generates project names based on the user-provided path, or git repo name. The name appears in the CLI output, pull request comments and Infracost Cloud. When paths such as `plan.json` are used, you might want to override it with a more understandable name. Use the `--project-name` flag with `infracost breakdown` and `diff` to achieve this:
 
 ```shell
 infracost breakdown --path plan.json --project-name my-project-123
