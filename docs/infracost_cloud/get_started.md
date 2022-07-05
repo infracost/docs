@@ -21,11 +21,13 @@ Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in.
 
 If you haven't done so already, create a new organization for your company.
 
-<img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Team visibility across all changes" />
+<img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
 
 ### 3. Get organization API key
 
 Switch to the desired organization and from the top menu, go to Org Settings to copy your Infracost API key.
+
+<img src={useBaseUrl("img/infracost-cloud/org-api-key.png")} alt="Get organization API key" />
 
 :::note
 Only API keys starting with `ico-` work with Infracost Cloud. If you have old API keys, discard them and use the one from your Org Settings page.
@@ -43,12 +45,10 @@ In your CI/CD integration, set the `INFRACOST_ENABLE_CLOUD=true` environment var
 - name: Run Infracost
   id: infracost-run
   run: |
-    infracost diff --path=. \
+    INFRACOST_ENABLE_CLOUD=true infracost diff --path=. \
         --format=json \
         --compare-to=/tmp/infracost-base.json \
         --out-file=/tmp/infracost.json
-  env:
-    INFRACOST_ENABLE_CLOUD: true
 ```
 
 This instructs the Infracost CLI to send its [JSON output](/docs/features/cli_commands/#examples) to Infracost Cloud. This JSON output does not contain any cloud credentials or secrets.
