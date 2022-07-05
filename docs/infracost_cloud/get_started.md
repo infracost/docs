@@ -51,7 +51,7 @@ In your CI/CD integration, set the `INFRACOST_ENABLE_CLOUD=true` environment var
     INFRACOST_ENABLE_CLOUD: true
 ```
 
-This instructs the Infracost CLI to sends its [JSON output](/docs/features/cli_commands/#examples) to Infracost Cloud. This JSON output does not contain any cloud credentials or secrets.
+This instructs the Infracost CLI to send its [JSON output](/docs/features/cli_commands/#examples) to Infracost Cloud. This JSON output does not contain any cloud credentials or secrets.
 
 ### 6. Send a pull request
 
