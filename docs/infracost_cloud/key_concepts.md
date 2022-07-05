@@ -38,10 +38,10 @@ Infracost auto-generates project names based on the user-provided path, or git r
 ### Override project names
 
 There are two main reasons why you might want to override the project name:
-1. When paths such as `plan.json` are used, so you can use a more understandable name instead.
+1. When a path such as `/tmp/plan.json` is used, the name can become long and hard to understand. This feature lets you set the name to something more understandable.
 2. Infracost Cloud groups projects with the same name together, so if you'd like multiple cost estimates to be associated with a project, use the same name for them.
 
-Use the `--project-name` flag with `infracost breakdown` and `diff` to override the auto-generated project name:
+Use the `--project-name` flag with `infracost breakdown` and `diff` to override the auto-generated project name. This flag can also be set in CI/CD integrations:
 
 ```shell
 infracost breakdown --path plan.json --project-name my-project-123
