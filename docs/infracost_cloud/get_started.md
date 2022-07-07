@@ -39,7 +39,7 @@ Setup one of our [CI/CD integrations](/docs/integrations/cicd/) and set the `INF
 
 ### 5. Enable Infracost Cloud
 
-In your CI/CD integration, set the `INFRACOST_ENABLE_CLOUD=true` environment variable just for the `infracost diff` step. For example in GitHub Actions, this is needed:
+In your CI/CD integration, update the `infracost diff` step to add the `INFRACOST_ENABLE_CLOUD=true` environment variable **just for that step**. For example in GitHub Actions, this is needed:
 
 ```shell
 - name: Run Infracost
