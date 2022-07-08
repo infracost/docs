@@ -7,9 +7,10 @@ The Infracost CLI uses a number of environment variables to customize various as
 1. CLI flags (run `infracost --help` to see them)
 2. Environment variables
 3. [Config file](/docs/features/config_file)
+4. Infracost Cloud organization settings
 
 ### INFRACOST_API_KEY
-Infracost API key, run `infracost register` to get one.
+Infracost API key, run `infracost auth login` to sign up or log in via the CLI. Run `infracost configure get api_key` to retrieve your API key. Use [Infracost Cloud](/docs/infracost_cloud/authentication/) to rotate your API key.
 
 ### INFRACOST_CURRENCY
 The currency ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) prices should be converted to. Defaults to USD.
