@@ -24,7 +24,7 @@ function UseCases() {
             <div className="use-case">
               <h3>
                 <img src="/img/icons/visibility-icon.svg" />
-                <span>Cost visibility for self-service infrastructure</span>
+                <span>Understand cost changes before any resources are launched</span>
               </h3>
               <div className="box">
                 <div className="use-case-content">
@@ -41,18 +41,18 @@ function UseCases() {
                 <div className="benefits">
                   <h4>Infracost benefits:</h4>
                   <ul>
+                  <li>
+                    <span className="icon primary"><Check size={18} /></span>
+                    <span>
+                      <span className="benefit-label">Cost visibility for team leads, managers &amp; FinOps:</span>
+                      <span>You can see all pull requests that increase/decrease costs the most, how much by, and who made the change. This helps you better understand when & where cost changes were introduced as well as upcoming changes.</span>
+                    </span>
+                  </li>
                     <li>
                       <span className="icon primary"><Check size={18} /></span>
                       <span>
                         <span className="benefit-label">Increased cost awareness:</span>
                         <span>Engineers are shown the estimated cost of infrastructure upfront, before any resources are launched or changed. They can make economical choices while keeping software delivery speeds up.</span>
-                      </span>
-                    </li>
-                    <li>
-                      <span className="icon primary"><Check size={18} /></span>
-                      <span>
-                        <span className="benefit-label">Cost visibility for platform teams:</span>
-                        <span>The cost impact of shared modules which are used across many teams can be assessed by platform teams.</span>
                       </span>
                     </li>
                     <li>
