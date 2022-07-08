@@ -20,6 +20,7 @@ Infracost configuration values are chosen in this order:
 1. CLI flags (run `infracost --help` to see them)
 2. [Environment variables](/docs/features/environment_variables)
 3. Config file
+4. Infracost Cloud organization settings
 
 ## Usage
 
