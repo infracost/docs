@@ -2,8 +2,10 @@ const path = require('path');
 const remarkExternalLinks = require('remark-external-links');
 
 let infracostDashboardApiEndpoint = 'https://dashboard.api-dev.infracost.io';
+let infracostDashboardEndpoint = 'https://dashboard.dev.infracost.io';
 if (process.env.NODE_ENV === 'production') {
   infracostDashboardApiEndpoint = 'https://dashboard.api.infracost.io';
+  infracostDashboardEndpoint = 'https://dashboard.infracost.io';
 }
 
 module.exports = {
@@ -18,6 +20,7 @@ module.exports = {
   projectName: 'docs',
   customFields: {
     infracostDashboardApiEndpoint,
+    infracostDashboardEndpoint,
   },
   plugins: [
     [
