@@ -132,7 +132,7 @@ function UseCases() {
                   </div>
                   <div className="screenshot">
                     <div className="image-wrapper">
-                      <img src="/img/screenshots/pr-step-4.png" alt="Infracost cost shareable estimate report" />
+                      <img src="/img/screenshots/share-link-mock.png" alt="Infracost cost shareable estimate report" />
                     </div>
                   </div>
                 </div>
