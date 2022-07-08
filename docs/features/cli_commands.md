@@ -18,7 +18,7 @@ Infracost has multiple commands, all of which support `--help`:
 
 - The following auxiliary commands are also helpful:
   - `infracost configure`: Display or change global configuration, including currency settings
-  - `infracost register`: Register for a free Infracost API key
+  - `infracost auth login`: Get a free Infracost API key
   - `infracost completion`: Generate shell completion script
 
 ## Breakdown

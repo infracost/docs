@@ -164,14 +164,8 @@ Example output:
   <li>Enable Infracost Cloud to monitor cost estimates. This is specially useful in CI/CD integrations (next step) so you can see pull requests that increase/decrease costs the most.</li>
 
   ```shell
-  export INFRACOST_ENABLE_CLOUD=true
-  ```
-
-  <li>Re-run the diff command, you can optionally give it a project name:</li>
-
-  ```shell
-  infracost diff --path . --compare-to infracost-base.json \
-      --project-name "My Core Service"
+  INFRACOST_ENABLE_CLOUD=true infracost diff \
+      --path . --compare-to infracost-base.json
   ```
 
   <li>
