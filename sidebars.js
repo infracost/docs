@@ -28,7 +28,9 @@ module.exports = {
       label: 'Infracost Cloud',
       collapsed: true,
       items: [
+        'infracost_cloud/get_started',
         'infracost_cloud/authentication',
+        'infracost_cloud/key_concepts',
       ],
     },
     {
@@ -42,6 +44,7 @@ module.exports = {
         'integrations/azure_pipelines',
         'integrations/terraform_cloud_enterprise',
         'integrations/slack',
+        'integrations/vscode',
         'integrations/infracost_api',
       ],
     },
