@@ -34,7 +34,7 @@ function UseCases() {
                   </div>
                   <div className="screenshot">
                     <div className="image-wrapper">
-                      <img src="/img/screenshots/pr-step-2.png" alt="Comment in pull request posted by Infracost" />
+                      <img src="/img/screenshots/pr-step-4.png" alt="Comment in pull request posted by Infracost" />
                     </div>
                   </div>
                 </div>
