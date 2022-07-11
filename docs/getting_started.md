@@ -161,7 +161,8 @@ Example output:
 ### 5. Monitor cost estimates
 
 <ol type="i">
-  <li>Enable Infracost Cloud to monitor cost estimates. This is specially useful in CI/CD integrations (next step) so you can see pull requests that increase/decrease costs the most.</li>
+  <li>The <code>INFRACOST_ENABLE_CLOUD​=true</code> step below instructs the CLI to send its JSON output to Infracost Cloud.
+This SaaS product gives you visibility across all changes in a dashboard. The JSON output does not contain any cloud credentials or secrets.</li>
 
   ```shell
   INFRACOST_ENABLE_CLOUD=true infracost diff \
