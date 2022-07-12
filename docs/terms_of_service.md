@@ -25,7 +25,7 @@ Thank you for being responsible.
 
 ### 2. Communications
 
-By creating an Account on our Service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or by emailing at.
+By creating an Account on our Service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or by emailing support@infracost.io.
 
 ### 3. Purchases
 

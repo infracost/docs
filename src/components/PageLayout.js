@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import LayoutProviders from '@theme/LayoutProviders';
 import LayoutHead from '@theme/LayoutHead';
 import AnnouncementBar from '@theme/AnnouncementBar';
@@ -6,23 +7,31 @@ import Navbar from '../components/Navbar';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 
-function PageLayout({ title, description, pageClass, children, hideCTA }) {
+function PageLayout({ title, description, pageClass, children, hideCTA, noIndex }) {
   return (
-    <LayoutProviders>
-      <LayoutHead
-        title={title}
-        description={description} />
+    <HelmetProvider>
+      <LayoutProviders>
+        <LayoutHead
+          title={title}
+          description={description} />
 
-      <AnnouncementBar />
+        {noIndex && (
+          <Helmet>
+            <meta name="robots" content="noindex" />
+          </Helmet>
+        )}
 
-      <div className={pageClass}>
-        <Navbar />
-        {children}
-      </div>
+        <AnnouncementBar />
 
-      {!hideCTA && (<CTA />)}
-      <Footer />
-    </LayoutProviders>
+        <div className={pageClass}>
+          <Navbar />
+          {children}
+        </div>
+
+        {!hideCTA && (<CTA />)}
+        <Footer />
+      </LayoutProviders>
+    </HelmetProvider>
   );
 }
 

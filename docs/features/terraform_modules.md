@@ -30,7 +30,11 @@ projects:
 
 ### Terraform directory
 
-When Infracost is used with a [Terraform directory](/docs/features/cli_commands/#option-1-terraform-directory), usually no extra setup is needed for handling private modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. SSH keys for Github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
+When Infracost is used with a [Terraform directory](/docs/features/cli_commands/#option-1-terraform-directory), the CLI supports Git modules and [Terraform Registry modules](https://www.terraform.io/language/modules/sources#terraform-registry).
+
+#### Git modules
+
+Usually no extra setup is needed for handling private git modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. SSH keys for Github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
 
 In CI/CD integrations, you can an environment variable or secret with your private key so Infracost access private repositories (similar to how Terraform/Terragrunt does):
   ```shell
@@ -44,7 +48,11 @@ In CI/CD integrations, you can an environment variable or secret with your priva
   infracost breakdown --path /code
   ```
 
-HCL parsing does not work with modules that have a `source` in a private Terraform registry. Subscribe to [this issue](https://github.com/infracost/infracost/issues/1667) for updates.
+#### Terraform Registry modules
+
+You can follow either of the following steps so the Infracost CLI can download your private Terraform registry modules:
+1. In CI/CD integrations: set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html). `INFRACOST_TERRAFORM_CLOUD_HOST` can also be set for Terraform Enterprise users (e.g. to avoid using app.terraform.io). These environment variables can also be set in the [config file](/docs/features/config_file).
+2. In local dev machines: set the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) to the absolute path of your Terraform CLI config file. This is more suitable for local dev machines.
 
 ### Terraform plan JSON
 
