@@ -19,44 +19,40 @@ Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in.
 
 ### 2. Create new organization
 
-If you haven't done so already, create a new organization for your company.
+Every Infracost user has a default organization for personal use. Create a new organization for your company using the organization dropdown at the top of the page.
 
 <img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
 
-### 3. Get organization API key
+### 3. Setup Infracost Cloud
 
-Switch to the desired organization and from the top menu, go to Org Settings to copy your Infracost API key.
+<ol type="i">
+  <li>Switch to the desired organization</li>
+  <li>Click on Org Settings</li>
+  <li>Copy your Infracost API key, you will need it in Step 4</li>
+  <li>Tick the box under Cost estimate dashboard. This instructs the Infracost CLI to send its <a href="/docs/features/cli_commands/#examples">JSON output</a> to Infracost Cloud (the JSON does not contain any cloud credentials or secrets).</li>
+  <img src={useBaseUrl("img/infracost-cloud/org-api-key-tick.png")} alt="Get organization API key" />
+</ol>
 
-<img src={useBaseUrl("img/infracost-cloud/org-api-key.png")} alt="Get organization API key" />
 
-:::note
-Only API keys starting with `ico-` work with Infracost Cloud. If you have old API keys, discard them and use the one from your Org Settings page.
-:::
+### 4. Update API key in CI/CD
 
-### 4. Update your CI/CD system
+This step depends on if you are already running Infracost in your CI/CD system:
+- **If yes**:
+  <ol type="i">
+    <li>Update your CI/CD system's <code>INFRACOST_API_KEY</code> environment variable to your organization API key. Note that only API keys starting with <code>ico-</code> work with Infracost Cloud - if you have old API keys, discard them and use the one from your Org Settings page.
+    </li>
+    <li>Ensure that the Infracost CLI version being used is v0.10.7 or later.</li>
+  </ol>
+- **If no**: setup one of our [CI/CD integrations](/docs/integrations/cicd/) and set the `INFRACOST_API_KEY` environment variable to your organization API key.
 
-Setup one of our [CI/CD integrations](/docs/integrations/cicd/) and set the `INFRACOST_API_KEY` environment variable to your organization API key.
+### 5. Send a pull request
 
-### 5. Enable Infracost Cloud
+Send a new pull request to change something in Terraform that costs money, you should see a pull request comment in your CI/CD system.
 
-In your CI/CD integration, update the `infracost comment` step to add the `INFRACOST_ENABLE_CLOUD=true` environment variable **just for that step**. For example in GitHub Actions, this is needed:
+### 6. See cost estimate in Infracost Cloud
 
-```shell
-- name: Run Infracost
-  id: infracost-run
-  run: |
-    INFRACOST_ENABLE_CLOUD=true infracost comment --path=. \
-        --format=json \
-        --compare-to=/tmp/infracost-base.json \
-        --out-file=/tmp/infracost.json
-```
+Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Projects** to see the same cost estimate from the pull request. Your dashboard gives you visibility across all changes across pull requests and code repos.
 
-This instructs the Infracost CLI to send its [JSON output](/docs/features/cli_commands/#examples) to Infracost Cloud. This JSON output does not contain any cloud credentials or secrets.
+If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
-### 6. Send a pull request
-
-Send a pull request to test the setup.
-
-### 7. See cost estimate in Infracost Cloud
-
-Go to [Infracost Cloud](https://dashboard.infracost.io) > your organization > Projects to see the cost estimate from the pull request.
+<img src={useBaseUrl("img/infracost-cloud/runs.png")} alt="Team visibility across all changes" />
