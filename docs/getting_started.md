@@ -161,7 +161,7 @@ Example output:
 ### 5. Monitor cost estimates
 
 <ol type="i">
-  <li>The <code>INFRACOST_ENABLE_CLOUD​=true</code> environment variable instructs the CLI to send its JSON output to Infracost Cloud. This SaaS product gives you visibility across all changes in a dashboard and is specially useful in CI/CD integrations (next step). The JSON output does not contain any cloud credentials or secrets.</li>
+  <li>The following environment variable instructs the CLI to send its JSON output to Infracost Cloud. This SaaS product gives you visibility across all changes in a dashboard and is specially useful for CI/CD integrations (next step).</li>
 
   ```shell
   INFRACOST_ENABLE_CLOUD=true infracost diff \
