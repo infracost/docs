@@ -45,7 +45,7 @@ But there is one more thing! We have also added support for Microsoft Azure DevO
 **Get started! ** We have made it super simple to get up and running:
 ```
 1. brew install infracost # (docker, windows etc options available)
-2. infracost register
+2. infracost auth login
 3. az login # To set cloud creds, see note-1
 4. infracost breakdown --path . # Run in your terraform directory. We also have an example Azure terraform file you can use to try it out.
 ```

@@ -3,19 +3,23 @@ slug: authentication
 title: Authentication
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 You can sign up or log in via the the web and the CLI. Infracost Cloud supports logging in via GitHub, Google or an email/password.
 
 ## Web
 1. Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in.
-2. Go to Org Settings page and copy your API key:
-    - To use it in CI/CD, set the `INFRACOST_API_KEY` environment variable.
-    - To use it in the CLI, run `infracost configure set api_key MY_API_KEY`.
-3. Run Infracost [commands](/docs/features/cli_commands) or [CI/CD integrations](/docs/integrations/cicd/) as usual.
+2. Switch to the desired organization. Every Infracost user has a default organization for personal use. You should create a new organization for your company using the organization dropdown at the top of the page.
+3. Go to Org Settings page and copy your API key:
+  <img src={useBaseUrl("img/infracost-cloud/org-api-key.png")} alt="Copy organization API key" />
+3. To use it in CI/CD, set the `INFRACOST_API_KEY` environment variable.
+4. To use it in the CLI, run `infracost configure set api_key MY_API_KEY`.
+5. Run Infracost [commands](/docs/features/cli_commands) or [CI/CD integrations](/docs/integrations/cicd/) as usual.
 
 If you signed up using an email/password, you can change your password by logging out and clicking on "Don't remember your password?".
 
 ## CLI
-1. [Upgrade](/docs/#1-install-infracost) to Infracost v0.10.6 or later. Check version by running `infracost --version`.
+1. [Upgrade](/docs/#1-install-infracost) to Infracost v0.10.7 or later. Check version by running `infracost --version`.
 2. Run `infracost auth login`.
   This opens an authentication web page and saves the API key locally. If you run into issues, follow the [web](#web) log in and set the CLI API key manually.
 3. Run Infracost [commands](/docs/features/cli_commands) as usual. If you need to create a new organization or retrieve your API key, use our [web](#web) UI.

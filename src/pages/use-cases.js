@@ -24,7 +24,7 @@ function UseCases() {
             <div className="use-case">
               <h3>
                 <img src="/img/icons/visibility-icon.svg" />
-                <span>Cost visibility for self-service infrastructure</span>
+                <span>Understand cost changes before any resources are launched</span>
               </h3>
               <div className="box">
                 <div className="use-case-content">
@@ -34,25 +34,25 @@ function UseCases() {
                   </div>
                   <div className="screenshot">
                     <div className="image-wrapper">
-                      <img src="/img/screenshots/pr-step-2.png" alt="Comment in pull request posted by Infracost" />
+                      <img src="/img/screenshots/pr-step-4.png" alt="Comment in pull request posted by Infracost" />
                     </div>
                   </div>
                 </div>
                 <div className="benefits">
                   <h4>Infracost benefits:</h4>
                   <ul>
+                  <li>
+                    <span className="icon primary"><Check size={18} /></span>
+                    <span>
+                      <span className="benefit-label">Cost visibility for team leads, managers &amp; FinOps:</span>
+                        <span>You can see pull requests that increase/decrease costs the most, by how much, and by whom.This helps you better understand when &amp; where cost changes were introduced, as well as upcoming changes.</span>
+                    </span>
+                  </li>
                     <li>
                       <span className="icon primary"><Check size={18} /></span>
                       <span>
                         <span className="benefit-label">Increased cost awareness:</span>
                         <span>Engineers are shown the estimated cost of infrastructure upfront, before any resources are launched or changed. They can make economical choices while keeping software delivery speeds up.</span>
-                      </span>
-                    </li>
-                    <li>
-                      <span className="icon primary"><Check size={18} /></span>
-                      <span>
-                        <span className="benefit-label">Cost visibility for platform teams:</span>
-                        <span>The cost impact of shared modules which are used across many teams can be assessed by platform teams.</span>
                       </span>
                     </li>
                     <li>
@@ -132,7 +132,7 @@ function UseCases() {
                   </div>
                   <div className="screenshot">
                     <div className="image-wrapper">
-                      <img src="/img/screenshots/pr-step-4.png" alt="Infracost cost shareable estimate report" />
+                      <img src="/img/screenshots/share-link-mock.png" alt="Infracost cost shareable estimate report" />
                     </div>
                   </div>
                 </div>

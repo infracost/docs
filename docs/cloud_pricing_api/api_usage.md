@@ -41,7 +41,7 @@ The main properties of Prices are:
 ## Usage
 
 Infracost runs a hosted version of this API that you can use:
-1. Register for an API key by [downloading infracost](/docs/#quick-start) and running `infracost register`.
+1. Register for an API key by [downloading infracost](/docs/#quick-start) and running `infracost auth login`.
 2. Pass the above API key using the `X-Api-Key: xxxx` HTTP header when calling [https://pricing.api.infracost.io/graphql](https://pricing.api.infracost.io/graphql). The following example fetches the latest price for an AWS EC2 m3.large instance in us-east-1. More examples can be found [here](https://github.com/infracost/cloud-pricing-api/tree/master/examples/queries).
 
 <Tabs

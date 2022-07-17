@@ -18,7 +18,7 @@ Infracost has multiple commands, all of which support `--help`:
 
 - The following auxiliary commands are also helpful:
   - `infracost configure`: Display or change global configuration, including currency settings
-  - `infracost register`: Register for a free Infracost API key
+  - `infracost auth login`: Get a free Infracost API key
   - `infracost completion`: Generate shell completion script
 
 ## Breakdown
@@ -118,7 +118,7 @@ If the above method does not work for your use-case, you can use Terraform to ge
 
 ## Project names
 
-Infracost auto-generates project names based on the user-provided path, or git repo name. The name appears in the CLI output, pull request comments and Infracost Cloud. When paths such as `/tmp/plan.json` are used, you might want to override it with a more understandable name. Use the `--project-name` flag with `infracost breakdown` and `diff` to achieve this; this flag can also be set in CI/CD integrations:
+Infracost auto-generates project names based on the user-provided path, or git repo name. The name appears in the CLI output, pull request comments and Infracost Cloud. When paths such as `/tmp/plan.json` are used, you might want to override it with a more understandable name. Use the `--project-name` flag with `infracost breakdown` and `diff` to achieve this. This flag can also be set in CI/CD integrations, where you can also use environment variables to customize the value.
 
 ```shell
 infracost breakdown --path plan.json --project-name my-project-123

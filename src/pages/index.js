@@ -87,8 +87,9 @@ function Home() {
 
             <div className="step">
               <div className="step-content">
-                <h3>Scenario modeling &amp; what-if analysis</h3>
-                <p>Infracost automatically creates detailed, shareable cost estimates which can be sent to clients and managers with different scenarios.</p>
+                <h3>Team lead visibility across changes</h3>
+                <p>When using Infracost in CI/CD, team leads, managers &amp; FinOps can see pull requests that increase or decrease costs the most, by how much, and by whom.</p>
+                <p>This helps you better understand when &amp; where cost changes were introduced, as well as upcoming changes.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
