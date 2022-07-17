@@ -45,7 +45,7 @@ function UseCases() {
                     <span className="icon primary"><Check size={18} /></span>
                     <span>
                       <span className="benefit-label">Cost visibility for team leads, managers &amp; FinOps:</span>
-                      <span>You can see all pull requests that increase/decrease costs the most, how much by, and who made the change. This helps you better understand when & where cost changes were introduced as well as upcoming changes.</span>
+                        <span>You can see pull requests that increase/decrease costs the most, by how much, and by whom.This helps you better understand when &amp; where cost changes were introduced, as well as upcoming changes.</span>
                     </span>
                   </li>
                     <li>

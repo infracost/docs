@@ -88,8 +88,8 @@ function Home() {
             <div className="step">
               <div className="step-content">
                 <h3>Team lead visibility across changes</h3>
-                <p>After using Infracost in CI/CD, team leads, managers &amp; FinOps can see all pull requests that increase/decrease costs the most, how much by, and who made the change.</p>
-                <p>This helps you better understand when &amp; where cost changes were introduced as well as upcoming changes.</p>
+                <p>When using Infracost in CI/CD, team leads, managers &amp; FinOps can see pull requests that increase or decrease costs the most, by how much, and by whom.</p>
+                <p>This helps you better understand when &amp; where cost changes were introduced, as well as upcoming changes.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
