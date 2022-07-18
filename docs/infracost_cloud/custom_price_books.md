@@ -5,9 +5,16 @@ title: Custom price books
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost Cloud will soon support discounts applied as part of:
+The Infracost CLI uses public prices by default. Many organizations that have significant cloud spend get discounts from cloud vendors, including the following. You can apply these discounts in Infracost Cloud.
 - AWS Enterprise Discount Program (EDP)
-- Azure Prepayment (also known as Azure Monetary Commitment)
-- Google Commitment Agreement.
+- Azure Prepayment, also known as Azure Monetary Commitment. These are part of Azure Enterprise Agreements
+- Google Commitment Agreement
 
-You will be able to define discounts to be applied to all prices shown in the Infracost CLI, pull request comments and Infracost Cloud for AWS, Azure and Google.
+### Usage
+
+1. Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in.
+2. Switch to the desired organization and go to Org Settings page.
+3. Define the percentage discounts that should be applied for AWS, Azure and Google and click Save:
+  <img src={useBaseUrl("img/infracost-cloud/custom-price-books.png")} alt="Infracost Cloud supports custom price books" />
+
+All new cost estimates (CLI outputs, pull requests and Infracost Cloud estimates) for your organization will apply the discount going forward. The discount will also be applied to usage-based resources such as AWS Lambda or S3 *prices* even if there is no [usage file](/docs/features/usage_based_resources/).
