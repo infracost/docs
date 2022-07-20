@@ -342,6 +342,7 @@ infracost comment bitbucket --path infracost.json \
 - `--commit`: required to post on a pull request's commit, use `$BITBUCKET_COMMIT`. Mutually exclusive with `--pull-request` flag, available only for Bitbucket Cloud.
 - `--bitbucket-token`: required. For Bitbucket Cloud provide `username:$BITBUCKET_TOKEN`, where the token can be a user or App password. For Bitbucket Server provide only an HTTP access token.
 - `--bitbucket-server-url`: optional, URL for Bitbucket Server/Data Center users (default "https://bitbucket.org").
+- `--exclude-cli-output`: optional, exclude CLI output so comment has just the summary table.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
 
