@@ -18,7 +18,7 @@ When the CLI runs, it:
   The CLI calculates the monthly costs. The results can be output in table, JSON format or [other formats](/docs/features/cli_commands/#combined-output-formats).
 
 4. **Infracost Cloud**<br />
-  If you have enabled this product, the CLI sends the cost estimates in JSON format to Infracost Cloud.
+  If you have enabled this product, the CLI sends the final cost estimate in JSON format to Infracost Cloud.
 
 ## Security and Privacy
 
