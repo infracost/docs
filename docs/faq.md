@@ -90,7 +90,7 @@ No. The Infracost CLI parses the Terraform plan JSON file to find [cost-related 
 
 ### What data is sent to Infracost Cloud?
 
-If you have [enabled](/docs/infracost_cloud/get_started/) this, the CLI sends its [JSON output](/docs/features/cli_commands/#examples) to Infracost Cloud; you can generate and inspect this JSON, it does not contain any cloud credentials or secrets.
+If you have [enabled](/docs/infracost_cloud/get_started/) this, the CLI sends its [JSON output](/docs/features/cli_commands/#examples) to Infracost Cloud; you can generate and inspect this JSON. It does not contain any cloud credentials or secrets.
 
 ### Do you sell my data?
 
