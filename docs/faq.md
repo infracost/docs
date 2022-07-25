@@ -5,8 +5,7 @@ title: FAQ
 
 ## How does Infracost work?
 
-Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd).
-
+Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd). There is also a SaaS product, [Infracost Cloud](/pricing/), that complements the open source CLI by giving teams advanced visibility and controls.
 When the CLI runs, it:
 
 1. **Extracts cost-related parameters**<br />
@@ -17,6 +16,9 @@ When the CLI runs, it:
 
 3. **Calculates the monthly costs**<br />
   The CLI calculates the monthly costs. The results can be output in table, JSON format or [other formats](/docs/features/cli_commands/#combined-output-formats).
+
+4. **Infracost Cloud**<br />
+  If you have enabled this product, the CLI sends the final cost estimate in JSON format to Infracost Cloud.
 
 ## Security and Privacy
 
@@ -86,10 +88,13 @@ No. However, if you want Infracost to fetch usage data from your AWS account, yo
 
 No. The Infracost CLI parses the Terraform plan JSON file to find [cost-related parameters](/docs/faq#example-request) and uses those to lookup cloud prices.
 
+### What data is sent to Infracost Cloud?
+
+If you have [enabled](/docs/infracost_cloud/get_started/) this, the CLI sends its [JSON output](/docs/features/cli_commands/#examples) to Infracost Cloud; you can generate and inspect this JSON. It does not contain any cloud credentials or secrets.
+
 ### Do you sell my data?
 
-No. Infracost is backed by top-tier investors including Y Combinator and Sequoia. In the future we intend on making money by developing an [enterprise product](/pricing). For more information about how we handle data see our [Privacy Policy](/docs/privacy-policy).
-
+No. Infracost is backed by top-tier investors including Y Combinator and Sequoia. We also have an [paid product](/pricing). For more information about how we handle data see our [Privacy Policy](/docs/privacy-policy).
 
 ### How should I report a security vulnerability?
 
