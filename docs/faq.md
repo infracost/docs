@@ -18,7 +18,7 @@ When the CLI runs, it:
   The CLI calculates the monthly costs. The results can be output in table, JSON format or [other formats](/docs/features/cli_commands/#combined-output-formats).
 
 4. **Infracost Cloud**<br />
-  If you have enabled this product, the CLI sends the final cost estimate in JSON format to Infracost Cloud.
+  If you have enabled this product, the CLI sends the final cost estimate in JSON format to your account in Infracost Cloud.
 
 ## Security and Privacy
 
@@ -90,7 +90,7 @@ No. The Infracost CLI parses the Terraform plan JSON file to find [cost-related 
 
 ### What data is sent to Infracost Cloud?
 
-If you have [enabled](/docs/infracost_cloud/get_started/) this, the CLI sends its [JSON output](/docs/features/cli_commands/#examples) to Infracost Cloud; you can generate and inspect this JSON. It does not contain any cloud credentials or secrets.
+If you have [enabled](/docs/infracost_cloud/get_started/) this, the CLI sends its [JSON output](/docs/features/cli_commands/#examples) to your account in Infracost Cloud; you can generate and inspect this JSON. It does not contain any cloud credentials or secrets.
 
 ### Do you sell my data?
 
