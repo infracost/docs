@@ -76,6 +76,7 @@ function Navbar({ isDocs }) {
       <a className="navbar-item navbar-link" href="/about">About</a>
       <a className="navbar-item navbar-link" href="/blog">Blog</a>
       <a className="navbar-item navbar-link" href="/docs">Docs</a>
+      <a className="navbar-item navbar-link" href="https://dashboard.infracost.io">Log in</a>
     </div>
   );
 
@@ -86,6 +87,7 @@ function Navbar({ isDocs }) {
       <a className="navbar-item" href="/about">About</a>
       <a className="navbar-item" href="/blog">Blog</a>
       <a className="navbar-item" href="/docs">Docs</a>
+      <a className="navbar-item navbar-link" href="https://dashboard.infracost.io">Log in</a>
     </>
   );
 
