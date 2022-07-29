@@ -12,7 +12,7 @@ Infracost has multiple commands, all of which support `--help`:
   - `infracost breakdown`: Show breakdown of costs
   - `infracost diff`: Show diff of monthly costs between current and planned state
 
-- The following commands work with the Infracost JSON output, which is generated via `infracost breakdown --format json`: 
+- The following commands work with the Infracost JSON output, which is generated via `infracost breakdown --format json`:
   - `infracost comment`: Post cost estimates to pull requests in GitHub, GitLab, Azure Repos and Bitbucket
   - `infracost output`: Combine and output Infracost JSON files in different formats
 
@@ -181,7 +181,7 @@ infracost comment github --path infracost.json \
 - `--pull-request`: required to post on a pull request, can be extracted from workflows's event and set as an environment variable: `PR_NUMBER: ${{ github.event.number }}`. Mutually exclusive with the `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$GITHUB_SHA`. Mutually exclusive with `--pull-request` flag.
 - `--github-token`: required, use `$GITHUB_TOKEN`.
-- `--github-api-url`: optional, API URL for GitHub Enterprise users (default "https://api.github.com"). In GitHub Actions you can set this to `$GITHUB_API_URL`.
+- `--github-api-url`: optional (default "https://api.github.com"), GitHub Enterprise users can set this to `$GITHUB_API_URL` in GitHub Actions.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
 
@@ -200,7 +200,7 @@ infracost comment github --path infracost.json \
 - `--pull-request`: required to post on a pull request, `$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER`. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$BUILD_SOURCEVERSION`. Mutually exclusive with `--pull-request` flag.
 - `--github-token`: required, use `$GITHUB_TOKEN`.
-- `--github-api-url`: optional, API URL for GitHub Enterprise users (default "https://api.github.com").
+- `--github-api-url`: optional (default "https://api.github.com"), GitHub Enterprise users can set this to `https://GITHUB_SERVER/api`.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
 
@@ -219,7 +219,7 @@ infracost comment github --path infracost.json \
 - `--pull-request`: required to post on a pull request, use `$PULL_NUM`. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$HEAD_COMMIT`. Mutually exclusive with `--pull-request` flag.
 - `--github-token`: required, provide your GitHub token, for example, as an environment variable `$GITHUB_TOKEN`.
-- `--github-api-url`: optional, API URL for GitHub Enterprise users (default "https://api.github.com").
+- `--github-api-url`: optional (default "https://api.github.com"), GitHub Enterprise users can set this to `https://GITHUB_SERVER/api`.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
 
@@ -238,7 +238,7 @@ infracost comment github --path infracost.json \
 - `--pull-request`: required to post on a pull request, use `${CIRCLE_PULL_REQUEST##*/}` to extract the pull request's number from its URL. Mutually exclusive with `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$CIRCLE_SHA1`. Mutually exclusive with `--pull-request` flag.
 - `--github-token`: required, provide your GitHub token, for example, as an environment variable `$GITHUB_TOKEN`.
-- `--github-api-url`: optional, API URL for GitHub Enterprise users (default "https://api.github.com").
+- `--github-api-url`: optional (default "https://api.github.com"), GitHub Enterprise users can set this to `https://GITHUB_SERVER/api`.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
 
@@ -396,7 +396,7 @@ The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `
   infracost breakdown --path prod --format json --out-file infracost-prod.json
 
   # Combine above Infracost JSON files, glob patterns need quotes
-  infracost output --path "infracost-*.json" --format json --out-file infracost.json    
+  infracost output --path "infracost-*.json" --format json --out-file infracost.json
   ```
 
 2. Use the `infracost output` command to generate different formats, for example:
@@ -479,7 +479,7 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
         "vcsPullRequestAuthor": name of the person who opened the pull request, this is probably the same as commitAuthor most of the time but it's helpful to see this if they're different
         "vcsPipelineRunId": a way to differentiate pipelines that are run within one pull request, this is the top-level pipeline ID, not individual jobs/runs within it. */
       },
-      /* When Infracost is used with a Terraform plan JSON, this contains any 
+      /* When Infracost is used with a Terraform plan JSON, this contains any
       resources that are in the prior Terraform state.
 
       When Infracost is used with a Terraform directory, this contains any
@@ -490,7 +490,7 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
         "totalHourlyCost": "0",
         "totalMonthlyCost": "0"
       },
-      /* When Infracost is used with a Terraform plan JSON, this contains 
+      /* When Infracost is used with a Terraform plan JSON, this contains
       the breakdown of resources that are in the planned Terraform state.
 
       When Infracost is used with a Terraform directory, this contains the
@@ -806,13 +806,13 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
   To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
   ```
   </TabItem>
-  <TabItem value="pull-request-comment">  
+  <TabItem value="pull-request-comment">
     The following screenshot is for the 'github-comment' format. The 'gitlab-comment', 'azure-repos-comment' and 'bitbucket-comment' formats produce similar output.
     <img src={useBaseUrl("img/screenshots/github-comment-format.png")} alt="Infracost GitHub comment report" />
   </TabItem>
   <TabItem value="slack-message">
     See the Integrations > Slack page for more details.
-    
+
     <img src={useBaseUrl("img/screenshots/slack-message-format.png")} alt="Infracost Slack message report" />
   </TabItem>
 </Tabs>
