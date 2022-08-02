@@ -450,6 +450,7 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
   "projects": [
     {
       "name": "infracost/infracost/examples/terraform",
+      // The metadata section is not finalized and is subject to change
       "metadata": {
         "path": "examples/terraform",
         "type": "terraform_dir",

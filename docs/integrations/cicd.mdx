@@ -7,8 +7,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Use one of our many integrations so DevOps, SRE and engineers see a cost estimate in pull requests **before making changes**.
-This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
+Use one of our many integrations so DevOps, SRE and engineers see a cost estimate in pull requests **before making changes**. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
+
+Infracost can work with either a [Terraform directory](/docs/features/cli_commands/#option-1-terraform-directory) or [Terraform plan JSON](/docs/features/cli_commands/#option-2-terraform-plan-json).
 
 export const Grid = ({logos}) => {
     const items = logos.map((e, i) => {
@@ -120,10 +121,6 @@ Infracost can be used in any CI/CD system using the following steps. Our [GitLab
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
-### Deployment systems
+### Third-party integrations
 
-The above CI/CD integrations [parse Terraform HCL code](/docs/features/cli_commands/#option-1-terraform-directory) directly (with the exception of Atlantis). That is our recommended way of running Infracost since it's faster and does not require cloud credentials to generate a Terraform plan JSON. However, Infracost can also be used alongside deployment systems that already generate a Terraform plan JSON file, for example:
-  - [Terraform Cloud/Enterprise Run Tasks](/docs/integrations/terraform_cloud_enterprise/)
-  - [Scalr](https://docs.scalr.com/en/latest/cost_estimate.html)
-  - [Spacelift](https://docs.spacelift.io/vendors/terraform/infracost)
-  - [Env0](https://docs.env0.com/docs/cost-monitoring#cost-estimation)
+Infracost can also be used alongside many other [third-party systems](/docs/integrations/third_party_integrations/).

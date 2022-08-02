@@ -47,6 +47,7 @@ module.exports = {
         'integrations/slack',
         'integrations/vscode',
         'integrations/infracost_api',
+        'integrations/third_party_integrations',
       ],
     },
     {
