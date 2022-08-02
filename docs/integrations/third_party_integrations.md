@@ -12,6 +12,8 @@ Our [CI/CD integrations](/docs/integrations/cicd/) can be used to integrate with
 - [Env0](https://docs.env0.com/docs/cost-monitoring#cost-estimation)
 - [Terrateam](https://docs.terrateam.io/integrations/infracost)
 - [Terraspace](https://terraspace.cloud/docs/cloud/cost-estimation)
+- [Terranetes](https://terranetes.appvia.io/terranetes-controller/admin/costs)
+- [Keptn](https://artifacthub.io/packages/keptn/keptn-integrations/infracost)
 
 ## Creating an integration
 
