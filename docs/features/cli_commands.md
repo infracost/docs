@@ -169,11 +169,11 @@ Run `infracost comment github --help` to see the options.
 #### GitHub Actions
 
 ```sh
-infracost comment github --path infracost.json \
-    --repo $GITHUB_REPOSITORY \
-    --pull-request $PR_NUMBER `# or --commit $GITHUB_SHA` \
-    --github-token $GITHUB_TOKEN \
-    --behavior update
+infracost comment github --path=infracost.json \
+    --repo=$GITHUB_REPOSITORY \
+    --pull-request=$PR_NUMBER `# or --commit=$GITHUB_SHA` \
+    --github-token=$GITHUB_TOKEN \
+    --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
@@ -188,11 +188,11 @@ infracost comment github --path infracost.json \
 #### Azure Pipelines with GitHub
 
 ```sh
-infracost comment github --path infracost.json \
-    --repo $BUILD_REPOSITORY_NAME \
-    --pull-request $SYSTEM_PULLREQUEST_PULLREQUESTNUMBER `# or --commit $BUILD_SOURCEVERSION` \
-    --github-token $GITHUB_TOKEN \
-    --behavior update
+infracost comment github --path=infracost.json \
+    --repo=$BUILD_REPOSITORY_NAME \
+    --pull-request=$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER `# or --commit=$BUILD_SOURCEVERSION` \
+    --github-token=$GITHUB_TOKEN \
+    --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
@@ -207,11 +207,11 @@ infracost comment github --path infracost.json \
 #### Atlantis with GitHub
 
 ```sh
-infracost comment github --path infracost.json \
-    --repo $BASE_REPO_OWNER/$BASE_REPO_NAME \
-    --pull-request $PULL_NUM `# or --commit $HEAD_COMMIT` \
-    --github-token $GITHUB_TOKEN \
-    --behavior update
+infracost comment github --path=infracost.json \
+    --repo=$BASE_REPO_OWNER/$BASE_REPO_NAME \
+    --pull-request=$PULL_NUM `# or --commit=$HEAD_COMMIT` \
+    --github-token=$GITHUB_TOKEN \
+    --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
@@ -226,11 +226,11 @@ infracost comment github --path infracost.json \
 #### CircleCI with GitHub
 
 ```sh
-infracost comment github --path infracost.json \
-                         --repo $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
-                         --pull-request ${CIRCLE_PULL_REQUEST##*/} `# or --commit $CIRCLE_SHA1` \
-                         --github-token $GITHUB_TOKEN \
-                         --behavior update
+infracost comment github --path=infracost.json \
+                         --repo=$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
+                         --pull-request=${CIRCLE_PULL_REQUEST##*/} `# or --commit=$CIRCLE_SHA1` \
+                         --github-token=$GITHUB_TOKEN \
+                         --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
@@ -249,11 +249,11 @@ Run `infracost comment gitlab --help` to see the options.
 #### GitLab CI
 
 ```sh
-infracost comment gitlab --path infracost.json \
-    --repo $CI_PROJECT_PATH \
-    --merge-request $CI_MERGE_REQUEST_IID `# or --commit $CI_COMMIT_SHA` \
-    --gitlab-token $GITLAB_TOKEN \
-    --behavior update
+infracost comment gitlab --path=infracost.json \
+    --repo=$CI_PROJECT_PATH \
+    --merge-request=$CI_MERGE_REQUEST_IID `# or --commit=$CI_COMMIT_SHA` \
+    --gitlab-token=$GITLAB_TOKEN \
+    --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
@@ -268,11 +268,11 @@ infracost comment gitlab --path infracost.json \
 #### Atlantis with GitLab
 
 ```sh
-infracost comment gitlab --path infracost.json \
-    --repo $BASE_REPO_OWNER/$BASE_REPO_NAME \
-    --merge-request $PULL_NUM `# or --commit $HEAD_COMMIT` \
-    --gitlab-token $GITLAB_TOKEN \
-    --behavior update
+infracost comment gitlab --path=infracost.json \
+    --repo=$BASE_REPO_OWNER/$BASE_REPO_NAME \
+    --merge-request=$PULL_NUM `# or --commit=$HEAD_COMMIT` \
+    --gitlab-token=$GITLAB_TOKEN \
+    --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
@@ -291,11 +291,11 @@ Run `infracost comment azure-repos --help` to see the options. You might find th
 #### Azure Pipelines with Azure Repos
 
 ```sh
-infracost comment azure-repos --path infracost.json \
-                              --repo-url $BUILD_REPOSITORY_URI \
-                              --pull-request $SYSTEM_PULLREQUEST_PULLREQUESTID \
-                              --azure-access-token $SYSTEM_ACCESSTOKEN \
-                              --behavior update
+infracost comment azure-repos --path=infracost.json \
+                              --repo-url=$BUILD_REPOSITORY_URI \
+                              --pull-request=$SYSTEM_PULLREQUEST_PULLREQUESTID \
+                              --azure-access-token=$SYSTEM_ACCESSTOKEN \
+                              --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
@@ -308,11 +308,11 @@ infracost comment azure-repos --path infracost.json \
 #### Atlantis with Azure Repos
 
 ```sh
-infracost comment azure-repos --path infracost.json \
-                              --repo-url $AZURE_REPO_URL \
-                              --pull-request $PULL_NUM \
-                              --azure-access-token $AZURE_ACCESS_TOKEN \
-                              --behavior update
+infracost comment azure-repos --path=infracost.json \
+                              --repo-url=$AZURE_REPO_URL \
+                              --pull-request=$PULL_NUM \
+                              --azure-access-token=$AZURE_ACCESS_TOKEN \
+                              --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
@@ -329,11 +329,11 @@ Run `infracost comment bitbucket --help` to see the options.
 #### Bitbucket Pipelines
 
 ```sh
-infracost comment bitbucket --path infracost.json \
-                            --repo $BITBUCKET_WORKSPACE/$BITBUCKET_REPO_SLUG \
-                            --pull-request $BITBUCKET_PR_ID `# or --commit $BITBUCKET_COMMIT` \
-                            --bitbucket-token $BITBUCKET_TOKEN \
-                            --behavior update
+infracost comment bitbucket --path=infracost.json \
+                            --repo=$BITBUCKET_WORKSPACE/$BITBUCKET_REPO_SLUG \
+                            --pull-request=$BITBUCKET_PR_ID `# or --commit=$BITBUCKET_COMMIT` \
+                            --bitbucket-token=$BITBUCKET_TOKEN \
+                            --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
@@ -350,10 +350,10 @@ infracost comment bitbucket --path infracost.json \
 
 ```sh
 infracost comment bitbucket --path infracost.json \
-    --repo $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
-    --pull-request ${CIRCLE_PULL_REQUEST##*/} `# or --commit $CIRCLE_SHA1` \
-    --bitbucket-token $BITBUCKET_TOKEN \
-    --behavior update
+    --repo=$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
+    --pull-request=${CIRCLE_PULL_REQUEST##*/} `# or --commit=$CIRCLE_SHA1` \
+    --bitbucket-token=$BITBUCKET_TOKEN \
+    --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
@@ -369,11 +369,11 @@ infracost comment bitbucket --path infracost.json \
 #### Atlantis with Bitbucket
 
 ```sh
-infracost comment bitbucket --path infracost.json \
-    --repo $BASE_REPO_OWNER/$BASE_REPO_NAME \
-    --pull-request $PULL_NUM `# or --commit $HEAD_COMMIT` \
-    --bitbucket-token $BITBUCKET_TOKEN \
-    --behavior update
+infracost comment bitbucket --path=infracost.json \
+    --repo=$BASE_REPO_OWNER/$BASE_REPO_NAME \
+    --pull-request=$PULL_NUM `# or --commit=$HEAD_COMMIT` \
+    --bitbucket-token=$BITBUCKET_TOKEN \
+    --behavior=update
 ```
 
 - `--path`: required, path to Infracost JSON files, glob patterns need quotes.
