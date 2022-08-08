@@ -52,4 +52,4 @@ Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organizatio
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
-<img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Dashboard chart with tooltips" />
+<img src={useBaseUrl("img/infracost-cloud/dashboard.png")} alt="Team visibility across all changes" />
