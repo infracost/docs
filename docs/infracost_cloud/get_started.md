@@ -11,7 +11,7 @@ Infracost Cloud is our new hosted service. It enables team leads, managers and F
 
 We're also working on enabling team leads to setup notifications of budget-breaking pull requests, and best practice recommendations directly in pull requests. Contact hello@infracost.io if you'd like to learn more.
 
-<img src={useBaseUrl("img/infracost-cloud/runs.png")} alt="Team visibility across all changes" />
+<img src={useBaseUrl("img/infracost-cloud/dashboard.png")} alt="Team visibility across all changes" />
 
 ### 1. Sign up or log in
 
@@ -48,8 +48,8 @@ Send a new pull request to change something in Terraform that costs money, you s
 
 ### 6. See cost estimate in Infracost Cloud
 
-Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Projects** to see the same cost estimate from the pull request. Your dashboard gives you visibility across all changes across pull requests and code repos.
+Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Dashboard** to see your pull request on the chart and cost breakdowns by user, project and pull request. Your dashboard gives you visibility across all changes across pull requests and code repos. Clicking on the chart's dot opens a new tab with the corresponding pull request page if you want to take a closer look.
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
-<img src={useBaseUrl("img/infracost-cloud/runs.png")} alt="Team visibility across all changes" />
+<img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Dashboard chart with tooltips" />
