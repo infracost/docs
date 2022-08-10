@@ -170,7 +170,7 @@ Example output:
 
   <li>
     Log in to <a href="https://dashboard.infracost.io">Infracost Cloud</a> to see the cost estimate:
-    <img src={useBaseUrl("img/screenshots/get-started-infracost-cloud.png")} alt="Infracost Cloud provides team visibility across all changes so you can see pull requests that increase/decrease costs the most." />
+    <img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Infracost Cloud dashboard showing pull request cost changes over the last 30 days" />
   </li>
 
 </ol>

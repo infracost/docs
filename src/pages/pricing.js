@@ -71,22 +71,26 @@ function Pricing() {
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Support for Enterprise Agreement discounts and custom price books</span>
+                  <span>Custom price books and discounts</span>
                 </li>
                 <li>
                   <span><b>Coming soon:</b></span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span><a href="https://github.com/infracost/infracost/issues/1727">Notification of budget-breaking pull requests</a></span>
+                  <span>Team management</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Best practice recommendations directly in pull requests</span>
+                  <span>Weekly email digests and notifications</span>
+                </li>
+                <li>
+                  <span className="icon primary"><Check size={18} /></span>
+                  <span>Recommendations in pull requests</span>
                 </li>
               </ul>
               <div className="action">
-                <a href="/docs/infracost_cloud/get_started" className="button primary">Get started</a>
+                <a href="/docs/infracost_cloud/get_started" className="button primary">Start free trial</a>
               </div>              
             </div>
           </div>
