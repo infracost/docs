@@ -161,7 +161,7 @@ Example output:
 ### 5. Monitor cost estimates
 
 <ol type="i">
-  <li>The following environment variable instructs the CLI to send its JSON output to Infracost Cloud. This is our SaaS product that can be used alongside our open source CLI and gives you visibility across all changes in a dashboard. It is specially useful for CI/CD integrations (next step).</li>
+  <li>The following environment variable instructs the CLI to send its JSON output to Infracost Cloud. This is our SaaS product that builds on top of Infracost open source and works with CI/CD integrations (next step). It helps team leads, managers and FinOps practitioners see all cost estimates from a central place so they can help guide the team.</li>
 
   ```shell
   INFRACOST_ENABLE_CLOUD=true infracost diff \
@@ -169,11 +169,11 @@ Example output:
   ```
 
   <li>
-    Log in to <a href="https://dashboard.infracost.io">Infracost Cloud</a> to see the cost estimate:
-    <img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Infracost Cloud dashboard showing pull request cost changes over the last 30 days" />
+    Log in to <a href="https://dashboard.infracost.io">Infracost Cloud</a> and goto the Projects page to see the cost estimate.
   </li>
-
 </ol>
+
+<img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Infracost Cloud dashboard showing pull request costs over the last 30 days" />
 
 ---
 

@@ -17,4 +17,7 @@ The Infracost CLI uses public prices by default. Many organizations that have si
 3. Define the percentage discounts that should be applied for AWS, Azure and Google and click Save:
   <img src={useBaseUrl("img/infracost-cloud/custom-price-books.png")} alt="Infracost Cloud supports custom price books" />
 
-All new cost estimates (CLI outputs, pull requests and Infracost Cloud estimates) for your organization will apply the discount going forward. The discount will also be applied to usage-based resources such as AWS Lambda or S3 *prices* even if there is no [usage file](/docs/features/usage_based_resources/).
+### How it works
+- All **new** cost estimates (CLI outputs, pull requests and Infracost Cloud estimates) for your organization will apply the discount going forward.
+- Older cost estimates will not be changed. There is currently no way to distinguish between the older cost estimates and ones that have a discount.
+- The discount will also be applied to usage-based resources such as AWS Lambda or S3 **prices**, even if there is no [usage file](/docs/features/usage_based_resources/).
