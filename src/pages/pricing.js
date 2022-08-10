@@ -90,7 +90,7 @@ function Pricing() {
                 </li>
               </ul>
               <div className="action">
-                <a href="/docs/infracost_cloud/get_started" className="button primary">Start free trial</a>
+                <a href="https://dashboard.infracost.io" className="button primary">Start free trial</a>
               </div>              
             </div>
           </div>
