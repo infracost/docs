@@ -5,11 +5,11 @@ title: Terraform modules
 
 Infracost cost estimates include any modules that are used by your Terraform or Terragrunt projects.
 
-## Individual modules
+# Individual modules
 
 You can run `infracost breakdown --path modules/my-module` to get a cost estimate for for an individual module. Module variables can be passed-in using the `--terraform-var-file` or `terraform-var` flags.
 
-## Multiple modules
+# Multiple modules
 
 To get a combined cost estimates from multiple modules, create a [config-file](/docs/features/config_file/) as follows and run `infracost breakdown --config-file infracost.yml`:
 ```yaml
@@ -26,13 +26,13 @@ projects:
       - my-ec2.tfvars
 ```
 
-## Private modules
+# Private modules
 
-### Terraform directory
+## Terraform directory
 
 When Infracost is used with a [Terraform directory](/docs/features/cli_commands/#option-1-terraform-directory), the CLI supports Git modules and [Terraform Registry modules](https://www.terraform.io/language/modules/sources#terraform-registry).
 
-#### Git modules
+### Git modules
 
 Usually no extra setup is needed for handling private git modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. SSH keys for Github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
 
@@ -62,12 +62,18 @@ If your SSH key has a passphrase, you can also add an environment variable or se
   infracost breakdown --path /code
   ```
 
-#### Terraform Registry modules
+### Terraform Registry modules
 
-You can follow either of the following steps so the Infracost CLI can download your private Terraform registry modules:
-1. In CI/CD integrations: set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html). `INFRACOST_TERRAFORM_CLOUD_HOST` can also be set for Terraform Enterprise users (e.g. to avoid using app.terraform.io). These environment variables can also be set in the [config file](/docs/features/config_file). These environment variables only work with Terraform Cloud's public and private registry services. For using other third-party registries, like [GitLab's Terraform module registry](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/), you should make sure the credentials are specified in your Terraform CLI config file as below.
-2. By default Infracost reads registry credentials from your `~/.terraform.d/credentials.tfrc.json` file or the path specified by the  [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable. If you're using a custom Terraform CLI config file to specify the credentials make sure you are setting the `TF_CLI_CONFIG_FILE` environment variable to the absolute path of that file. This is more suitable for local dev machines.
+Using environment variables, which is more suitable for CI/CD systems:
+* **Public Terraform Cloud registry modules:** these are automatically supported so no extra setup is needed in Infracost.
+* **Private Terraform Cloud registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html).
+* **Private Terraform Enterprise registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your TFE hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html).
+* **Private GitLab registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to `gitlab.com` (or your GitLab hostname) and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [GitLab token](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry)
+* **Other private registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to the hostname of the registry and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to the access token for that registry.
+* **Modules from multiple private registries:** use the Terraform CLI config file option below.
 
-### Terraform plan JSON
+Using the Terraform CLI config file, which is more suitable for local dev environments: by default Infracost reads registry credentials from your `~/.terraform.d/credentials.tfrc.json` file or the path specified by the  [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable. If you're using a custom Terraform CLI config file to specify the credentials make sure you are setting the `TF_CLI_CONFIG_FILE` environment variable to the absolute path of that file.
+
+## Terraform plan JSON
 
 When Infracost is used with a [Terraform plan JSON](/docs/features/cli_commands/#option-2-terraform-plan-json), the Terraform CLI has already downloaded/processed modules so no extra setup is needed in Infracost.
