@@ -169,7 +169,7 @@ Example output:
   ```
 
   <li>
-    Log in to <a href="https://dashboard.infracost.io">Infracost Cloud</a> and goto the Projects page to see the cost estimate.
+    Log in to <a href="https://dashboard.infracost.io">Infracost Cloud</a> > <b>Projects</b> page to see the cost estimate.
   </li>
 </ol>
 
