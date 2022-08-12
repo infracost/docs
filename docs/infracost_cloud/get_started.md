@@ -35,7 +35,7 @@ Every Infracost user has a default organization for personal use. Create a new o
 
 If you are **already running Infracost in your CI/CD system**: 
 - update the `INFRACOST_API_KEY` environment variable to your organization API key. Note that only API keys starting with `ico-` work with Infracost Cloud; if you have old API keys, discard them and use the one from your Org Settings page.
-- ensure that the Infracost CLI version being used is v0.10.9 or later.
+- ensure that the Infracost CLI version being used is v0.10.11 or later.
 
 **Otherwise**, setup one of our [CI/CD integrations](/docs/integrations/cicd/) and set the `INFRACOST_API_KEY` environment variable to your organization API key.
 
