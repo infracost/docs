@@ -9,15 +9,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 In Infracost Cloud, organizations are used to manage API keys and associated settings. Every Infracost user has a default organization for personal use. We recommend creating a new organization for your company API key as in the future you'll be able to add other users to organizations.
 
-### Multi-user support
-
-As a temporary workaround until we add support for multiple users and permissions, you can log in using a team email/password and share access to your account.
-
-Email addresses are unique in Infracost Cloud. Thus when you log in with GitHub, Google or an email/password, if the email associated with the login is the same as a previous login, you will be given the option to link the accounts together, so you can log in using either method.
-
 ### API keys
 
 Infracost API keys are associated with organizations and can be retrieved from the Org Settings page. If you revoke an API key and generate a new one in its place, you must update all CI/CD integrations and CLI installations that used the old API key.
+
+### Multi-user support
+
+Coming soon! You'll be able to invite other users to your organization and also change the organization owner.
 
 ## Projects
 

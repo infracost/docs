@@ -18,6 +18,8 @@ You can sign up or log in via the the web and the CLI. Infracost Cloud supports 
 
 If you signed up using an email/password, you can change your password by logging out and clicking on "Don't remember your password?".
 
+Email addresses are unique in Infracost Cloud. Thus when you log in with GitHub, Google or an email/password, if the email associated with the login is the same as a previous login, you will be given the option to link the accounts together, so you can log in using either method.
+
 ## CLI
 1. [Upgrade](/docs/#1-install-infracost) to Infracost v0.10.7 or later. Check version by running `infracost --version`.
 2. Run `infracost auth login`.
