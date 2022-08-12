@@ -5,9 +5,7 @@ title: Get started
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost Cloud is our SaaS product focused on team leads, managers and FinOps practitioners. Read our [announcement blog](/blog/aug-2022-update/) to learn about its benefits. It gives you visibility across all cost estimates and lets you and answer questions like:
-1. What are the top pull requests that are going to increase/decrease costs the most? Who is working on them?
-2. What were all the pull requests to the `main` branch on the date we had a spike in cloud costs?
+Infracost Cloud is our SaaS product that builds on top of Infracost open source. It enables team leads, managers and FinOps practitioners to see all cost estimates from a central place so they can help guide the team. Read our [announcement blog](/blog/aug-2022-update/) to learn about its benefits.
 
 <img src={useBaseUrl("img/infracost-cloud/dashboard.png")} alt="Team visibility across all changes" />
 
