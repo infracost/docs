@@ -77,3 +77,4 @@ Using the Terraform CLI config file, which is more suitable for local dev enviro
 ## Terraform plan JSON
 
 When Infracost is used with a [Terraform plan JSON](/docs/features/cli_commands/#option-2-terraform-plan-json), the Terraform CLI has already downloaded/processed modules so no extra setup is needed in Infracost.
+If you're having issues handling modules, try running Infracost against a Terraform plan JSON file from your project.
