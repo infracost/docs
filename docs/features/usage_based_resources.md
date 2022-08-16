@@ -24,7 +24,7 @@ There are two options for showing costs instead of prices:
 
 ## Fetch from CloudWatch
 
-We're experimenting with fetching usage data from AWS CloudWatch/cloud APIs, which provides you with visibility of usage-based costs in the terminal and CI/CD:
+We're **experimenting** with fetching usage data from AWS CloudWatch/cloud APIs, which provides you with visibility of usage-based costs in the terminal and CI/CD:
 ```
 infracost breakdown --path . --sync-usage-file --usage-file /tmp/ignore.yml
 ```
@@ -42,7 +42,9 @@ This currently only works for AWS and enables you to quickly see the last 30-day
 
 ### Credentials
 
-This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables. If you're using AssumeRole, something like this should work:
+This functionality uses the AWS credentials from the default AWS credential provider chain. To set or override these use the `AWS_PROFILE`, `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables. These can also be set in a [config-file](/docs/features/config_file/) for multi-project setups.
+
+If you're using AssumeRole, something like the following should work but only for one AWS account. Terraform/Terragrunt projects that use multiple AWS accounts are not supported with this method.
 
 ```shell
 aws sts assume-role --role-arn <arn> --role-session-name <session name>
