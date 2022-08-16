@@ -447,38 +447,55 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
 {
   "version": "0.2",
   "currency": "USD",
+  // The metadata section is not finalized and is subject to change
+  "metadata": {
+    // can be "breakdown" or "diff" so it's clear how the JSON file was generated
+    "infracostCommand": "breakdown",
+    // name of the branch that was used to generate the estimate
+    "branch": "change-instance-type",
+    // long commit SHA of the branch that was used to generate the estimate
+    "commit": "1af413ad15ad6cbdfca667361231231231231231",
+    // git author name of the commit
+    "commitAuthorName": "Ali Khajeh-Hosseini",
+    // git email of author of commit
+    "commitAuthorEmail": "ali@email.com",
+    // timestamp of the commit, ISO 8601 UTC string
+    "commitTimestamp": "2022-06-27T16:03:44Z",
+    // the commit message
+    "commitMessage": "enhance: use m5.large\n",
+    // name of the VCS provider (github, gitlab, azure_repos, bitbucket)
+    "vcsProvider": "github",
+    // link to the repository
+    "vcsRepoUrl": "https://github.com/infracost/infracost",
+    // The following metadata are only populated if Infracost was run as part of a pull request
+    // name of the base branch that the pull request is being merged into
+    "vcsBaseBranch": "main",
+    // link to the pull request
+    "vcsPullRequestUrl": "https://github.com/infracost/infracost/pulls/1996",
+    // the unique identifier of the pull request for the vcsProvider
+    "vcsPullRequestId": "1996",
+    // name of the person who opened the pull request, this is probably the same as commitAuthor most of the time but it's helpful to see this if they're different
+    "vcsPullRequestAuthor": "alikhajeh1",
+    // ame of the pull request
+    "vcsPullRequestTitle": "Change instance type",
+    // a way to differentiate pipelines that are run within one pull request, this is the top-level pipeline ID, not individual jobs/runs within it
+    "vcsPipelineRunId": "2846680866"
+  },
   "projects": [
     {
       "name": "infracost/infracost/examples/terraform",
       // The metadata section is not finalized and is subject to change
       "metadata": {
+        // path that was passed to Infracost for this project
         "path": "examples/terraform",
+        // type of project (terraform_dir, terraform_plan_json)
         "type": "terraform_dir",
-        /* can be "breakdown" or "diff" so it's clear how the JSON file was generated */
-        "infracostCommand": "breakdown",
-        /* name of the branch that was used to generate the estimate */
-        "branch": "master",
-        /* long commit SHA of the branch that was used to generate the estimate */
-        "commit": "1af413ad15ad6cbdfca667361231231231231231",
-        /* git author name of the commit */
-        "commitAuthorName": "Ali Khajeh-Hosseini",
-        /* git email of author of commit */
-        "commitAuthorEmail": "ali@email.com",
-        /* timestamp of the commit, ISO 8601 UTC string */
-        "commitTimestamp": "2022-06-27T16:03:44Z",
-        /* the commit message */
-        "commitMessage": "feat: change instance type",
-        "vcsRepoUrl": "git@github.com:infracost/infracost.git",
-        "vcsSubPath": "examples/terraform"
-        /*
-        The following metadata are currently only populated for GitHub Action and GitLab CI:
-        "vcsProvider": name of the VCS provider (github, gitlab, azure_repos, bitbucket)
-        "vcsBaseBranch": name of the base branch that the pull request is being merged into
-        "vcsPullRequestTitle": name of the pull request
-        "vcsPullRequestUrl": link to the pull request
-        "vcsPullRequestID": the unique identifier of the pull request for the vcsProvider
-        "vcsPullRequestAuthor": name of the person who opened the pull request, this is probably the same as commitAuthor most of the time but it's helpful to see this if they're different
-        "vcsPipelineRunId": a way to differentiate pipelines that are run within one pull request, this is the top-level pipeline ID, not individual jobs/runs within it. */
+        // path of this project relative to the root of the code repository
+        "vcsSubPath": "examples/terraform/prod/us-east",
+        // path of this project within a Terraform mono-repo
+        "terraformModulePath": "prod/us-east",
+        // Terraform workspace if specified for this project
+        "terraformWorkspace": "prod"
       },
       /* When Infracost is used with a Terraform plan JSON, this contains any
       resources that are in the prior Terraform state.
