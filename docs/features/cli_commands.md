@@ -467,7 +467,7 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
     "vcsProvider": "github",
     // link to the repository
     "vcsRepoUrl": "https://github.com/infracost/infracost",
-    // The following metadata are only populated if Infracost was run as part of a pull request
+    // The following metadata are only populated if Infracost was run as part of a pull request.
     // name of the base branch that the pull request is being merged into
     "vcsBaseBranch": "main",
     // link to the pull request
