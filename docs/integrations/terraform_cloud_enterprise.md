@@ -29,10 +29,14 @@ See our [CI/CD integrations](/docs/integrations/cicd/) for details.
 Sign up or log in to [Infracost Cloud](https://dashboard.infracost.io/tfc-sign-up) and enable the Terraform Cloud integration. This creates an Infracost endpoint URL and HMAC key that you'll use in the next step. You can also create an organization in Infracost to match the organization name you have in Terraform Cloud.
 
 #### 2. Configure a Run Task
-Follow the [instructions for configuring a Run Task](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html#configuring-a-run-task) in Terraform Cloud. There are two steps you need to do: setup the integration, and enable it in your workspaces.
+Follow the [instructions for configuring a Run Task](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html#configuring-a-run-task) in Terraform Cloud. There are two steps you need to do: setup the integration, and enable it as a **post-plan stage** in your workspaces.
+
+:::note
+Currently, only the post-plan stage is supported when you configure Run Tasks in Terraform Cloud.
+:::
 
 #### 3. Results
-After you've setup the integration, and enabled it on one or more of your workspaces, your runs will show the Infracost Run Task output and a link to the details. You can see an example [here](https://dashboard.infracost.io/share/p7696wnyb4zmdvpr2k4x0nwq7p8pd2tz).
+After you've setup the integration, and enabled it on one or more of your workspaces, your runs will show the Infracost Run Task output and a link to the details. You can see an example [here](https://dashboard.infracost.io/share/h2h9trnqru8ioy61xtnxywhkoszpw0cg).
 
 Infracost is a [verified](https://www.hashicorp.com/partners/tech/infracost) Terraform Cloud integration. Terraform Cloud only sends the plan JSON file to Infracost during cost estimation, no other secrets/logs are sent, and once the cost estimate is generated, the temporary plan file is deleted from our servers.
 

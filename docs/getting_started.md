@@ -183,3 +183,7 @@ Example output:
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
+
+If you use VSCode, checkout our [VSCode extension](https://github.com/infracost/vscode-infracost/) to also see cost estimates right in your editor!
+
+<img src={useBaseUrl("img/screenshots/get-started-vscode.gif")} alt="Infracost VSCode extension" />
