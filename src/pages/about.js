@@ -125,6 +125,9 @@ function About() {
                   <a href="https://www.sequoiacap.com/companies/infracost/" target="_blank" aria-label="Infracost's profile on Sequoia's website"><img src="/img/investors/sequoia_aligned.svg" alt="Sequoia logo" /></a>
                 </div>
                 <div className="backer-item">
+                  <img src="/img/investors/mango_aligned.svg" alt="Mango Capital logo" />
+                </div>
+                <div className="backer-item">
                   <img src="/img/investors/sv_angel_aligned.svg" alt="SV Angel logo" />
                 </div>
               </div>
