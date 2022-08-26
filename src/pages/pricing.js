@@ -67,23 +67,23 @@ function Pricing() {
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Team lead visibility across all changes. See most expensive pull requests</span>
+                  <span>Visibility across all changes, see pull requests that increase/decrease costs the most</span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
                   <span>Custom price books and discounts</span>
                 </li>
                 <li>
-                  <span><b>Coming soon:</b></span>
-                </li>
-                <li>
                   <span className="icon primary"><Check size={18} /></span>
                   <span>Team management</span>
                 </li>
                 <li>
+                  <span><b>Coming soon:</b></span>
+                </li>
+                <li>
                   <span className="icon primary"><Check size={18} /></span>
                   <span>Weekly email digests and notifications</span>
-                </li>
+                </li>              
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
                   <span>Recommendations in pull requests</span>

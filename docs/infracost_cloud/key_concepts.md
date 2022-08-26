@@ -13,9 +13,12 @@ In Infracost Cloud, organizations are used to manage API keys and associated set
 
 Infracost API keys are associated with organizations and can be retrieved from the Org Settings page. If you revoke an API key and generate a new one in its place, you must update all CI/CD integrations and CLI installations that used the old API key.
 
-### Multi-user support
+### Team management
 
-Coming soon! You'll be able to invite other users to your organization and also change the organization owner.
+From the Members page, you can invite your team members to join your organization. Currently only one role is supported:
+- Org Admin: they can do everything in the organization except delete the organization.
+
+From the Members page, you can also change the Org Owner to another member. We treat the Org Owner as the main billing contact for the organization.
 
 ## Projects
 

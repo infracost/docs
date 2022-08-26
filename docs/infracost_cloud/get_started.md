@@ -48,3 +48,7 @@ Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organizatio
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
 <img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Infracost Cloud dashboard showing pull request cost changes over the last 30 days" />
+
+### 7. Add your team members
+
+Use the Members page to [invite](/docs/infracost_cloud/key_concepts/#team-management) your team members to join your organization.
