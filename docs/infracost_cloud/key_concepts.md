@@ -20,11 +20,15 @@ From the Members page, you can invite your team members to join your organizatio
 
 From the Members page, you can also change the Org Owner to another member. We treat the Org Owner as the main billing contact for the organization.
 
+## Repos
+
+Repos (short for "code repositories") are the typical method of code organization used by infrastructure-as-code teams. A repo contains one or more projects. Infracost Cloud lets you track how the costs of the projects within a repo may change in the future.
+
 ## Projects
 
-Projects are a flexible concept in Infracost that are used to represent code repos, deployment environments, workspaces etc.
+Projects are a flexible concept in Infracost that are used to represent deployment environments, workspaces, code paths (i.e. modules) etc.
 
-Infracost auto-generates project names based on the user-provided path, or git repo name. The name appears in the CLI output, pull request comments and Infracost Cloud as shown below.
+Infracost auto-generates project names based on the repo name, detected workspaces or code paths, or user-provided path. The name appears in the CLI output and pull request comments and Infracost Cloud as shown below.
 
 <img src={useBaseUrl("img/infracost-cloud/cli-project-name.png")} alt="Auto-generated project name in CLI" />
 
@@ -38,9 +42,7 @@ Infracost auto-generates project names based on the user-provided path, or git r
 
 ### Override project names
 
-There are two main reasons why you might want to override the project name:
-1. When a path such as `/tmp/plan.json` is used, the name can become long and hard to understand. This feature lets you set the name to something more understandable.
-2. Infracost Cloud groups projects with the same name together, so if you'd like multiple cost estimates to be associated with a project, use the same name for them.
+Sometimes, like when a path such as `/tmp/plan.json` is used, the name can become long and hard to understand. In those cases you may want to set the name to something more understandable.
 
 Use the `--project-name` flag with `infracost breakdown` and `diff` to override the auto-generated project name. This flag can also be set in CI/CD integrations, where you can also use environment variables to customize the value.
 

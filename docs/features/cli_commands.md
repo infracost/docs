@@ -118,19 +118,7 @@ If the above method does not work for your use-case, you can use Terraform to ge
 
 ## Project names
 
-Infracost auto-generates project names based on the user-provided path, or git repo name. The name appears in the CLI output, pull request comments and Infracost Cloud. When paths such as `/tmp/plan.json` are used, you might want to override it with a more understandable name. Use the `--project-name` flag with `infracost breakdown` and `diff` to achieve this. This flag can also be set in CI/CD integrations, where you can also use environment variables to customize the value.
-
-```shell
-infracost breakdown --path plan.json --project-name my-project-123
-
-infracost diff --path plan.json --project-name my-project-123
-```
-
-:::tip
-The `--project-name` flag should be set to the same value for both `infracost breakdown` and `diff` commands in CI/CD integrations. Otherwise the diff command will not be able to match the projects from the first breakdown run. Failing to do this results in odd diffs.
-:::
-
-The `name` attribute in [config-files](/docs/features/config_file/) provides the same functionality as `--project-name`.
+See [this section](/docs/infracost_cloud/key_concepts/#repos) for details about repos and projects, and how you can override them.
 
 ## Comment on pull requests
 
