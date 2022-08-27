@@ -43,7 +43,7 @@ Send a new pull request to change something in Terraform that costs money, you s
 
 ### 6. See cost estimate in Infracost Cloud
 
-Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Dashboard** to see your pull request on the chart and cost breakdowns by repo, pull request, project, and user. The dashboard provides visibility across cost changes in the latest pull requests. Clicking on the chart dots opens a new tab with the corresponding pull request so you can investigate deeper or talk to the people working on the change.
+Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Dashboard** to see your pull request on the chart and cost breakdowns by repo, pull request and user. Clicking on the chart dots opens a new tab with the corresponding pull request so you can investigate deeper or talk to the people working on the change.
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 

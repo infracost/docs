@@ -19,13 +19,13 @@ Coming soon! You'll be able to invite other users to your organization and also 
 
 ## Repos
 
-Repos (short for "code repositories") are the typical method of code organization used by infrastructure-as-code teams.  A repo contains one or more projects.  Infracost Cloud lets you track how the costs of the projects within a repo may change in the future.
+Repos (short for "code repositories") are the typical method of code organization used by infrastructure-as-code teams. A repo contains one or more projects. Infracost Cloud lets you track how the costs of the projects within a repo may change in the future.
 
 ## Projects
 
-Projects are a flexible concept in Infracost that are used to represent code paths, deployment environments, workspaces etc.
+Projects are a flexible concept in Infracost that are used to represent deployment environments, workspaces, code paths (i.e. modules) etc.
 
-Infracost auto-generates project names based on the user-provided path, or git repo name. The name appears in the CLI output, pull request comments and Infracost Cloud as shown below.
+Infracost auto-generates project names based on the repo name, detected workspaces or code paths, or user-provided path. The name appears in the CLI output and pull request comments and Infracost Cloud as shown below.
 
 <img src={useBaseUrl("img/infracost-cloud/cli-project-name.png")} alt="Auto-generated project name in CLI" />
 
