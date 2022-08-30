@@ -65,6 +65,20 @@ If you are integrating Infracost into a CI/CD system and you have pull requests,
 - `INFRACOST_VCS_PULL_REQUEST_AUTHOR`: author username or full name of the pull request, e.g. "john190" or "John Smith"
 - `INFRACOST_VCS_PULL_REQUEST_TITLE`: title of the pull request, e.g. "Increase IOPS"
 
+The following example shows how you can override the above environment variables in the [Infracost Atlantis integration](https://github.com/infracost/infracost-atlantis):
+
+  ```bash
+  INFRACOST_VCS_PROVIDER=github # For GitHub Enterprise, also use "github"
+  INFRACOST_VCS_REPOSITORY_URL=https://github.com/$BASE_REPO_OWNER/$BASE_REPO_NAME
+  INFRACOST_VCS_PULL_REQUEST_URL=$INFRACOST_VCS_REPOSITORY_URL/pulls/$PULL_NUM
+  INFRACOST_VCS_PULL_REQUEST_AUTHOR=$PULL_AUTHOR
+
+  INFRACOST_VCS_PULL_REQUEST_TITLE=$(curl -s
+      -H "Accept: application/vnd.github+json" \
+      -H "Authorization: $GITHUB_TOKEN" \
+      "https://api.github.com/repos/$BASE_REPO_OWNER/$BASE_REPO_NAME/pulls/$PULL_NUM" | jq -r '.title')
+  ```
+
 **Optional:**
 - `INFRACOST_VCS_BASE_BRANCH`: name of the base branch that the pull request is being merged into, this is usually "master" or "main"
 - `INFRACOST_VCS_BRANCH`: name of the branch that was used to generate the estimate, e.g. "increase_iops"
