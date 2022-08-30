@@ -41,6 +41,8 @@ If you are **already running Infracost in your CI/CD system**:
 
 Send a new pull request to change something in Terraform that costs money, you should see a pull request comment in your CI/CD system.
 
+If you do not use the `infracost comment` command in your CI/CD system, you can [upload Infracost JSON files](/docs/features/cli_commands/#upload-runs) to Infracost Cloud.
+
 ### 6. See cost estimate in Infracost Cloud
 
 Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Dashboard** to see your pull request on the chart and cost breakdowns by repo, pull request and user. Clicking on the chart dots opens a new tab with the corresponding pull request so you can investigate deeper or talk to the people working on the change.

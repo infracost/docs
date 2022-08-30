@@ -9,17 +9,22 @@ import TabItem from '@theme/TabItem';
 
 Infracost has multiple commands, all of which support `--help`:
 - Basic commands:
-  - `infracost breakdown`: Show breakdown of costs
-  - `infracost diff`: Show diff of monthly costs between current and planned state
+  - [`infracost breakdown`](#breakdown): Show breakdown of costs
+  - [`infracost diff`](#diff): Show diff of monthly costs between current and planned state
 
-- The following commands work with the Infracost JSON output, which is generated via `infracost breakdown --format json`:
-  - `infracost comment`: Post cost estimates to pull requests in GitHub, GitLab, Azure Repos and Bitbucket
-  - `infracost output`: Combine and output Infracost JSON files in different formats
+- The following commands work with the Infracost JSON output, which is generated via `infracost diff --format json`:
+  - [`infracost output`](#combined-output-formats): Combine and output Infracost JSON files in different formats
+  - [`infracost comment`](#comment-on-pull-requests): Post cost estimates to pull requests in GitHub, GitLab, Azure Repos and Bitbucket
+  - [`infracost upload`](#upload-runs): Upload an Infracost JSON file to Infracost Cloud
 
 - The following auxiliary commands are also helpful:
   - `infracost configure`: Display or change global configuration, including currency settings
   - `infracost auth login`: Get a free Infracost API key
   - `infracost completion`: Generate shell completion script
+
+## Repos and project
+
+See [this section](/docs/infracost_cloud/key_concepts/#repos) for details about repos and projects, and how you can override them.
 
 ## Breakdown
 
@@ -116,9 +121,147 @@ If the above method does not work for your use-case, you can use Terraform to ge
   infracost diff --path plan.json
   ```
 
-## Project names
+## Combined output formats
 
-See [this section](/docs/infracost_cloud/key_concepts/#repos) for details about repos and projects, and how you can override them.
+The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-message`. To use them:
+
+1. Generate Infracost JSON output for each Terraform project and combine them into one file. This is the recommended way to store the snapshot of a cost estimate; it can be used by the CLI to generate other formats. The JSON format can also be used to setup [cost policies](/docs/features/cost_policies/).
+  ```sh
+  infracost breakdown --path dev --format json --out-file infracost-dev.json
+  infracost breakdown --path prod --format json --out-file infracost-prod.json
+
+  # Combine above Infracost JSON files, glob patterns need quotes
+  infracost output --path "infracost-*.json" --format json --out-file infracost.json
+  ```
+
+2. Use the `infracost output` command to generate different formats, for example:
+
+  ```sh
+  # Slack output
+  infracost output --path infracost.json --format slack-message --out-file slack.md
+
+  # Diff output
+  infracost output --path infracost.json --format diff
+
+  # HTML output
+  infracost output --path infracost.json --format html --out-file report.html
+  ```
+
+  Cost estimates can be shared with others including team members or management using either:
+    - The [share reports](/docs/features/share_links/) feature (recommended).
+    - Generating the HTML format, uploading it to object storage such as AWS S3. This format also includes the file names and Terraform tags from the files that were used to generate it.
+
+Run `infracost output --help` to see other options, such as `--fields` and `--show-skipped`.
+
+### Examples
+
+<Tabs
+  defaultValue="json"
+  values={[
+    {label: 'JSON format', value: 'json'},
+    {label: 'HTML', value: 'html'},
+    {label: 'Table', value: 'table'},
+    {label: 'Diff', value: 'diff'},
+    {label: 'Pull request comment', value: 'pull-request-comment'},
+    {label: 'Slack message', value: 'slack-message'}
+  ]}>
+  <TabItem value="json">
+
+  See [this example JSON output](/docs/features/json_output_format/). You can use `jq` to extract values, for example:
+
+  ```shell
+  infracost breakdown --path /code --format json --out-file infracost-base.json
+  # Edit your Terraform project, e.g. vim main.tf
+  infracost diff --path . --compare-to infracost-base.json --format json --out-file infracost.json
+
+  # To see the total monthly cost increase of a project:
+  cat infracost.json | jq -r '.projects[0].diff.totalMonthlyCost'
+  # To see the sum of all projects:
+  cat infracost.json | jq -r '.diffTotalMonthlyCost'
+  ```
+
+  </TabItem>
+  <TabItem value="html">
+    <img src={useBaseUrl("img/screenshots/html_report.png")} alt="Infracost HTML report" />
+  </TabItem>
+  <TabItem value="table">
+
+  ```
+  Project: infracost/infracost/examples/terraform
+
+  Name                                     Quantity  Unit                           Monthly Cost
+
+  aws_instance.web_app
+  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)   730  hours                              $560.64
+  ├─ root_block_device
+  │  └─ General Purpose SSD storage (gp2)        50  GB                                   $5.00
+  └─ ebs_block_device[0]
+      ├─ Provisioned IOPS SSD storage (io1)   1,000  GB                                 $125.00
+      └─ Provisioned IOPS                       800  IOPS                                $52.00
+
+  aws_lambda_function.hello_world
+  ├─ Requests                       Monthly cost depends on usage: $0.20 per 1M requests
+  └─ Duration                       Monthly cost depends on usage: $0.0000166667 per GB-seconds
+
+  PROJECT TOTAL                                                               $742.64
+
+  ----------------------------------
+  To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
+  ```
+  </TabItem>
+  <TabItem value="diff">
+
+  ```
+  Project: infracost/infracost/examples/terraform
+
+  + aws_instance.web_app
+    +$743
+
+      + Linux/UNIX usage (on-demand, m5.4xlarge)
+        +$561
+
+      + root_block_device
+
+          + General Purpose SSD storage (gp2)
+            +$5.00
+
+      + ebs_block_device[0]
+
+          + Provisioned IOPS SSD storage (io1)
+            +$125
+
+          + Provisioned IOPS
+            +$52.00
+
+  + aws_lambda_function.hello_world
+    Cost depends on usage
+
+      + Requests
+        Cost depends on usage
+          +$0.20 per 1M requests
+
+      + Duration
+        Cost depends on usage
+          +$0.0000166667 per GB-seconds
+
+  Monthly cost change for examples/terraform
+  Amount:  +$743 ($0.00 -> $743)
+
+  ----------------------------------
+  Key: ~ changed, + added, - removed
+
+  To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
+  ```
+  </TabItem>
+  <TabItem value="pull-request-comment">
+    <p>The following screenshot is for the <code>github-comment</code> format. The <code>gitlab-comment</code>, <code>azure-repos-comment</code> and <code>bitbucket-comment</code> formats produce similar output.</p>
+    <img src={useBaseUrl("img/screenshots/github-comment-format.png")} alt="Infracost GitHub comment report" />
+  </TabItem>
+  <TabItem value="slack-message">
+    <p>See the <a href="/docs/integrations/slack">Slack integration</a> page for more details.</p>
+    <img src={useBaseUrl("img/screenshots/slack-message-format.png")} alt="Infracost Slack message report" />
+  </TabItem>
+</Tabs>
 
 ## Comment on pull requests
 
@@ -374,451 +517,14 @@ infracost comment bitbucket --path=infracost.json \
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
 
-## Combined output formats
+## Upload runs
 
-The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-message`. To use them:
+When you use the `infracost comment` command, Infracost automatically detects pull request and commit metadata from various CI/CD systems. The metadata is stored in the Infracost JSON output as it is useful to show you what repo, pull request or commit was used to generate the cost estimate. The metadata is also shown in your Infracost Cloud dashboard.
 
-1. Generate Infracost JSON output for each Terraform project and combine them into one file. This is the recommended way to store the snapshot of a cost estimate; it can be used by the CLI to generate other formats. The JSON format can also be used to setup [cost policies](/docs/features/cost_policies/).
-  ```sh
-  infracost breakdown --path dev --format json --out-file infracost-dev.json
-  infracost breakdown --path prod --format json --out-file infracost-prod.json
+If you do not use `infracost comment`, you can still define this metadata as follows:
+1. Set [the applicable environment variables](/docs/features/environment_variables/#environment-variables-to-override-metadata) when you run `infracost breakdown` and `diff`.
+2. If you have multiple Infracost JSON files, run [`infracost output`](#combined-output-formats) to combine them into one Infracost JSON file.
+3. Go to [Infracost Cloud](https://dashboard.infracost.io) > your organization > Org Settings and turn-off the cost estimate dashboard so runs are not uploaded automatically.
+4. In your CI/CD system, run `infracost upload --path infracost.json`. This uploads the Infracost JSON file to Infracost Cloud and associates it with the organization from your `INFRACOST_API_KEY`. This command uploads the data regardless of your Org Settings or the `INFRACOST_ENABLE_CLOUD` environment variable.
 
-  # Combine above Infracost JSON files, glob patterns need quotes
-  infracost output --path "infracost-*.json" --format json --out-file infracost.json
-  ```
-
-2. Use the `infracost output` command to generate different formats, for example:
-
-  ```sh
-  # Slack output
-  infracost output --path infracost.json --format slack-message --out-file slack.md
-
-  # Diff output
-  infracost output --path infracost.json --format diff
-
-  # HTML output
-  infracost output --path infracost.json --format html --out-file report.html
-  ```
-
-  Cost estimates can be shared with others including team members or management using either:
-    - The [share reports](/docs/features/share_links/) feature (recommended).
-    - Generating the HTML format, uploading it to object storage such as AWS S3. This format also includes the file names and Terraform tags from the files that were used to generate it.
-
-Run `infracost output --help` to see other options, such as `--fields` and `--show-skipped`.
-
-### Examples
-
-<Tabs
-  defaultValue="json"
-  values={[
-    {label: 'JSON format', value: 'json'},
-    {label: 'HTML', value: 'html'},
-    {label: 'Table', value: 'table'},
-    {label: 'Diff', value: 'diff'},
-    {label: 'Pull request comment', value: 'pull-request-comment'},
-    {label: 'Slack message', value: 'slack-message'}
-  ]}>
-  <TabItem value="json">
-
-  **Tip**: You can use `jq` to extract values, for example:
-
-  ```shell
-  # To see the total monthly cost increase of a project you can use:
-  infracost breakdown --path /code --format json | jq -r '.projects[0].diff.totalMonthlyCost'
-  # To see the sum of all projects:
-  infracost breakdown --path /code --format json | jq -r '.diffTotalMonthlyCost'
-  ```
-
-  Here is an example of the full JSON output:
-
-```json
-{
-  "version": "0.2",
-  "currency": "USD",
-  // The metadata section is not finalized and is subject to change
-  "metadata": {
-    // can be "breakdown" or "diff" so it's clear how the JSON file was generated
-    "infracostCommand": "breakdown",
-    // name of the branch that was used to generate the estimate
-    "branch": "change-instance-type",
-    // long commit SHA of the branch that was used to generate the estimate
-    "commit": "1af413ad15ad6cbdfca667361231231231231231",
-    // git author name of the commit
-    "commitAuthorName": "Ali Khajeh-Hosseini",
-    // git email of author of commit
-    "commitAuthorEmail": "ali@email.com",
-    // timestamp of the commit, ISO 8601 UTC string
-    "commitTimestamp": "2022-06-27T16:03:44Z",
-    // the commit message
-    "commitMessage": "enhance: use m5.large\n",
-    // name of the VCS provider (github, gitlab, azure_repos, bitbucket)
-    "vcsProvider": "github",
-    // link to the repository
-    "vcsRepoUrl": "https://github.com/infracost/infracost",
-    // The following metadata are only populated if Infracost was run as part of a pull request.
-    // name of the base branch that the pull request is being merged into
-    "vcsBaseBranch": "main",
-    // link to the pull request
-    "vcsPullRequestUrl": "https://github.com/infracost/infracost/pulls/1996",
-    // the unique identifier of the pull request for the vcsProvider
-    "vcsPullRequestId": "1996",
-    // name of the person who opened the pull request, this is probably the same as commitAuthor most of the time but it's helpful to see this if they're different
-    "vcsPullRequestAuthor": "alikhajeh1",
-    // title of the pull request
-    "vcsPullRequestTitle": "Change instance type",
-    // a way to differentiate pipelines that are run within one pull request, this is the top-level pipeline ID, not individual jobs/runs within it
-    "vcsPipelineRunId": "2846680866"
-  },
-  "projects": [
-    {
-      "name": "infracost/infracost/examples/terraform",
-      // The metadata section is not finalized and is subject to change
-      "metadata": {
-        // path that was passed to Infracost for this project
-        "path": "examples/terraform",
-        // type of project (terraform_dir, terraform_plan_json)
-        "type": "terraform_dir",
-        // path of this project relative to the root of the code repository
-        "vcsSubPath": "examples/terraform/prod/us-east",
-        // path of this project within a Terraform mono-repo
-        "terraformModulePath": "prod/us-east",
-        // Terraform workspace if specified for this project
-        "terraformWorkspace": "prod"
-      },
-      /* When Infracost is used with a Terraform plan JSON, this contains any
-      resources that are in the prior Terraform state.
-
-      When Infracost is used with a Terraform directory, this contains any
-      resources that are found in the `--compare-to` part of
-      `infracost diff --compare-to /code` */
-      "pastBreakdown": {
-        "resources": [],
-        "totalHourlyCost": "0",
-        "totalMonthlyCost": "0"
-      },
-      /* When Infracost is used with a Terraform plan JSON, this contains
-      the breakdown of resources that are in the planned Terraform state.
-
-      When Infracost is used with a Terraform directory, this contains the
-      breakdown of resources that are found in `--path` part of
-      `infracost breakdown --path /code` */
-      "breakdown": {
-        "resources": [
-          {
-            "name": "aws_instance.web_app",
-            "metadata": {
-              "calls": [
-                {
-                  "blockName": "aws_instance.web_app",
-                  "filename": "main.tf"
-                }
-              ],
-              "filename": "main.tf"
-            },
-            "hourlyCost": "1.017315068493150679",
-            "monthlyCost": "742.64",
-            "costComponents": [
-              {
-                "name": "Instance usage (Linux/UNIX, on-demand, m5.4xlarge)",
-                "unit": "hours",
-                "hourlyQuantity": "1",
-                "monthlyQuantity": "730",
-                "price": "0.768",
-                "hourlyCost": "0.768",
-                "monthlyCost": "560.64"
-              }
-            ],
-            "subresources": [
-              {
-                "name": "root_block_device",
-                "metadata": {},
-                "hourlyCost": "0.00684931506849315",
-                "monthlyCost": "5",
-                "costComponents": [
-                  {
-                    "name": "Storage (general purpose SSD, gp2)",
-                    "unit": "GB",
-                    "hourlyQuantity": "0.0684931506849315",
-                    "monthlyQuantity": "50",
-                    "price": "0.1",
-                    "hourlyCost": "0.00684931506849315",
-                    "monthlyCost": "5"
-                  }
-                ]
-              },
-              {
-                "name": "ebs_block_device[0]",
-                "metadata": {},
-                "hourlyCost": "0.242465753424657529",
-                "monthlyCost": "177",
-                "costComponents": [
-                  {
-                    "name": "Storage (provisioned IOPS SSD, io1)",
-                    "unit": "GB",
-                    "hourlyQuantity": "1.3698630136986301",
-                    "monthlyQuantity": "1000",
-                    "price": "0.125",
-                    "hourlyCost": "0.1712328767123287625",
-                    "monthlyCost": "125"
-                  },
-                  {
-                    "name": "Provisioned IOPS",
-                    "unit": "IOPS",
-                    "hourlyQuantity": "1.0958904109589041",
-                    "monthlyQuantity": "800",
-                    "price": "0.065",
-                    "hourlyCost": "0.0712328767123287665",
-                    "monthlyCost": "52"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "name": "aws_lambda_function.hello_world",
-            "metadata": {
-              "calls": [
-                {
-                  "blockName": "aws_lambda_function.hello_world",
-                  "filename": "main.tf"
-                }
-              ],
-              "filename": "main.tf"
-            },
-            "hourlyCost": null,
-            "monthlyCost": null,
-            "costComponents": [
-              {
-                "name": "Requests",
-                "unit": "1M requests",
-                "hourlyQuantity": null,
-                "monthlyQuantity": null,
-                "price": "0.2",
-                "hourlyCost": null,
-                "monthlyCost": null
-              },
-              {
-                "name": "Duration",
-                "unit": "GB-seconds",
-                "hourlyQuantity": null,
-                "monthlyQuantity": null,
-                "price": "0.0000166667",
-                "hourlyCost": null,
-                "monthlyCost": null
-              }
-            ]
-          }
-        ],
-        "totalHourlyCost": "1.017315068493150679",
-        "totalMonthlyCost": "742.64"
-      },
-      // This contains the diff of resources between the pastBreakdown and breakdown
-      "diff": {
-        "resources": [
-          {
-            "name": "aws_instance.web_app",
-            "metadata": {},
-            "hourlyCost": "1.017315068493150679",
-            "monthlyCost": "742.64",
-            "costComponents": [
-              {
-                "name": "Instance usage (Linux/UNIX, on-demand, m5.4xlarge)",
-                "unit": "hours",
-                "hourlyQuantity": "1",
-                "monthlyQuantity": "730",
-                "price": "0.768",
-                "hourlyCost": "0.768",
-                "monthlyCost": "560.64"
-              }
-            ],
-            "subresources": [
-              {
-                "name": "root_block_device",
-                "metadata": {},
-                "hourlyCost": "0.00684931506849315",
-                "monthlyCost": "5",
-                "costComponents": [
-                  {
-                    "name": "Storage (general purpose SSD, gp2)",
-                    "unit": "GB",
-                    "hourlyQuantity": "0.0684931506849315",
-                    "monthlyQuantity": "50",
-                    "price": "0.1",
-                    "hourlyCost": "0.00684931506849315",
-                    "monthlyCost": "5"
-                  }
-                ]
-              },
-              {
-                "name": "ebs_block_device[0]",
-                "metadata": {},
-                "hourlyCost": "0.242465753424657529",
-                "monthlyCost": "177",
-                "costComponents": [
-                  {
-                    "name": "Storage (provisioned IOPS SSD, io1)",
-                    "unit": "GB",
-                    "hourlyQuantity": "1.3698630136986301",
-                    "monthlyQuantity": "1000",
-                    "price": "0.125",
-                    "hourlyCost": "0.1712328767123287625",
-                    "monthlyCost": "125"
-                  },
-                  {
-                    "name": "Provisioned IOPS",
-                    "unit": "IOPS",
-                    "hourlyQuantity": "1.0958904109589041",
-                    "monthlyQuantity": "800",
-                    "price": "0.065",
-                    "hourlyCost": "0.0712328767123287665",
-                    "monthlyCost": "52"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "name": "aws_lambda_function.hello_world",
-            "metadata": {},
-            "hourlyCost": "0",
-            "monthlyCost": "0",
-            "costComponents": [
-              {
-                "name": "Requests",
-                "unit": "1M requests",
-                "hourlyQuantity": "0",
-                "monthlyQuantity": "0",
-                "price": "0.2",
-                "hourlyCost": "0",
-                "monthlyCost": "0"
-              },
-              {
-                "name": "Duration",
-                "unit": "GB-seconds",
-                "hourlyQuantity": "0",
-                "monthlyQuantity": "0",
-                "price": "0.0000166667",
-                "hourlyCost": "0",
-                "monthlyCost": "0"
-              }
-            ]
-          }
-        ],
-        "totalHourlyCost": "1.017315068493150679",
-        "totalMonthlyCost": "742.64"
-      },
-      // The summary format is not finalized and is subject to change
-      "summary": {
-        "totalDetectedResources": 2,
-        "totalSupportedResources": 2,
-        "totalUnsupportedResources": 0,
-        "totalUsageBasedResources": 2,
-        "totalNoPriceResources": 0,
-        "unsupportedResourceCounts": {},
-        "noPriceResourceCounts": {}
-      }
-    }
-  ],
-  "totalHourlyCost": "1.017315068493150679",
-  "totalMonthlyCost": "742.64",
-  "pastTotalHourlyCost": "0",
-  "pastTotalMonthlyCost": "0",
-  "diffTotalHourlyCost": "1.017315068493150679",
-  "diffTotalMonthlyCost": "742.64",
-  "timeGenerated": "2022-05-23T20:11:05.005205-07:00",
-  // The summary format is not finalized and is subject to change
-  "summary": {
-    "totalDetectedResources": 2,
-    "totalSupportedResources": 2,
-    "totalUnsupportedResources": 0,
-    "totalUsageBasedResources": 2,
-    "totalNoPriceResources": 0,
-    "unsupportedResourceCounts": {},
-    "noPriceResourceCounts": {}
-  }
-}
-```
-
-  </TabItem>
-  <TabItem value="html">
-    <img src={useBaseUrl("img/screenshots/html_report.png")} alt="Infracost HTML report" />
-  </TabItem>
-  <TabItem value="table">
-
-  ```
-  Project: infracost/infracost/examples/terraform
-
-  Name                                     Quantity  Unit                           Monthly Cost
-
-  aws_instance.web_app
-  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)   730  hours                              $560.64
-  ├─ root_block_device
-  │  └─ General Purpose SSD storage (gp2)        50  GB                                   $5.00
-  └─ ebs_block_device[0]
-      ├─ Provisioned IOPS SSD storage (io1)   1,000  GB                                 $125.00
-      └─ Provisioned IOPS                       800  IOPS                                $52.00
-
-  aws_lambda_function.hello_world
-  ├─ Requests                       Monthly cost depends on usage: $0.20 per 1M requests
-  └─ Duration                       Monthly cost depends on usage: $0.0000166667 per GB-seconds
-
-  PROJECT TOTAL                                                               $742.64
-
-  ----------------------------------
-  To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
-  ```
-  </TabItem>
-  <TabItem value="diff">
-
-  ```
-  Project: infracost/infracost/examples/terraform
-
-  + aws_instance.web_app
-    +$743
-
-      + Linux/UNIX usage (on-demand, m5.4xlarge)
-        +$561
-
-      + root_block_device
-
-          + General Purpose SSD storage (gp2)
-            +$5.00
-
-      + ebs_block_device[0]
-
-          + Provisioned IOPS SSD storage (io1)
-            +$125
-
-          + Provisioned IOPS
-            +$52.00
-
-  + aws_lambda_function.hello_world
-    Cost depends on usage
-
-      + Requests
-        Cost depends on usage
-          +$0.20 per 1M requests
-
-      + Duration
-        Cost depends on usage
-          +$0.0000166667 per GB-seconds
-
-  Monthly cost change for examples/terraform
-  Amount:  +$743 ($0.00 -> $743)
-
-  ----------------------------------
-  Key: ~ changed, + added, - removed
-
-  To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
-  ```
-  </TabItem>
-  <TabItem value="pull-request-comment">
-    The following screenshot is for the 'github-comment' format. The 'gitlab-comment', 'azure-repos-comment' and 'bitbucket-comment' formats produce similar output.
-    <img src={useBaseUrl("img/screenshots/github-comment-format.png")} alt="Infracost GitHub comment report" />
-  </TabItem>
-  <TabItem value="slack-message">
-    See the Integrations > Slack page for more details.
-
-    <img src={useBaseUrl("img/screenshots/slack-message-format.png")} alt="Infracost Slack message report" />
-  </TabItem>
-</Tabs>
+If you defined pull request metadata, you should see the cost estimate in your Infracost Cloud dashboard. If you did not define pull request metadata, you should see the cost estimate in the Repos page.
