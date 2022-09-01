@@ -55,6 +55,10 @@ TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost breakdown \
 
 The following environment variables can be used with `infracost breakdown` and `diff` to override the values that are automatically generated as part of the [Infracost JSON output](/docs/features/cli_commands/#examples). This is useful when [uploading an Infracost JSON file](/docs/features/cli_commands/#upload-runs) to Infracost Cloud.
 
+:::note
+We recommend exporting environment variables using quotes so values with spaces are captured correctly, e.g. `export MY_ENV="my value"`
+:::
+
 ### When a pull request exists
 If you are integrating Infracost into a CI/CD system and you have pull requests, you can use the following environment variables to override relevant metadata.
 
@@ -68,15 +72,15 @@ If you are integrating Infracost into a CI/CD system and you have pull requests,
 The following example shows how you can override the above environment variables in the [Infracost Atlantis integration](https://github.com/infracost/infracost-atlantis):
 
   ```bash
-  INFRACOST_VCS_PROVIDER=github # For GitHub Enterprise, also use "github"
-  INFRACOST_VCS_REPOSITORY_URL=https://github.com/$BASE_REPO_OWNER/$BASE_REPO_NAME
-  INFRACOST_VCS_PULL_REQUEST_URL=$INFRACOST_VCS_REPOSITORY_URL/pulls/$PULL_NUM
-  INFRACOST_VCS_PULL_REQUEST_AUTHOR=$PULL_AUTHOR
+  INFRACOST_VCS_PROVIDER="github" # For GitHub Enterprise, also use "github"
+  INFRACOST_VCS_REPOSITORY_URL="https://github.com/$BASE_REPO_OWNER/$BASE_REPO_NAME"
+  INFRACOST_VCS_PULL_REQUEST_URL="$INFRACOST_VCS_REPOSITORY_URL/pulls/$PULL_NUM"
+  INFRACOST_VCS_PULL_REQUEST_AUTHOR="$PULL_AUTHOR"
 
-  INFRACOST_VCS_PULL_REQUEST_TITLE=$(curl -s
+  INFRACOST_VCS_PULL_REQUEST_TITLE=\"$(curl -s \
       -H "Accept: application/vnd.github+json" \
       -H "Authorization: $GITHUB_TOKEN" \
-      "https://api.github.com/repos/$BASE_REPO_OWNER/$BASE_REPO_NAME/pulls/$PULL_NUM" | jq -r '.title')
+      "https://api.github.com/repos/$BASE_REPO_OWNER/$BASE_REPO_NAME/pulls/$PULL_NUM" | jq -r '.title')\"
   ```
 
 **Optional:**

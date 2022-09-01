@@ -519,12 +519,13 @@ infracost comment bitbucket --path=infracost.json \
 
 ## Upload runs
 
-When you use the `infracost comment` command, Infracost automatically detects pull request and commit metadata from various CI/CD systems. The metadata is stored in the Infracost JSON output as it is useful to show you what repo, pull request or commit was used to generate the cost estimate. The metadata is also shown in your Infracost Cloud dashboard.
+When you use the `infracost comment` command, Infracost automatically detects pull request and commit metadata from various CI/CD systems. The metadata is stored in the Infracost JSON output as it is useful to show you what repo, pull request or commit was used to generate the cost estimate.
 
-If you do not use `infracost comment`, you can still define this metadata as follows:
-1. Set [the applicable environment variables](/docs/features/environment_variables/#environment-variables-to-override-metadata) when you run `infracost breakdown` and `diff`.
+The metadata is also needed by Infracost Cloud's dashboard to show you pull request costs over time. If you **do not** use `infracost comment`, you can still define this metadata as follows and use Infracost Cloud as normal:
+1. Set the [required and optional environment variables](/docs/features/environment_variables/#environment-variables-to-override-metadata) when you run `infracost breakdown` and `diff`.
 2. If you have multiple Infracost JSON files, run [`infracost output`](#combined-output-formats) to combine them into one Infracost JSON file.
-3. Go to [Infracost Cloud](https://dashboard.infracost.io) > your organization > Org Settings and turn-off the cost estimate dashboard so runs are not uploaded automatically. You should also stop using the `INFRACOST_ENABLE_CLOUD` environment variable as you'll upload the results in the following step.
-4. In your CI/CD system, run `infracost upload --path infracost.json`. This uploads the Infracost JSON file to Infracost Cloud and associates it with the organization from your `INFRACOST_API_KEY`. This command uploads the data regardless of your Org Settings or the `INFRACOST_ENABLE_CLOUD` environment variable.
+3. Go to [Infracost Cloud](https://dashboard.infracost.io) > your organization > Org Settings and **turn-off** the cost estimate dashboard so runs are not uploaded automatically.
+4. **Remove** the `INFRACOST_ENABLE_CLOUD=true` environment variable from your CI/CD system as you'll upload the results directly in the following step.
+5. In your CI/CD system, run `infracost upload --path infracost.json`. This uploads the Infracost JSON file to Infracost Cloud and associates it with the organization from your `INFRACOST_API_KEY`. This command uploads the data regardless of your Org Settings or the `INFRACOST_ENABLE_CLOUD` environment variable.
 
-If you defined pull request metadata, you should see the cost estimate in your Infracost Cloud dashboard. If you did not define pull request metadata, you should see the cost estimate in the Repos page.
+If you defined pull request metadata, you should see the cost estimate in your Infracost Cloud dashboard. If you did not define pull request metadata and only defined commit metadata, you should see the cost estimate in the Repos > All estimates page.
