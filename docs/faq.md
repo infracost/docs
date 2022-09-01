@@ -119,12 +119,7 @@ Infracost works with Terraform v0.12 and above.
 
 ### Can I show costs in a different currency?
 
-Sure! Use `infracost configure` to set your preferred [ISO 4217 currency](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) (e.g. EUR, BRL or INR):
-```shell
-infracost configure set currency CURRENCY_CODE
-```
-
-The environment variable `INFRACOST_CURRENCY` can be used to set the currency in CI/CD pipelines. Cloud vendors usually publish prices in USD so the costs will be converted from USD to your preferred currency using the current exchange rate when the CLI is run.
+Sure! See the [currency](/docs/features/environment_variables/#infracost_currency) docs section.
 
 ### Do you offer support?
 

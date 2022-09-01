@@ -15,8 +15,11 @@ Infracost API key, run `infracost auth login` to sign up or log in via the CLI. 
 We recommend using this environment variable in CI/CD integrations; it overrides any values you might have set in `.config/infracost/credentials.yml`, `.env` or `.env.local` too.
 
 ### INFRACOST_CURRENCY
-The currency ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) prices should be converted to. Defaults to USD.
-This is only used by the `infracost breakdown` and `diff` commands. The `output` command uses the currency from the Infracost JSON file.
+The currency ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) prices should be converted to (e.g. EUR, BRL or INR). Defaults to USD. Use this environment variable with the `infracost breakdown` and `diff` commands, which also save the currency in the [Infracost JSON file](/docs/features/cli_commands/#examples). The `output` command and Infracost Cloud use the currency from that JSON file.
+
+Cloud vendors usually publish prices in USD so the costs will be converted from USD to your preferred currency using the current exchange rate when the CLI is run.
+
+On the terminal, you can also run `infracost configure set currency CURRENCY_CODE` to set the currency.
 
 ### INFRACOST_ENABLE_CLOUD
 Can be set to `true` to enable [Infracost Cloud](/docs/infracost_cloud/overview/). The main use-case for this is in CI/CD and it should only be set for the `infracost diff` command so only the Infracost JSON output from that step is sent to your Infracost Cloud account.
