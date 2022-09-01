@@ -22,16 +22,16 @@ From the Members page, you can also change the Org Owner to another member. We t
 
 ## Repos
 
-Repos, short for code repositories, are the typical method of code organization used by infrastructure-as-code teams. Repo is our top-level required grouping concept. If Infracost cannot detect it, you can provide it via [environment variables](/docs/features/environment_variables/#environment-variables-to-override-metadata), otherwise cost estimates only show in the All estimates tab in Infracost Cloud (and not the dashboard).
+Repos, short for code repositories, is where your code lives in GitHub, GitLab or any other source control system. Repo is our top-level required grouping concept. If Infracost cannot detect it, you can provide it via [new environment variables](/docs/features/environment_variables/#environment-variables-to-override-metadata), otherwise cost estimates only show in the "All estimates" tab in Infracost Cloud (and not the dashboard, which shows pull request costs).
 
-A repo contains one or more projects. Infracost Cloud lets you track how the costs of repos and projects within a repo change in the future.
+A repo contains one or more projects. Infracost Cloud lets you track how the costs of repos and projects change over time.
 
 ## Projects
 
-Projects are an optional sub-grouping concept within the scope of a repo. The majority of Infracost users will have repos that have many projects, these include:
-- code paths for mono repos, each path representing a deployment environment such as dev, stage, prod
+Projects are an optional sub-grouping concept within a repo. The majority of Infracost users will have repos that have many projects, these include:
+- code paths for mono repos, each path represents a deployment environment such as dev, stage, prod
 - workspaces, same idea as above but done using Terraform workspaces, e.g. for dev, stage, prod
-- Terraform or Terragrunt modules, which are components of a repo, e.g. core-api, data-stack
+- Terraform or Terragrunt modules, which are components of a repo, e.g. core-api or data-stack
 
 If you setup Infracost for a Terraform module repo, you will not need projects as there is no need for a sub-group.
 
