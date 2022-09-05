@@ -24,7 +24,7 @@ Infracost has multiple commands, all of which support `--help`:
 
 ## Repos and project
 
-See [this section](/docs/infracost_cloud/key_concepts/#repos) for details about repos and projects, and how you can override them.
+See [this section](/docs/infracost_cloud/key_concepts/#repos) for details about repos and projects, and how you can customize project names.
 
 ## Breakdown
 

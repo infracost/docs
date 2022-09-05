@@ -47,16 +47,16 @@ Infracost auto-generates project names based on code paths, workspaces or Terraf
 
 <img src={useBaseUrl("img/infracost-cloud/infracost-cloud-project-name.png")} alt="Project name in Infracost Cloud" />
 
-### Override project names
+### Customize project names
 
 Sometimes, like when a path such as `/tmp/plan.json` is used, the project name can become long and hard to understand. In those cases you may want to set the name to something more understandable.
 
-Use the `--project-name` flag with `infracost breakdown` and `diff` to override the auto-generated project name. This flag can also be set in CI/CD integrations, where you can also use environment variables to customize the value.
+Use the `--project-name` flag with `infracost breakdown` and `diff` to cutomize the auto-generated project name. This flag can also be set in CI/CD integrations, where you can also use environment variables to customize the value.
 
 ```shell
-infracost breakdown --path plan.json --project-name my-project-123
+infracost breakdown --path plan.json --project-name my-project-$MY_WORKSPACE
 
-infracost diff --path plan.json --project-name my-project-123
+infracost diff --path plan.json --project-name my-project-$MY_WORKSPACE
 ```
 
 :::tip
