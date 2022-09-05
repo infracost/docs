@@ -1,6 +1,6 @@
 ---
 slug: config_file
-title: Multi-projects/workspaces
+title: Config file
 ---
 
 import Tabs from '@theme/Tabs';
@@ -42,7 +42,7 @@ Infracost configuration values are chosen in this order:
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `path`                  | Path to the Terraform directory or JSON/plan file. A path can be repeated with different parameters, e.g. for multiple workspaces.                                                                                      | Required. The path is relative to the present working directory.                                                                                                                  |
 | `exclude_paths`         | Array of paths (of directories) to exclude from evaluation.                                                                                                                                                             | Optional. Supports glob patterns too, e.g. `"app/*/ignore_dir"`.                                                                                                                  |
-| `name`                  | Name of project to use in all outputs (CLI, CI/CD integrations and Infracost Cloud). Projects with the same name are grouped in Infracost Cloud.                                                                        | Optional. Defaults to path or git repo name.                                                                                                                                      |
+| `name`                  | Name of project to use in all outputs (CLI, CI/CD integrations and Infracost Cloud). See details about [repos and projects](/docs/infracost_cloud/key_concepts/#repos).                                                 | Optional. Defaults to code path, workspace or Terraform/Terragrunt module within a repo.                                                                                          |
 | `usage_file`            | Path to Infracost usage file that specifies values for [usage-based resources](/docs/features/usage_based_resources)                                                                                                    | Optional                                                                                                                                                                          |
 | `env`                   | Map of environment variables, also supports referencing existing environment variables.                                                                                                                                 | Optional. Useful if you want to define each project's AWS credentials used to [fetch data](/docs/features/usage_based_resources/#fetch-from-cloudwatch) from CloudWatch           |
 | `terraform_vars`        | Array of input variables to use when parsing HCL, similar to Terraform's `-var` flag.                                                                                                                                   | Optional                                                                                                                                                                          |
@@ -110,9 +110,11 @@ Infracost configuration values are chosen in this order:
 
   projects:
     - path: my/terraform/plans/project1.json
+      name: project1
       usage_file: project1-usage.yml
 
     - path: my/terraform/plans/project2.json
+      name: project2
       usage_file: project2-usage.yml
   ```
   </TabItem>
