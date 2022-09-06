@@ -528,4 +528,20 @@ The metadata is also needed by Infracost Cloud's dashboard to show you pull requ
 4. **Remove** the `INFRACOST_ENABLE_CLOUD=true` environment variable from your CI/CD system as you'll upload the results directly in the following step.
 5. In your CI/CD system, run `infracost upload --path infracost.json`. This uploads the Infracost JSON file to Infracost Cloud and associates it with the organization from your `INFRACOST_API_KEY`. This command uploads the data regardless of your Org Settings or the `INFRACOST_ENABLE_CLOUD` environment variable.
 
+  Example commands:
+  ```shell
+  # In parallel or serial, run your infracost commands
+  infracost diff --project-name project-a --path tf-plan-a.json \
+      --format json --out-file infracost-a.json
+
+  infracost diff --project-name project-b --path tf-plan-b.json \
+      --format json --out-file infracost-b.json
+
+  # Combine Infracost JSON files from diffs into one file
+  infracost output --path "infracost-*.json" --format json --out-file infracost.json
+
+  # Upload Infracost JSON file to Infracost Cloud
+  infracost upload --path infracost.json
+  ```
+
 If you defined pull request metadata, you should see the cost estimate in your Infracost Cloud dashboard. If you did not define pull request metadata and only defined commit metadata, you should see the cost estimate in the Repos > All estimates page.
