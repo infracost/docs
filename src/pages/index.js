@@ -36,6 +36,11 @@ function Home() {
               </div>
             </div>
           </div>
+
+          <div className="demo-video">
+            <h2>Watch Infracost in action</h2>
+            <iframe width="854" height="480" src="https://www.youtube.com/embed/8rzvnLPLy8o" title="Infracost Demo" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
+          </div>
         </div>
       </div>
 
