@@ -82,6 +82,15 @@
   display: flex;
 }
 
+.home-hero .demo-video {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.home-hero .demo-video h2 {
+  font-size: 1.875rem;
+}
+
 @media (min-width: 478px) {
   .home-hero h1.tagline {
     font-size: 1.8125rem;
