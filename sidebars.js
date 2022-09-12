@@ -26,7 +26,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Infracost Cloud',
-      collapsed: true,
+      collapsed: false,
       items: [
         'infracost_cloud/get_started',
         'infracost_cloud/authentication',
