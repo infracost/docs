@@ -22,7 +22,7 @@ Cloud vendors usually publish prices in USD so the costs will be converted from 
 On the terminal, you can also run `infracost configure set currency CURRENCY_CODE` to set the currency.
 
 ### INFRACOST_ENABLE_CLOUD
-Can be set to `true` to enable [Infracost Cloud](/docs/infracost_cloud/overview/). The main use-case for this is in CI/CD and it should only be set for the `infracost diff` command so only the Infracost JSON output from that step is sent to your Infracost Cloud account.
+Can be set to `true` to enable [Infracost Cloud](/docs/infracost_cloud/overview/). The main use-case for this is in CI/CD so the Infracost JSON output is sent to your Infracost Cloud account.
 
 ### INFRACOST_LOG_LEVEL
 Controls the log verbosity level. Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot. Turns off spinners in output. Setting this environment variable is the same as using the `--log-level` flag.
