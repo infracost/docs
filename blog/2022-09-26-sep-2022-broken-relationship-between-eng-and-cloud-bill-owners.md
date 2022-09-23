@@ -24,41 +24,41 @@ Let’s look at an example product to production workflow and what happens when 
 
 ## Product to Production workflow
 
-### 1. Product spec
+#### 1. Product spec
 
-The product manager writes a product spec for the new feature, and works with a designer to create wireframes. These product specs contain enough information for a developer to look at and make a SWAG (scientific wild-a** guess) as to how much development effort is required.
+The product manager writes a product spec for the new feature, and works with a designer to create wireframes. These product specs contain enough information for a developer to look at and make a SWAG (scientific wild-ass guess) as to how much development effort is required.
 
-### 2. Technical design
+#### 2. Technical design
 
 The product spec moves into technical design, in which for the first time the engineers spend time figuring out how this feature should be built. This is when we start to see some early requirements for infrastructure come up.
 
-### 3. Engineering
+#### 3. Engineering
 
 If everything goes to plan, engineering start to actually write the feature alongside the infrastructure requirements (usually via Infrastructure-as-Code), and any other dependencies for this feature to work. After a few sprints, the feature is ready to be shipped.
 
-### 4. Release
+#### 4. Release
 
 The product goes into a release, and it is shipped into production for everyone to enjoy. At this point, the engineers have moved on and are working on the the next sprint tasks and the cloud bills are increasing.
 
-### 5. The bill shock
+#### 5. The bill shock
 
 A month goes by and a cloud bill comes through, or a billing alert is triggered. This is sent to the bill owners and managers - the budget has been blown (this is, if anyone actually notices what is happening and alerts have been setup and people are looking closely).
 
-### 6. Who did what?
+#### 6. Who did what?
 
 The slice and dice starts! The bills are sliced and diced via accounts or tags, trying to figure out who did what and when. Why did the bill increase? Was it a release, was it an accident, was it a marketing push etc.
 
-### 7. Sprint interruption
+#### 7. Sprint interruption
 
 We finally figure out that it was a release by a specific team. We go back to the team to see what happened. Remember, they are now 2-3 sprints past that release, and so are frustrated when they are asked to interrupt their current sprint to figure out what happened and how to ‘fix’ it.
 
-### 8. Fix and new release
+#### 8. Fix and new release
 
 After the frustration, interruption, and delaying the current sprint tasks, we have a change to the infrastructure developed, and we can go through another release and hopefully that will fix it. That’s bad for 2 reasons:
 1. The money has already been spent - and it’s not coming back.
 2. We had to burn more time to fix it.
 
-## This is broken
+### This is broken
 
 It takes weeks, if not months for the feedback loop to close from action (engineering starting work) to effect (realizing cloud cost budgets have been blown), and then to action again (release a fix). It turns out the closer your are to the code, the further you are from costs. This is broken.
 
@@ -90,8 +90,8 @@ Now that everyone has seen that cost impact of the upcoming change, we go to pro
 
 ## Future: close the feedback loop inside the workflow
 
-We want recommendations that have been created from multiple data sources to be put in front of the right people so they can choose if these recommendations are right for them, and action it directly in their current workflows. There is no great product that I have seen for this yet; a collection of emails, Slack messages and Excel files is what I have seen companies use. We will build a better solution for this in the future.
+We want recommendations that have been created from multiple data sources to be put in front of the right people so they can choose if these recommendations are right for them, and action it directly in their workflows. There is no great product that I have seen for this yet; a collection of emails, Slack messages and Excel files is what I have seen companies use. We will build a better solution for this in the future.
 
 ## Conclusion
 
-When it comes to cloud costs, the flow of information and the number of roles involved and how they interact is broken. The way we fix this is not to stop or break workflows, but [append helpful information](/docs/integrations/cicd/) directly in workflows and empower engineering teams to use cloud infrastructure economically and efficiently.
+When it comes to cloud costs, the flow of information and the number of roles involved and how they interact is broken. The way we fix this is not to stop or break workflows, but append helpful information directly in workflows and empower engineering teams to use cloud infrastructure economically and efficiently.
