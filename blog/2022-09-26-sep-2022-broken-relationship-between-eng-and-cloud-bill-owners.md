@@ -14,7 +14,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 When it comes to cloud costs, the relationship between the engineers who are responsible for purchasing infrastructure and the team leads, managers and FinOps who are responsible for the cloud bills is broken.
 
-**It turns out the closer your are to the code, the further you are from costs.**
+**It turns out the closer you are to the code, the further you are from costs.**
 
 <img src={useBaseUrl("img/blog/broken-relationship/feedback-loop.png")} alt="Broken feedback loop" />
 
