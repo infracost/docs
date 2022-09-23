@@ -4,7 +4,7 @@ title: "The broken relationship between engineering and cloud bill owners"
 author: Hassan Khajeh-Hosseini
 author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
-description: It turns out the closer your are to the code, the further you are from costs.
+description: It turns out the closer you are to the code, the further you are from costs.
 hide_table_of_contents: false
 image: img/blog/broken-relationship/feedback-loop.png
 date: "2022-09-26T00:00:00Z"
@@ -60,7 +60,7 @@ After the frustration, interruption, and delaying the current sprint tasks, we h
 
 ### This is broken
 
-It takes weeks, if not months for the feedback loop to close from action (engineering starting work) to effect (realizing cloud cost budgets have been blown), and then to action again (release a fix). It turns out the closer your are to the code, the further you are from costs. This is broken.
+It takes weeks, if not months for the feedback loop to close from action (engineering starting work) to effect (realizing cloud cost budgets have been blown), and then to action again (release a fix). It turns out the closer you are to the code, the further you are from costs. This is broken.
 
 ## Fixing it
 
