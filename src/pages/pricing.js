@@ -78,11 +78,15 @@ function Pricing() {
                   <span>Team management</span>
                 </li>
                 <li>
+                  <span className="icon primary"><Check size={18} /></span>
+                  <span>Weekly reports</span>
+                </li>
+                <li>
                   <span><b>Coming soon:</b></span>
                 </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
-                  <span>Weekly email digests and notifications</span>
+                  <span>Notifications/alerts</span>
                 </li>              
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
