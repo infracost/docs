@@ -31,6 +31,7 @@ module.exports = {
         'infracost_cloud/get_started',
         'infracost_cloud/authentication',
         'infracost_cloud/key_concepts',
+        'infracost_cloud/notifications',
         'infracost_cloud/custom_price_books',
       ],
     },
