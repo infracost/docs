@@ -29,9 +29,9 @@ These examples show the output of the number `64145.4525` with different formatt
 
 | Enivornment variables                                                        | Output for 64145.4525 |
 |------------------------------------------------------------------------------|-----------------------|
-| INFRARCOST_CURRENCY=USD<BR/>INFRACOST_CURRENCY_FORMAT= "USD: 1.234,567890 $" | `64.145,452500 $`     |
-| INFRARCOST_CURRENCY=EUR<BR/>INFRACOST_CURRENCY_FORMAT= "EUR: 1.234,56€" | `64.145,45€`     |
-| INFRARCOST_CURRENCY=GBP<BR/>INFRACOST_CURRENCY_FORMAT= "GBP: £ 1,234.567" | `£ 64,145.453`     |
+| INFRACOST_CURRENCY=USD<BR/>INFRACOST_CURRENCY_FORMAT="USD: 1.234,567890 $"   | `64.145,452500 $`     |
+| INFRACOST_CURRENCY=EUR<BR/>INFRACOST_CURRENCY_FORMAT="EUR: 1.234,56€"        | `64.145,45€`          |
+| INFRACOST_CURRENCY=GBP<BR/>INFRACOST_CURRENCY_FORMAT="GBP: £ 1,234.567"      | `£ 64,145.453`        |
 
 
 ### INFRACOST_ENABLE_CLOUD
