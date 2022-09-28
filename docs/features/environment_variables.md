@@ -21,6 +21,19 @@ Cloud vendors usually publish prices in USD so the costs will be converted from 
 
 On the terminal, you can also run `infracost configure set currency CURRENCY_CODE` to set the currency.
 
+### INFRACOST_CURRENCY_FORMAT
+A template string used to override the formatting of prices. The template should consist of the currency code, followed by a `:`, followed by an example of the desired formatting (including currency symbol) for the number 1234.56789. Note that the currency code prefix must match the value of `INFRACOST_CURRENCY` in order to have any effect.
+. 
+
+These examples show the output of the number `64145.4525` with different formatting options:
+
+| Enivornment variables                                                        | Output for 64145.4525 |
+|------------------------------------------------------------------------------|-----------------------|
+| INFRARCOST_CURRENCY=USD<BR/>INFRACOST_CURRENCY_FORMAT= "USD: 1.234,567890 $" | `64.145,452500 $`     |
+| INFRARCOST_CURRENCY=EUR<BR/>INFRACOST_CURRENCY_FORMAT= "EUR: 1.234,56€" | `64.145,45€`     |
+| INFRARCOST_CURRENCY=GBP<BR/>INFRACOST_CURRENCY_FORMAT= "GBP: £ 1,234.567" | `£ 64,145.453`     |
+
+
 ### INFRACOST_ENABLE_CLOUD
 Can be set to `true` to enable [Infracost Cloud](/docs/infracost_cloud/get_started/). The main use-case for this is in CI/CD so the Infracost JSON output is sent to your Infracost Cloud account.
 
