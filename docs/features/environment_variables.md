@@ -19,7 +19,17 @@ The currency ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)) p
 This is only used by the `infracost breakdown` and `diff` commands. The `output` command uses the currency from the Infracost JSON file.
 
 ### INFRACOST_CURRENCY_FORMAT
-A template string used to override the formatting of prices. The template should consist of the currency code, followed by a `:`, followed by an example of the desired formatting (including currency symbol) for the number 1234.56789. For example, setting `INFRACOST_CURRENCY_FORMAT="USD: 1.234,567890 $"` would cause the value `64145.4525` to be displayed as `64.145,452500 $`. Note that the currency code prefix must match the value of `INFRACOST_CURRENCY` in order to have any effect.  
+A template string used to override the formatting of prices. The template should consist of the currency code, followed by a `:`, followed by an example of the desired formatting (including currency symbol) for the number 1234.56789. Note that the currency code prefix must match the value of `INFRACOST_CURRENCY` in order to have any effect.
+. 
+
+These examples show the output of the number `64145.4525` with different formatting options:
+
+| Enivornment variables                                                        | Output for 64145.4525 |
+|------------------------------------------------------------------------------|-----------------------|
+| INFRARCOST_CURRENCY=USD<BR/>INFRACOST_CURRENCY_FORMAT= "USD: 1.234,567890 $" | `64.145,452500 $`     |
+| INFRARCOST_CURRENCY=EUR<BR/>INFRACOST_CURRENCY_FORMAT= "EUR: 1.234,56€" | `64.145,45€`     |
+| INFRARCOST_CURRENCY=GBP<BR/>INFRACOST_CURRENCY_FORMAT= "GBP: £ 1,234.567" | `£ 64,145.453`     |
+
 
 ### INFRACOST_ENABLE_CLOUD
 Can be set to `true` to enable [Infracost Cloud](/docs/infracost_cloud/overview/). The main use-case for this is in CI/CD and it should only be set for the `infracost diff` command so only the Infracost JSON output from that step is sent to your Infracost Cloud account.
