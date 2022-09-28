@@ -33,6 +33,7 @@ function Footer() {
               <li><a href="/pricing">Pricing</a></li>
               <li><a href="/about">About</a></li>
               <li><a href="/blog">Blog</a></li>
+              <li><a href="/security">Security</a></li>
               <li><a href="https://twitter.com/infracost" target="_blank">Twitter</a></li>
               <li><a href="mailto:hello@infracost.io" target="_blank">hello@infracost.io</a></li>
             </ul>
