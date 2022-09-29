@@ -22,7 +22,9 @@ When the CLI runs, it:
 
 ## Security and Privacy
 
-Security is of paramount importance to us. If you have any questions or concerns, please [contact us](mailto:hello@infracost.io).
+Security is of paramount importance to us. Our [Security page](/security) gives an overview of the processes and systems Infracost has in place to ensure we are continually protecting our users' data.
+
+If you have any questions or concerns, please [contact us](mailto:hello@infracost.io).
 
 ### What data is sent to the Cloud Pricing API?
 

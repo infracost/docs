@@ -72,9 +72,14 @@ function Security() {
                 <p>
                   We implement best practices for our Software Development Lifecycle including continuous integration and deployment, review requests and code branch protection.
                 </p>
-                <h3>Database</h3>
+                <p>
+                </p>
+                <h3>Data</h3>
                 <p>
                   All customer data stored by Infracost is encrypted at rest and during transit. All Infracost's databases have regular backups enabled and periodically tested.
+                </p>
+                <p>
+                  <a href="http://localhost:3000/docs/faq/#security-and-privacy">See our FAQ</a> for more information about how Infracost handles user data to ensure security and privacy.
                 </p>
               </div>
             </div>
