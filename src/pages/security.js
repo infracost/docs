@@ -79,7 +79,7 @@ function Security() {
                   All customer data stored by Infracost is encrypted at rest and during transit. All Infracost's databases have regular backups enabled and periodically tested.
                 </p>
                 <p>
-                  <a href="http://localhost:3000/docs/faq/#security-and-privacy">See our FAQ</a> for more information about how Infracost handles user data to ensure security and privacy.
+                  <a href="/docs/faq/#security-and-privacy">See our FAQ</a> for more information about how Infracost handles user data to ensure security and privacy.
                 </p>
               </div>
             </div>
