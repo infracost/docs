@@ -35,7 +35,7 @@ The [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests)
     {label: 'Passing policy', value: 'passed-opa'}
   ]}>
   <TabItem value="failed-opa">
-    <p>You write the policy logic and the message that is shown, e.g. "talk to John in FinOps for advice".</p>
+    <p>You write the policy logic and the message that is shown, e.g. "talk to John in FinOps for advice". You can block pull requests from being merged by configuring your source control system to deny merges if a CI/CD task fails.</p>
     <div className="img-box">
       <img 
           src={useBaseUrl("img/screenshots/policy-failure-github.png")} 
@@ -122,7 +122,9 @@ To help you write cost policies we've created an [OPA playground](https://play.o
     --policy-path infracost-policy.rego
   ```
 
-6. Breath easy... now your team's infrastructure changes are protected against costly mistakes 🚀
+6. The above command does an `exit 1` if the policy checks fail. Thus you can block pull requests from being merged by configuring your source control system to deny merges if a CI/CD task fails.
+
+7. Breath easy... now your team's infrastructure changes are protected against costly mistakes 🚀
   Contribute to [this GitHub issue](https://github.com/infracost/infracost/issues/1472) if you have feedback about the policy behaviors.
 
 ### Demo
