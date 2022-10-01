@@ -51,6 +51,8 @@ Infracost auto-generates project names based on code paths, workspaces or Terraf
 
 Sometimes, like when a path such as `/tmp/plan.json` is used, the project name can become long and hard to understand. In those cases you may want to set the name to something more understandable.
 
+#### Project name flag
+
 Use the `--project-name` flag with `infracost breakdown` and `diff` to cutomize the auto-generated project name. This flag can also be set in CI/CD integrations, where you can also use environment variables to customize the value.
 
 ```shell
@@ -63,4 +65,6 @@ infracost diff --path plan.json --project-name my-project-$MY_WORKSPACE
 The `--project-name` flag should be set to the same value for both `infracost breakdown` and `diff` commands in CI/CD integrations. Otherwise the diff command will not be able to match the projects from the first breakdown run. Failing to do this results in odd diffs.
 :::
 
-The `name` attribute in [config-files](/docs/features/config_file/) provides the same functionality as `--project-name`.
+#### Config file
+
+The `name` attribute in [config-files](/docs/features/config_file/) provides the same functionality as the `--project-name` CLI flag.
