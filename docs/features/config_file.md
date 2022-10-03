@@ -33,7 +33,7 @@ Infracost configuration values are chosen in this order:
       terraform_var_files:
         - dev.tfvars
 
-    - path: dev
+    - path: prod
       terraform_var_files:
         - prod.tfvars
   ```
