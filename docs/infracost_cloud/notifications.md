@@ -13,7 +13,7 @@ All Infracost Cloud users get a weekly email of the most impactful changes acros
 
 ### Opt-out of reports
 
-You can opt-out of weekly emails from the [User settings](https://dashboard.infracost.io/user/settings) page.
+You can unsubscribe from weekly emails from your [User settings](https://dashboard.infracost.io/user/settings) page.
 
 <img src={useBaseUrl("img/infracost-cloud/user-settings.png")} alt="User settings" />
 
