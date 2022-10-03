@@ -56,9 +56,11 @@ Sometimes, like when a path such as `/tmp/plan.json` is used, the project name c
 Use the `--project-name` flag with `infracost breakdown` and `diff` to cutomize the auto-generated project name. This flag can also be set in CI/CD integrations, where you can also use environment variables to customize the value.
 
 ```shell
-infracost breakdown --path plan.json --project-name my-project-$MY_WORKSPACE
+export PROJECT_NAME=my-project-$MY_WORKSPACE
 
-infracost diff --path plan.json --project-name my-project-$MY_WORKSPACE
+infracost breakdown --path plan.json --project-name $PROJECT_NAME
+
+infracost diff --path plan.json --project-name $PROJECT_NAME
 ```
 
 :::tip
