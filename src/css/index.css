@@ -1,14 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
 
-@import "base.css";
-@import "components.css";
-@import "navbar.css";
-@import "footer.css";
-@import "home.css";
-@import "pricing.css";
-@import "products.css";
-@import "security.css";
-@import "use-cases.css";
-@import "about.css";
-@import "docs.css";
-@import "blog.css";
+@import 'base.css';
+@import 'components.css';
+@import 'navbar.css';
+@import 'footer.css';
+@import 'home.css';
+@import 'pricing.css';
+@import 'products.css';
+@import 'security.css';
+@import 'use-cases.css';
+@import 'about.css';
+@import 'docs.css';
+@import 'blog.css';

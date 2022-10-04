@@ -1,9 +1,9 @@
 .products .products-wrapper {
-	background: url("/img/bg.svg") right bottom no-repeat;
-	padding-bottom: 3rem;
+  background: url('/img/bg.svg') right bottom no-repeat;
+  padding-bottom: 3rem;
 }
 
 .products .intro {
-	background: none;
-	padding-bottom: 2rem;
+  background: none;
+  padding-bottom: 2rem;
 }
