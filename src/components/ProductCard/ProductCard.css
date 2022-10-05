@@ -6,6 +6,10 @@
   gap: 2rem;
 }
 
+.product-card--alternate > .product-card__body {
+  order: 2;
+}
+
 .product-card__tagline {
   font-size: 1.875rem;
   font-weight: 900;

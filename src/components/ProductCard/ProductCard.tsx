@@ -29,10 +29,13 @@ const ProductCard = (props: ProductProps) => {
     ctaText,
     ctaLink,
     targetBlank,
+    alternate,
   } = props;
 
   return (
-    <div className="product-card">
+    <div
+      className={`product-card ${alternate ? 'product-card--alternate' : ''}`}
+    >
       <div className="product-card__body">
         <Pill colour={pillColourCoding}>{pillText}</Pill>
         <h1 className="product-card__tagline">{title}</h1>
