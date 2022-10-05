@@ -41,7 +41,8 @@
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
+  margin-bottom: 0.313rem;
 }
 
 .product-card__li > .icon.primary {
