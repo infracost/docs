@@ -3,7 +3,13 @@
 .product-card {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 3rem;
+  position: relative;
+  padding: 4rem;
+  margin: 0 -4rem;
+  background-color: #eeeeee06;
+  border-radius: 32px;
+  align-items: center;
 }
 
 .product-card--alternate > .product-card__body {
