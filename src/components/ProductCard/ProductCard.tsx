@@ -46,13 +46,15 @@ const ProductCard = (props: ProductProps) => {
           {designerFor}
         </div>
         {children}
-        <a
-          href={ctaLink}
-          className="button primary"
-          target={targetBlank ? '_blank' : ''}
-        >
-          {ctaText}
-        </a>
+        <div className="product-card__cta-wrapper">
+          <a
+            href={ctaLink}
+            className="button primary"
+            target={targetBlank ? '_blank' : ''}
+          >
+            {ctaText}
+          </a>
+        </div>
       </div>
       <div className="product-card__image">
         <div
