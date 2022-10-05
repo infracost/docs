@@ -72,6 +72,7 @@ function Pricing() {
             ctaText="Install VSCode Extension"
             ctaLink="https://github.com/infracost/vscode-infracost"
             targetBlank
+            imgPosCover
           >
             <ul className="product-card__ul">
               <LiWithCheck>
