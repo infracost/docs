@@ -97,6 +97,7 @@ function Pricing() {
             ctaText="Add to CI/CD"
             ctaLink="https://www.infracost.io/docs/integrations/cicd/"
             targetBlank
+            alternate
           >
             <ul className="product-card__ul">
               <LiWithCheck>Direct integration into CI/CD</LiWithCheck>
