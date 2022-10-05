@@ -16,7 +16,7 @@ type ProductProps = {
   ctaLink: string;
   targetBlank?: boolean;
   alternate?: boolean;
-  imgPosCover?: boolean;
+  imgBgColor?: string;
 };
 
 const ProductCard = (props: ProductProps) => {
@@ -31,7 +31,7 @@ const ProductCard = (props: ProductProps) => {
     ctaLink,
     targetBlank,
     alternate,
-    imgPosCover,
+    imgBgColor,
   } = props;
 
   return (
@@ -58,9 +58,8 @@ const ProductCard = (props: ProductProps) => {
       </div>
       <div className="product-card__image">
         <div
-          className={`product-card__image-wrapper ${
-            imgPosCover ? 'product-card__image-wrapper--cover' : ''
-          }`}
+          className="product-card__image-wrapper"
+          style={imgBgColor ? { backgroundColor: imgBgColor } : {}}
         >
           {image}
         </div>
