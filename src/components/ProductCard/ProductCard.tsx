@@ -49,7 +49,9 @@ const ProductCard = (props: ProductProps) => {
           {ctaText}
         </a>
       </div>
-      <div className="product-card__image">{image}</div>
+      <div className="product-card__image">
+        <div className="product-card__image-wrapper">{image}</div>
+      </div>
     </div>
   );
 };
