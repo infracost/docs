@@ -35,9 +35,10 @@ const ProductCard = (props: ProductProps) => {
     <div className="product-card">
       <div className="product-card__body">
         <Pill colour={pillColourCoding}>{pillText}</Pill>
-        <h3>{title}</h3>
-        <div>
-          <span>Designed for</span> {designerFor}
+        <h1 className="product-card__tagline">{title}</h1>
+        <div className="product-card__sub-tagline">
+          <span className="product-card__sub-tagline--faded">Designed for</span>{' '}
+          {designerFor}
         </div>
         {children}
         <a
@@ -48,11 +49,7 @@ const ProductCard = (props: ProductProps) => {
           {ctaText}
         </a>
       </div>
-      <div className="product-card__image">
-        <div className="screenshot">
-          <div className="image-wrapper">{image}</div>
-        </div>
-      </div>
+      <div className="product-card__image">{image}</div>
     </div>
   );
 };

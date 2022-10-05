@@ -6,7 +6,7 @@ import Check from '../components/icons/Check';
 
 export enum ColourCoding {
   'cloud' = 'green',
-  'cd-ci' = 'orange',
+  'ci-cd' = 'orange',
   'providers' = 'purple',
   'vscode-extension' = 'blue',
 }
@@ -14,8 +14,28 @@ export enum ColourCoding {
 function Pricing() {
   const vsCodeExtensionImg = (
     <img
-      src="/img/screenshots/pr-step-4.png"
-      alt="Comment in pull request posted by Infracost"
+      src="/img/vscode-extension/maintf.png"
+      alt="Infracost VSCode Extension"
+      width="806"
+      height="397"
+    />
+  );
+
+  const ciCdImg = (
+    <img
+      src="/img/ci-cd/github_actions_screenshot.png"
+      alt="Infracost CI/CD"
+      width="1000"
+      height="433"
+    />
+  );
+
+  const cloudImg = (
+    <img
+      src="/img/infracost-cloud/dashboard.png"
+      alt="Infracost Cloud"
+      width="1517"
+      height="1005"
     />
   );
 
@@ -53,10 +73,79 @@ function Pricing() {
             ctaLink="https://github.com/infracost/vscode-infracost"
             targetBlank
           >
-            <ul>
+            <ul className="product-card__ul">
               <LiWithCheck>
                 Directly installed into VSCode as an extension
               </LiWithCheck>
+              <LiWithCheck>
+                Compare configs, instance types, regions etc
+              </LiWithCheck>
+              <LiWithCheck>
+                Quick cost estimates: no cloud calculators needed
+              </LiWithCheck>
+              <LiWithCheck>Catch costly typos </LiWithCheck>
+              <LiWithCheck>Open Source </LiWithCheck>
+            </ul>
+          </ProductCard>
+
+          <ProductCard
+            title="Cloud costs for dev/eng team review"
+            designerFor="DevOps and SRE"
+            image={ciCdImg}
+            pillText="Infracost CI/CD"
+            pillColourCoding={ColourCoding['ci-cd']}
+            ctaText="Add to CI/CD"
+            ctaLink="https://www.infracost.io/docs/integrations/cicd/"
+            targetBlank
+          >
+            <ul className="product-card__ul">
+              <LiWithCheck>Direct integration into CI/CD</LiWithCheck>
+              <LiWithCheck>
+                Review cost impact with the team alongside security and code
+                quality
+              </LiWithCheck>
+              <LiWithCheck>
+                Shows the cost impact of the specific change
+              </LiWithCheck>
+              <LiWithCheck>
+                Usage-based resources (e.g. storage and serverless) can be
+                modeled
+              </LiWithCheck>
+              <LiWithCheck>Manual integrations (GitHub Actions) </LiWithCheck>
+              <LiWithCheck>Open Source </LiWithCheck>
+            </ul>
+          </ProductCard>
+
+          <ProductCard
+            title="Proactive cloud costs for Team Leads and FinOps"
+            designerFor="Engineering teams, team leads, managers and FinOps"
+            image={cloudImg}
+            pillText="Infracost Cloud"
+            pillColourCoding={ColourCoding['cloud']}
+            ctaText="Start free trial now"
+            ctaLink="https://www.infracost.io/docs/infracost_cloud/get_started/"
+            targetBlank
+          >
+            <ul className="product-card__ul">
+              <LiWithCheck>
+                Automatically works on top of Infracost Open Source
+              </LiWithCheck>
+              <LiWithCheck>
+                Shows all infrastructure changes alongside cost impact (up and
+                down)
+              </LiWithCheck>
+              <LiWithCheck>
+                Supports custom price books, EDPs, EAs and commitment agreements
+              </LiWithCheck>
+              <LiWithCheck>
+                Shows top changes per repo, project, pull request and users
+              </LiWithCheck>
+              <LiWithCheck>
+                Weekly summary reports and threshold alerts{' '}
+              </LiWithCheck>
+              <LiWithCheck>Organization and team management</LiWithCheck>
+              <LiWithCheck>Automated integrations (GitHub App)</LiWithCheck>
+              <LiWithCheck>SaaS</LiWithCheck>
             </ul>
           </ProductCard>
         </div>
