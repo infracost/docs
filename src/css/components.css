@@ -309,25 +309,3 @@
 .works-with__logos-row img {
   object-fit: contain;
 }
-
-/* PILL */
-.pill {
-  padding: 0.175rem 0.5rem;
-  border-radius: var(--border-radius);
-  display: inline-flex;
-}
-
-.pill--blue {
-  color: #001827;
-  background-color: #007acc;
-}
-
-.pill--green {
-  color: #041b00;
-  background-color: #34a853;
-}
-
-.pill--orange {
-  color: #220b00;
-  background-color: #fc6d26;
-}
