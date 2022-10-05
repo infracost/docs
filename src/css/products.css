@@ -5,6 +5,12 @@
   padding-bottom: 3rem;
 }
 
+.products .products-wrapper__container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
 .products .intro {
   background: none;
   padding-bottom: 2rem;

@@ -25,8 +25,8 @@ function Pricing() {
     <img
       src="/img/ci-cd/github_actions_screenshot.png"
       alt="Infracost CI/CD"
-      width="1000"
-      height="433"
+      width="572"
+      height="346"
     />
   );
 
@@ -34,8 +34,8 @@ function Pricing() {
     <img
       src="/img/infracost-cloud/dashboard.png"
       alt="Infracost Cloud"
-      width="1517"
-      height="1005"
+      width="572"
+      height="437"
     />
   );
 
@@ -57,7 +57,7 @@ function Pricing() {
       noIndex={false}
     >
       <div className="products-wrapper">
-        <div className="container">
+        <div className="container products-wrapper__container">
           <div className="intro">
             <h1 className="tagline">Cloud costs, loved by developers</h1>
           </div>
