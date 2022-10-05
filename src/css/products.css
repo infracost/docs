@@ -15,3 +15,16 @@
   background: none;
   padding-bottom: 2rem;
 }
+
+.products .tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+}
+
+@media (max-width: 996px) {
+  .products .tagline {
+    flex-direction: column;
+  }
+}

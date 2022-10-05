@@ -59,7 +59,10 @@ function Pricing() {
       <div className="products-wrapper">
         <div className="container products-wrapper__container">
           <div className="intro">
-            <h1 className="tagline">Cloud costs, loved by developers</h1>
+            <h1 className="tagline">
+              Cloud costs, loved by developers{' '}
+              <img src="/img/icons/heart.svg" alt="Heart icon" />
+            </h1>
           </div>
 
           <WorksWith />
