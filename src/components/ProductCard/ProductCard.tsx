@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import { ColourCoding } from '../../pages/products';
-import Pill from './../Pill';
+import Pill from './../Pill/Pill';
 
 import './ProductCard.css';
 

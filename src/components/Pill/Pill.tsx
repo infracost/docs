@@ -1,5 +1,7 @@
 import React from 'react';
-import { ColourCoding } from '../pages/products';
+import { ColourCoding } from '../../pages/products';
+
+import './Pill.css';
 
 type PillProps = {
   children: String;
