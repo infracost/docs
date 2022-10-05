@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react';
 
-import { ColourCoding } from '../pages/products';
-import Pill from './Pill';
+import { ColourCoding } from '../../pages/products';
+import Pill from './../Pill';
+
+import './ProductCard.css';
 
 type ProductProps = {
   title: string;
@@ -46,7 +48,11 @@ const ProductCard = (props: ProductProps) => {
           {ctaText}
         </a>
       </div>
-      <div className="product-card__image">{image}</div>
+      <div className="product-card__image">
+        <div className="screenshot">
+          <div className="image-wrapper">{image}</div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,13 @@
+/* PRODUCT CARD */
+
+.product-card__li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.product-card__li > .icon.primary {
+  display: flex;
+  align-items: center;
+}
