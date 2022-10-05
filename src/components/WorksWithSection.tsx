@@ -1,10 +1,5 @@
 import React, { ReactElement } from 'react';
-
-export enum ColourCoding {
-  'cloud' = 'green',
-  'cd-ci' = 'orange',
-  'providers' = 'purple',
-}
+import { ColourCoding } from '../pages/products';
 
 type WorksWithSectionProps = {
   label: string;

@@ -2,6 +2,13 @@ import React from 'react';
 import PageLayout from '../components/PageLayout';
 import WorksWith from '../components/WorksWith';
 
+export enum ColourCoding {
+  'cloud' = 'green',
+  'cd-ci' = 'orange',
+  'providers' = 'purple',
+  'vscode-extension' = 'blue',
+}
+
 function Pricing() {
   return (
     <PageLayout
