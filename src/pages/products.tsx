@@ -1,5 +1,6 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
+import Pill from '../components/Pill';
 import WorksWith from '../components/WorksWith';
 
 export enum ColourCoding {
@@ -25,6 +26,9 @@ function Pricing() {
           </div>
 
           <WorksWith />
+          <Pill text="test" colour={ColourCoding['cloud']} />
+          <Pill text="test" colour={ColourCoding['cd-ci']} />
+          <Pill text="test" colour={ColourCoding['vscode-extension']} />
         </div>
       </div>
     </PageLayout>
