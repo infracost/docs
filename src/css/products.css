@@ -1,7 +1,12 @@
 /* PRODUCTS PAGE */
 
+.products {
+  background-color: var(--nu60);
+}
+
 .products .products-wrapper {
   background: url('/img/bg.svg') right bottom no-repeat;
+  background-size: cover;
   padding-bottom: 3rem;
 }
 
@@ -12,8 +17,9 @@
 }
 
 .products .intro {
-  background: none;
-  padding-bottom: 2rem;
+  background: var(--nu60);
+  padding-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 
 .products .tagline {

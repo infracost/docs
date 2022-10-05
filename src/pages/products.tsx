@@ -57,14 +57,13 @@ function Pricing() {
       noIndex={false}
     >
       <div className="products-wrapper">
+        <div className="intro">
+          <h1 className="tagline container">
+            Cloud costs, loved by developers{' '}
+            <img src="/img/icons/heart.svg" alt="Heart icon" />
+          </h1>
+        </div>
         <div className="container products-wrapper__container">
-          <div className="intro">
-            <h1 className="tagline">
-              Cloud costs, loved by developers{' '}
-              <img src="/img/icons/heart.svg" alt="Heart icon" />
-            </h1>
-          </div>
-
           <WorksWith />
           <ProductCard
             title="Cloud cost estimates, as you write code"
