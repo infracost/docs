@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { ColourCoding } from '../pages/products';
+import { ColourCoding } from '../../pages/products';
 
 type WorksWithSectionProps = {
   label: string;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
-import WorksWith from '../components/WorksWith';
+import WorksWith from '../components/WorksWith/WorksWith';
 import ProductCard from '../components/ProductCard/ProductCard';
 import Check from '../components/icons/Check';
 

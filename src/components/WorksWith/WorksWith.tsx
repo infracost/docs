@@ -1,6 +1,8 @@
 import React from 'react';
 import WorksWithSection from './WorksWithSection';
-import { ColourCoding } from '../pages/products';
+import { ColourCoding } from '../../pages/products';
+
+import './WorksWith.css';
 
 const WorksWith = () => {
   const Separator = () => (
