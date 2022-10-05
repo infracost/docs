@@ -48,7 +48,7 @@ const WorksWith = () => {
         <Separator />
         <WorksWithSection
           label="Supported CI/CD systems"
-          colourCoding={ColourCoding['cd-ci']}
+          colourCoding={ColourCoding['ci-cd']}
         >
           <div className="works-with__logos-row">
             <img
