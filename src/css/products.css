@@ -1,3 +1,5 @@
+/* PRODUCTS PAGE */
+
 .products .products-wrapper {
   background: url('/img/bg.svg') right bottom no-repeat;
   padding-bottom: 3rem;
@@ -6,4 +8,18 @@
 .products .intro {
   background: none;
   padding-bottom: 2rem;
+}
+
+/* PRODUCT CARD */
+
+.product-card__li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.product-card__li > .icon.primary {
+  display: flex;
+  align-items: center;
 }
