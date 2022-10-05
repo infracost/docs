@@ -32,8 +32,16 @@
   margin-bottom: 1rem;
 }
 
-.product-card__sub-tagline--faded {
-  color: var(--faded-text);
+.product-card__sub-tagline--blue {
+  color: #007acc;
+}
+
+.product-card__sub-tagline--green {
+  color: #34a853;
+}
+
+.product-card__sub-tagline--orange {
+  color: #fc6d26;
 }
 
 .product-card__ul {
@@ -68,7 +76,6 @@
   background-color: var(--white);
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  /* display: flex; */
   overflow: hidden;
   filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.3));
   width: 100%;
