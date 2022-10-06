@@ -12,7 +12,6 @@ const WorksWith = () => {
   );
   return (
     <div className="works-with">
-      <h2>All Infracost products works with</h2>
       <div className="works-with__sections">
         <WorksWithSection
           label="Supported Clouds"
