@@ -86,7 +86,6 @@ function Pricing() {
             pillColourCoding={ColourCoding['vscode-extension']}
             ctaText="Install VS Code Extension"
             ctaLink="https://github.com/infracost/vscode-infracost"
-            targetBlank
             imgBgColor="#212121"
           >
             <ul className="product-card__ul">
@@ -112,7 +111,6 @@ function Pricing() {
             pillColourCoding={ColourCoding['ci-cd']}
             ctaText="Add to CI/CD"
             ctaLink="https://www.infracost.io/docs/integrations/cicd/"
-            targetBlank
             alternate
           >
             <ul className="product-card__ul">
@@ -140,7 +138,6 @@ function Pricing() {
             pillColourCoding={ColourCoding['cloud']}
             ctaText="Start free trial now"
             ctaLink="https://www.infracost.io/docs/infracost_cloud/get_started/"
-            targetBlank
           >
             <ul className="product-card__ul">
               <LiWithCheck>
