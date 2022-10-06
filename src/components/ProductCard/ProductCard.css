@@ -14,6 +14,7 @@
   background-color: #eeeeee06;
   border-radius: 32px;
   align-items: center;
+  color: white;
 }
 
 .product-card--alternate > .product-card__body {
@@ -28,7 +29,7 @@
 }
 
 .product-card__sub-tagline {
-  color: var(--faded-text);
+  color: #ffffffb5;
 }
 
 .product-card__sub-tagline--strong {
