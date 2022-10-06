@@ -28,7 +28,7 @@ footer .section:not(:last-child) {
   }
 }
 
-footer h4 {
+footer h1 {
   color: var(--faded-text);
   font-size: 1.125rem;
   font-weight: normal;
