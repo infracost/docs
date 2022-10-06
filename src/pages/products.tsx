@@ -3,6 +3,7 @@ import PageLayout from '../components/PageLayout';
 import WorksWith from '../components/WorksWith/WorksWith';
 import ProductCard from '../components/ProductCard/ProductCard';
 import Check from '../components/icons/Check';
+import Questions from '../components/questions/Questions';
 
 export enum ColourCoding {
   'cloud' = 'green',
@@ -152,6 +153,7 @@ function Pricing() {
               <LiWithCheck>SaaS</LiWithCheck>
             </ul>
           </ProductCard>
+          <Questions />
         </div>
       </div>
     </PageLayout>
