@@ -25,6 +25,7 @@
 
 .question__question {
   font-weight: bold;
+  color: white;
 }
 
 .question__answer {
