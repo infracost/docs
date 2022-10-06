@@ -18,7 +18,7 @@ function Pricing() {
     <WebPPngFallback filePath={'/img/vscode-extension/maintf'}>
       <img
         src="/img/vscode-extension/maintf.png"
-        alt="Infracost VSCode Extension"
+        alt="Infracost VS Code Extension"
         width="806"
         height="397"
       />
@@ -82,16 +82,16 @@ function Pricing() {
             title="Cloud cost estimates, as you write code"
             designerFor="Engineers developing infrastructure as code"
             image={vsCodeExtensionImg}
-            pillText="Infracost VSCode Extension"
+            pillText="Infracost VS Code Extension"
             pillColourCoding={ColourCoding['vscode-extension']}
-            ctaText="Install VSCode Extension"
+            ctaText="Install VS Code Extension"
             ctaLink="https://github.com/infracost/vscode-infracost"
             targetBlank
             imgBgColor="#212121"
           >
             <ul className="product-card__ul">
               <LiWithCheck>
-                Directly installed into VSCode as an extension
+                Directly installed into VS Code as an extension
               </LiWithCheck>
               <LiWithCheck>
                 Compare configs, instance types, regions etc

@@ -183,6 +183,6 @@ If you run into any issues, please join our [community Slack channel](https://ww
 
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
 
-If you use VSCode, checkout our [VSCode extension](https://github.com/infracost/vscode-infracost/) to also see cost estimates right in your editor!
+If you use VS Code, checkout our [VS Code extension](https://github.com/infracost/vscode-infracost/) to also see cost estimates right in your editor!
 
-<img src={useBaseUrl("img/screenshots/get-started-vscode.gif")} alt="Infracost VSCode extension" />
+<img src={useBaseUrl("img/screenshots/get-started-vscode.gif")} alt="Infracost VS Code extension" />

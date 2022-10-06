@@ -63,10 +63,10 @@ const Questions = () => {
           <QuestionLi>
             <Question>Do you offer support for any of the products?</Question>
             <Answer>
-              Yes. We offer community support for Infracost VSCode and Infracost
-              Open Source (join our community Slack here). We also offer paid
-              support for all products with SLAs, please reach out to us on
-              hello@infracost.io for pricing details.
+              Yes. We offer community support for Infracost VS Code and
+              Infracost Open Source (join our community Slack here). We also
+              offer paid support for all products with SLAs, please reach out to
+              us on hello@infracost.io for pricing details.
             </Answer>
           </QuestionLi>
 

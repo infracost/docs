@@ -66,7 +66,7 @@ It takes weeks, if not months for the feedback loop to close from action (engine
 
 ### First: give engineers cost estimates as they code
 
-As the engineers are typing out code, we should give them cost estimates so they can compare configs, instance types, and also catch any cost typos without ever having to leave their editor to go play around with a cloud cost calculator. For this, you can use the [Infracost VSCode extension](https://github.com/infracost/vscode-infracost).
+As the engineers are typing out code, we should give them cost estimates so they can compare configs, instance types, and also catch any cost typos without ever having to leave their editor to go play around with a cloud cost calculator. For this, you can use the [Infracost VS Code extension](https://github.com/infracost/vscode-infracost).
 
 <img src={useBaseUrl("img/blog/broken-relationship/vscode.gif")} alt="Give the engineers cost estimates as they code" />
 
