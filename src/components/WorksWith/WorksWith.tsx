@@ -10,6 +10,10 @@ const WorksWith = () => {
       <div className="works-with__sections-separator"></div>
     </div>
   );
+
+  const ComingSoon = () => (
+    <div className="works-with__coming-soon">Coming soon</div>
+  );
   return (
     <div className="works-with">
       <div className="works-with__sections">
@@ -17,6 +21,14 @@ const WorksWith = () => {
           label="Supported Clouds"
           colourCoding={ColourCoding.cloud}
         >
+          <div className="works-with__logos-row">
+            <img
+              src="/img/services/aws.svg"
+              width="60"
+              height="36.5"
+              alt="AWS"
+            />
+          </div>
           <div className="works-with__logos-row">
             <img
               src="/img/services/google-cloud.svg"
@@ -30,17 +42,7 @@ const WorksWith = () => {
               src="/img/services/azure.svg"
               width="100"
               height="32"
-              // reduce the white space to make the logo appear evenly spaced
-              style={{ marginTop: '-0.25rem' }}
               alt="Microsoft Azure"
-            />
-          </div>
-          <div className="works-with__logos-row">
-            <img
-              src="/img/services/aws.svg"
-              width="60"
-              height="36.5"
-              alt="AWS"
             />
           </div>
         </WorksWithSection>
@@ -111,21 +113,31 @@ const WorksWith = () => {
               alt="Terraform"
             />
           </div>
-          <div className="works-with__logos-row">
+          <div
+            className="works-with__logos-row "
+            // reduce the white space to make the logo appear evenly spaced
+            style={{ marginTop: '-0.75rem' }}
+          >
+            <img
+              src="/img/services/aws-cloud-formation.svg"
+              width="224"
+              height="50"
+              alt="AWS CloudFromation"
+            />
+            <ComingSoon />
+          </div>
+          <div
+            className="works-with__logos-row"
+            // reduce the white space to make the logo appear evenly spaced
+            style={{ marginTop: '-0.25rem' }}
+          >
             <img
               src="/img/services/pulumi.svg"
               width="114"
               height="28"
               alt="Pulumi"
             />
-          </div>
-          <div className="works-with__logos-row">
-            <img
-              src="/img/services/aws.svg"
-              width="60"
-              height="36.5"
-              alt="AWS"
-            />
+            <ComingSoon />
           </div>
         </WorksWithSection>
       </div>
