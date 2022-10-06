@@ -14,7 +14,7 @@ function GitHubStarCount() {
 
     const j = JSON.parse(s);
 
-    if (!j.value || !j.expiry || (new Date()).getTime() > j.expiry) {
+    if (!j.value || !j.expiry || new Date().getTime() > j.expiry) {
       return null;
     }
 
@@ -24,8 +24,8 @@ function GitHubStarCount() {
   function setCacheValue(value) {
     const item = {
       value,
-      expiry: (new Date()).getTime() + cacheTtl,
-    }
+      expiry: new Date().getTime() + cacheTtl,
+    };
 
     localStorage.setItem(cacheKey, JSON.stringify(item));
   }
@@ -40,7 +40,9 @@ function GitHubStarCount() {
         return;
       }
 
-      const resp = await fetch('https://api.github.com/repos/infracost/infracost');
+      const resp = await fetch(
+        'https://api.github.com/repos/infracost/infracost'
+      );
       const data = await resp.json();
 
       if (!abortController.signal.aborted) {
@@ -57,10 +59,16 @@ function GitHubStarCount() {
 
   return (
     <div className="github-stars">
-      <img className="star-icon" src="/img/icons/star.svg" alt="GitHub star icon" />
+      <img
+        className="star-icon"
+        src="/img/icons/star.svg"
+        alt="GitHub star icon"
+        width={14}
+        height={14}
+      />
       <span className="star-count">{stars}</span>
     </div>
-  )
+  );
 }
 
 export default GitHubStarCount;
