@@ -19,8 +19,8 @@ function Pricing() {
       <img
         src="/img/vscode-extension/maintf.png"
         alt="Infracost VS Code Extension"
-        width="806"
-        height="397"
+        width="655"
+        height="385"
       />
     </WebPPngFallback>
   );
