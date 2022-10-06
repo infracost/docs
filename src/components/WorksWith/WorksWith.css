@@ -41,6 +41,15 @@
   }
 }
 
+.works-with__coming-soon {
+  font-size: 0.613rem;
+  background-color: #eeeeee06;
+  display: flex;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  margin: 0 0 1rem -0.5rem;
+}
+
 /* WORKS WITH section */
 
 .works-with__section {
@@ -90,6 +99,7 @@
 }
 
 .works-with__logos-row {
+  align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
