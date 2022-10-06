@@ -128,7 +128,6 @@ function Pricing() {
                 Usage-based resources (e.g. storage and serverless) can be
                 modeled
               </LiWithCheck>
-              <LiWithCheck>Manual integrations (GitHub Actions) </LiWithCheck>
               <LiWithCheck>Open Source </LiWithCheck>
             </ul>
           </ProductCard>
@@ -161,8 +160,9 @@ function Pricing() {
                 Weekly summary reports and threshold alerts{' '}
               </LiWithCheck>
               <LiWithCheck>Organization and team management</LiWithCheck>
-              <LiWithCheck>Automated integrations (GitHub App)</LiWithCheck>
-              <LiWithCheck>SaaS</LiWithCheck>
+              <LiWithCheck>
+                Manage CI/CD integrations centrally across all your repositories
+              </LiWithCheck>
             </ul>
           </ProductCard>
           <Questions />
