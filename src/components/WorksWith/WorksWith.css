@@ -23,7 +23,7 @@
 .works-with__sections-separator {
   height: 60%;
   width: 1px;
-  background-color: var(--border-color);
+  background-color: var(--border-color-secondary);
 }
 
 @media (max-width: 996px) {

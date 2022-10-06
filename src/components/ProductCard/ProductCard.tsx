@@ -42,10 +42,13 @@ const ProductCard = (props: ProductProps) => {
         <Pill colour={pillColourCoding}>{pillText}</Pill>
         <h1 className="product-card__tagline">{title}</h1>
         <div className="product-card__sub-tagline">
-          <span>👩&zwj;💻</span> Designed for{' '}
+          <span>👩&zwj;💻</span> Designed for
           <span className="product-card__sub-tagline--strong">
             {designerFor}
           </span>
+        </div>
+        <div className="product-card__sections-separator-wrapper">
+          <div className="product-card__sections-separator"></div>
         </div>
         {children}
         <div className="product-card__cta-wrapper">
