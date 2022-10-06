@@ -1,4 +1,5 @@
 import React from 'react';
+import SeparatorLine from '../SeparatorLine/SeparatorLine';
 
 import './Questions.css';
 
@@ -8,7 +9,10 @@ const Questions = () => {
   );
 
   const Question = ({ children }) => (
-    <span className="question__question">{children}</span>
+    <span className="question__question">
+      <SeparatorLine />
+      {children}
+    </span>
   );
 
   const Answer = ({ children }) => (

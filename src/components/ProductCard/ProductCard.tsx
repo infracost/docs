@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import { ColourCoding } from '../../pages/products';
+import SeparatorLine from '../SeparatorLine/SeparatorLine';
 import Pill from './../Pill/Pill';
 
 import './ProductCard.css';
@@ -47,9 +48,7 @@ const ProductCard = (props: ProductProps) => {
             {designerFor}
           </span>
         </div>
-        <div className="product-card__sections-separator-wrapper">
-          <div className="product-card__sections-separator"></div>
-        </div>
+        <SeparatorLine />
         {children}
         <div className="product-card__cta-wrapper">
           <a
