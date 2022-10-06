@@ -1,0 +1,12 @@
+.separator__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 1rem 0;
+}
+
+.separator {
+  height: 1px;
+  width: 5rem;
+  background-color: var(--border-color-secondary);
+}
