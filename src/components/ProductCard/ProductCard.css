@@ -28,20 +28,12 @@
 }
 
 .product-card__sub-tagline {
-  color: white;
+  color: var(--faded-text);
   margin-bottom: 1rem;
 }
 
-.product-card__sub-tagline--blue {
-  color: #007acc;
-}
-
-.product-card__sub-tagline--green {
-  color: #34a853;
-}
-
-.product-card__sub-tagline--orange {
-  color: #fc6d26;
+.product-card__sub-tagline--strong {
+  color: white;
 }
 
 .product-card__ul {
