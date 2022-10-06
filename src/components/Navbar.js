@@ -80,14 +80,14 @@ function Navbar({ isDocs }) {
 
   const topMenu = (
     <div className="menu">
-      {/* <a className="navbar-item navbar-link" href="/products">
+      <a className="navbar-item navbar-link" href="/products">
         Products
-      </a> */}
-      <a className="navbar-item navbar-link" href="/pricing">
-        Pricing
       </a>
       <a className="navbar-item navbar-link" href="/use-cases">
         Use Cases
+      </a>
+      <a className="navbar-item navbar-link" href="/pricing">
+        Pricing
       </a>
       <a className="navbar-item navbar-link" href="/about">
         About
@@ -109,14 +109,14 @@ function Navbar({ isDocs }) {
 
   const docs = (
     <>
-      {/* <a className="navbar-item" href="/products">
+      <a className="navbar-item" href="/products">
         Products
-      </a> */}
-      <a className="navbar-item" href="/pricing">
-        Pricing
       </a>
       <a className="navbar-item" href="/use-cases">
         Use Cases
+      </a>
+      <a className="navbar-item" href="/pricing">
+        Pricing
       </a>
       <a className="navbar-item" href="/about">
         About
