@@ -82,7 +82,7 @@
   max-width: 700px;
 }
 
-.product-card__image-wrapper > img {
+.product-card__image-wrapper img {
   width: 100%;
   height: auto;
 }

@@ -4,6 +4,7 @@ import WorksWith from '../components/WorksWith/WorksWith';
 import ProductCard from '../components/ProductCard/ProductCard';
 import Check from '../components/icons/Check';
 import Questions from '../components/questions/Questions';
+import WebPPngFallback from '../components/utils/WebPPngFallback';
 
 export enum ColourCoding {
   'cloud' = 'green',
@@ -14,30 +15,36 @@ export enum ColourCoding {
 
 function Pricing() {
   const vsCodeExtensionImg = (
-    <img
-      src="/img/vscode-extension/maintf.png"
-      alt="Infracost VSCode Extension"
-      width="806"
-      height="397"
-    />
+    <WebPPngFallback filePath={'/img/vscode-extension/maintf'}>
+      <img
+        src="/img/vscode-extension/maintf.png"
+        alt="Infracost VSCode Extension"
+        width="806"
+        height="397"
+      />
+    </WebPPngFallback>
   );
 
   const ciCdImg = (
-    <img
-      src="/img/ci-cd/github_actions_screenshot.png"
-      alt="Infracost CI/CD"
-      width="572"
-      height="346"
-    />
+    <WebPPngFallback filePath="/img/ci-cd/github_actions_screenshot">
+      <img
+        src="/img/ci-cd/github_actions_screenshot.png"
+        alt="Infracost CI/CD"
+        width="572"
+        height="346"
+      />
+    </WebPPngFallback>
   );
 
   const cloudImg = (
-    <img
-      src="/img/infracost-cloud/dashboard.png"
-      alt="Infracost Cloud"
-      width="572"
-      height="437"
-    />
+    <WebPPngFallback filePath="/img/infracost-cloud/dashboard">
+      <img
+        src="/img/infracost-cloud/dashboard.png"
+        alt="Infracost Cloud"
+        width="572"
+        height="437"
+      />
+    </WebPPngFallback>
   );
 
   const LiWithCheck = ({ children }) => (
