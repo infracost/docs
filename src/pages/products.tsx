@@ -137,7 +137,7 @@ function Pricing() {
             pillText="Infracost Cloud"
             pillColourCoding={ColourCoding['cloud']}
             ctaText="Start free trial now"
-            ctaLink="https://www.infracost.io/docs/infracost_cloud/get_started/"
+            ctaLink="https://dashboard.infracost.io?screen_hint=signup"
           >
             <ul className="product-card__ul">
               <LiWithCheck>
