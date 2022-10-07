@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '@theme/SearchBar';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-import useLockBodyScroll from '@theme/hooks/useLockBodyScroll';
-import useWindowSize from '@theme/hooks/useWindowSize';
-import { useMobileSecondaryMenuRenderer } from '@docusaurus/theme-common';
-import useHideableNavbar from '@theme/hooks/useHideableNavbar';
+import { useWindowSize } from '@docusaurus/theme-common';
+import { useNavbarSecondaryMenu, useLockBodyScroll, useHideableNavbar } from '@docusaurus/theme-common/internal';
 import GitHubStarCount from '../components/GitHubStarCount';
 
 function Navbar({ isDocs }) {
@@ -32,8 +30,6 @@ function Navbar({ isDocs }) {
     }
   }, [windowSize]);
 
-  let docsMenuContent = null;
-
   function resetMobileDocsSidebar() {
     setMobileDocsSidebarState(null);
   }
@@ -43,20 +39,18 @@ function Navbar({ isDocs }) {
     setShowSidebar(!showSidebar);
   }
 
-  docsMenuContent = useMobileSecondaryMenuRenderer()?.({
-    toggleSidebar,
-  });
+  const docsMenu = useNavbarSecondaryMenu();
 
   useEffect(() => {
     if (
       isDocs &&
       showSidebar &&
-      !!docsMenuContent &&
+      !!docsMenu.content &&
       mobileDocsSidebarState !== 'hide'
     ) {
       setMobileDocsSidebarState('show');
     }
-  }, [showSidebar, docsMenuContent]);
+  }, [showSidebar, docsMenu]);
 
   const { navbarRef } = useHideableNavbar(false);
 
@@ -230,7 +224,7 @@ function Navbar({ isDocs }) {
             </div>
             {mobileDocsSidebarState === 'show' ? (
               <MobileDocsSidebar
-                content={docsMenuContent}
+                content={docsMenu.content}
                 onHide={() => setMobileDocsSidebarState('hide')}
               />
             ) : (

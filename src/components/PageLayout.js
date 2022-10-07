@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import LayoutProviders from '@theme/LayoutProviders';
-import LayoutHead from '@theme/LayoutHead';
+import LayoutProvider from '@theme/Layout/Provider';
+import { PageMetadata } from '@docusaurus/theme-common';
 import AnnouncementBar from '@theme/AnnouncementBar';
 import Navbar from '../components/Navbar';
 import CTA from '../components/CTA';
@@ -10,8 +10,8 @@ import Footer from '../components/Footer';
 function PageLayout({ title, description, pageClass, children, hideCTA, noIndex }) {
   return (
     <HelmetProvider>
-      <LayoutProviders>
-        <LayoutHead
+      <LayoutProvider>
+        <PageMetadata
           title={title}
           description={description} />
 
@@ -30,7 +30,7 @@ function PageLayout({ title, description, pageClass, children, hideCTA, noIndex 
 
         {!hideCTA && (<CTA />)}
         <Footer />
-      </LayoutProviders>
+      </LayoutProvider>
     </HelmetProvider>
   );
 }
