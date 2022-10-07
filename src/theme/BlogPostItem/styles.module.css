@@ -16,8 +16,3 @@
 .blogPostDetailsFull {
   flex-direction: row;
 }
-
-.blog__wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}

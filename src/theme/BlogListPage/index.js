@@ -12,7 +12,7 @@ import BlogListPaginator from '@theme/BlogListPaginator';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 
 function BlogListPage(props) {
-  const { metadata, items, sidebar } = props;
+  const { metadata, items } = props;
   const {
     siteConfig: { title: siteTitle },
   } = useDocusaurusContext();
@@ -29,7 +29,6 @@ function BlogListPage(props) {
         // assign unique search tag to exclude this page from search results!
         tag: 'blog_posts_list',
       }}
-      sidebar={sidebar}
     >
       {items.map(({ content: BlogPostContent }) => (
         <BlogPostItem

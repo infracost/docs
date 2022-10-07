@@ -67,6 +67,7 @@ function BlogPostItem(props) {
     const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
     return (
       <header>
+        {isBlogPostPage ? <></> : <img src={`/${image}`} alt="" />}
         <TitleHeading className={styles.blogPostTitle} itemProp="headline">
           {isBlogPostPage ? (
             title
@@ -100,8 +101,6 @@ function BlogPostItem(props) {
       itemScope
       itemType="http://schema.org/BlogPosting"
     >
-      {renderPostHeader()}
-
       {image && (
         <meta
           itemProp="image"
@@ -111,6 +110,7 @@ function BlogPostItem(props) {
         />
       )}
 
+      {renderPostHeader()}
       <div className="markdown" itemProp="articleBody">
         <MDXProvider components={MDXComponents}>{children}</MDXProvider>
       </div>
