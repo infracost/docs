@@ -47,20 +47,6 @@
   --ifm-table-stripe-background: #f9f9fc;
 }
 
-.docs-wrapper footer {
-  background-color: inherit;
-  border-top: inherit;
-  padding: inherit;
-}
-
-.docs-wrapper footer a {
-  color: var(--link-color);
-}
-
-.docs-wrapper footer a:hover {
-  color: var(--link-hover-color);
-}
-
 @media (max-width: 479px) {
   :root {
     --ifm-spacing-horizontal: 1rem;
