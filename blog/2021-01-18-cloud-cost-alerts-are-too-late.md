@@ -7,7 +7,7 @@ author_image_url: /img/avatars/hassan.jpg
 description: Cloud cost estimates in pull requests with thresholds.
 image: /img/blog/the-prius-effect-for-cloud-costs/infracost-pull-request.png
 hide_table_of_contents: true
-Date: "2021-01-18T00:00:00Z"
+date: "2021-01-18"
 ---
 
 Most cloud providers enable users to set budget alerts on their actual cloud spend. This is a critical safety net as usage-based resources could incur a lot of cost (e.g. data transfer). There is also another safety net that companies should set up, and that is catching significant cost changes to their infrastructure before going live. For example, finding out how much increasing the RAM for a Lambda function costs before putting the new function into production. Usage estimates can also be considered during cost estimation.

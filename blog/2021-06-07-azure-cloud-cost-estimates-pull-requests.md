@@ -7,7 +7,7 @@ author_image_url: /img/avatars/hassan.jpg
 description: We're excited to announce that you can now use Infracost to get cloud cost estimates for Microsoft Azure in pull requests.
 hide_table_of_contents: true
 image: img/blog/azure-cloud-cost-estimates-pull-requests/infracost_azure.png
-date: "2021-06-07T00:00:00Z"
+date: "2021-06-07"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

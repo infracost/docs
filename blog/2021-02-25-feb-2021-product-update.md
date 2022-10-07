@@ -6,7 +6,7 @@ author_url: https://twitter.com/alikhajeh
 author_image_url: /img/avatars/ali.jpg
 description: We shipped quite a lot in February - big thanks to the community contributors! Upgrade to pickup these goodies.
 hide_table_of_contents: true
-Date: "2021-02-26T00:00:00Z"
+date: "2021-02-26"
 ---
 
 Here's what we released in February - big thanks to the community contributors! You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.7.20) to pickup these goodies:

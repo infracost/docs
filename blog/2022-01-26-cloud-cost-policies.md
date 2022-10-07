@@ -7,7 +7,7 @@ author_image_url: /img/avatars/hassan.jpg
 description: You can now set proactive cloud cost policies with Open Policy Agent, Sentinel and Conftest.
 hide_table_of_contents: false
 image: img/blog/cloud-cost-policies/InfracostCloudCostPolicies.png
-date: "2022-01-26T00:00:00Z"
+date: "2022-01-26"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

@@ -7,7 +7,7 @@ author_image_url: /img/avatars/ali.jpg
 description: David Julia, head of engineering at Eagle.io talks about cost attribution
 hide_table_of_contents: true
 image: img/blog/cloud-cost-attribution-at-eagleio/ali-david.png
-Date: "2021-05-25T00:00:00Z"
+date: "2021-05-25"
 ---
 
 I sat down with [David Julia](https://twitter.com/DavidJulia), who is the Head of Engineering at [Eagle.io](https://eagle.io) to talk about cost attribution, why it matters, who should care and how Eagle.io achieves this. We worked through their use-case, their tech stack, the tools they use, what worked and what did not work, and ultimately how they have achieved cloud cost attribution.

@@ -6,7 +6,7 @@ author_url: https://twitter.com/aliscott
 author_image_url: /img/avatars/alistair.jpg
 description: Reducing cloud waste isn't just about saving money
 hide_table_of_contents: true
-Date: "2021-04-20T00:00:00Z"
+date: "2021-04-20"
 ---
 
 It's estimated that data centers consume around 1% of the global electric supply [^1] and this could increase to between 3-13% by 2030 [^2]. The wider ICT (information and communications technology) ecosystem accounts for 2% of the world's carbon emissions, putting it on par with the entire aviation industry [^3].
