@@ -16,11 +16,11 @@ When it comes to cloud costs, the relationship between the engineers who are res
 
 **It turns out the closer you are to the code, the further you are from costs.**
 
-<img src={useBaseUrl("img/blog/broken-relationship/feedback-loop.png")} alt="Broken feedback loop" />
 
 Let’s look at an example product to production workflow and what happens when a company releases a new feature, which requires infrastructure.
 
 <!--truncate-->
+<img src={useBaseUrl("img/blog/broken-relationship/feedback-loop.png")} alt="Broken feedback loop" />
 
 ## Product to Production workflow
 

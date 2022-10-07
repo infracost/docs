@@ -14,9 +14,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Today, I’m super excited to announce, alongside our partner HashiCorp, that we have launched a direct integration into Terraform Cloud using the new Terraform run tasks feature.
 
-<a href="/blog/terraform-cost-estimation-with-runtasks-infracost"><img src={useBaseUrl("img/blog/terraform-cost-estimation-with-runtasks-infracost/hashicorp-terraform-official-partner.png")} alt="Hashicorp Terraform Run Tasks now generally available to all"/></a>
 
 <!--truncate-->
+<a href="/blog/terraform-cost-estimation-with-runtasks-infracost"><img src={useBaseUrl("img/blog/terraform-cost-estimation-with-runtasks-infracost/hashicorp-terraform-official-partner.png")} alt="Hashicorp Terraform Run Tasks now generally available to all"/></a>
 
 We started Infracost to show engineers how their Infrastructure as Code changes will impact cloud costs before anything goes to production. It felt unfair not to have a ‘checkout screen’ for developers because when budgets were breached, they would not only be blamed but also be tasked with bringing costs down (again, with no indication of whether their changes are having the right cost impact).
 

@@ -14,9 +14,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 In September 2021, Hashicorp announced a beta feature called Terraform RunTasks. In this blog, I’d like to give the why, how and what of this feature as well as which tools currently work with it.
 
-<a href="/blog/terraform-runtasks-what-why-how/"><img src={useBaseUrl("img/blog/terraform-runtasks/terraform-runtasks-partners.png")} alt="Hashicorp Terraform RunTasks: what, why, how and partners"/></a>
 
 <!--truncate-->
+<a href="/blog/terraform-runtasks-what-why-how/"><img src={useBaseUrl("img/blog/terraform-runtasks/terraform-runtasks-partners.png")} alt="Hashicorp Terraform RunTasks: what, why, how and partners"/></a>
 
 ### What is Terraform RunTasks
 Terraform RunTasks is a way to plug-in 3rd party tools directly into the Terraform Cloud workflow so that additional checks can be done on your TF code without leaving the dashboard. RunTasks sits between the Plan stage, when the previous and new state of all resources is evaluated, and the Apply stage, when the changes to the resources are actually carried out.
