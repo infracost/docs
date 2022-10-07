@@ -11,7 +11,7 @@ function BlogLayout(props) {
   const { sidebar, toc, children, ...layoutProps } = props;
   return (
     <Layout {...layoutProps}>
-      <div className={toc ? 'container blog-page' : 'container'}>
+      <div className={toc ? 'container blog-page' : 'blog-container'}>
         <main
           className={toc ? '' : 'blog-grid'}
           itemScope
