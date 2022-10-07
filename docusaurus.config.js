@@ -112,10 +112,6 @@ module.exports = {
       theme: require('prism-react-renderer/themes/dracula'),
       additionalLanguages: ['hcl'],
     },
-    gtag: {
-      trackingID: 'G-9GFV9Z9NNZ',
-      anonymizeIP: true,
-    },
     algolia: {
       appId: 'ERN68FLCI1',
       apiKey: 'e62759e664aae55a8bfef8e93ecf6111',
@@ -226,7 +222,11 @@ module.exports = {
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
-        }
+        },
+        gtag: {
+          trackingID: 'G-9GFV9Z9NNZ',
+          anonymizeIP: true,
+        },
       },
     ],
   ],
