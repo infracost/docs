@@ -6,7 +6,7 @@ author_url: https://twitter.com/aliscott
 author_image_url: /img/avatars/alistair.jpg
 description: Why did we build Infracost?
 hide_table_of_contents: true
-Date: "2021-03-12T00:00:00Z"
+date: "2021-03-12"
 ---
 
 ### What is "shift left"?

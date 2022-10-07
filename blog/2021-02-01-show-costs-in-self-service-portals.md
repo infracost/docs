@@ -7,7 +7,7 @@ author_image_url: /img/avatars/hassan.jpg
 description: Show cloud cost estimates in enterprise self service portals.
 image: /img/blog/show-costs-in-self-service-portals/self-service-portal.png
 hide_table_of_contents: true
-Date: "2021-02-01T00:00:00Z"
+date: "2021-02-01"
 ---
 
 Over the last 10 years we’ve seen a lot of shadow IT with AWS being used as the infrastructure provider. The AWS bills were put on company credit cards and expensed. Individual business units could spin up the resources they needed and work in an incredibly agile manner. Unfortunately, for the enterprise as a whole this resulted in shadow spend, less control and security issues. To address these issues, central IT departments built “Self Service” portals with single sign-on (SSO). Business units could still spin up resources as needed, and the enterprise gained some visibility and control.

@@ -7,7 +7,7 @@ author_image_url: /img/avatars/hassan.jpg
 description: Give direct cloud access to DevOps teams, and get cloud cost estimates to the team leads and management.
 image: /img/blog/terraform-cloud-costs-directly-from-pull-request-to-management/infracost_html_output.png
 hide_table_of_contents: true
-Date: "2021-01-11T00:00:00Z"
+date: "2021-01-11"
 ---
 
 Last week I wrote about [giving cloud cost estimates to DevOps teams via pull requests](/blog/the-prius-effect-for-cloud-costs) as they make changes to infrastructure components. The hope is to create a “Prius Effect” for cloud costs:  it was observed that many Prius drivers would drive more efficiently simply because they were presented with immediate feedback on the Prius dashboard.

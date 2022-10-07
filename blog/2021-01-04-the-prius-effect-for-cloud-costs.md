@@ -7,7 +7,7 @@ author_image_url: /img/avatars/hassan.jpg
 description: IaC and Serverless give direct cloud access to developers and DevOps engineers. If we show cost implications, will we get better at cloud cost efficiency?
 image: /img/blog/the-prius-effect-for-cloud-costs/infracost-pull-request.png
 hide_table_of_contents: true
-date: "2021-01-04T00:00:00Z"
+date: "2021-01-04"
 ---
 
 Over the last 10 years we have seen more enterprises give direct cloud access to their developers and DevOps teams. There are many ways this has been achieved, from giving admin logins to the cloud console, to having devs create request tickets to the central IT team, to creating a self-service catalogue in which business units can select what they need from a list of pre-approved resources or environments.

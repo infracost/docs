@@ -7,7 +7,7 @@ author_image_url: /img/avatars/hassan.jpg
 description: It turns out the closer you are to the code, the further you are from costs.
 hide_table_of_contents: false
 image: img/blog/broken-relationship/feedback-loop.png
-date: "2022-09-26T00:00:00Z"
+date: "2022-09-26"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

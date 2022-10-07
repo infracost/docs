@@ -7,7 +7,7 @@ author_image_url: /img/avatars/ali.jpg
 description: A look at the history of cloud computing costs, why are they so complex and an example walkthrough
 hide_table_of_contents: false
 image: img/blog/why-are-cloud-costs-so-complex/infracost-cloud-pricing-api.png
-date: "2022-05-12T00:00:00Z"
+date: "2022-05-12"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

@@ -7,7 +7,7 @@ author_image_url: /img/avatars/hassan.jpg
 description: Cloud costs shifting left with Infracost
 hide_table_of_contents: true
 image: img/blog/infracost-sequoia-seed/seed_investment_banner.png
-date: "2021-09-23T00:00:00Z"
+date: "2021-09-23"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

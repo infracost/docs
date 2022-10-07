@@ -7,7 +7,7 @@ author_image_url: /img/avatars/hassan.jpg
 description: Get Terraform Cost Estimation directly in Terraform Cloud using Run Tasks with Infracost
 hide_table_of_contents: false
 image: img/blog/terraform-cost-estimation-with-runtasks-infracost/hashicorp-terraform-official-partner.png
-date: "2022-05-05T00:00:00Z"
+date: "2022-05-05"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

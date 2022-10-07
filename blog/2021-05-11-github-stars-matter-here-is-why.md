@@ -7,7 +7,7 @@ author_image_url: /img/avatars/ali.jpg
 description: Why do people star GitHub repos and why is that important?
 hide_table_of_contents: true
 image: img/blog/github-stars-matter-here-is-why/star-chart.png
-Date: "2021-05-11T00:00:00Z"
+date: "2021-05-11"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -30,7 +30,7 @@ The main benefit of repo stars is creating confidence and a good first impressio
 
 A 2018 academic research survey of over 700 developers found that "three out of four developers consider the number of stars before using or contributing to GitHub projects"[^2]. GitHub stars are not the only metric that matters though. A project's activity level, for example its last release or commit, and its ease of use, for example the quality of its documentation, are also important factors in helping projects get users.
 
-I say to a lesser extent as contributing, by creating a GitHub issue or submitting a pull request, requires significantly more effort than starring a repo. People who only star a repo are probably not yet active community members but they might become active in the future. This is why the Orbit Model classifies them as Observers[^3], as they can act as the top-of-funnel for growing users and contributors.  hugely popular 
+I say to a lesser extent as contributing, by creating a GitHub issue or submitting a pull request, requires significantly more effort than starring a repo. People who only star a repo are probably not yet active community members but they might become active in the future. This is why the Orbit Model classifies them as Observers[^3], as they can act as the top-of-funnel for growing users and contributors.  hugely popular
 
 In addition to helping projects get users, GitHub stars can help the project creators **meet investors** who are familiar with open source. Early on in Infracost's journey, we were surprised to get cold emails from VCs congratulating us on our star count. After speaking with a few, it became clear that they either had systems in place to monitor stars[^4], or had analysts who reviewed Trending Repos on GitHub for potential investment opportunities[^5]. Some have gone even further. For example, the VC firm Runa Capital, who invested in Nginx and MariaDB, has started to track the fastest growing open source startups using GitHub stars and forks. Infracost was recently placed 5th on the ROSS Index[^6].
 
@@ -46,7 +46,7 @@ Over to you - what have you learnt about GitHub stars, and how do you think they
 
 1. [https://github.com/alikhajeh1?tab=stars](https://github.com/alikhajeh1?tab=stars), this is a public page, so you can see the repos that any GitHub user has starred.
 
-2. H. Borges and M. Tulio Valente, "What's in a GitHub Star? Understanding Repository Starring Practices in a Social Coding Platform," Journal of Systems and Software, vol. 146, pp. 112–129, 2018. 
+2. H. Borges and M. Tulio Valente, "What's in a GitHub Star? Understanding Repository Starring Practices in a Social Coding Platform," Journal of Systems and Software, vol. 146, pp. 112–129, 2018.
 
 3. The [Orbit Model](https://github.com/orbit-love/orbit-model) is implemented via the Orbit product, which can be used to measure and grow open source communities.
 

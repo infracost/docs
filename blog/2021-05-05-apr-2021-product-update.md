@@ -7,7 +7,7 @@ author_image_url: /img/avatars/ali.jpg
 description: We shipped major new features - big thanks to the community! Upgrade to pickup the new features.
 hide_table_of_contents: true
 image: img/blog/apr-2021-update/jenkins.png
-Date: "2021-05-05T00:00:00Z"
+date: "2021-05-05"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

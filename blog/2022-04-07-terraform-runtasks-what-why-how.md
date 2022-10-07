@@ -7,7 +7,7 @@ author_image_url: /img/avatars/hassan.jpg
 description: Hashicorp Terraform RunTasks enables third party tools to plug into Terraform Cloud
 hide_table_of_contents: false
 image: img/blog/terraform-runtasks/terraform-runtasks-partners.png
-date: "2022-04-07T00:00:00Z"
+date: "2022-04-07"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

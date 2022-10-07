@@ -7,7 +7,7 @@ author_image_url: /img/avatars/ali.jpg
 description: Build guardrails for engineering team with Infracost's native Open Policy Agent support.
 hide_table_of_contents: true
 image: img/screenshots/policy-failure-github.png
-date: "2022-03-15T00:00:00Z"
+date: "2022-03-15"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -16,7 +16,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <!--truncate-->
 
-I love shipping fast! And to ship fast, as engineers we usually automate things: 
+I love shipping fast! And to ship fast, as engineers we usually automate things:
 - unit tests quickly tell me if my change broke something.
 - linting tools quickly tell me about obvious errors and coding standard mishaps.
 - security scanning tools quickly tell me if there are potential issues in my code.

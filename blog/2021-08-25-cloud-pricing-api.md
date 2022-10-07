@@ -7,7 +7,7 @@ author_image_url: /img/avatars/ali.jpg
 description: The Cloud Pricing API is an open source GraphQL-based API that includes all public prices from AWS, Azure and Google; it contains over 3 million prices!
 hide_table_of_contents: true
 image: img/blog/cloud-pricing-api/graphql-playground.png
-date: "2021-08-25T00:00:00Z"
+date: "2021-08-25"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -75,7 +75,7 @@ Infracost runs a hosted version of this API that you can use:
   }
   ```
 
-  </TabItem>  
+  </TabItem>
   <TabItem value="response">
 
   ```json
