@@ -9,18 +9,18 @@ import Seo from '@theme/Seo';
 import BlogLayout from '@theme/BlogLayout';
 import BlogPostItem from '@theme/BlogPostItem';
 import BlogPostPaginator from '@theme/BlogPostPaginator';
-import {ThemeClassNames} from '@docusaurus/theme-common';
+import { ThemeClassNames } from '@docusaurus/theme-common';
 import TOC from '@theme/TOC';
 
 function BlogPostPage(props) {
-  const {content: BlogPostContents, sidebar} = props;
+  const { content: BlogPostContents } = props;
   const {
     // TODO this frontmatter is not validated/normalized, it's the raw user-provided one. We should expose normalized one too!
     frontMatter,
     assets,
     metadata,
   } = BlogPostContents;
-  const {title, description, nextItem, prevItem, date, tags, authors} =
+  const { title, description, nextItem, prevItem, date, tags, authors } =
     metadata;
   const {
     hide_table_of_contents: hideTableOfContents,
@@ -33,7 +33,6 @@ function BlogPostPage(props) {
     <BlogLayout
       wrapperClassName={ThemeClassNames.wrapper.blogPages}
       pageClassName={ThemeClassNames.page.blogPostPage}
-      sidebar={sidebar}
       toc={
         !hideTableOfContents &&
         BlogPostContents.toc &&
@@ -44,13 +43,15 @@ function BlogPostPage(props) {
             maxHeadingLevel={tocMaxHeadingLevel}
           />
         ) : undefined
-      }>
+      }
+    >
       <Seo // TODO refactor needed: it's a bit annoying but Seo MUST be inside BlogLayout
         // otherwise  default image (set by BlogLayout) would shadow the custom blog post image
         title={title}
         description={description}
         keywords={keywords}
-        image={image}>
+        image={image}
+      >
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={date} />
 
@@ -76,7 +77,8 @@ function BlogPostPage(props) {
         frontMatter={frontMatter}
         assets={assets}
         metadata={metadata}
-        isBlogPostPage>
+        isBlogPostPage
+      >
         <BlogPostContents />
       </BlogPostItem>
 

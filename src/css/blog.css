@@ -1,8 +1,8 @@
-.blog-wrapper h1, h2 {
-  font-size: 2.0rem !important;
+[class*='blogPostTitle_'] {
+  font-size: 2rem !important;
 }
 
-.blog-wrapper h2 a {
+[class*='blogPostTitle_'] a {
   color: var(--heading-color);
 }
 
@@ -23,4 +23,32 @@
 
 .blog-wrapper footer a:hover {
   color: var(--link-hover-color);
+}
+
+/* Layouts */
+
+.blog-wrapper {
+  padding-top: 3rem;
+}
+
+.blog-wrapper .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.container.blog-page {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  gap: 3rem;
+}
+
+/* nav */
+
+.pagination-nav {
+  grid-column: 1 / span 2;
+}
+
+.pagination-nav__link {
+  border: none;
 }
