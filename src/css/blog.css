@@ -1,8 +1,8 @@
-[class*="blogPostTitle_"] {
+.blog-wrapper h2 {
   font-size: 2.0rem !important;
 }
 
-[class*="blogPostTitle_"] a {
+.blog-wrapper h2 a {
   color: var(--heading-color);
 }
 
