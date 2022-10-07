@@ -155,6 +155,10 @@ div[class^=announcementBar_] {
   border: 1px solid var(--border-color);
 }
 
+[class*="announcementBar_"] {
+  z-index: 199 !important;
+}
+
 [class*="searchQueryColumn_"] {
   padding: 0 !important;
 }
@@ -339,4 +343,14 @@ blockquote {
   .ci-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+.theme-doc-footer {
+  background-color: inherit;
+  border-top: inherit;
+  padding: inherit;
+}
+
+.theme-doc-footer a {
+  color: var(--link-color);
 }
