@@ -10,7 +10,7 @@
   padding: 0;
   position: sticky;
   top: 0;
-  z-index: 200;
+  z-index: 300;
 }
 
 .navbar a:hover {
@@ -111,7 +111,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 300;
+  z-index: 400;
 }
 
 .navbar .sidebar {
@@ -127,7 +127,7 @@
   transition: transform 200ms ease;
   -webkit-overflow-scrolling: touch;
   width: 80%;
-  z-index: 400;
+  z-index: 500;
 }
 
 .navbar .sidebar .back {
