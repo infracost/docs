@@ -32,7 +32,10 @@ module.exports = {
             to: '/docs/integrations/github_actions',
           },
           {
-            from: ['/docs/environment_variables', '/docs/integrations/environment_variables'],
+            from: [
+              '/docs/environment_variables',
+              '/docs/integrations/environment_variables',
+            ],
             to: '/docs/features/environment_variables',
           },
           {
@@ -104,7 +107,8 @@ module.exports = {
     },
     announcementBar: {
       id: 'support_us',
-      content: '<span class="announcement-message">If you like Infracost, give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">star on GitHub</a>!<img src="/img/icons/star-white.svg" class="star-right" alt="Star icon" /></span>',
+      content:
+        '<span class="announcement-message">If you like Infracost, give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">star on GitHub</a>!<img src="/img/icons/star-white.svg" class="star-right" alt="Star icon" /></span>',
       backgroundColor: '#2A2A5B',
       textColor: '#EBEBF2',
     },
@@ -137,7 +141,7 @@ module.exports = {
           to: 'blog',
           blog: 'blog',
           label: 'Blog',
-          position: 'right'
+          position: 'right',
         },
       ],
     },
@@ -201,20 +205,23 @@ module.exports = {
         docs: {
           routeBasePath: '/docs',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl:
-          `https://github.com/infracost/docs/edit/master`,
+          editUrl: `https://github.com/infracost/docs/edit/master`,
         },
         blog: {
-          blogDescription: 'Infracost blog - Cloud cost estimates for Terraform',
+          blogDescription:
+            'Infracost blog - Cloud cost estimates for Terraform',
           blogSidebarCount: 'ALL',
           blogSidebarTitle: 'All posts',
           include: ['**/*.md', '**/*.mdx'],
-          remarkPlugins: [[
-            remarkExternalLinks,
-            {
-              rel: ['noopener'],
-            }
-          ]]
+          postsPerPage: 9,
+          remarkPlugins: [
+            [
+              remarkExternalLinks,
+              {
+                rel: ['noopener'],
+              },
+            ],
+          ],
         },
         theme: {
           customCss: require.resolve('./src/css/index.css'),

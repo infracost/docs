@@ -66,8 +66,7 @@ function BlogPostItem(props) {
   const renderPostHeader = () => {
     const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
     return (
-      <header>
-        {isBlogPostPage ? <></> : <img src={`/${image}`} alt="" />}
+      <header className="blog-card__header">
         <TitleHeading className={styles.blogPostTitle} itemProp="headline">
           {isBlogPostPage ? (
             title
@@ -77,47 +76,61 @@ function BlogPostItem(props) {
             </Link>
           )}
         </TitleHeading>
-        <div className={clsx(styles.blogPostData, 'margin-vert--md')}>
-          <time dateTime={date} itemProp="datePublished">
-            {formattedDate}
-          </time>
+        <div className="blog-card__entry-info">
+          <div className={`blog-card__entry-sub`}>
+            <time dateTime={date} itemProp="datePublished">
+              {formattedDate}
+            </time>
 
-          {typeof readingTime !== 'undefined' && (
-            <>
-              {' · '}
-              {readingTimePlural(readingTime)}
-            </>
-          )}
+            {typeof readingTime !== 'undefined' && (
+              <>
+                {' · '}
+                {readingTimePlural(readingTime)}
+              </>
+            )}
+          </div>
+          <BlogPostAuthors authors={authors} assets={assets} />
         </div>
-        <BlogPostAuthors authors={authors} assets={assets} />
       </header>
     );
   };
 
   return (
     <article
-      className={!isBlogPostPage ? 'margin-bottom--xl' : undefined}
+      className={!isBlogPostPage ? 'blog-card' : undefined}
       itemProp="blogPost"
       itemScope
       itemType="http://schema.org/BlogPosting"
     >
-      {image && (
-        <meta
-          itemProp="image"
-          content={withBaseUrl(image, {
-            absolute: true,
-          })}
-        />
-      )}
+      <div className="blog-card__main-wrapper">
+        {image && (
+          <meta
+            itemProp="image"
+            content={withBaseUrl(image, {
+              absolute: true,
+            })}
+          />
+        )}
 
-      {renderPostHeader()}
-      <div className="markdown" itemProp="articleBody">
-        <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+        {isBlogPostPage ? (
+          <></>
+        ) : (
+          <div className="blog-card__image-wrapper">
+            <img className="blog-card__img" src={`/${image}`} alt="" />
+          </div>
+        )}
+
+        <div className="blog-card__main">
+          {renderPostHeader()}
+          <div className="markdown" itemProp="articleBody">
+            <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+          </div>
+        </div>
       </div>
 
       {(tagsExists || truncated) && (
         <footer
-          className={clsx('row docusaurus-mt-lg', {
+          className={clsx('blog-card__footer', {
             [styles.blogPostDetailsFull]: isBlogPostPage,
           })}
         >
