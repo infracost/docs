@@ -104,8 +104,8 @@ function Pricing() {
           </ProductCard>
 
           <ProductCard
-            title="Cloud costs for dev/eng team review"
-            designerFor="DevOps and SRE"
+            title="Cloud costs for eng/dev team review"
+            designerFor="DevOps, SRE, Platform teams"
             image={ciCdImg}
             pillText="Infracost CI/CD"
             pillColourCoding={ColourCoding['ci-cd']}

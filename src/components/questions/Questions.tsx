@@ -68,7 +68,7 @@ const Questions = () => {
             <Question>Do you offer support for any of the products?</Question>
             <Answer>
               Yes. We offer community support for Infracost VS Code and
-              Infracost Open Source (join our community Slack here). We also
+              Infracost Open Source (join our community Slack <a href="https://infracost.io/community-chat">here</a>). We also
               offer paid support for all products with SLAs, please reach out to
               us on hello@infracost.io for pricing details.
             </Answer>
@@ -77,9 +77,7 @@ const Questions = () => {
           <QuestionLi>
             <Question>Do you provide onboarding / POC support?</Question>
             <Answer>
-              Yes. We can help you get up and running, and run your POC. Reach
-              out to us to discuss your customer requirements:
-              hello@infracost.io
+              Yes. We can help you get up and running, and run your POC. Email us at <a href="mailto:hello@infracost.io">hello@infracost.io</a> to discuss your customer requirements. 
             </Answer>
           </QuestionLi>
 
