@@ -38,7 +38,7 @@
 /* BLOG CARD */
 
 .blog-card {
-  --gap: 2rem;
+  --gap: 1rem;
   --padding: 1.25rem;
   background-color: white;
   border-radius: 8px;
@@ -47,7 +47,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1rem;
+  gap: var(--gap);
 }
 
 .blog-card__header {
@@ -70,6 +70,7 @@
 .blog-card__entry-info {
   display: flex;
   flex-direction: column;
+  gap: var(--gap);
 }
 
 .blog-card__entry-sub {
@@ -84,7 +85,7 @@
   display: flex;
   height: 12rem;
   justify-content: center;
-  margin-bottom: var(--gap);
+  margin-bottom: calc(var(--gap) * 2);
 }
 
 .blog-card__img {
@@ -116,8 +117,8 @@
   color: var(--link-hover-color);
 }
 
-/* Authors */
-
-.avatar {
-  margin-bottom: 0;
+.blog-card__avatar {
+  --size: 2.5rem;
+  width: var(--size);
+  height: var(--size);
 }
