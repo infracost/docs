@@ -9,14 +9,14 @@ function SocialMentionCard(props) {
     <div className="card">
       <div className="card-wrapper">
         <div className="heading">
-          <a className="author" href={profileUrl} target="_blank">
+          <a className="author" href={profileUrl} target="_blank" rel="noopener noreferrer">
             <div className="profile-image"><img src={`/img/social/${profileImage}`} alt="Author's profile image" /></div>
             <div className="author-details">
               <span className="name">{name}</span>
               <span className="subtitle">{subtitle}</span>
             </div>
           </a>
-          <a className={`platform-icon ${platform}`} href={link} target="_blank" aria-label="Link to Twitter/LinkedIn mention" >
+          <a className={`platform-icon ${platform}`} href={link} target="_blank" rel="noopener noreferrer" aria-label="Link to Twitter/LinkedIn mention" >
             {platform === 'twitter' ? (<TwitterIcon />) : ''}
             {platform === 'linkedin' ? (<LinkedInIcon />) : ''}
           </a>

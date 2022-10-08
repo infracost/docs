@@ -27,10 +27,10 @@ function About() {
                 </div>
                 <span className="name">Hassan Khajeh-Hosseini</span>
                 <div className="social">
-                  <a className="twitter" href="https://twitter.com/hassankhosseini" target="_blank" aria-label="Hassan's Twitter">
+                  <a className="twitter" href="https://twitter.com/hassankhosseini" target="_blank" rel="noopener noreferrer" aria-label="Hassan's Twitter">
                     <span className="icon"><TwitterIcon /></span>
                   </a>
-                  <a className="linkedin" href="https://www.linkedin.com/in/hassanhosseini/" target="_blank" aria-label="Hassan's LinkedIn">
+                  <a className="linkedin" href="https://www.linkedin.com/in/hassanhosseini/" target="_blank" rel="noopener noreferrer" aria-label="Hassan's LinkedIn">
                     <span className="icon"><LinkedInIcon /></span>
                   </a>
                 </div>
@@ -42,10 +42,10 @@ function About() {
                 </div>
                 <span className="name">Ali Khajeh-Hosseini</span>
                 <div className="social">
-                  <a className="twitter" href="https://twitter.com/alikhajeh" target="_blank" aria-label="Ali's Twitter">
+                  <a className="twitter" href="https://twitter.com/alikhajeh" target="_blank" rel="noopener noreferrer" aria-label="Ali's Twitter">
                     <span className="icon"><TwitterIcon /></span>
                   </a>
-                  <a className="linkedin" href="https://www.linkedin.com/in/alikhajeh1/" target="_blank" aria-label="Ali's LinkedIn">
+                  <a className="linkedin" href="https://www.linkedin.com/in/alikhajeh1/" target="_blank" rel="noopener noreferrer" aria-label="Ali's LinkedIn">
                     <span className="icon"><LinkedInIcon /></span>
                   </a>
                 </div>
@@ -57,10 +57,10 @@ function About() {
                 </div>
                 <span className="name">Alistair Scott</span>
                 <div className="social">
-                  <a className="twitter" href="https://twitter.com/aliscott" target="_blank" aria-label="Alistair's Twitter">
+                  <a className="twitter" href="https://twitter.com/aliscott" target="_blank" rel="noopener noreferrer" aria-label="Alistair's Twitter">
                     <span className="icon"><TwitterIcon /></span>
                   </a>
-                  <a className="linkedin" href="https://www.linkedin.com/in/aiscott/" target="_blank" aria-label="Alistair's LinkedIn">
+                  <a className="linkedin" href="https://www.linkedin.com/in/aiscott/" target="_blank" rel="noopener noreferrer" aria-label="Alistair's LinkedIn">
                     <span className="icon"><LinkedInIcon /></span>
                   </a>
                 </div>
@@ -72,7 +72,7 @@ function About() {
                 </div>
                 <span className="name">Tim McFadden</span>
                 <div className="social">
-                  <a className="linkedin" href="https://www.linkedin.com/in/tim-mcfadden-92672633/" target="_blank" aria-label="Tim's LinkedIn">
+                  <a className="linkedin" href="https://www.linkedin.com/in/tim-mcfadden-92672633/" target="_blank" rel="noopener noreferrer" aria-label="Tim's LinkedIn">
                     <span className="icon"><LinkedInIcon /></span>
                   </a>
                 </div>
@@ -84,10 +84,10 @@ function About() {
                 </div>
                 <span className="name">Vadim Golub</span>
                 <div className="social">
-                  <a className="twitter" href="https://twitter.com/vdmgolub" target="_blank" aria-label="Vadim's Twitter">
+                  <a className="twitter" href="https://twitter.com/vdmgolub" target="_blank" rel="noopener noreferrer" aria-label="Vadim's Twitter">
                     <span className="icon"><TwitterIcon /></span>
                   </a>
-                  <a className="linkedin" href="https://www.linkedin.com/in/vdmgolub/" target="_blank" aria-label="Vadim's LinkedIn">
+                  <a className="linkedin" href="https://www.linkedin.com/in/vdmgolub/" target="_blank" rel="noopener noreferrer" aria-label="Vadim's LinkedIn">
                     <span className="icon"><LinkedInIcon /></span>
                   </a>
                 </div>
@@ -99,10 +99,10 @@ function About() {
                 </div>
                 <span className="name">Hugo Rut</span>
                 <div className="social">
-                  <a className="twitter" href="https://twitter.com/hugo_rut" target="_blank" aria-label="Hugo's Twitter">
+                  <a className="twitter" href="https://twitter.com/hugo_rut" target="_blank" rel="noopener noreferrer" aria-label="Hugo's Twitter">
                     <span className="icon"><TwitterIcon /></span>
                   </a>
-                  <a className="linkedin" href="https://www.linkedin.com/in/hugo-rut-13111680/" target="_blank" aria-label="Hugo's LinkedIn">
+                  <a className="linkedin" href="https://www.linkedin.com/in/hugo-rut-13111680/" target="_blank" rel="noopener noreferrer" aria-label="Hugo's LinkedIn">
                     <span className="icon"><LinkedInIcon /></span>
                   </a>
                 </div>
@@ -111,7 +111,7 @@ function About() {
 
             <p>Hassan, Ali and Alistair have been working together in the cloud computing space since 2012. Their experience is wide-reaching from founding multiple startups and leading them through acquisitions, to creating highly scalable software used by enterprises including Sony, Samsung, PBS, Disney, Netflix and Forbes. Tim joined the team as the first Infracost engineer in 2021, soon followed by Vadim and Hugo.</p>
 
-            <p className="contact">Contact us: <a href="mailto:hello@infracost.io" target="_blank">hello@infracost.io</a></p>
+            <p className="contact">Contact us: <a href="mailto:hello@infracost.io" target="_blank" rel="noopener noreferrer">hello@infracost.io</a></p>
           </div>
 
           <div className="backers">
@@ -119,10 +119,10 @@ function About() {
               <p className="tagline">Backed by</p>
               <div className="backer-list">
                 <div className="backer-item">
-                  <a href="https://www.ycombinator.com/companies/infracost" target="_blank" aria-label="Infracost's profile on Y Combinator's website"><img src="/img/investors/yc_aligned.svg" alt="Y Combinator logo" /></a>
+                  <a href="https://www.ycombinator.com/companies/infracost" target="_blank" rel="noopener noreferrer" aria-label="Infracost's profile on Y Combinator's website"><img src="/img/investors/yc_aligned.svg" alt="Y Combinator logo" /></a>
                 </div>
                 <div className="backer-item">
-                  <a href="https://www.sequoiacap.com/companies/infracost/" target="_blank" aria-label="Infracost's profile on Sequoia's website"><img src="/img/investors/sequoia_aligned.svg" alt="Sequoia logo" /></a>
+                  <a href="https://www.sequoiacap.com/companies/infracost/" target="_blank" rel="noopener noreferrer" aria-label="Infracost's profile on Sequoia's website"><img src="/img/investors/sequoia_aligned.svg" alt="Sequoia logo" /></a>
                 </div>
                 <div className="backer-item">
                   <img src="/img/investors/mango_aligned.svg" alt="Mango Capital logo" />
