@@ -114,17 +114,23 @@ function BlogPostItem(props) {
         {isBlogPostPage ? (
           <></>
         ) : (
-          <div className="blog-card__image-wrapper">
-            {image ? (
-              <img className="blog-card__img" src={`/${image}`} alt="" />
-            ) : (
-              <img
-                className="blog-card__img"
-                src="/img/blog-card-fallback-img.png"
-                alt=""
-              />
-            )}
-          </div>
+          <Link
+            to={metadata.permalink}
+            aria-label={`Read more about ${title}`}
+            className="blog-card__footer-cta"
+          >
+            <div className="blog-card__image-wrapper">
+              {image ? (
+                <img className="blog-card__img" src={`/${image}`} alt="" />
+              ) : (
+                <img
+                  className="blog-card__img"
+                  src="/img/blog-card-fallback-img.png"
+                  alt=""
+                />
+              )}
+            </div>
+          </Link>
         )}
 
         <div className="blog-card__main">
