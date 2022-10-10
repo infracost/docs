@@ -12,12 +12,16 @@ date: "2022-05-12"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-In 2009 I started my PhD research to focus on the decisions that needed to be made for an organization to adopt public clouds. These included the benefits, the risks and the costs of using such systems. My aim was to create a set of vendor neutral tools that would assist decision makers during the process. At the end, I had developed three tools:
+In 2009 I started my PhD research to focus on the decisions that needed to be made for an organization to adopt public clouds. These included the benefits, the risks and the costs of using such systems. My aim was to create a set of vendor neutral tools that would assist decision makers during the process. 
+
+<!--truncate-->
+
+
+At the end, I had developed three tools:
 1. Cloud Suitability Checklist: A set of questions to help asses the suitability of public clouds for a given application.
 2. Benefits & Risk assessment: A list of benefits and risks that provides a starting point for organizations to talk about cloud adoption.
 3. Cloud cost modeling: A tool that enables architects to design a system (compute, databases, storage, network etc) with built-in elasticity and growth, and create a 3-year cloud cost forecast using public cloud prices. This tool turned into a startup called PlanForCloud and was acquired by RightScale:
 
-<!--truncate-->
 
 <img width="85%" src={useBaseUrl("img/blog/why-are-cloud-costs-so-complex/planforcloud.png")} alt="PlanForCloud was developed by the Infracost founders"/>
 

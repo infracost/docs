@@ -12,6 +12,8 @@ date: "2021-01-11"
 
 Last week I wrote about [giving cloud cost estimates to DevOps teams via pull requests](/blog/the-prius-effect-for-cloud-costs) as they make changes to infrastructure components. The hope is to create a “Prius Effect” for cloud costs:  it was observed that many Prius drivers would drive more efficiently simply because they were presented with immediate feedback on the Prius dashboard.
 
+<!--truncate-->
+
 In this blog, I'd like to answer a question that a user posed to us:
 >We need to know when significant budget changes are expected so we can plan for them before the money is spent. Billing alerts help us react to unexpected changes but they still can be a surprise. My DevOps now have costs in pull requests. What about my team leads and managers? They can’t go through every pull request to see what the cost changes are.
 

@@ -11,6 +11,8 @@ date: "2021-02-26"
 
 Here's what we released in February - big thanks to the community contributors! You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.7.20) to pickup these goodies:
 
+<!--truncate-->
+
 ### 🚀 Speed improvements
 
 The CLI now only runs `terraform init` if required since Terraform commands aren't the fastest in the world (init usually takes 20+ secs for me, but it depends on how many plugins you have). Furthermore, calls to the Cloud Pricing API have been switched from sequential to parallel. Infracost should run much faster than before.

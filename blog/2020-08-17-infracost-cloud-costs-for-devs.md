@@ -10,7 +10,11 @@ hide_table_of_contents: true
 date: "2020-08-17"
 ---
 
-[Infracost](https://github.com/aliscott/infracost) helps developers and DevOps engineers get cost estimates from their IaC (Infrastructure as Code). Here's an example of it running:
+[Infracost](https://github.com/aliscott/infracost) helps developers and DevOps engineers get cost estimates from their IaC (Infrastructure as Code). 
+
+<!--truncate-->
+
+Here's an example of it running:
 
 [![Infracost example](/img/blog/infracost-cloud-costs-for-devs/infracost_example.png)](https://asciinema.org/a/353843)
 
