@@ -89,7 +89,6 @@ function BlogPostItem(props) {
               </>
             )}
           </div>
-          <BlogPostAuthors authors={authors} assets={assets} />
         </div>
       </header>
     );
@@ -151,14 +150,13 @@ function BlogPostItem(props) {
           )}
 
           {truncatedPost && (
-            <div
-              className={clsx('col text--right', {
-                'col--3': tagsExists,
-              })}
-            >
+            <>
+              <BlogPostAuthors authors={authors} assets={assets} />
+
               <Link
                 to={metadata.permalink}
                 aria-label={`Read more about ${title}`}
+                className="blog-card__footer-cta"
               >
                 <b>
                   <Translate
@@ -169,7 +167,7 @@ function BlogPostItem(props) {
                   </Translate>
                 </b>
               </Link>
-            </div>
+            </>
           )}
         </footer>
       )}

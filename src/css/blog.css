@@ -115,6 +115,9 @@
   box-shadow: inset 0px -16px 14px 0px #0000001c;
 }
 .blog-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: var(--padding);
   background-color: var(--nu-20);
   border-color: #cacaca;
@@ -128,8 +131,14 @@
   color: var(--link-hover-color);
 }
 
+/* AVATAR */
+
 .blog-card__avatar {
   --size: 2.5rem;
   width: var(--size);
   height: var(--size);
+}
+
+.avatar {
+  column-gap: 0.75rem;
 }
