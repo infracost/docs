@@ -5,7 +5,7 @@ author: Hassan Khajeh-Hosseini
 author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
 description: Cloud cost estimates in pull requests with thresholds.
-image: /img/blog/the-prius-effect-for-cloud-costs/infracost-pull-request.png
+image: img/blog/the-prius-effect-for-cloud-costs/infracost-pull-request.png
 hide_table_of_contents: true
 date: "2021-01-18"
 ---
