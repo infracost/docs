@@ -46,7 +46,6 @@ function BlogPostItem(props) {
     frontMatter,
     assets,
     metadata,
-    truncated,
     isBlogPostPage = false,
   } = props;
   const {
@@ -60,6 +59,7 @@ function BlogPostItem(props) {
     authors,
   } = metadata;
   const image = assets.image ?? frontMatter.image;
+  const truncated = metadata.hasTruncateMarker;
   const truncatedPost = !isBlogPostPage && truncated;
   const tagsExists = tags.length > 0;
 
