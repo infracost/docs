@@ -5,7 +5,7 @@ author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/AliKhajeh
 author_image_url: /img/avatars/ali.jpg
 description: Why do people star GitHub repos and why is that important?
-hide_table_of_contents: true
+hide_table_of_contents: false
 image: img/blog/github-stars-matter-here-is-why/star-chart.png
 date: "2021-05-11"
 ---

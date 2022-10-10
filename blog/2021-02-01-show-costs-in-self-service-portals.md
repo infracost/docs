@@ -6,7 +6,7 @@ author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
 description: Show cloud cost estimates in enterprise self service portals.
 image: img/blog/show-costs-in-self-service-portals/self-service-portal.png
-hide_table_of_contents: true
+hide_table_of_contents: false
 date: "2021-02-01"
 ---
 

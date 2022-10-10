@@ -5,7 +5,7 @@ author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh
 author_image_url: /img/avatars/ali.jpg
 description: Build guardrails for engineering team with Infracost's native Open Policy Agent support.
-hide_table_of_contents: true
+hide_table_of_contents: false
 image: img/screenshots/policy-failure-github.png
 date: "2022-03-15"
 ---

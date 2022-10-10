@@ -5,7 +5,7 @@ author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh
 author_image_url: /img/avatars/ali.jpg
 description: The Cloud Pricing API is an open source GraphQL-based API that includes all public prices from AWS, Azure and Google; it contains over 3 million prices!
-hide_table_of_contents: true
+hide_table_of_contents: false
 image: img/blog/cloud-pricing-api/graphql-playground.png
 date: "2021-08-25"
 ---

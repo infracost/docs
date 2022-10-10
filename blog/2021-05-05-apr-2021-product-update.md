@@ -5,7 +5,7 @@ author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh
 author_image_url: /img/avatars/ali.jpg
 description: We shipped major new features - big thanks to the community! Upgrade to pickup the new features.
-hide_table_of_contents: true
+hide_table_of_contents: false
 image: img/blog/apr-2021-update/jenkins.png
 date: "2021-05-05"
 ---

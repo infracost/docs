@@ -19,7 +19,7 @@ function BlogLayout(props) {
         >
           {children}
         </main>
-        {toc && <div className="col col--2">{toc}</div>}
+        {toc && <div>{toc}</div>}
       </div>
     </Layout>
   );
