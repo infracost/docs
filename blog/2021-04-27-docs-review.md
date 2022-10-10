@@ -5,7 +5,7 @@ author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh1
 author_image_url: /img/avatars/ali.jpg
 description: David Nunez (Documentation Manager at Stripe) and Stephanie Blotner (Technical Writer, Manager at Uber) review the Infracost docs and how early-stage startups should think about technical docs as a key part of their product.
-hide_table_of_contents: true
+hide_table_of_contents: false
 image: img/blog/docs-review/screenshot.png
 date: "2021-04-27"
 ---

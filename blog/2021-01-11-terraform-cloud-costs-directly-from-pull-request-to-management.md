@@ -6,7 +6,7 @@ author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
 description: Give direct cloud access to DevOps teams, and get cloud cost estimates to the team leads and management.
 image: img/blog/terraform-cloud-costs-directly-from-pull-request-to-management/infracost_html_output.png
-hide_table_of_contents: true
+hide_table_of_contents: false
 date: "2021-01-11"
 ---
 

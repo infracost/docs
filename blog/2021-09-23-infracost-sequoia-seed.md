@@ -5,7 +5,7 @@ author: Hassan Khajeh-Hosseini
 author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
 description: Cloud costs shifting left with Infracost
-hide_table_of_contents: true
+hide_table_of_contents: false
 image: img/blog/infracost-sequoia-seed/seed_investment_banner.png
 date: "2021-09-23"
 ---

@@ -5,7 +5,7 @@ author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh1
 author_image_url: /img/avatars/ali.jpg
 description: A new CLI tool for quickly understanding cloud costs with Terraform
-hide_table_of_contents: true
+hide_table_of_contents: false
 date: "2021-03-17"
 ---
 

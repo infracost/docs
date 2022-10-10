@@ -5,7 +5,7 @@ author: Alistair Scott
 author_url: https://twitter.com/aliscott
 author_image_url: /img/avatars/alistair.jpg
 description: Why did we build Infracost?
-hide_table_of_contents: true
+hide_table_of_contents: false
 date: "2021-03-12"
 ---
 

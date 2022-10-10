@@ -1,7 +1,7 @@
 ---
 slug: terms-of-service
 title: Terms of Service
-hide_table_of_contents: true
+hide_table_of_contents: false
 custom_edit_url: null
 ---
 

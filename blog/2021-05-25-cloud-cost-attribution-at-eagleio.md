@@ -5,7 +5,7 @@ author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh1
 author_image_url: /img/avatars/ali.jpg
 description: David Julia, head of engineering at Eagle.io talks about cost attribution
-hide_table_of_contents: true
+hide_table_of_contents: false
 image: img/blog/cloud-cost-attribution-at-eagleio/ali-david.png
 date: "2021-05-25"
 ---

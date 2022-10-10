@@ -5,7 +5,7 @@ author: Ali Khajeh-Hosseini
 author_url: https://twitter.com/alikhajeh
 author_image_url: /img/avatars/ali.jpg
 description: We shipped quite a lot in February - big thanks to the community contributors! Upgrade to pickup these goodies.
-hide_table_of_contents: true
+hide_table_of_contents: false
 date: "2021-02-26"
 ---
 
