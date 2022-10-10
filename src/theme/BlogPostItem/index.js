@@ -115,7 +115,15 @@ function BlogPostItem(props) {
           <></>
         ) : (
           <div className="blog-card__image-wrapper">
-            <img className="blog-card__img" src={`/${image}`} alt="" />
+            {image ? (
+              <img className="blog-card__img" src={`/${image}`} alt="" />
+            ) : (
+              <img
+                className="blog-card__img"
+                src="/img/blog-card-fallback-img.png"
+                alt=""
+              />
+            )}
           </div>
         )}
 
