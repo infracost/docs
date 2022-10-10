@@ -16,6 +16,8 @@ import TabItem from '@theme/TabItem';
 
 Two big milestones to celebrate this month: Infracost now supports **over 100 AWS and Google resources** and we have **over 100 people** in our [community Slack channel](https://www.infracost.io/community-chat).
 
+<!--truncate-->
+
 You can [upgrade](/docs/#1-install-infracost) to the latest version (v0.8.6) to pickup the new features. If you are using v0.7 (or older) please follow the [v0.8 migration guide](/docs/guides/v0.8_migration).
 
 ### 📉 EC2 reserved instances

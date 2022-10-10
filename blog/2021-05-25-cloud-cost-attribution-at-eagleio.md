@@ -12,11 +12,12 @@ date: "2021-05-25"
 
 I sat down with [David Julia](https://twitter.com/DavidJulia), who is the Head of Engineering at [Eagle.io](https://eagle.io) to talk about cost attribution, why it matters, who should care and how Eagle.io achieves this. We worked through their use-case, their tech stack, the tools they use, what worked and what did not work, and ultimately how they have achieved cloud cost attribution.
 
+<!--truncate-->
+
 <iframe width="90%" height="350" src="https://www.youtube.com/embed/F8G9bhwNfNY" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
 
 The following is lightly edited transcript (from YouTube) of the introduction section of our chat:
 
-<!--truncate-->
 
 **Ali**: Hey everyone, I have David Julia here who is the head of engineering at Eagle.io. David thank you very much for taking time to speak with me today. Would you like to introduce yourself?
 

@@ -13,6 +13,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 March was busy as we added major new features and had Y Combinator's demo day, where [Hassan](https://twitter.com/hassankhosseini) (our CEO) delivered an awesome 60 second pitch on a Zoom call with hundreds of investors!
 
+<!--truncate-->
+
 You can [**upgrade**](/docs/#1-install-infracost) to the latest version (v0.8.3) to pickup the new features. If you are using v0.7 (or older) please follow the [v0.8 migration guide](/docs/guides/v0.8_migration).
 
 ### 🗒️ See diffs in CLI

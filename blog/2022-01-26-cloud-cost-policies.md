@@ -12,11 +12,12 @@ date: "2022-01-26"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-**Today, we are excited to release an integration between Infracost and Open Policy Agent (OPA), HashiCorp Sentinel and Conftest. This enables DevOps teams to set policies on cost estimates before resources are launched.**
+Today, we are excited to release an integration between Infracost and Open Policy Agent (OPA), HashiCorp Sentinel and Conftest. This enables DevOps teams to set policies on cost estimates before resources are launched.
+
+<!--truncate-->
 
 <img src={useBaseUrl("img/blog/cloud-cost-policies/InfracostCloudCostPolicies.png")} width="100%" alt="Infracost OPA integration"/>
 
-<!--truncate-->
 
 <br /><br />
 

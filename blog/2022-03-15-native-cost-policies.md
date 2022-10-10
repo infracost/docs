@@ -12,7 +12,7 @@ date: "2022-03-15"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-**Cost policy checks are now reported directly inside pull request comments! Native integration with Open Policy Agent simplifies writing policies that are checked before resources are launched.**
+Cost policy checks are now reported directly inside pull request comments! **Native integration with Open Policy Agent simplifies writing policies** that are checked before resources are launched.
 
 <!--truncate-->
 

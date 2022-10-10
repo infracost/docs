@@ -14,6 +14,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 As Infracost has hit 3,000 GitHub stars 🎉, I wanted to share some thoughts as to why GitHub stars matter.
 
+<!--truncate-->
+
 ### Why do people star repos?
 
 There are two main reasons why people star GitHub projects:

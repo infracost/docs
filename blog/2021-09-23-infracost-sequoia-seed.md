@@ -14,6 +14,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 I’m very excited to announce that Infracost has raised $2.2M in seed funding from Sequoia, Y Combinator, SV Angel and Yun-Fang Juan as an angel investor.
 
+<!--truncate-->
+
 <div style={{textAlign: 'center'}}>
   <img src={useBaseUrl("img/blog/infracost-sequoia-seed/smile.gif")} width="50%" alt="smile"/>
 </div>
@@ -22,7 +24,6 @@ People are often surprised to learn that DevOps and SREs, who are launching clou
 
 The way we solve this problem is to show engineering teams how much resources, and the specific options they have selected, cost. This happens within their workflow before anything goes to production.
 
-<!--truncate-->
 
 <div style={{textAlign: 'center'}}>
   <img src={useBaseUrl("img/blog/infracost-sequoia-seed/mindblown.gif")} width="50%" alt="smile"/>

@@ -12,6 +12,8 @@ date: "2021-02-01"
 
 Over the last 10 years we’ve seen a lot of shadow IT with AWS being used as the infrastructure provider. The AWS bills were put on company credit cards and expensed. Individual business units could spin up the resources they needed and work in an incredibly agile manner. Unfortunately, for the enterprise as a whole this resulted in shadow spend, less control and security issues. To address these issues, central IT departments built “Self Service” portals with single sign-on (SSO). Business units could still spin up resources as needed, and the enterprise gained some visibility and control.
 
+<!--truncate-->
+
 This caused a new issue. When successful shadow IT projects started consuming more resources, bills went up until the company credit card limits were reached. Then someone would have to go up the ranks to figure out what rules the business unit broke and how to solve it going forward. Self service portals addressed the credit card limit issue by enabling usage, and adding showback and chargeback via spend reports at the end of the month. Optimization was left to the end user to figure out after getting the bill.
 
 A great way to help the end user optimize cloud costs before the showback/chargeback report is to let them see how much resources cost *before* they are launched. Multiple enterprises have achieved this with Infracost, and I want to share how:

@@ -12,6 +12,8 @@ date: "2021-01-18"
 
 Most cloud providers enable users to set budget alerts on their actual cloud spend. This is a critical safety net as usage-based resources could incur a lot of cost (e.g. data transfer). There is also another safety net that companies should set up, and that is catching significant cost changes to their infrastructure before going live. For example, finding out how much increasing the RAM for a Lambda function costs before putting the new function into production. Usage estimates can also be considered during cost estimation.
 
+<!--truncate-->
+
 [Infracost](https://github.com/infracost/infracost) is an open source tool that can be put into CI/CD pipelines (GitHub, GitLab, CircleCI, Bitbucket and Atlantis…) and will leave a comment with the cloud cost implications of changes to your infrastructure-as-code: "this change to your terraform file will increase your cloud bill by 25% next month".
 
 In some cases, you may only want an Infracost comment when a threshold is reached. For example, if the cost implications of the change are minor (e.g. under 3%), then no comment is needed. We have now added this ability into Infracost - from our [CI/CD integration docs](https://www.infracost.io/docs/integrations/), select your CI system, and set the `percentage_threshold` flag.

@@ -11,6 +11,8 @@ date: "2021-04-20"
 
 It's estimated that data centers consume around 1% of the global electric supply [^1] and this could increase to between 3-13% by 2030 [^2]. The wider ICT (information and communications technology) ecosystem accounts for 2% of the world's carbon emissions, putting it on par with the entire aviation industry [^3].
 
+<!--truncate-->
+
 The cloud has revolutionized how we use data centers. With the democratisation of infrastructure provisioning, companies have been able to launch, iterate and scale many times faster than before.
 
 There's no doubt that migrating from traditional on-premise data centers to the cloud is more environmentally friendly. Due to their scale and multi-tenancy, cloud providers can be a lot more efficient. By switching to the cloud, companies can provision 75% fewer servers for the same workload [^2]. Between 2010 and 2018 the total global compute power of data centers increased five-fold. However, due to the energy efficiency improvements offered by the cloud, the amount of energy they consumed only grew by 6% [^3].

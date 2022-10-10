@@ -12,6 +12,8 @@ date: "2021-04-27"
 
 Last week David Nunez (Documentation Manager at Stripe) and Stephanie Blotner (Technical Writer, Manager at Uber) sat down with me to review our [docs](/docs). We also discussed feature-based vs task-based docs and how early-stage startups should think about technical documentation as a key part of their product.
 
+<!--truncate-->
+
 David and Stephanie have around 20 years of experience between them, with a special a focus on writing for a developer audience. I learned a lot from this session; I'm sharing the recording and transcripts here as I think it contains great advice that applies to other startups too.
 
 —

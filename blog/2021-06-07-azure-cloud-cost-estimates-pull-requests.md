@@ -12,13 +12,15 @@ date: "2021-06-07"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<img src={useBaseUrl("img/blog/azure-cloud-cost-estimates-pull-requests/infracost_azure.png")} width="100%" alt="Infracost Azure"/>
 
-<br/><br/>
 
 Thanks to our awesome community, I'm very excited to announce that you can now use Infracost to get cloud cost estimates for Microsoft Azure in pull requests. [Try it now](https://www.infracost.io/docs/), it's free and open source!
 
 <!--truncate-->
+
+<img src={useBaseUrl("img/blog/azure-cloud-cost-estimates-pull-requests/infracost_azure.png")} width="100%" alt="Infracost Azure"/>
+
+<br/><br/>
 
 <br/>
 

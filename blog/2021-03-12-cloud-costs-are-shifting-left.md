@@ -9,11 +9,12 @@ hide_table_of_contents: true
 date: "2021-03-12"
 ---
 
-### What is "shift left"?
-
 "Shift left" has become a popular buzzword for both Software Engineering and DevOps. It means introducing processes earlier in the software development cycle.
 
+<!--truncate-->
+
 The "shift left" principle started with testing. In a traditional waterfall model testing is performed just before release. Shift left testing started it earlier by introducing practices such as Test-Driven Development (TDD) and Behaviour-Driven Development (BDD).
+
 
 We are now seeing the "shift left" principle applied to other disciplines. Continuous delivery platforms allow engineering teams to deploy frequently and integrate a suite of tools into their cycle. The term DevSecOps has been coined. The idea behind it is to introduce security as early as possible in the software development cycle. This has given rise to a whole ecosystem of tools to help implement this practice. Companies like Snyk and Anchore integrate automated security scanning into DevOps workflows so teams can proactively find and fix vulnerabilities.
 

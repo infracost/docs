@@ -12,6 +12,8 @@ date: "2021-01-04"
 
 Over the last 10 years we have seen more enterprises give direct cloud access to their developers and DevOps teams. There are many ways this has been achieved, from giving admin logins to the cloud console, to having devs create request tickets to the central IT team, to creating a self-service catalogue in which business units can select what they need from a list of pre-approved resources or environments.
 
+<!--truncate-->
+
 What ever model enterprises have chosen, one common thing happens. The cloud bill becomes less predictable. Someone didn't know what they were launching, they didn't turn it off, they didn't consider that when you create one resource, it will auto-create a bunch of other resources. As we shift left with Infrastructure as Code, and further with Serverless, in which code decisions have a direct impact on the cloud bill, we need a better answer than just policing what developers have access to and doing post-bill analysis.
 
 Myself and my co-founders have been working in the cloud cost space for 10 years, and we now want to address this issue. Our theory is that if we give developers and DevOps engineers a clear picture of costs of their infrastructure before they launch, then they will be more mindful about what they launch. Think of it like [The Prius Effect](https://powerhousedynamics.com/resources/white-papers/prius-effect1/) in which it was observed and documented that a large subset of Prius drivers would respond to the data on the dashboard by driving in a manner that decreased fuel consumption, but for cloud costs.
