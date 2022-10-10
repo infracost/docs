@@ -27,10 +27,16 @@
   padding-bottom: 7rem;
 }
 
-.container.blog-page {
+.blog-page {
   display: grid;
   grid-template-columns: 5fr 2fr;
   gap: 3rem;
+}
+
+@media (max-width: 997px) {
+  .blog-page {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* nav */
