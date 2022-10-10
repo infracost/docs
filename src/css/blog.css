@@ -90,27 +90,24 @@
 }
 
 .blog-card__image-wrapper {
-  --height: 16rem;
   background: var(--primary-gradient);
   background-size: cover;
   padding: 1.5rem 1.5rem 0;
   display: flex;
-  height: var(--height);
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
   justify-content: center;
   margin-bottom: calc(var(--gap) * 2);
+  aspect-ratio: 11/5;
 }
 
 .blog-card__img {
   height: auto;
-  max-width: 700px;
   object-fit: cover;
-  width: 100%;
-  height: calc(var(--height) - 1.5rem);
   background-color: white;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  aspect-ratio: inherit;
 }
 
 .blog-card__image-wrapper,
