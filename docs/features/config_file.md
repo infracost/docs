@@ -30,10 +30,12 @@ Infracost configuration values are chosen in this order:
 
   projects:
     - path: dev
+      name: development
       terraform_var_files:
         - dev.tfvars
 
     - path: prod
+      name: production
       terraform_var_files:
         - prod.tfvars
   ```
@@ -125,9 +127,11 @@ Infracost configuration values are chosen in this order:
 
   projects:
     - path: my/terragrunt/dev
+      name: dev
       usage_file: dev-usage.yml
 
     - path: my/terragrunt/prod
+      name: prod
       usage_file: prod-usage.yml
   ```
   </TabItem>
