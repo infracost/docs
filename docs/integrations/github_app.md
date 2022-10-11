@@ -21,9 +21,12 @@ We are currently working on our SOC 2 Type II compliance process, see our [secur
 
   <img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
 
-3. Click on Integrations > GitHub and follow the wizard. If you use private git modules, add your private SSH key (RSA format is recommended) so Infracost can clone the repos in the same way that Terraform does. If you use Terraform Registry modules, see [this page](/docs/features/terraform_modules/#terraform-registry-modules)
+3. Click on Integrations > GitHub and follow the wizard.
+    - If you use private git modules, add your private SSH key (RSA format is recommended) so Infracost can clone the repos in the same way that Terraform does.
+    - If you use private Terraform Registry modules, see [this page](/docs/features/terraform_modules/#terraform-registry-modules).
+    - Email [hello@infracost.io](mailto:hello@infracost.io) if you use [GitHub Enterprise](https://github.com/enterprise) (where you have a dedicated instance of GitHub).
 
-4. If you need to customize how Infracost runs, add an `infracost.yml` [config file](/docs/features/config_file/) to the root of your repo.
+4. If you need to customize how Infracost runs, add an `infracost.yml` [config file](/docs/features/config_file/) to the root of your repo. The GitHub App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage-yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
 
 5. Open a test pull request and wait for Infracost to leave a pull request comment. The [Infracost Cloud dashboard](https://dashboard.infracost.io) should also show the cost estimate too.
 
