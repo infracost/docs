@@ -48,7 +48,6 @@ Edit the generated usage file with your usage estimates, for example a Lambda fu
 
   ```yaml
   version: 0.1
-
   resource_usage:
     aws_lambda_function.hi:
       monthly_requests: 0 # Monthly requests to the Lambda function.
@@ -82,14 +81,16 @@ Usage for a resource type, e.g. `aws_dynamodb_table`, can also be defined in the
 This is useful when you want to create traffic profiles such as small/medium/large. Resource type defaults can be overridden on a per-resource basis (shown below); usage keys that are re-defined at a resource level override the default, and new usage keys are merged with the defaults. 
 
 ```yaml
-aws_dynamodb_table:
-  storage_gb: 1000 # Set in all DynamoDB table resources
+version: 0.1
+resource_usage:
+  aws_dynamodb_table:
+    storage_gb: 1000 # Set in all DynamoDB table resources
 
-aws_dynamodb_table.my_table:
-  monthly_write_request_units: 200 # Merged with default that defines storage_gb
+  aws_dynamodb_table.my_table:
+    monthly_write_request_units: 200 # Merged with default that defines storage_gb
 
-aws_dynamodb_table.my_other_table:
-  storage_gb: 50 # Overrides the default
+  aws_dynamodb_table.my_other_table:
+    storage_gb: 50 # Overrides the default
 ```
 
 #### Terraform modules
@@ -97,12 +98,14 @@ aws_dynamodb_table.my_other_table:
 Usage for resources inside modules can be specified using the full path of the resource. This is the same value as Infracost outputs in the Name column, for example:
 
 ```yaml
-module.my_module.aws_dynamodb_table.my_table:
-  storage_gb: 1000
+version: 0.1
+resource_usage:
+  module.my_module.aws_dynamodb_table.my_table:
+    storage_gb: 1000
 
-module.lambda_function.aws_lambda_function.this[0]:
-  monthly_requests: 20000
-  request_duration_ms: 600
+  module.lambda_function.aws_lambda_function.this[0]:
+    monthly_requests: 20000
+    request_duration_ms: 600
 ```
 
 #### Resource arrays/maps
@@ -123,38 +126,44 @@ When wildcard entries exist in the usage file and `--sync-usage-file` is used:
   <TabItem value="using-array-wildcard">
 
   ```yml
-  aws_cloudwatch_log_group.my_group[*]:
-    storage_gb: 1000
-    monthly_data_ingested_gb: 1000
-    monthly_data_scanned_gb: 200
+  version: 0.1
+  resource_usage:
+    aws_cloudwatch_log_group.my_group[*]:
+      storage_gb: 1000
+      monthly_data_ingested_gb: 1000
+      monthly_data_scanned_gb: 200
   ```
   </TabItem>
   <TabItem value="array-without-wildcard">
 
   ```yml
-  aws_cloudwatch_log_group.my_group[0]:
-    storage_gb: 1000
-    monthly_data_ingested_gb: 1000
-    monthly_data_scanned_gb: 200
+  version: 0.1
+  resource_usage:  
+    aws_cloudwatch_log_group.my_group[0]:
+      storage_gb: 1000
+      monthly_data_ingested_gb: 1000
+      monthly_data_scanned_gb: 200
 
-  aws_cloudwatch_log_group.my_group[1]:
-    storage_gb: 1000
-    monthly_data_ingested_gb: 1000
-    monthly_data_scanned_gb: 200
+    aws_cloudwatch_log_group.my_group[1]:
+      storage_gb: 1000
+      monthly_data_ingested_gb: 1000
+      monthly_data_scanned_gb: 200
 
-  aws_cloudwatch_log_group.my_group[3]:
-    storage_gb: 1000
-    monthly_data_ingested_gb: 1000
-    monthly_data_scanned_gb: 200
+    aws_cloudwatch_log_group.my_group[3]:
+      storage_gb: 1000
+      monthly_data_ingested_gb: 1000
+      monthly_data_scanned_gb: 200
   ```
   </TabItem>
   <TabItem value="map-without-wildcard">
 
   ```yml
-  aws_cloudwatch_log_group.my_group["foo"]:
-    storage_gb: 1000
-    monthly_data_ingested_gb: 1000
-    monthly_data_scanned_gb: 200
+  version: 0.1
+  resource_usage:
+    aws_cloudwatch_log_group.my_group["foo"]:
+      storage_gb: 1000
+      monthly_data_ingested_gb: 1000
+      monthly_data_scanned_gb: 200
   ```
   </TabItem>
 </Tabs>
@@ -164,11 +173,13 @@ When wildcard entries exist in the usage file and `--sync-usage-file` is used:
 What-if anlaysis can be done on AWS EC2 Reserved Instances (RI) using the usage file. The RI type, term and payment option can be defined as shown below, to quickly get a monthly cost estimate. This works with `aws_instance` as well as `aws_eks_node_group` and `aws_autoscaling_group` as they also create EC2 instances. Let us know how you'd like Infracost to show the upfront costs by [creating a GitHub issue](https://github.com/infracost/infracost/issues/).
 
   ```yml
-  aws_instance.my_instance:
-    operating_system: linux # Override the operating system of the instance, can be: linux, windows, suse, rhel.
-    reserved_instance_type: standard # Offering class for Reserved Instances. Can be: convertible, standard.
-    reserved_instance_term: 1_year # Term for Reserved Instances. Can be: 1_year, 3_year.
-    reserved_instance_payment_option: all_upfront # Payment option for Reserved Instances. Can be: no_upfront, partial_upfront, all_upfront.
+  version: 0.1
+  resource_usage: 
+    aws_instance.my_instance:
+      operating_system: linux # Override the operating system of the instance, can be: linux, windows, suse, rhel.
+      reserved_instance_type: standard # Offering class for Reserved Instances. Can be: convertible, standard.
+      reserved_instance_term: 1_year # Term for Reserved Instances. Can be: 1_year, 3_year.
+      reserved_instance_payment_option: all_upfront # Payment option for Reserved Instances. Can be: no_upfront, partial_upfront, all_upfront.
   ```
 
 ## Usage profiles
@@ -187,7 +198,6 @@ You can use the `resource_type_default_usage` section of the usage file and crea
   ```yml
   version: 0.1
   resource_type_default_usage:
-
     aws_lambda_function:
       monthly_requests: 1000000
       request_duration_ms: 100
@@ -208,7 +218,6 @@ You can use the `resource_type_default_usage` section of the usage file and crea
   ```yml
   version: 0.1
   resource_type_default_usage:
-
     aws_lambda_function:
       monthly_requests: 5000000
       request_duration_ms: 200
@@ -229,7 +238,6 @@ You can use the `resource_type_default_usage` section of the usage file and crea
   ```yml
   version: 0.1
   resource_type_default_usage:
-
     aws_lambda_function:
       monthly_requests: 10000000
       request_duration_ms: 200
