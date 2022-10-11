@@ -40,6 +40,7 @@ module.exports = {
       label: 'Integrations',
       collapsed: true,
       items: [
+        'integrations/github_app',
         'integrations/github_actions',
         'integrations/gitlab_ci',
         'integrations/atlantis',
