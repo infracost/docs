@@ -60,7 +60,17 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
         // path of this project within a Terraform mono-repo
         "terraformModulePath": "prod/us-east",
         // Terraform workspace if specified for this project
-        "terraformWorkspace": "prod"
+        "terraformWorkspace": "prod",
+        // HCL parsing warnings that might impact the cost estimate
+        "warnings": [
+          {
+            "code": 1,
+            "message": "Missing Terraform vars",
+            "data": [
+              "variable.instancetype"
+            ]
+          }
+        ]
       },
       /* When Infracost is used with a Terraform plan JSON, this contains any
       resources that are in the prior Terraform state.

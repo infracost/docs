@@ -78,7 +78,7 @@ The **reference file [infracost-usage-example.yml](https://github.com/infracost/
 
 Usage for a resource type, e.g. `aws_dynamodb_table`, can also be defined in the usage file. Resource type defaults apply to all resources of that type regardless of the module they reside in.
 
-This is useful when you want to create traffic profiles such as small/medium/large. Resource type defaults can be overridden on a per-resource basis (shown below); usage keys that are re-defined at a resource level override the default, and new usage keys are merged with the defaults. 
+This is useful when you want to create traffic profiles such as lower/medium/high. Resource type defaults can be overridden on a per-resource basis (shown below); usage keys that are re-defined at a resource level override the default, and new usage keys are merged with the defaults. 
 
 ```yaml
 version: 0.1

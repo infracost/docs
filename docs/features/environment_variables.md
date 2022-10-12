@@ -52,7 +52,7 @@ Used to set the Terraform workspace (this sets the [`TF_WORKSPACE`](https://www.
 Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported". If you see this error, try running `unset INFRACOST_TERRAFORM_WORKSPACE` and `unset TF_WORKSPACE`.
 
 ### INFRACOST_TERRAFORM_CLOUD_TOKEN
-For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan.
+For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan, variables or private registry modules.
 
 ### INFRACOST_TERRAFORM_CLOUD_HOST
 For Terraform Enterprise users, used to override the default `app.terraform.io` backend host.
