@@ -150,6 +150,10 @@ nav.pagination-nav.docusaurus-mt-lg {
   border-color: var(--nu10);
 }
 
+.blog-card__footer-cta {
+  white-space: nowrap;
+}
+
 .blog-card__footer a {
   color: var(--link-color);
 }
