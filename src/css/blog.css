@@ -45,7 +45,7 @@
 }
 
 @media (max-width: 997px) {
-  .blog-page {
+  .container.blog-page {
     grid-template-columns: 1fr;
     padding-top: 1.5rem;
   }
