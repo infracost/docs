@@ -55,7 +55,7 @@ Only set this for multi-workspace deployments, otherwise it might result in the 
 For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can use it to access the plan, variables or private registry modules.
 
 ### INFRACOST_TERRAFORM_CLOUD_HOST
-For Terraform Enterprise users, used to override the default `app.terraform.io` backend host.
+For Terraform Enterprise users, used to override the default `app.terraform.io` backend host. Can also be set to `gitlab.com` (or your GitLab hostname) for users who use GitLab for [Terraform modules](/docs/features/terraform_modules/) or variables.
 
 ### INFRACOST_PARALLELISM
 If using multiple projects using a [config_file](/docs/features/config_file) this limits the number of projects processed in parallel. By default the parallelization level is set to 4×CPU count but capped at 16. To help with debugging set this to `1` so that the projects are processed synchronously.
