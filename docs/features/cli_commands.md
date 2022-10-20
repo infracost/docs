@@ -540,6 +540,10 @@ The metadata is also needed by Infracost Cloud's dashboard to show you pull requ
   # Combine Infracost JSON files from diffs into one file
   infracost output --path "infracost-*.json" --format json --out-file infracost.json
 
+  # Post pull request comment
+  # See https://www.infracost.io/docs/features/cli_commands/#comment-on-pull-requests for posting to GitHub, GitLab, Azure Repos and Bitbucket
+  infracost comment github --path "infracost.json" ...
+
   # Upload Infracost JSON file to Infracost Cloud
   infracost upload --path infracost.json
   ```
