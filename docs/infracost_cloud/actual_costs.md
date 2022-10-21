@@ -5,84 +5,59 @@ title: Actual Costs
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost Cloud supports showing you actual costs using your AWS account's CUR data. Infracost requires read access to
-your billing data to provide this functionality. This page outlines how you can connect Infracost Cloud to your AWS CUR
-data.
+Infracost Cloud enables you to see actual costs using your AWS account's Cost and Usage Reports (CUR) data in the Infracost [pull request comments](/docs/integrations/cicd/), [VSCode extension](/docs/integrations/vscode/) and [CLI output](/docs/features/cli_commands/).
 
-### Connect Infracost Cloud to an AWS account with an existing CUR S3 bucket
+This page outlines how you can give Infracost Cloud read access to your AWS CUR data (and resources listings), which Infracost requires to provide this functionality. We plan to build similar functionality for Azure and Google in the future.
 
-> Follow this section if you already have daily Cost and Usage Reports being uploaded to a specific S3 bucket.
-Otherwise, see the next section [Connect Infracost Cloud to an AWS account without CUR enabled](#connect-infracost-cloud-to-an-aws-account-without-cur-enabled) on how to provision a
-completely new CUR setup.
+:::info
+This feature is in private beta, email [hello@infracost.io](mailto:hello@infracost.io) if you'd like access.
+:::
 
-1. Run the following Cloudformation stack using the AWS CLI:
+## Connect Infracost Cloud to existing AWS CUR S3 bucket
+
+:::tip
+Follow this section if you have an existing Cost and Usage Report setup with these settings: **Daily** granularity, includes **Resource IDs**, in **GZIP** format.
+
+Otherwise, see the next section to [setup a new AWS CUR for Infracost Cloud](#setup-new-aws-cur-for-infracost-cloud).
+:::
+
+### 1. Setup cross account role
+
+In the AWS account that has your CUR S3 bucket, run the following CloudFormation stack using the AWS CLI. This CloudFormation stack creates a [cross account role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html) that has programmatic access to read CUR data from S3. You can read the specific access that the cross account role requires by reading the public [CloudFormation script](https://infracost-prod-cur-templates.s3.amazonaws.com/existing_bucket_cloudformation_template.json).
 
   ```bash
   aws cloudformation create-stack --stack-name ConnectToInfracost \
     --template-url https://infracost-prod-cur-templates.s3.amazonaws.com/existing_bucket_cloudformation_template.json \
-    --parameters ParameterKey=InfracostExternalID,ParameterValue=$YOUR_INFRACOST_ORGANIZATION_ID> \
+    --parameters ParameterKey=InfracostExternalID,ParameterValue=$YOUR_INFRACOST_ORGANIZATION_ID \
     ParameterKey=InfracostAccount,ParameterValue=237144093413 \
     ParameterKey=BucketName,ParameterValue=$YOUR_S3_BUCKET_NAME \
     --capabilities CAPABILITY_IAM \
     --region us-east-1
   ```
 
-   replace **$YOUR_S3_BUCKET_NAME** with the CUR S3 bucket you want to connect to Infracost Cloud
-   and **$YOUR_INFRACOST_ORGANIZATION_ID** with the Org ID found under Organization settings page.
+Replace `$YOUR_S3_BUCKET_NAME` with the CUR S3 bucket you want to connect to Infracost Cloud and `$YOUR_INFRACOST_ORGANIZATION_ID` with the Infracost Org ID found under Org Settings page (shown below).
 
-   <img src={useBaseUrl("img/infracost-cloud/org-id.png")} alt="Organization ID" />
+<img src={useBaseUrl("img/infracost-cloud/org-id.png")} alt="Organization ID" />
 
-   This Cloudformation stack creates
-   a [cross account role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html)
-   that has programmatic access to read CUR data from S3. You can read the specific access that the cross account role
-   requires by reading the
-   public [Cloudformation script](https://infracost-prod-cur-templates.s3.amazonaws.com/existing_bucket_cloudformation_template.json).
+### 2. Get new role ARN
 
-2. Once you've run AWS CLI command, login to the AWS console and navigate to
-   your [Cloudformation Stacks](https://us-east-1.console.aws.amazon.com/cloudformation). If the Cloudformation stack
-   has run successfully you should see the **ConnectToInfracost** stack in a *CREATE_COMPLETE* status:
+Once you've run the AWS CLI command, login to the AWS console and navigate to your [CloudFormation Stacks](https://us-east-1.console.aws.amazon.com/cloudformation) in the AWS account that has the CUR S3 bucket. If the CloudFormation stack has run successfully you should see the **ConnectToInfracost** stack in a *CREATE_COMPLETE* status.
 
-   <img src={useBaseUrl("img/infracost-cloud/cloudformation-stack.png")} alt="Cloudformation stack" />
+Navigate to the **Outputs** tab and copy the value of the **RoleArn**. This is the ARN of the cross account role that the CloudFormation Stack created. You'll need this in later steps.
 
-   Navigate to the **Outputs** tab and copy the value of the **RoleArn**. This is the ARN of the cross account role that
-   the Cloudformation Stack created. You'll need this in later steps.
-3. Head over to the S3 console and navigate to the bucket, which contains your CUR data. Select the **Properties** tab.
-   We're going to add an S3 event notification so that Infracost Cloud is notified when a new CUR is created.
+  <img src={useBaseUrl("img/infracost-cloud/cloudformation-stack.png")} alt="CloudFormation stack" />
 
-   <img src={useBaseUrl("img/infracost-cloud/s3-properties.png")} alt="Properties tab" />
+### 3. Setup S3 bucket permissions
 
-   Then scroll down to the **Event notifications** section and click **Create event notification**. You'll be taken to
-   the event notification form.
+Head over to the AWS Console's S3 page, and navigate to the CUR bucket. You need to configure the bucket policy to allow the cross account role created by Infracost to access the CUR object. Click the **Permissions** tab on the S3 bucket navigation.
 
-   <img src={useBaseUrl("img/infracost-cloud/s3-create-event-notification.png")} alt="Create event notification" />
+  <img src={useBaseUrl("img/infracost-cloud/s3-permissions.png")} alt="Permissions tab" />
 
-   Under **General configuration** add the following inputs:
+Scroll down to the **Bucket policy** section and hit **Edit**.
 
-   <img src={useBaseUrl("img/infracost-cloud/s3-notification-general-config.png")} alt="Notification general
-   configuration" />
+  <img src={useBaseUrl("img/infracost-cloud/s3-bucket-policy.png")} alt="Bucket policy tab" />
 
-   Under **Event types** check the **All object create events** checkbox.
-
-   <img src={useBaseUrl("img/infracost-cloud/s3-notification-event-types.png")} alt="Notification event types" />
-
-   Finally, in the **Destination** configuration add an **SNS Topic** configuration pointing to the **arn:aws:sns:
-   us-east-1:237144093413:cur-uploaded** ARN, and hit **Save changes**.
-
-   <img src={useBaseUrl("img/infracost-cloud/s3-topic-config.png")} alt="Notification topic config" />
-
-   You should now see an event notification configuration created similar to the following:
-
-   <img src={useBaseUrl("img/infracost-cloud/s3-notification-created.png")} alt="Notification created" />
-4. Next we need to configure the bucket policy to allow the cross account role created by Infracost to access the CUR
-   object. Click the **Permissions** tab on the S3 bucket navigation.
-
-   <img src={useBaseUrl("img/infracost-cloud/s3-permissions.png")} alt="Permissions tab" />
-
-   Scroll down to the **Bucket policy** section and hit **Edit**.
-
-   <img src={useBaseUrl("img/infracost-cloud/s3-bucket-policy.png")} alt="Bucket policy tab" />
-
-   Add the following statement to the bottom of your policy block:
+Add the following statement to the bottom of your policy block:
 
    ```json
     {
@@ -98,48 +73,122 @@ completely new CUR setup.
     }
    ```
 
-   replace **$CROSS_ACCOUNT_ARN_OUTPUT** with the ARN copied from step 2 and **$YOUR_BUCKET_NAME** with the name of your
-   bucket:
+Replace `$CROSS_ACCOUNT_ARN_OUTPUT` with the ARN copied from step 2 and `$YOUR_BUCKET_NAME` with the name of your bucket. Hit **Save changes**.
 
-   <img src={useBaseUrl("img/infracost-cloud/s3-bucket-policy-editor.png")} alt="Bucket policy editor" />
+  <img src={useBaseUrl("img/infracost-cloud/s3-bucket-policy-editor.png")} alt="Bucket policy editor" />
 
-   Hit **Save changes**.
-5. Your CUR permissions are now successfully configured. However, you'll need to provide Infracost the following values
-   to complete your setup:
-   1. The **Cross Account ARN** from step 2.
-   2. Your CUR **S3 Bucket ARN**.
-6. Once Infracost has received these ARN values and updated your account to fetch CUR data we'll let you know. We'll guide you through any next steps to update any Infracost pipelines. 
+### 4. Setup S3 event notifications
 
-### Connect Infracost Cloud to an AWS account without CUR enabled
+In the same page as above (AWS Console > S3 > CUR bucket), select the **Properties** tab. You need to add an S3 event notification so that Infracost Cloud is notified when a new CUR is created.
 
-> Follow this section if you **do not already** have daily Cost and Usage Reports uploaded to a S3 bucket.
-If you do, follow the previous section [Connect Infracost Cloud to an AWS account with an existing CUR S3 bucket](#connect-infracost-cloud-to-an-aws-account-with-an-existing-cur-s3-bucket) to connect Infracost Cloud to your existing CUR bucket. 
+  <img src={useBaseUrl("img/infracost-cloud/s3-properties.png")} alt="Properties tab" />
 
-1. Run the following Cloudformation stack using the AWS CLI:
+Then scroll down to the **Event notifications** section and click **Create event notification**. You'll be taken to the event notification form.
+
+  <img src={useBaseUrl("img/infracost-cloud/s3-create-event-notification.png")} alt="Create event notification" />
+
+Under **General configuration** add the following inputs:
+  - Event name: `Infracost`
+  - Prefix: if you set a CUR report path prefix for S3, also set that here.
+  - Suffix: `Manifest.json`
+
+  <img src={useBaseUrl("img/infracost-cloud/s3-notification-general-config.png")} alt="Notification general configuration" />
+
+Under **Event types** check the **All object create events** checkbox.
+
+  <img src={useBaseUrl("img/infracost-cloud/s3-notification-event-types.png")} alt="Notification event types" />
+
+Finally, in the **Destination** configuration add an **SNS Topic** configuration pointing to the `arn:aws:sns:us-east-1:237144093413:cur-uploaded` ARN, and hit **Save changes**.
+
+  <img src={useBaseUrl("img/infracost-cloud/s3-topic-config.png")} alt="Notification topic config" />
+
+You should now see an event notification configuration created similar to the following:
+
+   <img src={useBaseUrl("img/infracost-cloud/s3-notification-created.png")} alt="Notification created" />
+
+### 5. Email us to complete the setup
+
+Your CUR permissions are now successfully configured! Send the following email so we enable the feature for your Infracost Cloud organization:
+```txt
+To: hello@infracost.io
+Subject: Enable AWS actual costs
+
+Body:
+Hi, my name is Rafa and I'm the DevOps Lead at ACME Corporation.
+Please enable the AWS actual costs feature for our organization:
+
+- Infracost Cloud org ID (from step 1): $YOUR_INFRACOST_ORGANIZATION_ID
+- Our AWS Cross Account ARN (from step 3): $CROSS_ACCOUNT_ARN_OUTPUT
+- Our AWS CUR S3 Bucket ARN (from step 3): $YOUR_BUCKET_NAME
+- Our AWS CUR S3 Bucket Prefix (optional, from step 4): xxxx
+
+Regards,
+Rafa
+```
+
+### 6. Upgrade Infracost CLI
+
+Upgrade your Infracost CLI to v0.10.13+ (`infracost --version`). If you're using one of our CI/CD integrations, it'll probably already be using the latest patch version so you can just confirm the version.
+
+You don't need to make any other changes to your Infracost setup. We'll reply to your email as soon as the feature is live for your organization 🎉
+
+## Setup new AWS CUR for Infracost Cloud
+
+:::tip
+Follow this section if you **do not already** have a Cost and Usage Report uploading to S3. This section will create an S3 bucket for you and setup an AWS CUR with Daily granularity, including Resource IDs, in GZIP format uploading to the new bucket. It will also setup the required permissions and event notifications on the S3 bucket.
+
+Otherwise, follow the previous section [Connect Infracost Cloud to existing AWS CUR S3 bucket](#connect-infracost-cloud-to-existing-aws-cur-s3-bucket) to connect Infracost Cloud to your existing CUR bucket.
+:::
+
+### 1. Setup cross account role
+
+In the AWS account that you want to setup your CUR, run the following CloudFormation stack using the AWS CLI.  This CloudFormation stack creates a [cross account role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html) that has programmatic access to read daily CUR from a newly created S3 bucket. You can read the specific access that the cross account role requires by reading the public [CloudFormation script](https://infracost-prod-cur-templates.s3.amazonaws.com/cloudformation_template.json).
 
   ```bash
   aws cloudformation create-stack --stack-name ConnectToInfracost \
     --template-url https://infracost-prod-cur-templates.s3.amazonaws.com/existing_bucket_cloudformation_template.json \
-    --parameters ParameterKey=InfracostExternalID,ParameterValue=$YOUR_INFRACOST_ORGANIZATION_ID> \
+    --parameters ParameterKey=InfracostExternalID,ParameterValue=$YOUR_INFRACOST_ORGANIZATION_ID \
     ParameterKey=InfracostAccount,ParameterValue=237144093413 \
     ParameterKey=InfracostNotificationTopicArn,ParameterValue=arn:aws:sns:us-east-1:237144093413:cur-uploaded \
     --capabilities CAPABILITY_IAM \
     --region us-east-1
   ```
 
-  replace **$YOUR_INFRACOST_ORGANIZATION_ID** with the Org ID found under Organization settings page.
+  Replace **$YOUR_INFRACOST_ORGANIZATION_ID** with the Org ID found under Org Settings page.
 
   <img src={useBaseUrl("img/infracost-cloud/org-id.png")} alt="Organization ID" />
 
-  This Cloudformation stack creates a [cross account role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html)
-  that has programmatic access to read daily CUR from a newly created S3 bucket. You can read the specific access that the cross account role
-  requires by reading the public [Cloudformation script](https://infracost-prod-cur-templates.s3.amazonaws.com/cloudformation_template.json).
+### 2. Get new role and bucket ARNs
 
-2. Once you've run AWS CLI command, login to the AWS console and navigate to
-   your [Cloudformation Stacks](https://us-east-1.console.aws.amazon.com/cloudformation). If the Cloudformation stack
-   has run successfully you should see the **ConnectToInfracost** stack in a *CREATE_COMPLETE* status:
+Once you've run the AWS CLI command, login to the AWS console and navigate to your [CloudFormation Stacks](https://us-east-1.console.aws.amazon.com/cloudformation) in the AWS account that has the CUR S3 bucket. If the CloudFormation stack has run successfully you should see the **ConnectToInfracost** stack in a *CREATE_COMPLETE* status.
 
-   <img src={useBaseUrl("img/infracost-cloud/cloudformation-stack-new.png")} alt="Cloudformation stack new" />
+Navigate to the **Outputs** tab and copy the value of the **RoleArn** and **BucketArn**. These are the ARNs of the cross account role and the S3 bucket that the CloudFormation Stack created.
 
-   Navigate to the **Outputs** tab and copy the value of the **RoleArn** and **BucketArn** these should be sent to Infracost.
-3. Once Infracost has received these ARN values and updated your account to fetch CUR data we'll let you know. We'll guide you through any next steps to update any Infracost pipelines. 
+   <img src={useBaseUrl("img/infracost-cloud/cloudformation-stack-new.png")} alt="CloudFormation stack new" />
+
+### 3. Email us to complete the setup
+
+Your CUR permissions are now successfully configured! Send the following email so we enable the feature for your Infracost Cloud organization:
+```txt
+To: hello@infracost.io
+Subject: Enable AWS actual costs
+
+Body:
+Hi, my name is Rafa and I'm the DevOps Lead at ACME Corporation.
+I've setup a new CUR report for Infracost Cloud, please enable
+the AWS actual costs feature for our organization:
+
+- Infracost Cloud org ID (from step 1): $YOUR_INFRACOST_ORGANIZATION_ID
+- Our AWS Cross Account ARN (from step 2): $CROSS_ACCOUNT_ARN_OUTPUT
+- Our AWS CUR S3 Bucket ARN (from step 2): $BUCKET_ARN_OUTPUT
+- Our AWS CUR S3 Bucket Prefix (hardcoded by our CloudFormation stack): daily-v1
+
+Regards,
+Rafa
+```
+
+### 4. Upgrade Infracost CLI
+
+Upgrade your Infracost CLI to v0.10.13+ (`infracost --version`). If you're using one of our CI/CD integrations, it'll probably already be using the latest patch version so you can just confirm the version.
+
+You don't need to make any other changes to your Infracost setup. We'll reply to your email as soon as the feature is live for your organization 🎉
