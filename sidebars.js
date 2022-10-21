@@ -33,6 +33,7 @@ module.exports = {
         'infracost_cloud/key_concepts',
         'infracost_cloud/notifications',
         'infracost_cloud/custom_price_books',
+        'infracost_cloud/actual_costs',
       ],
     },
     {

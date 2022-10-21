@@ -257,7 +257,11 @@ You can use the `resource_type_default_usage` section of the usage file and crea
 
 ## Fetch from cloud APIs
 
-We're **experimenting** with fetching usage data from AWS CloudWatch/cloud APIs, which provides you with visibility of usage-based costs in the terminal and CI/CD:
+:::tip
+We recommend using the new [Actual Costs](/docs/infracost_cloud/actual_costs) feature instead.
+:::
+
+We **experimented** with fetching usage data from AWS CloudWatch/cloud APIs, which provides you with visibility of usage-based costs in the terminal and CI/CD. However, a better approach is to fetch this data from the [AWS Cost and Usage Reports](/docs/infracost_cloud/actual_costs).
 ```
 infracost breakdown --path /code --sync-usage-file --usage-file /tmp/ignore.yml
 ```
