@@ -126,11 +126,7 @@ Regards,
 Rafa
 ```
 
-### 6. Upgrade Infracost CLI
-
-Upgrade your Infracost CLI to v0.10.13+ (`infracost --version`). If you're using one of our CI/CD integrations, it'll probably already be using the latest patch version so you can just confirm the version.
-
-You don't need to make any other changes to your Infracost setup. We'll reply to your email as soon as the feature is live for your organization 🎉
+We'll reply to your email as soon as the feature is live for your organization 🎉
 
 ## Setup new AWS CUR for Infracost Cloud
 
@@ -146,7 +142,7 @@ In the AWS account that you want to setup your CUR, run the following CloudForma
 
   ```bash
   aws cloudformation create-stack --stack-name ConnectToInfracost \
-    --template-url https://infracost-prod-cur-templates.s3.amazonaws.com/existing_bucket_cloudformation_template.json \
+    --template-url https://infracost-prod-cur-templates.s3.amazonaws.com/cloudformation_template.json \
     --parameters ParameterKey=InfracostExternalID,ParameterValue=$YOUR_INFRACOST_ORGANIZATION_ID \
     ParameterKey=InfracostAccount,ParameterValue=237144093413 \
     ParameterKey=InfracostNotificationTopicArn,ParameterValue=arn:aws:sns:us-east-1:237144093413:cur-uploaded \
@@ -187,8 +183,4 @@ Regards,
 Rafa
 ```
 
-### 4. Upgrade Infracost CLI
-
-Upgrade your Infracost CLI to v0.10.13+ (`infracost --version`). If you're using one of our CI/CD integrations, it'll probably already be using the latest patch version so you can just confirm the version.
-
-You don't need to make any other changes to your Infracost setup. We'll reply to your email as soon as the feature is live for your organization 🎉
+We'll reply to your email as soon as the feature is live for your organization 🎉
