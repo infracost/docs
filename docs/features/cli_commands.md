@@ -549,3 +549,20 @@ The metadata is also needed by Infracost Cloud's dashboard to show you pull requ
   ```
 
 If you defined pull request metadata, you should see the cost estimate in your Infracost Cloud dashboard. If you did not define pull request metadata and only defined commit metadata, you should see the cost estimate in the Repos > All estimates page.
+
+## Pull request status
+
+The Infracost [GitHub App](/docs/integrations/github_app/) integration automatically sets the pull request status from the events that GitHub sends Infracost Cloud. If you are not using that integration, or want to set the statuses manually, use the following API call from your CI/CD system (e.g. Jenkins):
+
+```shell
+curl -X POST -H "Content-Type: application/json" \
+-H "X-API-Key: $INFRACOST_API_KEY" \
+-d '{ "query": "mutation { updatePullRequestStatus(url: \"https://github.com/YOUR_ORG/YOUR_REPO/pull/323\\", status: MERGED) }" }' \
+https://dashboard.api.infracost.io/graphql
+```
+
+The pull request status can be one of four:
+  - `OPEN`: the pull request is currently open, thus if you want to review the most expensive pull requests that are in-flight, only focus on these.
+  - `CLOSED`: the pull request was closed without being merged. These pull requests can probably be ignored altogether as most of the time they're just noise.
+  - `MERGED`: the pull request was merged into the base branch, these can be checked when auditing actual cloud costs to see what happened.
+  - `DEPLOYED`: the pull request was deployed. This usually happens after the pull request was merged.
