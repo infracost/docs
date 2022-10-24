@@ -30,5 +30,22 @@ We are currently working on our SOC 2 Type II compliance process, see our [secur
 
 5. Open a test pull request and wait for Infracost to leave a pull request comment. The [Infracost Cloud dashboard](https://dashboard.infracost.io) should also show the cost estimate too.
 
+## Pull request status
+
+The Infracost GitHub App enables the [dashboard](https://dashboard.infracost.io/) to show you the status of pull requests so you can filter on them. You can also filter on the date range that the pull request was last updated, and the base branch that pull requests are being merged into (e.g. main, stage, production).
+
+<img src={useBaseUrl("img/infracost-cloud/pull-request-status-filter.png")} alt="Create new organization" />
+
+:::tip
+If you don't use the GitHub App integration, [use our API](/docs/features/cli_commands/#pull-request-status) to set pull request statuses from your CI/CD system.
+:::
+
+The pull request status can be:
+  - **open**: the pull request is currently open, thus if you want to review the most expensive pull requests that are in-flight, only focus on these.
+  - **closed**: the pull request was closed without being merged. These pull requests can probably be ignored altogether as most of the time they're just noise.
+  - **merged**: the pull request was merged into the base branch, these can be checked when auditing actual cloud costs to see what happened.
+  - **deployed**: the pull request was deployed. This usually happens after the pull request was merged. The GitHub App integration does not yet set the deployed status, so you can [use our API](/docs/features/cli_commands/#pull-request-status) to set it.
+
 ## Migrating from GitHub Actions to GitHub App
+
 We recommend enabling the GitHub App first, testing to ensure you're happy with it, then removing the Infracost GitHub Actions yaml configs from your repo.
