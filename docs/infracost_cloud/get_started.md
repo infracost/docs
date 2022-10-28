@@ -50,7 +50,7 @@ If you do not use the `infracost comment` command in your CI/CD system, you can 
 
 Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Dashboard** to see your pull request on the chart and cost breakdowns by repo, pull request and user. Clicking on a chart dot shows the corresponding estimate so you can investigate deeper or talk to the people working on the change.
 
-If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+If you run into any issues, check the [troubleshooting guide](/docs/troubleshooting/#6-infracost-cloud-dashboard) or join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
 <img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Infracost Cloud dashboard showing pull request cost changes over the last 30 days" />
 

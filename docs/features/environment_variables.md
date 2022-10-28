@@ -79,7 +79,7 @@ We recommend exporting environment variables using quotes so values with spaces 
 If you are integrating Infracost into a CI/CD system and you have pull requests, you can use the following environment variables to override relevant metadata.
 
 **Required:**
-- `INFRACOST_VCS_PROVIDER`: can be "github", "gitlab", "azure_repos" or "bitbucket"
+- `INFRACOST_VCS_PROVIDER`: can be "github", "gitlab", "azure_repos" or "bitbucket". For GitHub Enterprise also use "github", for GitLab Enterprise also use "gitlab".
 - `INFRACOST_VCS_REPOSITORY_URL`: HTTPS URL of the repository, e.g. "https://github.com/infracost/example-terraform"
 - `INFRACOST_VCS_PULL_REQUEST_URL`: HTTP URL of the pull request, e.g. "https://github.com/alikhajeh1/example-terraform/pull/2"
 - `INFRACOST_VCS_PULL_REQUEST_AUTHOR`: author username or full name of the pull request, e.g. "john190" or "John Smith"
