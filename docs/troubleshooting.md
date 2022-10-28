@@ -203,3 +203,14 @@ If you're having issues posting pull request comments, please review the trouble
 - [GitLab](https://gitlab.com/infracost/infracost-gitlab-ci#troubleshooting)
 - [Azure Repos](https://github.com/infracost/infracost-azure-devops#troubleshooting)
 - [Bitbucket](https://bitbucket.org/infracost/infracost-bitbucket-pipeline) > see the Troubleshooting section
+
+## 6. Infracost Cloud dashboard
+
+If your pull requests are not showing in the Infracost Cloud dashboard, try the following troubleshooting steps. You can also join our [community Slack channel](https://www.infracost.io/community-chat) - we'll help you very quickly 😄🚀
+
+Ensure that the:
+1. `INFRACOST_ENABLE_CLOUD=false` environment variable is NOT set in your CI/CD integration.
+2. [Cost estimate dashboard](/docs/infracost_cloud/get_started/#3-setup-infracost-cloud) organization setting is enabled.
+3. Infracost CLI version (`infracost --version`) being used is v0.10.11 or later.
+4. [Required environment variables](/docs/features/environment_variables/#when-a-pull-request-exists) are set before the `infracost breakdown` and `infracost diff` commands are run. You can verify this by running `cat infracost.json | jq .metadata` or `infracost breakdown --path /code --format json | jq .metadata` and checking the Infracost JSON block shows your pull request metadata.
+5. Either [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) or [`infracost upload`](/docs/features/cli_commands/#upload-runs) is used in your CI/CD integration. If Infracost Cloud is enabled (step 2 above), these commands send the Infracost JSON data to your organization in Infracost Cloud.
