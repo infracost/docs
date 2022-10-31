@@ -22,7 +22,7 @@ function Pricing() {
           <div className="plans">
             <div className="plan box">
               <div className="heading">
-                <h2>Infracost Community</h2>
+                <h2>Infracost CI/CD</h2>
                 <span className="price">Free</span>
               </div>
               <ul>
@@ -33,7 +33,7 @@ function Pricing() {
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
                   <span>Get cost breakdowns and diffs</span>
-                </li>                
+                </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
                   <span>CI/CD integrations (GitHub, GitLab, Bitbucket, Azure DevOps...)</span>
@@ -59,7 +59,8 @@ function Pricing() {
             <div className="plan box">
               <div className="heading">
                 <h2>Infracost Cloud <span className="coming-soon"></span></h2>
-                <span className="price">Email <a href="mailto:hello@infracost.io?subject=Infracost Cloud">hello@infracost.io</a> for pricing</span>
+                <span className="price">$50 per seat per month (billed annually)</span>
+                <span className="price">A seat is needed for anyone making infrastrcture changes, and those who access the Infracost Cloud dashboard</span>
               </div>
               <ul>
                 <li>
@@ -87,7 +88,7 @@ function Pricing() {
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
                   <span>Notifications/alerts</span>
-                </li>              
+                </li>
                 <li>
                   <span className="icon primary"><Check size={18} /></span>
                   <span>Recommendations in pull requests</span>
@@ -95,7 +96,7 @@ function Pricing() {
               </ul>
               <div className="action">
                 <a href="https://dashboard.infracost.io" className="button primary">Start free trial</a>
-              </div>              
+              </div>
             </div>
           </div>
           <h3>Enterprise support can be added onto any plan, email <a href="mailto:hello@infracost.io?subject=Enterprise support">hello@infracost.io</a> for details.</h3>
