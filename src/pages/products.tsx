@@ -141,7 +141,7 @@ function Pricing() {
           >
             <ul className="product-card__ul">
               <LiWithCheck>
-                Automatically works on top of Infracost Open Source
+                Automatically works on top of Infracost CI/CD
               </LiWithCheck>
               <LiWithCheck>
                 Shows all infrastructure changes alongside cost impact (up and
