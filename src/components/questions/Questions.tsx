@@ -56,9 +56,8 @@ const Questions = () => {
           <QuestionLi>
             <Question>What happens at the end of my trial?</Question>
             <Answer>
-              You can purchase a plan that is right for you and use Infracost
-              Cloud, or keep using Infracost CI/CD with no disruption for
-              free.
+              You can [purchase](/pricing) a plan that is right for you and use Infracost
+              Cloud, or keep using Infracost CI/CD with no disruption for free.
             </Answer>
           </QuestionLi>
         </ul>
