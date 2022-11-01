@@ -5,7 +5,7 @@ title: GitHub App
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Infracost GitHub App is an automated integration meaning that Infracost runs on our infrastructure and we keep it uptodate. The GitHub App is part of [Infracost Cloud](/docs/infracost_cloud/get_started/), our paid SaaS product.
+The Infracost GitHub App is an automated integration meaning that Infracost runs on our infrastructure and we keep it uptodate. The GitHub App is part of [Infracost Cloud](/docs/infracost_cloud/get_started/), our paid SaaS product. If you prefer a manual integration where you maintain Infracost, see [GitHub Actions](https://github.com/infracost/actions/) integration.
 
 We are currently working on our SOC 2 Type II compliance process, see our [security page](/security) for more details.
 
