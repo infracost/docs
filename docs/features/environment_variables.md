@@ -67,6 +67,24 @@ TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost breakdown \
     --path /path/to/code
 ```
 
+## Environment variables to override cloud provider region
+
+The following environment variables can be used with `infracost breakdown` and `diff` commands to override the cloud provider region.
+
+- `INFRACOST_AWS_OVERRIDE_REGION` for AWS
+- `INFRACOST_AZURE_OVERRIDE_REGION` for Azure
+- `INFRACOST_GOOGLE_OVERRIDE_REGION` for Google
+
+For example, with the following provider block
+```tf
+provider "aws" {
+  region = "us-east-1"
+  # ...
+}
+```
+
+using the environment variable `INFRACOST_AWS_OVERRIDE_REGION=eu-central-1` Infracost will show costs for `eu-central-1` region.
+
 ## Environment variables to override metadata
 
 The following environment variables can be used with `infracost breakdown` and `diff` to override the values that are automatically generated as part of the [Infracost JSON output](/docs/features/cli_commands/#examples). This is useful when [uploading an Infracost JSON file](/docs/features/cli_commands/#upload-runs) to Infracost Cloud.
