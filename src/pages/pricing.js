@@ -1,6 +1,7 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
 import Check from '../components/icons/Check';
+import PricingQuestions from '../components/questions/PricingQuestions';
 import UsedBy from '../components/UsedBy';
 
 
@@ -100,6 +101,7 @@ function Pricing() {
             </div>
           </div>
           <h3>Enterprise support can be added onto any plan, email <a href="mailto:hello@infracost.io?subject=Enterprise support">hello@infracost.io</a> for details.</h3>
+          <PricingQuestions />
         </div>
       </div>
 

@@ -3,7 +3,7 @@ import PageLayout from '../components/PageLayout';
 import WorksWith from '../components/WorksWith/WorksWith';
 import ProductCard from '../components/ProductCard/ProductCard';
 import Check from '../components/icons/Check';
-import Questions from '../components/questions/Questions';
+import ProductQuestions from '../components/questions/ProductQuestions';
 import WebPPngFallback from '../components/utils/WebPPngFallback';
 
 export enum ColourCoding {
@@ -162,7 +162,7 @@ function Pricing() {
               </LiWithCheck>
             </ul>
           </ProductCard>
-          <Questions />
+          <ProductQuestions />
         </div>
       </div>
     </PageLayout>
