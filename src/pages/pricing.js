@@ -60,7 +60,7 @@ function Pricing() {
               <div className="heading">
                 <h2>Infracost Cloud <span className="coming-soon"></span></h2>
                 <span className="price">$50 per seat per month (billed annually)</span>
-                <span className="price">A seat is needed for anyone making infrastrcture changes, and those who access the Infracost Cloud dashboard</span>
+                <span className="price">A seat is needed for anyone making infrastructure changes, and those who access the Infracost Cloud dashboard</span>
               </div>
               <ul>
                 <li>
