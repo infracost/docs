@@ -23,7 +23,7 @@ Otherwise, see the next section to [setup a new AWS CUR for Infracost Cloud](#se
 
 ### 1. Setup cross account role
 
-In the AWS account that has your CUR S3 bucket, run the following CloudFormation stack using the AWS CLI. This CloudFormation stack creates a [cross account role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html) that has programmatic access to read CUR data from S3. You can read the specific access that the cross account role requires by reading the public [CloudFormation script](https://infracost-prod-cur-templates.s3.amazonaws.com/existing_bucket_cloudformation_template.json).
+In the AWS account that has your CUR S3 bucket, run the following CloudFormation stack using the AWS CLI. This CloudFormation stack creates a [cross account role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html) that has programmatic access to read CUR data from S3. You can read the specific access that the cross account role requires by reading the public [CloudFormation script](https://infracost-prod-cur-templates.s3.amazonaws.com/existing_bucket_cloudformation_template.json). If you prefer to use Terraform, you can customize the code from [this repo](https://github.com/infracost/cross-account-link/).
 
   ```bash
   aws cloudformation create-stack --stack-name ConnectToInfracost \
@@ -136,7 +136,13 @@ Follow this section if you **do not already** have a Cost and Usage Report uploa
 Otherwise, follow the previous section [Connect Infracost Cloud to existing AWS CUR S3 bucket](#connect-infracost-cloud-to-existing-aws-cur-s3-bucket) to connect Infracost Cloud to your existing CUR bucket.
 :::
 
-### 1. Setup cross account role
+### Terraform
+
+See [this repo](https://github.com/infracost/cross-account-link/) for how you can setup your AWS CUR using Terraform.
+
+### CloudFormation 
+
+#### 1. Setup cross account role
 
 In the AWS account that you want to setup your CUR, run the following CloudFormation stack using the AWS CLI.  This CloudFormation stack creates a [cross account role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html) that has programmatic access to read daily CUR from a newly created S3 bucket. You can read the specific access that the cross account role requires by reading the public [CloudFormation script](https://infracost-prod-cur-templates.s3.amazonaws.com/cloudformation_template.json).
 
@@ -154,7 +160,7 @@ In the AWS account that you want to setup your CUR, run the following CloudForma
 
   <img src={useBaseUrl("img/infracost-cloud/org-id.png")} alt="Organization ID" />
 
-### 2. Get new role and bucket ARNs
+#### 2. Get new role and bucket ARNs
 
 Once you've run the AWS CLI command, login to the AWS console and navigate to your [CloudFormation Stacks](https://us-east-1.console.aws.amazon.com/cloudformation) in the AWS account that has the CUR S3 bucket. If the CloudFormation stack has run successfully you should see the **ConnectToInfracost** stack in a *CREATE_COMPLETE* status.
 
@@ -162,7 +168,7 @@ Navigate to the **Outputs** tab and copy the value of the **RoleArn** and **Buck
 
    <img src={useBaseUrl("img/infracost-cloud/cloudformation-stack-new.png")} alt="CloudFormation stack new" />
 
-### 3. Email us to complete the setup
+#### 3. Email us to complete the setup
 
 Your CUR permissions are now successfully configured! Send the following email so we enable the feature for your Infracost Cloud organization:
 ```txt

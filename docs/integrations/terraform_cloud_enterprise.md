@@ -26,16 +26,56 @@ See our [CI/CD integrations](/docs/integrations/cicd/) for details.
 [Terraform Run Tasks](/blog/terraform-runtasks-what-why-how/) can be used to integrate Infracost into Terraform Cloud/Enterprise directly. It sits between the plan and apply stage and shows a cost estimate for the changes that are about to be deployed. There is also a shareable details link that will open a pre-authenticated link with a detailed breakdown of costs per resource.
 
 #### 1. Generate Infracost Endpoint
-Sign up or log in to [Infracost Cloud](https://dashboard.infracost.io/tfc-sign-up) and enable the Terraform Cloud integration. This creates an Infracost endpoint URL and HMAC key that you'll use in the next step. You can also create an organization in Infracost to match the organization name you have in Terraform Cloud.
+Sign up or log in to [Infracost Cloud](https://dashboard.infracost.io/tfc-sign-up) and go to the Integrations page to enable the Terraform Cloud integration. This creates an Infracost endpoint URL and HMAC key that you'll use in the next step. You can also create an organization in Infracost to match the organization name you have in Terraform Cloud.
 
-#### 2. Configure a Run Task
+#### 2. Firewall configuration for TFE
+
+This step is only needed by Terraform Enterprise (TFE) users. You need to allow incoming traffic from `3.133.40.66` to your TFE instance port 443 (or whatever port you use); this is the IP address used by Infracost Cloud services to call your Run Task integration.
+
+If you have restricted out-going traffic from your TFE instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should whitelist `13.58.92.216`, `3.142.138.46` and `13.58.157.166` but we recommend you whitelist the domain as these IP addresses are likely to change.
+
+#### 3. Configure a Run Task
 Follow the [instructions for configuring a Run Task](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html#configuring-a-run-task) in Terraform Cloud. There are two steps you need to do: setup the integration, and enable it as a **post-plan stage** in your workspaces.
 
 :::note
 Currently, only the post-plan stage is supported when you configure Run Tasks in Terraform Cloud.
 :::
 
-#### 3. Results
+<details><summary>Example Terraform code to create a Run Task for your TFE organization</summary>
+
+  ```
+  # You can create Run Tasks for your TFE organization using the Terraform console
+  # or inside your Terraform repository:
+
+  resource "tfe_organization_run_task" "example" {
+    # Name of your TFE organization
+    organization = "org-name"
+    # Endpoint URL from Infracost
+    url          = "https://dashboard.api.infracost.io/hooks/ABCDE"
+    # Name of your Run Task
+    name         = "Infracost"
+    enabled      = true
+    # HMAC Key from Infracost
+    hmac_key     = "SUPER_SECRET_KEY"
+    description  = "Infracost cost estimation"
+  }
+
+
+  # Now that you have a Run task for your entire Organization,
+  # you need to set up individual Run Tasks for each workspace:
+
+  resource "tfe_workspace_run_task" "example" {
+    # ID of your workspace
+    workspace_id      = resource.tfe_workspace.example.id
+    # ID of the organization run task previously created.
+    task_id           = resource.tfe_organization_run_task.example.id
+    enforcement_level = "advisory"
+  }
+  ```
+</details>
+
+#### 4. Results
+
 After you've setup the integration, and enabled it on one or more of your workspaces, your runs will show the Infracost Run Task output and a link to the details. You can see an example [here](https://dashboard.infracost.io/share/h2h9trnqru8ioy61xtnxywhkoszpw0cg).
 
 Infracost is a [verified](https://www.hashicorp.com/partners/tech/infracost) Terraform Cloud integration. Terraform Cloud only sends the plan JSON file to Infracost during cost estimation, no other secrets/logs are sent, and once the cost estimate is generated, the temporary plan file is deleted from our servers.
