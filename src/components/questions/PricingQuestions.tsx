@@ -72,6 +72,13 @@ const Questions = () => {
           </QuestionLi>
 
           <QuestionLi>
+            <Question>Can I purchase Infracost via the AWS Marketplace?</Question>
+            <Answer>
+              Yes. Contact us on hello@infracost.io, and we will make Infracost available in your AWS accounts to be purchased from the AWS Marketplace.
+            </Answer>
+          </QuestionLi>
+
+          <QuestionLi>
             <Question>Do you hold my credit card information?</Question>
             <Answer>
               No, we use <a href="https://stripe.com/">Stripe.com</a> for our payments, and they hold all payment information.
