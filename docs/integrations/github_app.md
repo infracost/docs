@@ -30,6 +30,8 @@ We are currently working on our SOC 2 Type II compliance process, see our [secur
 
 5. Open a test pull request and wait for Infracost to leave a pull request comment. The [Infracost Cloud dashboard](https://dashboard.infracost.io) should also show the cost estimate too.
 
+6. When the pull request is merged the Infracost Cloud dashboard will show you the time it was merged, who approved it and who merged it.
+
 ## Pull request status
 
 The Infracost GitHub App enables the [dashboard](https://dashboard.infracost.io/) to show you the status of pull requests so you can filter on them. You can also filter on the date range that the pull request was last updated, and the base branch that pull requests are being merged into (e.g. main, stage, production).

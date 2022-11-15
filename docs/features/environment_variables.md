@@ -23,7 +23,7 @@ On the terminal, you can also run `infracost configure set currency CURRENCY_COD
 
 ### INFRACOST_CURRENCY_FORMAT
 A template string used to override the formatting of prices. The template should consist of the currency code, followed by a `:`, followed by an example of the desired formatting (including currency symbol) for the number 1234.56789. Note that the currency code prefix must match the value of `INFRACOST_CURRENCY` in order to have any effect.
-. 
+.
 
 These examples show the output of the number `64145.4525` with different formatting options:
 
@@ -128,6 +128,7 @@ The following example shows how you can override the above environment variables
 - `INFRACOST_VCS_SUB_PATH`: path of the project relative to the root of the code repository, e.g. "prod/us-east"
 - `INFRACOST_TERRAFORM_WORKSPACE`: Terraform workspace if specified for the project, e.g. "prod"
 - `INFRACOST_VCS_PIPELINE_RUN_ID`: a way to differentiate pipelines that are run within one pull request, this is the top-level pipeline ID, not individual jobs/runs within it, e.g. "2846680866"
+- `INFRACOST_VCS_PULL_REQUEST_LABELS`: a comma separated list of any labels (e.g. GitHub labels) added to the pull request.
 
 ### When no pull requests exist
 
