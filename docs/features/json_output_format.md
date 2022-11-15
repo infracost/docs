@@ -43,6 +43,8 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
     "vcsPullRequestAuthor": "alikhajeh1",
     // title of the pull request
     "vcsPullRequestTitle": "Change instance type",
+    // labels added to the pull request
+    "vcsPullRequestLabels": ["enhancement"],
     // a way to differentiate pipelines that are run within one pull request, this is the top-level pipeline ID, not individual jobs/runs within it
     "vcsPipelineRunId": "2846680866"
   },
