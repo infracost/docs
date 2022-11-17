@@ -4,7 +4,7 @@ import Check from '../components/icons/Check';
 import PricingQuestions from '../components/questions/PricingQuestions';
 import UsedBy from '../components/UsedBy';
 import PromoBanner from '../components/PromoBanner/PromoBanner';
-
+import Pill from '../components/Pill/Pill';
 
 function Pricing() {
   return (
@@ -29,9 +29,9 @@ function Pricing() {
             <div className="plan box">
               <div className="heading">
                 <h2>Infracost CI/CD</h2>
-                <span className="price">Free</span>
+                <Pill colour="green">Free</Pill>
               </div>
-              <ul>
+              <ul className="price__free">
                 <li>
                   <span className="icon primary">
                     <Check size={18} />
@@ -84,9 +84,12 @@ function Pricing() {
                 <h2>
                   Infracost Cloud <span className="coming-soon"></span>
                 </h2>
-                <span className="price">
-                  $50 per seat per month (billed annually)
-                </span>
+                <div className="price__wrapper">
+                  <span>
+                    <Pill colour="violet">$50 per seat per month</Pill>
+                  </span>
+                  <span className="price__footnote">(billed annually)</span>
+                </div>
                 <span className="price">
                   A seat is needed for anyone making infrastructure changes, and
                   those who access the Infracost Cloud dashboard
@@ -133,7 +136,7 @@ function Pricing() {
                   </span>
                   <span>Team management</span>
                 </li>
-                <li>
+                <li className="pricing plan__coming-soon">
                   <span>
                     <b>Coming soon:</b>
                   </span>

@@ -1,8 +1,9 @@
 /* PILL */
 .pill {
-  padding: 0.175rem 0.5rem;
+  padding: 0.375rem 0.5rem;
   border-radius: var(--border-radius);
   display: inline-flex;
+	line-height: initial;
 }
 
 .pill--blue {
@@ -18,4 +19,9 @@
 .pill--orange {
   color: #220b00;
   background-color: #fc6d26;
+}
+
+.pill--violet {
+  color: white;
+  background-color: #6658c5;
 }
