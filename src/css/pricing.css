@@ -14,13 +14,29 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto 2rem;
+	transition: all 0.4s ease-out;
+}
+
+.pricing .plan:hover {
+	transform: scale(1.05);
+}
+
+.pricing .box {
+	padding: 0;
+}
+
+.pricing .plan__wrapper {
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
 }
 
 @media (min-width: 997px) {
   .pricing .plans {
     display: flex;
     justify-content: center;
-    max-width: 1100px;
   }
 
   .pricing .plan {
@@ -33,50 +49,89 @@
   }
 }
 
+.pricing .plan {
+		--text-color: #fff;
+		--muted: #dfa9da;
+		--secondary-color: #fbeaf9;
+}
+
 .pricing .plan .heading {
-  margin-bottom: 0.5rem;
+  padding: 1rem;
   text-align: center;
+	background-color: #141534;
+	font-size: 1.5rem;
+	color: var(--text-color)
+}
+
+.pricing .plan .heading h2 {
+	margin-bottom: 0;
 }
 
 .pricing .plan .action {
   text-align: center;
 }
 
-.pricing .plan h2 {
-  font-size: 1.5rem;
-  color: var(--nu20);
-  margin-bottom: 0.5rem;
+.pricing .plan--paid {
+	background: var( --primary-gradient);
+	color: var(--text-color);
+}
+
+.pricing .plan--paid .icon.primary svg path {
+	fill: var(--secondary-color)
+}
+
+.pricing .plan--free ul {
+	margin-top: 2.75rem;
 }
 
 .pricing .plan h2 .coming-soon {
   font-size: 1rem;
-  color: var(--faded-text);
 }
 
 .pricing h3 {
   font-size: 1rem;
-  color: var(--nu20);
   margin-bottom: 4rem;
   text-align: center;
 }
 
 .pricing .plan .price {
   font-size: 1rem;
-  color: var(--white);
   display: block;
   margin-bottom: 1rem;
 }
 
 .pricing .price__wrapper {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	align-items: center;
 	gap: .5rem;
-	margin-bottom: 1rem;
 }
 
-.pricing .price__footnote {
+.pricing .price__tier {
+	font-size: 6rem;
+	display: flex;
+	flex-direction: column;
+	font-weight: 1000;
+	line-height: initial;
+}
+
+.pricing .plan--free .price__tier  {
+	font-weight: 100;
+}
+
+.pricing .price__suppl {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	font-weight: 1000;
+	color: var(--secondary-color);
+}
+
+.pricing .price__description {
 	font-size: smaller;
-	color: var(--faded-text);
+	margin-bottom: 1rem;
+	font-weight: 100;
+	color: var(--secondary-color);
 }
 
 .pricing .plan ul {
@@ -84,10 +139,6 @@
   list-style-type: none;
   margin: 0 0 1.5rem;
   padding: 0;
-}
-
-.pricing .plan ul.price__free {
-	margin-top: 2.75rem;
 }
 
 .pricing .plan li {
@@ -103,7 +154,11 @@
 .pricing li.plan__coming-soon {
 	margin-top: 1rem;
 	padding-top: 1rem;
-	border-top: 1px dashed #ffffff2e;
+	border-top: 1px dashed rgba(255, 255, 255, 0.4);
+}
+
+.pricing li b {
+	color: var(--secondary-color)
 }
 
 .pricing .used-by {
