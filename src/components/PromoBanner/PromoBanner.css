@@ -99,3 +99,32 @@
 .promo-banner__cta-wrapper {
 	margin-top: 2rem;
 }
+
+
+@media (max-width: 768px) {
+
+	.promo-banner__card {
+		padding: 2rem 0;
+	}
+	
+  .promo-banner__tagline {
+		font-size: 3rem
+	}
+
+	.promo-banner__sub-text {
+		display: block;
+	}
+
+	.promo-banner__sub-text img {
+		margin-left: 5px;
+		height: 20px;
+		padding-top: 2px;
+		object-fit: contain;
+		width: 25px;
+	}
+
+	.promo-banner__cta-wrapper {
+		display: flex;
+		justify-content: center;
+	}
+}
