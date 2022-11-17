@@ -123,12 +123,6 @@
 
 /* INTRO */
 
-.intro {
-  background: url('/img/bg.svg') right top no-repeat;
-  background-size: cover;
-  padding: 4rem 0;
-}
-
 .intro .tagline {
   color: var(--white);
   font-size: 1.875rem;

@@ -11,20 +11,22 @@ function Pricing() {
     <PageLayout
       title="Pricing"
       description="Cloud cost estimates for engineers"
-      pageClass="pricing"
+      pageClass="pricing default-page-bg"
       hideCTA={true}
     >
       <div className="pricing-wrapper">
-        <PromoBanner />
+        <PromoBanner withButton={false} />
 
-        <div className="container">
-          <div className="intro">
+        <div className="intro">
+          <div className="container">
             <h1 className="tagline">Pricing</h1>
             <p className="sub-tagline">
               Infracost provides cloud cost estimates for engineers
             </p>
           </div>
+        </div>
 
+        <div className="container">
           <div className="plans">
             <div className="plan box">
               <div className="heading">

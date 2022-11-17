@@ -5,6 +5,7 @@
 	--strike-thought-width: 5px;
 	background: linear-gradient(45deg, #151533 0%, #201866 100%);
 	position: relative;
+	border-bottom: 1px solid var(--border-color);
 }
 
 .promo-banner__container {

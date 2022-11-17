@@ -103,6 +103,17 @@ h6 {
   padding-bottom: 2rem;
 }
 
+.intro {
+	background: url('/img/bg-top.svg') center bottom no-repeat;
+	background-size: cover;
+	padding: 4rem 0;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.default-page-bg {
+	background-color: var(--nu60);
+}
+
 .close {
   color: var(--nu-10);
   opacity: 1;

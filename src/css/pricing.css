@@ -1,15 +1,13 @@
 .pricing .pricing-wrapper {
-  background: url('/img/bg.svg') right bottom no-repeat;
   padding-bottom: 3rem;
 }
 
-.pricing .intro {
-  background: none;
-  padding-bottom: 2rem;
+.pricing p.sub-tagline {
+	margin-bottom: 0;
 }
 
 .pricing .plans {
-  margin: 0 auto;
+  margin: 4rem auto;
 }
 
 .pricing .plan {

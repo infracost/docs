@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard/ProductCard';
 import Check from '../components/icons/Check';
 import ProductQuestions from '../components/questions/ProductQuestions';
 import WebPPngFallback from '../components/utils/WebPPngFallback';
+import PromoBanner from '../components/PromoBanner/PromoBanner';
 
 export enum ColourCoding {
   'cloud' = 'green',
@@ -60,11 +61,13 @@ function Pricing() {
     <PageLayout
       title="Products"
       description="Cloud costs, loved by developers"
-      pageClass="products"
+      pageClass="products default-page-bg"
       hideCTA={false}
       noIndex={false}
     >
       <div className="products-wrapper">
+        <PromoBanner />
+
         <div className="intro">
           <h1 className="tagline container">
             Cloud costs, loved by developers{' '}
