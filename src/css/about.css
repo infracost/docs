@@ -5,7 +5,6 @@
 
 .about .team {
   border-bottom: 1px solid var(--border-color);
-  border-top: 1px solid var(--border-color);
   background-color: var(--page-background-secondary-color);
   padding: 2rem 0 4rem 0;
 }

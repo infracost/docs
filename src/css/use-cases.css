@@ -1,19 +1,19 @@
 /* USE CASES */
 
+.use-cases-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
 .use-cases .use-cases-background {
   position: absolute;
   height: 600px;
   width: 100%;
   z-index: -1;
-  background: url('/img/bg-top.svg') right bottom no-repeat;
+  
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
-}
-
-.use-cases .intro {
-  background: none;
-  padding-bottom: 2rem;
 }
 
 .use-cases .use-cases-list {
@@ -22,6 +22,7 @@
 
 .use-cases .use-cases-list .container {
   padding-top: 2rem;
+	margin-top: 4rem;
 }
 
 .use-cases .use-cases-list .col {

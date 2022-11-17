@@ -2,7 +2,7 @@ import React from 'react';
 
 import './PromoBanner.css';
 
-const PromoBanner = () => {
+const PromoBanner = ({ withButton = true }: { withButton?: boolean }) => {
   return (
     <div className="promo-banner">
       <div className="container promo-banner__container">
@@ -36,11 +36,15 @@ const PromoBanner = () => {
                 This offer is live now, and ends on the 31st December 2022.{' '}
               </p>
             </div>
-            <div className="promo-banner__cta-wrapper">
-              <a href="/docs/" className="button primary">
-                Get Infracost now
-              </a>
-            </div>
+            {withButton ? (
+              <div className="promo-banner__cta-wrapper">
+                <a href="/pricing" className="button primary">
+                  Get Infracost now
+                </a>
+              </div>
+            ) : (
+              <>Scroll down to learn more &darr; 👀</>
+            )}
           </div>
         </div>
       </div>
