@@ -60,7 +60,6 @@
 div[class^=announcementBar_] {
   background: linear-gradient(243.9deg, #BD62B6 0%, #6658C5 100%) !important;
   border-bottom: 1px solid var(--border-color);
-  height: 32px;
 }
 
 .announcement-message {
