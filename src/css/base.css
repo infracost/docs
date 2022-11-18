@@ -30,6 +30,8 @@
     #6658c5 100%
   );
 
+	--secondary-gradient: linear-gradient(45deg, #151533 0%, #201866 100%);
+
   --white: var(--nu0);
   --text-color: var(--nu20);
   --text-color-dark: var(--nu40);

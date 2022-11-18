@@ -196,11 +196,11 @@
 /* CTA */
 
 .cta {
-  background: url('/img/cta-bg.svg') no-repeat;
   background-size: cover;
-  /* border-top: 1px solid var(--border-color); */
+  border-top: 1px solid var(--border-color);
   padding: 3em 0;
   text-align: center;
+	background: var(--secondary-gradient);
 }
 
 .cta .action {

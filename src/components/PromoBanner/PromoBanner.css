@@ -3,7 +3,7 @@
 	--strike-through-color: #FCA326;
 	--arrow-size: 16px;
 	--strike-thought-width: 5px;
-	background: linear-gradient(45deg, #151533 0%, #201866 100%);
+	background: var(--secondary-gradient);
 	position: relative;
 	border-bottom: 1px solid var(--border-color);
 }
