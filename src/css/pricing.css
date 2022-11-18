@@ -17,8 +17,10 @@
 	transition: all 0.4s ease-out;
 }
 
-.pricing .plan:hover {
-	transform: scale(1.05);
+@media(hover: hover) {
+	.pricing .plan:hover {
+		transform: scale(1.05);
+	}
 }
 
 .pricing .box {
