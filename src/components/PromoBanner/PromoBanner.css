@@ -69,9 +69,10 @@
 
 .promo-banner__arrow-head {
 	position: absolute;
+	font-size: clamp(3rem, 3.8rem, 4rem);;
 	top: 50%;
-	right: -10%;
-	transform: translate(20px, -50%) rotate(90deg);
+	right: 0;
+	transform: translate(30px, -50%) rotate(90deg);
 	color: var(--strike-through-color);		
 }
 
@@ -112,6 +113,7 @@
 		font-size: 3rem
 	}
 
+	
 	.promo-banner__sub-text {
 		display: block;
 	}
@@ -129,3 +131,11 @@
 		justify-content: center;
 	}
 }
+
+@media (max-width: 1280px) and (hover: none) {
+	.promo-banner__arrow-head {
+		transform: translate(27px, -50%) rotate(90deg);
+	}
+}
+
+
