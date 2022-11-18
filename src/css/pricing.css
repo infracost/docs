@@ -110,6 +110,12 @@
 	gap: .5rem;
 }
 
+@media (max-width: 997px) {
+	.pricing .price__wrapper {
+		flex-direction: column;
+	}
+}
+
 .pricing .price__tier {
 	font-size: 6rem;
 	display: flex;
@@ -128,6 +134,12 @@
 	align-items: flex-start;
 	font-weight: 1000;
 	color: var(--secondary-color);
+}
+
+@media (max-width: 997px) {
+	.pricing .price__suppl {
+		align-items: center;
+	}
 }
 
 .pricing .price__description {
