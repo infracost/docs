@@ -23,6 +23,7 @@
 
 .pricing .box {
 	padding: 0;
+	overflow: hidden;
 }
 
 .pricing .plan__wrapper {
