@@ -12,13 +12,13 @@ date: "2022-11-28"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost was recently named a cool vendor on Gartner’s Platform Engineering list. This is super exciting for us a project, but also a great direction forward for engineers and our community as a whole 🎉
+Infracost was recently named a cool vendor on Gartner’s Platform Engineering list. This is super exciting for us as a project, but also a great direction forward for engineers and our community as a whole 🎉
 
 <!--truncate-->
 
 <img src={useBaseUrl("img/blog/gartner-list/infracost-gartner.png")} width="50%" alt="Infracost VS Code GIF"/>
 
-Let me take a step back. In the cloud cost space, every solution designed has started from the same data source - the cloud bill. Everything was reactive. Someone get’s a bill, it is out of sync with budget expectations, and so engineering is asked to ‘fix it’. When engineers push back because their current sprint is already overloaded, they are blamed for ‘not taking action’. Hassan wrote a whole blog about the broken relationship between [engineering and cloud bill owners](/blog/broken-relationship-between-eng-and-cloud-bill-owners/) a few months ago.
+Let me take a step back. In the cloud cost space, every solution designed has started from the same data source - the cloud bill. Everything was reactive. Someone gets a bill, it is out of sync with budget expectations, and so engineering is asked to ‘fix it’. When engineers push back because their current sprint is already overloaded, they are blamed for ‘not taking action’. Hassan wrote a whole blog about the broken relationship between [engineering and cloud bill owners](/blog/broken-relationship-between-eng-and-cloud-bill-owners/) a few months ago.
 
 Imagine every time you went shopping, all the price labels were removed, and you were given a budget for your shopping. It’s impossible to know when that budget is going to run out. This is what DevOps, SRE and platform engineers are faced with on a daily basis when trying to provision infrastructure - there is no checkout screen! This is clearly unfair, and it only benefits the cloud providers.
 
