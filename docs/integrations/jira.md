@@ -22,9 +22,9 @@ We'll also add Jira metadata to any Infracost Cloud runs, meaning you can search
 
 ![dashboard](/img/jira/dashboard.png)
 
-## Getting started
+## Get started
 
-### Create a Jira API token
+### 1. Create Jira API token
 
 First, you'll need to create a Jira API token so that Infracost Cloud can sync information across your Jira issues:
 
@@ -34,7 +34,7 @@ First, you'll need to create a Jira API token so that Infracost Cloud can sync i
 4. In the dialog, enter a label for your token and select **Create**.
 5. To copy the API token, select **Copy**, then paste the token somewhere safe - you'll need this later.
 
-### Create the Infracost Jira custom fields
+### 2. Create Jira custom fields
 
 You'll now need to create some custom fields in Jira so that Infracost can update your Jira issues to show the required information.
 
@@ -51,8 +51,6 @@ You'll now need to create some custom fields in Jira so that Infracost can updat
 
 #### Supported custom fields
 
-
-
 | name                  | description                                                    | required | Jira field type |
 |-----------------------|----------------------------------------------------------------|----------|-----------------|
 | Infracost Link        | The field where the link to Infracost Cloud will be posted to. | true     | URL field       |
@@ -62,24 +60,24 @@ You'll now need to create some custom fields in Jira so that Infracost can updat
 | Cost Diff Percentage  | The field where the cost diff percentage will be posted to.    | false    | Number field    |
 
 
-### Update the connection in Infracost Cloud
+### 3. Setup integration in Infracost Cloud
 
-Now head over to the Infracost Cloud dashboard
+Now head over to the [Infracost Cloud dashboard](https://dashboard.infracost.io):
 
 1. Navigate to Integrations > Jira
 2. Enter the following information in the **Jira Authentication** section
-   1. The URL of your organization's Atlassian account, this is normally: *https://{YOUR_ORG}.atlassian.net*
+   1. The URL of your organization's Atlassian account, this is normally: `https://{YOUR_ORG}.atlassian.net`
    2. The email of the user that you created an **API Token** for in Jira
-   3. The API Token copied from the [Create a Jira **API token** step](#create-a-jira-api-token)
+   3. The API Token copied from the [Create Jira **API token** step](#1-create-jira-api-token)
 3. Click the Test Connection button. If your credentials are correct, you'll see a green tick displayed
    ![auth ](/img/jira/auth.png)
-4. Add your custom fields mapping in the **Infracost Configurations** section
+4. Add your custom fields mapping in the **Infracost Configurations** section.
 5. Hit save. If you've entered everything correctly, you'll see a green tick displayed by the Jira integration on the integrations page.
 
 ## Requirements
 
 Once you've set up the Jira integrations, all future pull requests will be synced with Jira from Infracost Cloud. Infracost detects Jira issues from VCS systems exactly the same way the official Jira GitHub connection does. It checks if a Jira issue key prefixes either:
 
-1. A PR title, e.g. _"TEST-2 some pr title"_
+1. A pull request title, e.g. _"TEST-2 some pr title"_
 2. A git commit message, e.g. _"TEST-2 some commit message."_
 3. A git branch name, e.g. _"TEST-2-some-branch-name"_
