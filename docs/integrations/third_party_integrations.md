@@ -14,6 +14,7 @@ Our [CI/CD integrations](/docs/integrations/cicd/) can be used to integrate with
 - [Terraspace](https://terraspace.cloud/docs/cloud/cost-estimation)
 - [Terranetes](https://terranetes.appvia.io/terranetes-controller/admin/costs)
 - [Keptn](https://artifacthub.io/packages/keptn/keptn-integrations/infracost)
+- [Brainboard](https://www.brainboard.co/integrations/infracost)
 
 ## Creating an integration
 
