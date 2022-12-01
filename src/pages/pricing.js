@@ -123,6 +123,12 @@ function Pricing() {
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
+                    <span>Jira integration</span>
+                  </li>
+                  <li>
+                    <span className="icon primary">
+                      <Check size={18} />
+                    </span>
                     <span>Weekly reports</span>
                   </li>
                   <li>
@@ -154,13 +160,7 @@ function Pricing() {
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
-                    <span>JIRA integration</span>
-                  </li>
-                  <li>
-                    <span className="icon primary">
-                      <Check size={18} />
-                    </span>
-                    <span>Recommendations in pull requests</span>
+                    <span>Policies in pull requests (e.g. gp2 to gp3)</span>
                   </li>
                   <li>
                     <span className="icon primary">

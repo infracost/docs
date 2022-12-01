@@ -154,6 +154,9 @@ function Pricing() {
                 Supports custom price books, EDPs, EAs and commitment agreements
               </LiWithCheck>
               <LiWithCheck>
+                Integrations into issue trackers like Jira
+              </LiWithCheck>
+              <LiWithCheck>
                 Shows top changes per repo, project, pull request and users
               </LiWithCheck>
               <LiWithCheck>
