@@ -34,9 +34,7 @@ function BlogPostPage(props) {
       wrapperClassName={ThemeClassNames.wrapper.blogPages}
       pageClassName={ThemeClassNames.page.blogPostPage}
       toc={
-        !hideTableOfContents &&
-        BlogPostContents.toc &&
-        BlogPostContents.toc.length > 0 ? (
+        !hideTableOfContents && BlogPostContents.toc ? (
           <TOC
             toc={BlogPostContents.toc}
             minHeadingLevel={tocMinHeadingLevel}
