@@ -24,7 +24,7 @@ Back in 2012, there were no pricing APIs available so we had to scrape the AWS, 
 
 Today we count nearly 4 million prices in our Cloud Pricing API from AWS, Azure and GCP. A few months ago we wrote about why [cloud pricing is so complex](https://www.infracost.io/blog/why-are-cloud-costs-so-complex/). It has become impossible to do estimation using Excel because it’s not possible to model both the complex cloud pricing, and complex system architectures. That leaves us with one target: kill cloud cost calculators!
 
-For us to achieve this aim, we need to build a product which is 10x better. The dimensions we want to improve on are: Speed and accuracy.
+For us to achieve this aim, we need to build a product which is 10x better. The dimensions we want to improve on are: speed and accuracy.
 
 **Speed**: Engineers are already overloaded with sprint work. Adding a distinct step to calculate the cost of a change slows feature delivery by adding another task. But worse, the design and cost of a system are so tightly coupled that trying to separate cost estimation work from development work means a bigger potential for rework - if you design a system and then find out it costs too much, you have to redesign it.
 
@@ -36,11 +36,11 @@ For us to achieve this aim, we need to build a product which is 10x better. The 
 
 <img src={useBaseUrl("img/blog/death-cost-calculator/spinaltap.gif")} width="70%" alt="Spinaltap GIF"/>
 
-VSCode extension: Integrate directly into VSCode so that as you type infrastructure code, a cost estimate is generated and displayed inline. Just install the plugin and you are good to go.
+VS Code extension: Integrate directly into VS Code so that as you type infrastructure code, a cost estimate is generated and displayed inline. Just install the plugin and you are good to go.
 
 <img src={useBaseUrl("img/blog/death-cost-calculator/infracostVSCode.gif")} width="70%" alt="Infracost VS Code GIF"/>
 
 
-We currently only support VSCode ([Intellij](https://github.com/infracost/infracost/issues/1814) is coming next). If you are working in a team, the best solution is [Infracost CI/CD](https://www.infracost.io/docs/integrations/cicd/), where the cost estimate is still automated and appears in the CI/CD in your Pull Request.
+We currently only support VS Code ([IntelliJ](https://github.com/infracost/infracost/issues/1814) is coming next). If you are working in a team, the best solution is [Infracost CI/CD](https://www.infracost.io/docs/integrations/cicd/), where the cost estimate is still automated and appears in the CI/CD in your Pull Request.
 
-Now, we are setting our targets on automating the end to end flow. From JIRA to cost estimation and back. Follow [@infracost](https://twitter.com/infracost) on twitter for updates!
+Now, we are setting our targets on automating the end to end flow. From Jira to cost estimation and back. Follow [@infracost](https://twitter.com/infracost) on Twitter for updates!
