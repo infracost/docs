@@ -64,6 +64,18 @@ If the above method does not work for your use-case, you can use Terraform to ge
   infracost breakdown --path plan.json
   ```
 
+### CDK for Terraform
+
+The [CDK for Terraform](https://developer.hashicorp.com/terraform/cdktf) is also supported as it can generate Terraform. Thus the same Terraform directory option can be used to get a cost breakdown:
+
+  ```shell
+  cd path/to/code
+
+  cdktf synth
+
+  infracost breakdown --path cdktf.out/stacks/mystack/
+  ```
+
 ## Diff
 
 This command shows a diff of monthly costs between current and planned state. You can point Infracost to either a Terraform directory, or plan JSON file, using the `--path` flag.
