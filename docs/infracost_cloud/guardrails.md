@@ -40,7 +40,7 @@ The following screenshot shows an example email notification.
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/email.png")} alt="Example email notification" />
 
-### Slack channel
+### Slack
 
 The following screenshot shows an example Slack notification.
 
