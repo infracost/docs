@@ -35,6 +35,7 @@ module.exports = {
         'infracost_cloud/reports',
         'infracost_cloud/custom_price_books',
         'infracost_cloud/actual_costs',
+        'infracost_cloud/readme_badge',
       ],
     },
     {
