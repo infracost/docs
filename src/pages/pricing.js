@@ -123,6 +123,12 @@ function Pricing() {
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
+                    <span>Policies in pull requests (e.g. gp2 to gp3)</span>
+                  </li>
+                  <li>
+                    <span className="icon primary">
+                      <Check size={18} />
+                    </span>
                     <span>Custom price books and discounts</span>
                   </li>
                   <li>
@@ -157,7 +163,7 @@ function Pricing() {
                     </span>
                     <span>SSO</span>
                   </li>
-                  <li className="pricing plan__coming-soon">
+                  {/* <li className="pricing plan__coming-soon">
                     <span>
                       <b>Coming soon:</b>
                     </span>
@@ -166,8 +172,8 @@ function Pricing() {
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
-                    <span>Policies in pull requests (e.g. gp2 to gp3)</span>
-                  </li>
+                    <span>n/a</span>
+                  </li> */}
                 </ul>
                 <div className="action">
                   <a

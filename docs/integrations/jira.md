@@ -7,7 +7,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-
 Connect Infracost Cloud to Jira to enrich your team's cost estimates with powerful contextual information. Our Jira integration provides an automated two-way connection that helps you better understand why your teams' cloud costs have changed.
 
 Once enabled, our Jira integration updates Jira issues with Infracost cost estimates along with a direct link to our dashboard. Use this to dive into specific cloud costs impacted by engineering changes.

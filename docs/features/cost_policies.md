@@ -7,6 +7,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::tip
+We recommend using the new [Centralized cost policies](/docs/infracost_cloud/cost_policies) feature instead.
+:::
+
 Cost policies enable DevOps and FinOps teams to help engineers to take action around cloud costs. Policies are usually written by centralized teams so they can send advice or set guardrails for all engineering teams. Policies are checked in CI/CD and trigger when pre-defined conditions are hit.
 
 ## Benefits

@@ -5,6 +5,10 @@ title: Readme badge
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+:::info
+Coming soon!
+:::
+
 Add a cost badge in your repository `README.md` files to enable engineers to see the repo's latest cost estimate quickly. This is specially useful for Terraform module repos where a central platform team creates re-usable modules for development teams, who are often unaware of the costs of those modules.
 
 <img src={useBaseUrl("img/infracost-cloud/readme-badge.png")} alt="Cost badge" />
