@@ -82,12 +82,13 @@ This is useful when you want to create traffic profiles such as lower/medium/hig
 
 ```yaml
 version: 0.1
-resource_usage:
+resource_type_default_usage:
   aws_dynamodb_table:
     storage_gb: 1000 # Set in all DynamoDB table resources
 
+resource_usage:
   aws_dynamodb_table.my_table:
-    monthly_write_request_units: 200 # Merged with default that defines storage_gb
+    monthly_write_request_units: 200 # Merged with default that defines storage_gb, so both attributes are set for this resource
 
   aws_dynamodb_table.my_other_table:
     storage_gb: 50 # Overrides the default
