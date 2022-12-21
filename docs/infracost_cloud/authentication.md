@@ -26,6 +26,16 @@ Email addresses are unique in Infracost Cloud. Thus when you log in with GitHub,
   This opens an authentication web page and saves the API key locally. If you run into issues, follow the [web](#web) log in and set the CLI API key manually.
 3. Run Infracost [commands](/docs/features/cli_commands) as usual. If you need to create a new organization or retrieve your API key, use our [web](#web) UI.
 
+## Enterprise Single Sign On (SSO)
+Infracost Cloud supports authenticating with Enterprise SSO providers. To set up SSO with Infracost cloud follow one of the following guides:
+* [Azure Active Directory](/docs/infracost_cloud/sso/azure_active_directory)
+* [Okta](/docs/infracost_cloud/sso/okta)
+* [Google Workspace](/docs/infracost_cloud/sso/google_workspace)
+* [Other SAML providers](/docs/infracost_cloud/sso/other_saml)
+
+Once your SSO connection is configured any user authenticating with the your company domain name will be redirected to your SSO provider for authenticating.
+
+
 ## Notes for existing users
 
 1. Old Infracost API keys, ones that **do not** start with `ico-`, will continue to work in the CLI and Cloud Pricing API, but not with Infracost Cloud.
