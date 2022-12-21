@@ -21,20 +21,19 @@ If you signed up using an email/password, you can change your password by loggin
 Email addresses are unique in Infracost Cloud. Thus when you log in with GitHub, Google or an email/password, if the email associated with the login is the same as a previous login, you will be given the option to link the accounts together, so you can log in using either method.
 
 ## CLI
-1. [Upgrade](/docs/#1-install-infracost) to Infracost v0.10.11 or later. Check version by running `infracost --version`.
+1. [Upgrade](/docs/#1-install-infracost) to the latest version.
 2. Run `infracost auth login`.
   This opens an authentication web page and saves the API key locally. If you run into issues, follow the [web](#web) log in and set the CLI API key manually.
 3. Run Infracost [commands](/docs/features/cli_commands) as usual. If you need to create a new organization or retrieve your API key, use our [web](#web) UI.
 
 ## Enterprise Single Sign On (SSO)
-Infracost Cloud supports authenticating with Enterprise SSO providers. To set up SSO with Infracost cloud follow one of the following guides:
+Infracost Cloud supports authenticating with Enterprise SSO providers. To set up SSO with Infracost Cloud follow one of the following guides:
 * [Azure Active Directory](/docs/infracost_cloud/sso/azure_active_directory)
 * [Okta](/docs/infracost_cloud/sso/okta)
 * [Google Workspace](/docs/infracost_cloud/sso/google_workspace)
 * [Other SAML providers](/docs/infracost_cloud/sso/other_saml)
 
-Once your SSO connection is configured any user authenticating with the your company domain name will be redirected to your SSO provider for authenticating.
-
+Once your SSO connection is configured any user authenticating with the your company domain name in the [usual log in page](https://dashboard.infracost.io) will be redirected to your SSO provider for authenticating.
 
 ## Notes for existing users
 
