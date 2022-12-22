@@ -51,3 +51,8 @@ The pull request status can be:
 ## Migrating from GitHub Actions to GitHub App
 
 We recommend enabling the GitHub App first, testing to ensure you're happy with it, then removing the Infracost GitHub Actions yaml configs from your repo.
+
+
+## GitHub Enterprise
+
+Our automated GitHub app integration works with both GitHub Standard Edition and GitHub Enterprise Cloud. Enterprise Server users should follow our [dedicated guide](/docs/integrations/github_enterprise_server).

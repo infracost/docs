@@ -24,7 +24,7 @@ export const Grid = ({logos}) => {
     )
 };
 
-export const CIBox = ({image, link, maxHeight, newWindow}) => (
+export const CIBox = ({image, link, maxHeight, newWindow, text}) => (
   <a
     className="ci-box"
     href={link}
@@ -37,13 +37,21 @@ export const CIBox = ({image, link, maxHeight, newWindow}) => (
         maxHeight: maxHeight ?? "2rem"
       }}
       />
+      {text && (<div className="ci-subtitle">{text}</div>)}
   </a>
 )
 
 <Grid logos={[
     {
       image: "/img/services/github.svg",
+      text: "Standard & Enterprise Cloud",
       link: "/docs/integrations/github_app",
+      newWindow: false
+    },
+    {
+      image: "/img/services/github.svg",
+      text: "Enterprise Server",
+      link: "/docs/integrations/github_enterprise_server",
       newWindow: false
     },
     {

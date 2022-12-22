@@ -313,11 +313,19 @@ blockquote {
   border-radius: 8px;
   display: flex;
   padding: 2rem;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   transition-property: background-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.ci-subtitle {
+  color: #fff;
+  font-size: 0.75em;
+  width: 100%;
+  text-align: center;
 }
 
 .ci-box:hover {
