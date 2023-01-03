@@ -106,7 +106,17 @@ You should now see an event notification configuration created similar to the fo
 
    <img src={useBaseUrl("img/infracost-cloud/s3-notification-created.png")} alt="Notification created" />
 
-### 5. Email us to complete the setup
+### 5. Confirm Cost and Usage Report settings
+
+In AWS Console, go to the Billing Dashboard -> Cost and Usage Reports then click on the name of the existing report you would like to connect.  Confirm that:
+1. **Report content** includes "Resource IDs"
+2. **Time granularity** is "Daily"
+3. **Compression type** is "GZIP"
+4. **File format** is "text/csv"
+
+Make special note of the **Report path prefix** on this page.  You will need to send it to Infracost in the next step.
+
+### 6. Email us to complete the setup
 
 Your CUR permissions are now successfully configured! Send the following email so we enable the feature for your Infracost Cloud organization:
 ```txt
@@ -117,10 +127,10 @@ Body:
 Hi, my name is Rafa and I'm the DevOps Lead at ACME Corporation.
 Please enable the AWS actual costs feature for our organization:
 
-- Infracost Cloud org ID (from step 1): $YOUR_INFRACOST_ORGANIZATION_ID
-- Our AWS Cross Account ARN (from step 3): $CROSS_ACCOUNT_ARN_OUTPUT
-- Our AWS CUR S3 Bucket ARN (from step 3): $YOUR_BUCKET_NAME
-- Our AWS CUR S3 Bucket Prefix (optional, from step 4): xxxx
+- Infracost Cloud org ID (from step 1): $YOUR_INFRACOST_ORGANIZATION_ID (12345678-90ab-cdef-1234-567890abcdef)
+- Our AWS Cross Account ARN (from step 3): $CROSS_ACCOUNT_ARN_OUTPUT (arn:aws:iam::123456789012:role/ConnectToInfracost-CrossAccountRole-0123456789AB)
+- Our AWS CUR S3 Bucket ARN (from step 3): $BUCKET_ARN_OUTPUT (arn:aws:s3:::my-s3-bucket)
+- Our AWS CUR Report Path Prefix (from step 5): $REPORT_PATH_PREFIX (daily-v1/InfracostReport12345678-90ab-cdef-1234-567890abcdef)
 
 Regards,
 Rafa
@@ -168,7 +178,13 @@ Navigate to the **Outputs** tab and copy the value of the **RoleArn** and **Buck
 
    <img src={useBaseUrl("img/infracost-cloud/cloudformation-stack-new.png")} alt="CloudFormation stack new" />
 
-#### 3. Email us to complete the setup
+#### 3. Confirm Cost and Usage Report settings
+
+In AWS Console, go to the Billing Dashboard -> Cost and Usage Reports then click on the name of newly created report.
+
+Review the report settings and make special note of the **Report path prefix** on this page.  You will need to send it to Infracost in the next step.
+
+#### 4. Email us to complete the setup
 
 Your CUR permissions are now successfully configured! Send the following email so we enable the feature for your Infracost Cloud organization:
 ```txt
@@ -180,10 +196,10 @@ Hi, my name is Rafa and I'm the DevOps Lead at ACME Corporation.
 I've setup a new CUR report for Infracost Cloud, please enable
 the AWS actual costs feature for our organization:
 
-- Infracost Cloud org ID (from step 1): $YOUR_INFRACOST_ORGANIZATION_ID
-- Our AWS Cross Account ARN (from step 2): $CROSS_ACCOUNT_ARN_OUTPUT
-- Our AWS CUR S3 Bucket ARN (from step 2): $BUCKET_ARN_OUTPUT
-- Our AWS CUR S3 Bucket Prefix (hardcoded by our CloudFormation stack): daily-v1
+- Infracost Cloud org ID (from step 1): $YOUR_INFRACOST_ORGANIZATION_ID (12345678-90ab-cdef-1234-567890abcdef)
+- Our AWS Cross Account ARN (from step 2): $CROSS_ACCOUNT_ARN_OUTPUT (arn:aws:iam::123456789012:role/ConnectToInfracost-CrossAccountRole-0123456789AB)
+- Our AWS CUR S3 Bucket ARN (from step 2): $BUCKET_ARN_OUTPUT (arn:aws:s3:::my-s3-bucket)
+- Our AWS CUR Report Path Prefix (from step 3): $REPORT_PATH_PREFIX (daily-v1/InfracostReport12345678-90ab-cdef-1234-567890abcdef)
 
 Regards,
 Rafa
