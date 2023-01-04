@@ -108,8 +108,7 @@ module.exports = {
     announcementBar: {
       id: 'support_us',
       content:
-        // '<span class="announcement-message">If you like Infracost, give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">star on GitHub</a>!<img src="/img/icons/star-white.svg" class="star-right" alt="Star icon" /></span>',
-        '<span class="announcement-message">As a thank you to our open-source community, Infracost is now only <a rel="noopener noreferrer" href="/pricing">$30 per seat per month till end of the year</a>! 💸</span>',
+        '<span class="announcement-message">If you like Infracost, give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">star on GitHub</a>!<img src="/img/icons/star-white.svg" class="star-right" alt="Star icon" /></span>',
       backgroundColor: '#2A2A5B',
       textColor: '#EBEBF2',
     },
