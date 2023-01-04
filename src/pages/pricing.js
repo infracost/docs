@@ -3,9 +3,10 @@ import PageLayout from '../components/PageLayout';
 import Check from '../components/icons/Check';
 import PricingQuestions from '../components/questions/PricingQuestions';
 import UsedBy from '../components/UsedBy';
-import PromoBanner from '../components/PromoBanner/PromoBanner';
 
 function Pricing() {
+  const PRICE_PER_SEAT = 50;
+
   return (
     <PageLayout
       title="Pricing"
@@ -14,8 +15,6 @@ function Pricing() {
       hideCTA={true}
     >
       <div className="pricing-wrapper">
-        <PromoBanner withButton={false} />
-
         <div className="intro">
           <div className="container">
             <h1 className="tagline">Pricing</h1>
@@ -88,7 +87,7 @@ function Pricing() {
               <div className="plan__wrapper">
                 <div className="price__wrapper">
                   <span>
-                    <span className="price__tier">$30</span>
+                    <span className="price__tier">${PRICE_PER_SEAT}</span>
                   </span>
                   <span className="price__suppl">
                     per seat per month (billed annually)

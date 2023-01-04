@@ -1,7 +1,6 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
 import Check from '../components/icons/Check';
-import PromoBanner from '../components/PromoBanner/PromoBanner';
 
 function UseCases() {
   return (
@@ -11,8 +10,6 @@ function UseCases() {
       pageClass="use-cases default-page-bg"
     >
       <div className="use-cases-background"></div>
-
-      <PromoBanner />
 
       <div className="use-cases-wrapper">
         <div className="intro">
