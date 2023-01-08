@@ -116,7 +116,7 @@ function Pricing() {
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
-                    <span>Guardrails with custom messages/notifications/actions</span>
+                    <span>Guardrails with custom messages, notifications & actions</span>
                   </li>
                   <li>
                     <span className="icon primary">
@@ -128,7 +128,7 @@ function Pricing() {
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
-                    <span>Custom price books and discounts</span>
+                    <span>Custom price books & discounts</span>
                   </li>
                   <li>
                     <span className="icon primary">
@@ -147,7 +147,7 @@ function Pricing() {
                       <Check size={18} />
                     </span>
                     <span>
-                      GitHub App integration with pull request status/metadata
+                      GitHub App integration with pull request status & metadata
                     </span>
                   </li>
                   <li>
