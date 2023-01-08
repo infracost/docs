@@ -23,8 +23,7 @@ We are currently working on our SOC 2 Type II compliance process, see our [secur
 
 3. Click on Integrations > GitHub and follow the wizard to select the repos you want to give Infracost access to.
     - If you use private git modules, add your private SSH key (RSA format is recommended) so Infracost can clone the repos in the same way that Terraform does.
-    - If you use private Terraform Registry modules, see [this page](/docs/features/terraform_modules/#terraform-registry-modules).
-    - Email [hello@infracost.io](mailto:hello@infracost.io) if you use [GitHub Enterprise](https://github.com/enterprise) (where you have a dedicated instance of GitHub).
+    - If you use private Terraform Registry modules, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) to set the required environment variables in the integration settings page in Infracost Cloud.
 
 4. If you need to customize how Infracost runs, add an `infracost.yml` [config file](/docs/features/config_file/) to the root of your repo. The GitHub App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage-yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
 
@@ -48,11 +47,22 @@ The pull request status can be:
   - **merged**: the pull request was merged into the base branch, these can be checked when auditing actual cloud costs to see what happened.
   - **deployed**: the pull request was deployed. This usually happens after the pull request was merged. The GitHub App integration does not yet set the deployed status, so you can [use our API](/docs/features/cli_commands/#pull-request-status) to set it.
 
+## GitHub Enterprise
+
+Our automated GitHub App integration works with both GitHub Enterprise Cloud and GitHub Enterprise Server. Directly integrating Infracost Cloud to GitHub Enterprise means you'll get the latest features, the fastest cost estimates and the most robust solution.
+
+### GitHub Enterprise Cloud
+
+Follow the same [usage steps](#usage) as the regular GitHub App above.
+
+If you use the GitHub Enterprise "Enable IP allow list", you need to allow incoming traffic from `3.133.40.66` to your GitHub instance port 443 (or whatever port you use); this is the IP address used by Infracost Cloud services to call the integration.
+
+If you have restricted out-going traffic from your instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should whitelist `13.58.92.216`, `3.142.138.46` and `13.58.157.166` but we recommend you whitelist the domain as these IP addresses are likely to change.
+
+### GitHub Enterprise Server
+
+Email us at [hello@infracost.io](mailto:hello@infracost.io) to enable GitHub Enterprise Server in your Infracost Cloud account. This requires a meeting with your server admin so we can install the Infracost GitHub App in your GitHub organization.
+
 ## Migrating from GitHub Actions to GitHub App
 
 We recommend enabling the GitHub App first, testing to ensure you're happy with it, then removing the Infracost GitHub Actions yaml configs from your repo.
-
-
-## GitHub Enterprise
-
-Our automated GitHub app integration works with both GitHub Standard Edition and GitHub Enterprise Cloud. Enterprise Server users should follow our [dedicated guide](/docs/integrations/github_enterprise_server).
