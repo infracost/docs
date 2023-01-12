@@ -90,7 +90,7 @@ function Pricing() {
                     <span className="price__tier">${PRICE_PER_SEAT}</span>
                   </span>
                   <span className="price__suppl">
-                    per seat per month (billed annually)
+                    per seat per month
                     <span className="price__description">
                       A seat is needed for anyone making infrastructure changes,
                       and those who access the Infracost Cloud dashboard

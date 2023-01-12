@@ -57,7 +57,7 @@ const Questions = () => {
           <QuestionLi>
             <Question>What purchase options do you offer?</Question>
             <Answer>
-              We currently only offer annual purchases. If you require many seats and can only proceed with per month pricing, please contact us on hello@infracost.io
+              We offer the option to purchase Infracost on a monthly or annual subscription basis. If you require many seats and would like to discuss pricing, please contact us on hello@infracost.io
             </Answer>
           </QuestionLi>
 
