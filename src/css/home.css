@@ -272,6 +272,7 @@
   flex-wrap: nowrap;
   overflow-x: scroll;
   scrollbar-width: none;
+  margin-bottom: 3rem;
 }
 
 .social-mentions .cards::-webkit-scrollbar {
