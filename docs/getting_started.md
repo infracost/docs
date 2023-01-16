@@ -29,7 +29,7 @@ Get the latest Infracost release:
   ```shell
   brew install infracost
 
-  infracost --version # Should show 0.10.15
+  infracost --version # Should show 0.10.16
   ```
 
   To upgrade Infracost, run `brew update` then `brew upgrade infracost`.
@@ -52,7 +52,7 @@ Get the latest Infracost release:
     ```
   3. Check that it works correctly:
     ```shell
-    infracost --version # Should show 0.10.15
+    infracost --version # Should show 0.10.16
     ```
 
 
@@ -62,7 +62,7 @@ Get the latest Infracost release:
   ```shell
   choco install infracost
 
-  infracost --version # Should show 0.10.15
+  infracost --version # Should show 0.10.16
   ```
 
   To upgrade Infracost, run `choco upgrade infracost`.
