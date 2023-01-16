@@ -22,7 +22,7 @@ We are currently working on our SOC 2 Type II compliance process, see our [secur
   <img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
 
 3. Click on Integrations > GitHub and follow the wizard to select the repos you want to give Infracost access to.
-    - If you use private git modules, add your private SSH key (RSA format is recommended) so Infracost can clone the repos in the same way that Terraform does.
+    - If you use private git modules, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way that Terraform does.
     - If you use private Terraform Registry modules, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) to set the required environment variables in the integration settings page in Infracost Cloud.
 
 4. If you need to customize how Infracost runs, add an `infracost.yml` [config file](/docs/features/config_file/) to the root of your repo. The GitHub App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage-yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
