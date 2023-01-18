@@ -17,17 +17,17 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
     // can be "breakdown" or "diff" so it's clear how the JSON file was generated
     "infracostCommand": "breakdown",
     // name of the branch that was used to generate the estimate
-    "branch": "change-instance-type",
+    "vcsBranch": "change-instance-type",
     // long commit SHA of the branch that was used to generate the estimate
-    "commit": "1af413ad15ad6cbdfca667361231231231231231",
+    "vcsCommitSha": "1af413ad15ad6cbdfca667361231231231231231",
     // git author name of the commit
-    "commitAuthorName": "Ali Khajeh-Hosseini",
+    "vcsCommitAuthorName": "Ali Khajeh-Hosseini",
     // git email of author of commit
-    "commitAuthorEmail": "ali@email.com",
+    "vcsCommitAuthorEmail": "ali@email.com",
     // timestamp of the commit, ISO 8601 UTC string
-    "commitTimestamp": "2022-06-27T16:03:44Z",
+    "vcsCommitTimestamp": "2022-06-27T16:03:44Z",
     // the commit message
-    "commitMessage": "enhance: use m5.large",
+    "vcsCommitMessage": "enhance: use m5.large",
     // name of the VCS provider (github, gitlab, azure_repos, bitbucket)
     "vcsProvider": "github",
     // link to the repository
