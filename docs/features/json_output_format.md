@@ -72,6 +72,17 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
               "variable.instancetype"
             ]
           }
+        ],
+        // errors contains critical errors that the project encountered that meant we were not able to produce a breakdown.
+        // If errors are present, then the project.breakdown property will be a zero value.
+        // It is recommended you filter out errored projects prior to ingestion or comparison.
+        "errors": [
+          {
+            "code": 2,
+            "message": "No valid Terraform files found at the given path, try a different directory.",
+            // data contains additional metadata about the error if applicable.
+            "data": []
+          }
         ]
       },
       /* When Infracost is used with a Terraform plan JSON, this contains any
