@@ -40,7 +40,7 @@ function Home() {
           <div className="demo-video">
             <h2>Watch Infracost in action</h2>
             <div className="video-container">
-              <iframe className="video" src="https://www.youtube.com/embed/8rzvnLPLy8o" title="Infracost Demo" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
+              <iframe className="video" src="https://www.youtube.com/embed/DDi6GE9RIik" title="Infracost Demo" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
             </div>
           </div>
         </div>
