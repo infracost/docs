@@ -5,7 +5,13 @@ title: GitHub App
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Infracost GitHub App is an automated integration meaning that Infracost runs on our infrastructure and we keep it uptodate. The GitHub App is part of [Infracost Cloud](/docs/infracost_cloud/get_started/), our paid SaaS product. If you prefer a manual integration where you maintain Infracost, see [GitHub Actions](https://github.com/infracost/actions/) integration.
+The Infracost GitHub App is an automated integration meaning that Infracost runs on our infrastructure and we keep it uptodate. Its main benefits over manual CI/CD integrations are: 
+- Infracost runs significantly faster as only changed folders are run based on the GitHub App events.
+- You can add Infracost to multiple repos with one click, no need to install or update CLI versions.
+- Pull request status (e.g. open, closed, merged) and metadata such as labels, merged by, and approved by are included in dashboard filters and reports in Infracost Cloud.
+- Features such as [guardrails](/docs/infracost_cloud/guardrails/) and [policies](/docs/infracost_cloud/cost_policies/) work without you needing to make changes in your CI/CD pipelines.
+
+The GitHub App is part of [Infracost Cloud](/docs/infracost_cloud/get_started/), our paid SaaS product. If you prefer a manual integration where you maintain Infracost, see [GitHub Actions](https://github.com/infracost/actions/) integration.
 
 We are currently working on our SOC 2 Type II compliance process, see our [security page](/security) for more details.
 
