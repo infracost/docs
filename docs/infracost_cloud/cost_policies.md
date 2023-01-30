@@ -5,13 +5,13 @@ title: Centralized cost policies
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-With cost policies, you define central policies and scan your repositories for cost saving opportunities. You can also see which repositories are not following your policies and create tasks to help engineering teams take action. The policies are checked and tracked each time a pull request is sent.
+When decentralizing the provisioning of infrastructure, it's a good idea to codify best practices. This is knowledge that the central DevOps team or the platform team have gained over many years.
+
+With cost policies, you can define and codify these best practices, and scan your repositories for cost saving opportunities. As Pull Requests are created, Infracost will scan the code and check them against your policies, and show them in the central dashboard to be actioned. These can then be tracked, and when a Pull Request is updated or created fix policies failures, these will be tracked.
 
 <img src={useBaseUrl("img/infracost-cloud/cost-policies.png")} alt="Cost policies" />
 
 ## Usage
-
-This feature is in beta, [contact us](mailto:hello@infracost.io) if you'd like us to work with you to write policy code for your use-cases (using Open Policy Agent's Rego language behind the scenes) and measure their cost savings.
 
 The cost policy lifecycle is:
 
@@ -21,9 +21,11 @@ The cost policy lifecycle is:
 
 3. **Infracost detects fixes and sums cost savings**: Infracost automatically marks the policy recommendation as resolved when it detects the fix in new pull requests, and counts the total cost saving.
 
+Infracost comes with a set of default policies, but we work with customers to define custom policies for their use-case. Infracost uses the Open Policy Agent Rego language, so users are also able to bring their own code. Email us on [hello@infracost.io](mailto:hello@infracost.io) for a demo.
+
 ## Example policies
 
-Some example AWS policies that we've created are: 
+Some example AWS policies that we've created are:
 - Upgrade EC2 GP2 volumes to GP3.
   <img src={useBaseUrl("img/infracost-cloud/cost-policy-gp2-to-gp3.png")} alt="Upgrade EC2 GP2 volumes to GP3." />
 - Use CloudFront for public S3 buckets.
@@ -34,4 +36,3 @@ Some example AWS policies that we've created are:
 - Add autoscaling for DynamoDB RCUs.
 - Add autoscaling for DynamoDB WCUs.
 - Use S3 for VPC flow logs.
-
