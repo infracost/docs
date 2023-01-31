@@ -5,7 +5,7 @@ title: Centralized cost policies
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-When decentralizing the provisioning of infrastructure, it's a good idea to codify best practices. This is knowledge that the central DevOps team or the platform team have gained over many years.
+When decentralizing the provisioning of infrastructure, it's a good idea to codify best practices. This is knowledge that the central DevOps, Platform or FinOps teams have gained over many years.
 
 With cost policies, you can define and codify these best practices, and scan your repositories for cost saving opportunities. As Pull Requests are created, Infracost will scan the code and check them against your policies, and show them in the central dashboard to be actioned. These can then be tracked, and when a Pull Request is updated or created fix policies failures, these will be tracked.
 
