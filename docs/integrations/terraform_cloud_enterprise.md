@@ -76,13 +76,13 @@ Currently, only the post-plan stage is supported when you configure Run Tasks in
 
 #### 4. Results
 
-After you've setup the integration, and enabled it on one or more of your workspaces, your runs will show the Infracost Run Task output and a link to the details. You can see an example [here](https://dashboard.infracost.io/share/h2h9trnqru8ioy61xtnxywhkoszpw0cg).
+After you've setup the integration, and enabled it on one or more of your workspaces, your runs will show the Infracost Run Task output and a link to the details.
 
 Infracost is a [verified](https://www.hashicorp.com/partners/tech/infracost) Terraform Cloud integration. Terraform Cloud only sends the plan JSON file to Infracost during cost estimation, no other secrets/logs are sent, and once the cost estimate is generated, the temporary plan file is deleted from our servers.
 
 | Terraform Cloud dashboard | Details link |
 |--------------|-----------|
-[<img src={useBaseUrl("img/screenshots/tfc_integration.png")} alt="Infracost running as a Run Task" width="550px" />](/img/screenshots/tfc_integration.png) | [<img src={useBaseUrl("img/screenshots/infracost_dashboard.png")} alt="Infracost details link" width="550px" />](/img/screenshots/infracost_dashboard.png)
+<a href="https://infracost.io/img/screenshots/tfc_integration.png"><img src={useBaseUrl("img/screenshots/tfc_integration.png")} alt="Infracost running as a Run Task" width="550px" /></a> | <a href="https://infracost.io/img/screenshots/infracost_dashboard.png"><img src={useBaseUrl("img/screenshots/infracost_dashboard.png")} alt="Infracost details link" width="550px" /></a>
 
 ## Running Infracost on local dev machines
 
