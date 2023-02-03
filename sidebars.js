@@ -55,8 +55,8 @@ module.exports = {
       label: 'Integrations',
       collapsed: true,
       items: [
-        'integrations/jira',
         'integrations/github_app',
+        'integrations/jira',
         'integrations/github_actions',
         'integrations/gitlab_ci',
         'integrations/atlantis',

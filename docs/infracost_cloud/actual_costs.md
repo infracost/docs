@@ -5,7 +5,7 @@ title: Actual Costs
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost Cloud enables you to see actual costs using your AWS account's Cost and Usage Reports (CUR) data in the Infracost [pull request comments](/docs/integrations/cicd/), [VSCode extension](/docs/integrations/vscode/) and [CLI output](/docs/features/cli_commands/).
+Infracost Cloud enables you to see actual costs using your AWS account's Cost and Usage Reports (CUR) data in the Infracost [pull request comments](/docs/integrations/cicd/), [VS Code extension](/docs/integrations/vscode/) and [CLI output](/docs/features/cli_commands/).
 
 This page outlines how you can give Infracost Cloud read access to your AWS CUR data (and resources listings), which Infracost requires to provide this functionality. We plan to build similar functionality for Azure and Google in the future.
 
