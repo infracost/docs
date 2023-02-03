@@ -11,17 +11,13 @@ Infracost is an [official HashiCorp partner](https://www.hashicorp.com/partners/
 
 ## Integration options
 
-There are two integration options:
-1. [Version control systems](#option-1-version-control-systems): our CI/CD integrations run the Infracost CLI and parse Terraform HCL code directly. This option enables you to post pull request comments and use all Infracost features.
-2. [Terraform Run Tasks](#option-2-terraform-run-tasks): this is our managed integration that uses the Terraform plan JSON that Terraform Cloud/Enterprise generates. The following features are not currently supported by this option: posting pull request comments, multiple currencies, modelling usage-based resources via the usage-file. Please [contact us](mailto:hello@infracost.io) if you need these features.
+### Option 1: Source control systems
 
-Some Infracost users enable both integrations, so they can see cost estimates at the code review stage in systems such as GitHub, and also at the deployment stage in Terraform Cloud. This ensures that everyone involved, engineers at the code review stage and DevOps/SREs at the deployment stage have cost visibility.
-
-### Option 1: Version control systems 
-
-See our [CI/CD integrations](/docs/integrations/cicd/) for details.
+Our CI/CD integrations run the Infracost CLI and parse Terraform HCL code directly. We recommend using this option as it enables you to post pull request comments and use **all** Infracost features. See our [CI/CD integrations](/docs/integrations/cicd/) for details.
 
 ### Option 2: Terraform Run Tasks
+
+This option uses the Terraform plan JSON that Terraform Cloud/Enterprise generates. The following features are not currently supported by this option: posting pull request comments, multiple currencies, modelling usage-based resources via the usage-file. Please [contact us](mailto:hello@infracost.io) if you need these features.
 
 [Terraform Run Tasks](/blog/terraform-runtasks-what-why-how/) can be used to integrate Infracost into Terraform Cloud/Enterprise directly. It sits between the plan and apply stage and shows a cost estimate for the changes that are about to be deployed. There is also a shareable details link that will open a pre-authenticated link with a detailed breakdown of costs per resource.
 

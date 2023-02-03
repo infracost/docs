@@ -5,19 +5,23 @@ title: GitHub App
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Infracost GitHub App is an automated integration meaning that Infracost runs on our infrastructure and we keep it uptodate. Its main benefits over manual CI/CD integrations are: 
-- Infracost runs significantly faster as only changed folders are run based on the GitHub App events.
-- You can add Infracost to multiple repos with one click, no need to install or update CLI versions.
-- Pull request status (e.g. open, closed, merged) and metadata such as labels, merged by, and approved by are included in dashboard filters and reports in Infracost Cloud.
-- Features such as [guardrails](/docs/infracost_cloud/guardrails/) and [policies](/docs/infracost_cloud/cost_policies/) work without you needing to make changes in your CI/CD pipelines.
-
-The GitHub App is part of [Infracost Cloud](/docs/infracost_cloud/get_started/), our paid SaaS product. If you prefer a manual integration where you maintain Infracost, see [GitHub Actions](https://github.com/infracost/actions/) integration.
-
-We are currently working on our SOC 2 Type II compliance process, see our [security page](/security) for more details.
+The Infracost GitHub App is an automated integration meaning that Infracost runs on our infrastructure and we keep it up to date.
 
 | 1. Install the Infracost GitHub App | 2. Get pull request comments |
 |--------------|-----------|
 <img src={useBaseUrl("img/screenshots/github-app-install.png")} alt="Install the GitHub App into any GitHub organization"/> | <img src={useBaseUrl("img/screenshots/github-app-comment.png")} alt="Infracost automatically leaves a comment on every pull request"/>
+
+## Benefits
+
+There are two key benefits of using the GitHub App over manual CI/CD integrations:
+1. Infracost runs significantly faster as only changed folders are run based on the GitHub App events.
+2. You can add Infracost to multiple repos with one click, no need to install or update CLI versions.
+
+Furthermore, if you use Infracost Cloud (our SaaS product):
+- the pull request status (e.g. open, closed, merged) and metadata such as labels, merged by, and approved by are included in the dashboard filters and reports.
+- [Guardrails](/docs/infracost_cloud/guardrails/) and [centralized cost policies](/docs/infracost_cloud/cost_policies/) work without you needing to make changes in your CI/CD pipelines.
+
+We are currently working on our SOC 2 Type II compliance process, see our [security page](/security) for more details. If you prefer a manual integration where you maintain Infracost, see [GitHub Actions](https://github.com/infracost/actions/) integration.
 
 ## Usage
 
@@ -27,9 +31,10 @@ We are currently working on our SOC 2 Type II compliance process, see our [secur
 
   <img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
 
-3. Click on Integrations > GitHub and follow the wizard to select the repos you want to give Infracost access to.
-    - If you use private git modules, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way that Terraform does.
-    - If you use private Terraform Registry modules, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) to set the required environment variables in the integration settings page in Infracost Cloud.
+3. Click on Integrations > GitHub and follow the wizard to select the repos you want to give Infracost access to. If you use private modules:
+    - For private **git modules**, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way that Terraform does.
+
+    - For private **registry modules**, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) and set the required Terraform registry token and host in the integration settings page in Infracost Cloud.
 
 4. If you need to customize how Infracost runs, add an `infracost.yml` [config file](/docs/features/config_file/) to the root of your repo. The GitHub App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage-yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
 

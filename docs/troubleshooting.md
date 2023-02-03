@@ -206,11 +206,18 @@ If you're having issues posting pull request comments, please review the trouble
 
 ## 6. Infracost Cloud dashboard
 
-If your pull requests are not showing in the Infracost Cloud dashboard, try the following troubleshooting steps. You can also join our [community Slack channel](https://www.infracost.io/community-chat) - we'll help you very quickly 😄🚀
+Try the following troubleshooting steps and join our [community Slack channel](https://www.infracost.io/community-chat) - we'll help you very quickly 😄🚀
 
-Ensure that the:
+If Infracost is **erroring or running too slow**, email us at [hello@infracost.io](mailto:hello@infracost.io) so we can arrange a debugging session with you quickly.
+
+If your pull requests comments are being posted but they are **not showing in the dashboard**, ensure that the:
 1. `INFRACOST_ENABLE_CLOUD=false` environment variable is NOT set in your CI/CD integration.
 2. [Cost estimate dashboard](/docs/infracost_cloud/get_started/#3-setup-infracost-cloud) organization setting is enabled.
 3. Infracost CLI version (`infracost --version`) being used is v0.10.11 or later.
 4. [Required environment variables](/docs/features/environment_variables/#when-a-pull-request-exists) are set before the `infracost breakdown` and `infracost diff` commands are run. You can verify this by running `cat infracost.json | jq .metadata` or `infracost breakdown --path /code --format json | jq .metadata` and checking the Infracost JSON block shows your pull request metadata.
 5. Either [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) or [`infracost upload`](/docs/features/cli_commands/#upload-runs) is used in your CI/CD integration. If Infracost Cloud is enabled (step 2 above), these commands send the Infracost JSON data to your organization in Infracost Cloud.
+
+Notes for legacy users:
+1. Old Infracost API keys, ones that **do not** start with `ico-`, will continue to work in the CLI and Cloud Pricing API, but not with Infracost Cloud.
+2. Currently there is no automated migration of your old API keys since they were only used by the CLI to retrieve prices from our Cloud Pricing API, e.g. get prices for instance types. We recommend you switch to using your API key from Infracost Cloud if you'd like to create organizations or regenerate API keys. You can simply discard your old API keys.
+3. We recommend [Terraform Cloud Run Task](/docs/integrations/terraform_cloud_enterprise/#option-2-terraform-run-tasks) users to sign up to Infracost Cloud and create a new Run Task integration so they can associate that with an organization.

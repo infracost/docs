@@ -35,8 +35,3 @@ Infracost Cloud supports authenticating with Enterprise SSO providers. To set up
 
 Once your SSO connection is configured any user authenticating with the your company domain name in the [usual log in page](https://dashboard.infracost.io) will be redirected to your SSO provider for authenticating.
 
-## Notes for existing users
-
-1. Old Infracost API keys, ones that **do not** start with `ico-`, will continue to work in the CLI and Cloud Pricing API, but not with Infracost Cloud.
-2. Currently there is no automated migration of your old API keys since they were only used by the CLI to retrieve prices from our Cloud Pricing API, e.g. get prices for instance types. We recommend you switch to using your API key from Infracost Cloud if you'd like to create organizations or regenerate API keys. You can simply discard your old API keys.
-3. We recommend [Terraform Cloud Run Task](/docs/integrations/terraform_cloud_enterprise/#option-2-terraform-run-tasks) users to sign up to Infracost Cloud and create a new Run Task integration so they can associate that with an organization.
