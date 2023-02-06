@@ -40,9 +40,9 @@ We are currently working on our SOC 2 Type II compliance process, see our [secur
 
 5. Open a test pull request and wait for Infracost to leave a pull request comment. The [Infracost Cloud dashboard](https://dashboard.infracost.io) should also show the cost estimate too.
 
-   Each time a new commit is pushed to open pull requests, the Infracost GitHub App uses the latest main/master branch commit and the latest pull request commit to generate a cost diff.
+  Each time a new commit is pushed to an open pull request, the Infracost GitHub App shows the cost difference between the most recent commit of the pull request branch, and the merge base of the base branch. The merge base is the latest common commit of the pull request base and target branch. This mirrors GitHub's pull request diff logic and shows only the cost of 'what a pull request introduces'.
 
-6. When the pull request is merged the Infracost Cloud dashboard will show you the time it was merged, who approved it and who merged it.
+6. When the pull request is merged the Infracost Cloud dashboard will show you the time it was merged, who approved it, and who merged it.
 
 ## Pull request status
 

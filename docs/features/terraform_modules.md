@@ -3,34 +3,9 @@ slug: terraform_modules
 title: Terraform modules
 ---
 
-Infracost cost estimates include any modules that are used by your Terraform or Terragrunt projects.
+Infracost include any modules that are used by your Terraform or Terragrunt projects. Public modules are automatically downloaded; but you need to setup access for private modules so Infracost can process them.
 
-# Individual modules
-
-You can run `infracost breakdown --path modules/my-module` to get a cost estimate for for an individual module. Module variables can be passed-in using the `--terraform-var-file` or `terraform-var` flags.
-
-# Multiple modules
-
-To get a combined cost estimates from multiple modules, create a [config-file](/docs/features/config_file/) as follows and run `infracost breakdown --config-file infracost.yml`:
-```yaml
-version: 0.1
-
-projects:
-  - path: my-s3-module
-    terraform_var_files:
-      - my-s3.tfvars
-      - us-east.tfvars
-
-  - path: my-ec2-module
-    terraform_var_files:
-      - my-ec2.tfvars
-```
-
-# Private modules
-
-## Terraform directory
-
-When Infracost is used with a [Terraform directory](/docs/features/cli_commands/#option-1-terraform-directory), the CLI supports Git modules and [Terraform Registry modules](https://www.terraform.io/language/modules/sources#terraform-registry).
+## Private modules
 
 ### Git modules
 
@@ -62,7 +37,7 @@ If your SSH key has a passphrase, you can also add an environment variable or se
   infracost breakdown --path /code
   ```
 
-### Terraform Registry modules
+### Registry modules
 
 Using environment variables, which is more suitable for CI/CD systems:
 * **Public Terraform Cloud registry modules:** these are automatically supported so no extra setup is needed in Infracost.
@@ -98,7 +73,21 @@ If you store your private modules in an S3 bucket, you need to provide readonly 
 }
 ```
 
-## Terraform plan JSON
+## Running Infracost in module repos
 
-When Infracost is used with a [Terraform plan JSON](/docs/features/cli_commands/#option-2-terraform-plan-json), the Terraform CLI has already downloaded/processed modules so no extra setup is needed in Infracost.
-If you're having issues handling modules, try running Infracost against a Terraform plan JSON file from your project.
+You can run `infracost breakdown --path modules/my-module` to get a cost estimate for for an individual module. Module variables can be passed-in using the `--terraform-var-file` or `terraform-var` flags.
+
+To get a combined cost estimates from multiple modules, create a [config-file](/docs/features/config_file/) as follows and run `infracost breakdown --config-file infracost.yml`:
+```yaml
+version: 0.1
+
+projects:
+  - path: my-s3-module
+    terraform_var_files:
+      - my-s3.tfvars
+      - us-east.tfvars
+
+  - path: my-ec2-module
+    terraform_var_files:
+      - my-ec2.tfvars
+```

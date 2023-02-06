@@ -10,7 +10,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Features',
+      label: 'Open source features',
       collapsed: false,
       items: [
         'features/cli_commands',
@@ -25,7 +25,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Infracost Cloud',
+      label: 'Infracost Cloud features',
       collapsed: false,
       items: [
         'infracost_cloud/get_started',
@@ -34,6 +34,7 @@ module.exports = {
         'infracost_cloud/guardrails',
         'infracost_cloud/cost_policies',
         'infracost_cloud/reports',
+        'infracost_cloud/jira_integration',
         'infracost_cloud/custom_price_books',
         'infracost_cloud/actual_costs',
         'infracost_cloud/readme_badge',
@@ -56,7 +57,6 @@ module.exports = {
       collapsed: true,
       items: [
         'integrations/github_app',
-        'integrations/jira',
         'integrations/github_actions',
         'integrations/gitlab_ci',
         'integrations/atlantis',

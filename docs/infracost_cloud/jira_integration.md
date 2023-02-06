@@ -1,6 +1,6 @@
 ---
-slug: jira
-title: Jira
+slug: jira_integration
+title: Jira integration
 ---
 
 import Tabs from '@theme/Tabs';
