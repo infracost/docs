@@ -109,7 +109,7 @@ function About() {
               </div>
             </div>
 
-            <p>Hassan, Ali and Alistair have been working together in the cloud computing space since 2012. Their experience is wide-reaching from founding multiple startups and leading them through acquisitions, to creating highly scalable software used by enterprises including Sony, Samsung, PBS, Disney, Netflix and Forbes. Tim joined the team as the first Infracost engineer in 2021, soon followed by Vadim and Hugo.</p>
+            <p>Hassan, Ali and Alistair have been working together in the cloud computing space since 2012. Their experience is wide-reaching from founding multiple startups and leading them through acquisitions, to creating highly scalable software used by enterprises including Sony, Samsung, PBS, Disney, Netflix and Forbes. Tim joined the team as the first Infracost engineer in 2021, soon followed by Vadim, Hugo and Artur.</p>
 
             <p className="contact">Contact us: <a href="mailto:hello@infracost.io" target="_blank" rel="noopener noreferrer">hello@infracost.io</a></p>
           </div>
