@@ -107,6 +107,26 @@ function About() {
                   </a>
                 </div>
               </div>
+
+              <div className="profile">
+                <div className="profile-image">
+                  <img src="/img/about/artur.jpg" alt="Artur" />
+                </div>
+                <span className="name">Artur Janas</span>
+                <div className="social">
+                  <a
+                    className="linkedin"
+                    href="https://uk.linkedin.com/in/artur-a-janas/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Artur's LinkedIn"
+                  >
+                    <span className="icon">
+                      <LinkedInIcon />
+                    </span>
+                  </a>
+                </div>
+              </div>
             </div>
 
             <p>Hassan, Ali and Alistair have been working together in the cloud computing space since 2012. Their experience is wide-reaching from founding multiple startups and leading them through acquisitions, to creating highly scalable software used by enterprises including Sony, Samsung, PBS, Disney, Netflix and Forbes. Tim joined the team as the first Infracost engineer in 2021, soon followed by Vadim and Hugo.</p>
