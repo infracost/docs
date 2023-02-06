@@ -75,7 +75,7 @@ If you store your private modules in an S3 bucket, you need to provide readonly 
 
 ## Running Infracost in module repos
 
-You can run `infracost breakdown --path modules/my-module` to get a cost estimate for for an individual module. Module variables can be passed-in using the `--terraform-var-file` or `terraform-var` flags.
+You can run `infracost breakdown --path modules/my-module` to get a cost estimate for an individual module. Module variables can be passed-in using the `--terraform-var-file` or `terraform-var` flags.
 
 To get a combined cost estimates from multiple modules, create a [config-file](/docs/features/config_file/) as follows and run `infracost breakdown --config-file infracost.yml`:
 ```yaml
