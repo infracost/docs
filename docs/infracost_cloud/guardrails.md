@@ -7,6 +7,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Guardrails help you control costs by monitoring pull requests and triggering actions when your defined thresholds are exceeded. Once you define a cost or percentage based threshold for the relevant repos, projects, and branches, you can specify actions including email or Slack notifications, or even commenting on or blocking pull requests.
 
+<img src={useBaseUrl("img/infracost-cloud/guardrails/cost-saving.png")} alt="Cost savings from guardrails" />
+
+Guardrails also have an audit trail of the pull requests that triggered them:
+
 <img src={useBaseUrl("img/infracost-cloud/guardrails/guardrail-events.png")} alt="Guardrail events" />
 
 ## Usage

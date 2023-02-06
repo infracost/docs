@@ -94,6 +94,10 @@ module.exports = {
             from: '/docs/infracost_cloud/overview',
             to: '/docs/infracost_cloud/get_started',
           },
+          {
+            from: '/docs/integrations/jira',
+            to: '/docs/infracost_cloud/jira_integration',
+          },
         ],
       },
     ],
