@@ -14,14 +14,6 @@ The `--exclude-path` flag can be used to exclude any directories/modules that sh
 infracost breakdown --path=. --exclude-path=dev --exclude-path=test
 ```
 
-## Known issues
-
-When using Terragrunt and Infracost **v0.10** or later: if the CLI crashes, please see [this GitHub issue](https://github.com/infracost/infracost/issues/1695) for a workaround.
-
-We'd like to fix these issues in upcoming releases. To unblock yourself until then, you can either:
-- Use the workaround in [this GitHub issue](https://github.com/infracost/infracost/issues/1695).
-- [Generate plan JSON files](/docs/troubleshooting/#terragrunt) and pass those to Infracost to get a cost estimate.
-
 ## Usage file
 
 If your Terragrunt project has multiple modules and you want to specify different usage files for each module, you will need to add each Terragrunt subdirectory and [usage file](/docs/features/usage_based_resources/) to the Infracost config file, see an [example here](/docs/features/config_file#examples).
@@ -31,7 +23,7 @@ If you have any feedback about how we should support multiple usage files with T
 ## How the Terragrunt integration works
 
 With v0.10, when the CLI's `--path` flag points to a Terragrunt directory:
-1. Infracost detects a Terragrunt project by checking for a Terragrunt config file in the specified path, which will be `terragrunt.hcl`, `terragrunt.hcl.json` or the value of the `TERRAGRUNT_CONFIG` environment variable. If Infracost does not detect your project as a Terragrunt project, make sure this file exists in the specified path or in any of the subdirectories with a depth less than 5.
+1. Infracost detects a Terragrunt project by checking for a Terragrunt config file in the specified path, which will be `terragrunt.hcl`, `terragrunt.hcl.json` or the value of the `TERRAGRUNT_CONFIG` environment variable. If Infracost does not detect your project as a Terragrunt project, make sure this file exists in the specified path or in any of the subdirectories with a depth less than 10.
 
 2. If Terragrunt is detected, Infracost downloads any required source files to an `.infracost` cache, detects Terragrunt defined inputs, then parses HCL directly.
 
