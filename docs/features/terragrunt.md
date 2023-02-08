@@ -23,7 +23,7 @@ If you have any feedback about how we should support multiple usage files with T
 ## How the Terragrunt integration works
 
 With v0.10, when the CLI's `--path` flag points to a Terragrunt directory:
-1. Infracost detects a Terragrunt project by checking for a Terragrunt config file in the specified path, which will be `terragrunt.hcl`, `terragrunt.hcl.json` or the value of the `TERRAGRUNT_CONFIG` environment variable. If Infracost does not detect your project as a Terragrunt project, make sure this file exists in the specified path or in any of the subdirectories with a depth less than 10.
+1. Infracost detects a Terragrunt project by checking for a Terragrunt config file in the specified path, which will be `terragrunt.hcl`, `terragrunt.hcl.json` or the value of the `TERRAGRUNT_CONFIG` environment variable. If Infracost does not detect your project as a Terragrunt project, make sure this file exists in the specified path or in any of the subdirectories with a depth less than 5.
 
 2. If Terragrunt is detected, Infracost downloads any required source files to an `.infracost` cache, detects Terragrunt defined inputs, then parses HCL directly.
 
