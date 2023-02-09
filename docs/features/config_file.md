@@ -23,37 +23,78 @@ Infracost configuration values are chosen in this order:
 ## Usage
 
 1. Create an `infracost.yml` file in the root of your repo. Each project can have the parameters mentioned in the table below; you might find the following [examples](#examples) helpful.
-  ```yml
-  version: 0.1
-
-  projects:
-    - path: dev
-      name: development
-      terraform_var_files:
-        - dev.tfvars
-
-    - path: prod
-      name: production
-      terraform_vars:
-        instance_count: 5
-        artifact_version: foobar
-  ```
-
-| Parameter               | Description                                                                                                                                                                                                             | Notes                                                                                                                                                                             |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `path`                  | Path to the Terraform directory or JSON/plan file. A path can be repeated with different parameters, e.g. for multiple workspaces.                                                                                      | Required. The path is relative to the present working directory.                                                                                                                  |
-| `include_all_paths`     | Tells autodetect to use all folders with valid project files.                                                                                                                                                           | Optional. By default Infracost will try to autodetect only root Terraform modules. See examples below.                                                                            |
-| `exclude_paths`         | Array of paths (of directories) to exclude from evaluation.                                                                                                                                                             | Optional. Supports glob patterns too, e.g. `"app/*/ignore_dir"`. See examples below.                                                                                              |
-| `name`                  | Name of project to use in all outputs (CLI, CI/CD integrations and Infracost Cloud). See details about [repos and projects](/docs/infracost_cloud/key_concepts/#repos).                                                 | Optional. Defaults to code path, workspace or Terraform/Terragrunt module within a repo.                                                                                          |
-| `usage_file`            | Path to Infracost usage file that specifies values for [usage-based resources](/docs/features/usage_based_resources)                                                                                                    | Optional                                                                                                                                                                          |
-| `env`                   | Map of environment variables, also supports referencing existing environment variables.                                                                                                                                 | Optional. Useful if you want to define each project's secret variables that are needed for the Infracost CLI run. Use the syntax `${MY_ENV_VAR}` in the config file.              |
-| `terraform_vars`        | Map of input variables to use when parsing HCL, similar to Terraform's `-var` flag.                                                                                                                                     | Optional. Use `artifact_version: foobar` syntax to define the vars, see example at top of page.                                                                                   |
-| `terraform_var_files`   | Array of variable files to use when parsing HCL, similar to Terraform's `-var-file` flag.                                                                                                                               | Optional                                                                                                                                                                          |
-| `terraform_workspace`   | Used to set the Terraform workspace                                                                                                                                                                                     | Optional. Only set this for multi-workspace deployments, otherwise it might result in the Terraform error "workspaces not supported"                                              |
-| `terraform_cloud_host`  | For Terraform Enterprise users, used to override the default `app.terraform.io` backend host                                                                                                                            | Optional                                                                                                                                                                          |
-| `terraform_cloud_token` | For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) so Infracost can automatically retrieve variables | Optional. If [this](/docs/features/environment_variables#infracost_terraform_cloud_token) environment variable is set, that'll be used for all projects instead of this parameter |
-
 2. Run `infracost breakdown --config-file infracost.yml` or `infracost diff --config-file infracost.yml`. The `--config-file` option can be used alongside `--sync-usage-file` and `--show-skipped`.
+
+<table>
+<tr>
+  <th>Parameter</th><th>Description</th>
+</tr>
+<tr>
+  <td><code>path</code></td>
+  <td>Required. String. Path to the Terraform directory or JSON/plan file. The path is relative to the working directory you run <code>infracost</code> from. A path can be repeated with different parameters, e.g. for multiple workspaces.</td>
+</tr>
+<tr>
+  <td><code>name</code></td>
+  <td>Optional. String. Defaults to code path, workspace or Terraform/Terragrunt module within a repo. Name of project to use in all outputs (CLI, CI/CD integrations and Infracost Cloud).</td>
+</tr>
+<tr>
+  <td><code>include_all_paths</code></td>
+  <td>Optional. Boolean. Defaults to false meaning that Infracost will autodetect only <b>root</b> Terraform modules. Setting this to true forces the autodetect function to estimate all directories (i.e. root and non-root modules) with valid project files, down to a max depth of 10 directories.</td>
+</tr>
+<tr>
+  <td><code>exclude_paths</code></td>
+  <td>Optional. Array of strings. Array of directory paths to exclude from evaluation, relative to <code>path</code> of project. Supports glob patterns too, for example:
+  <pre>
+{`exclude_paths:
+  - projects/myproject
+  - test-*
+  - app/*/ignore_dir`}
+  </pre></td>
+</tr>
+<tr>
+  <td><code>usage_file</code></td>
+  <td>Optional. String. Path to Infracost usage file that specifies values for <a href="/docs/features/">usage_based_resources</a>. The path is relative to the working directory you run <code>infracost</code> from.</td>
+</tr>
+<tr>
+  <td><code>env</code></td>
+  <td>Optional. Map of strings. Environment variables that are passed to the project during processing. Also supports referencing existing environment variables using the syntax <code>$&#123;MY_ENV_VAR&#125;</code>. Environment variables that start with <code>INFRACOST_</code> are global in scope (not per-project) and cannot be used inside this parameter. For example:
+  <pre>
+{`env:
+  INSTANCE_TYPE: t3.large
+  MY_ENV_KEY: $\{MY_SECRET_ENV_VAR\}`}
+  </pre></td>
+</tr>
+<tr>
+  <td><code>terraform_vars</code></td>
+  <td>Optional. Map of strings. Input variables to use when parsing the Terraform HCL code, similar to Terraform's <code>-var</code> flag. For example:
+  <pre>
+{`terraform_vars:
+  instance_count: 5
+  artifact_version: foobar`}
+  </pre></td>
+</tr>
+<tr>
+  <td><code>terraform_var_files</code></td>
+  <td>Optional. Array of string. Variable files to use when parsing Terraform HCL code, similar to Terraform's <code>-var-file</code> flag. These file paths are relative to the <code>path</code> of the project. For example:
+  <pre>
+{`terraform_var_files:
+  - global.tfvars
+  - dev.tfvars`}
+  </pre></td>
+</tr>
+<tr>
+  <td><code>terraform_workspace</code></td>
+  <td>Optional. String. Used to set the Terraform workspace. Only set this for multi-workspace repos, otherwise it might result in the Terraform error "workspaces not supported".</td>
+</tr>
+<tr>
+  <td><code>terraform_cloud_host</code></td>
+  <td>Optional. String. For Terraform Enterprise, used to override the default <code>app.terraform.io</code> backend host that is used by Infracost to retrieve variables and registry modules. Can also be used by GitLab users to set the hostname to <code>gitlab.com</code> or your GitLab hostname.</td>
+</tr>
+<tr>
+  <td><code>terraform_cloud_token</code></td>
+  <td>Optional. String. For Terraform Cloud/Enterprise or GitLab users, set this to a <a href="https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html">TFC Team API Token or User API Token</a> or <a href="https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry">GitLab token</a> so Infracost can automatically retrieve variables and registry modules. If <a href="/docs/features/environment_variables#infracost_terraform_cloud_token">this</a> environment variable is set, that'll be used for all projects instead of this parameter.</td>
+</tr>
+</table>
 
 ## Examples
 
@@ -63,7 +104,6 @@ Infracost configuration values are chosen in this order:
     {label: 'Mono-repo', value: 'mono-repo'},
     {label: 'Include/exclude paths', value: 'include-exclude-paths'},
     {label: 'Multi-workspaces', value: 'multi-workspaces'},
-    {label: 'Terragrunt', value: 'terragrunt'},
     {label: 'Multi-plans', value: 'multi-plans'},
   ]}>
   <TabItem value="mono-repo">
@@ -72,15 +112,20 @@ Infracost configuration values are chosen in this order:
   version: 0.1
   projects:
     - path: dev
+      name: development
       usage_file: dev/infracost-usage.yml
-      env:
-        AWS_PROFILE: my-dev
+      terraform_var_files:
+        - dev.tfvars
 
     - path: prod
+      name: production
       usage_file: prod/infracost-usage.yml
+      terraform_vars:
+        instance_count: 5
+        artifact_version: foobar
       env:
-        AWS_ACCESS_KEY_ID: ${PROD_AWS_ACCESS_KEY_ID}
-        AWS_SECRET_ACCESS_KEY: ${PROD_AWS_SECRET_ACCESS_KEY}
+        INSTANCE_TYPE: t3.large
+        MY_ENV_KEY: ${MY_SECRET_ENV_VAR}
   ```
   </TabItem>
   <TabItem value="include-exclude-paths">
@@ -89,11 +134,10 @@ Infracost configuration values are chosen in this order:
   version: 0.1
   projects:
     - path: infra
-      include_all_paths: true
+      include_all_paths: true # include root and non-root modules
       exclude_paths:
-      - modules
-      - projects/myproject
-      - test-* # Supports glob patterns too
+        - projects/myproject
+        - test-* # Supports glob patterns too
   ```
   </TabItem>
   <TabItem value="multi-workspaces">
@@ -114,20 +158,6 @@ Infracost configuration values are chosen in this order:
       terraform_var_files:
         - prod.tfvars
         - us-east.tfvars
-  ```
-  </TabItem>
-  <TabItem value="terragrunt">
-
-  ```yml
-  version: 0.1
-  projects:
-    - path: my/terragrunt/dev
-      name: dev
-      usage_file: dev-usage.yml
-
-    - path: my/terragrunt/prod
-      name: prod
-      usage_file: prod-usage.yml
   ```
   </TabItem>
   <TabItem value="multi-plans">
