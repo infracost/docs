@@ -53,7 +53,7 @@ Infracost configuration values are chosen in this order:
 </tr>
 <tr>
   <td><code>usage_file</code></td>
-  <td>Optional. String. Path to Infracost usage file that specifies values for <a href="/docs/features/">usage_based_resources</a>. The path is relative to the working directory you run <code>infracost</code> from.</td>
+  <td>Optional. String. Path to Infracost usage file that specifies values for <a href="/docs/features/usage_based_resources">usage_based_resources</a>. The path is relative to the working directory you run <code>infracost</code> from.</td>
 </tr>
 <tr>
   <td><code>env</code></td>
