@@ -43,11 +43,12 @@ Infracost configuration values are chosen in this order:
 </tr>
 <tr>
   <td><code>exclude_paths</code></td>
-  <td>Optional. Array of strings. Array of directory paths to exclude from evaluation, relative to <code>path</code> of project. Supports glob patterns too, for example:
+  <td>Optional. Array of strings. Array of file or directory paths to exclude from evaluation, relative to <code>path</code> of project. Supports glob patterns too, for example:
   <pre>
 {`exclude_paths:
   - projects/myproject
   - test-*
+  - terragrunt.hcl
   - app/*/ignore_dir`}
   </pre></td>
 </tr>
@@ -137,6 +138,7 @@ Infracost configuration values are chosen in this order:
       include_all_paths: true # include root and non-root modules
       exclude_paths:
         - projects/myproject
+        - infra/terragrunt.hcl
         - test-* # Supports glob patterns too
   ```
   </TabItem>
