@@ -213,7 +213,7 @@ If Infracost is **erroring or running too slow**, email us at [hello@infracost.i
 If your pull requests comments are being posted but they are **not showing in the dashboard**, ensure that the:
 1. `INFRACOST_ENABLE_CLOUD=false` environment variable is NOT set in your CI/CD integration.
 2. [Cost estimate dashboard](/docs/infracost_cloud/get_started/#3-setup-infracost-cloud) organization setting is enabled.
-3. Infracost CLI version (`infracost --version`) being used is v0.10.11 or later.
+3. Infracost CLI version (`infracost --version`) being used is latest patch version of v0.10.
 4. [Required environment variables](/docs/features/environment_variables/#when-a-pull-request-exists) are set before the `infracost breakdown` and `infracost diff` commands are run. You can verify this by running `cat infracost.json | jq .metadata` or `infracost breakdown --path /code --format json | jq .metadata` and checking the Infracost JSON block shows your pull request metadata.
 5. Either [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) or [`infracost upload`](/docs/features/cli_commands/#upload-runs) is used in your CI/CD integration. If Infracost Cloud is enabled (step 2 above), these commands send the Infracost JSON data to your organization in Infracost Cloud.
 
