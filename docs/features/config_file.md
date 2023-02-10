@@ -6,7 +6,9 @@ title: Config file
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-An Infracost config file can be created in each of your Terraform repos to specify how Infracost should be run. The main advantages of this over CLI flags are:
+An Infracost config file can be created in each of your Terraform repos to specify how Infracost should be run. The [GitHub App](/docs/integrations/github_app) automatically uses `infracost.yml` if it's present at the root of your repo.
+
+The main advantages of this over CLI flags are:
 1. Not having to remember or specify flags for each run. Just run `infracost breakdown --config-file infracost.yml` instead.
 2. Ability to run Infracost with multiple Terraform paths, projects, workspaces, and combine them into the same breakdown or diff output.
 
