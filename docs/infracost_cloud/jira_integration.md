@@ -47,6 +47,7 @@ You'll now need to create some custom fields in Jira so that Infracost can updat
 8. Add the new custom field to one or multiple screens. We recommend adding it to at least your project issue default screen.
 9. Repeat the following steps for the [supported custom fields](#supported-custom-fields) below. _Note, only the **Infracost Link** field is required_.
 
+If you are a Jira project-level administrator, and not an account-level administrator, you can still add the custom fields to the projects you administer. In such cases, only issues in those projects will get the cost fields, thus this is a good starting point on rolling out the Infracost Jira integration. Ideally longer term, all projects would get the custom fields so every project benefits from this integration.
 
 #### Supported custom fields
 
