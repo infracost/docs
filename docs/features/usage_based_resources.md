@@ -133,6 +133,10 @@ When wildcard entries exist in the usage file and `--sync-usage-file` is used:
       storage_gb: 1000
       monthly_data_ingested_gb: 1000
       monthly_data_scanned_gb: 200
+    mod.my_module[*].aws_cloudwatch_log_group.my_group[*]:
+      storage_gb: 1000
+      monthly_data_ingested_gb: 1000
+      monthly_data_scanned_gb: 200
   ```
   </TabItem>
   <TabItem value="array-without-wildcard">
@@ -154,6 +158,16 @@ When wildcard entries exist in the usage file and `--sync-usage-file` is used:
       storage_gb: 1000
       monthly_data_ingested_gb: 1000
       monthly_data_scanned_gb: 200
+
+    mod.my_mod[0].aws_cloudwatch_log_group.my_group[0]:
+      storage_gb: 1000
+      monthly_data_ingested_gb: 1000
+      monthly_data_scanned_gb: 200
+
+    mod.my_mod[1].aws_cloudwatch_log_group.my_group[0]:
+      storage_gb: 1000
+      monthly_data_ingested_gb: 1000
+      monthly_data_scanned_gb: 200
   ```
   </TabItem>
   <TabItem value="map-without-wildcard">
@@ -162,6 +176,11 @@ When wildcard entries exist in the usage file and `--sync-usage-file` is used:
   version: 0.1
   resource_usage:
     aws_cloudwatch_log_group.my_group["foo"]:
+      storage_gb: 1000
+      monthly_data_ingested_gb: 1000
+      monthly_data_scanned_gb: 200
+
+    mod.my_mod["bar"].aws_cloudwatch_log_group.my_group["foo"]:
       storage_gb: 1000
       monthly_data_ingested_gb: 1000
       monthly_data_scanned_gb: 200
