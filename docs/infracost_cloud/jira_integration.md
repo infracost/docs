@@ -17,7 +17,7 @@ You'll also be able to filter Jira issues by cost impacts using Jira's search fe
 
 ![jira filter](/img/jira/filter.png)
 
-We'll also add Jira metadata to any Infracost Cloud runs, meaning you can search, filter and analyse Infracost runs based on your team's Jira issues.
+We'll also add Jira metadata to any Infracost Cloud runs, meaning you can search, filter and analyze Infracost runs based on your team's Jira issues.
 
 ![dashboard](/img/jira/dashboard.png)
 
@@ -74,10 +74,54 @@ Now head over to the [Infracost Cloud dashboard](https://dashboard.infracost.io)
 4. Add your custom fields mapping in the **Infracost Configurations** section.
 5. Hit save. If you've entered everything correctly, you'll see a green tick displayed by the Jira integration on the integrations page.
 
+   If you get an error "cannot find any Jira custom field named x, please create this field in Jira", run the following `curl` command from your terminal to see if the custom field is accessible via the Jira API:
+
+   <Tabs
+   defaultValue="curl-command"
+   values={[
+      {label: 'Curl command to troubleshoot', value: 'curl-command'},
+      {label: 'Expected response', value: 'successful-curl'},
+      {label: 'Failed response', value: 'failed-curl'},
+   ]}>
+   <TabItem value="curl-command">
+
+      ```shell
+      # You can change Infracost_Link to be one of your custom Jira field names
+      curl --request GET \
+        --url 'https://your-domain.atlassian.net/rest/api/2/field/search?query=Infracost_Link' \
+        --user 'YOUR@EMAIL.COM:YOUR_API_TOKEN' \
+        --header 'Accept: application/json'
+      ```
+   </TabItem>
+   <TabItem value="successful-curl">
+
+      You should see a response like the following when the custom fields are accessible via the Jira API:
+      ```json
+      {"maxResults":50,"startAt":0,"total":1,"isLast":true,"values":
+      [{"id":"customfield_10039","name":"Infracost Link",
+      "schema":{"type":"string","custom":"com.atlassian.jira.plugin.system.customfieldtypes:url",
+      "customId":10039},"description":""}]}
+      ```
+   </TabItem>
+   <TabItem value="failed-curl">
+
+      If you see a response like the following, it means that Infracost is not able to find the custom field in the Jira API.
+      Please [contact us](mailto:hello@infracost.io) so we can work with you to troubleshoot the issue.
+      ```json
+      {"maxResults":50,"startAt":0,"total":0,"isLast":true,"values":[]}
+      ```
+   </TabItem>
+   </Tabs>
+6. Create a new test Jira issue, note the issue ID.
+7. Browse to one of the code repos that you have already added to Infracost. Send a new pull request where either the pull request title, git commit message or the git branch name starts with the test Jira issue ID, e.g. _"TEST-2 my pull request title"_.
+8. You should see the cost estimate in Infracost Cloud's Dashboard or Repos page, as well as the test Jira issue.
+
+
 ## Requirements
 
 Once you've set up the Jira integrations, all future pull requests will be synced with Jira from Infracost Cloud. Infracost detects Jira issues from VCS systems exactly the same way the official Jira GitHub connection does. It checks if a Jira issue key prefixes either:
 
-1. A pull request title, e.g. _"TEST-2 some pr title"_
-2. A git commit message, e.g. _"TEST-2 some commit message."_
-3. A git branch name, e.g. _"TEST-2-some-branch-name"_
+1. A pull request title, e.g. _"TEST-2 my pull request title"_
+2. A git commit message, e.g. _"TEST-2 my commit message."_
+3. A git branch name, e.g. _"TEST-2-my-branch-name"_
+
