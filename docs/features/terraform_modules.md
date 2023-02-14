@@ -9,9 +9,7 @@ Infracost include any modules that are used by your Terraform or Terragrunt proj
 
 ### Git modules
 
-Usually no extra setup is needed for handling private git modules since Infracost downloads these using the same method that Terraform does. That means the same version control credentials (e.g. SSH keys for Github) are used by Infracost to download private modules. You can follow [Terraform's docs](https://www.terraform.io/language/modules/sources) for more information.
-
-In CI/CD integrations, you can an environment variable or secret with your private key so Infracost can access private repositories (similar to how Terraform/Terragrunt does):
+Infracost downloads private git modules using the same method that Terraform/Terragrunt does (e.g. using SSH keys or HTTPS credentials). In CI/CD integrations, you can an environment variable or secret with your private SSH key so Infracost can access private repositories:
   ```shell
   mkdir -p ~/.ssh
   eval `ssh-add -s`
@@ -23,7 +21,7 @@ In CI/CD integrations, you can an environment variable or secret with your priva
   infracost breakdown --path /code
   ```
 
-If your SSH key has a passphrase, you can also add an environment variable or secret with your passphrase:
+The `GIT_SSH_KEY` secret variable usually starts with `-----BEGIN RSA PRIVATE KEY-----`. If your SSH key has a passphrase too, you can also add an environment variable or secret with your passphrase:
   ```shell
   mkdir -p ~/.ssh
   eval `ssh-add -s`
