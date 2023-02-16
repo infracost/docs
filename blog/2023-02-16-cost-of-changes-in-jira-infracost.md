@@ -16,6 +16,8 @@ You can now show the cloud cost impact of feature requests to Product Managers a
 
 <!--truncate-->
 
+#### Overview
+
 Cloud costs are hard to understand due to the complex pricing models used by the cloud providers. If cloud pricing was easy to understand it would be easier to forecast, which would make it easier to budget and track costs against that budget.
 
 When budgets are broken, engineering is usually blamed for not taking action to reduce cloud costs. This is unfair – one of the reasons the budget broken is exactly the opposite; engineers took action to build features, tools and capabilities, which require more cloud resources, which is incredibly complex to estimate costs for, which after being shipped to production broke the pre-set budget.
