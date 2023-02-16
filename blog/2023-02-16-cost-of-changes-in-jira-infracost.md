@@ -6,17 +6,15 @@ author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
 description: "Infracost can now be integrated into Jira, showing the cost impact of feature requests to product managers"
 hide_table_of_contents: false
-image: img/blog/death-cost-calculator/rip.png
+image: img/blog/cost-changes-in-jira/infracost-jira.png
 date: "2023-02-16"
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-You can now show the cloud cost impact of feature requests to Product Managers and Owners directly in their workflow, before features are shipped to production!
+You can now show the cloud cost impact of feature requests to Product Managers and Owners directly in their workflow, before features are shipped to production.
 
 <!--truncate-->
-
-<img src={useBaseUrl("img/blog/cost-changes-in-jira/infracost-jira.png")} alt="Infracost and Jira integrate"/>
 
 Cloud costs are hard to understand due to the complex pricing models used by the cloud providers. If cloud pricing was easy to understand it would be easier to forecast, which would make it easier to budget and track costs against that budget.
 
