@@ -1,5 +1,5 @@
 ---
-slug: Cloud Costs directly in Jira
+slug: cloud-costs-in-jira
 title: "Cloud costs directly in Jira"
 author: Hassan Khajeh-Hosseini
 author_url: https://twitter.com/hassankhosseini
