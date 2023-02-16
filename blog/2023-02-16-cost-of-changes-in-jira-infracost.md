@@ -1,5 +1,5 @@
 ---
-slug: Cloud Costs directly in Jira
+slug: cloud-costs-in-jira
 title: "Cloud costs directly in Jira"
 author: Hassan Khajeh-Hosseini
 author_url: https://twitter.com/hassankhosseini
@@ -15,6 +15,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 You can now show the cloud cost impact of feature requests to Product Managers and Owners directly in their workflow, before features are shipped to production.
 
 <!--truncate-->
+
+#### Overview
 
 Cloud costs are hard to understand due to the complex pricing models used by the cloud providers. If cloud pricing was easy to understand it would be easier to forecast, which would make it easier to budget and track costs against that budget.
 
