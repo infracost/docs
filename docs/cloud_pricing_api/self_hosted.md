@@ -109,13 +109,4 @@ Confirms that the Cloud Pricing API is receiving authenticated requests.
 
 If you see `Invalid API response: 403 error` when running the Infracost CLI it might be because you have a `http_proxy` or `https_proxy` set in your environment. You can try disabling the proxy by running `export no_proxy="<HOSTNAME OF CLOUD PRICING API>:<PORT>"` and re-running the CLI to see if this is the issue.
 
-## Migration from old version
-
-If you had previously deployed the Cloud Pricing API that used MongoDB, we recommend you:
-1. Follow the above instructions to deploy the new version using [our Helm Chart](https://github.com/infracost/helm-charts/tree/master/charts/cloud-pricing-api) or [our Docker compose file](https://github.com/infracost/cloud-pricing-api#docker-compose).
-2. [Upgrade](/docs/#1-install-infracost) the Infracost CLI on your dev machine to the latest version.
-3. [Point your CLI](#usage-with-infracost-cli) to your new self-hosted Cloud Pricing API using the two required commands. Test it by generating a cost estimate.
-4. [Update your CI/CD systems](#usage-with-infracost-cli) to point to the new self-hosted Cloud Pricing API using the required two environment variables. If you're not using our official CI/CD integrations, you should also upgrade your integration to use the latest version of the CLI (the official integrations use the latest released CLI version by default).
-5. Destroy your old instance of the Cloud Pricing API.
-
 Please join our [community Slack channel](https://www.infracost.io/community-chat) or [email us](mailto:hello@infracost.io) if you run into any issues. We'd be happy to jump on a Zoom call and fix it with you ASAP.

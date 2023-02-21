@@ -88,8 +88,8 @@ Now head over to the [Infracost Cloud dashboard](https://dashboard.infracost.io)
       ```shell
       # You can change Infracost_Link to be one of your custom Jira field names
       curl --request GET \
-        --url 'https://your-domain.atlassian.net/rest/api/2/field/search?query=Infracost_Link' \
-        --user 'YOUR@EMAIL.COM:YOUR_API_TOKEN' \
+        --url 'https://YOUR_DOMAIN.atlassian.net/rest/api/2/field/search?query=Infracost_Link' \
+        --user 'YOUR@EMAIL.COM:YOUR_JIRA_API_TOKEN' \
         --header 'Accept: application/json'
       ```
    </TabItem>
