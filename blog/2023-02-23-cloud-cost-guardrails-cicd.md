@@ -1,6 +1,6 @@
 ---
 slug: cloud-cost-guardrails-cidi
-title: "Cloud cost budget guardrails in engineering workflow (CI/CD)"
+title: "Cloud cost budgets and guardrails in engineering CI/CD workflows"
 author: Hassan Khajeh-Hosseini
 author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
@@ -24,7 +24,7 @@ Engineers want to move fast, and companies are establishing [Platform Engineerin
 
 ### Introducing Guardrails
 
-A customer recently told us about Azure [PowerBI Embedded](https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/) instances, where the cheapest instance starts at $735/month and it goes up to $23,500/month. One of their engineering teams was adding two of the cheapest instances, which costs $1500/month. Guardrails enabled the manager to review the change and check if two instances are really necessary; in this case it turned out that one instance was enough. This was a quick conversation between the engineer and their manager, and it saved the company $9,000/year. That's why we're excited to share Infracost Guardrails!
+A customer recently told us about Azure [PowerBI Embedded](https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/) instances, where the cheapest instance starts at $735/month and it goes up to $23,500/month. One of their engineering teams was adding two of the cheapest instances, which costs $1500/month. Guardrails enabled the manager to review the change and check if two instances are really necessary; in this case it turned out that one instance was enough. This was a quick conversation between the engineer and their manager, and it saved the company $9,000/year.
 
 With guardrails, product owners, Cloud Center of Excellence (CCoE), FinOps, and Platform teams can set central budget thresholds. As teams make changes to infrastructure, Infracost will calculate the cost impact of the change and if a threshold is exceeded, notifications are sent via email, Slack, Microsoft Teams. The engineers are also informed of the budget threshold via custom messages in the pull request. If you are using our [GitHub App](/docs/integrations/github_app/), you can also select to block the pull request until it has been approved (or overridden by an engineering lead in case of an emergency).
 
