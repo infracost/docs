@@ -191,6 +191,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_iothub_dps_certificate` |
 | `azurerm_iothub_dps_shared_access_policy` |
 | `azurerm_iothub_enrichment` |
+| `azurerm_iothub_endpoint_eventhub` |
+| `azurerm_iothub_route` |
 | `azurerm_iothub_shared_access_policy` |
 | `azurerm_key_vault_access_policy` |
 | `azurerm_key_vault_certificate_data` |
@@ -333,8 +335,10 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_virtual_desktop_host_pool` |
 | `azurerm_virtual_desktop_workspace_application_group_association` |
 | `azurerm_virtual_desktop_workspace` |
+| `azurerm_virtual_hub_connection` |
 | `azurerm_virtual_machine_data_disk_attachment` |
 | `azurerm_virtual_machine_extension` |
 | `azurerm_virtual_machine_scale_set_extension` |
 | `azurerm_virtual_network` |
 | `azurerm_virtual_wan` |
+| `azurerm_vpn_server_configuration` |
