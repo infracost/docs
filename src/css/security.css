@@ -14,7 +14,7 @@
 }
 
 .security .sections {
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 
 .security .section {
@@ -37,4 +37,18 @@
   font-size: 1.375rem;
   color: var(--nu20);
   margin-bottom: 0.75rem;
+}
+
+.security .certification {
+  display: inline-block;
+}
+
+.security .certification .badge {
+  display: flex;
+  margin: 0 auto 0.5rem;
+}
+
+.security .certification .icon {
+  margin-top: 2px;
+  margin-right: 0.5rem;
 }

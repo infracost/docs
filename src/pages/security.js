@@ -1,6 +1,7 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
 import UsedBy from '../components/UsedBy';
+import Check from '../components/icons/Check';
 
 
 function Security() {
@@ -44,10 +45,16 @@ function Security() {
               </div>
               <div>
                 <p>
-                  We are currently undergoing the process to achieve SOC 2 Type II compliance.
+                  <div className="certification">
+                    <img class="badge" src="/img/icons/soc2.png" alt="SOC 2 Type II" />
+                    <div>
+                      <span class="icon"><Check size={18} color="#19D97D" /></span>
+                      <span>SOC 2 Type II</span>
+                    </div>
+                  </div>
                 </p>
                 <p>
-                  Please email <a href="mailto:hello@infracost.io">hello@infracost.io</a> for more details or to submit a security questionnaire.
+                  Please email <a href="mailto:hello@infracost.io">hello@infracost.io</a> to request our audit report or to submit a security questionnaire.
                 </p>
               </div>
             </div>
