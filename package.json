@@ -12,7 +12,7 @@
     "svgo": "svgo ./static/**/*.svg"
   },
   "dependencies": {
-    "@docusaurus/core": "2.2.0",
+    "@docusaurus/core": "2.3.1",
     "@docusaurus/mdx-loader": "2.2.0",
     "@docusaurus/plugin-client-redirects": "2.2.0",
     "@docusaurus/plugin-google-gtag": "2.2.0",
