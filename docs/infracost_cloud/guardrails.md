@@ -52,7 +52,7 @@ The following screenshot shows an example Slack notification.
 
 ### MS Teams
 
-Guardrails can send an email to Microsoft Teams [channel email addresses](https://support.microsoft.com/en-us/office/tip-send-email-to-a-channel-2c17dbae-acdf-4209-a761-b463bdaaa4ca), which will be sent to the corresponding channel. The [email](#email) screenshot above shows the content of the message.
+Guardrails can send an email to Microsoft Teams [channel email addresses](https://support.microsoft.com/en-us/office/tip-send-email-to-a-channel-2c17dbae-acdf-4209-a761-b463bdaaa4ca), which will be sent to the corresponding channel. The [email screenshot](#email) above shows the content of the message.
 
 ### Custom pull request message
 
