@@ -95,10 +95,10 @@ const Questions = () => {
           <QuestionLi>
             <Question>Is my data safe?</Question>
             <Answer>
-              Infracost’s software is trusted by thousands of companies around
+              Infracost's software is trusted by thousands of companies around
               the world, including many of the Fortune 500. We are open source,
-              and you can see exactly what information is sent between your services and Infracost Cloud. We are currently going through our SOC2 Type II
-              certification. We are happy to complete your company’s security
+              and you can see exactly what information is sent between your services and Infracost Cloud.
+              We are also SOC2 Type II certified. We are happy to complete your company's security
               questionnaire as part of an enterprise onboarding / POC plan.
             </Answer>
           </QuestionLi>

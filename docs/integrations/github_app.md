@@ -21,7 +21,7 @@ Furthermore, if you use Infracost Cloud (our SaaS product):
 - the pull request status (e.g. open, closed, merged) and metadata such as labels, merged by, and approved by are included in the dashboard filters and reports.
 - [Guardrails](/docs/infracost_cloud/guardrails/) and [centralized cost policies](/docs/infracost_cloud/cost_policies/) work without you needing to make changes in your CI/CD pipelines.
 
-We are currently working on our SOC 2 Type II compliance process, see our [security page](/security) for more details. If you prefer a manual integration where you maintain Infracost, see [GitHub Actions](https://github.com/infracost/actions/) integration.
+We are SOC 2 Type II certified, see our [security page](/security) for more details. If you prefer a manual integration where you maintain Infracost, see [GitHub Actions](https://github.com/infracost/actions/) integration.
 
 ## Usage
 
