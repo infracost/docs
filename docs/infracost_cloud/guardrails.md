@@ -50,7 +50,7 @@ The following screenshot shows an example Slack notification.
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/slack-message.png")} alt="Example Slack message" />
 
-### MS Teams
+### Microsoft Teams
 
 Guardrails can send an email to Microsoft Teams [channel email addresses](https://support.microsoft.com/en-us/office/tip-send-email-to-a-channel-2c17dbae-acdf-4209-a761-b463bdaaa4ca), which will be sent to the corresponding channel. The [email screenshot](#email) above shows the content of the message.
 
