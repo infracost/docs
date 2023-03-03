@@ -5,7 +5,7 @@ title: Self-hosting
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Whilst most Infracost CLI users connect to our hosted Cloud Pricing API (since [no cloud credentials or secrets are sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to it), large enterprises that have restrictive security policies might require self-hosting. The following diagram shows an overview of the architecture.
+Most Infracost CLI users connect to our hosted Cloud Pricing API, since [no cloud credentials or secrets are sent](/docs/faq/#what-data-is-sent-to-the-cloud-pricing-api) to it (we are also [SOC2 Type II](/security/) certified). Large enterprises that have very restrictive security policies might require self-hosting. The following diagram shows an overview of the architecture.
 
 ![Deployment overview](/img/docs/cloud_pricing_api/deployment_overview.png "Deployment overview")
 
@@ -15,7 +15,7 @@ The pricing DB dump is downloaded from Infracost's API as that simplifies the ta
 
 ## Deployment
 
-It should take around 15 mins to deploy the Cloud Pricing API. Two deployment methods are supported:
+Two deployment methods are supported:
 1. If you have a Kubernetes cluster, we recommend using **[our Helm Chart](https://github.com/infracost/helm-charts/tree/master/charts/cloud-pricing-api)**.
 2. If you prefer to deploy in your machine or a VM, we recommend using [**our Docker compose file**](https://github.com/infracost/cloud-pricing-api#docker-compose).
 
@@ -85,11 +85,22 @@ For the PostgreSQL DB, a small instance with 2 vCPU and 2GB of RAM should be eno
 
 ## Troubleshooting
 
-Please try the following troubleshooting steps. If they do not help, join our [community Slack channel](https://www.infracost.io/community-chat) or email us at [hello@infracost.io](mailto:hello@infracost.io); we'll help you very quickly 😄
+Please try the following troubleshooting steps. If they do not help, search [previous user issues](https://community-chat.infracost.io/) or join our [community Slack channel](https://www.infracost.io/community-chat).
 
 ### Cloud Pricing API fails to download pricing DB dump
 
-The Cloud Pricing API downloads the pricing DB dump prices from `https://pricing.api.infracost.io`, which currently redirects to `https://pricing-api-db-data-settled-blowfish.s3.us-east-2.amazonaws.com`. Ensure that appropriate firewall rules are set or `http_proxy` and `https_proxy` environment variables are set so both of the previously mentioned addresses are accessible from the Cloud Pricing API pods.
+The Cloud Pricing API downloads the pricing DB dump from `https://pricing.api.infracost.io`, which currently redirects to `https://pricing-api-db-data-settled-blowfish.s3.us-east-2.amazonaws.com`. Ensure that appropriate firewall rules are set or `http_proxy` and `https_proxy` environment variables are set so both of the previously mentioned addresses are accessible from the Cloud Pricing API pods.
+
+If the `init-job` or the `cronjob` pods still fail to download prices, you can try changing their Kubernetes yaml to manually download the pricing DB dump using `curl` and pass any required corporate network proxy settings.
+```
+command: 
+  - /bin/bash
+  - -c 
+  - | 
+     npm run db:setup && 
+     curl -s -H "X-Api-Key: ${INFRACOST_API_KEY}" https://pricing.api.infracost.io/data-download/latest | grep -o '"downloadUrl": *"[^"]*"' | grep -o '"[^"]*"$' | xargs -n1 curl --progress-bar --output ./data/products/products.csv.gz &&
+     npm run data:load
+```
 
 ### CLI fails to connect to your Cloud Pricing API
 
