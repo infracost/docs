@@ -89,7 +89,7 @@ Please try the following troubleshooting steps. If they do not help, join our [c
 
 ### Cloud Pricing API fails to download pricing DB dump
 
-The Cloud Pricing API downloads the pricing DB dump prices from `https://pricing.api.infracost.io`, which currently redirects to `https://pricing-api-db-data-settled-blowfish.s3.us-east-2.amazonaws.com`. Ensure that appropriate firewall rules are set or `HTTP_PROXY` and `HTTPS_PROXY` environment variables are set so both of the previously mentioned addresses are accessible from the Cloud Pricing API pods.
+The Cloud Pricing API downloads the pricing DB dump prices from `https://pricing.api.infracost.io`, which currently redirects to `https://pricing-api-db-data-settled-blowfish.s3.us-east-2.amazonaws.com`. Ensure that appropriate firewall rules are set or `http_proxy` and `https_proxy` environment variables are set so both of the previously mentioned addresses are accessible from the Cloud Pricing API pods.
 
 ### CLI fails to connect to your Cloud Pricing API
 
@@ -113,4 +113,4 @@ Should show HTTP 400 "GET query missing"
 Confirms that the Cloud Pricing API is receiving authenticated requests.
 ```
 
-If you see `Invalid API response: 403 error` when running the Infracost CLI it might be because you have a `HTTP_PROXY` or `HTTPS_PROXY` set in your environment. You can try disabling the proxy by running `export NO_PROXY="<HOSTNAME OF CLOUD PRICING API>:<PORT>"` and re-running the CLI to see if this is the issue.
+If you see `Invalid API response: 403 error` when running the Infracost CLI it might be because you have a `http_proxy` or `https_proxy` set in your environment. You can try disabling the proxy by running `export no_proxy="<HOSTNAME OF CLOUD PRICING API>:<PORT>"` and re-running the CLI to see if this is the issue.
