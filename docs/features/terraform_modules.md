@@ -37,15 +37,15 @@ The `GIT_SSH_KEY` secret variable usually starts with `-----BEGIN RSA PRIVATE KE
 
 ### Registry modules
 
-Using environment variables, which is more suitable for CI/CD systems:
-* **Public Terraform Cloud registry modules:** these are automatically supported so no extra setup is needed in Infracost.
+Public registry modules are automatically supported so no extra setup is needed in Infracost. For private registry modules, set the following environment variables:
 * **Private Terraform Cloud registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html).
 * **Private Terraform Enterprise registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your TFE hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html).
-* **Private GitLab registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to `gitlab.com` (or your GitLab hostname) and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [GitLab token](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry)
+* **Private GitLab registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to `gitlab.com` (or your GitLab hostname) and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [GitLab token](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry).
+* **Private JFrog registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your JFrog hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [identity token](https://www.jfrog.com/confluence/display/JFROG/Terraform+Registry#TerraformRegistry-manual-configurationManuallyGeneratinganIdentityToken).
 * **Other private registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to the hostname of the registry and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to the access token for that registry.
 * **Modules from multiple private registries:** use the Terraform CLI config file option below.
 
-Using the Terraform CLI config file, which is more suitable for local dev environments: by default Infracost reads registry credentials from your `~/.terraform.d/credentials.tfrc.json` file or the path specified by the  [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable. If you're using a custom Terraform CLI config file to specify the credentials make sure you are setting the `TF_CLI_CONFIG_FILE` environment variable to the absolute path of that file.
+For local development environments, use the Terraform CLI config file: by default Infracost reads registry credentials from your `~/.terraform.d/credentials.tfrc.json` file or the path specified by the  [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable. If you're using a custom Terraform CLI config file to specify the credentials make sure you are setting the `TF_CLI_CONFIG_FILE` environment variable to the absolute path of that file.
 
 ### S3 modules
 

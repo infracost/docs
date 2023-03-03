@@ -85,9 +85,15 @@ For the PostgreSQL DB, a small instance with 2 vCPU and 2GB of RAM should be eno
 
 ## Troubleshooting
 
-The following curl commands can help identify communication issues between the Infracost CLI and the Cloud Pricing API. Running the CLI with [debug log level](/docs/features/environment_variables/#infracost_log_level), and checking the Cloud Pricing API logs can also help.
+Please try the following troubleshooting steps. If they do not help, join our [community Slack channel](https://www.infracost.io/community-chat) or email us at [hello@infracost.io](mailto:hello@infracost.io); we'll help you very quickly 😄
 
-Please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+### Cloud Pricing API fails to download pricing DB dump
+
+The Cloud Pricing API downloads the pricing DB dump prices from `https://pricing.api.infracost.io`, which currently redirects to `https://pricing-api-db-data-settled-blowfish.s3.us-east-2.amazonaws.com`. Ensure that appropriate firewall rules are set or `HTTP_PROXY` and `HTTPS_PROXY` environment variables are set so both of the previously mentioned addresses are accessible from the Cloud Pricing API pods.
+
+### CLI fails to connect to your Cloud Pricing API
+
+The following curl commands can help identify communication issues between the Infracost CLI and your self-hosted Cloud Pricing API. Running the CLI with [debug log level](/docs/features/environment_variables/#infracost_log_level), and checking the Cloud Pricing API logs can also help.
 
 ```shell
 $ export INFRACOST_PRICING_API_ENDPOINT=https://endpoint
@@ -107,6 +113,4 @@ Should show HTTP 400 "GET query missing"
 Confirms that the Cloud Pricing API is receiving authenticated requests.
 ```
 
-If you see `Invalid API response: 403 error` when running the Infracost CLI it might be because you have a `http_proxy` or `https_proxy` set in your environment. You can try disabling the proxy by running `export no_proxy="<HOSTNAME OF CLOUD PRICING API>:<PORT>"` and re-running the CLI to see if this is the issue.
-
-Please join our [community Slack channel](https://www.infracost.io/community-chat) or [email us](mailto:hello@infracost.io) if you run into any issues. We'd be happy to jump on a Zoom call and fix it with you ASAP.
+If you see `Invalid API response: 403 error` when running the Infracost CLI it might be because you have a `HTTP_PROXY` or `HTTPS_PROXY` set in your environment. You can try disabling the proxy by running `export NO_PROXY="<HOSTNAME OF CLOUD PRICING API>:<PORT>"` and re-running the CLI to see if this is the issue.
