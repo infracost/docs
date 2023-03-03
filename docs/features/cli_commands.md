@@ -324,9 +324,10 @@ infracost comment github --path=infracost.json \
 - `--pull-request`: required to post on a pull request, can be extracted from workflows's event and set as an environment variable: `PR_NUMBER: ${{ github.event.number }}`. Mutually exclusive with the `--commit` flag.
 - `--commit`: required to post on a pull request's commit, use `$GITHUB_SHA`. Mutually exclusive with `--pull-request` flag.
 - `--github-token`: required, use `$GITHUB_TOKEN`.
-- `--github-api-url`: optional (default "https://api.github.com"), GitHub Enterprise users can set this to `$GITHUB_API_URL` in GitHub Actions.
+- `--github-api-url`: optional (default "https://api.github.com"), GitHub Enterprise users can set this to `$GITHUB_API_URL` in GitHub Actions. Also see `--github-tls-cert-file`, `--github-tls-key-file` and `--github-tls-insecure-skip-verify`.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 #### Azure Pipelines with GitHub
 
@@ -346,6 +347,7 @@ infracost comment github --path=infracost.json \
 - `--github-api-url`: optional (default "https://api.github.com"), GitHub Enterprise users can set this to `https://GITHUB_SERVER/api`.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 #### Atlantis with GitHub
 
@@ -365,6 +367,7 @@ infracost comment github --path=infracost.json \
 - `--github-api-url`: optional (default "https://api.github.com"), GitHub Enterprise users can set this to `https://GITHUB_SERVER/api`.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 #### CircleCI with GitHub
 
@@ -384,6 +387,7 @@ infracost comment github --path=infracost.json \
 - `--github-api-url`: optional (default "https://api.github.com"), GitHub Enterprise users can set this to `https://GITHUB_SERVER/api`.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 ### GitLab
 
@@ -407,6 +411,7 @@ infracost comment gitlab --path=infracost.json \
 - `--gitlab-server-url`: optional, URL for GitLab Enterprise users (default "https://gitlab.com"). In GitLab CI you can set this to `$CI_SERVER_URL`.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 #### Atlantis with GitLab
 
@@ -426,6 +431,7 @@ infracost comment gitlab --path=infracost.json \
 - `--gitlab-server-url`: optional, URL for GitLab Enterprise users (default "https://gitlab.com").
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 ### Azure Repos
 
@@ -447,6 +453,7 @@ infracost comment azure-repos --path=infracost.json \
 - `--azure-access-token`: required, use `$SYSTEM_ACCESSTOKEN`.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 #### Atlantis with Azure Repos
 
@@ -464,6 +471,7 @@ infracost comment azure-repos --path=infracost.json \
 - `--azure-access-token`: required, provide your Azure DevOps access token, for example, as an environment variable `$AZURE_ACCESS_TOKEN`.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 ### Bitbucket
 
@@ -488,6 +496,7 @@ infracost comment bitbucket --path=infracost.json \
 - `--exclude-cli-output`: optional, exclude CLI output so comment has just the summary table.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 #### CircleCI with Bitbucket
 
@@ -508,6 +517,7 @@ infracost comment bitbucket --path infracost.json \
 - `--exclude-cli-output`: optional, exclude CLI output so comment has just the summary table.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 #### Atlantis with Bitbucket
 
@@ -528,6 +538,7 @@ infracost comment bitbucket --path=infracost.json \
 - `--exclude-cli-output`: optional, exclude CLI output so comment has just the summary table.
 - `--tag`: optional, customize hidden markdown tag used to detect comments posted by Infracost.
 - `--policy-path`: optional, path to Infracost [cost policy](/docs/features/cost_policies/) files, glob patterns need quotes (experimental).
+- `--show-all-projects`: optional, show all projects in the table of the comment output.
 
 ## Upload runs
 

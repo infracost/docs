@@ -162,6 +162,12 @@ function Pricing() {
                     </span>
                     <span>SSO</span>
                   </li>
+                  <li>
+                    <span className="icon primary">
+                      <Check size={18} />
+                    </span>
+                    <span>Access to SOC2 Type II report</span>
+                  </li>
                   {/* <li className="pricing plan__coming-soon">
                     <span>
                       <b>Coming soon:</b>
