@@ -16,6 +16,7 @@ module.exports = {
         'features/cli_commands',
         'features/usage_based_resources',
         'features/config_file',
+        'features/config_template',
         'features/terraform_modules',
         'features/terragrunt',
         'features/share_links',
