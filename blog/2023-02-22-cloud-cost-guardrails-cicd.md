@@ -4,7 +4,7 @@ title: "Cloud cost budgets and guardrails in engineering CI/CD workflows"
 author: Hassan Khajeh-Hosseini
 author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
-description: ""
+description: "Infracost Cloud guardrails helps central teams set budget thresholds and have all Pull Requests get checked in CI/CD"
 hide_table_of_contents: false
 image: img/blog/cloud-cost-guardrails-cicd/pull-request-filters-and-thresholds.png
 date: "2023-02-22"
