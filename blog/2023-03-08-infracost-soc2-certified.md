@@ -4,7 +4,7 @@ title: "Infracost achieves SOC 2 Type 2 Certification"
 author: Hassan Khajeh-Hosseini
 author_url: https://twitter.com/hassankhosseini
 author_image_url: /img/avatars/hassan.jpg
-description: ""
+description: "Infracost is now SOC2 Type 2 Certified and compliant."
 hide_table_of_contents: false
 image: img/blog/soc2blog/infracost-soc2.png
 date: "2023-03-08"
