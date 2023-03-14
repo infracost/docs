@@ -56,7 +56,7 @@ Infracost configuration values are chosen in this order:
 </tr>
 <tr>
   <td><code>dependency_paths</code></td>
-  <td>Optional. <span style={{textDecoration: "underline"}}>Only applicable for GitHub app users</span>. Array of strings. Array of additional file or directory paths that should trigger project estimates. All paths are relative to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
+  <td>Optional. <span style={{textDecoration: "underline"}}>Only applicable for GitHub App users</span>. Array of strings. Array of additional file or directory paths that should trigger project estimates. All paths are relative to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
   <pre>
 {`dependency_paths:
   - config/**.json
