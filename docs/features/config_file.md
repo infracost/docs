@@ -180,4 +180,6 @@ Infracost configuration values are chosen in this order:
   </TabItem>
 </Tabs>
 
-If your requirements cannot be satisfied with a config file, please [create an issue](https://github.com/infracost/infracost/issues/new/choose) so we can understand the use-case.
+## Template syntax
+
+Config files also support [template syntax](/docs/features/config_file_template), which enables you to dynamically generate a config file in CI/CD without having to maintain a hardcoded Infracost config file. This is a new feature and we ask that you [contact us](/docs/support) if you use it so we can improve the syntax.
