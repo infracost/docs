@@ -49,15 +49,6 @@ Infracost auto-generates project names based on code paths, workspaces or Terraf
 
 ### Customize project names
 
-When a long Terraform directory path exists, or paths such as `/tmp/plan.json` are used, the project name might be hard to understand. In such cases we recommend using a [config-file](/docs/features/config_file/) to set project names to something more understandable.
+When a long Terraform directory path exists, or paths such as `/tmp/plan.json` are used, the project name might be hard to understand. In such cases we recommend using a [**config-file**](/docs/features/config_file/) to set project names to something more understandable.
 
-Alternatively, the `--project-name` flag can also be used:
-```shell
-# The same project name should be used for both `diff` and `breakdown`
-# commands. Failing to do this results in odd diffs.
-export PROJECT_NAME=my-project-$MY_WORKSPACE
-
-infracost breakdown --path plan.json --project-name $PROJECT_NAME
-
-infracost diff --path plan.json --project-name $PROJECT_NAME
-```
+Alternatively, the `--project-name` flag can also be used; you should set the same project name for both `diff` and `breakdown` commands, failing to use the same name for both breakdown and diff will result in odd diffs.
