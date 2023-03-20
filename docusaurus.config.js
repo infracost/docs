@@ -218,6 +218,7 @@ module.exports = {
           blogSidebarTitle: 'All posts',
           include: ['**/*.md', '**/*.mdx'],
           postsPerPage: 12,
+          archiveBasePath: null,
           remarkPlugins: [
             [
               remarkExternalLinks,
