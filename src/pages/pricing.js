@@ -122,13 +122,7 @@ function Pricing() {
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
-                    <span>Policies in pull requests (e.g. gp2 to gp3)</span>
-                  </li>
-                  <li>
-                    <span className="icon primary">
-                      <Check size={18} />
-                    </span>
-                    <span>Custom price books & discounts</span>
+                    <span>Policies in pull requests (e.g. change AWS GP2 to GP3 volumes)</span>
                   </li>
                   <li>
                     <span className="icon primary">
@@ -140,15 +134,21 @@ function Pricing() {
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
+                    <span>
+                      Pull request status & audit trail
+                    </span>
+                  </li>
+                  <li>
+                    <span className="icon primary">
+                      <Check size={18} />
+                    </span>
                     <span>Custom reports</span>
                   </li>
                   <li>
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
-                    <span>
-                      GitHub App integration with pull request status & metadata
-                    </span>
+                    <span>Custom price books & discounts</span>
                   </li>
                   <li>
                     <span className="icon primary">
@@ -160,7 +160,7 @@ function Pricing() {
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
-                    <span>SSO</span>
+                    <span>Single Sign-On</span>
                   </li>
                   <li>
                     <span className="icon primary">
