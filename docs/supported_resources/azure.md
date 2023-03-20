@@ -47,7 +47,7 @@ There are Terraform resources that Infracost supports, and Azure charges for.
 | Load Balancer                    | `azurerm_lb`, `azurerm_lb_rule`, `azurerm_lb_outbound_rule`                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                                         |
 | Logic Apps                       | `azurerm_integration_service_environment`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                         |
 | Kubernetes Service (AKS)         | `azurerm_kubernetes_cluster`, `azurerm_kubernetes_cluster_node_pool`                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                         |
-| Monitor                          | `azurerm_application_insights`, `azurerm_application_insights_web_test`, `azurerm_log_analytics_workspace`                                                                                                                                                                                                                                                                                                                                                                                                                            |                                                                                                                         |
+| Monitor                          | `azurerm_application_insights`, `azurerm_application_insights_standard_web_test`, `azurerm_application_insights_web_test`, `azurerm_log_analytics_workspace`, `azurerm_monitor_action_group`, `azurerm_monitor_data_collection_rule`, `azurerm_monitor_diagnostic_setting`, `azurerm_monitor_metric_alert`, `azurerm_monitor_scheduled_query_rules_alert`, `azurerm_monitor_scheduled_query_rules_alert_v2`                                                                                                                           |                                                                                                                         |
 | Notification Hubs                | `azurerm_notification_hub_namespace`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                         |
 | Storage Account                  | `azurerm_storage_account`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Only StorageV2, BlockBlobStorage and FileStorage accounts are currently supported.                                      |
 | Synapse Analytics                | `azurerm_synapse_spark_pool`, `azurerm_synapse_sql_pool`, `azurerm_synapse_workspace`                                                                                                                                                                                                                                                                                                                                                                                                                                                 | The total costs consist of several resources that should be viewed as a whole.                                          |
@@ -103,6 +103,11 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_app_service_source_control_token` |
 | `azurerm_app_service_virtual_network_swift_connection` |
 | `azurerm_app_service` |
+| `azurerm_application_insights_analytics_item` |
+| `azurerm_application_insights_api_key` |
+| `azurerm_application_insights_smart_detection_rule` |
+| `azurerm_application_insights_workbook` |
+| `azurerm_application_insights_workbook_template` |
 | `azurerm_application_security_group` |
 | `azurerm_automation_certificate` |
 | `azurerm_automation_connection_certificate` |
@@ -213,6 +218,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_log_analytics_datasource_windows_performance_counter` |
 | `azurerm_log_analytics_linked_service` |
 | `azurerm_log_analytics_linked_storage_account` |
+| `azurerm_log_analytics_query_pack` |
+| `azurerm_log_analytics_query_pack_query` |
 | `azurerm_log_analytics_saved_search` |
 | `azurerm_log_analytics_solution` |
 | `azurerm_log_analytics_storage_insights` |
@@ -227,6 +234,20 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_mariadb_firewall_rule` |
 | `azurerm_mariadb_virtual_network_rule` |
 | `azurerm_marketplace_agreement` |
+| `azurerm_monitor_aad_diagnostic_setting` |
+| `azurerm_monitor_action_rule_action_group` |
+| `azurerm_monitor_action_rule_suppression` |
+| `azurerm_monitor_activity_log_alert` |
+| `azurerm_monitor_alert_processing_rule_action_group` |
+| `azurerm_monitor_alert_processing_rule_suppression` |
+| `azurerm_monitor_autoscale_setting` |
+| `azurerm_monitor_data_collection` |
+| `azurerm_monitor_data_collection_rule_association` |
+| `azurerm_monitor_log_profile` |
+| `azurerm_monitor_private_link_scope` |
+| `azurerm_monitor_private_link_scoped_service` |
+| `azurerm_monitor_scheduled_query_rules_log` |
+| `azurerm_monitor_smart_detector_alert_rule` |
 | `azurerm_mssql_database_extended_auditing_policy` |
 | `azurerm_mssql_database_vulnerability_assessment_rule_baseline` |
 | `azurerm_mssql_failover_group` |
