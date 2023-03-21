@@ -31,7 +31,7 @@ We are SOC 2 Type II certified, see our [security page](/security) for more deta
 
   <img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
 
-3. Click on Integrations > GitHub and follow the wizard to select the repos you want to give Infracost access to. If you use private modules:
+3. Click on Org Settings > Integrations > GitHub and follow the wizard to select the repos you want to give Infracost access to. If you use private modules:
     - For private **git modules**, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way that Terraform does.
 
     - For private **registry modules**, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) and set the required Terraform registry token and host in the integration settings page in Infracost Cloud.
