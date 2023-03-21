@@ -69,21 +69,19 @@ TF_CLI_CONFIG_FILE="$HOME/.terraformrc-custom" infracost breakdown \
 
 ## Environment variables to override cloud provider region
 
-The following environment variables can be used with `infracost breakdown` and `diff` commands to override the cloud provider region.
+The following environment variables can be used with `infracost breakdown` and `diff` commands to override the cloud provider region. GitHub App users can set these from Org Settings > Integrations > GitHub App > Run configurations. These environment variables cannot currently be set in the [config file](/docs/features/config_file/) as they apply to all projects, not individual ones.
 
 - `INFRACOST_AWS_OVERRIDE_REGION` for AWS
 - `INFRACOST_AZURE_OVERRIDE_REGION` for Azure
 - `INFRACOST_GOOGLE_OVERRIDE_REGION` for Google
 
-For example, with the following provider block
+For example, with the following provider block, using the environment variable `INFRACOST_AWS_OVERRIDE_REGION=eu-central-1` Infracost will show costs for `eu-central-1` region.
 ```tf
 provider "aws" {
   region = "us-east-1"
   # ...
 }
 ```
-
-using the environment variable `INFRACOST_AWS_OVERRIDE_REGION=eu-central-1` Infracost will show costs for `eu-central-1` region.
 
 ## Environment variables to override metadata
 
