@@ -58,7 +58,6 @@ The pull request status can be:
   - **open**: the pull request is currently open, thus if you want to review the most expensive pull requests that are in-flight, only focus on these.
   - **closed**: the pull request was closed without being merged. These pull requests can probably be ignored altogether as most of the time they're just noise.
   - **merged**: the pull request was merged into the base branch, these can be checked when auditing actual cloud costs to see what happened.
-  - **deployed**: the pull request was deployed. This usually happens after the pull request was merged. The GitHub App integration does not yet set the deployed status, so you can [use our API](/docs/features/cli_commands/#pull-request-status) to set it.
 
 ## GitHub Enterprise
 
