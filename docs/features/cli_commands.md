@@ -584,8 +584,34 @@ curl -X POST -H "Content-Type: application/json" \
 https://dashboard.api.infracost.io/graphql
 ```
 
-The pull request status can be one of four:
+The pull request status can be one of three:
   - `OPEN`: the pull request is currently open, thus if you want to review the most expensive pull requests that are in-flight, only focus on these.
   - `CLOSED`: the pull request was closed without being merged. These pull requests can probably be ignored altogether as most of the time they're just noise.
   - `MERGED`: the pull request was merged into the base branch, these can be checked when auditing actual cloud costs to see what happened.
-  - `DEPLOYED`: the pull request was deployed. This usually happens after the pull request was merged.
+
+
+<details><summary>Example GitLab CI code to set status to Merged</summary>
+
+  ```yaml
+  # Set the MR status to Merged in Infracost Cloud
+  .infracost:merged:
+    image: bash:latest
+    variables:
+      PATTERN: "See merge request.+?!([0-9]+)"
+    before_script:
+      - apk add curl --upgrade
+      # Extract Merge Request ID from the Commit Message
+      - if [[ ${CI_COMMIT_MESSAGE} =~ ${PATTERN} ]];
+        then MR_ID=${BASH_REMATCH[1]};
+        else echo "${VTY_RB}Unable to extract Merge Request ID${VTY_P}"; exit 1;
+        fi;
+    script:
+      - |
+        curl \
+          --request POST \
+          --header "Content-Type: application/json" \
+          --header "X-API-Key: ${INFRACOST_API_KEY}" \
+          --data "{ \"query\": \"mutation {updatePullRequestStatus( url: \\\"${CI_PROJECT_URL}/merge_requests/${MR_ID}\\\", status: MERGED )}\" }" \
+          "https://dashboard.api.infracost.io/graphql";
+  ```
+</details>
