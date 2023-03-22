@@ -593,11 +593,13 @@ The pull request status can be one of three:
 <details><summary>Example GitLab CI code to set status to Merged</summary>
 
   ```yaml
+  stages:
+    - infracost # the main infracost stage from https://gitlab.com/infracost/infracost-gitlab-ci
+    - infracost:update-mr-status # new stage below to update the merge request status
+
   # Set the MR status to Merged in Infracost Cloud
-  .infracost:merged:
+  infracost:update-mr-status:
     image: bash:latest
-    variables:
-      PATTERN: "See merge request.+?!([0-9]+)"
     before_script:
       - apk add curl --upgrade
       # Extract Merge Request ID from the Commit Message
@@ -613,5 +615,10 @@ The pull request status can be one of three:
           --header "X-API-Key: ${INFRACOST_API_KEY}" \
           --data "{ \"query\": \"mutation {updatePullRequestStatus( url: \\\"${CI_PROJECT_URL}/merge_requests/${MR_ID}\\\", status: MERGED )}\" }" \
           "https://dashboard.api.infracost.io/graphql";
+    variables:
+      PATTERN: "See merge request.+?!([0-9]+)"
+      INFRACOST_API_KEY: $INFRACOST_API_KEY
+    rules:
+      - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_COMMIT_TITLE =~ /^Merge branch/
   ```
 </details>
