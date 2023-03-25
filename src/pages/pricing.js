@@ -166,6 +166,12 @@ function Pricing() {
                     <span className="icon primary">
                       <Check size={18} />
                     </span>
+                    <span>Dedicated support chat</span>
+                  </li>
+                  <li>
+                    <span className="icon primary">
+                      <Check size={18} />
+                    </span>
                     <span>Access to SOC2 Type II report</span>
                   </li>
                   {/* <li className="pricing plan__coming-soon">
