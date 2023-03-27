@@ -298,8 +298,8 @@ Checks whether path is a subpath within base.
 
 | name | description                                                                                                       | example                           |
 |------|-------------------------------------------------------------------------------------------------------------------|-----------------------------------|
-| base | The directory to search for the given file or directory. Use `"."` to start from the project root.                | "." "some/dir"                    |
-| path | The path of the file or directory to search for. This must be relative to the base path provided at argument one. | "dir/to/find"  "file/to/find.txt" |
+| base | The directory to search for the given file or directory. Use `"."` to start from the project root.                | ".", "some/dir"                    |
+| path | The path of the file or directory to search for. This must be relative to the base path provided at argument one. | "dir/to/find", "file/to/find.txt" |
 
 #### Returns
 
@@ -334,9 +334,10 @@ values={[
 
     projects:
     {{- range $project := matchPaths "environment/:env/terraform.tfvars" }}
-      {{- if pathExists $project._dir "include.txt")
+      {{ if pathExists $project._dir "include.txt" }}
       - path: .
         name: {{ $project.env }}
+      {{ end }}
     {{- end }}
 
   </TabItem>
