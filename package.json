@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "2.2.0",
-    "@docusaurus/mdx-loader": "2.2.0",
+    "@docusaurus/mdx-loader": "2.4.0",
     "@docusaurus/plugin-client-redirects": "2.2.0",
     "@docusaurus/plugin-google-gtag": "2.2.0",
     "@docusaurus/preset-classic": "2.2.0",
