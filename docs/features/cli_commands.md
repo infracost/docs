@@ -622,3 +622,32 @@ The pull request status can be one of three:
       - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_COMMIT_TITLE =~ /^Merge branch/
   ```
 </details>
+
+<details><summary>Example Azure Pipelines code to set status to Merged</summary>
+
+  ```yaml
+  trigger:
+    - main
+  
+  pool:
+    vmImage: ubuntu-latest
+  
+  steps:
+    - bash: |
+        PATTERN="Merged PR ([0-9]+):"
+        if [[ "$(Build.SourceVersionMessage)" =~ $PATTERN ]]; then 
+          PR_ID=${BASH_REMATCH[1]}
+          echo "Updating status of $PR_ID"
+          curl \
+            --request POST \
+            --header "Content-Type: application/json" \
+            --header "X-API-Key: $(infracostApiKey)" \
+            --data "{ \"query\": \"mutation {updatePullRequestStatus( url: \\\"$(Build.Repository.Uri)/pullrequest/${PR_ID}\\\", status: MERGED )}\" }" \
+            "https://dashboard.api.infracost.io/graphql";
+        else 
+          echo "No Pull Request ID detected"
+        fi
+      displayName: 'Update PR status in Infracost'
+
+  ```
+</details>
