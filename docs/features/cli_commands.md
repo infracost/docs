@@ -34,7 +34,7 @@ If your repo has **multiple Terraform projects or workspaces**, use an Infracost
 
 ### Option 1: Terraform directory
 
-This is the default and recommended option. It does not require a Terraform plan so it's super-fast. Internally Infracost parses the Terraform HCL code directly thus no cloud credentials or Terraform secrets are required.
+This is the **default and recommended** option. It does not require a Terraform plan so it's super-fast. Internally Infracost parses the Terraform HCL code directly thus no cloud credentials or Terraform secrets are required.
 
   ```shell
   cd path/to/code
@@ -84,7 +84,7 @@ If your repo has **multiple Terraform projects or workspaces**, use an Infracost
 
 ### Option 1: Terraform directory
 
-This is the default and recommended option. It does not require a Terraform plan so it's super-fast. Internally Infracost parses the Terraform HCL code directly thus no cloud credentials or Terraform secrets are required. To show cost estimate diff:
+This is the **default and recommended** option. It does not require a Terraform plan so it's super-fast. Internally Infracost parses the Terraform HCL code directly thus no cloud credentials or Terraform secrets are required. To show cost estimate diff:
 
 <ol type="i">
   <li>Generate an Infracost JSON file as the baseline:</li>
