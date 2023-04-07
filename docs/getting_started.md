@@ -106,7 +106,7 @@ The key can be retrieved with `infracost configure get api_key`.
 ---
 
 ### 3. Show cost estimate breakdown
-Infracost parses the project locally to determine resource types and quantities needed to calculate costs. The [`--path` flag](/docs/features/cli_commands/#breakdown) can point to a Terraform directory or plan JSON file.
+Infracost parses the project locally to determine resource types and quantities needed to calculate costs. The `--path` flag should point to your Terraform directory.
 
 ```shell
 # You can also: git clone https://github.com/infracost/example-terraform
