@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Infracost Cloud is our SaaS product that builds on top of Infracost open source. It gives team leads, managers and FinOps practitioners dashboards, guardrails and centralized cost policies so they can help guide the team (e.g. switch AWS GP2 volumes to GP3). See our [demo video](https://www.youtube.com/watch?v=DDi6GE9RIik) to learn more.
 
-<img src={useBaseUrl("img/infracost-cloud/dashboard.png")} alt="Team visibility across all changes" />
+<img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Team visibility across all changes" />
 
 ### 1. Sign up or log in
 

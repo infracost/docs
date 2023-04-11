@@ -5,7 +5,7 @@ title: Guardrails
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Guardrails help you control costs by monitoring pull requests and triggering actions when your defined thresholds are exceeded. Once you define a cost or percentage based threshold for the relevant repos, projects, and branches, you can specify actions including email or Slack notifications, or even commenting on or blocking pull requests.
+Guardrails can help you control costs by monitoring pull requests (PRs) and triggering actions when your defined thresholds are exceeded. Once you define a cost or percentage-based threshold for the relevant repositories, projects, and branches, you can set up email, Slack, or Microsoft Teams notifications. You can also customize the PR comment (e.g. "This change exceeds the budget, please discuss with your team lead") or even block the PR until it has been reviewed.
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/cost-saving.png")} alt="Cost savings from guardrails" />
 
@@ -83,3 +83,11 @@ To setup this feature, you should:
 The following screenshot shows an example pull request that has been blocked due to a guardrail that was triggered.
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/blocked-pull-request.png")} alt="Example pull request being blocked due to a triggered guardrail" />
+
+## 4. Unblock pull requests
+
+When a pull request (PR) is blocked by a guardrail, the email notification will now include a link to the PR page in Infracost Cloud. From there (as shown below), you can review the cost estimate, see details of the triggered guardrail, and unblock the PR.
+
+If someone with admin access on GitHub overrides the guardrail and merges the PR, Infracost Cloud will send an additional email notification to the people subscribed to the guardrail. This provides everyone with visibility of the change, thus preventing surprises in the cloud bill.
+
+<img src={useBaseUrl("img/infracost-cloud/guardrails/unblock-pr.png")} alt="Unblock pull requests" />

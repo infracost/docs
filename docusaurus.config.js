@@ -75,6 +75,10 @@ module.exports = {
             to: '/docs/features/config_file',
           },
           {
+            from: '/docs/features/config_file_template/',
+            to: '/docs/features/config_file',
+          },          
+          {
             from: '/docs/usage_based_resources/',
             to: '/docs/features/usage_based_resources/',
           },

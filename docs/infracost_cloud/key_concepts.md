@@ -22,7 +22,7 @@ From the Members page, you can also change the Org Owner to another member. We t
 
 ## Repos
 
-Repos, short for code repositories, is where your code lives in GitHub, GitLab or any other source control system. Repo is our top-level required grouping concept. If Infracost cannot detect it, you can provide it via [new environment variables](/docs/features/environment_variables/#environment-variables-to-override-metadata), otherwise cost estimates only show in the "All estimates" tab in Infracost Cloud (and not the dashboard, which shows pull request costs).
+Repos, short for code repositories, is where your code lives in GitHub, GitLab or any other source control system. Repo is our top-level required grouping concept. If Infracost cannot detect it, you can provide it via [new environment variables](/docs/features/environment_variables/#environment-variables-to-set-metadata), otherwise cost estimates only show in the "All estimates" tab in Infracost Cloud (and not the dashboard, which shows pull request costs).
 
 A repo contains one or more projects. Infracost Cloud lets you track how the costs of repos and projects change over time.
 
@@ -49,6 +49,6 @@ Infracost auto-generates project names based on code paths, workspaces or Terraf
 
 ### Customize project names
 
-When a long Terraform directory path exists, or paths such as `/tmp/plan.json` are used, the project name might be hard to understand. In such cases we recommend using a [**config-file**](/docs/features/config_file/) to set project names to something more understandable.
+When a long Terraform directory path exists, or paths such as `/tmp/plan.json` are used, the project name might be hard to understand. In such cases we recommend using a [**config file**](/docs/features/config_file/) to set project names to something more understandable.
 
 Alternatively, the `--project-name` flag can also be used; you should set the same project name for both `diff` and `breakdown` commands, failing to use the same name for both breakdown and diff will result in odd diffs.

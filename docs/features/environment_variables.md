@@ -33,10 +33,6 @@ These examples show the output of the number `64145.4525` with different formatt
 | INFRACOST_CURRENCY=EUR<BR/>INFRACOST_CURRENCY_FORMAT="EUR: 1.234,56€"        | `64.145,45€`          |
 | INFRACOST_CURRENCY=GBP<BR/>INFRACOST_CURRENCY_FORMAT="GBP: £ 1,234.567"      | `£ 64,145.453`        |
 
-
-### INFRACOST_ENABLE_CLOUD
-Can be set to `true` to enable [Infracost Cloud](/docs/infracost_cloud/get_started/). The main use-case for this is in CI/CD so the Infracost JSON output is sent to your Infracost Cloud account.
-
 ### INFRACOST_LOG_LEVEL
 Controls the log verbosity level. Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot. Turns off spinners in output. Setting this environment variable is the same as using the `--log-level` flag.
 
@@ -83,66 +79,27 @@ provider "aws" {
 }
 ```
 
-## Environment variables to override metadata
+## Environment variables to set metadata
 
-The following environment variables can be used with `infracost breakdown` and `diff` to override the values that are automatically generated as part of the [Infracost JSON output](/docs/features/cli_commands/#examples). This is useful when [uploading an Infracost JSON file](/docs/features/cli_commands/#upload-runs) to Infracost Cloud.
+The following environment variables should be set before `infracost breakdown` and `diff` are run to set or override the values that are automatically generated as part of the [Infracost JSON output](/docs/features/cli_commands/#examples). This is useful when running Infracost in a CI/CD where our CLI cannot detect the metadata, e.g Jenkins.
 
 :::note
 We recommend exporting environment variables using quotes so values with spaces are captured correctly, e.g. `export MY_ENV="my value"`
 :::
 
-### When a pull request exists
-If you are integrating Infracost into a CI/CD system and you have pull requests, you can use the following environment variables to override relevant metadata.
-
-**Required:**
-- `INFRACOST_VCS_PROVIDER`: can be "github", "gitlab", "azure_repos" or "bitbucket". For GitHub Enterprise also use "github", for GitLab Enterprise also use "gitlab".
-- `INFRACOST_VCS_REPOSITORY_URL`: HTTPS URL of the repository, e.g. "https://github.com/infracost/example-terraform"
-- `INFRACOST_VCS_PULL_REQUEST_URL`: HTTP URL of the pull request, e.g. "https://github.com/alikhajeh1/example-terraform/pull/2"
-- `INFRACOST_VCS_PULL_REQUEST_AUTHOR`: author username or full name of the pull request, e.g. "john190" or "John Smith"
-- `INFRACOST_VCS_PULL_REQUEST_TITLE`: title of the pull request, e.g. "Increase IOPS"
-
-The following example shows how you can override the above environment variables in the [Infracost Atlantis integration](https://github.com/infracost/infracost-atlantis):
-
-  ```bash
-  INFRACOST_VCS_PROVIDER="github" # For GitHub Enterprise, also use "github"
-  INFRACOST_VCS_REPOSITORY_URL="https://github.com/$BASE_REPO_OWNER/$BASE_REPO_NAME"
-  INFRACOST_VCS_PULL_REQUEST_URL="$INFRACOST_VCS_REPOSITORY_URL/pulls/$PULL_NUM"
-  INFRACOST_VCS_PULL_REQUEST_AUTHOR="$PULL_AUTHOR"
-
-  INFRACOST_VCS_PULL_REQUEST_TITLE=\"$(curl -s \
-      -H "Accept: application/vnd.github+json" \
-      -H "Authorization: $GITHUB_TOKEN" \
-      "https://api.github.com/repos/$BASE_REPO_OWNER/$BASE_REPO_NAME/pulls/$PULL_NUM" | jq -r '.title')\"
-  ```
-
-**Optional:**
-- `INFRACOST_VCS_BASE_BRANCH`: name of the base branch that the pull request is being merged into, this is usually "master" or "main"
-- `INFRACOST_VCS_BRANCH`: name of the branch that was used to generate the estimate, e.g. "increase_iops"
-- `INFRACOST_VCS_COMMIT_SHA`: long commit SHA of the branch that was used to generate the estimate, e.g. "1af413ad15ad6cbdfca667361231231231231231"
-- `INFRACOST_VCS_COMMIT_MESSAGE`: the commit message, e.g. "use m5.large"
-- `INFRACOST_VCS_COMMIT_TIMESTAMP`: unix epoch timestamp of the commit, e.g. `1661801540`. You can use the following command to get the timestamp on the latest commit from the current branch `export INFRACOST_VCS_COMMIT_TIMESTAMP=$(git show -s --format=%ct)`
-- `INFRACOST_VCS_COMMIT_AUTHOR_EMAIL`: git email of author of the commit, e.g. "john@company.com"
-- `INFRACOST_VCS_COMMIT_AUTHOR_NAME`: git author name of the commit, e.g. "John Smith"
-- `INFRACOST_VCS_SUB_PATH`: path of the project relative to the root of the code repository, e.g. "prod/us-east"
-- `INFRACOST_TERRAFORM_WORKSPACE`: Terraform workspace if specified for the project, e.g. "prod"
-- `INFRACOST_VCS_PIPELINE_RUN_ID`: a way to differentiate pipelines that are run within one pull request, this is the top-level pipeline ID, not individual jobs/runs within it, e.g. "2846680866"
-- `INFRACOST_VCS_PULL_REQUEST_LABELS`: a comma separated list of any labels (e.g. GitHub labels) added to the pull request.
-
-### When no pull requests exist
-
-If you are integrating Infracost into a CI/CD system and you do not use pull requests in your workflow, you can use the following environment variables to override relevant metadata.
-
-**Required:**
-- `INFRACOST_VCS_PROVIDER`: can be "github", "gitlab", "azure_repos" or "bitbucket"
-- `INFRACOST_VCS_REPOSITORY_URL`: HTTPS URL of the repository, e.g. "https://github.com/infracost/example-terraform"
-- `INFRACOST_VCS_BRANCH`: name of the branch that was used to generate the estimate, e.g. "increase_iops"
-- `INFRACOST_VCS_COMMIT_SHA`: long commit SHA of the branch that was used to generate the estimate, e.g. "1af413ad15ad6cbdfca667361231231231231231"
-- `INFRACOST_VCS_COMMIT_MESSAGE`: the commit message, e.g. "use m5.large"
-- `INFRACOST_VCS_COMMIT_TIMESTAMP`: unix epoch timestamp of the commit, e.g. `1661801540`. You can use the following command to get the timestamp on the latest commit from the current branch `export INFRACOST_VCS_COMMIT_TIMESTAMP=$(git show -s --format=%ct)`
-- `INFRACOST_VCS_COMMIT_AUTHOR_EMAIL`: git email of author of the commit, e.g. "john@company.com"
-- `INFRACOST_VCS_COMMIT_AUTHOR_NAME`: git author name of the commit, e.g. "John Smith"
-
-**Optional:**
-- `INFRACOST_VCS_SUB_PATH`: path of the project relative to the root of the code repository, e.g. "prod/us-east"
-- `INFRACOST_TERRAFORM_WORKSPACE`: Terraform workspace if specified for the project, e.g. "prod"
-- `INFRACOST_VCS_PIPELINE_RUN_ID`: a way to differentiate pipelines that are run within one CI/CD run, this is the top-level pipeline ID, not individual jobs/runs within it, e.g. "2846680866"
+- `INFRACOST_VCS_PROVIDER`: Required. Can be "github", "gitlab", "azure_repos" or "bitbucket". For GitHub Enterprise also use "github", for GitLab Enterprise also use "gitlab".
+- `INFRACOST_VCS_REPOSITORY_URL`: Required. HTTPS URL of the repository, e.g. "https://github.com/infracost/example-terraform"
+- `INFRACOST_VCS_PULL_REQUEST_URL`: Required. HTTP URL of the pull request, e.g. "https://github.com/alikhajeh1/example-terraform/pull/2"
+- `INFRACOST_VCS_PULL_REQUEST_AUTHOR`: Required. Author username or full name of the pull request, e.g. "john190" or "John Smith". If you can't get this easily, you can also set this to the git username of the first or last commit.
+- `INFRACOST_VCS_PULL_REQUEST_TITLE`: Required. Title of the pull request, e.g. "Increase IOPS"
+- `INFRACOST_VCS_BASE_BRANCH`: Required. Name of the base branch that the pull request is being merged into, this is usually "master" or "main"
+- `INFRACOST_VCS_BRANCH`: Required. Name of the branch that was used to generate the estimate, e.g. "increase_iops"
+- `INFRACOST_VCS_COMMIT_SHA`: Required. Long commit SHA of the branch that was used to generate the estimate, e.g. "1af413ad15ad6cbdfca667361231231231231231"
+- `INFRACOST_VCS_COMMIT_MESSAGE`: Required. The commit message, e.g. "use m5.large"
+- `INFRACOST_VCS_COMMIT_TIMESTAMP`: Required. Unix epoch timestamp of the commit, e.g. `1661801540`. You can use the following command to get the timestamp on the latest commit from the current branch `export INFRACOST_VCS_COMMIT_TIMESTAMP=$(git show -s --format=%ct)`
+- `INFRACOST_VCS_COMMIT_AUTHOR_EMAIL`: Required. Git email of author of the commit, e.g. "john@company.com"
+- `INFRACOST_VCS_COMMIT_AUTHOR_NAME`: Required. Git author name of the commit, e.g. "John Smith"
+- `INFRACOST_VCS_SUB_PATH`: Optional. Path of the project relative to the root of the code repository, e.g. "prod/us-east"
+- `INFRACOST_TERRAFORM_WORKSPACE`: Optional. Terraform workspace if specified for the project, e.g. "prod"
+- `INFRACOST_VCS_PIPELINE_RUN_ID`: Optional. A way to differentiate pipelines that are run within one pull request, this is the top-level pipeline ID, not individual jobs/runs within it, e.g. "2846680866"
+- `INFRACOST_VCS_PULL_REQUEST_LABELS`: Optional. A comma separated list of any labels (e.g. GitHub labels) added to the pull request.
