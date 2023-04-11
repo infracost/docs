@@ -195,19 +195,6 @@ would print the value of the `Name` field for each item in the `Items` array in 
 
 sets successive elements returned from [`matchPaths`](#matchpaths) to `$project`, which can be accessed inside the `range` loop, e.g. `$project.env`
 
-## Global Variables
-
-Config file templates support some globally accessible variables by default. These are provided to aid common configuration scenarios.
-
-### `.branch`
-
-The name of the current branch for the repository. This is useful in CI environments when you want to exclude project estimates on certain branches. For example:
-
-```gotemplate
-{{- if ne .branch "test" }}
-...
-{{- end }}
-```
 
 ## Functions
 
