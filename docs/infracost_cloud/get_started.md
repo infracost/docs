@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Infracost Cloud is our SaaS product that builds on top of Infracost open source. It gives team leads, managers and FinOps practitioners dashboards, guardrails and centralized cost policies so they can help guide the team (e.g. switch AWS GP2 volumes to GP3). See our [demo video](https://www.youtube.com/watch?v=DDi6GE9RIik) to learn more.
 
-<img src={useBaseUrl("img/infracost-cloud/dashboard.png")} alt="Team visibility across all changes" />
+<img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Team visibility across all changes" />
 
 ### 1. Sign up or log in
 
@@ -31,9 +31,9 @@ If you do not use the `infracost comment` command in your CI/CD system, you can 
 
 ### 5. See cost estimate in Infracost Cloud
 
-Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Dashboard** to see your pull request on the chart and cost breakdowns by repo, pull request and user. Clicking on a chart dot shows the corresponding estimate so you can investigate deeper or talk to the people working on the change.
+Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Dashboard** to see your pull request on the chart and cost breakdowns by repo, pull request and user. Clicking on a chart dot shows the corresponding estimate so you can investigate deeper or talk to the people working on the change. You can also see all repos and their pull requests from the **Repos** page.
 
-<img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Infracost Cloud dashboard showing pull request cost changes over the last 30 days" />
+<img src={useBaseUrl("img/infracost-cloud/pull-requests-tab.png")} alt="Infracost Cloud shows pull request cost changes" />
 
 ### 6. Add your team members
 

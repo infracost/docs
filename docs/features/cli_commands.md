@@ -9,8 +9,9 @@ import TabItem from '@theme/TabItem';
 
 Infracost has multiple commands, all of which support `--help`:
 - Basic commands:
-  - [`infracost breakdown`](#breakdown): Show breakdown of costs
-  - [`infracost diff`](#diff): Show diff of monthly costs between current and planned state
+  - [`infracost breakdown`](#breakdown): Show breakdown of costs, can also be used to generate a baseline
+  - [`infracost diff`](#diff): Show diff of monthly costs between current branch and baseline
+  - [`infracost generate config`](#generate-config): Generate Infracost config file from a template file
 
 - The following commands work with the Infracost JSON output, which is generated via `infracost diff --format json`:
   - [`infracost output`](#combined-output-formats): Combine and output Infracost JSON files in different formats
@@ -32,7 +33,7 @@ This command shows a breakdown of costs. It can also generate Infracost JSON out
 
 If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown output.
 
-### Option 1: Terraform directory
+### Option 1: Terraform directory (recommended)
 
 This is the **default and recommended** option. It does not require a Terraform plan so it's super-fast. Internally Infracost parses the Terraform HCL code directly thus no cloud credentials or Terraform secrets are required.
 
@@ -45,7 +46,7 @@ This is the **default and recommended** option. It does not require a Terraform 
 
 #### Notes
 
-Usually no extra setup is needed for handling:
+Usually no extra setup is needed for handling the following on your local development machines. For CI/CD, see the corresponding pages.
 - **Private modules** see [this page](/docs/features/terraform_modules/) for more details.
 - **Terragrunt** see [this page](/docs/features/terragrunt/) for more details.
 - **Terraform Cloud/Enterprise** see [this page](/docs/integrations/terraform_cloud_enterprise/#running-infracost-on-local-dev-machines) for more details.
@@ -82,7 +83,7 @@ This command shows a diff of monthly costs between current and planned state. Yo
 
 If your repo has **multiple Terraform projects or workspaces**, use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same diff output.
 
-### Option 1: Terraform directory
+### Option 1: Terraform directory (recommended)
 
 This is the **default and recommended** option. It does not require a Terraform plan so it's super-fast. Internally Infracost parses the Terraform HCL code directly thus no cloud credentials or Terraform secrets are required. To show cost estimate diff:
 
@@ -282,20 +283,18 @@ The Infracost CLI can post cost estimates to pull request or commits on [GitHub]
 <details><summary>Example commands to post a pull request comment</summary>
 
   ```shell
-  # Generate Infracost JSON files as the baseline
+  # Generate Infracost JSON baseline
   git checkout main
-  infracost breakdown --path dev --format json --out-file infracost-base-dev.json
-  infracost breakdown --path prod --format json --out-file infracost-base-prod.json
+  infracost breakdown --config-file infracost.yml --format json \
+      --out-file infracost-base.json
 
-  # Generate a diff by comparing the latest code change with the baselines
+  # Generate a diff by comparing the latest code change with the baseline
   git checkout my-branch
-  infracost diff --path dev --format json \
-      --compare-to infracost-base-dev.json --out-file infracost-report-dev.json
-  infracost diff --path prod --format json \
-      --compare-to infracost-base-prod.json --out-file infracost-report-prod.json
+  infracost diff --config-file infracost.yml --format json \
+      --compare-to infracost-base.json --out-file infracost.json
 
-  # Post one comment with above Infracost JSON files, glob patterns need quotes
-  infracost comment github --path "infracost-report-*.json" ...
+  # Post one comment with above Infracost JSON file
+  infracost comment github --path infracost.json ...
   ```
 </details>
 
@@ -545,29 +544,23 @@ infracost comment bitbucket --path=infracost.json \
 When you use the `infracost comment` command, Infracost automatically detects pull request and commit metadata from various CI/CD systems. The metadata is stored in the Infracost JSON output as it is useful to show you what repo, pull request or commit was used to generate the cost estimate.
 
 The metadata is also needed by Infracost Cloud's dashboard to show you pull request costs over time. If you **do not** use `infracost comment`, you can still define this metadata as follows and use Infracost Cloud as normal:
-1. Set the [required and optional environment variables](/docs/features/environment_variables/#environment-variables-to-override-metadata) when you run `infracost breakdown` and `diff`.
-2. If you have multiple Infracost JSON files, run [`infracost output`](#combined-output-formats) to combine them into one Infracost JSON file.
-3. Go to [Infracost Cloud](https://dashboard.infracost.io) > your organization > Org Settings and **turn-off** the cost estimate dashboard so runs are not uploaded automatically.
-4. **Remove** the `INFRACOST_ENABLE_CLOUD=true` environment variable from your CI/CD system as you'll upload the results directly in the following step.
-5. In your CI/CD system, run `infracost upload --path infracost.json`. This uploads the Infracost JSON file to Infracost Cloud and associates it with the organization from your `INFRACOST_API_KEY`. This command uploads the data regardless of your Org Settings or the `INFRACOST_ENABLE_CLOUD` environment variable.
+1. Set the [required environment variables](/docs/features/environment_variables/#environment-variables-to-set-metadata) **before** you run `infracost breakdown` and `diff`.
+2. If you have multiple Terraform projects in your repo, use a [config file](/docs/features/config_file/) to combine them into one Infracost JSON file.
+3. In your CI/CD system, run `infracost upload --path infracost.json`. This uploads the Infracost JSON file to Infracost Cloud and associates it with the organization from your `INFRACOST_API_KEY`. This command uploads the data regardless of your Org Settings.
 
   Example commands:
   ```shell
-  # In parallel or serial, run your infracost commands
-  infracost diff --project-name project-a --path tf-plan-a.json \
-      --format json --out-file infracost-a.json
+  # Generate Infracost JSON baseline
+  git checkout main
+  infracost breakdown --config-file infracost.yml --format json \
+      --out-file infracost-base.json
 
-  infracost diff --project-name project-b --path tf-plan-b.json \
-      --format json --out-file infracost-b.json
+  # Generate a diff by comparing the latest code change with the baseline
+  git checkout my-branch
+  infracost diff --config-file infracost.yml --format json \
+      --compare-to infracost-base.json --out-file infracost.json
 
-  # Combine Infracost JSON files from diffs into one file
-  infracost output --path "infracost-*.json" --format json --out-file infracost.json
-
-  # Post pull request comment
-  # See https://www.infracost.io/docs/features/cli_commands/#comment-on-pull-requests for posting to GitHub, GitLab, Azure Repos and Bitbucket
-  infracost comment github --path "infracost.json" ...
-
-  # Upload Infracost JSON file to Infracost Cloud
+  # Instead of using `infracost comment`, just upload the file to Infracost Cloud
   infracost upload --path infracost.json
   ```
 

@@ -119,6 +119,12 @@ The key differences are:
 
 Infracost works with Terraform v0.12 and above.
 
+### How do you deal with auto-scaling groups?
+
+Auto-scaling groups have a dynamic instance count so it's useful for engineers to get a cost estimate for them as their cost can vary significantly.
+
+By default, Infracost uses the average of the minimum and maximum instance-count configured in auto-scaling groups. You can override this manually in the [usage file](/docs/features/usage_based_resources/). The usage file can also be [populated](/docs/features/usage_based_resources/#fetch-from-cloud-apis) from the last 30-day average from CloudWatch; if this is not available Infracost will fetch the current instance count from the AWS API instead.
+
 ### Can I show costs in a different currency?
 
 Sure! See the [currency](/docs/features/environment_variables/#infracost_currency) docs section.

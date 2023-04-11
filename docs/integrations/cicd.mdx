@@ -7,9 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Use one of our many integrations so DevOps, SRE and engineers see a cost estimate in pull requests **before making changes**. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
-
-Infracost can work with either a [Terraform directory](/docs/features/cli_commands/#option-1-terraform-directory) or [Terraform plan JSON](/docs/features/cli_commands/#option-2-terraform-plan-json).
+Use one of our many integrations so your engineering team can see cost estimates in pull requests **before making changes**. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
 
 export const Grid = ({logos}) => {
     const items = logos.map((e, i) => {
@@ -93,13 +91,13 @@ export const CIBox = ({image, link, maxHeight, newWindow, text}) => (
 
 <br/><br/>
 
-Screenshot of Infracost running in GitHub pull requests:
+Screenshot of Infracost running in GitHub pull requests, the same can be done with GitLab, Azure Repos and Bitbucket:
 
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
 
 ### Other CI/CD systems
 
-Infracost can be used in any CI/CD system using the following steps. Our [GitLab CI integration](https://gitlab.com/infracost/infracost-gitlab-ci/) follows these steps and has [examples](https://gitlab.com/infracost/infracost-gitlab-ci/#examples) that you might find useful.
+Infracost can be used in any CI/CD system using the following steps. Follow our [GitLab CI integration](https://gitlab.com/infracost/infracost-gitlab-ci/) to see examples of how the following steps are used.
 
 1. Use one of the following options to add the Infracost CLI into your CI/CD:
 
@@ -130,7 +128,7 @@ Infracost can be used in any CI/CD system using the following steps. Our [GitLab
 
   Otherwise, run the [breakdown, diff and output commands](/docs/features/cli_commands/#combined-output-formats) to save the comment markdown (e.g. using `--format github-comment`) and post it from your CI/CD system using curl or other command line tools.
 
-  You might also find the [environment variables](/docs/features/environment_variables) page useful.
+  You should also set the [required environment variables](/docs/features/environment_variables).
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 

@@ -8,9 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Infracost shows cloud cost estimates for Terraform. It lets DevOps, SRE and engineers see a cost breakdown and understand costs **before making changes**, either in the terminal or pull requests. This provides your team with a safety net as people can discuss costs as part of the workflow.
-
-If you're upgrading from an older version, see the [v0.10 migration guide](/docs/guides/v0.10_migration/).
+Infracost shows cloud cost estimates for Terraform. It lets engineers see a cost breakdown and understand costs **before making changes**, either in the terminal, VS Code or pull requests. This provides your team with a safety net as people can discuss costs as part of the workflow.
 
 ### 1. Install Infracost
 Get the latest Infracost release:
@@ -158,7 +156,7 @@ Example output:
 
 ---
 
-### 5. Monitor cost estimates
+### 5. See costs in dashboard
 
 <ol type="i">
   <li>The following command instructs the CLI to send its JSON output to Infracost Cloud. This is our SaaS product that builds on top of Infracost open source and works with CI/CD integrations (next step). It gives team leads, managers and FinOps practitioners dashboards, guardrails and centralized cost policies so they can help guide the team (e.g. switch AWS GP2 volumes to GP3).</li>
