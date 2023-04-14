@@ -573,7 +573,7 @@ The Infracost [GitHub App](/docs/integrations/github_app/) integration automatic
 ```shell
 curl -X POST -H "Content-Type: application/json" \
 -H "X-API-Key: $INFRACOST_API_KEY" \
--d '{ "query": "mutation { updatePullRequestStatus(url: \"https://github.com/YOUR_ORG/YOUR_REPO/pull/323\\", status: MERGED) }" }' \
+-d '{ "query": "mutation { updatePullRequestStatus(url: \"https://github.com/YOUR_ORG/YOUR_REPO/pull/323\", status: MERGED) }" }' \
 https://dashboard.api.infracost.io/graphql
 ```
 
