@@ -74,12 +74,22 @@ There are Terraform resources that Infracost supports, and we classify as free.
 
 | Terraform resources                                          |
 |--------------------------------------------------------------|
+| `aws_accessanalyzer_analyzer`                                |
+| `aws_accessanalyzer_archive_rule`                            |
 | `aws_acm_certificate_validation`                             |
+| `aws_acmpca_permission`                                      |
+| `aws_acmpca_policy`                                          |
+| `aws_account_alternate_contact`                              |
 | `aws_alb_listener_certificate`                               |
 | `aws_alb_listener_rule`                                      |
 | `aws_alb_listener`                                           |
 | `aws_alb_target_group_attachment`                            |
 | `aws_alb_target_group`                                       |
+| `aws_ami_launch_permission`                                  |
+| `aws_amplify_backend_environment`                            |
+| `aws_amplify_branch`                                         |
+| `aws_amplify_domain_association`                             |
+| `aws_amplify_webhook`                                        |
 | `aws_api_gateway_account`                                    |
 | `aws_api_gateway_api_key`                                    |
 | `aws_api_gateway_authorizer`                                 |
@@ -89,7 +99,9 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_api_gateway_documentation_part`                         |
 | `aws_api_gateway_documentation_version`                      |
 | `aws_api_gateway_domain_name`                                |
+| `aws_api_gateway_gateway_response`                           |
 | `aws_api_gateway_integration`                                |
+| `aws_api_gateway_integration_response`                       |
 | `aws_api_gateway_method_response`                            |
 | `aws_api_gateway_method_settings`                            |
 | `aws_api_gateway_method`                                     |
@@ -97,6 +109,7 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_api_gateway_request_validator`                          |
 | `aws_api_gateway_resource`                                   |
 | `aws_api_gateway_response`                                   |
+| `aws_api_gateway_rest_api_policy`                            |
 | `aws_api_gateway_usage_plan_key`                             |
 | `aws_api_gateway_usage_plan`                                 |
 | `aws_api_gateway_vpc_link`                                   |
@@ -113,7 +126,25 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_apigatewayv2_vpc_link`                                  |
 | `aws_appautoscaling_policy`                                  |
 | `aws_appautoscaling_scheduled_action`                        |
+| `aws_appconfig_extension`                                    |
+| `aws_appconfig_extension_association`                        |
+| `aws_appconfig_hosted_configuration_version`                 |
+| `aws_appflow_connector_profile`                              |
+| `aws_appintegrations_event_integration`                      |
+| `aws_appmesh_gateway_route`                                  |
+| `aws_appmesh_mesh`                                           |
+| `aws_appmesh_route`                                          |
+| `aws_appmesh_virtual_gateway`                                |
+| `aws_appmesh_virtual_node`                                   |
+| `aws_appmesh_virtual_router`                                 |
+| `aws_appmesh_virtual_service`                                |
 | `aws_app_cookie_stickiness_policy`                           |
+| `aws_autoscaling_attachment`                                 |
+| `aws_autoscaling_group_tag`                                  |
+| `aws_autoscaling_lifecycle_hook`                             |
+| `aws_autoscaling_notification`                               |
+| `aws_autoscaling_policy`                                     |
+| `aws_placement_group`                                        |
 | `aws_backup_global_settings`                                 |
 | `aws_backup_plan`                                            |
 | `aws_backup_region_settings`                                 |
@@ -196,6 +227,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_efs_file_system_policy`                                 |
 | `aws_efs_mount_target`                                       |
 | `aws_eip_association`                                        |
+| `aws_eks_addon`                                              |
+| `aws_eks_identity_provider_config`                           |
 | `aws_elasticache_parameter_group`                            |
 | `aws_elasticache_security_group`                             |
 | `aws_elasticache_subnet_group`                               |
@@ -308,13 +341,21 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_route`                                                  |
 | `aws_s3_access_point`                                        |
 | `aws_s3_account_public_access_block`                         |
-| `aws_s3_acl`                                                 |
+| `aws_s3_bucket_acl`                                          |
+| `aws_s3_bucket_cors_configuration`                           |
+| `aws_s3_bucket_intelligent_tiering_configuration`            |
+| `aws_s3_bucket_logging`                                      |
 | `aws_s3_bucket_metric`                                       |
 | `aws_s3_bucket_notification`                                 |
 | `aws_s3_bucket_object` (costs are shown at the bucket level) |
+| `aws_s3_bucket_object_lock_configuration`                    |
 | `aws_s3_bucket_ownership_controls`                           |
 | `aws_s3_bucket_policy`                                       |
 | `aws_s3_bucket_public_access_block`                          |
+| `aws_s3_bucket_replication_configuration`                    |
+| `aws_s3_bucket_server_side_encryption_configuration`         |
+| `aws_s3_bucket_versioning`                                   |
+| `aws_s3_bucket_website_configuration`                        |
 | `aws_secretsmanager_secret_policy`                           |
 | `aws_secretsmanager_secret_rotation`                         |
 | `aws_secretsmanager_secret_version`                          |
