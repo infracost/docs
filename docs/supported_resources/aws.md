@@ -232,6 +232,9 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `aws_elasticache_parameter_group`                            |
 | `aws_elasticache_security_group`                             |
 | `aws_elasticache_subnet_group`                               |
+| `aws_elasticache_user`                                       |
+| `aws_elasticache_user_group`                                 |
+| `aws_elasticache_user_group_association`                     |
 | `aws_elasticsearch_domain_policy`                            |
 | `aws_elastic_beanstalk_application`                          |
 | `aws_elb_attachment`                                         |
