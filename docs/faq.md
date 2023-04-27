@@ -107,13 +107,14 @@ If you believe you have found a vulnerability within Infracost, please let us kn
 ### What's the difference between Infracost and Terraform Cloud's cost estimation?
 
 The key differences are:
-1. Infracost [supports over 230 resources](/docs/supported_resources/overview). Terraform Cloud supports 43 resources.
+1. Infracost [supports over 1,100 resources](/docs/supported_resources/overview) and growing fast thanks to our [large open source community](https://github.com/infracost/infracost/#community-and-contributing) of contributors. Terraform Cloud supports 200 resources and is closed source.
 2. Infracost parses HCL code directly, which makes it super-fast as a Terraform plan is not needed.
 3. Infracost can be used to model [usage-based resources](/docs/features/usage_based_resources) and do what-if analysis.
 4. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of the source control and CI/CD system being used.
 5. Infracost can be used with [Terragrunt](/docs/features/terragrunt).
 6. Infracost can be used with [Terraform modules](/docs/features/terraform_modules).
 7. Infracost can output JSON and be used to create [cost policies](/docs/features/cost_policies) with Open Policy Agent, Conftest and HashiCorp Sentinel.
+8. [Infracost Cloud](/docs/infracost_cloud/get_started/) builds on top of Infracost open source to give team leads, managers and FinOps practitioners dashboards, guardrails, centralized cost policies and Jira integration so they can help guide the team.
 
 ### What Terraform versions are supported?
 
@@ -123,7 +124,9 @@ Infracost works with Terraform v0.12 and above.
 
 Auto-scaling groups have a dynamic instance count so it's useful for engineers to get a cost estimate for them as their cost can vary significantly.
 
-By default, Infracost uses the average of the minimum and maximum instance-count configured in auto-scaling groups. You can override this manually in the [usage file](/docs/features/usage_based_resources/). The usage file can also be [populated](/docs/features/usage_based_resources/#fetch-from-cloud-apis) from the last 30-day average from CloudWatch; if this is not available Infracost will fetch the current instance count from the AWS API instead.
+By default, Infracost parses the code to detect the instance count, thus it has to follow the static logic from the autoscaling group in AWS, Azure or Google. For example, the `aws_autoscaling_group` resource has a `desired_capacity` that is used, and if that is not set, the `min_size` is used, and otherwise we default to an instance count of 1.
+
+You can override the instance count manually in the [usage file](/docs/features/usage_based_resources/). The usage file can also be [populated](/docs/features/usage_based_resources/#fetch-from-cloud-apis) from the last 30-day average from CloudWatch; if this is not available Infracost will fetch the current instance count from the AWS API instead.
 
 ### Can I show costs in a different currency?
 
