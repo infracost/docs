@@ -15,10 +15,10 @@ Infracost API keys are associated with organizations and can be retrieved from t
 
 ### Team management
 
-From the Members page, you can invite your team members to join your organization. Currently only one role is supported:
-- Org Admin: they can do everything in the organization except delete the organization.
-
-From the Members page, you can also change the Org Owner to another member. We treat the Org Owner as the main billing contact for the organization.
+From the Members page, you can invite your team members to join your organization. Currently three roles are supported:
+- Org Owner: they own and have complete control over the organization. We currently treat the Org Owner as the main billing contact for the organization too. From the Members page, you can change the Org Owner to another member.
+- Org Admin: they can do everything in the organization except deleting the organization..
+- Org Viewer: they can view everything in the organization except the API key. They cannot make any changes.
 
 ## Repos
 

@@ -42,13 +42,21 @@ If your SSH key has a passphrase too, you can also add an environment variable o
 We suggest tweaking your Terraform code to download modules using [SSH instead of HTTPS](https://developer.hashicorp.com/terraform/language/modules/sources#github). This is usually a 1-line change, and it should be safe as you are just telling Terraform/Infracost to download the module differently (but obviously test it). Here's an example of an HTTPS module being used:
 
 ```terraform
+# HTTPS module being used
 module "my-module" {
-  source  = "github.com/my-org/my-terraform-private-module"
-  version = "~> 3.0"
+  source  = "github.com/my-org/my-terraform-private-module?ref=v1.2.3"
   ...
 ```
 
-If you change the `source` to `git@github.com:my-org/terraform-private-module.git` then SSH will be used to download the module, thus HTTPS credentials will not be necessary. The format is `git@github.com:MY-ORG/MY-MODULE-REPO.git`, check the [Terraform docs](https://developer.hashicorp.com/terraform/language/modules/sources#github) for more details.
+As shown below, if you change the `source` to `git@github.com:my-org/terraform-private-module.git` then SSH will be used to download the module, thus HTTPS credentials will not be necessary. The format is `git@github.com:MY-ORG/MY-MODULE-REPO.git`, check the [Terraform docs](https://developer.hashicorp.com/terraform/language/modules/sources#github) for more details.
+
+```terraform
+# Switch the above to use SSH
+module "my-module" {
+  source  = "git@github.com:my-org/terraform-private-module.git"
+  ref = "v1.2.3"
+  ...
+```
 
 #### Option 2: Provide HTTPS credentials
 
