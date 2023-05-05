@@ -263,11 +263,11 @@ Templates use a pair of curly braces `{{ }}` to delimit actions, such as `variab
 For example, `{{ $project.name }}` would print the value of the `$project.name`, while 
 
 ```gotemplate
-{{ if .Enabled }}
+{{- if .Enabled }}
   Enabled
-{{ else }}
+{{- else }}
   Disabled
-{{ end }}
+{{- end }}
 ```
 
 would execute conditional logic based on the value of the `Enabled` field in the current context. 
@@ -277,20 +277,20 @@ would execute conditional logic based on the value of the `Enabled` field in the
 Conditional logic can be added to templates using the `{{ if }}`, `{{ else if }}`, and `{{ else }}` keywords. For example
 
 ```gotemplate
-{{ if .Enabled }}
+{{- if .Enabled }}
   Enabled
-{{ else }}
+{{- else }}
   Disabled
-{{ end }}
+{{- end }}
 ```
 
 would print `"Enabled"` if the `Enabled` field in the current context is true, and `"Disabled"` otherwise. This can be useful to conditionally include projects for Infracost to evaluate, for example:
 
 ```gotemplate
-{{ if ne $project.name "test" }}
+{{- if ne $project.name "test" }}
   - path: .
     ...
-{{ end }}
+{{- end }}
 ```
 
 adds a configuration entry for the current project if it does not equal "test".
@@ -300,9 +300,9 @@ adds a configuration entry for the current project if it does not equal "test".
 Templates can iterate over arrays and maps using the `{{ range }}` keyword. For example:
 
 ```
-{{ range .Items }}
-  {{ .Name }}
-{{ end }}
+{{- range .Items }}
+  {{- .Name }}
+{{- end }}
 ```
 
 would print the value of the `Name` field for each item in the `Items` array in the current context. Within config file templates `range` expressions are normally combined with [`matchPaths`](#matchpaths) calls to iterate over a subset of directories or files, for example: 
@@ -315,7 +315,6 @@ would print the value of the `Name` field for each item in the `Items` array in 
 ```
 
 sets successive elements returned from [`matchPaths`](#matchpaths) to `$project`, which can be accessed inside the `range` loop, e.g. `$project.env`
-
 
 ## Functions
 
@@ -455,17 +454,16 @@ values={[
 
     projects:
     {{- range $project := matchPaths "environment/:env/terraform.tfvars" }}
-      {{ if pathExists $project._dir "include.txt" }}
+      {{- if pathExists $project._dir "include.txt" }}
       - path: .
         name: {{ $project.env }}
-      {{ end }}
+      {{- end }}
     {{- end }}
 
   </TabItem>
   <TabItem value="output">
 
     version: 0.1
-
     projects:
       - path: .
         name: dev

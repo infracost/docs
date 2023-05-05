@@ -92,7 +92,7 @@ We recommend exporting environment variables using quotes so values with spaces 
 - `INFRACOST_VCS_PULL_REQUEST_URL`: Required. HTTP URL of the pull request, e.g. "https://github.com/alikhajeh1/example-terraform/pull/2"
 - `INFRACOST_VCS_PULL_REQUEST_AUTHOR`: Required. Author username or full name of the pull request, e.g. "john190" or "John Smith". If you can't get this easily, you can also set this to the git username of the first or last commit.
 - `INFRACOST_VCS_PULL_REQUEST_TITLE`: Required. Title of the pull request, e.g. "Increase IOPS"
-- `INFRACOST_VCS_BASE_BRANCH`: Required. Name of the base branch that the pull request is being merged into, this is usually "master" or "main"
+- `INFRACOST_VCS_BASE_BRANCH`: Required. Name of the base branch that the pull request is being merged into, this is usually "master" or "main". Without this the Jira integration does not work properly.
 - `INFRACOST_VCS_BRANCH`: Required. Name of the branch that was used to generate the estimate, e.g. "increase_iops"
 - `INFRACOST_VCS_COMMIT_SHA`: Required. Long commit SHA of the branch that was used to generate the estimate, e.g. "1af413ad15ad6cbdfca667361231231231231231"
 - `INFRACOST_VCS_COMMIT_MESSAGE`: Required. The commit message, e.g. "use m5.large"

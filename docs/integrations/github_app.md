@@ -40,8 +40,6 @@ Furthermore, if you use Infracost Cloud (our SaaS product):
 
 6. Open a test pull request and wait for Infracost to leave a pull request comment. The [Infracost Cloud dashboard](https://dashboard.infracost.io) should also show the cost estimate too.
 
-  Each time a new commit is pushed to an open pull request, the Infracost GitHub App shows the cost difference between the most recent commit of the pull request branch, and the merge base of the base branch. The merge base is the latest common commit of the pull request base and target branch. This mirrors GitHub's pull request diff logic and shows only the cost of 'what a pull request introduces'.
-
 7. When the pull request is merged the Infracost Cloud dashboard will show you the time it was merged, who approved it, who merged it, and any labels associated with it on GitHub.
 
 ## Pull request status
@@ -72,3 +70,9 @@ If you have restricted out-going traffic from your instance, you need to allow t
 ### GitHub Enterprise Server
 
 Email us at [hello@infracost.io](mailto:hello@infracost.io) to enable GitHub Enterprise Server in your Infracost Cloud account. This requires a meeting with your server admin so we can install the Infracost GitHub App in your GitHub organization.
+
+## How the GitHub App works
+
+The GitHub App needs read access to code repos so it can run the CLI against them, and write access to pull requests so it can post the cost estimate comment. You can select the repos you would like to give access to the App.
+
+Each time a pull request is opened or a new commit is pushed to open pull requests, the Infracost GitHub App shows the cost difference between the most recent commit of the pull request branch, and the merge base of the base branch. The merge base is the latest common commit of the pull request base and target branch. This mirrors GitHub's pull request diff logic and shows only the cost of 'what a pull request introduces'.
