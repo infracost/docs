@@ -1,7 +1,9 @@
 name: Bump CLI version info
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  repository_dispatch:
+    types: [ bump_cli_version ]
 
 jobs:
   bump-cli:
