@@ -28,6 +28,10 @@
 	overflow: hidden;
 }
 
+.pricing .plan.box .sub {
+	font-size: 1rem;
+}
+
 .pricing .plan__wrapper {
 	padding: 1.5rem;
 	display: flex;
@@ -75,13 +79,17 @@
 }
 
 .pricing .plan--paid {
-	background: var( --primary-gradient);
-	color: var(--text-color);
+	/* background: var( --primary-gradient); */
+	/* color: var(--text-color); */
 }
 
-.pricing .plan--paid .icon.primary svg path {
-	fill: var(--secondary-color)
+.pricing .plan--enterprise {
+	background: var(--secondary-gradient);
 }
+
+/* .pricing .plan--paid .icon.primary svg path {
+	fill: var(--secondary-color)
+} */
 
 .pricing .plan--free ul {
 	margin-top: 2.75rem;
@@ -118,11 +126,15 @@
 }
 
 .pricing .price__tier {
-	font-size: 6rem;
+	font-size: 3rem;
 	display: flex;
 	flex-direction: column;
 	font-weight: 1000;
 	line-height: initial;
+}
+
+.pricing .price__li--spacer {
+	height: 29px;
 }
 
 .pricing .plan--free .price__tier  {
