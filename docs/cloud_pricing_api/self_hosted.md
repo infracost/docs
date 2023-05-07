@@ -65,6 +65,12 @@ Or for CI/CD:
 export INFRACOST_TLS_CA_CERT_FILE=/path/to/ca.crt
 ```
 
+## Usage with VS Code extension
+
+The [VS Code extension](https://marketplace.visualstudio.com/items?itemName=Infracost.infracost) uses the Infracost CLI underneath, so can use the [above commands](#usage-with-infracost-cli) to configure it to use your self-hosted Cloud Pricing API.
+
+If you don't have the CLI installed, you can update the global Infracost configuration file located at `~/.config/infracost/configuration.yml` as the VSCode extension uses that. The key/value pairs in the file are the same ones that are supported by `infracost configure set` command.
+
 ## Stats page
 
 Your self-hosted Cloud Pricing API endpoint (e.g. http://localhost:4000 if running locally with Docker compose), will show if prices are up-to-date and some statistics.
@@ -79,7 +85,7 @@ Our Helm chart comes with [cdefault ecommendations](https://github.com/infracost
   - Limit per pod: 1 core, 512MB of RAM
 - Price update job:
   - Minimum: 50 millicores, 128MB of RAM
-  - Limit per pod: 200 millicore, 640MB of RAM
+  - Limit per pod: 200 millicore, 1024MB of RAM
 
 For the PostgreSQL DB, a small instance with 2 vCPU and 2GB of RAM should be enough.
 
