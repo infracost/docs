@@ -85,7 +85,7 @@ Our Helm chart comes with [cdefault ecommendations](https://github.com/infracost
   - Limit per pod: 1 core, 512MB of RAM
 - Price update job:
   - Minimum: 50 millicores, 128MB of RAM
-  - Limit per pod: 200 millicore, 1024MB of RAM
+  - Limit per pod: 200 millicore, 640MB of RAM
 
 For the PostgreSQL DB, a small instance with 2 vCPU and 2GB of RAM should be enough.
 
