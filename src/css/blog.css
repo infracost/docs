@@ -173,3 +173,11 @@ nav.pagination-nav.docusaurus-mt-lg {
 .avatar {
   column-gap: 0.75rem;
 }
+
+/* TABLES */
+
+.noBorder td, .noBorder tr {
+  border: none;
+  padding: 2px;
+  background-color: white;
+}
