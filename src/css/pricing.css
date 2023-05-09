@@ -8,13 +8,17 @@
 
 .pricing .plans {
   margin: 2rem auto 4rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(402px, auto));
+	grid-gap: 2rem
 }
 
 .pricing .plan {
   display: flex;
   flex-direction: column;
-  margin: 0 auto 2rem;
 	transition: all 0.4s ease-out;
+	width: 100%;
+  max-width: 100%;
 }
 
 @media(hover: hover) {
@@ -40,26 +44,9 @@
 }
 
 .pricing .price__main-wrapper {
-
 	padding: 1.5rem;
 }
 
-
-@media (min-width: 997px) {
-  .pricing .plans {
-    display: flex;
-    justify-content: center;
-  }
-
-  .pricing .plan {
-    margin: 0 0 2rem 0;
-    flex-basis: 50%;
-  }
-
-  .pricing .plan:not(:last-child) {
-    margin-right: 2rem;
-  }
-}
 
 .pricing .plan {
 		--text-color: #fff;
@@ -107,12 +94,6 @@
 	background-color: #131433;
 }
 
-@media (max-width: 997px) {
-	.pricing .price__wrapper {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-}
 
 .pricing .price__wrapper {
 	display: flex;
@@ -160,12 +141,6 @@
 	color: var(--secondary-color);
 }
 
-@media (max-width: 997px) {
-	.pricing .price__suppl {
-		align-items: flex-start;
-		justify-content: flex-start;
-	}
-}
 
 .pricing .price__description {
 	font-size: .75rem;
