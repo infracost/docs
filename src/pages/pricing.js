@@ -24,6 +24,18 @@ function Pricing() {
           </div>
         </div>
 
+        <UsedBy
+          logos={[
+            "safe-fleet.svg",
+            "cisco.svg",
+            "bmw.svg",
+            "nbc_sports_group.png",
+            "capgemini.svg",
+          ]}
+          sectionTagline="Trusted by teams at:"
+          withBorderTop={false}
+        />
+
         <div className="container">
           <div className="plans">
             <div className="plan box plan--free">
@@ -278,8 +290,6 @@ function Pricing() {
           <PricingQuestions />
         </div>
       </div>
-
-      <UsedBy />
     </PageLayout>
   );
 }

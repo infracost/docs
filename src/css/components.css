@@ -165,6 +165,10 @@
   border-top: 1px solid var(--border-color);
 }
 
+.used-by--no-border {
+  border: none;
+}
+
 .used-by .tagline {
   color: #8083ac;
   font-size: 0.875rem;
