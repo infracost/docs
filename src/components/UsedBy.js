@@ -1,13 +1,13 @@
 import React from 'react';
 
 function UsedBy(props) {
-  const { logos, sectionTagline, noBorder } = props;
+  const { logos, sectionTagline, classes } = props;
 
   const tagline = sectionTagline ?? "Used by teams at";
 
   if (logos && logos.length) {
     return (
-      <div className={`used-by ${!noBorder ? "used-by--no-border" : ""}`}>
+      <div className={classes ? `used-by ${classes}` : "used-by"}>
         <div className="container">
           <p className="tagline">{tagline}</p>
           <ul>
@@ -23,7 +23,7 @@ function UsedBy(props) {
   }
 
   return (
-    <div className="used-by">
+    <div className={classes ? `used-by ${classes}` : "used-by"}>
       <div className="container">
         <p className="tagline">{tagline}</p>
         <ul>

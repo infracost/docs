@@ -165,9 +165,12 @@
   border-top: 1px solid var(--border-color);
 }
 
-.used-by--no-border {
+.used-by--flush {
+  padding: 0;
   border: none;
+  background-color: transparent!important;
 }
+
 
 .used-by .tagline {
   color: #8083ac;
@@ -175,6 +178,13 @@
   margin-bottom: 2rem;
   text-align: center;
 }
+
+
+.used-by--flush .tagline {
+  color: white;
+  margin-top: 2rem;
+}
+
 
 .used-by ul {
   display: flex;
