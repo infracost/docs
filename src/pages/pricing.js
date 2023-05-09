@@ -24,19 +24,18 @@ function Pricing() {
           </div>
         </div>
 
-        <UsedBy
-          logos={[
-            "safe-fleet.svg",
-            "cisco.svg",
-            "bmw.svg",
-            "nbc_sports_group.png",
-            "capgemini.svg",
-          ]}
-          sectionTagline="Trusted by teams at:"
-          noBorder={true}
-        />
-
         <div className="container">
+          <UsedBy
+            logos={[
+              "safe-fleet.svg",
+              "cisco.svg",
+              "bmw.svg",
+              "nbc_sports_group.png",
+              "capgemini.svg",
+            ]}
+            sectionTagline="Trusted by teams at:"
+            classes="used-by--flush"
+          />
           <div className="plans">
             <div className="plan box plan--free">
               <div className="plan__wrapper">
