@@ -29,16 +29,21 @@
 }
 
 .pricing .plan.box .sub {
-	font-size: 1rem;
+	font-size: .875rem;
 }
 
 .pricing .plan__wrapper {
-	padding: 1.5rem;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: flex-start;
 	height: 100%;
 }
+
+.pricing .price__main-wrapper {
+
+	padding: 1.5rem;
+}
+
 
 @media (min-width: 997px) {
   .pricing .plans {
@@ -76,24 +81,11 @@
 
 .pricing .plan .action {
   text-align: center;
+	margin-top: 1rem;
 }
 
-.pricing .plan--paid {
-	/* background: var( --primary-gradient); */
-	/* color: var(--text-color); */
-}
 
-.pricing .plan--enterprise {
-	background: var(--secondary-gradient);
-}
 
-/* .pricing .plan--paid .icon.primary svg path {
-	fill: var(--secondary-color)
-} */
-
-.pricing .plan--free ul {
-	margin-top: 2.75rem;
-}
 
 .pricing .plan h2 .coming-soon {
   font-size: 1rem;
@@ -105,17 +97,14 @@
   text-align: center;
 }
 
-.pricing .plan .price {
-  font-size: 1rem;
-  display: block;
-  margin-bottom: 1rem;
-}
-
 .pricing .price__wrapper {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	gap: .5rem;
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+	background-color: #131433;
 }
 
 @media (max-width: 997px) {
@@ -125,28 +114,49 @@
 	}
 }
 
-.pricing .price__tier {
-	font-size: 3rem;
+.pricing .price__wrapper {
 	display: flex;
 	flex-direction: column;
+	gap:0;
+	text-align: center;
+}
+
+.pricing .price__tier {
 	font-weight: 1000;
-	line-height: initial;
+	font-size: 2rem;;
 }
 
-.pricing .price__li--spacer {
-	height: 29px;
+
+.pricing .plan--free .price__tier {
 }
 
-.pricing .plan--free .price__tier  {
-	font-weight: 100;
+.pricing .plan--cloud .price__tier {
+	background: -webkit-linear-gradient(45deg,#34a853, #34a899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.pricing .plan--enterprise .price__tier {
+	background: -webkit-linear-gradient(45deg,#007acc, #9747ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pricing .price {
+	color: white;
+	font-size: 3rem;
+	font-weight: 1000;
+	line-height: 1;
+	margin-bottom: 1rem;
+	display: flex;
+	gap: .5rem;
+	align-items: center;
 }
 
 .pricing .price__suppl {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
-	font-weight: 1000;
+	font-size: 1rem;
+	font-weight: 100;
 	color: var(--secondary-color);
 }
 
@@ -158,7 +168,7 @@
 }
 
 .pricing .price__description {
-	font-size: smaller;
+	font-size: .75rem;
 	margin-bottom: 1rem;
 	font-weight: 100;
 	color: var(--secondary-color);
