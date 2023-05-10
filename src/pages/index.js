@@ -20,12 +20,13 @@ function Home() {
 
           <div className="hero-content">
             <div className="left">
-              <h1 className="tagline">Love your cloud bill! <span className="emojis">💰📉</span></h1>
-              <p className="description">Cloud cost estimates for Terraform in pull requests</p>
+              <h1 className="tagline">The cloud's checkout screen<span className="emojis">💰📉</span></h1>
+              <p className="description">Know the cost impact of infrastructure changes before launching resources. Built into engineering and product workflows.</p>
               <a href="/docs/" className="button primary">Get started</a>
               <div className="labels">
                 <p className="label"><span className="icon"><Check size={18} /></span>Open source</p>
                 <p className="label"><span className="icon"><Check size={18} /></span>Backed by Y Combinator &amp; Sequoia</p>
+                <p className="label"><span className="icon"><Check size={18} /></span>Trusted and used by over 3,000 companies</p>
               </div>
             </div>
             <div className="right">
@@ -52,55 +53,69 @@ function Home() {
         <div className="container">
           <div className="heading">
             <img src="/img/icons/product-walkthrough-icon.svg" alt="Product walkthrough icon" />
-            <h2>Show the cloud cost of each Infrastructure change in CI/CD</h2>
+            <h2>Know the cost impact of Infrastructure changes before launching resources</h2>
+            <p>Cloud cost estimates for Terraform in pull requests</p>
           </div>
 
           <div className="steps">
             <div className="step">
               <div className="step-content">
                 <h3>Cost visibility for engineering</h3>
-                <p>Infracost scans for Terraform code changes and checks over 3 million prices to create a simple, understandable cost estimate before any resources are launched.</p>
+                <p>Infracost sits in your CI/CD pipelines, scans for Terraform code changes and checks 4 million prices to create a simple, understandable cost estimate before any resources are launched.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
-                  <img src="/img/screenshots/pr-step-1.png" alt="Pull request showing code change to Terraform code" />
+                  <img src="/img/screenshots/pr-step-2.png" alt="Pull request showing code change to Terraform code" />
                 </div>
               </div>
             </div>
 
             <div className="step">
               <div className="step-content">
-                <h3>Directly in developer workflow</h3>
-                <p>Infracost integrates into CI/CD so everyone knows the cost impact of changes without leaving the workflow.</p>
+                <h3>Cost visibility for team leads and FinOps</h3>
+                <p>Infracost Cloud shows team leads, FinOps and Platform teams which changes are going to have, or have had the biggest impact on cloud costs.</p>
+                <p>This shows when, where and by whome cost changes were introduced.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
-                  <img src="/img/screenshots/pr-step-2.png" alt="Comment in pull request posted by Infracost" />
+                  <img src="/img/screenshots/pr-step-x.png" alt="Cost visibility for team leads and FinOps" />
                 </div>
               </div>
             </div>
 
             <div className="step">
               <div className="step-content">
-                <h3>Cloud cost policies and guardrails</h3>
-                <p>Infracost integrates with Open Policy Agent, Sentinel and Conftest, enabling DevOps teams to set best practices as policies.</p>
+                <h3>Cost guardrails and policies</h3>
+                <p>Guardrails monitor all changes, and alert engineers and team leads if a change is going to break budgets. Catch costly changes before the money has been spent.</p>
+                <p>Policies check all changes against best practices and your custom policies to inform engineers of better options (e.g. GP2 to GP3 volumes), while maintaining a live view of all policies and status.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
-                  <img src="/img/screenshots/pr-step-3.png" alt="Discussion about cost impact of pull request" />
+                  <img src="/img/screenshots/pr-step-3.png" alt="Cost guardrails and policies" />
                 </div>
               </div>
             </div>
 
             <div className="step">
               <div className="step-content">
-                <h3>Team lead visibility across changes</h3>
-                <p>When using Infracost in CI/CD, team leads, managers &amp; FinOps can see pull requests that increase or decrease costs the most, by how much, and by whom.</p>
-                <p>This helps you better understand when &amp; where cost changes were introduced, as well as upcoming changes.</p>
+                <h3>Costs visibility for product changes (in Jira)</h3>
+                <p>Product managers should know the cost impact of a feature request, or change before that feature is shipped. Infracost integrates directly to Jira to show the cost impact of each issue.</p>
               </div>
               <div className="step-screenshot">
                 <div className="image-wrapper">
-                  <img src="/img/screenshots/pr-step-4.png" alt="Infracost cost shareable estimate report" />
+                  <img src="/img/screenshots/pr-step-4.png" alt="Costs visibility for product changes (in JIRA)" />
+                </div>
+              </div>
+            </div>
+
+            <div className="step">
+              <div className="step-content">
+                <h3>Enterprise ready</h3>
+                <p>Infracost is being used by Fortune 500 companies. We support custom price books, EDP, and EA discounts. Our service integrate with on-premises solutions, and we offer BI integration as well as reporting capabilities. In addition, we are SOC2 compliant. Contact us for more information.</p>
+              </div>
+              <div className="step-screenshot">
+                <div className="image-wrapper">
+                  <img src="/img/screenshots/needsone" alt="Infracost is enterprise ready" />
                 </div>
               </div>
             </div>
