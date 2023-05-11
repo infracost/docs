@@ -5,6 +5,10 @@ title: Data Export
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+:::info 
+Coming soon - [contact us](hello@infracost.io) for early access.
+:::
+
 Infracost Cloud lets you export cost estimates for all your pull requests, enhancing your visibility and understanding
 of your cloud infrastructure expenses. This data, available in CSV format, covers merged or closed pull requests as well
 as currently open pull requests.
@@ -13,7 +17,7 @@ This guide outlines how you can set up the data export feature to deliver the CS
 Once configured, two CSV files we be updated daily with the latest information, replacing any earlier versions of the
 file:
 
-1. `infracost_closed_prs_YYYYMMDD.csv` containing information on pull requests that were closed or merged during the
+1. `infracost_closed_prs_YYYYMM.csv` containing information on pull requests that were closed or merged during the
    current month.
 2. `infracost_open_prs.csv` containing information on pull requests that are currently open.
 
@@ -95,7 +99,7 @@ to the **Data Export** page to check on the status of your reports.
 ## Setting up Data Export to Azure Blob Storage using a Service Principal
 
 This guide will walk you through the process of setting up data export from Infracost Cloud to Azure Blob Storage using
-a Service Principal. This allows InfraCost to store the CSV files containing cost estimate data for your pull requests
+a Service Principal. This allows Infracost to store the CSV files containing cost estimate data for your pull requests
 in your Azure Blob Storage.
 
 ### Prerequisites
@@ -106,7 +110,7 @@ in your Azure Blob Storage.
 4. [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installed locally, or access to Cloud Shell
    in the Azure Portal.
 
-### Step 1: Create a Service Principal for InfraCost
+### Step 1: Create a Service Principal for Infracost
 
 1. Construct a scope that provides access limited to your Blob Container. This will be attached to the Service Principle
    and should look like:
@@ -123,10 +127,10 @@ of this string.
 az login
 ```
 
-Alternatively, [open a BASH Cloud Shell in the Azure Portal](https://learn.microsoft.com/en-us/azure/cloud-shell/quickstart?tabs=azurecli).
+Alternatively, [open a bash Cloud Shell in the Azure Portal](https://learn.microsoft.com/en-us/azure/cloud-shell/quickstart?tabs=azurecli).
 The Azure CLI is automatically installed and logged in when using this method.
 
-3. Create a Service Principal for InfraCost with the following az command.
+3. Create a Service Principal for Infracost with the following `az` command.
 
 ```
 az ad sp create-for-rbac \
@@ -138,12 +142,10 @@ az ad sp create-for-rbac \
 4. Take note of the `appId`, `password`, and `tenant` values in the output, as these will be needed to configure
    Infracost Cloud data export.
 
-### Step 2: Configure InfraCost Cloud Data Export
+### Step 2: Configure Infracost Cloud Data Export
 
 1. Log in to Infracost Cloud and navigate to **Reports** > **Data Export**.
-2. Click on the **Azure Blob Storage** section Set the AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, AZURE_TENANT_ID environment
-   variables of OpenCost deployment to the values of the service principal secret. Set the EXPORT_CSV_FILE environment
-   variable of OpenCost deployment to the path of the file in the Azure Blob Storage.
+2. Click on the **Azure Blob Storage** section.
 3. Fill in the **Client ID**, **Client Secret**, and **Tenant ID** using the `appId`, `password`, and `tenant` values
    generated in step 1.
 4. Enter the **Subscription ID**, **Storage Account Name**, and **Container Name** indicating where the CSV files should
