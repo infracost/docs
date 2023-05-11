@@ -1,6 +1,6 @@
 ---
 slug: data_export 
-title: Data Export
+title: Data export
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
