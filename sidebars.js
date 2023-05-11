@@ -37,6 +37,7 @@ module.exports = {
         'infracost_cloud/jira_integration',
         'infracost_cloud/custom_price_books',
         'infracost_cloud/actual_costs',
+        'infracost_cloud/data_export',
         'infracost_cloud/readme_badge',
         {
           type: 'category',
