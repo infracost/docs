@@ -6,7 +6,7 @@ title: Data Export
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 :::info 
-Coming soon - [contact us](hello@infracost.io) for early access.
+Coming soon - [contact us](mailto:hello@infracost.io) for early access.
 :::
 
 Infracost Cloud lets you export cost estimates for all your pull requests, enhancing your visibility and understanding

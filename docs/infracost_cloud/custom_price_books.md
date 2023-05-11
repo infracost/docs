@@ -27,4 +27,4 @@ You can apply these discounts in Infracost Cloud:
 
 ## Custom price books
 
-We can also apply SKU-level custom cloud pricing to your Infracost Cloud organization. Please [contact us](hello@infracost.io) to set this up. We would need details of the services or SKUs that you'd like to customize.
+We can also apply SKU-level custom cloud pricing to your Infracost Cloud organization. Please [contact us](mailto:hello@infracost.io) to set this up. We would need details of the services or SKUs that you'd like to customize.
