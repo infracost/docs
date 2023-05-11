@@ -18,8 +18,9 @@ function Pricing() {
         <div className="intro">
           <div className="container">
             <h1 className="tagline">Pricing</h1>
-            <p className="sub-tagline">
-              Infracost provides cloud cost estimates for engineers
+            <p className="sub-tagline"> 
+                Cloud costs in engineering workflow before resources are launched
+              <p>The cloud checkout screen</p>
             </p>
           </div>
         </div>
@@ -43,10 +44,10 @@ function Pricing() {
                   <span className="price__tier">Infracost CI/CD</span>
                   <span className="price">$0</span>
                   <span className="sub">
-                    For <b>engineers</b>
+                    For <b>Engineers</b>
                   </span>
                   <div className="action">
-                    <a href="/docs/" className="button primary">
+                    <a href="/docs/" className="button secondary">
                       Get started
                     </a>
                   </div>
@@ -84,7 +85,7 @@ function Pricing() {
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
-                      <span>Use our hosted Cloud Pricing API or self-host</span>
+                      <span>Use our hosted Cloud Pricing API * or self-host</span>
                     </li>
                     <li>
                       <span className="icon primary">
@@ -93,6 +94,10 @@ function Pricing() {
                       <span>Community supported</span>
                     </li>
                   </ul>
+
+                  <div className="price__description">
+                    * Up to 1,000 runs per month, upgrade packs can be purchased (contact us).
+                  </div>
                 </div>
               </div>
             </div>
@@ -110,7 +115,7 @@ function Pricing() {
                   <div className="action">
                     <a
                       href="https://dashboard.infracost.io"
-                      className="button secondary"
+                      className="button primary"
                     >
                       Start free trial
                     </a>
@@ -120,7 +125,7 @@ function Pricing() {
                   <ul>
                     <li>
                       <span>
-                        <b>In addition to Infracost Community:</b>
+                        <b>In addition to Infracost CI/CD:</b>
                       </span>
                     </li>
                     <li>
@@ -128,8 +133,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        Visibility across all changes, see pull requests that
-                        increase/decrease costs the most
+                        <b>Visibility:</b> All changes &
+                        cost impacts in a single dashboard
                       </span>
                     </li>
                     <li>
@@ -137,7 +142,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        Guardrails with custom messages, notifications & actions
+                        <b>Guardrails:</b> Automatic budget checks and approval workflows before money is spent
                       </span>
                     </li>
                     <li>
@@ -145,57 +150,59 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        Policies in pull requests (e.g. change AWS GP2 to GP3
-                        volumes)
+                        <b>Policies:</b> Ensuring changes are using best practices, directly in workflow (e.g. AWS GP2 should be GP3)
                       </span>
                     </li>
                     <li>
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
-                      <span>Jira integration</span>
+                      <span>
+                        <b>Jira integration: </b> Inform product management of cost impact of features in their workflow
+                      </span>
                     </li>
                     <li>
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
-                      <span>Pull request status & audit trail</span>
+                      <span>
+                        <b>Reporting: </b> Daily, weekly and monthly custom reports of all upcoming changes
+                      </span>
                     </li>
                     <li>
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
-                      <span>Custom reports</span>
+                      <span>
+                        <b>Team management: </b>Access to all teams and managers with different access levels
+                      </span>
                     </li>
+
                     <li>
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
-                      <span>Custom price books & discounts</span>
+                      <span>
+                        <b>Audit trails: </b>Track when and who made changes & approved budgets
+                      </span>
                     </li>
+                    
                     <li>
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
-                      <span>Team management</span>
+                      <span>
+                        <b>Custom price books: </b> Enterprise negotiated rates, EDPs and EA discounts
+                      </span>
                     </li>
+                    
                     <li>
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
-                      <span>Single Sign-On</span>
-                    </li>
-                    <li>
-                      <span className="icon primary">
-                        <Check size={18} />
+                      <span>
+                        <b>Security: </b>SOC2 Type II report access
                       </span>
-                      <span>Dedicated support chat</span>
-                    </li>
-                    <li>
-                      <span className="icon primary">
-                        <Check size={18} />
-                      </span>
-                      <span>Access to SOC2 Type II report</span>
                     </li>
                   </ul>
 
@@ -213,24 +220,19 @@ function Pricing() {
                   <span className="price">Talk to us</span>
                   <span className="sub">
                     {" "}
-                    For <b>Enterprises</b> requiring more than 100 seats
+                    For larger <b>Enterprises</b> with complex setups
                   </span>
 
-                  <div className="action">
-                    {/* where do we link this to? */}
-                    <a
-                      href="https://dashboard.infracost.io"
-                      className="button secondary"
-                    >
-                      Talk to us
-                    </a>
+                  <div className="action"> 
+                    Contact us on {" "}
+                    <a href="mailto:hello@infracost.io?subject=Enterprise support"> hello@infracost.io</a>{" "}for details
                   </div>
                 </div>
                 <div className="price__main-wrapper">
                   <ul>
                     <li>
                       <span>
-                        <b>In addition to Infracost Community:</b>
+                        <b>In addition to Infracost Cloud:</b>
                       </span>
                     </li>
                     <li>
@@ -271,18 +273,18 @@ function Pricing() {
                       </span>
                       <span>Complex security requirements</span>
                     </li>
+                    <li>
+                      <span className="icon primary">
+                        <Check size={18} />
+                      </span>
+                      <span>Single Sign-On</span>
+                    </li>
+                    <li></li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-          <h3>
-            Enterprise support can be added onto any plan, email{" "}
-            <a href="mailto:hello@infracost.io?subject=Enterprise support">
-              hello@infracost.io
-            </a>{" "}
-            for details.
-          </h3>
           <PricingQuestions />
         </div>
       </div>
