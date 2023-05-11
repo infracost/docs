@@ -1,6 +1,6 @@
 ---
 slug: actual_costs
-title: Actual Costs
+title: Actual costs
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

@@ -1,6 +1,6 @@
 ---
 slug: data_export 
-title: Data Export
+title: Data export
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -9,19 +9,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Coming soon - [contact us](mailto:hello@infracost.io) for early access.
 :::
 
-Infracost Cloud lets you export cost estimates for all your pull requests, enhancing your visibility and understanding
-of your cloud infrastructure expenses. This data, available in CSV format, covers merged or closed pull requests as well
-as currently open pull requests.
+Infracost Cloud lets you export the cost of all your pull requests. This data, available in CSV format, can be imported into your existing cloud cost dashboards and tools such as PowerBI or Tableau, and create custom reports showing your:
+- **Total Cloud Cost**: the costs from your cloud vendor billing exports.
+- **Merged Pull Requests**: the portion of total costs caused by engineering changes, versus organic changes from things like data transfer.
+- **Open Pull Requests**: potential increases that'll impact your costs in the future, so you are not surprised and can plan accordingly.
 
-This guide outlines how you can set up the data export feature to deliver the CSV files to AWS S3 or Azure Blob Storage.
-Once configured, two CSV files we be updated daily with the latest information, replacing any earlier versions of the
-file:
+## Usage
 
-1. `infracost_closed_prs_YYYYMM.csv` containing information on pull requests that were closed or merged during the
-   current month.
+This guide describes how you can set up the Infracost Cloud data export to deliver CSV files to your AWS S3 or Azure Blob Storage. Once configured, two CSV files we be updated daily with the latest information, replacing any earlier versions of the file:
+1. `infracost_merged_closed_prs_YYYYMM.csv` containing information on pull requests that were merged or closed during the current month.
 2. `infracost_open_prs.csv` containing information on pull requests that are currently open.
 
-## Export Infracost Cloud data to an AWS S3 bucket
+## Export to AWS S3 bucket
 
 This guide will walk you through the process of setting up an AWS Identity and Access Management (IAM) policy that
 allows Infracost to upload the CSV reports to your AWS S3 bucket.
@@ -33,7 +32,7 @@ allows Infracost to upload the CSV reports to your AWS S3 bucket.
 3. AWS Management Console access
 4. Your Infracost **Org ID**. This can be found in [Infracost Cloud](https://dashboard.infracost.io) > **Org Settings** > **Details** section.
 
-### Step 1: Create an IAM Policy
+### Step 1: Create IAM Policy
 
 1. Sign in to the AWS Management Console and open the [IAM Console](https://console.aws.amazon.com/iam/).
 2. In the navigation pane, click on **Policies** and then click on **Create policy**.
@@ -65,7 +64,7 @@ allows Infracost to upload the CSV reports to your AWS S3 bucket.
 5. Click on **Review policy**.
 6. On the Review policy page, name your policy **infracost-data-export-s3**, then click on **Create policy**.
 
-### Step 2: Create an IAM Role for Infracost
+### Step 2: Create IAM Role
 
 1. In the IAM console, click on **Roles** in the navigation pane and then click on **Create role**.
 2. Select **Another AWS account** as the trusted entity type.
@@ -83,9 +82,9 @@ allows Infracost to upload the CSV reports to your AWS S3 bucket.
 10. On the role details page, copy the Role ARN (Amazon Resource Name) located at the top of the page. You will need to
     enter this ARN in Infracost Cloud.
 
-### Step 3: Setup data export in Infracost Cloud
+### Step 3: Configure Infracost Cloud
 
-1. Log in to Infracost Cloud and navigate to **Reports** > **Data Export**.
+1. Log in to [Infracost Cloud](https://dashboard.infracost.io) and navigate to **Reports** > **Data Export**.
 2. Click on the **AWS S3 Bucket** section
 3. Enter the **AWS S3 Bucket Name** and **Region**.
 4. Fill in the **AWS Role ARN** field with the ARN for the Role you created in step 2.
@@ -96,7 +95,7 @@ allows Infracost to upload the CSV reports to your AWS S3 bucket.
 Your first report should be created in a few minutes and will continue to be updated approximately daily. You can return
 to the **Data Export** page to check on the status of your reports.
 
-## Setting up Data Export to Azure Blob Storage using a Service Principal
+## Export to Azure Blob Storage
 
 This guide will walk you through the process of setting up data export from Infracost Cloud to Azure Blob Storage using
 a Service Principal. This allows Infracost to store the CSV files containing cost estimate data for your pull requests
@@ -110,7 +109,7 @@ in your Azure Blob Storage.
 4. [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installed locally, or access to Cloud Shell
    in the Azure Portal.
 
-### Step 1: Create a Service Principal for Infracost
+### Step 1: Create Service Principal
 
 1. Construct a scope that provides access limited to your Blob Container. This will be attached to the Service Principle
    and should look like:
@@ -145,9 +144,9 @@ in your Azure Blob Storage.
 4. Take note of the `appId`, `password`, and `tenant` values in the output, as these will be needed to configure
    Infracost Cloud data export.
 
-### Step 2: Configure Infracost Cloud Data Export
+### Step 2: Configure Infracost Cloud
 
-1. Log in to Infracost Cloud and navigate to **Reports** > **Data Export**.
+1. Log in to [Infracost Cloud](https://dashboard.infracost.io) and navigate to **Reports** > **Data Export**.
 2. Click on the **Azure Blob Storage** section.
 3. Fill in the **Client ID**, **Client Secret**, and **Tenant ID** using the `appId`, `password`, and `tenant` values
    generated in step 1.
