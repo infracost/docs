@@ -86,8 +86,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        Use our hosted Cloud Pricing API <sup>*</sup> or
-                        self-host
+                        Use our hosted Cloud Pricing API * or self-host
                       </span>
                     </li>
                     <li>
@@ -99,8 +98,8 @@ function Pricing() {
                   </ul>
 
                   <div className="price__description">
-                    <sup>*</sup> Up to 1,000 runs per month, upgrade packs can
-                    be purchased (contact us).
+                    * Up to 1,000 runs per month, upgrade packs can be purchased
+                    (contact us).
                   </div>
                 </div>
               </div>
@@ -111,9 +110,7 @@ function Pricing() {
                   <span className="price__tier">Infracost Cloud</span>
                   <span className="price">
                     ${PRICE_PER_SEAT}
-                    <span className="price__suppl">
-                      per seat <sup>*</sup>
-                    </span>
+                    <span className="price__suppl">per seat *</span>
                   </span>
                   <span className="sub">
                     For <b>FinOps</b>, <b>DevOps</b> and <b>Platform</b> teams
@@ -221,9 +218,9 @@ function Pricing() {
                   </ul>
 
                   <div className="price__description">
-                    <sup>*</sup> A seat is only needed for people making
-                    infrastructure changes (not any other code), and those who access the Infracost
-                    Cloud dashboard
+                    * A seat is only needed for people making infrastructure
+                    changes (not any other code), and those who access the
+                    Infracost Cloud dashboard
                   </div>
                 </div>
               </div>
