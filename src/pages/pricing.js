@@ -18,10 +18,10 @@ function Pricing() {
         <div className="intro">
           <div className="container">
             <h1 className="tagline">Pricing</h1>
-            <p className="sub-tagline"> 
-                Cloud costs in engineering workflow before resources are launched
-              <p>The cloud checkout screen</p>
+            <p className="sub-tagline">
+              Cloud costs in engineering workflow before resources are launched
             </p>
+            <p className="sub-tagline">The cloud checkout screen</p>
           </div>
         </div>
 
@@ -85,7 +85,9 @@ function Pricing() {
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
-                      <span>Use our hosted Cloud Pricing API * or self-host</span>
+                      <span>
+                        Use our hosted Cloud Pricing API * or self-host
+                      </span>
                     </li>
                     <li>
                       <span className="icon primary">
@@ -96,7 +98,8 @@ function Pricing() {
                   </ul>
 
                   <div className="price__description">
-                    * Up to 1,000 runs per month, upgrade packs can be purchased (contact us).
+                    * Up to 1,000 runs per month, upgrade packs can be purchased
+                    (contact us).
                   </div>
                 </div>
               </div>
@@ -133,8 +136,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Visibility:</b> All changes &
-                        cost impacts in a single dashboard
+                        <b>Visibility:</b> All changes & cost impacts in a
+                        single dashboard
                       </span>
                     </li>
                     <li>
@@ -142,7 +145,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Guardrails:</b> Automatic budget checks and approval workflows before money is spent
+                        <b>Guardrails:</b> Automatic budget checks and approval
+                        workflows before money is spent
                       </span>
                     </li>
                     <li>
@@ -150,7 +154,9 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Policies:</b> Ensuring changes are using best practices, directly in workflow (e.g. AWS GP2 should be GP3)
+                        <b>Policies:</b> Ensuring changes are using best
+                        practices, directly in workflow (e.g. AWS GP2 should be
+                        GP3)
                       </span>
                     </li>
                     <li>
@@ -158,7 +164,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Jira integration: </b> Inform product management of cost impact of features in their workflow
+                        <b>Jira integration: </b> Inform product management of
+                        cost impact of features in their workflow
                       </span>
                     </li>
                     <li>
@@ -166,7 +173,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Reporting: </b> Daily, weekly and monthly custom reports of all upcoming changes
+                        <b>Reporting: </b> Daily, weekly and monthly custom
+                        reports of all upcoming changes
                       </span>
                     </li>
                     <li>
@@ -174,7 +182,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Team management: </b>Access to all teams and managers with different access levels
+                        <b>Team management: </b>Access to all teams and managers
+                        with different access levels
                       </span>
                     </li>
 
@@ -183,19 +192,21 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Audit trails: </b>Track when and who made changes & approved budgets
+                        <b>Audit trails: </b>Track when and who made changes &
+                        approved budgets
                       </span>
                     </li>
-                    
+
                     <li>
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Custom price books: </b> Enterprise negotiated rates, EDPs and EA discounts
+                        <b>Custom price books: </b> Enterprise negotiated rates,
+                        EDPs and EA discounts
                       </span>
                     </li>
-                    
+
                     <li>
                       <span className="icon primary">
                         <Check size={18} />
@@ -223,9 +234,15 @@ function Pricing() {
                     For larger <b>Enterprises</b> with complex setups
                   </span>
 
-                  <div className="action"> 
-                    Contact us on {" "}
-                    <a href="mailto:hello@infracost.io?subject=Enterprise support"> hello@infracost.io</a>{" "}for details
+                  <div className="action text">
+                    <div>
+                      Contact us on{" "}
+                      <a href="mailto:hello@infracost.io?subject=Enterprise support">
+                        {" "}
+                        hello@infracost.io
+                      </a>{" "}
+                      for details
+                    </div>
                   </div>
                 </div>
                 <div className="price__main-wrapper">
