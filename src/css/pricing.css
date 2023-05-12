@@ -21,6 +21,12 @@
   max-width: 100%;
 }
 
+@media (max-width: 767px) {
+	.pricing .plans {
+		grid-template-columns: 1fr;
+	}
+}
+
 @media(hover: hover) {
 	.pricing .plan:hover {
 		transform: scale(1.05);
