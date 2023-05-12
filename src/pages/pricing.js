@@ -221,8 +221,8 @@ function Pricing() {
                   </ul>
 
                   <div className="price__description">
-                    <sup>*</sup> A seat is needed for anyone making
-                    infrastructure changes, and those who access the Infracost
+                    <sup>*</sup> A seat is only needed for people making
+                    infrastructure changes (not any other code), and those who access the Infracost
                     Cloud dashboard
                   </div>
                 </div>

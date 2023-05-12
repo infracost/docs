@@ -27,7 +27,7 @@ const Questions = () => {
           <QuestionLi>
             <Question>How do you count seats?</Question>
             <Answer>
-              Once you integrate Infracost into your CI/CD workflow, when a Pull Request (PR) is opened, the author of the PR comes through to Infracost Cloud. At the end of the month we count how many unique PR authors you have, and add any seats needed for Infracost Cloud users. That’s the number of seats you will require.
+              Once you integrate Infracost into your CI/CD workflow, when a Pull Request (PR) is opened that changes Terraform code only (no other code), the author of the PR comes through to Infracost Cloud. At the end of the month we count how many unique PR authors you have, and add any seats needed for Infracost Cloud users. That’s the number of seats you will require.
             </Answer>
           </QuestionLi>
 
