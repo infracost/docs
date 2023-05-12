@@ -28,7 +28,7 @@ function UsedBy(props) {
         <p className="tagline">{tagline}</p>
         <ul>
           <li>
-            <img src={`/img/users/${name}.svg`} alt="GitLab logo" />
+            <img src="/img/users/gitlab.svg" alt="GitLab logo" />
           </li>
           <li>
             <img src="/img/users/hpe.svg" alt="HPE logo" />

@@ -111,9 +111,6 @@
 }
 
 
-.pricing .plan--free .price__tier {
-}
-
 .pricing .plan--cloud .price__tier {
 	background: -webkit-linear-gradient(45deg,#34a853, #34a899);
   -webkit-background-clip: text;
