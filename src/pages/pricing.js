@@ -19,9 +19,9 @@ function Pricing() {
           <div className="container">
             <h1 className="tagline">Pricing</h1>
             <p className="sub-tagline">
-              Cloud costs in engineering workflow before resources are launched
+              Cloud costs in engineering and product workflows before resources are launched.
             </p>
-            <p className="sub-tagline">The cloud checkout screen</p>
+            <p className="sub-tagline">The cloud checkout screen!</p>
           </div>
         </div>
 
@@ -99,7 +99,7 @@ function Pricing() {
 
                   <div className="price__description">
                     * Up to 1,000 runs per month, upgrade packs can be purchased
-                    (contact us).
+                    (<a href="mailto:hello@infracost.io">contact us</a>)
                   </div>
                 </div>
               </div>
@@ -145,7 +145,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Guardrails:</b> Automatic budget checks and approval
+                        <b>Guardrails:</b> Automatic budget checks &amp; approval
                         workflows before money is spent
                       </span>
                     </li>
@@ -154,8 +154,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Policies:</b> Ensuring changes are using best
-                        practices, directly in workflow (e.g. AWS GP2 should be
+                        <b>Policies:</b> Ensure changes are using best
+                        practices, directly in workflow (e.g. AWS GP2 volumes should be
                         GP3)
                       </span>
                     </li>
@@ -164,7 +164,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Jira integration: </b> Inform product management of
+                        <b>Jira integration: </b> Inform product owners of
                         cost impact of features in their workflow
                       </span>
                     </li>
@@ -173,8 +173,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Reporting: </b> Daily, weekly and monthly custom
-                        reports of all upcoming changes
+                        <b>Reporting: </b> Daily, weekly &amp; monthly
+                        reports of all deployed &amp; upcoming changes
                       </span>
                     </li>
                     <li>
@@ -182,7 +182,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Team management: </b>Access to all teams and managers
+                        <b>Team management: </b>Give access to all teams &amp; managers
                         with different access levels
                       </span>
                     </li>
