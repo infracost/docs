@@ -145,7 +145,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Guardrails:</b> Automatic budget checks & approval
+                        <b>Guardrails:</b> Automatic budget checks &amp; approval
                         workflows before money is spent
                       </span>
                     </li>
@@ -173,8 +173,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Reporting: </b> Daily, weekly & monthly
-                        reports of all deployed & upcoming changes
+                        <b>Reporting: </b> Daily, weekly &amp; monthly
+                        reports of all deployed &amp; upcoming changes
                       </span>
                     </li>
                     <li>
@@ -182,7 +182,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Team management: </b>Give access to all teams & managers
+                        <b>Team management: </b>Give access to all teams &amp; managers
                         with different access levels
                       </span>
                     </li>
