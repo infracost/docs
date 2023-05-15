@@ -9,7 +9,7 @@
 .pricing .plans {
   margin: 2rem auto 4rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(402px, auto));
+	grid-template-columns: repeat(auto-fit, minmax(342px, auto));
 	grid-gap: 2rem
 }
 
