@@ -5,9 +5,21 @@ title: GitHub Actions migration
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Follow this page to migrate your [Infracost GitHub actions](https://github.com/infracost/actions) from v1 to v2.
-
 If you encounter any issues while migrating, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+
+# Actions to GitHub App migration
+
+:::tip
+We recommend using the [GitHub App](/docs/integrations/github_app/) as it has several benefits over GitHub Actions.
+:::
+
+1. Follow the [GitHub App](/docs/integrations/github_app/) docs to install the app. You can do this from the same Infracost organization you use already, and going into the Org Settings > Integrations page.
+2. Test it by sending a pull request that costs money, and ensuring that the pull request comment matches between the GitHub Actions and the GitHub App. The GitHub App automatically uses your [config file](/docs/features/config_file/).
+3. Remove the Infracost steps from your GitHub Actions completely.
+
+# GitHub Actions v1 to v2 migration
+
+Follow this section to migrate your [Infracost GitHub actions](https://github.com/infracost/actions) from v1 to v2.
 
 ## What's new?
 
