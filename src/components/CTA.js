@@ -10,9 +10,9 @@ function CTA() {
           width={100}
           height={100}
         />
-        <p className="action">Download and try Infracost now</p>
-        <a href="/docs" className="button primary">
-          Get started
+        <p className="action">Try Infracost for free</p>
+        <a href="https://dashboard.infracost.io/" className="button primary">
+          Signup and get started now
         </a>
       </div>
     </div>

@@ -6,7 +6,7 @@ function UseCases() {
   return (
     <PageLayout
       title="Use Cases"
-      description="Infracost is used by organizations to gain cost visibility for engineering teams, set proactive cloud cost policies and help build budget scenarios"
+      description="Infracost is used by organizations to gain cost visibility for engineering teams, set proactive cloud cost policies"
       pageClass="use-cases default-page-bg"
     >
       <div className="use-cases-background"></div>
@@ -14,7 +14,7 @@ function UseCases() {
       <div className="use-cases-wrapper">
         <div className="intro">
           <div className="container">
-            <h1 className="tagline">How companies are using Infracost</h1>
+            <h1 className="tagline">How enterprises use Infracost</h1>
           </div>
         </div>
         <div className="use-cases-list">
@@ -35,20 +35,19 @@ function UseCases() {
                       of all product teams. Instead, they opt for using
                       Infrastructure as Code (IaC) to create a set of easy to
                       use modules which are managed by the central
-                      operations/platform team and used by the rest of the
+                      platform team and used by the rest of the
                       organization as and when infrastructure is needed.
                     </p>
                     <p>
                       The problem they face is that the lack of cost visibility
-                      and understanding of what infrastructure is about to be
-                      launched and its cost implications cause high cloud bills
-                      and ballooning budgets.
+                      and understanding of what the infrastructure will cost and how it is priced
+                      causes out of control cloud costs and broken budgets.
                     </p>
                   </div>
                   <div className="screenshot">
                     <div className="image-wrapper">
                       <img
-                        src="/img/screenshots/pr-step-4.png"
+                        src="/img/screenshots/cost-visibility.png"
                         alt="Comment in pull request posted by Infracost"
                       />
                     </div>
@@ -57,19 +56,18 @@ function UseCases() {
                 <div className="benefits">
                   <h4>Infracost benefits:</h4>
                   <ul>
-                    <li>
+                  <li>
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
                       <span>
                         <span className="benefit-label">
-                          Cost visibility for team leads, managers &amp; FinOps:
+                          Engineering culture of cost awareness:
                         </span>
                         <span>
-                          You can see pull requests that increase/decrease costs
-                          the most, by how much, and by whom.This helps you
-                          better understand when &amp; where cost changes were
-                          introduced, as well as upcoming changes.
+                          Engineers start to see and learn the cost implications of 
+                          the infrastructure changes they are making, cost awareness increases.
+                          They can make economical choices while keeping software delivery speeds up.
                         </span>
                       </span>
                     </li>
@@ -79,13 +77,12 @@ function UseCases() {
                       </span>
                       <span>
                         <span className="benefit-label">
-                          Increased cost awareness:
+                          Cost visibility for team leads, managers &amp; FinOps:
                         </span>
                         <span>
-                          Engineers are shown the estimated cost of
-                          infrastructure upfront, before any resources are
-                          launched or changed. They can make economical choices
-                          while keeping software delivery speeds up.
+                          As engineers make change requests to infrastructure, the Infracost Cloud central dashboard shows all
+                          Pull Requests that are going through CI/CD, and the cost impact of each. Each change shows 
+                          the cost impact, who is making the change, and why (linked to Jira).                          
                         </span>
                       </span>
                     </li>
@@ -99,9 +96,9 @@ function UseCases() {
                         </span>
                         <span>
                           Infracost sits in the workflow (CI/CD) and provides
-                          the information needed to make the right decisions.
+                          the information needed to make the right decisions at the right time.
                           Budgets are not broken and less re-work is required to
-                          fix infrastructure to align with budgets post launch.
+                          fix infrastructure to align with budgets in future engineering sprints.
                         </span>
                       </span>
                     </li>
@@ -120,6 +117,21 @@ function UseCases() {
                         </span>
                       </span>
                     </li>
+                    <li>
+                      <span className="icon primary">
+                        <Check size={18} />
+                      </span>
+                      <span>
+                        <span className="benefit-label">
+                          Tracking cost reduction efforts:
+                        </span>
+                        <span>
+                          Infracost tracks changes that increase and decrease cloud costs. As companies
+                          undertake cost reduction efforts, they can track and measure all the cost optimization efforts
+                          coming from engineering.
+                        </span>
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -128,7 +140,7 @@ function UseCases() {
             <div className="use-case">
               <h3>
                 <img src="/img/icons/approval-icon.svg" />
-                <span>Proactive cloud cost policies</span>
+                <span>Proactive cloud cost guardrails and policies</span>
               </h3>
               <div className="box">
                 <div className="use-case-content">
@@ -146,7 +158,7 @@ function UseCases() {
                   <div className="screenshot">
                     <div className="image-wrapper">
                       <img
-                        src="/img/screenshots/pr-step-3.png"
+                        src="/img/screenshots/cost-guardrails-and-policies.png"
                         alt="Discussion about cost impact of pull request"
                       />
                     </div>
@@ -161,13 +173,12 @@ function UseCases() {
                       </span>
                       <span>
                         <span className="benefit-label">
-                          Team lead awareness:
+                          Budget Guardrails:
                         </span>
                         <span>
                           All changes can happen as and when needed, however
-                          when a budget breaking change comes up, the change is
-                          paused till a team lead or a senior member of the team
-                          has reviewed and approved it.
+                          when a budget breaking change comes up, the budget owners are alerted of the change.
+                          Guardrails can also be configured to pause the change till the budget owner has approved the budget.
                         </span>
                       </span>
                     </li>
@@ -177,14 +188,13 @@ function UseCases() {
                       </span>
                       <span>
                         <span className="benefit-label">
-                          Knowledge transfer:
+                          Cost policies: 
                         </span>
                         <span>
-                          Best practices which might be nuanced but important
-                          can be written into policies and scaled to all teams.
-                          For example, a policy can say: the cost of
-                          Input/Output operations should not be higher than the
-                          cost of the virtual machine.
+                          As changes are made to infrastructure, they will be checked against a set of central policies.
+                          There are two types of policies: global best practices (e.g. GP2 volumes should be changed to GP3), or
+                          custom company policies (only use US-east-2 region as our Reservations are bought here). Engineering
+                          can keep shipping fast, and stay within best practices when they brush up against them.
                         </span>
                       </span>
                     </li>
@@ -198,9 +208,8 @@ function UseCases() {
                         </span>
                         <span>
                           There is automated and clear communication between
-                          engineering, product and managers, who can then relay
-                          it to finance when budgets are going to be breached
-                          for good reason.
+                          engineering and team leads, architects, and FinOps of
+                          why they are making a change to the infrastructure and the cost implications of the changes.
                         </span>
                       </span>
                     </li>
@@ -213,24 +222,27 @@ function UseCases() {
               <h3>
                 <img src="/img/icons/choices-icon.svg" />
                 <span>
-                  Consultants helping clients adopt and scale on cloud
+                  Product management cost awareness of change requests
                 </span>
               </h3>
               <div className="box">
                 <div className="use-case-content">
                   <div>
                     <p>
-                      Consultants are usually tasked with helping clients
-                      navigate the multitude of cloud services available, and to
-                      design, implement and maintain cloud strategies on behalf
-                      of their clients. A significant part of this work is the
-                      cost-benefit analysis.
+                      In many cases, the changes that are being made to infrastructure are due to
+                      additional requirements, features, or changes to existing features of your product.
+                      These originate from product managers and product owners, who are ultimately responsible for
+                      the profit and loss of the products they run.
+                    </p>
+                    <p>
+                      Product should also be aware of the cost implications of additional features as they
+                      are best placed to make cost-benefit analysis, and request higher budgets.
                     </p>
                   </div>
                   <div className="screenshot">
                     <div className="image-wrapper">
                       <img
-                        src="/img/screenshots/share-link-mock.png"
+                        src="/img/screenshots/cost-visibility-for-product-changes.png"
                         alt="Infracost cost shareable estimate report"
                       />
                     </div>
@@ -245,13 +257,11 @@ function UseCases() {
                       </span>
                       <span>
                         <span className="benefit-label">
-                          Scenario modeling and what-if analysis:
+                        Issue tracking integration (Jira):
                         </span>
                         <span>
-                          A client can be given multiple options and what-if
-                          scenarios with a detailed cost estimate breakdown. The
-                          clients can make cost aware decisions, and keep within
-                          their budgets.
+                          As engineering make changes required as part of Jira issues, the cost implications are
+                          pushed directly into Jira. Product owners are aware of the cost implications of the issues, sprints and epics.
                         </span>
                       </span>
                     </li>
@@ -260,12 +270,11 @@ function UseCases() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <span className="benefit-label">Faster delivery:</span>
+                        <span className="benefit-label">Budget controls:</span>
                         <span>
-                          As Infrastructure as Code is written, the cost
-                          estimation and forecasting of the project is automated
-                          and delivered with no overhead. As changes are
-                          proposed, cost estimates are kept up to date and live.
+                          Budget guardrails help product stay in control of budgets. If a feature will have a major impact
+                          to revenue, but will also come with a high cost, an approval workflow can be triggered before the
+                          changes are merged.
                         </span>
                       </span>
                     </li>
@@ -275,12 +284,25 @@ function UseCases() {
                       </span>
                       <span>
                         <span className="benefit-label">
-                          Enable cost understanding:
+                        Management Reporting:
                         </span>
                         <span>
-                          Clients understand what levers they can pull to reduce
-                          costs, and the impact of those decisions. For example,
-                          how much would a Highly Available setup cost.
+                          As engineering work on longer sprints and big change epics, the cost implications can be measured,
+                          charted and put into monthly reports.
+                        </span>
+                      </span>
+                    </li>
+                    <li>
+                      <span className="icon primary">
+                        <Check size={18} />
+                      </span>
+                      <span>
+                        <span className="benefit-label">
+                        Business Intelligence (BI) integration:
+                        </span>
+                        <span>
+                          Infracost providers integrations into BI tools such as PowerBI, so enterprise customers can
+                          build personalized and custom dashboards and reports.
                         </span>
                       </span>
                     </li>

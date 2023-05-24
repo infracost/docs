@@ -80,7 +80,7 @@ function Pricing() {
           <WorksWith />
           <ProductCard
             title="Cloud cost estimates, as you write code"
-            designerFor="Engineers developing infrastructure as code"
+            designerFor="Engineers writing infrastructure as code"
             image={vsCodeExtensionImg}
             pillText="Infracost VS Code Extension"
             pillColourCoding={ColourCoding['vscode-extension']}
@@ -104,7 +104,7 @@ function Pricing() {
           </ProductCard>
 
           <ProductCard
-            title="Cloud costs for eng/dev team review"
+            title="Cloud costs for engineering team review"
             designerFor="DevOps, SRE, Platform teams"
             image={ciCdImg}
             pillText="Infracost CI/CD"
@@ -148,18 +148,24 @@ function Pricing() {
                 down)
               </LiWithCheck>
               <LiWithCheck>
-                Supports custom price books, EDPs, EAs and commitment agreements
+                Guardrails alert engineers and team leads if a change is going to break budgets 
               </LiWithCheck>
               <LiWithCheck>
-                Integrations into issue trackers like Jira
+               Policies check all changes against best practices and your custom policies 
+              </LiWithCheck>
+              <LiWithCheck>
+                Cloud costs for product managers reported directly in Jira
               </LiWithCheck>
               <LiWithCheck>
                 Shows top changes per repo, project, pull request and users
               </LiWithCheck>
               <LiWithCheck>
-                Weekly summary reports and threshold alerts{' '}
+                Weekly summary reports
               </LiWithCheck>
               <LiWithCheck>Organization and team management</LiWithCheck>
+              <LiWithCheck>
+                Supports custom price books, EDP and EA discounts
+              </LiWithCheck>
               <LiWithCheck>
                 Manage CI/CD integrations centrally across all your repositories
               </LiWithCheck>

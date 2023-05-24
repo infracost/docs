@@ -109,9 +109,21 @@
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   display: flex;
-
+  overflow:hidden;
   filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.3));
   padding: 0.5rem;
+}
+
+.image-wrapper.pb-0 {
+  padding-bottom: 0;
+}
+
+.image-wrapper.p-0 {
+  padding: 0;
+}
+
+.image-wrapper.transparent {
+  background-color: transparent;
 }
 
 .icon.primary svg path {
