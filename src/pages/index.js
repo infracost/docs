@@ -3,7 +3,7 @@ import PageLayout from '../components/PageLayout';
 import Check from '../components/icons/Check';
 import SocialMentionCard from '../components/SocialMentionCard';
 import UsedBy from '../components/UsedBy';
-
+import WebPPngFallback from "../components/utils/WebPPngFallback";
 
 function Home() {
   return (
@@ -106,10 +106,12 @@ function Home() {
             </div>
             <div className="step-screenshot">
               <div className="image-wrapper p-0">
-                <img
-                  src="/img/screenshots/pr-step-1.png"
-                  alt="Cost visibility for engineering"
-                />
+                <WebPPngFallback filePath={"/img/screenshots/pr-step-1"}>
+                  <img
+                    src="/img/screenshots/pr-step-1.png"
+                    alt="Cost visibility for engineering"
+                  />
+                </WebPPngFallback>
               </div>
             </div>
           </div>
@@ -129,10 +131,12 @@ function Home() {
             </div>
             <div className="step-screenshot">
               <div className="image-wrapper p-0">
-                <img
-                  src="/img/screenshots/cost-visibility.png"
-                  alt="Cost visibility for team leads and FinOps"
-                />
+                <WebPPngFallback filePath={"/img/screenshots/cost-visibility"}>
+                  <img
+                    src="/img/screenshots/cost-visibility.png"
+                    alt="Cost visibility for team leads and FinOps"
+                  />
+                </WebPPngFallback>
               </div>
             </div>
           </div>
@@ -154,10 +158,14 @@ function Home() {
             </div>
             <div className="step-screenshot">
               <div className="image-wrapper p-0">
-                <img
-                  src="/img/screenshots/cost-guardrails-and-policies.png"
-                  alt="Cost guardrails and policies"
-                />
+                <WebPPngFallback
+                  filePath={"/img/screenshots/cost-guardrails-and-policies"}
+                >
+                  <img
+                    src="/img/screenshots/cost-guardrails-and-policies.png"
+                    alt="Cost guardrails and policies"
+                  />
+                </WebPPngFallback>
               </div>
             </div>
           </div>
@@ -174,10 +182,16 @@ function Home() {
             </div>
             <div className="step-screenshot">
               <div className="image-wrapper pb-0">
-                <img
-                  src="/img/screenshots/cost-visibility-for-product-changes.png"
-                  alt="Costs visibility for product changes (in JIRA)"
-                />
+                <WebPPngFallback
+                  filePath={
+                    "/img/screenshots/cost-visibility-for-product-changes"
+                  }
+                >
+                  <img
+                    src="/img/screenshots/cost-visibility-for-product-changes.png"
+                    alt="Costs visibility for product changes (in JIRA)"
+                  />
+                </WebPPngFallback>
               </div>
             </div>
           </div>
@@ -195,10 +209,12 @@ function Home() {
             </div>
             <div className="step-screenshot">
               <div className="image-wrapper p-0">
-                <img
-                  src="/img/screenshots/enterprise-ready.png"
-                  alt="Infracost is enterprise ready"
-                />
+                <WebPPngFallback filePath={"/img/screenshots/enterprise-ready"}>
+                  <img
+                    src="/img/screenshots/enterprise-ready.png"
+                    alt="Infracost is enterprise ready"
+                  />
+                </WebPPngFallback>
               </div>
             </div>
           </div>
