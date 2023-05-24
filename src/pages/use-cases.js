@@ -47,7 +47,7 @@ function UseCases() {
                   <div className="screenshot">
                     <div className="image-wrapper">
                       <img
-                        src="/img/screenshots/pr-step-4.png"
+                        src="/img/screenshots/cost-visibility.png"
                         alt="Comment in pull request posted by Infracost"
                       />
                     </div>
@@ -158,7 +158,7 @@ function UseCases() {
                   <div className="screenshot">
                     <div className="image-wrapper">
                       <img
-                        src="/img/screenshots/pr-step-3.png"
+                        src="/img/screenshots/cost-guardrails-and-policies.png"
                         alt="Discussion about cost impact of pull request"
                       />
                     </div>
@@ -242,7 +242,7 @@ function UseCases() {
                   <div className="screenshot">
                     <div className="image-wrapper">
                       <img
-                        src="/img/screenshots/share-link-mock.png"
+                        src="/img/screenshots/cost-visibility-for-product-changes.png"
                         alt="Infracost cost shareable estimate report"
                       />
                     </div>
