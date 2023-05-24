@@ -173,7 +173,7 @@ function Home() {
               </p>
             </div>
             <div className="step-screenshot">
-              <div className="image-wrapper p-0">
+              <div className="image-wrapper pb-0">
                 <img
                   src="/img/screenshots/cost-visibility-for-product-changes.png"
                   alt="Costs visibility for product changes (in JIRA)"
@@ -194,7 +194,7 @@ function Home() {
               </p>
             </div>
             <div className="step-screenshot">
-              <div className="image-wrapper bottom-align p-0">
+              <div className="image-wrapper p-0">
                 <img
                   src="/img/screenshots/enterprise-ready.png"
                   alt="Infracost is enterprise ready"
