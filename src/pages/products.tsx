@@ -99,7 +99,7 @@ function Pricing() {
                 Quick cost estimates: no cloud calculators needed
               </LiWithCheck>
               <LiWithCheck>Catch costly typos </LiWithCheck>
-              <LiWithCheck>Open Source </LiWithCheck>
+              <LiWithCheck>Open source </LiWithCheck>
             </ul>
           </ProductCard>
 
@@ -114,7 +114,7 @@ function Pricing() {
             alternate
           >
             <ul className="product-card__ul">
-              <LiWithCheck>Direct integration into CI/CD</LiWithCheck>
+              <LiWithCheck>Direct integration into source control systems or CI/CD</LiWithCheck>
               <LiWithCheck>
                 Review cost impact with the team alongside security and code
                 quality
@@ -126,7 +126,7 @@ function Pricing() {
                 Usage-based resources (e.g. storage and serverless) can be
                 modeled
               </LiWithCheck>
-              <LiWithCheck>Open Source </LiWithCheck>
+              <LiWithCheck>Open source </LiWithCheck>
             </ul>
           </ProductCard>
 
@@ -164,10 +164,10 @@ function Pricing() {
               </LiWithCheck>
               <LiWithCheck>Organization and team management</LiWithCheck>
               <LiWithCheck>
-                Supports custom price books, EDP and EA discounts
+                Supports custom price books, AWS EDP and Enterprise Agreement discounts
               </LiWithCheck>
               <LiWithCheck>
-                Manage CI/CD integrations centrally across all your repositories
+              Integrate across all your repositories with the GitHub App or the GitLab App
               </LiWithCheck>
             </ul>
           </ProductCard>
