@@ -31,17 +31,17 @@ function UseCases() {
                   <div>
                     <p>
                       As organizations scale, it becomes hard to have a single
-                      DevOps team managing all the infrastructure requirements
+                      DevOps or Platform team managing all the infrastructure requirements
                       of all product teams. Instead, they opt for using
                       Infrastructure as Code (IaC) to create a set of easy to
-                      use modules which are managed by the central
-                      platform team and used by the rest of the
+                      use modules that are managed by the central
+                      platform team, and used by the rest of the
                       organization as and when infrastructure is needed.
                     </p>
                     <p>
-                      The problem they face is that the lack of cost visibility
-                      and understanding of what the infrastructure will cost and how it is priced
-                      causes out of control cloud costs and broken budgets.
+                    The problem they face is that there is a lack of cost visibility 
+                    and understanding of what the infrastructure will cost. This results 
+                    in costs going out of control and budget being broken.
                     </p>
                   </div>
                   <div className="screenshot">
@@ -148,11 +148,9 @@ function UseCases() {
                     <p>
                       The central DevOps and platform teams have built up a lot
                       of knowledge and best practices as they have created and
-                      scaled infrastructure. Although self service has enabled
+                      scaled infrastructure. Self-service has enabled
                       quick launch of infrastructure for all product and
-                      engineering teams, setting up guardrails and policies from
-                      a central place, will help them to stay within these
-                      guidelines.
+                      engineering teams; central guardrails and policies help them stay within these guidelines.
                     </p>
                   </div>
                   <div className="screenshot">
@@ -173,10 +171,10 @@ function UseCases() {
                       </span>
                       <span>
                         <span className="benefit-label">
-                          Budget Guardrails:
+                          Budget guardrails:
                         </span>
                         <span>
-                          All changes can happen as and when needed, however
+                          All changes can happen as and when needed, however,
                           when a budget breaking change comes up, the budget owners are alerted of the change.
                           Guardrails can also be configured to pause the change till the budget owner has approved the budget.
                         </span>
@@ -192,8 +190,8 @@ function UseCases() {
                         </span>
                         <span>
                           As changes are made to infrastructure, they will be checked against a set of central policies.
-                          There are two types of policies: global best practices (e.g. GP2 volumes should be changed to GP3), or
-                          custom company policies (only use US-east-2 region as our Reservations are bought here). Engineering
+                          There are two types of policies: global best practices (e.g. AWS GP2 volumes should be changed to GP3), or
+                          custom company policies (e.g. only use US-east-2 region as our Reservations are bought here). Engineering
                           can keep shipping fast, and stay within best practices when they brush up against them.
                         </span>
                       </span>
@@ -209,7 +207,7 @@ function UseCases() {
                         <span>
                           There is automated and clear communication between
                           engineering and team leads, architects, and FinOps of
-                          why they are making a change to the infrastructure and the cost implications of the changes.
+                          why they are making a change to the infrastructure, and the cost implications of the changes.
                         </span>
                       </span>
                     </li>
@@ -301,7 +299,7 @@ function UseCases() {
                         Business Intelligence (BI) integration:
                         </span>
                         <span>
-                          Infracost providers integrations into BI tools such as PowerBI, so enterprise customers can
+                          Infracost integrates into your Business Intelligence tools such as PowerBI and Tableau, so enterprise customers can
                           build personalized and custom dashboards and reports.
                         </span>
                       </span>

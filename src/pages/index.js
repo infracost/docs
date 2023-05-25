@@ -8,8 +8,8 @@ import WebPPngFallback from "../components/utils/WebPPngFallback";
 function Home() {
   return (
     <PageLayout
-      title="Cloud cost estimates for Terraform in pull requests"
-      description="Infracost helps engineers see cloud costs before launching resources. Map costs to code directly in pull requests. Take action directly in your workflow."
+      title="Infracost: The cloud's checkout screen"
+      description="Know the cost impact of infrastructure changes before launching resources. Built into engineering and product workflows."
       pageClass="home"
     >
       <div className="home-hero">
@@ -102,8 +102,8 @@ function Home() {
             <div className="step-content">
               <h3>Cost visibility for engineering</h3>
               <p>
-                Infracost sits in your CI/CD pipelines, scans for Terraform code
-                changes and checks 4 million prices to create a simple,
+                Infracost integrates with your CI/CD pipelines, and scans for Terraform code
+                changes and checks 4 million prices across AWS, Azure and Google Cloud to create a simple,
                 understandable cost estimate before any resources are launched.
               </p>
             </div>
@@ -156,7 +156,7 @@ function Home() {
                 Policies check all changes against best practices and your
                 custom policies to inform engineers of better options (e.g. GP2
                 to GP3 volumes), while maintaining a live view of all policies
-                and status.
+                and statuses.
               </p>
             </div>
             <div className="step-screenshot">
@@ -178,9 +178,9 @@ function Home() {
               <h3>Costs visibility for product changes (in Jira)</h3>
               <p>
                 Product managers should know the cost impact of a feature
-                request, or change before that feature is shipped. Infracost
-                integrates directly to Jira to show the cost impact of each
-                issue.
+                request or change, before that feature is shipped. Infracost
+                integrates directly with Jira to show the cost impact of each
+                Jira issue.
               </p>
             </div>
             <div className="step-screenshot">
@@ -204,10 +204,9 @@ function Home() {
               <h3>Enterprise ready</h3>
               <p>
                 Infracost is being used by Fortune 500 companies. We support
-                custom price books, EDP, and EA discounts. Our service integrate
-                with on-premises solutions, and we offer BI integration as well
-                as reporting capabilities. In addition, we are SOC2 compliant.
-                Contact us for more information.
+                custom price books, AWS EDP, and Enterprise Agreement discounts. Infracost integrate
+                with on-premise source control systems, CI/CD systems, and with Business Intelligence products. In addition, we are SOC2 compliant.
+                Contact us for more information on how we can help your enterprise.
               </p>
             </div>
             <div className="step-screenshot">
@@ -228,7 +227,7 @@ function Home() {
         <div className="container">
           <ul>
             <li>
-              <img src="/img/services/hashicorp.svg" alt="HashiCorp logo" />
+              <img src="/img/services/hashicorp.svg" alt="HashiCorp Terraform logo" />
             </li>
             <li>
               <img src="/img/services/aws.svg" alt="Amazon Web Services logo" />
@@ -249,13 +248,7 @@ function Home() {
               <img src="/img/services/gitlab.svg" alt="GitLab logo" />
             </li>
             <li>
-              <img src="/img/services/circleci.svg" alt="CircleCI logo" />
-            </li>
-            <li>
               <img src="/img/services/bitbucket.svg" alt="Bitbucket logo" />
-            </li>
-            <li>
-              <img src="/img/services/jenkins.svg" alt="Jenkins logo" />
             </li>
             <li>
               <img
@@ -288,7 +281,7 @@ function Home() {
             >
               This tool aims to calculate costs impact based on a terraform
               change. An amazing addition for your SRE process if you want to
-              keep your costs under control. Only AWS for now.
+              keep your costs under control.
             </SocialMentionCard>
             <SocialMentionCard
               platform="twitter"
