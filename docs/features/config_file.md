@@ -35,7 +35,7 @@ If you have any questions, please join our [community Slack channel](https://www
 </tr>
 <tr>
   <td><code>terraform_var_files</code></td>
-  <td>Optional. Array of string. Variable files to use when parsing Terraform HCL code, similar to Terraform's <code>-var-file</code> flag. These file paths are relative to the <code>path</code> of the project. For example:
+  <td>Optional. Array of string. Variable files to use when parsing Terraform HCL code, similar to Terraform's <code>-var-file</code> flag. Files with the <code>.auto.tfvars</code> extension do not need to be added to the list as they are processed automatically by Infracost. The file paths are relative to the <code>path</code> of the project. For example:
   <pre>
 {`terraform_var_files:
   - global.tfvars
@@ -56,9 +56,9 @@ If you have any questions, please join our [community Slack channel](https://www
   <td>Optional. <span style={{textDecoration: "underline"}}>Only applicable for GitHub App users</span>. Array of strings. Array of additional file or directory paths that should trigger project estimates. All paths are relative to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
   <pre>
 {`dependency_paths:
-  - config/**.json
+  - "config/**.json"
   - default.yml
-  - modules/**`}
+  - "modules/**"`}
   </pre></td>
 </tr>
 <tr>
@@ -71,9 +71,9 @@ If you have any questions, please join our [community Slack channel](https://www
   <pre>
 {`exclude_paths:
   - projects/myproject
-  - test-*
+  - "test-*"
   - terragrunt.hcl
-  - app/*/ignore_dir`}
+  - "app/*/ignore_dir"`}
   </pre></td>
 </tr>
 <tr>
@@ -133,7 +133,7 @@ If you have any questions, please join our [community Slack channel](https://www
       exclude_paths:
         - projects/myproject
         - infra/terragrunt.hcl
-        - test-* # Supports glob patterns too
+        - "test-*" # Supports glob patterns too
       env:
         INSTANCE_TYPE: t3.large
         MY_ENV_KEY: ${MY_SECRET_ENV_VAR}        
