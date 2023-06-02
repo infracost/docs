@@ -67,3 +67,5 @@ Once you've set up the Jira integration, all future pull requests will be synced
 ## Migration from legacy Infracost Jira integration
 
 Users of our legacy Jira integrations (if you connected Infracost cloud to Jira before 2 June 2023) will not be able to upgrade automatically to Infracost's Jira app integration. Instead, users should [contact us](mailto:hello@infracost.io) and we'll help you migrate to the new integration.
+
+The new Jira integration does not currently have issue fields for costs so you cannot run manual queries or reports in Jira. We plan to add that in the future, please [contact us](mailto:hello@infracost.io) if this is blocking your migration.
