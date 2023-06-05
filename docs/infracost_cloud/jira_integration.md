@@ -56,7 +56,7 @@ Once enabled, the Jira integration:
 
 ## Requirements
 
-The Jira integration should work with Jira Cloud, Jira Data Center, and Jira Server. [Conact us](hello@infracost.io) if you have any issues.
+The Jira integration should work with Jira Cloud, Jira Data Center, and Jira Server. [Contact us](mailto:hello@infracost.io) if you have any issues.
 
 Once you've set up the Jira integration, all future pull requests will be synced with Jira from Infracost Cloud. Infracost detects Jira issues from VCS systems exactly the same way the official Jira GitHub connection does. It checks if a Jira issue key prefixes either:
 
