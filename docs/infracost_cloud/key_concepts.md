@@ -28,7 +28,7 @@ A repo contains one or more projects. Infracost Cloud lets you track how the cos
 
 ## Projects
 
-Projects are an optional sub-grouping concept within a repo. The majority of Infracost users will have repos that have many projects, these include:
+Projects map to repo sub-groups. The majority of Infracost users will have repos that have many projects, these include:
 - code paths for mono repos, each path represents a deployment environment such as dev, stage, prod
 - workspaces, same idea as above but done using Terraform workspaces, e.g. for dev, stage, prod
 - Terraform or Terragrunt modules, which are components of a repo, e.g. core-api or data-stack

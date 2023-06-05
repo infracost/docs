@@ -9,119 +9,63 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Connect Infracost Cloud to Jira to enrich your team's cost estimates with powerful contextual information. Our Jira integration provides an automated two-way connection that helps you better understand why your teams' cloud costs have changed.
 
-Once enabled, our Jira integration updates Jira issues with Infracost cost estimates along with a direct link to our dashboard. Use this to dive into specific cloud costs impacted by engineering changes.
+Once enabled, the Jira integration:
+- **Updates Jira issues with cost estimates** along with a direct link to your Infracost Cloud dashboard. Use this to dive into specific cloud costs impacted by engineering changes.
+  ![jira issue](/img/jira/app-issue.png)
+- You'll also be able to **review and unblock pull requests** that triggered [guardrails](docs/infracost_cloud/guardrails/).
+  ![jira filter](/img/jira/app-guardrails.png)
+- We'll also add Jira metadata to any Infracost Cloud estimate, meaning you can **search, filter and analyze costs** based on your team's Jira issues.
+  ![dashboard](/img/jira/dashboard.png)
 
-![jira issue](/img/jira/issue.png)
+## Usage
 
-You'll also be able to filter Jira issues by cost impacts using Jira's search feature. This allows you to track the most impactful tickets your team is working on as it relates to the cloud bill.
-
-![jira filter](/img/jira/filter.png)
-
-We'll also add Jira metadata to any Infracost Cloud runs, meaning you can search, filter and analyze Infracost runs based on your team's Jira issues.
-
-![dashboard](/img/jira/dashboard.png)
-
-## Get started
-
-### 1. Create Jira API token
-
-First, you'll need to create a Jira API token so that Infracost Cloud can sync information across your Jira issues:
-
-1. [Sign in to Atlassian](https://id.atlassian.com/manage-profile/security/api-tokens) using an account with write access to Jira projects.
-2. The link opens the API tokens page. Alternatively, to go to this page from your Atlassian profile, select **Account Settings > Security > Create** and manage API tokens.
-3. Select **Create API token**.
-4. In the dialog, enter a label for your token and select **Create**.
-5. To copy the API token, select **Copy**, then paste the token somewhere safe - you'll need this later.
-
-### 2. Create Jira custom fields
-
-You'll now need to create some custom fields in Jira so that Infracost can update your Jira issues to show the required information.
-
-1. Log in to your Atlassian account
-2. Select **Settings > Issues**.
-3. Under **FIELDS** in the left sidebar, select **Custom fields**.
-4. Click **Create a custom field**.
-5. Select the type of field you want to create and click Next. See the **Supported custom fields** table below for the suggested field types for each field.
-6. Add a name to your custom field - make it as descriptive as possible.
-7. When you have entered the field details, select **Create**.
-8. Add the new custom field to one or multiple screens. We recommend adding it to at least your project issue default screen.
-9. Repeat the following steps for the [supported custom fields](#supported-custom-fields) below. _Note, only the **Infracost Link** field is required_.
-
-If you are a Jira project-level administrator, and not an account-level administrator, you can still add the custom fields to the projects you administer. In such cases, only issues in those projects will get the cost fields, thus this is a good starting point on rolling out the Infracost Jira integration. Ideally longer term, all projects would get the custom fields so every project benefits from this integration.
-
-#### Supported custom fields
-
-| name                  | description                                                    | required | Jira field type |
-|-----------------------|----------------------------------------------------------------|----------|-----------------|
-| Infracost Link        | The field where the link to Infracost Cloud will be posted to. | true     | URL field       |
-| Previous Monthly Cost | The field where the previous monthly cost will be posted to.   | false    | Number field    |
-| New Monthly Cost      | The field where the new monthly cost will be posted to.        | false    | Number field    |
-| Cost Diff             | The field where the cost diff will be posted to.               | false    | Number field    |
-| Cost Diff Percentage  | The field where the cost diff percentage will be posted to.    | false    | Number field    |
-
-
-### 3. Setup integration in Infracost Cloud
-
-Now head over to the [Infracost Cloud dashboard](https://dashboard.infracost.io):
-
-1. Navigate to Integrations > Jira
-2. Enter the following information in the **Jira Authentication** section
-   1. The URL of your organization's Atlassian account, this is normally: `https://{YOUR_ORG}.atlassian.net`
-   2. The email of the user that you created an **API Token** for in Jira
-   3. The API Token copied from the [Create Jira **API token** step](#1-create-jira-api-token)
-3. Click the Test Connection button. If your credentials are correct, you'll see a green tick displayed
-   ![auth ](/img/jira/auth.png)
-4. Add your custom fields mapping in the **Infracost Configurations** section.
-5. Hit save. If you've entered everything correctly, you'll see a green tick displayed by the Jira integration on the integrations page.
-
-   If you get an error "cannot find any Jira custom field named x, please create this field in Jira", run the following `curl` command from your terminal to see if the custom field is accessible via the Jira API:
-
-   <Tabs
-   defaultValue="curl-command"
-   values={[
-      {label: 'Curl command to troubleshoot', value: 'curl-command'},
-      {label: 'Expected response', value: 'successful-curl'},
-      {label: 'Failed response', value: 'failed-curl'},
-   ]}>
-   <TabItem value="curl-command">
-
-      ```shell
-      # You can change Infracost_Link to be one of your custom Jira field names
-      curl --request GET \
-        --url 'https://YOUR_DOMAIN.atlassian.net/rest/api/2/field/search?query=Infracost_Link' \
-        --user 'YOUR@EMAIL.COM:YOUR_JIRA_API_TOKEN' \
-        --header 'Accept: application/json'
-      ```
-   </TabItem>
-   <TabItem value="successful-curl">
-
-      You should see a response like the following when the custom fields are accessible via the Jira API:
-      ```json
-      {"maxResults":50,"startAt":0,"total":1,"isLast":true,"values":
-      [{"id":"customfield_10039","name":"Infracost Link",
-      "schema":{"type":"string","custom":"com.atlassian.jira.plugin.system.customfieldtypes:url",
-      "customId":10039},"description":""}]}
-      ```
-   </TabItem>
-   <TabItem value="failed-curl">
-
-      If you see a response like the following, it means that Infracost is not able to find the custom field in the Jira API.
-      Please [contact us](mailto:hello@infracost.io) so we can work with you to troubleshoot the issue.
-      ```json
-      {"maxResults":50,"startAt":0,"total":0,"isLast":true,"values":[]}
-      ```
-   </TabItem>
-   </Tabs>
-6. Create a new test Jira issue, note the issue ID.
-7. Browse to one of the code repos that you have already added to Infracost. Send a new pull request where either the pull request title, git commit message or the git branch name starts with the test Jira issue ID, e.g. _"TEST-2 my pull request title"_.
-8. You should see the cost estimate in Infracost Cloud's Dashboard or Repos page, as well as the test Jira issue.
-
+1. In [Infracost Cloud](https://dashboard.infracost.io), go to the Org Settings page and click on the **Integrations** tab.
+  ![organization settings](/img/jira/0-organization-settings.png)
+2. You'll need to create a Infracost Cloud service account token. This will authenticate your Jira instance with Infracost Cloud, enabling it to fetch cost estimates for pull requests.
+  ![generate token](/img/jira/1-generate-token.png)
+3. Click the **Generate service token** button and copy your token. Make sure to save this to a safe place as service account tokens are only shown once. If you lose your token you'll need to generate a new one, which will invalidate any prior tokens.
+  ![copy token](/img/jira/2-copy-token.png)
+4. Once you generate the token, a status banner appears. This highlights if Jira has successfully connected to Infracost Cloud. We'll check back here later to make sure everything looks good.
+  ![integration status](/img/jira/3-integration-status.png)
+5. Click the install app button, this takes you over to Atlassian Jira to complete the setup. 
+  ![install app](/img/jira/4-install-app.png)
+6. This will take you an approval screen where you'll be able to select which server you want to install the Infracost Jira app into.
+  ![select server](/img/jira/5-select-server.png)
+7. Go ahead and install the app onto the server you want to link to your Infracost Cloud organization.
+  ![success install](/img/jira/6-success-install.png)
+8. Once installed you'll need to provide the Jira app your Infracost service account token, so that it can communicate with Infracost Cloud. Head over to the Manage Apps section of your Jira instance.
+  :::note
+  Configuring the Infracost App in Jira requires **Admin access**.
+  :::
+  ![manage apps](/img/jira/7-manage-apps.png)
+9. Then select Infracost from the sidebar.
+  ![select infracost](/img/jira/8-select-infracost.png)
+10. Add your Infracost service account token into the input.
+  ![add token](/img/jira/9-add-token.png)
+11. Once you've saved your service account token, let's head back to Infracost Cloud > Org Settings > Integrations > Jira. On the Jira integration page you should see a success banner.
+  ![success status](/img/jira/10-success-status.png)
+12. All pull requests moving forward will have a two-way link with Jira and Infracost Cloud. Pull requests in Infracost cloud will display a link to the Jira issue the pull request references.
+  ![pull request link](/img/jira/11-pull-request.png)
+13. Click the Jira issue button to navigate directly to the issue, which should now display an Infracost sidebar item.
+  :::note
+  The first time that you view the sidebar in Jira, you'll be prompted to accept access before you can see pull requests. Each user in Jira only needs to do this once.
+  :::
+  ![accept permissions](/img/jira/12-accept-permissions.png)
+14. This Infracost sidebar will list any pull requests that reference the Jira issue, and their associated costs and guardrails.
+  ![successful pr](/img/jira/13-successful-pr.png)
 
 ## Requirements
 
-Once you've set up the Jira integrations, all future pull requests will be synced with Jira from Infracost Cloud. Infracost detects Jira issues from VCS systems exactly the same way the official Jira GitHub connection does. It checks if a Jira issue key prefixes either:
+The Jira integration should work with Jira Cloud, Jira Data Center, and Jira Server. [Conact us](hello@infracost.io) if you have any issues.
+
+Once you've set up the Jira integration, all future pull requests will be synced with Jira from Infracost Cloud. Infracost detects Jira issues from VCS systems exactly the same way the official Jira GitHub connection does. It checks if a Jira issue key prefixes either:
 
 1. A pull request title, e.g. _"TEST-2 my pull request title"_
 2. A git commit message, e.g. _"TEST-2 my commit message."_
 3. A git branch name, e.g. _"TEST-2-my-branch-name"_
 
+## Migration from legacy Infracost Jira integration
+
+Users of our legacy Jira integrations (if you connected Infracost cloud to Jira before 2 June 2023) will not be able to upgrade automatically to Infracost's Jira app integration. Instead, users should [contact us](mailto:hello@infracost.io) and we'll help you migrate to the new integration.
+
+The new Jira integration does not currently have issue fields for costs so you cannot run manual queries or reports in Jira. We plan to add that in the future, please [contact us](mailto:hello@infracost.io) if this is blocking your migration.
