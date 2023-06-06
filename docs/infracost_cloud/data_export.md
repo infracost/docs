@@ -87,7 +87,7 @@ This guide will walk you through the process of setting up an AWS Identity and A
 2. Click on the **AWS S3 Bucket** section
 3. Enter the **AWS S3 Bucket Name** and **Region**.
 4. Fill in the **AWS Role ARN** field with the ARN for the Role you created in step 2.
-5. Click the **Test Connection** button and make sure it reports success. This will create an empty **test.csv** in your S3 bucket.
+5. Click the **Test Connection** button and make sure it reports success. This will create an empty **infracost-export-test.txt** in your S3 bucket.
 6. Use the **Save** button to complete the setup.
 
 Your first report should be created in a few minutes and will continue to be updated approximately daily. You can return to the **Data Export** page to check on the status of your reports.
@@ -140,7 +140,7 @@ This guide will walk you through the process of setting up data export from Infr
 2. Click on the **Azure Blob Storage** section.
 3. Enter the **Storage Account Name** and **Container Name** indicating where the CSV files should be created.
 4. Fill in the **Client ID**, **Client Secret**, and **Tenant ID** using the `appId`, `password`, and `tenant` values generated in step 1.
-5. Click the **Test Connection** button and make sure it reports success. This will create an empty **test.csv** in your Blob Storage container.
+5. Click the **Test Connection** button and make sure it reports success. This will create an empty **infracost-export-test.txt** in your Blob Storage container.
 6. Use the **Save** button to complete the setup.
 
 Your first report should be created in a few minutes and will continue to be updated approximately daily. You can return to the **Data Export** page to check on the status of your reports.
