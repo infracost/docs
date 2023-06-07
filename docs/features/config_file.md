@@ -316,9 +316,19 @@ would print the value of the `Name` field for each item in the `Items` array in 
 
 sets successive elements returned from [`matchPaths`](#matchpaths) to `$project`, which can be accessed inside the `range` loop, e.g. `$project.env`
 
+## Global variables
+
+Templates have access to the following global variables:
+
+* `.Branch` - The name of the current branch that the template is executed on.
+
+The following global variables are **only** available in CI:
+
+* `.BaseBranch` - The name of the base branch that the pull request is being merged into.
+
 ## Functions
 
-Config file templates support a wide range of built in functions to make it easy for you to write config files that work for your project structure. Below you'll find a list of supported functions with detailed examples.
+Config file templates support a wide range of built-in functions to make it easy for you to write config files that work for your project structure. Below you'll find a list of supported functions with detailed examples.
 
 ## Filepath functions
 
