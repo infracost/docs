@@ -104,6 +104,8 @@ If someone with admin access on GitHub overrides the guardrail and merges the PR
 
 ## How Guardrails work
 
+Cost thresholds are currency-independent, a guardrail with a threshold of 2000 would be triggered by a pull request that increases your monthly costs by $2001 or €2001. 
+
 The following example describes how guardrails work. Let's say you have two guardrails:
 1. A guardrail called "20 percent threshold" that notified FinOps when a pull request (PR) increases costs by more than 20%. This keeps them in the loop and avoids surprising them as this is an anticipated change being made by engineering.
 2. Another guardrail called "budget" that blocks the PR when the total cost goes over the budget, $10K/month. This enables the team lead to review and unblock the PR, and coordinate the budget increase with the management team.
