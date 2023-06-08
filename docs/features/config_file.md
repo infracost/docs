@@ -326,6 +326,13 @@ The following global variables are **only** available in CI:
 
 * `.BaseBranch` - The name of the base branch that the pull request is being merged into (which is usually main or master).
 
+  ```gotemplate
+  {{ if eq .BaseBranch "production" }}
+    - path: terraform/infra/prod
+      name: infra-prod
+  {{ end }}
+  ```
+
 ## Functions
 
 Config file templates support a wide range of built-in functions to make it easy for you to write config files that work for your project structure. Below you'll find a list of supported functions with detailed examples.
