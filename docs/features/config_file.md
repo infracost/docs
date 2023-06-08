@@ -324,7 +324,7 @@ Templates have access to the following global variables:
 
 The following global variables are **only** available in CI:
 
-* `.BaseBranch` - The name of the base branch that the pull request is being merged into.
+* `.BaseBranch` - The name of the base branch that the pull request is being merged into (which is usually main or master).
 
 ## Functions
 
