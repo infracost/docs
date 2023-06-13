@@ -332,7 +332,7 @@ returns a list of matches that in the project directory tree that match the patt
 
 | name    | description                                                                                                                   | example                                                                                      |
 |---------|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| pattern | a path pattern to one or more files or directories in your project. Keys that you wish to extract must be prefixed with `':'` | `"environment/:env/terraform.tfvars"`, `"infra/:env/:app"`, `"environment/:app/:env.tfvars"` |
+| pattern | a path pattern to one or more files or directories in your project. Keys that you wish to extract must be prefixed with `':'` | `"environment/:env/terraform.tfvars"`, `"infra/:env/:app"`, `"environment/:app/:env.tfvars"`, `":optional-parent?/:optional-child?/main.tf"` |
 
 #### Returns
 
