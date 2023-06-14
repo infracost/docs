@@ -46,7 +46,7 @@ Furthermore, if you use Infracost Cloud (our SaaS product):
 
 The Infracost GitLab App enables the [dashboard](https://dashboard.infracost.io/) to show you the status of merge requests so you can filter on them. You can also filter on the date range that the merge request was last updated, and the base branch that merge requests are being merged into (e.g. main, stage, production).
 
-<img src={useBaseUrl("img/infracost-cloud/pull-request-status-filter.png")} alt="Create new organization" />
+<img src={useBaseUrl("img/infracost-cloud/pull-request-status-filter.png")} alt="Pull request status filter" />
 
 The merge request status can be:
   - **open**: the merge request is currently open, thus if you want to review the most expensive merge requests that are in-flight, only focus on these.
