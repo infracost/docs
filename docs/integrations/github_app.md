@@ -1,6 +1,6 @@
 ---
 slug: github_app
-title: GitHub App
+title: GitHub App (quick setup)
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -18,7 +18,7 @@ There are two key benefits of using the GitHub App over manual CI/CD integration
 2. Infracost runs significantly faster as only changed folders are run based on the GitHub App events.
 
 Furthermore, if you use Infracost Cloud (our SaaS product):
-- the pull request status (e.g. open, closed, merged) and metadata such as labels, merged by, and approved by are included in the dashboard filters and reports.
+- the pull request status (e.g. open, closed, merged) and metadata such as labels, merged-by, and approved-by are included in the dashboard and reports. You can also filter on the pull request status. 
 - [Guardrails](/docs/infracost_cloud/guardrails/) and [centralized cost policies](/docs/infracost_cloud/cost_policies/) work without you needing to make changes in your CI/CD pipelines.
 
 ## Usage
@@ -36,7 +36,7 @@ Furthermore, if you use Infracost Cloud (our SaaS product):
 
     - For private **registry modules**, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) and set the required Terraform registry token and host in the integration settings page in Infracost Cloud.
 
-5. If you need to customize how Infracost runs, add an `infracost.yml` [config file](/docs/features/config_file/) to the root of your repo. The GitHub App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage.yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
+5. If you need to customize how Infracost runs, add an `infracost.yml` or `infracost.yml.tmpl` [config file](/docs/features/config_file/) in the Repo > my repo > Settings tab, or to the root of your repo. The GitHub App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage.yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
 
 6. Open a test pull request and wait for Infracost to leave a pull request comment. The [Infracost Cloud dashboard](https://dashboard.infracost.io) should also show the cost estimate too.
 

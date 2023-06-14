@@ -44,6 +44,7 @@ module.exports = {
           label: 'SSO integrations',
           collapsed: true,
           items: [
+            'infracost_cloud/sso/overview',
             'infracost_cloud/sso/azure_active_directory',
             'infracost_cloud/sso/okta',
             'infracost_cloud/sso/google_workspace',
@@ -59,6 +60,7 @@ module.exports = {
       items: [
         'integrations/github_app',
         'integrations/github_actions',
+        'integrations/gitlab_app',
         'integrations/gitlab_ci',
         'integrations/atlantis',
         'integrations/azure_pipelines',
