@@ -50,18 +50,15 @@ function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/infracost/infracost/issues"
-                  target="_blank"
-                >
-                  Issues
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://github.com/infracost/infracost/#community-and-contributing"
                   target="_blank"
                 >
                   Contribute
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/infracost" target="_blank">
+                  Twitter
                 </a>
               </li>
             </ul>
@@ -70,10 +67,10 @@ function Footer() {
             <h1>Company</h1>
             <ul>
               <li>
-                <a href="/pricing">Pricing</a>
+                <a href="/about">About</a>
               </li>
               <li>
-                <a href="/about">About</a>
+                <a href="https://infracost.io/join-the-team">Careers</a>
               </li>
               <li>
                 <a href="/blog">Blog</a>
@@ -82,9 +79,6 @@ function Footer() {
                 <a href="/security">Security</a>
               </li>
               <li>
-                <a href="https://twitter.com/infracost" target="_blank">
-                  Twitter
-                </a>
               </li>
               <li>
                 <a href="mailto:hello@infracost.io" target="_blank">
