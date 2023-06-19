@@ -29,15 +29,14 @@ module.exports = {
       collapsed: false,
       items: [
         'infracost_cloud/get_started',
-        'infracost_cloud/authentication',
         'infracost_cloud/key_concepts',
         'infracost_cloud/guardrails',
+        'infracost_cloud/jira_integration',
         'infracost_cloud/cost_policies',
         'infracost_cloud/reports',
-        'infracost_cloud/jira_integration',
+        'infracost_cloud/data_export',
         'infracost_cloud/custom_price_books',
         'infracost_cloud/actual_costs',
-        'infracost_cloud/data_export',
         'infracost_cloud/readme_badge',
         {
           type: 'category',
