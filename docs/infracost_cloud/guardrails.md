@@ -27,22 +27,26 @@ Give your guardrail a name, and select the whether the guardrail should be evalu
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/name-and-scope.png")} alt="Guardrail name and scope" />
 
-### 2. Pull requests to monitor and thresholds
+### 2. Pull requests to monitor
 
-Next you should select any filters for the pull requests that this guardrail will monitor, e.g. only monitor pull requests in certain repositories.
+Usually users monitor all pull requests for the guardrails. However, you can also set filters, e.g. only monitor pull requests in certain repositories.
 
-Then you should select the thresholds that should trigger this guardrail, the three common use-cases are:
-1. **Total monthly cost exceeds the budget**: triggered when a pull request's monthly cost exceeds this value, which protects against monthly budgets being exceeded.
-2. **Increases monthly cost by a fixed amount**: triggered when a pull request's monthly cost *increases* by more than this value, which protects against unexpected cost spikes.
-3. **Increases monthly cost by percentage**: triggered when a pull request's monthly cost *increases* by more than this *percent*, which also protects against unexpected cost spikes.
+<img src={useBaseUrl("img/infracost-cloud/guardrails/pull-request-filters.png")} alt="Create a guardrail using pull request filters" />
 
-<img src={useBaseUrl("img/infracost-cloud/guardrails/pull-request-filters-and-thresholds.png")} alt="Create a guardrail using pull request filters, and the thresholds that should trigger the guardrail" />
+### 3. Thresholds
 
-### 3. Notifications to send
+Next you should select the thresholds that should trigger this guardrail, the three common use-cases are:
+1. **Diff: Cost change**: triggered when costs are increased by more than this value, which protects against unexpected cost spikes. For example, trigger a guardrails whenever a pull request adds more than $2000 to the monthly costs.
+2. **Diff: Cost change percentage**: similar to the above but using a percentage instead of a fixed value. For example, trigger a guardrails whenever a pull request adds more than 25% to the monthly costs.
+3. **Budget: New monthly cost**: triggered when the new monthly cost exceeds this value, which protects against budgets being exceeded. For example, trigger a guardrails whenever the new monthly cost exceeds $10,000.
+
+<img src={useBaseUrl("img/infracost-cloud/guardrails/thresholds.png")} alt="Set the thresholds that should trigger the guardrail" />
+
+### 4. Notifications to send
 
 You can select the users who should be emailed when a guardrail is triggered. You can also create a [Slack channel webhook](https://slack.com/intl/en-tr/help/articles/115005265063-Incoming-webhooks-for-Slack) and use that for notifications.
 
-We recommend enabling the pull request option, so engineers are shown the guardrail information in the Infracost pull request comment too. The pull request option **only works** if you are using the [GitHub App](/docs/integrations/github_app) integration or the [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) command in CI/CD.
+We recommend enabling the pull request option, so engineers are shown the guardrail information in the Infracost pull request comment too. The pull request option **only works** if you are using the [GitHub App](/docs/integrations/github_app), [GitLab App](/docs/integrations/gitlab_app), or the [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) command in CI/CD.
 
 Regardless of which notification option you select, you can set a custom message to be included in them to give additional context or instructions. For example, you can describe why this guardrail is important or what will happen next after someone has reviewed the notification.
 
@@ -70,11 +74,11 @@ The following screenshot shows an example pull request comment with a custom mes
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/custom-pull-request-message.png")} alt="Example pull request comment with a custom message" />
 
-### 4. Block pull requests
+### 5. Block pull requests
 
-Use this option carefully. It works by failing the CI/CD pipeline that runs Infracost (`infracost comment` will `exit 1`). Depending on how you have configured your source control system this blocks the pull request from being merged, but your source control system admins can usually override this during urgent cases.
+This feature works by failing the CI/CD pipeline that runs Infracost (`infracost comment` will `exit 1`). Depending on how you have configured your source control system this blocks the pull request from being merged, but your source control system admins can usually override this during urgent cases.
 
-This feature only works if you are using the [GitHub App](/docs/integrations/github_app) integration or the [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) command in CI/CD.
+This feature only works if you are using the [GitHub App](/docs/integrations/github_app), [GitLab App](/docs/integrations/gitlab_app), or the [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) command in CI/CD.
 
 #### Setup
 

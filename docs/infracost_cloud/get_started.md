@@ -31,7 +31,7 @@ If you do not use the `infracost comment` command in your CI/CD system, you can 
 
 ### 5. See cost estimate in Infracost Cloud
 
-Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Dashboard** to see your pull request on the chart and cost breakdowns by repo, pull request and user. Clicking on a chart dot shows the corresponding estimate so you can investigate deeper or talk to the people working on the change. You can also see all repos and their pull requests from the **Repos** page.
+Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Dashboard** to see your pull request on the chart and cost breakdowns by repo, pull request and user. Clicking on a chart dot shows the corresponding estimate so you can investigate deeper or talk to the people working on the change. You can also see all repos and their pull requests from the **Visibility** > **Pull requests** page.
 
 <img src={useBaseUrl("img/infracost-cloud/pull-requests-tab.png")} alt="Infracost Cloud shows pull request cost changes" />
 

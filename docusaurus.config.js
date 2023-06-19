@@ -102,6 +102,10 @@ module.exports = {
             from: '/docs/integrations/jira',
             to: '/docs/infracost_cloud/jira_integration',
           },
+          {
+            from: '/docs/infracost_cloud/authentication',
+            to: '/docs/infracost_cloud/key_concepts',
+          },
         ],
       },
     ],
