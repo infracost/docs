@@ -78,6 +78,7 @@ The following screenshot shows an example pull request comment with a custom mes
 
 This feature works by failing the CI/CD pipeline that runs Infracost (`infracost comment` will `exit 1`). Depending on how you have configured your source control system this blocks the pull request from being merged, but your source control system admins can usually override this during urgent cases.
 
+
 This feature only works if you are using the [GitHub App](/docs/integrations/github_app), [GitLab App](/docs/integrations/gitlab_app), or the [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) command in CI/CD.
 
 #### Setup
