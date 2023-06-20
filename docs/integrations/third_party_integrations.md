@@ -13,7 +13,7 @@ Infracost can also be used alongside third-party systems including:
 - [Terrateam](https://docs.terrateam.io/integrations/infracost)
 - [Terraspace](https://terraspace.cloud/docs/cloud/cost-estimation)
 - [Terranetes](https://terranetes.appvia.io/terranetes-controller/admin/costs)
-- [Terrakube](https://docs.terrakube.org/user-guide/cost-estimation)
+- [Terrakube](https://docs.terrakube.io/user-guide/cost-estimation)
 - [Keptn](https://artifacthub.io/packages/keptn/keptn-integrations/infracost)
 - [Brainboard](https://www.brainboard.co/integrations/infracost)
 - [Semaphore](https://docs.semaphoreci.com/examples/estimating-cloud-costs-with-infracost/)
