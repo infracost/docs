@@ -63,6 +63,7 @@ module.exports = {
         'integrations/gitlab_ci',
         'integrations/atlantis',
         'integrations/azure_pipelines',
+        'integrations/generic_cicd',
         'integrations/terraform_cloud_enterprise',
         'integrations/slack',
         'integrations/vscode',

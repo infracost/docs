@@ -18,7 +18,7 @@ There are two key benefits of using the GitHub App over manual CI/CD integration
 2. Infracost runs significantly faster as only changed folders are run based on the GitHub App events.
 
 Furthermore, if you use Infracost Cloud (our SaaS product):
-- the pull request status (e.g. open, closed, merged) and metadata such as labels, merged-by, and approved-by are included in the dashboard and reports. You can also filter on the pull request status. 
+- The pull request status (e.g. open, closed, merged) and metadata such as labels, merged-by, and approved-by are included in the dashboard and reports. You can also filter on the pull request status. 
 - [Guardrails](/docs/infracost_cloud/guardrails/) and [centralized cost policies](/docs/infracost_cloud/cost_policies/) work without you needing to make changes in your CI/CD pipelines.
 
 ## Usage

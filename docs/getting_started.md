@@ -166,7 +166,7 @@ Example output:
   ```
 
   <li>
-    Log in to <a href="https://dashboard.infracost.io">Infracost Cloud</a> > <b>Repos</b> page to see the cost estimate.
+    Log in to <a href="https://dashboard.infracost.io">Infracost Cloud</a> > Visibility > Repos page to see the cost estimate.
   </li>
 </ol>
 
