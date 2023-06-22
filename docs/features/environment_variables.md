@@ -54,35 +54,8 @@ For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API 
 For Terraform Enterprise users, used to override the default `app.terraform.io` backend host.
 
 ### INFRACOST_TERRAFORM_SOURCE_MAP
-This works similarly to the [`TERRAGRUNT_SOURCE_MAP` environment variable](https://terragrunt.gruntwork.io/docs/reference/cli-options/#terragrunt-source-map).
 
-It accepts a comma separated list of `source=dest` pairs and replaces any matched source URL value found in Terraform `module` or Terragrunt `terraform` blocks.
-
-For example, to map remote git modules to local module specify:
-```
-INFRACOST_TERRAFORM_SOURCE_MAP=git::https://github.com/my-org/my-first-module.git=./local/my-first-module,git::https://github.com/my-org/my-second-module.git=./local/my-second-module
-```
-
-To map remote git SSH modules to git HTTPS modules specify:
-```
-INFRACOST_TERRAFORM_SOURCE_MAP=git::ssh://github.com/my-org/my-first-module.git=git::https://github.com/my-org/my-first-module.git,git::ssh://github.com/my-org/my-second-module.git=git::https://github.com/my-org/my-second-module.git
-```
-
-When replacing sources using the source map, any entry with a matching `?ref=<version>` takes precedence. If that is not found then it falls back any entry without a `?ref=<version>` specified.
-
-For example, given this source map:
-```
-INFRACOST_TERRAFORM_SOURCE_MAP=git::https://github.com/my-org/my-module?ref=v1.0.0=./local/my-module-A,git::https://github.com/my-org/my-module=./local/my-module-B
-```
-
-The sources will be mapped as follows:
-
-| Source specified in Terraform                         | Mapped source         |
-|-------------------------------------------------------|-----------------------|
-| `git::https://github.com/my-org/my-module?ref=v1.0.0` | `./local/my-module-A` |
-| `git::https://github.com/my-org/my-module?ref=v2.0.0` | `./local/my-module-B` |
-| `git::https://github.com/my-org/my-module`            | `./local/my-module-B` |
-
+Accepts a comma separated list of `source=dest` pairs, and replaces any matched source URL value found in Terraform `module` or Terragrunt `terraform` blocks. This is useful when you have module URLs that are referenced in your infra-as-code repos one way (e.g. using a private URL), but they should use a different URL when Infracost runs them (e.g. using a public URL). See [this docs section](/docs/features/terraform_modules/#source-map) for more details.
 
 ### INFRACOST_PARALLELISM
 If using multiple projects using a [config_file](/docs/features/config_file) this limits the number of projects processed in parallel. By default the parallelization level is set to 4×CPU count but capped at 16. To help with debugging set this to `1` so that the projects are processed synchronously.

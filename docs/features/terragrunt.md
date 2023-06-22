@@ -20,6 +20,10 @@ If your Terragrunt project has multiple modules and you want to specify differen
 
 If you have any feedback about how we should support multiple usage files with Terragrunt in the future, please [comment on or follow this issue](https://github.com/infracost/infracost/issues/934).
 
+## Source map
+
+The `INFRACOST_TERRAFORM_SOURCE_MAP` environment variable is useful when you want to replace module URLs used by Infracost (e.g. replace private URLs with public ones). See [this docs section](/docs/features/terraform_modules/#source-map) for more details.
+
 ## How the Terragrunt integration works
 
 With v0.10, when the CLI's `--path` flag points to a Terragrunt directory:
