@@ -53,6 +53,10 @@ For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API 
 ### INFRACOST_TERRAFORM_CLOUD_HOST
 For Terraform Enterprise users, used to override the default `app.terraform.io` backend host.
 
+### INFRACOST_TERRAFORM_SOURCE_MAP
+
+Accepts a comma separated list of `source=dest` pairs, and replaces any matched source URL value found in Terraform `module` or Terragrunt `terraform` blocks. This is useful when you have module URLs that are referenced in your infra-as-code repos one way (e.g. using a private URL), but they should use a different URL when Infracost runs them (e.g. using a public URL). See [this docs section](/docs/features/terraform_modules/#source-map) for more details.
+
 ### INFRACOST_PARALLELISM
 If using multiple projects using a [config_file](/docs/features/config_file) this limits the number of projects processed in parallel. By default the parallelization level is set to 4×CPU count but capped at 16. To help with debugging set this to `1` so that the projects are processed synchronously.
 

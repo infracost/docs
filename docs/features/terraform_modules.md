@@ -106,6 +106,38 @@ If you store your private modules in an S3 bucket, you need to provide readonly 
 }
 ```
 
+## Source map
+
+The `INFRACOST_TERRAFORM_SOURCE_MAP` environment variable accepts a comma separated list of `source=dest` pairs, and replaces any matched source URL value found in Terraform `module` or Terragrunt `terraform` blocks. This is useful when you have module URLs that are referenced in your infra-as-code repos one way (e.g. using a private URL), but they should use a different URL when Infracost runs them (e.g. using a public URL).
+
+This works similarly to the [`TERRAGRUNT_SOURCE_MAP` environment variable](https://terragrunt.gruntwork.io/docs/reference/cli-options/#terragrunt-source-map).
+
+For example, to map remote git modules to local module specify:
+```
+INFRACOST_TERRAFORM_SOURCE_MAP=git::https://github.com/my-org/my-first-module.git=./local/my-first-module,git::https://github.com/my-org/my-second-module.git=./local/my-second-module
+```
+
+To map remote git SSH modules to git HTTPS modules specify:
+```
+INFRACOST_TERRAFORM_SOURCE_MAP=git::ssh://github.com/my-org/my-first-module.git=git::https://github.com/my-org/my-first-module.git,git::ssh://github.com/my-org/my-second-module.git=git::https://github.com/my-org/my-second-module.git
+```
+
+When replacing sources using the source map, any entry with a matching `?ref=<version>` takes precedence. If that is not found then it falls back any entry without a `?ref=<version>` specified.
+
+For example, given this source map:
+```
+INFRACOST_TERRAFORM_SOURCE_MAP=git::https://github.com/my-org/my-module?ref=v1.0.0=./local/my-module-A,git::https://github.com/my-org/my-module=./local/my-module-B
+```
+
+The sources will be mapped as follows:
+
+| Source specified in Terraform                         | Mapped source         |
+|-------------------------------------------------------|-----------------------|
+| `git::https://github.com/my-org/my-module?ref=v1.0.0` | `./local/my-module-A` |
+| `git::https://github.com/my-org/my-module?ref=v2.0.0` | `./local/my-module-B` |
+| `git::https://github.com/my-org/my-module`            | `./local/my-module-B` |
+
+
 ## Running Infracost in module repos
 
 You can run `infracost breakdown --path modules/my-module` to get a cost estimate for an individual module. Module variables can be passed-in using the `--terraform-var-file` or `terraform-var` flags.
