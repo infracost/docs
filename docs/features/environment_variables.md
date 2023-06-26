@@ -10,7 +10,7 @@ The Infracost CLI uses a number of environment variables to customize various as
 4. Infracost Cloud organization settings
 
 ### INFRACOST_API_KEY
-Infracost API key, run `infracost auth login` to sign up or log in via the CLI. Run `infracost configure get api_key` to retrieve your API key. Use [Infracost Cloud](/docs/infracost_cloud/authentication/) to rotate your API key.
+Infracost API key, run `infracost auth login` to sign up or log in via the CLI. Run `infracost configure get api_key` to retrieve your API key. Use the Org Settings page in [Infracost Cloud](https://dashboard.infracost.io) to rotate your API key.
 
 We recommend using this environment variable in CI/CD integrations; it overrides any values you might have set in `.config/infracost/credentials.yml`, `.env` or `.env.local` too.
 
