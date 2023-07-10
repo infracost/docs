@@ -43,9 +43,10 @@ Use one of our many integrations so your engineering team can see cost estimates
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
-## Source control integrations (quick setup)
+## Source control integrations (recommended)
 
 Infracost supports direct integration with GitHub and GitLab.
+We recommend these integrations as they are much simpler to setup, and faster to run. [This page](/docs/guides/source_control_benefits/) explains more about the benefits of source control integrations over CI/CD integrations.
 <Grid logos={[
     {
       image: "/img/services/github.svg",
@@ -61,16 +62,7 @@ Infracost supports direct integration with GitHub and GitLab.
     },
 ]}/>
 
-<br/>There are two key benefits of using these integrations over CI/CD integrations:
-
-1. You can quickly add Infracost to multiple repos with one click, no need to install or update CLI versions in your CI/CD pipeline. Infracost runs on our infrastructure and we keep it up to date.
-2. Infracost runs significantly faster as only changed folders are run based on the GitHub/GitLab App events.
-
-Furthermore, if you use Infracost Cloud (our SaaS product):
-- The pull request status (e.g. open, closed, merged) and metadata such as labels, merged-by, and approved-by are included in the dashboard and reports. You can also filter on the pull request status. 
-- [Guardrails](/docs/infracost_cloud/guardrails/) and [centralized cost policies](/docs/infracost_cloud/cost_policies/) work without you needing to make changes in your CI/CD pipelines.
-
-## CI/CD integration
+## CI/CD integrations
 
 The following integrations can also be used to post pull request comments.
 
@@ -119,4 +111,4 @@ The following integrations can also be used to post pull request comments.
 
 ## Third-party integrations
 
-Infracost can also be used alongside many other [third-party systems](/docs/integrations/third_party_integrations/) including Terraform Cloud/Enterprise, Env0, Scalr and Spacelift. Note that these integrations are minimal, do not post pull request comments or work fully with other Infracost Cloud features.
+Infracost can also be used alongside many other [third-party systems](/docs/integrations/third_party_integrations/) including Terraform Cloud/Enterprise, Env0, Scalr and Spacelift. Note that these integrations are minimal, do not post pull request comments or work with other Infracost Cloud features.

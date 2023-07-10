@@ -1,6 +1,6 @@
 ---
 slug: gitlab_app
-title: GitLab App (quick setup)
+title: GitLab App (recommended)
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -13,13 +13,10 @@ The Infracost GitLab App is an automated integration meaning that Infracost runs
 
 ## Benefits
 
-There are two key benefits of using the GitLab App over manual CI/CD integrations:
+There are three key benefits of using the GitLab App over manual CI/CD integrations:
 1. You can add Infracost to multiple repos with one click, no need to install or update CLI versions in your CI/CD pipeline.
 2. Infracost runs significantly faster as only changed folders are run based on the GitLab App events.
-
-Furthermore, if you use Infracost Cloud (our SaaS product):
-- The merge request status (e.g. open, closed, merged) and metadata such as labels, merged-by, and approved-by are included in the dashboard and reports. You can also filter on the merge request status. 
-- [Guardrails](/docs/infracost_cloud/guardrails/) and [centralized cost policies](/docs/infracost_cloud/cost_policies/) work without you needing to make changes in your CI/CD pipelines.
+3. If you use Infracost Cloud (our SaaS product), all features work without you needing to make any changes to your CI/CD pipelines. If you use CI/CD integrations, you should implement [these extra steps](/docs/guides/source_control_benefits/).
 
 ## Usage
 
@@ -69,7 +66,7 @@ If you have restricted out-going traffic from your instance, you need to allow t
 
 ### Other network/security requirements
 
-Email us at [hello@infracost.io](mailto:hello@infracost.io) if you have custom network or security requirements, for example the use of TLS certificates.
+Email us at [hello@infracost.io](mailto:hello@infracost.io) if you have custom network or security requirements, for example the use of TLS certificates, or private tunnels.
 
 ## How the GitLab App works
 

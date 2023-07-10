@@ -132,6 +132,12 @@ You can override the instance count manually in the [usage file](/docs/features/
 
 Sure! See the [currency](/docs/features/environment_variables/#infracost_currency) docs section.
 
+### What's the difference between source control and CI/CD integration?
+
+Source control integration is when you connect Infracost directly to your GitHub or GitLab. CI/CD integration is when you install the Infracost CLI in your CI/CD pipelines and run commands. 
+
+We recommend source control integration as it is are much simpler to setup, and faster to run. [This page](/docs/guides/source_control_benefits/) explains more about the benefits of source control integrations over CI/CD integrations.
+
 ### Do you offer support?
 
 Yes! We're happy to help you, see our [support page](/docs/support).

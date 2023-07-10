@@ -31,6 +31,7 @@ module.exports = {
         'infracost_cloud/get_started',
         'infracost_cloud/key_concepts',
         'infracost_cloud/guardrails',
+        'infracost_cloud/tagging_policies',
         'infracost_cloud/jira_integration',
         'infracost_cloud/cost_policies',
         'infracost_cloud/reports',
@@ -96,6 +97,7 @@ module.exports = {
       label: 'Guides',
       collapsed: true,
       items: [
+        'guides/source_control_benefits',
         'guides/v0.10_migration',
         'guides/v0.9_migration',
         'guides/v0.8_migration',

@@ -155,7 +155,7 @@ function Pricing() {
                       </span>
                       <span>
                         <b>Policies:</b> Ensure changes are using best
-                        practices, directly in workflow (e.g. AWS GP2 volumes should be
+                        practices, directly in workflow (e.g. FinOps tagging policies, or AWS GP2 volumes should be
                         GP3)
                       </span>
                     </li>

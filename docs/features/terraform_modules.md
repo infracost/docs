@@ -9,7 +9,7 @@ Infracost include any modules that are used by your Terraform or Terragrunt proj
 
 ### Git SSH modules
 
-Infracost downloads private git SSH modules using SSH keys (same as Terraform/Terragrunt). Infracost GitHub App users can provide the SSH key in Infracost Cloud. Other CI/CD users can set an environment variable or secret with their private SSH key. The `GIT_SSH_KEY` secret variable usually starts with `-----BEGIN RSA PRIVATE KEY-----`.
+Infracost downloads private git SSH modules using SSH keys (same as Terraform/Terragrunt). Infracost GitHub and GitLab App users can provide the SSH key in Infracost Cloud. Other CI/CD users can set an environment variable or secret with their private SSH key. The `GIT_SSH_KEY` secret variable usually starts with `-----BEGIN RSA PRIVATE KEY-----`.
 
   ```shell
   mkdir -p ~/.ssh
@@ -60,7 +60,7 @@ module "my-module" {
 
 #### Option 2: Provide HTTPS credentials
 
-If you cannot use Option 1, you need to provide HTTPS credentials that can be used to download the private module repos. Infracost GitHub App users can provide these in Infracost Cloud. 
+If you cannot use Option 1, you need to provide HTTPS credentials that can be used to download the private module repos. Infracost GitHub and GitLab App users can provide these in Infracost Cloud. 
 
 Other CI/CD users can add their HTTPS credentials into the `~/.git-credentials` file.
 ```bash
@@ -71,7 +71,7 @@ This tells `git` to download HTTPS repos using the provided credentials (used by
 
 ### Registry modules
 
-Public registry modules are automatically supported so no extra setup is needed in Infracost. For private registry modules, Infracost GitHub App users can provide their registry host and token in Infracost Cloud. Other CI/CD users need to set the following environment variables:
+Public registry modules are automatically supported so no extra setup is needed in Infracost. For private registry modules, Infracost GitHub and GitLab App users can provide their registry host and token in Infracost Cloud. Other CI/CD users need to set the following environment variables:
 
 * **Private Terraform Cloud registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html).
 * **Private Terraform Enterprise registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your TFE hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html).
@@ -84,7 +84,7 @@ For local development environments, use the Terraform CLI config file: by defaul
 
 ### S3 modules
 
-If you store your private modules in an S3 bucket, you need to provide readonly AWS IAM credentials so the CLI can download them and estimate their costs. You can do this using the usual `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables, and the following policy for your S3 bucket. Infracost Github App users can define these environment variables in the Org Settings > Integrations > GitHub App > Next page.
+If you store your private modules in an S3 bucket, you need to provide readonly AWS IAM credentials so the CLI can download them and estimate their costs. You can do this using the usual `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables, and the following policy for your S3 bucket. Infracost Github and GitLab App users can define these environment variables in the Org Settings > Integrations > GitHub or GitLab App > Next page.
 
 ```json
 {
