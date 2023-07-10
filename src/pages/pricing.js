@@ -110,7 +110,7 @@ function Pricing() {
                   <span className="price__tier">Infracost Cloud</span>
                   <span className="price">
                     ${PRICE_PER_SEAT}
-                    <span className="price__suppl">per seat<sup>*</sup></span>
+                    <span className="price__suppl">per seat per month<sup>*</sup></span>
                   </span>
                   <span className="sub">
                     For <b>FinOps</b>, <b>DevOps</b> and <b>Platform</b> teams
