@@ -136,7 +136,7 @@ Sure! See the [currency](/docs/features/environment_variables/#infracost_currenc
 
 Source control integration is when you connect Infracost directly to your GitHub or GitLab. CI/CD integration is when you install the Infracost CLI in your CI/CD pipelines and run commands. 
 
-We recommend source control integration as it is are much simpler to setup, and faster to run. [This page](/docs/guides/source_control_benefits/) explains more about the benefits of source control integrations over CI/CD integrations.
+We recommend source control integration as it is much simpler to setup, and faster to run. [This page](/docs/guides/source_control_benefits/) explains more about the benefits of source control integrations over CI/CD integrations.
 
 ### Do you offer support?
 

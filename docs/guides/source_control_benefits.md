@@ -19,7 +19,7 @@ Source control integrations ([GitHub App](/docs/integrations/github_app/) or [Gi
 
 To make the [Guardrails](/docs/infracost_cloud/guardrails/) blocking/unblocking pull requests feature work:
   - In your CI/CD integration, you should check the exit code of the `infracost comment` command (or `infracost upload`), and fail the build if it returns an exit code of `1`. That indicates that Guardrails failed.
-  - When a pull request is reviewed and unblocked in Infracost Cloud, the engineer needs to re-run the Infracost CLI (or pipeline). This is so it can pickup the unblocked status from Infracost Cloud and return an exit code of `0` (meaning success).
+  - When a pull request is reviewed and unblocked in Infracost Cloud, the engineer needs to re-run the Infracost CLI (or pipeline). This is so it can pick up the unblocked status from Infracost Cloud and return an exit code of `0` (meaning success).
 
 ### 2. Tagging policies
 To make the [Tagging policies](/docs/infracost_cloud/tagging_policies/) blocking/unblocking pull requests feature work:
