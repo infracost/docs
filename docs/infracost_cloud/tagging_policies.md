@@ -39,7 +39,7 @@ Next you can define whether pull requests that fail this policy should be blocke
 
 We recommend you leave "Include details in pull requests" as enabled so engineers are shown details of tagging policy failures. However, during testing, you can disable this so you can see the details in Infracost Cloud but not in pull request comments.
 
-You can also set a custom message to be included in pull requests to give additional context or instructions. For example, you can describe why tagging policies are important or link to your internal wiki page.
+You can also set a custom message to be included in pull request comments to give additional context or instructions. For example, you can describe why tagging policies are important or link to your internal wiki page.
 
 <img src={useBaseUrl("img/infracost-cloud/tagging-policies/customizations.png")} alt="You can customize the pull request message." />
 
