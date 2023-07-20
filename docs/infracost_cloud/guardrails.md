@@ -17,9 +17,9 @@ Guardrails also have an audit trail of the pull requests that triggered them:
 
 You can create multiple guardrails, for example one with a lower threshold that simply notifies team leads and FinOps, and another one with a very high threshold that blocks the pull request until it has been reviewed.
 
-To create a guardrail, log in to [Infracost Cloud](https://dashboard.infracost.io) and go to the Guardrails page.
+To create a guardrail, log in to [Infracost Cloud](https://dashboard.infracost.io) and go to the Governance > Guardrails page.
 
-### 1. Scope of the guardrail
+### 1. Scope of guardrail
 
 Give your guardrail a name, and select the whether the guardrail should be evaluated against the pull request cost as a whole, or against projects individually.
 

@@ -15,17 +15,21 @@ Source control integrations ([GitHub App](/docs/integrations/github_app/) or [Gi
 
 ## Extra steps needed for CI/CD integrations and Infracost Cloud
 
-### 1. Guardrails
+### 1. Required CLI version
+
+Currently, version 0.10.25+ of the Infracost CLI is needed for the Infracost Cloud features to work correctly.
+
+### 2. Guardrails
 
 To make the [Guardrails](/docs/infracost_cloud/guardrails/) blocking/unblocking pull requests feature work:
   - In your CI/CD integration, you should check the exit code of the `infracost comment` command (or `infracost upload`), and fail the build if it returns an exit code of `1`. That indicates that Guardrails failed.
   - When a pull request is reviewed and unblocked in Infracost Cloud, the engineer needs to re-run the Infracost CLI (or pipeline). This is so it can pick up the unblocked status from Infracost Cloud and return an exit code of `0` (meaning success).
 
-### 2. Tagging policies
+### 3. Tagging policies
 To make the [Tagging policies](/docs/infracost_cloud/tagging_policies/) blocking/unblocking pull requests feature work:
   - In your CI/CD integration, you should check the exit code of the `infracost comment` command (or `infracost upload`), and fail the build if it returns an exit code of `1`. That indicates that tagging policies failed. Once the engineer fixes the issue, the CLI returns exit code `0` (meaning success).
 
-### 3. Branch details
+### 4. Branch details
 To show costs and tagging policy failures on default branches (e.g. master or main):
   - In your CI/CD integration, on each default branch push, you should run these steps to run Infracost breakdown and upload the results:
   ```sh
@@ -35,7 +39,7 @@ To show costs and tagging policy failures on default branches (e.g. master or ma
   infracost upload --path=/tmp/infracost.json
   ```
 
-### 4. Pull request status
+### 5. Pull request status
 
 To set the pull request status (e.g. open, closed, merged), use the following API call. This will enable you to see the pull request status in Infracost Cloud and use them in dashboard filters or reports.
 
