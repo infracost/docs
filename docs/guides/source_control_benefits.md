@@ -30,8 +30,8 @@ To make the [Tagging policies](/docs/infracost_cloud/tagging_policies/) blocking
   - In your CI/CD integration, you should check the exit code of the `infracost comment` command (or `infracost upload`), and fail the build if it returns an exit code of `1`. That indicates that tagging policies failed. Once the engineer fixes the issue, the CLI returns exit code `0` (meaning success).
 
 ### 4. Branch details
-To show costs and tagging policy failures on default branches (e.g. master or main):
-  - In your CI/CD integration, on each default branch push, you should run these steps to run Infracost breakdown and upload the results:
+To show costs and tagging policy failures on default or base branches (e.g. master or main):
+  - In your CI/CD integration, on each default or base branch push, you should run these steps to run Infracost breakdown and upload the results:
   ```sh
   infracost breakdown --config-file=infracost.yaml \
     --format=json --out-file=/tmp/infracost.json
