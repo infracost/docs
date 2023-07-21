@@ -117,3 +117,25 @@ The pull request status can be one of three:
 
   ```
 </details>
+
+<details><summary>Example Bitbucket Pipeline code to set status to Merged</summary>
+
+  ```yaml
+  pipelines:
+    branches:
+      main:
+        - step:
+            name: Update PR status in Infracost
+            image: bash:latest
+            script:
+              - PR_NUMBER=$(git show $BITBUCKET_COMMIT | grep -o 'pull request \#[0-9]\+' | grep -o '[0-9]\+') && echo $PR_NUMBER
+              - apk update && apk add curl
+              - |
+                curl -X POST -H "Content-Type: application/json" \
+                -H "X-API-Key: ${INFRACOST_API_KEY}" \
+                -d "{ \"query\": \"mutation { updatePullRequestStatus(url: \\\"${BITBUCKET_GIT_HTTP_ORIGIN}/pull-requests/${PR_NUMBER}\\\", status: MERGED) }\" }" \
+                https://dashboard.api.infracost.io/graphql
+              - echo "Done"
+  ```
+
+</details>
