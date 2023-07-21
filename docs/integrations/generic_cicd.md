@@ -21,15 +21,14 @@ This page is useful if you cannot use one of our [existing CI/CD](/docs/integrat
 
       We maintain specific [CI Docker images](https://hub.docker.com/r/infracost/infracost/tags):
       ```text
-      infracost/infracost:ci-0.10 - Recommended, use latest 0.10.x version to pick up bug fixes and new resource costs
-      infracost/infracost:ci-0.10.x - Lock the version to x, where x is a version in https://github.com/infracost/infracost/releases
+      infracost/infracost:ci-0.10   - Recommended, uses latest patch version of 0.10 to pickup bug fixes and new resources
       infracost/infracost:ci-latest - Use latest Infracost image, might break when new minor/major versions are released
       ```
 
       </TabItem>
       <TabItem value="cli-executable">
 
-      Use `curl -O -L https://infracost.io/downloads/v0.10/infracost-linux-amd64.tar.gz` to download the latest 0.10.x version to pick up bug fixes and new resource costs. You can also use lock the version using our [releases](https://github.com/infracost/infracost/releases), or use [latest](tps://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz), which might break when new minor/major versions are released.
+      Use `curl -O -L https://infracost.io/downloads/v0.10/infracost-linux-amd64.tar.gz` to download the latest patch version of 0.10 to pickup bug fixes and new resource costs. You can also use [latest](https://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz), which might break when new minor/major versions are released.
 
       </TabItem>
     </Tabs>

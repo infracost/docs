@@ -159,7 +159,10 @@ Example output:
 ### 5. See costs in dashboard
 
 <ol type="i">
-  <li>The following command instructs the CLI to send its JSON output to Infracost Cloud. This is our SaaS product that builds on top of Infracost open source and works with CI/CD integrations (next step). It gives team leads, managers and FinOps practitioners dashboards, guardrails and centralized cost policies so they can help guide the team (e.g. switch AWS GP2 volumes to GP3).</li>
+  <li>The following command instructs the CLI to send its JSON output to Infracost Cloud. This is our SaaS product that builds on top of Infracost open source and works with CI/CD integrations (next step).
+
+  It gives team leads, managers and FinOps practitioners dashboards, guardrails and centralized cost policies so they can help guide the team. For example, you can check for required tag keys/values, or switch AWS GP2 volumes to GP3.
+  </li>
 
   ```shell
   infracost upload --path infracost-base.json
