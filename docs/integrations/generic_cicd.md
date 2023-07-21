@@ -21,8 +21,8 @@ This page is useful if you cannot use one of our [existing CI/CD](/docs/integrat
 
       We maintain specific [CI Docker images](https://hub.docker.com/r/infracost/infracost/tags):
       ```text
-      infracost/infracost:ci-0.10  - Recommended, uses latest patch version of 0.10 to pickup bug fixes and new resources
-      infracost/infracost:ci-latest  - Use latest Infracost image, might break when new minor/major versions are released
+      infracost/infracost:ci-0.10   - Recommended, uses latest patch version of 0.10 to pickup bug fixes and new resources
+      infracost/infracost:ci-latest - Use latest Infracost image, might break when new minor/major versions are released
       ```
 
       </TabItem>
