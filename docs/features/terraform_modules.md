@@ -13,7 +13,7 @@ Infracost downloads private git SSH modules using SSH keys (same as Terraform/Te
 
   ```shell
   mkdir -p ~/.ssh
-  eval `ssh-add -s`
+  eval `ssh-agent -s`
   echo "$GIT_SSH_KEY" | tr -d '\r' | ssh-add -
   # Update this to github.com, gitlab.com, bitbucket.org, ssh.dev.azure.com or your source control server's domain
   ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -25,7 +25,7 @@ Infracost downloads private git SSH modules using SSH keys (same as Terraform/Te
 If your SSH key has a passphrase too, you can also add an environment variable or secret with your passphrase:
   ```shell
   mkdir -p ~/.ssh
-  eval `ssh-add -s`
+  eval `ssh-agent -s`
   echo '#!/bin/sh'> ~/.ssh_askpass
   echo "echo $GIT_SSH_KEY_PASSPHRASE" >> ~/.ssh_askpass && chmod +x ~/.ssh_askpass
   echo "$GIT_SSH_KEY" | tr -d '\r' | DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add -
