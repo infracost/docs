@@ -71,7 +71,7 @@ function Home() {
             <div className="video-container">
               <iframe
                 className="video"
-                src="https://www.youtube.com/embed/DDi6GE9RIik"
+                src="https://www.youtube.com/embed/IYyul9WX7Pw"
                 title="Infracost Demo"
                 frameBorder={0}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
