@@ -13,9 +13,9 @@ export enum ColourCoding {
   'vscode-extension' = 'blue',
 }
 
-function Pricing() {
+function Products() {
   const vsCodeExtensionImg = (
-    <WebPPngFallback filePath={'/img/vscode-extension/maintf'}>
+    <WebPPngFallback filePath={"/img/vscode-extension/maintf"}>
       <img
         src="/img/vscode-extension/maintf.png"
         alt="Infracost VS Code Extension"
@@ -67,7 +67,7 @@ function Pricing() {
       <div className="products-wrapper">
         <div className="intro">
           <h1 className="tagline container">
-            Cloud costs, loved by developers{' '}
+            Cloud costs, loved by developers{" "}
             <img
               src="/img/icons/heart.svg"
               alt="Heart icon"
@@ -83,7 +83,7 @@ function Pricing() {
             designerFor="Engineers writing infrastructure as code"
             image={vsCodeExtensionImg}
             pillText="Infracost VS Code Extension"
-            pillColourCoding={ColourCoding['vscode-extension']}
+            pillColourCoding={ColourCoding["vscode-extension"]}
             ctaText="Install VS Code Extension"
             ctaLink="https://github.com/infracost/vscode-infracost"
             imgBgColor="#212121"
@@ -108,13 +108,15 @@ function Pricing() {
             designerFor="DevOps, SRE, Platform teams"
             image={ciCdImg}
             pillText="Infracost CI/CD"
-            pillColourCoding={ColourCoding['ci-cd']}
+            pillColourCoding={ColourCoding["ci-cd"]}
             ctaText="Add to CI/CD"
             ctaLink="https://www.infracost.io/docs/integrations/cicd/"
             alternate
           >
             <ul className="product-card__ul">
-              <LiWithCheck>Direct integration into source control systems or CI/CD</LiWithCheck>
+              <LiWithCheck>
+                Direct integration into source control systems or CI/CD
+              </LiWithCheck>
               <LiWithCheck>
                 Review cost impact with the team alongside security and code
                 quality
@@ -135,7 +137,7 @@ function Pricing() {
             designerFor="Engineering teams, team leads, managers and FinOps"
             image={cloudImg}
             pillText="Infracost Cloud"
-            pillColourCoding={ColourCoding['cloud']}
+            pillColourCoding={ColourCoding["cloud"]}
             ctaText="Start free trial now"
             ctaLink="https://dashboard.infracost.io?screen_hint=signup"
           >
@@ -148,10 +150,12 @@ function Pricing() {
                 down)
               </LiWithCheck>
               <LiWithCheck>
-                Guardrails alert engineers and team leads if a change is going to break budgets 
+                Guardrails alert engineers and team leads if a change is going
+                to break budgets
               </LiWithCheck>
               <LiWithCheck>
-               Policies check all changes against best practices and your custom policies 
+                Policies check all changes against best practices and your
+                custom policies
               </LiWithCheck>
               <LiWithCheck>
                 Cloud costs for product managers reported directly in Jira
@@ -159,15 +163,15 @@ function Pricing() {
               <LiWithCheck>
                 Shows top changes per repo, project, pull request and users
               </LiWithCheck>
-              <LiWithCheck>
-                Weekly summary reports
-              </LiWithCheck>
+              <LiWithCheck>Weekly summary reports</LiWithCheck>
               <LiWithCheck>Organization and team management</LiWithCheck>
               <LiWithCheck>
-                Supports custom price books, AWS EDP and Enterprise Agreement discounts
+                Supports custom price books, AWS EDP and Enterprise Agreement
+                discounts
               </LiWithCheck>
               <LiWithCheck>
-              Integrate across all your repositories with the GitHub App or the GitLab App
+                Integrate across all your repositories with the GitHub App or
+                the GitLab App
               </LiWithCheck>
             </ul>
           </ProductCard>
@@ -178,4 +182,4 @@ function Pricing() {
   );
 }
 
-export default Pricing;
+export default Products;
