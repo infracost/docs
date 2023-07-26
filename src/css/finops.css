@@ -1,0 +1,13 @@
+/* FINOPS PAGE */
+
+.finops .finops-wrapper {
+  padding-bottom: 3rem;
+}
+
+.finops-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 4rem;
+}
+

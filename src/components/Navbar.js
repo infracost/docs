@@ -74,6 +74,9 @@ function Navbar({ isDocs }) {
 
   const topMenu = (
     <div className="menu">
+      <a className="navbar-item navbar-link" href="/finops">
+        Finops
+      </a>
       <a className="navbar-item navbar-link" href="/products">
         Products
       </a>
