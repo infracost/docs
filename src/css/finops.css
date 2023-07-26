@@ -8,6 +8,47 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  margin-top: 4rem;
+	height: calc(100vh - var(--navbar-height));
+	overflow: hidden;
+	width: 100%;
+	position: relative;
 }
+
+/* CTA */
+.finops-cta__wrapper {
+	position: absolute;
+	right: 0;
+	top: 50px;
+}
+
+
+/* Finops trail */
+.finops-trail {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	height: calc(100vh - var(--navbar-height));
+}
+
+.finops-trail-item {
+	font-size: 4rem;
+	text-align: center;
+}
+
+.finops-trail-item--highlight {
+	color: var(--link-color);
+	font-size: 4rem;
+}
+
+.finops-trail-item__plus{
+	color: var(--faded-text);
+}
+
+.finops-trail-item__arrow {
+	width: 2rem;
+	padding-top: 1rem;
+}
+
 
