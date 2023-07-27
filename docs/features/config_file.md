@@ -474,8 +474,8 @@ Returns true if the path exists within base.
 
   | name | description                                                                                                       | example                           |
   | ---- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-  | base | The directory to search for the given file or directory. Use `"."` to start from the project root.                | ".", "some/dir"                   |
-  | path | The path of the file or directory to search for. This must be relative to the base path provided at argument one. | "dir/to/find", "file/to/find.txt" |
+  | base | The directory to search for the given file or directory. Use `"."` to start from the project root.                | `"."`, `"some/dir"` |
+  | path | The path of the file or directory to search for. This must be relative to the base path provided at argument one. | `"dir/to/find"`, `"file/to/find.txt"` |
 
 ##### Example
 
@@ -534,7 +534,7 @@ Returns true if the path is a directory.
 
   | name | description       | example         |
   | ---- | ----------------- | --------------- |
-  | path | The path to check | ".", "some/dir" |
+  | path | The path to check | `"."`, `"some/dir"` |
 
 ##### Example
   <Tabs
@@ -595,8 +595,8 @@ This is useful for providing the correct relative path for shared variable files
 
   | name   | description                                                        | example         |
   | ------ | ------------------------------------------------------------------ | --------------- |
-  | base   | The base path that the resulting relative path is computed against | ".", "some/dir" |
-  | target | The target path, relative to the repo root directory               | "global.tfvars" |
+  | base   | The base path that the resulting relative path is computed against | `"."`, `"some/dir"` |
+  | target | The target path, relative to the repo root directory               | `"global.tfvars"` |
 
 ##### Example
   <Tabs

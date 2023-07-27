@@ -17,7 +17,7 @@ Source control integrations ([GitHub App](/docs/integrations/github_app/) or [Gi
 
 ### 1. Required CLI version
 
-Currently, version 0.10.25+ of the Infracost CLI is needed for the Infracost Cloud features to work correctly.
+Currently, version 0.10.26+ of the Infracost CLI is needed for the Infracost Cloud features to work correctly.
 
 ### 2. Guardrails
 
@@ -31,7 +31,7 @@ To make the [Tagging policies](/docs/infracost_cloud/tagging_policies/) blocking
 
 ### 4. Branch details
 To show costs and tagging policy failures on default or base branches (e.g. master or main):
-  - In your CI/CD integration, on each default or base branch push, you should run these steps to run Infracost breakdown and upload the results:
+  - In your CI/CD integration, on each default or base branch push, you should run these steps to run Infracost breakdown and upload the results. If you do not need a [config file](/docs/features/config_file/), you can use `infracost breakdown --path=.` and point it to your repo root or Terraform directory.
   ```sh
   infracost breakdown --config-file=infracost.yaml \
     --format=json --out-file=/tmp/infracost.json

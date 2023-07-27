@@ -15,6 +15,8 @@ Infracost enables you to define your tagging policies so you can communicate and
 
 You can create multiple tagging policies, for example one policy that applies to all resources, and another one that applies to certain resource types.
 
+Tagging policies check all AWS, Azure and Google Terraform resources that support tagging, including resources that Infracost does not show cost estimates for yet. Default tags that are applied as part of Terraform `provider` blocks are also checked by tagging policies.
+
 To create a tagging policy, log in to [Infracost Cloud](https://dashboard.infracost.io) and go to the Governance > Tagging policies page.
 
 ### 1. Scope of tagging policy
