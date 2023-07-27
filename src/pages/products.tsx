@@ -2,15 +2,16 @@ import React from 'react';
 import PageLayout from '../components/PageLayout';
 import WorksWith from '../components/WorksWith/WorksWith';
 import ProductCard from '../components/ProductCard/ProductCard';
-import Check from '../components/icons/Check';
-import ProductQuestions from '../components/questions/ProductQuestions';
-import WebPPngFallback from '../components/utils/WebPPngFallback';
+
+import ProductQuestions from "../components/questions/ProductQuestions";
+import WebPPngFallback from "../components/utils/WebPPngFallback";
+import LiWithCheck from "../components/LiWithCheck";
 
 export enum ColourCoding {
-  'cloud' = 'green',
-  'ci-cd' = 'orange',
-  'providers' = 'purple',
-  'vscode-extension' = 'blue',
+  "cloud" = "green",
+  "ci-cd" = "orange",
+  "providers" = "purple",
+  "vscode-extension" = "blue",
 }
 
 function Products() {
@@ -45,15 +46,6 @@ function Products() {
         height="437"
       />
     </WebPPngFallback>
-  );
-
-  const LiWithCheck = ({ children }) => (
-    <li className="product-card__li">
-      <span className="icon primary">
-        <Check size={18} color="#DB44B8" />
-      </span>
-      <span>{children}</span>
-    </li>
   );
 
   return (
