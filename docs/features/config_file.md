@@ -150,9 +150,10 @@ projects:
     - path: {{ $project.name }}/{{ $project.region }}
       name: {{ $project.name }}-{{ $project.region }}
       terraform_var_files:
-      {{- if pathExists "." "global.tfvars"}}
+        - local.tfvars
+        {{- if pathExists "." "global.tfvars"}}
         - {{ relPath $project._dir "global.tfvars" }}
-      {{- end}}
+        {{- end}}
 {{- end }}
 ```
 </details>
@@ -310,7 +311,7 @@ Config file templates, like [Helm templates](https://helm.sh/), are built on top
 
 Templates use a pair of curly braces `{{ }}` to delimit actions, such as `variables`, `if/else` statements, and `range` iterations. Within the curly braces, Infracost can recognize and execute template actions.
 
-For example, `{{ $project.name }}` would print the value of the `$project.name`, while 
+For example, `{{ $project.name }}` would print the value of the `$project.name`, while
 
 ```gotemplate
 {{- if .Enabled }}
@@ -320,7 +321,7 @@ For example, `{{ $project.name }}` would print the value of the `$project.name`,
 {{- end }}
 ```
 
-would execute conditional logic based on the value of the `Enabled` field in the current context. 
+would execute conditional logic based on the value of the `Enabled` field in the current context.
 
 #### `if/else`
 
@@ -355,7 +356,7 @@ Templates can iterate over arrays and maps using the `{{ range }}` keyword. For 
 {{- end }}
 ```
 
-would print the value of the `Name` field for each item in the `Items` array in the current context. Within config file templates `range` expressions are normally combined with [`matchPaths`](#matchpaths) calls to iterate over a subset of directories or files, for example: 
+would print the value of the `Name` field for each item in the `Items` array in the current context. Within config file templates `range` expressions are normally combined with [`matchPaths`](#matchpaths) calls to iterate over a subset of directories or files, for example:
 
 ```gotemplate
 {{- range $project := matchPaths "environment/:env/terraform.tfvars" }}
@@ -389,64 +390,35 @@ Config file templates support a wide range of built-in functions to make it easy
 
 #### Filepath functions
 
-Config file templates include [`matchPaths`](#matchpaths), [`pathExists`](#pathexists), [`base`](#base), [`ext`](#ext) and [`stem`](#stem) functions to help you traverse your project structure.
+Config file templates include [`matchPaths`](#matchpaths), [`pathExists`](#pathexists), [`isDir`](#isdir), [`relPath`](#relPath), [`base`](#base), [`ext`](#ext) and [`stem`](#stem) functions to help you traverse your project structure.
 
 #### `matchPaths`
 
 Returns a list of matches that in the project directory tree that match the pattern.
 
-- Arguments:
+##### Arguments:
 
-  | name    | description                                                                                                                   | example                                                                                      |
-|---------|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| pattern | a path pattern to one or more files or directories in your project. Keys that you wish to extract must be prefixed with `':'` | `"environment/:env/terraform.tfvars"`, `"infra/:env/:app"`, `"environment/:app/:env.tfvars"`, `":optional-parent?/:optional-child?/main.tf"` |
+  | name    | description                                                                                                                   | example                                                                                                                                      |
+  | ------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+  | pattern | a path pattern to one or more files or directories in your project. Keys that you wish to extract must be prefixed with `':'` | `"environment/:env/terraform.tfvars"`, `"infra/:env/:app"`, `"environment/:app/:env.tfvars"`, `":optional-parent?/:optional-child?/main.tf"` |
 
-- Returns:
+##### Returns:
 
-  A collection of matches in the current project. Results are returned with a map of extracted keys from the pattern. In addition, each result has two additional properties:
+A collection of matches in the current project. Results are returned with a map of extracted keys from the pattern. In addition, each result has two additional properties:
 
-    * `_path` - the full path of that the pattern matched on
-    * `_dir`  - the base directory that the pattern matched on
+  * `_path` - the full path of that the pattern matched on
+  * `_dir`  - the base directory that the pattern matched on
 
-- Example:
+##### Example:
 
   <Tabs
-defaultValue="tree"
+defaultValue="template"
 values={[
+{label: 'Template usage', value: 'template'},
 {label: 'Directory tree', value: 'tree'},
-{label: 'Pattern', value: 'pattern'},
-{label: 'Result', value: 'result'},
-{label: 'Template usage', value: 'usage'},
+{label: 'Output', value: 'output'},
 ]}>
-  <TabItem value="tree">
-
-  ```shell
-  ├── environment
-  │     ├── dev
-  │     │   └── terraform.tfvars
-  │     └── prod
-  │         └── terraform.tfvars
-  ├── infracost.yml.tmpl
-  └── main.tf
-  ```
-
-  </TabItem>
-  <TabItem value="pattern">
-
-  ```shell
-  "environment/:env/terraform.tfvars"
-  ```
-
-  </TabItem>
-  <TabItem value="result">
-
-  ```
-    - { _path: environment/dev/terraform.tfvars, _dir: environment/dev, env: dev }
-    - { _path: environment/prod/terraform.tfvars, _dir: environment/prod, env: prod }
-  ```
-
-  </TabItem>
-  <TabItem value="usage">
+  <TabItem value="template">
 
   Using the `range` expression to iterate over the results like so:
 
@@ -461,8 +433,20 @@ values={[
         - {{ $project._path }}
   {{- end }}
   ```
+  </TabItem>
+  <TabItem value="tree">
 
-  Would produce an output:
+  ```shell
+  ├── environment
+  │     ├── dev
+  │     │   └── terraform.tfvars
+  │     └── prod
+  │         └── terraform.tfvars
+  ├── infracost.yml.tmpl
+  └── main.tf
+  ```
+  </TabItem>
+  <TabItem value="output">
 
   ```yaml
   version: 0.1
@@ -472,70 +456,198 @@ values={[
       name: dev
       terraform_var_files:
         - environment/dev/terraform.tfvars
-    ...
+    - path: .
+      name: prod
+      terraform_var_files:
+        - environment/prod/terraform.tfvars
   ```
   </TabItem>
 </Tabs>
 
+---
+
 #### `pathExists`
 
-Checks whether path is a subpath within base.
+Returns true if the path exists within base.
 
-- Arguments:
+##### Arguments
 
   | name | description                                                                                                       | example                           |
-|------|-------------------------------------------------------------------------------------------------------------------|-----------------------------------|
-| base | The directory to search for the given file or directory. Use `"."` to start from the project root.                | ".", "some/dir"                    |
-| path | The path of the file or directory to search for. This must be relative to the base path provided at argument one. | "dir/to/find", "file/to/find.txt" |
+  | ---- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+  | base | The directory to search for the given file or directory. Use `"."` to start from the project root.                | ".", "some/dir"                   |
+  | path | The path of the file or directory to search for. This must be relative to the base path provided at argument one. | "dir/to/find", "file/to/find.txt" |
 
-- Returns:
-  - True if the path exists within base.
-
-- Example:
+##### Example
 
   <Tabs
-defaultValue="tree"
+defaultValue="template"
 values={[
-{label: 'Directory tree', value: 'tree'},
 {label: 'Template', value: 'template'},
+{label: 'Directory tree', value: 'tree'},
 {label: 'Output', value: 'output'},
 ]}>
-<TabItem value="tree">
+  <TabItem value="template">
+
+  ```gotemplate
+  version: 0.1
+
+  projects:
+  {{- range $project := matchPaths "environment/:env/terraform.tfvars" }}
+    {{- if pathExists $project._dir "include.txt" }}
+    - path: .
+      name: {{ $project.env }}
+    {{- end }}
+  {{- end }}
+  ```
+  </TabItem>
+  <TabItem value="tree">
 
   ```shell
   ├── environment
   │     ├── dev
-  │     |   ├── include.txt
+  │     │   ├── include.txt
   │     │   └── terraform.tfvars
   │     └── prod
   │         └── terraform.tfvars
   ├── infracost.yml.tmpl
   └── main.tf
   ```
-
-  </TabItem>
-  <TabItem value="template">
-
-    version: 0.1
-
-    projects:
-    {{- range $project := matchPaths "environment/:env/terraform.tfvars" }}
-      {{- if pathExists $project._dir "include.txt" }}
-      - path: .
-        name: {{ $project.env }}
-      {{- end }}
-    {{- end }}
-
   </TabItem>
   <TabItem value="output">
 
-    version: 0.1
-    projects:
-      - path: .
-        name: dev
-
+  ```yml
+  version: 0.1
+  projects:
+    - path: .
+      name: dev
+  ```
   </TabItem>
 </Tabs>
+
+---
+
+#### `isDir`
+
+Returns true if the path is a directory.
+
+##### Arguments
+
+  | name | description       | example         |
+  | ---- | ----------------- | --------------- |
+  | path | The path to check | ".", "some/dir" |
+
+##### Example
+  <Tabs
+defaultValue="template"
+values={[
+{label: 'Template', value: 'template'},
+{label: 'Directory tree', value: 'tree'},
+{label: 'Output', value: 'output'},
+]}>
+  <TabItem value="template">
+
+  ```gotemplate
+  version: 0.1
+
+  projects:
+  {{- range $project := matchPaths "environment/:env" }}
+    {{- if isDir $project._path }}
+    - path: $project._path
+      name: {{ $project.env }}
+    {{- end }}
+  {{- end }}
+  ```
+  </TabItem>
+  <TabItem value="tree">
+
+  ```shell
+  ├── environment
+  │     ├── dev
+  │     │   └── main.tf
+  │     └── prod
+  │     │   └── main.tf
+  │     └── config.yml
+  └── infracost.yml.tmpl
+  ```
+  </TabItem>
+  <TabItem value="output">
+
+  ```yml
+  version: 0.1
+  projects:
+    - path: environment/dev
+      name: dev
+    - path: environment/prod
+      name: prod
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+#### `relPath`
+
+Returns the relative path of the target path from the given base path.
+
+This is useful for providing the correct relative path for shared variable files that exist outside of the project path.
+
+##### Arguments
+
+  | name   | description                                                        | example         |
+  | ------ | ------------------------------------------------------------------ | --------------- |
+  | base   | The base path that the resulting relative path is computed against | ".", "some/dir" |
+  | target | The target path, relative to the repo root directory               | "global.tfvars" |
+
+##### Example
+  <Tabs
+defaultValue="template"
+values={[
+{label: 'Template', value: 'template'},
+{label: 'Directory tree', value: 'tree'},
+{label: 'Output', value: 'output'},
+]}>
+  <TabItem value="template">
+
+  ```gotemplate
+  version: 0.1
+
+  projects:
+  {{- range $project := matchPaths "environment/:env" }}
+    - path: $project._path
+      name: {{ $project.env }}
+      terraform_var_files:
+        {{ relPath $project.path "global.tfvars" }}
+  {{- end }}
+  ```
+  </TabItem>
+  <TabItem value="tree">
+
+  ```shell
+  ├── environment
+  │     ├── dev
+  │     │   └── main.tf
+  │     └── prod
+  │         └── main.tf
+  └── global.tfvars
+  ```
+  </TabItem>
+  <TabItem value="output">
+
+  ```yml
+  version: 0.1
+  projects:
+    - path: environment/dev
+      name: dev
+      terraform_var_files:
+        - ../../global.tfvars
+    - path: environment/prod
+      name: prod
+        - ../../global.tfvars
+  ```
+  </TabItem>
+</Tabs>
+
+---
 
 #### `base`
 
@@ -543,38 +655,52 @@ Returns the last element of path, for example:
 - `base "full/path/here.txt"` returns `here.txt`
 - `base "full/path"` returns `path`
 
+---
+
 #### `ext`
 
 Returns the file name extension used by path, for example:
 - `ext "full/path/here.txt"` returns `.txt`
+
+---
 
 #### `stem`
 
 Returns the last element of path with the extension removed, for example:
 - `stem "full/path/here.txt"` returns `here`
 
+---
+
 ### Control flow functions
 
 Config file templates support control flow functions including [`eq`](#eq), [`ne`](#eq) and [`not`](#not). Templates can also use the control flow functions `lt`, `le`, `gt`, `ge`, `and` and `or` from the base text/template library. The documentation for these additional functions can be [found here](https://pkg.go.dev/text/template#hdr-Functions).
+
 
 #### `eq`
 
 Returns the boolean truth of arg1 == arg2, for example:
 - `eq $project.arg1 $project.arg2`
 
+---
+
 #### `ne`
 
 Returns the boolean truth of arg1 != arg2, for example:
 - `ne $project.arg1 $project.arg2`
+
+---
 
 #### `not`
 
 Returns the boolean negation of its single argument, for example:
 - `not (pathExists "path")`
 
+---
+
 ### String Functions
 
 Config file templates support for the following string manipulation functions [`startsWith`](#startswith), [`endsWith`](#endswith) and [`contains`](#contains). Templates can also use the string functions `print`, `printf` and `println` from the base text/template library. The documentation for these additional functions can be [found here](https://pkg.go.dev/text/template#hdr-Functions).
+
 
 #### `startsWith`
 
@@ -582,14 +708,20 @@ Tests whether the string begins with prefix, for example:
 - `startsWith "mystring" "my"` returns true
 - `startsWith "mystring" "foo"` returns false
 
+---
+
 #### `endsWith`
 
 Tests whether the string ends with suffix, for example:
 - `endsWith "mystring" "string"` returns true
 - `endsWith "mystring" "foo"` returns false
 
+---
+
 #### `contains`
 
 Reports whether the substring is within the subject, for example:
 - `contains "mystringbar" "string"` returns true
 - `endsWith "mystringbar" "foo"` returns false
+
+---
