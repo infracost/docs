@@ -73,3 +73,7 @@ Email us at [hello@infracost.io](mailto:hello@infracost.io) if you have custom n
 The GitLab App needs access to code repos so it can run the CLI against them, and post merge request comments with the cost estimate. Therefore the bot/user that is installing the GitLab App should have "Maintainer" access to repos; "Developer" and lower does not work as those roles are not authorized to create repo webhooks (that are used to notify Infracost Cloud about new merge requests).
 
 Each time a merge request is opened or a new commit is pushed to open merge requests, the Infracost GitLab App shows the cost difference between the most recent commit of the merge request branch, and the merge base of the base branch. The merge base is the latest common commit of the merge request base and target branch. This mirrors GitLab's merge request diff logic and shows only the cost of 'what a merge request introduces'.
+
+### Disable merge request comments
+
+From the Org Settings > Integrations > GitLab App page, you can disable merge request comments so cost estimates, guardrails and tagging policies are only shown in Infracost Cloud. This enables you to test these features without impacting engineering workflows.
