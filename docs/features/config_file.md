@@ -325,17 +325,19 @@ would execute conditional logic based on the value of the `Enabled` field in the
 
 #### `if/else`
 
-Conditional logic can be added to templates using the `{{ if }}`, `{{ else if }}`, and `{{ else }}` keywords. For example
+Conditional logic can be added to templates using the `{{ if }}`, `{{ else if }}`, and `{{ else }}` keywords. The logical operators `and` and `or` can also be used, for example
 
 ```gotemplate
-{{- if .Enabled }}
-  Enabled
+{{- if .testA  }}
+  testA is true
+{{- else if and .testB .testC }}
+  testB and testC is true
 {{- else }}
   Disabled
 {{- end }}
 ```
 
-would print `"Enabled"` if the `Enabled` field in the current context is true, and `"Disabled"` otherwise. This can be useful to conditionally include projects for Infracost to evaluate, for example:
+This can be useful to conditionally include projects for Infracost to evaluate, for example:
 
 ```gotemplate
 {{- if ne $project.name "test" }}
@@ -390,7 +392,7 @@ Config file templates support a wide range of built-in functions to make it easy
 
 #### Filepath functions
 
-Config file templates include [`matchPaths`](#matchpaths), [`pathExists`](#pathexists), [`isDir`](#isdir), [`relPath`](#relPath), [`base`](#base), [`ext`](#ext) and [`stem`](#stem) functions to help you traverse your project structure.
+Config file templates include [`matchPaths`](#matchpaths), [`pathExists`](#pathexists), [`isDir`](#isdir), [`relPath`](#relpath), [`base`](#base), [`ext`](#ext) and [`stem`](#stem) functions to help you traverse your project structure.
 
 #### `matchPaths`
 
