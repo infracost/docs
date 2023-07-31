@@ -20,7 +20,7 @@
 @media screen and (max-width: 1280px) {
   .finops-card {
     max-width: 100%;
-  } 
+  }
 }
 
 .finops-card--alternate > .finops-card__body {
@@ -33,7 +33,6 @@
   line-height: 2.4rem;
   margin: 1rem 0 0.5rem;
 }
-
 
 .finops-card ul {
   padding-left: 0;
@@ -68,7 +67,6 @@
   width: 100%;
   max-width: 700px;
   display: flex;
-
 }
 
 .finops-card__image-wrapper img {
@@ -76,15 +74,12 @@
   margin: 0 auto;
 }
 
-
 @media screen and (max-width: 1998px) {
-	.finops-card {
+  .finops-card {
     margin: 0;
     padding: 2rem;
   }
 }
-
-
 
 @media (max-width: 1440px) {
   .finops-card {
