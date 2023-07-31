@@ -11,30 +11,26 @@ const Finops = () => {
       className="button primary"
       onClick={() => setModalVisible(!modalVisible)}
     >
-      Request demo
+      Request live demo now
     </a>
   );
 
   return (
     <PageLayout
-      title="FinOps"
+      title="Proactive FinOps - Infracost"
       description="Cloud costs, loved by developers"
       pageClass="finops default-page-bg"
       hideCTA={true}
       noIndex={false}
     >
       <div className="container finops-cta">
-        <div className="finops-cta__wrapper">
-          <span className="finops-cta__text">Request live demo now</span>
-          {demoButton}
-        </div>
+        <div className="finops-cta__wrapper">{demoButton}</div>
       </div>
       <div className="container finops-wrapper">
         <FinopsAnimatedSection />
       </div>
       <div className="container finops-cta">
         <div className="finops-cta__wrapper finops-cta__wrapper--bottom">
-          <span className="finops-cta__text">Request live demo now</span>
           {demoButton}
         </div>
       </div>
