@@ -19,12 +19,12 @@ const Index = () => {
     >
       <ul>
         <LiWithCheck>
-          Be notified when an incoming change will break the budget
+          Never see an untagged or wrongly tagged resource again
         </LiWithCheck>
-        <LiWithCheck>Take action before money has been spent</LiWithCheck>
         <LiWithCheck>
-          Kick off approval workflows for budget increases
+          Block code changes till the right tagging policy is followed
         </LiWithCheck>
+        <LiWithCheck>Track conformity of resources over time</LiWithCheck>
       </ul>
     </FinopsItem>,
     <FinopsItem
