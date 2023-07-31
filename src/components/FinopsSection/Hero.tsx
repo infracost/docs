@@ -5,7 +5,7 @@ import ScrollPrompt from "./ScrollPrompt";
 const Hero = () => {
   const sections: ReactElement[] = [
     <>
-      <h2 className="finops-hero-item">Shift Cloud cost left</h2>
+      <h2 className="finops-hero-item">Shift cloud cost left</h2>
       <h2 className="finops-hero-item finops-hero-item__plus">+</h2>
     </>,
     <>
@@ -19,7 +19,7 @@ const Hero = () => {
     <>
       <h2 className="finops-hero-item">
         <span className="finops-hero-item finops-hero-item__highlight">
-          Proactive finops
+          Proactive FinOps
         </span>
       </h2>
     </>,
