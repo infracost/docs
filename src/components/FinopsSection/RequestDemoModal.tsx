@@ -37,7 +37,7 @@ const RequestDemoModal = ({ setModalVisible }) => {
         </p>
         <div className="finops-request-demo__modal-close">
           <button
-            className="button primary"
+            className="button primary flat"
             onClick={() => setModalVisible(false)}
           >
             Close
