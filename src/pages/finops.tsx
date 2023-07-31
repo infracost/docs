@@ -26,7 +26,7 @@ const Finops = () => {
       <div className="container finops-cta">
         <div className="finops-cta__wrapper">{demoButton}</div>
       </div>
-      <div className="container finops-wrapper">
+      <div className="finops-wrapper">
         <FinopsSection />
       </div>
       <div className="container finops-cta">
