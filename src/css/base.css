@@ -49,6 +49,10 @@
   --linkedin-blue: #0072b1;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--page-background-color);
   color: var(--text-color);
