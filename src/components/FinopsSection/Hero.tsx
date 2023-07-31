@@ -14,11 +14,7 @@ const Hero = () => {
     </>,
     <>
       <h2 className="finops-hero-item">Before resources are launched</h2>
-      <img
-        src="/img/finops/arrow-down.svg"
-        alt="Arrow down"
-        className="finops-hero-item finops-hero-item__arrow"
-      />
+      <h2 className="finops-hero-item finops-hero-item__plus">=</h2>
     </>,
     <>
       <h2 className="finops-hero-item">
