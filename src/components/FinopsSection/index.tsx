@@ -83,7 +83,7 @@ const Index = () => {
   ];
 
   return (
-    <>
+    <div className="finops-parallax container">
       <div id="finops-parallax">
         <Parallax ref={parallax} pages={3}>
           {/* main background */}
@@ -122,7 +122,7 @@ const Index = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

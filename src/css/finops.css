@@ -12,6 +12,10 @@
 	position: relative;
 }
 
+.finops-parallax.container {
+	margin: 0;
+}
+
 /* CTA */
 .finops-cta {
 	backdrop-filter: blur(10px);
