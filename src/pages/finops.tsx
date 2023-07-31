@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PageLayout from "../components/PageLayout";
-import FinopsAnimatedSection from "../components/FinopsSection";
+import FinopsSection from "../components/FinopsSection";
 import RequestDemoModal from "../components/FinopsSection/RequestDemoModal";
 
 const Finops = () => {
@@ -27,7 +27,7 @@ const Finops = () => {
         <div className="finops-cta__wrapper">{demoButton}</div>
       </div>
       <div className="container finops-wrapper">
-        <FinopsAnimatedSection />
+        <FinopsSection />
       </div>
       <div className="container finops-cta">
         <div className="finops-cta__wrapper finops-cta__wrapper--bottom">
