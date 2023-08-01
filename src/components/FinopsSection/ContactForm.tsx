@@ -15,6 +15,7 @@ const ContactForm: React.FC = () => {
   });
 
   const { siteConfig } = useDocusaurusContext();
+  const [showError, setShowError] = useState(false);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -63,6 +64,7 @@ const ContactForm: React.FC = () => {
       );
 
       if (!response.ok) {
+        setShowError(true);
         throw new Error("Failed to submit the form. Please try again later.");
       }
 
@@ -72,7 +74,7 @@ const ContactForm: React.FC = () => {
       setFormData({ name: "", email: "", companyName: "" });
     } catch (error) {
       console.error("Error while submitting the form:", error.message);
-      alert(error.message);
+      setShowError(true);
     }
   };
 
@@ -85,6 +87,13 @@ const ContactForm: React.FC = () => {
   return (
     <div className="container finops-form__wrapper">
       <h3 className="finops-form__title">Request a live demo now</h3>
+      {showError && (
+        <div>
+          <p className="finops-form__error">
+            Failed to submit the form. Please try again later.
+          </p>
+        </div>
+      )}
       <form onSubmit={handleSubmit} style={{ width: "100%" }} id="finops-form">
         <div className="finops-form__section">
           <label htmlFor="name">Name</label>

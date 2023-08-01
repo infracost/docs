@@ -160,6 +160,13 @@
 	justify-content: flex-end;
 }
 
+.finops-form__error {
+	background: #FBE9E9;
+	color: #841715;
+	padding: 1rem;
+	border-radius: 8px;
+}
+
 /* Optimizations */
 
 #finops-mobile {
