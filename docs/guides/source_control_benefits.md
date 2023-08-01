@@ -17,7 +17,7 @@ Source control integrations ([GitHub App](/docs/integrations/github_app/) or [Gi
 
 ### 1. Required CLI version
 
-Currently, version 0.10.26+ of the Infracost CLI is needed for the Infracost Cloud features to work correctly.
+Currently, version 0.10.27+ of the Infracost CLI is needed for the Infracost Cloud features to work correctly.
 
 ### 2. Guardrails
 
