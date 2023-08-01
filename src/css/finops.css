@@ -110,6 +110,18 @@
 	padding: 0 4rem;
 }
 
+@media screen and (max-width: 1236px) {
+  .finops-form__wrapper {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .finops-form__wrapper {
+    padding: 1rem;
+  }
+}
+
 .finops-form__title {
 	font-size: 2rem;
 	font-weight: bold;
