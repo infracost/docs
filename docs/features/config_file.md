@@ -392,7 +392,19 @@ Config file templates support a wide range of built-in functions to make it easy
 
 #### Filepath functions
 
-Config file templates include [`matchPaths`](#matchpaths), [`pathExists`](#pathexists), [`isDir`](#isdir), [`readfile`](#readFile), [`parseYaml`](#parseYaml), [`parseJson`](#parseJSON), [`relPath`](#relpath), [`base`](#base), [`ext`](#ext) and [`stem`](#stem) functions to help you traverse your project structure.
+Config file templates include the following functions to help you traverse your project structure:
+- [`matchPaths`](#matchpaths)
+- [`pathExists`](#pathexists)
+- [`isDir`](#isdir)
+- [`readFile`](#readfile)
+- [`parseYaml`](#parseyaml)
+- [`parseJson`](#parsejson)
+- [`relPath`](#relpath)
+- [`base`](#base)
+- [`ext`](#ext)
+- [`stem`](#stem)
+
+---
 
 #### `matchPaths`
 
@@ -589,13 +601,15 @@ values={[
 
 #### `readFile`
 
-Reads the file at the given directory, this can then be printed into the template or passed one of the `parseYaml` or `parseJson` functions to allow for data manipulation.
+Reads the file at the given directory, this can then be printed into the template or passed to one of the [`parseYaml`](#parseyaml) or [`parseJson`](#parsejson) functions to allow for data manipulation.
 
 ##### Arguments
 
 | name | description                                                       | example            |
 |------|-------------------------------------------------------------------|--------------------|
 | path | The path of the file relative to the location of the config file. | `"some/file.json"` |
+
+---
 
 #### `parseYaml`
 
@@ -653,7 +667,6 @@ values={[
 </Tabs>
 
 ---
-
 
 #### `parseJson`
 
