@@ -16,6 +16,7 @@ const ContactForm: React.FC = () => {
 
   const { siteConfig } = useDocusaurusContext();
   const [showError, setShowError] = useState(false);
+  const [showSuccess, setShowShowSuccess] = useState(false);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -68,10 +69,9 @@ const ContactForm: React.FC = () => {
         throw new Error("Failed to submit the form. Please try again later.");
       }
 
-      // Handle the API response here, if needed
-      console.log("Form submitted successfully!");
       // Clear the form after submission (optional)
       setFormData({ name: "", email: "", companyName: "" });
+      setShowShowSuccess(true);
     } catch (error) {
       console.error("Error while submitting the form:", error.message);
       setShowError(true);
@@ -88,52 +88,64 @@ const ContactForm: React.FC = () => {
     <div className="container finops-form__wrapper">
       <h3 className="finops-form__title">Request a live demo now</h3>
       {showError && (
-        <div>
-          <p className="finops-form__error">
-            Failed to submit the form. Please try again later.
-          </p>
+        <div className="finops-form__error">
+          <p>Failed to submit the form. Please try again later.</p>
         </div>
       )}
-      <form onSubmit={handleSubmit} style={{ width: "100%" }} id="finops-form">
-        <div className="finops-form__section">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+      {showSuccess ? (
+        <div className="finops-form__success">
+          <h3>Thank you</h3>
+          <p>
+            Your request has been received. We will get in touch with you as
+            soon as possible.
+          </p>
         </div>
-        <div className="finops-form__section">
-          <label htmlFor="email">Email address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="finops-form__section">
-          <label htmlFor="companyName">Company name</label>
-          <input
-            type="text"
-            id="companyName"
-            name="companyName"
-            value={formData.companyName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="finops-form__footer">
-          <button type="submit" className="button primary">
-            Request live demo
-          </button>
-        </div>
-      </form>
+      ) : (
+        <form
+          onSubmit={handleSubmit}
+          style={{ width: "100%" }}
+          id="finops-form"
+        >
+          <div className="finops-form__section">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="finops-form__section">
+            <label htmlFor="email">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="finops-form__section">
+            <label htmlFor="companyName">Company name</label>
+            <input
+              type="text"
+              id="companyName"
+              name="companyName"
+              value={formData.companyName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="finops-form__footer">
+            <button type="submit" className="button primary">
+              Request live demo
+            </button>
+          </div>
+        </form>
+      )}
     </div>
   );
 };

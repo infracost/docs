@@ -160,11 +160,28 @@
 	justify-content: flex-end;
 }
 
+.finops-form__success p,
+.finops-form__success h3 {
+	color: #306936;
+	margin-bottom: .5rem;
+}
+
+.finops-form__success {
+	background: #cee9d1;
+	padding: 2rem;
+	border-radius: 8px;
+}
+
 .finops-form__error {
 	background: #FBE9E9;
 	color: #841715;
-	padding: 1rem;
+	padding: 2rem;
 	border-radius: 8px;
+	margin-bottom: 2rem;
+}
+
+.finops-form__error p {
+	margin:0;
 }
 
 /* Optimizations */
