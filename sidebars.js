@@ -39,18 +39,7 @@ module.exports = {
         'infracost_cloud/custom_price_books',
         'infracost_cloud/actual_costs',
         'infracost_cloud/readme_badge',
-        {
-          type: 'category',
-          label: 'SSO integrations',
-          collapsed: true,
-          items: [
-            'infracost_cloud/sso/overview',
-            'infracost_cloud/sso/azure_active_directory',
-            'infracost_cloud/sso/okta',
-            'infracost_cloud/sso/google_workspace',
-            'infracost_cloud/sso/other_saml',
-          ]
-        },
+        'infracost_cloud/sso',
       ],
     },
     {
