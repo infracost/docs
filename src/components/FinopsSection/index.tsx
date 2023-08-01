@@ -4,7 +4,7 @@ import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Hero from "./Hero";
 import FinopsItem from "./FinopsItem/FinopsItem";
 import LiWithCheck from "../LiWithCheck";
-import DemoForm from "./DemoFrom";
+import ContactForm from "./ContactForm";
 
 const url = (name: string, wrap = false) =>
   `${wrap ? "url(" : ""}/img/finops/${name}${wrap ? ")" : ""}`;
@@ -73,7 +73,7 @@ const Index = () => {
         <LiWithCheck>Build your own best practices to be monitored</LiWithCheck>
       </ul>
     </FinopsItem>,
-    <DemoForm />,
+    <ContactForm />,
   ];
 
   const params = [
@@ -82,7 +82,7 @@ const Index = () => {
     { offset: 1.2, speed: 0.2 },
     { offset: 1.8, speed: 0.3 },
     { offset: 2.1, speed: 0.4 },
-    { offset: 2.5, speed: 0.3 },
+    { offset: 2.6, speed: 0.3 },
   ];
 
   const handleDemoButtonClick = () => {
@@ -104,8 +104,7 @@ const Index = () => {
       </div>
       <div className="finops-parallax container">
         <div id="finops-parallax">
-          <Parallax ref={parallax} pages={3.3}>
-            {/* main background */}
+          <Parallax ref={parallax} pages={3.5}>
             <ParallaxLayer
               offset={0}
               speed={0}
