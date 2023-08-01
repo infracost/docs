@@ -106,6 +106,10 @@ module.exports = {
             from: '/docs/infracost_cloud/authentication',
             to: '/docs/infracost_cloud/key_concepts',
           },
+          {
+            from: '/docs/infracost_cloud/sso/overview',
+            to: '/docs/infracost_cloud/sso',
+          },
         ],
       },
     ],
