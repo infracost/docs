@@ -71,6 +71,8 @@ const ContactForm: React.FC = () => {
       // Clear the form after submission (optional)
       setFormData({ name: "", email: "", companyName: "" });
       setShowShowSuccess(true);
+      // Clear the error message (if any)
+      setShowError(false);
     } catch (error) {
       console.error("Error while submitting the form:", error.message);
       setShowError(true);
