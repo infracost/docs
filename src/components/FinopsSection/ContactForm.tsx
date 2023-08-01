@@ -1,3 +1,4 @@
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import React, { useState } from "react";
 
 interface FormData {
@@ -12,6 +13,8 @@ const ContactForm: React.FC = () => {
     email: "",
     companyName: "",
   });
+
+  const { siteConfig } = useDocusaurusContext();
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,7 +31,7 @@ const ContactForm: React.FC = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     // Check if any field is empty
@@ -39,10 +42,38 @@ const ContactForm: React.FC = () => {
       }
     }
 
-    // You can handle the form submission logic here, e.g., send the data to a server.
-    console.log(formData);
-    // Clear the form after submission (optional)
-    setFormData({ name: "", email: "", companyName: "" });
+    // Prepare the form data as URL parameters
+    const params = new URLSearchParams();
+    for (const key in formData) {
+      params.append(key, formData[key as keyof FormData]);
+    }
+
+    try {
+      // Make the API call with the URL parameters
+      const response = await fetch(
+        `${
+          siteConfig.customFields?.infracostDashboardEndpoint
+        }/contactForm/submit?${params.toString()}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to submit the form. Please try again later.");
+      }
+
+      // Handle the API response here, if needed
+      console.log("Form submitted successfully!");
+      // Clear the form after submission (optional)
+      setFormData({ name: "", email: "", companyName: "" });
+    } catch (error) {
+      console.error("Error while submitting the form:", error.message);
+      alert(error.message);
+    }
   };
 
   const isValidEmail = (email: string): boolean => {
