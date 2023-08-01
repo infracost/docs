@@ -139,6 +139,10 @@
 	margin-bottom: .5rem;
 }
 
+.finops-form__section input::placeholder {
+ 	color: #696986;
+}
+
 .finops-form__section input {
 	padding: 1rem;
 	background: var(--input-bg);
