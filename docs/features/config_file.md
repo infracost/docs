@@ -392,7 +392,7 @@ Config file templates support a wide range of built-in functions to make it easy
 
 #### Filepath functions
 
-Config file templates include [`matchPaths`](#matchpaths), [`pathExists`](#pathexists), [`isDir`](#isdir), [`relPath`](#relpath), [`base`](#base), [`ext`](#ext) and [`stem`](#stem) functions to help you traverse your project structure.
+Config file templates include [`matchPaths`](#matchpaths), [`pathExists`](#pathexists), [`isDir`](#isdir), [`readfile`](#readFile), [`parseYaml`](#parseYaml), [`parseJson`](#parseJSON), [`relPath`](#relpath), [`base`](#base), [`ext`](#ext) and [`stem`](#stem) functions to help you traverse your project structure.
 
 #### `matchPaths`
 
@@ -587,6 +587,131 @@ values={[
 
 ---
 
+#### `readFile`
+
+Reads the file at the given directory, this can then be printed into the template or passed one of the `parseYaml` or `parseJson` functions to allow for data manipulation.
+
+##### Arguments
+
+| name | description                                                       | example            |
+|------|-------------------------------------------------------------------|--------------------|
+| path | The path of the file relative to the location of the config file. | `"some/file.json"` |
+
+#### `parseYaml`
+
+Decode the contents of a string as a YAML structure.
+
+##### Arguments
+
+| name     | description                                                                                           | example                       |
+|----------|-------------------------------------------------------------------------------------------------------|-------------------------------|
+| contents | The YAML string to decode, this is normally obtained by loading a file using the `readFile` function. | `(readFile "some/file.yaml")` |
+
+##### Example
+<Tabs
+defaultValue="template"
+values={[
+{label: 'Template', value: 'template'},
+{label: 'Directory tree', value: 'tree'},
+{label: 'Output', value: 'output'},
+]}>
+<TabItem value="template">
+
+  ```gotemplate
+  version: 0.1
+  {{- $yaml := parseYaml (readFile "config/env.yaml") }}
+  projects:
+    - path: infra
+      name: my-infra
+      env:
+      {{- range $key, $value := $yaml.envs }}
+        {{ $key }}: {{ $value }}
+      {{- end }}
+  ```
+  </TabItem>
+  <TabItem value="tree">
+
+  ```shell
+  ├── config
+  │   └── env.yaml
+  └── infra
+      └── main.tf
+  ```
+  </TabItem>
+  <TabItem value="output">
+
+  ```yml
+  version: 0.1
+  projects:
+    - path: infra
+      name: my-infra
+      env:
+        foo: bar
+        baz: bat
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+
+#### `parseJson`
+
+Decode the contents of a string as a JSON object.
+
+##### Arguments
+
+| name     | description                                                                                           | example                       |
+|----------|-------------------------------------------------------------------------------------------------------|-------------------------------|
+| contents | The JSON string to decode, this is normally obtained by loading a file using the `readFile` function. | `(readFile "some/file.json")` |
+
+##### Example
+<Tabs
+defaultValue="template"
+values={[
+{label: 'Template', value: 'template'},
+{label: 'Directory tree', value: 'tree'},
+{label: 'Output', value: 'output'},
+]}>
+<TabItem value="template">
+
+  ```gotemplate
+  version: 0.1
+  {{- $json := parseJson (readFile "config/env.json") }}
+  projects:
+    - path: infra 
+      name: my-infra
+      env:
+      {{- range $key, $value := $json.envs }}
+        {{ $key }}: {{ $value }}
+      {{- end }}
+  ```
+  </TabItem>
+  <TabItem value="tree">
+
+  ```shell
+  ├── config
+  │   └── env.json
+  └── infra
+      └── main.tf
+  ```
+  </TabItem>
+  <TabItem value="output">
+
+  ```yml
+  version: 0.1
+  projects:
+    - path: infra
+      name: my-infra
+      env:
+        foo: bar
+        baz: bat
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
 #### `relPath`
 
 Returns the relative path of the target path from the given base path.
@@ -595,10 +720,10 @@ This is useful for providing the correct relative path for shared variable files
 
 ##### Arguments
 
-  | name   | description                                                        | example         |
-  | ------ | ------------------------------------------------------------------ | --------------- |
-  | base   | The base path that the resulting relative path is computed against | `"."`, `"some/dir"` |
-  | target | The target path, relative to the repo root directory               | `"global.tfvars"` |
+| name   | description                                                        | example             |
+|--------|--------------------------------------------------------------------|---------------------|
+| base   | The base path that the resulting relative path is computed against | `"."`, `"some/dir"` |
+| target | The target path, relative to the repo root directory               | `"global.tfvars"`   |
 
 ##### Example
   <Tabs
