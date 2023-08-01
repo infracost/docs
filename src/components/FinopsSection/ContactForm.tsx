@@ -53,13 +53,12 @@ const ContactForm: React.FC = () => {
     try {
       // Make the API call with the URL parameters
       const response = await fetch(
-        `${
-          siteConfig.customFields?.infracostDashboardEndpoint
-        }/contactForm/submit?${params.toString()}`,
+        `${siteConfig.customFields?.infracostDashboardApiEndpoint}/finops/contact/`,
         {
           method: "POST",
+          body: JSON.stringify(formData),
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json",
           },
         }
       );
