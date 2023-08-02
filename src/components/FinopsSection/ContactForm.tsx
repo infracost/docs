@@ -57,6 +57,7 @@ const ContactForm: React.FC = () => {
           method: "POST",
           body: JSON.stringify(formData),
           headers: {
+            "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
             "x-infracost-docs-token": `${siteConfig.customFields?.infracostDocsApiToken}`,
           },
