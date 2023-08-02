@@ -75,7 +75,7 @@ If you do not use source control integrations ([GitHub App](/docs/integrations/g
 
 ## How tagging policies work
 
-Tagging policies check all AWS, Azure and Google Terraform resources that support tagging, including resources that Infracost does not show cost estimates for yet. The following list describes are things that are checked by tagging policies:
+Tagging policies check all AWS, Azure and Google Terraform resources that support tagging, including resources that Infracost does not show cost estimates for yet. The following list describes things that are checked by tagging policies:
 - Default tags that are applied as part of Terraform `provider` blocks are also checked.
 - For Google Cloud resources, label keys and values are checked.
 
