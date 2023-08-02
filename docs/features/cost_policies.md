@@ -8,12 +8,14 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::tip
-We recommend using the new [Centralized cost policies](/docs/infracost_cloud/cost_policies) feature instead.
+This open source feature requires you to write code using Open Policy Agent's Rego language, and change your CI/CD pipelines to evaluate policies.
+
+If you prefer an easier solution and a web user interface to setup policies, we recommend using the [Tagging policies](/docs/infracost_cloud/tagging_policies), [Centralized cost policies](/docs/infracost_cloud/cost_policies) and [Guardrails](/docs/infracost_cloud/guardrails) features instead. These features also show you immediate policy coverage analytics across all of your code repos without you needing to change your CI/CD pipelines.
 :::
 
 Cost policies enable DevOps and FinOps teams to help engineers to take action around cloud costs. Policies are usually written by centralized teams so they can send advice or set guardrails for all engineering teams. Policies are checked in CI/CD and trigger when pre-defined conditions are hit.
 
-## Benefits
+## Use cases
 
 Infracost policies enable centralized teams, who are often helping others with cloud costs, to:
 - **Provide advice before** resources are launched: "Whilst you're changing this EC2 instances, consider changing its GP2 volume type to GP3 as it's cheaper and offers better performance".
@@ -22,15 +24,9 @@ Infracost policies enable centralized teams, who are often helping others with c
 
 Infracost is often used in addition to budget alerts and cost management reports to provide an addition layer of communication and protection in CI/CD. Engineers often find it distracting, and time-consuming to retro fix infrastructure after something has gone to production, thus it's better to help them earlier as part of their workflow.
 
-## Usage options
+## Usage
 
-Infracost supports [Open Policy Agent](#quick-start-open-policy-agent-opa) policies out of the box. If you're new to policy-as-code, we recommend this option as Infracost has native support for it. However, since the Infracost CLI can [output JSON](/docs/features/cli_commands/#examples), it can also be integrated with [HashiCorp Sentinel](#option-2-hashicorp-sentinel) and other policy checking tools such as [Conftest](https://github.com/open-policy-agent/conftest/).
-
-If you need help writing policy code, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
-
-## Option 1: Open Policy Agent (OPA)
-
-The [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) command has native support for OPA. By the end of this quick start guide, you'll be able to see passing/failing policies in Infracost pull request comments (shown below) without having to install anything else.
+The [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) command has native support for Open Policy Agent (OPA). By the end of this guide, you'll be able to see passing/failing policies in Infracost pull request comments (shown below).
 
 <Tabs
   defaultValue="failed-opa"
@@ -129,17 +125,9 @@ To help you write cost policies we've created an [OPA playground](https://play.o
 6. The above command does an `exit 1` if the policy checks fail. Thus you can block pull requests from being merged by configuring your source control system to deny merges if a CI/CD task fails.
 
 7. Breath easy... now your team's infrastructure changes are protected against costly mistakes 🚀
-  Contribute to [this GitHub issue](https://github.com/infracost/infracost/issues/1472) if you have feedback about the policy behaviors.
 
 ### Demo
 
 Here is an end to end demo of the Infracost and Open Policy Agent integration:
 
 <iframe width="90%" height="450" src="https://www.youtube.com/embed/jFv9Gi_Vfyo" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
-
-## Option 2: HashiCorp Sentinel
-
-Integrating Infracost with HashiCorp [Sentinel](https://www.hashicorp.com/sentinel) enables you to output the policy pass/fail results into CI/CD logs. We recommend you follow one of the following examples to get started:
-- [GitHub Actions](https://github.com/infracost/actions/tree/master/examples/sentinel)
-- [GitLab CI](https://gitlab.com/infracost/infracost-gitlab-ci/-/tree/master/examples/sentinel)
-- [Azure DevOps](https://github.com/infracost/infracost-azure-devops/tree/master/examples/sentinel)
