@@ -43,7 +43,7 @@ You can also set a custom message to be included in pull request comments to giv
 
 ### e. Pull requests to monitor
 
-Usually users monitor all pull requests for tagging policies. However, you can also set filters, e.g. only monitor pull requests in certain repositories so you can do gradual rollouts of your policy. Once your are done, save the tagging policy.
+Usually users monitor all pull requests for tagging policies. However, you can also set filters, e.g. only monitor pull requests in certain repositories so you can do gradual rollouts of your policy. Once you are done, save the tagging policy.
 
 <img src={useBaseUrl("img/infracost-cloud/tagging-policies/filters.png")} alt="Create a tagging policy using pull request filters." />
 
