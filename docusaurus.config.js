@@ -1,12 +1,7 @@
 const path = require('path');
 const remarkExternalLinks = require('remark-external-links');
 
-let infracostDashboardApiEndpoint = "http://localhost:4000";
-let infracostDashboardEndpoint = "https://dashboard.dev.infracost.io";
-if (process.env.NODE_ENV === "production") {
-  infracostDashboardApiEndpoint = "https://dashboard.api.infracost.io";
-  infracostDashboardEndpoint = "https://dashboard.infracost.io";
-}
+require('dotenv').config();
 
 module.exports = {
   title: "Infracost",
@@ -19,9 +14,9 @@ module.exports = {
   organizationName: "infracost",
   projectName: "docs",
   customFields: {
-    infracostDashboardApiEndpoint,
-    infracostDashboardEndpoint,
-    apiAuth: process.env.API_AUTH,
+    infracostDocsApiToken: process.env.INFRACOST_DOCS_API_TOKEN,
+    infracostDashboardApiEndpoint: process.env.INFRACOST_DASHBOARD_API_ENDPOINT,
+    infracostDashboardEndpoint: process.env.INFRACOST_DASHBOARD_ENDPOINT,
   },
   plugins: [
     [

@@ -11,6 +11,9 @@ npm install
 
 ### Local Development
 
+Create a file `.env` and set required environment variables. Use `.env.example`
+as an example.
+
 ```
 npm start
 ```
