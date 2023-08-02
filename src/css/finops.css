@@ -24,7 +24,7 @@
 .finops-cta__wrapper {
   display: flex;
   width: 100%;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 2rem;
   padding: 1rem 0.5rem;
   border-bottom: 1px solid var(--border-color);
