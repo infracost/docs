@@ -15,7 +15,7 @@ const ContactForm: React.FC = () => {
   });
 
   const { siteConfig } = useDocusaurusContext();
-  const [showError, setShowError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [showSuccess, setShowShowSuccess] = useState(false);
 
   const handleChange = (
@@ -51,31 +51,31 @@ const ContactForm: React.FC = () => {
     }
 
     try {
-      // Make the API call with the URL parameters
       const response = await fetch(
-        `${siteConfig.customFields?.infracostDashboardApiEndpoint}/finops/contact/`,
+        `${siteConfig.customFields?.infracostDashboardApiEndpoint}/docs/request-finops-demo/`,
         {
           method: "POST",
           body: JSON.stringify(formData),
           headers: {
             "Content-Type": "application/json",
+            "x-infracost-docs-token": `${siteConfig.customFields?.infracostDocsApiToken}`,
           },
         }
       );
 
       if (!response.ok) {
-        setShowError(true);
-        throw new Error("Failed to submit the form. Please try again later.");
+        const msg = await response.json();
+        setError(`Failed to submit the form: ${msg.error}`);
+        return;
       }
 
       // Clear the form after submission (optional)
       setFormData({ name: "", email: "", companyName: "" });
       setShowShowSuccess(true);
       // Clear the error message (if any)
-      setShowError(false);
+      setError(null);
     } catch (error) {
-      console.error("Error while submitting the form:", error.message);
-      setShowError(true);
+      setError("Failed to submit the form. Please try again later.");
     }
   };
 
@@ -88,9 +88,9 @@ const ContactForm: React.FC = () => {
   return (
     <div className="container finops-form__wrapper">
       <h3 className="finops-form__title">Request a live demo now</h3>
-      {showError && (
+      {error && (
         <div className="finops-form__error">
-          <p>Failed to submit the form. Please try again later.</p>
+          <p>{error}</p>
         </div>
       )}
       {showSuccess ? (
