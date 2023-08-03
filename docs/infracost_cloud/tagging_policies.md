@@ -78,10 +78,10 @@ If you do not use source control integrations ([GitHub App](/docs/integrations/g
 Tagging policies check all AWS, Azure and Google Terraform resources that support tagging, including resources that Infracost does not show cost estimates for yet. The following list describes things that are checked by tagging policies:
 - Default tags that are applied as part of Terraform `provider` blocks are also checked.
 - For Google Cloud resources, label keys and values are checked.
+- For `aws_autoscaling_group` and `aws_autoscaling_group_tag`, if the `propagate_at_launch` attribute is not set to true, the resource fails tagging policies as resources launched from those Auto Scaling groups will not get the required tags.
 
 <!--
 TODO: Add these after v0.10.27 is released
-- For `aws_autoscaling_group` and `aws_autoscaling_group_tag`, if the `propagate_at_launch` attribute is not set to true, the resource fails tagging policies as resources launched from those Auto Scaling groups will not get the required tags.
 - For `aws_instance`, the `volume_tags` attribute is also checked.
 - For `aws_launch_template`, the `tag_specifications` attribute is also checked.
 -->

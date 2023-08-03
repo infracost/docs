@@ -104,6 +104,7 @@ The key can be retrieved with `infracost configure get api_key`.
 ---
 
 ### 3. Show cost estimate breakdown
+
 Infracost parses the project locally to determine resource types and quantities needed to calculate costs. The `--path` flag should point to your Terraform directory.
 
 ```shell
@@ -161,7 +162,7 @@ Example output:
 <ol type="i">
   <li>The following command instructs the CLI to send its JSON output to Infracost Cloud. This is our SaaS product that builds on top of Infracost open source and works with CI/CD integrations (next step).
 
-  It gives team leads, managers and FinOps practitioners dashboards, guardrails and centralized cost policies so they can help guide the team. For example, you can check for required tag keys/values, or switch AWS GP2 volumes to GP3.
+  It enables team leads, managers and FinOps practitioners to setup tagging policies, guardrails and best practices to help guide the team. For example, you can check for required tag keys/values, or suggest switching AWS GP2 volumes to GP3 as they are more performant and cheaper.
   </li>
 
   ```shell
