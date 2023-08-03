@@ -100,14 +100,14 @@
 /* Demo form */
 
 #finops-form {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .finops-form__wrapper {
-	padding: 0 4rem;
+  padding: 0 4rem;
 }
 
 @media screen and (max-width: 1236px) {
@@ -123,69 +123,69 @@
 }
 
 .finops-form__title {
-	font-size: 2rem;
-	font-weight: bold;
-	margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
 .finops-form__section {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 
 .finops-form__section label {
-	margin-bottom: .5rem;
+  margin-bottom: .5rem;
 }
 
 .finops-form__section input::placeholder {
- 	color: #696986;
+  color: #696986;
 }
 
 .finops-form__section input {
-	padding: 1rem;
-	background: var(--input-bg);
-	border-radius: 16px;
-	border: 1px solid var(--border-color);
-	transition: all .2s ease-in-out;
-	color: white;
-	font-size: 1.25rem;
+  padding: 1rem;
+  background: var(--input-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  transition: all .2s ease-in-out;
+  color: white;
+  font-size: 1.25rem;
 }
 
 .finops-form__section input:focus {
-	border: 1px solid #cc21a5;
-	outline: none !important;
-	box-shadow: 0 0 10px #3e0f33;
+  border: 1px solid #cc21a5;
+  outline: none !important;
+  box-shadow: 0 0 10px #3e0f33;
 }
 
 .finops-form__footer {
-	display: flex;
-	justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .finops-form__success p,
 .finops-form__success h3 {
-	color: #306936;
-	margin-bottom: .5rem;
+  color: #306936;
+  margin-bottom: .5rem;
 }
 
 .finops-form__success {
-	background: #cee9d1;
-	padding: 2rem;
-	border-radius: 8px;
+  background: #cee9d1;
+  padding: 2rem;
+  border-radius: 8px;
 }
 
 .finops-form__error {
-	background: #FBE9E9;
-	color: #841715;
-	padding: 2rem;
-	border-radius: 8px;
-	margin-bottom: 2rem;
+  background: #FBE9E9;
+  color: #841715;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
 }
 
 .finops-form__error p {
-	margin:0;
+  margin:0;
 }
 
 /* Optimizations */
