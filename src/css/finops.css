@@ -24,7 +24,7 @@
 .finops-cta__wrapper {
   display: flex;
   width: 100%;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 2rem;
   padding: 1rem 0.5rem;
   border-bottom: 1px solid var(--border-color);
@@ -97,37 +97,95 @@
   z-index: -1;
 }
 
-/* Request demo modal */
-.finops-request-demo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+/* Demo form */
+
+#finops-form {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000000;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.finops-request-demo__modal {
-  max-width: 500px;
-  width: 100%;
-  background-color: var(--white);
+.finops-form__wrapper {
+  padding: 0 4rem;
+}
+
+@media screen and (max-width: 1236px) {
+  .finops-form__wrapper {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .finops-form__wrapper {
+    padding: 1rem;
+  }
+}
+
+.finops-form__title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.finops-form__section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+
+.finops-form__section label {
+  margin-bottom: .5rem;
+}
+
+.finops-form__section input::placeholder {
+  color: #696986;
+}
+
+.finops-form__section input {
+  padding: 1rem;
+  background: var(--input-bg);
   border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
-  color: #1b1b42;
+  border: 1px solid var(--border-color);
+  transition: all .2s ease-in-out;
+  color: white;
+  font-size: 1.25rem;
 }
 
-.finops-request-demo__modal-title {
-  color: #1b1b42;
+.finops-form__section input:focus {
+  border: 1px solid #cc21a5;
+  outline: none !important;
+  box-shadow: 0 0 10px #3e0f33;
 }
 
-.finops-request-demo__modal-close {
+.finops-form__footer {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
+}
+
+.finops-form__success p,
+.finops-form__success h3 {
+  color: #306936;
+  margin-bottom: .5rem;
+}
+
+.finops-form__success {
+  background: #cee9d1;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.finops-form__error {
+  background: #FBE9E9;
+  color: #841715;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.finops-form__error p {
+  margin:0;
 }
 
 /* Optimizations */
