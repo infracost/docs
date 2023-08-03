@@ -145,8 +145,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Guardrails:</b> Automatic budget checks &amp; approval
-                        workflows before money is spent
+                        <b>Tagging policies:</b> communicate and enforce required FinOps tag keys/values in pull requests
                       </span>
                     </li>
                     <li>
@@ -154,9 +153,18 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Policies:</b> Ensure changes are using best
-                        practices, directly in workflow (e.g. FinOps tagging policies, or AWS GP2 volumes should be
+                        <b>Cost policies:</b> Ensure changes are using best
+                        practices, directly in workflow (e.g. AWS GP2 volumes should be
                         GP3)
+                      </span>
+                    </li>
+                    <li>
+                      <span className="icon primary">
+                        <Check size={18} />
+                      </span>
+                      <span>
+                        <b>Guardrails:</b> Automatic budget checks &amp; approval
+                        workflows before money is spent
                       </span>
                     </li>
                     <li>
@@ -202,7 +210,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Custom price books: </b> Enterprise negotiated rates,
+                        <b>Custom price books: </b>Enterprise negotiated rates,
                         EDPs and EA discounts
                       </span>
                     </li>

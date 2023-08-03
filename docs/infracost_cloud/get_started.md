@@ -37,4 +37,4 @@ Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organizatio
 
 ### 6. Add your team members
 
-Use the Members page to [invite](/docs/infracost_cloud/key_concepts/#team-management) your team members to join your organization. You can also setup [reports](/docs/infracost_cloud/reports/) and [guardrails](/docs/infracost_cloud/guardrails/).
+Use the Members page to [invite](/docs/infracost_cloud/key_concepts/#team-management) your team members to join your organization. You can also setup [tagging policies](/docs/infracost_cloud/tagging_policies/) and [guardrails](/docs/infracost_cloud/guardrails/).

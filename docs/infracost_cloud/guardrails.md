@@ -19,6 +19,10 @@ You can create multiple guardrails, for example one with a lower threshold that 
 
 To create a guardrail, log in to [Infracost Cloud](https://dashboard.infracost.io) and go to the Governance > Guardrails page.
 
+:::note
+If you do not use source control integrations ([GitHub App](/docs/integrations/github_app/) or [GitLab App](/docs/integrations/gitlab_app/)), you must [implement some extra steps](/docs/guides/source_control_benefits/) for CI/CD integrations to work with guardrails.
+:::
+
 ### 1. Scope of guardrail
 
 Give your guardrail a name, and select the whether the guardrail should be evaluated against the pull request cost as a whole, or against projects individually.
@@ -46,9 +50,7 @@ Next you should select the thresholds that should trigger this guardrail, the th
 
 You can select the users who should be emailed when a guardrail is triggered. You can also create a [Slack channel webhook](https://slack.com/intl/en-tr/help/articles/115005265063-Incoming-webhooks-for-Slack) and use that for notifications.
 
-We recommend enabling the pull request option, so engineers are shown the guardrail information in the Infracost pull request comment too. The pull request option **only works** if you are using the [GitHub App](/docs/integrations/github_app), [GitLab App](/docs/integrations/gitlab_app), or the [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) command in CI/CD.
-
-Regardless of which notification option you select, you can set a custom message to be included in them to give additional context or instructions. For example, you can describe why this guardrail is important or what will happen next after someone has reviewed the notification.
+We recommend enabling the pull request option, so engineers are shown the guardrail information in the Infracost pull request comment too. Regardless of which notification option you select, you can set a custom message to be included in them to give additional context or instructions. For example, you can describe why this guardrail is important or what will happen next after someone has reviewed the notification.
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/notifications.png")} alt="Select the notifications that should be sent when the guardrail is triggered" />
 
@@ -78,8 +80,6 @@ The following screenshot shows an example pull request comment with a custom mes
 
 This feature works by failing the CI/CD pipeline that runs Infracost (`infracost comment` will `exit 1`). Depending on how you have configured your source control system this blocks the pull request from being merged, but your source control system admins can usually override this during urgent cases.
 
-This feature only works if you are using the [GitHub App](/docs/integrations/github_app), [GitLab App](/docs/integrations/gitlab_app), or the [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests) command in CI/CD.
-
 #### Setup
 
 To setup this feature, you should:
@@ -88,7 +88,7 @@ To setup this feature, you should:
 
   <img src={useBaseUrl("img/infracost-cloud/guardrails/actions.png")} alt="Blocking pull requests" />
 
-2. If you are using the GitHub App integration, in your GitHub repository, go to Settings > Branches > and tick the "Require status checks to pass before merging" option under Protect matching branches. Otherwise ensure that your CI/CD pipeline is blocking pull requests that fail the CI/CD pipeline as `infracost comment` command will `exit 1` when a guardrail triggers.
+2. If you are using the GitHub App integration, in your GitHub repository, go to Settings > Branches > and tick the "Require status checks to pass before merging" option under Protect matching branches. GitLab users should follow [this doc](https://docs.gitlab.com/ee/user/project/merge_requests/status_checks.html#block-merges-of-merge-requests-unless-all-status-checks-have-passed) to setup a similar configuration.
 
   <img src={useBaseUrl("img/infracost-cloud/guardrails/github-require-status-pass.png")} alt="Configure GitHub to require status checks to pass before pull requests can be merged" />
 
@@ -102,7 +102,7 @@ The following screenshot shows an example pull request that has been blocked due
 
 When a pull request (PR) is blocked by a guardrail, the email notification will now include a link to the PR page in Infracost Cloud. From there (as shown below), you can review the cost estimate, see details of the triggered guardrail, and unblock the PR.
 
-If someone with admin access on GitHub overrides the guardrail and merges the PR, Infracost Cloud will send an additional email notification to the people subscribed to the guardrail. This provides everyone with visibility of the change, thus preventing surprises in the cloud bill.
+If someone with admin access on GitHub or GitLab overrides the guardrail and merges the PR, Infracost Cloud will send an additional email notification to the people subscribed to the guardrail. This provides everyone with visibility of the change, thus preventing surprises in the cloud bill.
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/unblock-pr.png")} alt="Unblock pull requests" />
 
