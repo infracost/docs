@@ -79,9 +79,8 @@ Tagging policies check all AWS, Azure and Google Terraform resources that suppor
 - Default tags that are applied as part of Terraform `provider` blocks are also checked.
 - For Google Cloud resources, label keys and values are checked.
 - For `aws_autoscaling_group` and `aws_autoscaling_group_tag`, if the `propagate_at_launch` attribute is not set to true, the resource fails tagging policies as resources launched from those Auto Scaling groups will not get the required tags.
+- For tags set in modules, the actual module version being used is checked.
 
-<!--
-TODO: Add these after v0.10.27 is released
+Coming soon, the following will also be checked:
 - For `aws_instance`, the `volume_tags` attribute is also checked.
 - For `aws_launch_template`, the `tag_specifications` attribute is also checked.
--->
