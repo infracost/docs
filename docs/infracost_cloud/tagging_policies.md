@@ -13,7 +13,7 @@ Infracost enables you to define your tagging policies so you can communicate and
 
 ## 1. Create tagging policies
 
-You can create multiple tagging policies, for example one policy that applies to all resources, and another one that applies to certain resource types. To create a tagging policy, log in to [Infracost Cloud](https://dashboard.infracost.io) and go to the Governance > Tagging policies page, and follow the steps below.
+You can create multiple tagging policies, for example one policy that applies to all resources, and another one that applies to certain resource types. To create a tagging policy, log in to [Infracost Cloud](https://dashboard.infracost.io) and go to the **Governance** > **Tagging policies** page, and follow the steps below.
 
 ### a. Scope of tagging policy
 
@@ -80,7 +80,7 @@ Tagging policies check all AWS, Azure and Google Terraform resources that suppor
 - For Google Cloud resources, label keys and values are checked.
 - For `aws_autoscaling_group` and `aws_autoscaling_group_tag`, if the `propagate_at_launch` attribute is not set to true, the resource fails tagging policies as resources launched from those Auto Scaling groups will not get the required tags.
 - For tags set in modules, the actual module version being used is checked.
-
-Coming soon, the following will also be checked:
 - For `aws_instance`, the `volume_tags` attribute is also checked.
-- For `aws_launch_template`, the `tag_specifications` attribute is also checked.
+- For `aws_launch_template`, the `tag_specifications` attribute is also checked when the `resource_type` is `instance` or `volume` (others are ignored just now). These tags are then associated with either the `aws_instance` or `aws_autoscaling_group` resource that references the `aws_launch_template` and checked as part of those resources.
+
+Please open a [GitHub issue](https://github.com/infracost/infracost/issues) or email [hello@infracost.io](mailto:hello@infracost.io) if you have any feedback on how tagging policies work. 
