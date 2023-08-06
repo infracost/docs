@@ -85,7 +85,7 @@ provider "aws" {
 
 ## Environment variables to set metadata
 
-The following environment variables should be set before `infracost breakdown` and `diff` are run to set or override the values that are automatically generated as part of the [Infracost JSON output](/docs/features/cli_commands/#examples). This is useful when running Infracost in a CI/CD where our CLI cannot detect the metadata, e.g Jenkins.
+The following environment variables should be set **before** `infracost breakdown` **and** `diff` are run to set or override the values that are automatically generated as part of the [Infracost JSON output](/docs/features/cli_commands/#examples). This is needed when running Infracost in a CI/CD where our CLI cannot detect the metadata, e.g Jenkins.
 
 :::note
 We recommend exporting environment variables using quotes so values with spaces are captured correctly, e.g. `export MY_ENV="my value"`

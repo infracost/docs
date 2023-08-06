@@ -17,7 +17,7 @@ Source control integrations ([GitHub App](/docs/integrations/github_app/) or [Gi
 
 ### 1. Required CLI version
 
-Currently, version 0.10.26+ of the Infracost CLI is needed for the Infracost Cloud features to work correctly. We recommend you upgrade the CLI every one to two months to pickup latest features and bug fixes.
+Currently, version 0.10.27+ of the Infracost CLI is needed for the Infracost Cloud features to work correctly. We recommend you upgrade the CLI every one to two months to pickup latest features and bug fixes.
 
 ### 2. Branch costs and tagging policy failures
 
@@ -56,7 +56,6 @@ The pull request status can be one of three:
   - `OPEN`: the pull request is currently open, thus if you want to review the most expensive pull requests that are in-flight, only focus on these.
   - `CLOSED`: the pull request was closed without being merged. These pull requests can probably be ignored altogether as most of the time they're just noise.
   - `MERGED`: the pull request was merged into the base branch, these can be checked when auditing actual cloud costs to see what happened.
-
 
 <details><summary>Example GitLab CI code to set status to Merged</summary>
 
