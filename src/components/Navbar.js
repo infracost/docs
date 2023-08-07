@@ -116,7 +116,6 @@ function Navbar({ isDocs }) {
     <svg
       aria-hidden="true"
       focusable="false"
-      class="mdi-icon "
       width="24"
       height="24"
       fill="currentColor"
@@ -153,35 +152,6 @@ function Navbar({ isDocs }) {
         </Menu>
       ))}
     </div>
-  );
-
-  const docs = (
-    <>
-      <a className="navbar-item navbar-link" href="/finops">
-        FinOps
-      </a>
-      <a className="navbar-item" href="/products">
-        Products
-      </a>
-      <a className="navbar-item" href="/use-cases">
-        Use Cases
-      </a>
-      <a className="navbar-item" href="/pricing">
-        Pricing
-      </a>
-      <a className="navbar-item" href="/about">
-        About
-      </a>
-      <a className="navbar-item" href="/blog">
-        Blog
-      </a>
-      <a className="navbar-item" href="/docs">
-        Docs
-      </a>
-      <a className="navbar-item navbar-link" href="https://dashboard.infracost.io">
-        Sign up / Log in
-      </a>
-    </>
   );
 
   const community = (
@@ -278,7 +248,8 @@ function Navbar({ isDocs }) {
               <div className="sidebar-content">
                 <div className="navbar-section">
                   {/* <h4>Docs</h4> */}
-                  {docs}
+
+                  {topMenu}
                 </div>
                 <div className="navbar-section">
                   <h4>Community</h4>
