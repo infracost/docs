@@ -2,12 +2,9 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from '@theme/SearchBar';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { useWindowSize } from '@docusaurus/theme-common';
-import {
-  useNavbarSecondaryMenu,
-  useLockBodyScroll,
-  useHideableNavbar,
-} from '@docusaurus/theme-common/internal';
-import GitHubStarCount from './GitHubStarCount';
+import { useNavbarSecondaryMenu, useLockBodyScroll, useHideableNavbar } from '@docusaurus/theme-common/internal';
+import GitHubStarCount from '../components/GitHubStarCount';
+import { Menu } from "@headlessui/react";
 
 function Navbar({ isDocs }) {
   const isBrowser = useIsBrowser();
@@ -22,14 +19,14 @@ function Navbar({ isDocs }) {
       setAtTop(window.scrollY <= 64);
     };
 
-    window.addEventListener('scroll', checkAtTop);
+    window.addEventListener("scroll", checkAtTop);
   }
 
   useLockBodyScroll(showSidebar);
 
   const windowSize = useWindowSize();
   useEffect(() => {
-    if (windowSize === 'desktop') {
+    if (windowSize === "desktop") {
       setShowSidebar(false);
     }
   }, [windowSize]);
@@ -71,32 +68,90 @@ function Navbar({ isDocs }) {
     </a>
   );
 
+  const menuItems = [
+    {
+      label: "FinOps",
+      href: "/finops",
+    },
+    {
+      label: "Products",
+      href: "/products",
+    },
+    {
+      label: "Use Cases",
+      href: "/use-cases",
+    },
+    {
+      label: "Pricing",
+      href: "/pricing",
+    },
+    {
+      label: "Resources",
+      groupItems: [
+        {
+          label: "Blog",
+          href: "/blog",
+        },
+        {
+          label: "Docs",
+          href: "/docs",
+        },
+        {
+          label: "Glossary",
+          href: "/glossary",
+        },
+      ],
+    },
+    {
+      label: "About",
+      href: "/about",
+    },
+    {
+      label: "Sign up / Log in",
+      href: "https://dashboard.infracost.io",
+    },
+  ];
+
+  const caret = (
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      class="mdi-icon "
+      width="24"
+      height="24"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+    </svg>
+  );
+
   const topMenu = (
     <div className="menu">
-      <a className="navbar-item navbar-link" href="/finops">
-        FinOps
-      </a>
-      <a className="navbar-item navbar-link" href="/products">
-        Products
-      </a>
-      <a className="navbar-item navbar-link" href="/use-cases">
-        Use Cases
-      </a>
-      <a className="navbar-item navbar-link" href="/pricing">
-        Pricing
-      </a>
-      <a className="navbar-item navbar-link" href="/about">
-        About
-      </a>
-      <a className="navbar-item navbar-link" href="/blog">
-        Blog
-      </a>
-      <a className="navbar-item navbar-link" href="/docs">
-        Docs
-      </a>
-      <a className="navbar-item navbar-link" href="https://dashboard.infracost.io">
-        Sign up / Log in
-      </a>
+      {menuItems.map((item, index) => (
+        <Menu key={`${item.label}-${index}`}>
+          {item.href ? (
+            <a className="menu__item" href={item.href}>
+              {item.label}
+            </a>
+          ) : (
+            <div className="menu__dropdown">
+              <Menu.Button className="menu__dropdown-button">
+                {item.label} {caret}
+              </Menu.Button>
+              <Menu.Items className="menu__dropdown-items">
+                {item.groupItems.map((item) => (
+                  <Menu.Item key={item.href} className="menu__dropdown-item">
+                    <a className="menu__dropdown-item-a" href={item.href}>
+                      {item.label}
+                    </a>
+                  </Menu.Item>
+                ))}
+              </Menu.Items>
+            </div>
+          )}
+        </Menu>
+      ))}
     </div>
   );
 
@@ -186,9 +241,9 @@ function Navbar({ isDocs }) {
   return (
     <nav
       ref={navbarRef}
-      className={`navbar ${atTop ? 'at-top' : ''} ${showSidebar ? 'sidebar-open' : ''} ${
-        isDocs ? 'docs' : ''
-      }`}
+      className={`navbar ${atTop ? "at-top" : ""} ${
+        showSidebar ? "sidebar-open" : ""
+      } ${isDocs ? "docs" : ""}`}
     >
       <div className="container">
         <div className="top level">
@@ -214,10 +269,10 @@ function Navbar({ isDocs }) {
               <div className="left">{hamburger}</div>
               <div className="right">{getStarted}</div>
             </div>
-            {mobileDocsSidebarState === 'show' ? (
+            {mobileDocsSidebarState === "show" ? (
               <MobileDocsSidebar
                 content={docsMenu.content}
-                onHide={() => setMobileDocsSidebarState('hide')}
+                onHide={() => setMobileDocsSidebarState("hide")}
               />
             ) : (
               <div className="sidebar-content">
