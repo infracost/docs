@@ -36,14 +36,14 @@ const GlossarySearch = () => {
       <div className="container glossary-search__content-wrapper">
         {results.length > 0 ? (
           <div className="glossary-search__content-list">
-            {results.map((term) => (
+            {sortTermsAlphabetically(results).map((term) => (
               <React.Fragment key={term.key}>
                 <GlossaryTerm term={term} />
               </React.Fragment>
             ))}
           </div>
         ) : (
-          <div className="">
+          <div>
             <p className="finops-glossary__search-no-results">
               No results found for <strong>{searchValue}</strong>
             </p>
@@ -53,5 +53,12 @@ const GlossarySearch = () => {
     </>
   );
 };
+
+function sortTermsAlphabetically(
+  terms: GlossaryTermType[]
+): GlossaryTermType[] {
+  return terms.slice().sort((a, b) => a.key.localeCompare(b.key));
+}
+
 
 export default GlossarySearch;
