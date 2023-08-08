@@ -1,0 +1,127 @@
+[
+  {
+    "key": "FinOps",
+    "href": null,
+    "description": "Description for FinOps"
+  },
+  {
+    "key": "Cloud Computing",
+    "href": null,
+    "description": "Description for Cloud Computing"
+  },
+  {
+    "key": "Anomaly (cost anomalies)",
+    "href": null,
+    "description": "Description for Anomaly (cost anomalies)"
+  },
+  {
+    "key": "IaC",
+    "href": null,
+    "description": "Description for IaC"
+  },
+  {
+    "key": "Pulumi",
+    "href": null,
+    "description": "Description for Pulumi"
+  },
+  {
+    "key": "Terraform",
+    "href": null,
+    "description": "Description for Terraform"
+  },
+  {
+    "key": "Hashicorp",
+    "href": null,
+    "description": "Description for Hashicorp"
+  },
+  {
+    "key": "CI/CD",
+    "href": null,
+    "description": "Description for CI/CD"
+  },
+  {
+    "key": "TCO (Total Cost of Ownership)",
+    "href": null,
+    "description": "Description for TCO (Total Cost of Ownership)"
+  },
+  {
+    "key": "Showback",
+    "href": null,
+    "description": "Description for Showback"
+  },
+  {
+    "key": "Chargeback",
+    "href": null,
+    "description": "Description for Chargeback"
+  },
+  {
+    "key": "EDP (Enterprise Discount Program)",
+    "href": null,
+    "description": "Description for EDP (Enterprise Discount Program)"
+  },
+  {
+    "key": "EA (Enterprise Agreement)",
+    "href": null,
+    "description": "Description for EA (Enterprise Agreement)"
+  },
+  {
+    "key": "Commitment Usage Discount (CUD)",
+    "href": null,
+    "description": "Description for Commitment Usage Discount (CUD)"
+  },
+  {
+    "key": "Cost and Usage Report (CUR)",
+    "href": null,
+    "description": "Description for Cost and Usage Report (CUR)"
+  },
+  {
+    "key": "Amortized costs",
+    "href": null,
+    "description": "Description for Amortized costs"
+  },
+  {
+    "key": "Cloud Center of Excellence (CCoE)",
+    "href": null,
+    "description": "Description for Cloud Center of Excellence (CCoE)"
+  },
+  {
+    "key": "Cloud Service Provider (CSP)",
+    "href": null,
+    "description": "Description for Cloud Service Provider (CSP)"
+  },
+  {
+    "key": "AWS",
+    "href": null,
+    "description": "Description for AWS"
+  },
+  {
+    "key": "GCP",
+    "href": null,
+    "description": "Description for GCP"
+  },
+  {
+    "key": "Azure",
+    "href": null,
+    "description": "Description for Azure"
+  },
+  {
+    "key": "Tags (metadata)",
+    "href": null,
+    "description": "Description for Tags (metadata)"
+  },
+  {
+    "key": "VSCode extension",
+    "href": null,
+    "description": "Description for VSCode extension"
+  },
+  {
+    "key": "Platform engineering",
+    "href": null,
+    "description": "Description for Platform engineering"
+  },
+  {
+    "key": "Spotify Backstage",
+    "href": null,
+    "description": "Description for Spotify Backstage"
+  }
+]
