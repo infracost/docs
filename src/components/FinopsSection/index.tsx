@@ -102,9 +102,9 @@ const Index = () => {
           </a>
         </div>
       </div>
-      <div className="finops-parallax container">
+      <div className="finops-parallax">
         <div id="finops-parallax">
-          <Parallax ref={parallax} pages={3.5}>
+          <Parallax ref={parallax} pages={3.5} style={{ right: "-17px" }}>
             <ParallaxLayer
               offset={0}
               speed={0}
@@ -122,6 +122,7 @@ const Index = () => {
                 key={index}
                 style={{
                   padding: "15px",
+                  paddingRight: "32px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -133,7 +134,7 @@ const Index = () => {
             ))}
           </Parallax>
         </div>
-        <div id="finops-mobile">
+        <div id="finops-mobile" className="container">
           {items.map((item, index) => (
             <div key={index} className="finops-mobile-item">
               {item}
