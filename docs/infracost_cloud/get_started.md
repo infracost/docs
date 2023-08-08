@@ -23,13 +23,13 @@ Every Infracost user has a default organization for personal use. Create a new o
 
 Follow the onboarding wizard to setup Infracost Cloud. Infracost supports direct integration with GitHub and GitLab. We recommend these integrations as they are much simpler to setup, and faster to run.
 
+:::note
 If you do not use the GitHub App or GitLab App integrations, you need to implement [some extra steps](/docs/guides/source_control_benefits/) for Infracost Cloud features to work. If you run into any issues, check the [troubleshooting guide](/docs/troubleshooting/#6-infracost-cloud-dashboard) or join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+:::
 
 ### 4. Send a pull request
 
-Send a new pull request to change something in Terraform that costs money, you should see a pull request comment in your CI/CD system.
-
-If you do not use the `infracost comment` command in your CI/CD system, you can [upload Infracost JSON files](/docs/features/cli_commands/#upload-runs) to Infracost Cloud.
+Send a new pull request to change something in Terraform that costs money, Infracost should post a pull request comment in your CI/CD system.
 
 ### 5. See cost estimate in Infracost Cloud
 
