@@ -13,6 +13,12 @@
 	padding: 1.5rem;
 }
 
+.glossary-search__content-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-gap: 1rem;
+}
+
 /* Glossary search */
 input.glossary-search__input {
 	width: 100%;

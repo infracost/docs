@@ -3,15 +3,16 @@ import terms from "./glossaryTerms.json";
 import "./GlossarySearch.css";
 import SearchIcon from "../icons/SearchIcon";
 import useSearch from "../utils/UseSearch";
+import GlossaryTerm from "./GlossaryTerm";
 
-interface GlossaryItem {
+export type GlossaryTermType = {
   key: string;
   href: string | null;
   description: string;
-}
+};
 
 const GlossarySearch = () => {
-  const { results, searchValue, setSearchValue } = useSearch<GlossaryItem>({
+  const { results, searchValue, setSearchValue } = useSearch<GlossaryTermType>({
     dataSet: terms,
     keys: ["key", "description"],
   });
@@ -34,11 +35,13 @@ const GlossarySearch = () => {
       </div>
       <div className="container glossary-search__content-wrapper">
         {results.length > 0 ? (
-          results.map((term) => (
-            <li key={term.key}>
-              {term.key}: {term.description}
-            </li>
-          ))
+          <div className="glossary-search__content-list">
+            {results.map((term) => (
+              <React.Fragment key={term.key}>
+                <GlossaryTerm term={term} />
+              </React.Fragment>
+            ))}
+          </div>
         ) : (
           <div className="">
             <p className="finops-glossary__search-no-results">
