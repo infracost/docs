@@ -57,7 +57,6 @@ The pull request status can be one of three:
   - `CLOSED`: the pull request was closed without being merged. These pull requests can probably be ignored altogether as most of the time they're just noise.
   - `MERGED`: the pull request was merged into the base branch, these can be checked when auditing actual cloud costs to see what happened.
 
-
 <details><summary>Example GitLab CI code to set status to Merged</summary>
 
   ```yaml

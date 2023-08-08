@@ -5,7 +5,7 @@ title: Get started
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost Cloud is our SaaS product that builds on top of Infracost open source. It gives team leads, managers and FinOps practitioners dashboards, guardrails and centralized cost policies so they can help guide the team (e.g. switch AWS GP2 volumes to GP3). See our [demo video](https://www.youtube.com/watch?v=DDi6GE9RIik) to learn more.
+Infracost Cloud is our SaaS product that builds on top of Infracost open source. It enables team leads, managers and FinOps practitioners to setup tagging policies, guardrails and best practices to help guide the team. For example, you can check for required tag keys/values, or suggest switching AWS GP2 volumes to GP3 as they are more performant and cheaper. See our [demo video](https://www.youtube.com/watch?v=IYyul9WX7Pw) to learn more.
 
 <img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Team visibility across all changes" />
 
@@ -21,13 +21,15 @@ Every Infracost user has a default organization for personal use. Create a new o
 
 ### 3. Setup Infracost Cloud
 
-Follow the onboarding wizard to setup Infracost Cloud. If you run into any issues, check the [troubleshooting guide](/docs/troubleshooting/#6-infracost-cloud-dashboard) or join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+Follow the onboarding wizard to setup Infracost Cloud. Infracost supports direct integration with GitHub and GitLab. We recommend these integrations as they are much simpler to setup, and faster to run.
+
+:::note
+If you do not use the GitHub App or GitLab App integrations, you need to implement [some extra steps](/docs/guides/source_control_benefits/) for Infracost Cloud features to work. If you run into any issues, check the [troubleshooting guide](/docs/troubleshooting/#6-infracost-cloud-dashboard) or join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+:::
 
 ### 4. Send a pull request
 
-Send a new pull request to change something in Terraform that costs money, you should see a pull request comment in your CI/CD system.
-
-If you do not use the `infracost comment` command in your CI/CD system, you can [upload Infracost JSON files](/docs/features/cli_commands/#upload-runs) to Infracost Cloud.
+Send a new pull request to change something in Terraform that costs money, Infracost should post a pull request comment in your CI/CD system.
 
 ### 5. See cost estimate in Infracost Cloud
 
@@ -37,4 +39,6 @@ Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organizatio
 
 ### 6. Add your team members
 
-Use the Members page to [invite](/docs/infracost_cloud/key_concepts/#team-management) your team members to join your organization. You can also setup [tagging policies](/docs/infracost_cloud/tagging_policies/) and [guardrails](/docs/infracost_cloud/guardrails/).
+Use the Members page to [invite](/docs/infracost_cloud/key_concepts/#team-management) your team members to join your organization.
+
+We also recommend setting up [tagging policies](/docs/infracost_cloud/tagging_policies/) and [guardrails](/docs/infracost_cloud/guardrails/).
