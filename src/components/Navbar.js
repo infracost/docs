@@ -94,16 +94,16 @@ function Navbar({ isDocs }) {
       label: "Resources",
       groupItems: [
         {
-          label: "Blog",
-          href: "/blog",
-        },
-        {
           label: "Docs",
           href: "/docs",
         },
         {
-          label: "Glossary",
+          label: "FinOps Glossary",
           href: "/glossary",
+        },
+        {
+          label: "Blog",
+          href: "/blog",
         },
       ],
     },
