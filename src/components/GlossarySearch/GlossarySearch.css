@@ -10,12 +10,12 @@
 
 /* Content */
 .glossary-search__content-wrapper {
-	padding: 1.5rem;
+	padding: 4rem 1.5rem;
 }
 
 .glossary-search__content-list {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	grid-gap: 1rem;
 }
 

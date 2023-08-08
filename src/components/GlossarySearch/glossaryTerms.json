@@ -1,127 +1,127 @@
 [
   {
     "key": "FinOps",
-    "href": null,
-    "description": "Description for FinOps"
+    "href": "/glossary/finops",
+    "description": "FinOps is the practice of bringing financial accountability to variable spending. It enables teams to understand and control costs and scale efficiently."
   },
   {
     "key": "Cloud Computing",
     "href": null,
-    "description": "Description for Cloud Computing"
+    "description": "Cloud computing refers to the delivery of computing services over the Internet. It provides on-demand access to a variety of resources and applications."
   },
   {
     "key": "Anomaly (cost anomalies)",
     "href": null,
-    "description": "Description for Anomaly (cost anomalies)"
+    "description": "Anomalies in costs refer to unexpected spikes or drops. These could indicate a potential issue or inefficiency in the system."
   },
   {
     "key": "IaC",
     "href": null,
-    "description": "Description for IaC"
+    "description": "Infrastructure as Code (IaC) is the process of managing and provisioning computing infrastructure through machine-readable definition files."
   },
   {
     "key": "Pulumi",
     "href": null,
-    "description": "Description for Pulumi"
+    "description": "Pulumi is an open-source infrastructure as code tool that allows developers to use familiar programming languages to manage cloud resources."
   },
   {
     "key": "Terraform",
     "href": null,
-    "description": "Description for Terraform"
+    "description": "Terraform is an open-source infrastructure as code software tool. It enables building, changing, and versioning infrastructure efficiently."
   },
   {
     "key": "Hashicorp",
     "href": null,
-    "description": "Description for Hashicorp"
+    "description": "HashiCorp provides open-source tools and commercial products that enable developers, operators, and security professionals to provision, secure, and run distributed application infrastructures."
   },
   {
     "key": "CI/CD",
     "href": null,
-    "description": "Description for CI/CD"
+    "description": "Continuous Integration and Continuous Deployment (CI/CD) automate the testing and deployment of applications, enhancing the development process."
   },
   {
     "key": "TCO (Total Cost of Ownership)",
     "href": null,
-    "description": "Description for TCO (Total Cost of Ownership)"
+    "description": "Total Cost of Ownership (TCO) includes the purchase price of an asset plus operating costs over the asset's lifespan. It's a critical financial estimate."
   },
   {
     "key": "Showback",
     "href": null,
-    "description": "Description for Showback"
+    "description": "Showback refers to the process of tracking and demonstrating IT service costs without charging the business units. It helps in cost transparency."
   },
   {
     "key": "Chargeback",
     "href": null,
-    "description": "Description for Chargeback"
+    "description": "Chargeback is a method of charging business units for IT services rendered. It aids in creating accountability and encourages responsible usage."
   },
   {
     "key": "EDP (Enterprise Discount Program)",
     "href": null,
-    "description": "Description for EDP (Enterprise Discount Program)"
+    "description": "Enterprise Discount Program (EDP) offers volume-based discounts for large businesses. It encourages loyalty and streamlines purchasing."
   },
   {
     "key": "EA (Enterprise Agreement)",
     "href": null,
-    "description": "Description for EA (Enterprise Agreement)"
+    "description": "An Enterprise Agreement (EA) is a licensing agreement that offers large organizations the ability to standardize their IT procurement process."
   },
   {
     "key": "Commitment Usage Discount (CUD)",
     "href": null,
-    "description": "Description for Commitment Usage Discount (CUD)"
+    "description": "Commitment Usage Discount refers to a price reduction based on a customer's commitment to a certain level of usage over time."
   },
   {
     "key": "Cost and Usage Report (CUR)",
     "href": null,
-    "description": "Description for Cost and Usage Report (CUR)"
+    "description": "Cost and Usage Report (CUR) provides detailed information about costs and usage. It's a vital tool for monitoring and optimizing expenses."
   },
   {
     "key": "Amortized costs",
     "href": null,
-    "description": "Description for Amortized costs"
+    "description": "Amortized costs represent the gradual reduction of a debt over a specific period. In cloud computing, it refers to the spread of costs over time."
   },
   {
     "key": "Cloud Center of Excellence (CCoE)",
     "href": null,
-    "description": "Description for Cloud Center of Excellence (CCoE)"
+    "description": "A Cloud Center of Excellence (CCoE) is a dedicated team that drives cloud adoption and best practices within an organization."
   },
   {
     "key": "Cloud Service Provider (CSP)",
     "href": null,
-    "description": "Description for Cloud Service Provider (CSP)"
+    "description": "A Cloud Service Provider (CSP) is a company that offers a range of computing services and resources over the Internet."
   },
   {
     "key": "AWS",
     "href": null,
-    "description": "Description for AWS"
+    "description": "Amazon Web Services (AWS) is a leading cloud services platform. It offers computing power, database storage, and content delivery."
   },
   {
     "key": "GCP",
     "href": null,
-    "description": "Description for GCP"
+    "description": "Google Cloud Platform (GCP) is a suite of cloud computing services. It provides infrastructure, platform services, and networking capabilities."
   },
   {
     "key": "Azure",
     "href": null,
-    "description": "Description for Azure"
+    "description": "Microsoft Azure is a set of cloud services that help organizations meet business challenges. It's a flexible, scalable computing platform."
   },
   {
     "key": "Tags (metadata)",
     "href": null,
-    "description": "Description for Tags (metadata)"
+    "description": "Tags are metadata that can be added to resources for identification, organization, and management. They're commonly used in cloud environments."
   },
   {
     "key": "VSCode extension",
     "href": null,
-    "description": "Description for VSCode extension"
+    "description": "A VSCode extension enhances the functionality of Visual Studio Code. They can range from themes and debuggers to tools for specific languages."
   },
   {
     "key": "Platform engineering",
     "href": null,
-    "description": "Description for Platform engineering"
+    "description": "Platform engineering involves creating a shared set of tools, services, and libraries that other engineering teams consume to increase efficiency."
   },
   {
     "key": "Spotify Backstage",
     "href": null,
-    "description": "Description for Spotify Backstage"
+    "description": "Spotify Backstage is an open platform for building developer portals. It aims to unify all your infrastructure tooling, services, and documentation."
   }
 ]
