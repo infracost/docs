@@ -1,0 +1,30 @@
+/* FINOPS GLOSSARY SEARCH PAGE */
+
+/* Intro */
+.glossary-search__intro-container {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	justify-content: center;
+}
+
+/* Glossary search */
+input.glossary-search__input {
+	width: 100%;
+	padding: 1.5rem 2rem 1.5rem 3rem;
+	background-color: #2a2a5b;
+}
+
+.finops-glossary__search {
+	position: relative;
+}
+
+.finops-glossary__search > .search-icon {
+	position: absolute;
+	top: 50%;
+	left: 1rem;
+	transform: translateY(-50%);
+}
+
+
+

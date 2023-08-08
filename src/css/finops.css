@@ -130,31 +130,6 @@
   margin-bottom: 1rem;
 }
 
-
-.finops-form__section label {
-  margin-bottom: .5rem;
-}
-
-.finops-form__section input::placeholder {
-  color: #696986;
-}
-
-.finops-form__section input {
-  padding: 1rem;
-  background: var(--input-bg);
-  border-radius: 16px;
-  border: 1px solid var(--border-color);
-  transition: all .2s ease-in-out;
-  color: white;
-  font-size: 1.25rem;
-}
-
-.finops-form__section input:focus {
-  border: 1px solid #cc21a5;
-  outline: none !important;
-  box-shadow: 0 0 10px #3e0f33;
-}
-
 .finops-form__footer {
   display: flex;
   justify-content: flex-end;

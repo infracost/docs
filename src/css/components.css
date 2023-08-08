@@ -154,6 +154,34 @@
   }
 }
 
+
+/* INPUTS and LABELS */
+
+label {
+  margin-bottom: .5rem;
+}
+
+input::placeholder {
+  color: #696986;
+}
+
+input {
+  padding: 1rem;
+  background: var(--input-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  transition: all .2s ease-in-out;
+  color: white;
+  font-size: 1.25rem;
+}
+
+input:focus {
+  border: 1px solid #cc21a5;
+  outline: none !important;
+  box-shadow: 0 0 10px #3e0f33;
+}
+
+
 /* INTRO */
 
 .intro .tagline {
