@@ -17,6 +17,28 @@ const GlossarySearch = () => {
     keys: ["key", "description"],
   });
 
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setSearchValue(value);
+
+    const params = new URLSearchParams(window.location.search);
+
+    if (value) {
+      params.set("search", value);
+    } else {
+      params.delete("search");
+    }
+
+    // If there are no parameters, update the URL without the query string.
+    // Otherwise, include the query string.
+    const newUrl = params.toString()
+      ? `${window.location.pathname}?${params}`
+      : window.location.pathname;
+
+    // Update the browser URL without refreshing the page
+    window.history.pushState({}, "", newUrl);
+  };
+
   return (
     <>
       <div className="intro">
@@ -24,10 +46,11 @@ const GlossarySearch = () => {
           <h1 className="tagline">FinOps Glossary</h1>
           <div className="finops-glossary__search">
             <input
+              defaultValue={searchValue.replace(/['"]+/g, "")}
               type="search"
               placeholder="Search FinOps Glossary"
               className="glossary-search__input"
-              onChange={(e) => setSearchValue(e.currentTarget.value)}
+              onChange={handleInputChange}
             />
             <SearchIcon />
           </div>
