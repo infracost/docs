@@ -8,6 +8,11 @@
 	justify-content: center;
 }
 
+/* Content */
+.glossary-search__content-wrapper {
+	padding: 1.5rem;
+}
+
 /* Glossary search */
 input.glossary-search__input {
 	width: 100%;
@@ -26,5 +31,11 @@ input.glossary-search__input {
 	transform: translateY(-50%);
 }
 
+/* Search no results */
+.finops-glossary__search-no-results {
+	padding: 1.5rem;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+}
 
 
