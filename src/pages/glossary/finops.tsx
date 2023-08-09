@@ -5,6 +5,7 @@ import GlossaryTermPage from "../../components/GlossaryTerm/GlossaryTermPage";
 import terms from "../../components/GlossarySearch/glossaryTerms.json";
 import GlossaryTermPageAside from "../../components/GlossaryTerm/GlossaryTermPageAside";
 import GlossaryTermPageContent from "../../components/GlossaryTerm/GlossaryTermPageContent";
+import BackButton from "../../components/BackButton";
 
 const Finops = () => {
   const finops = terms.filter((term) => term.key === "FinOps")[0];
@@ -17,8 +18,11 @@ const Finops = () => {
       hideCTA={true}
       noIndex={false}
     >
-      <GlossaryTermPageIntro title=" FinOps: Bridging Finance and Operations in the Cloud Era" />
-
+      <GlossaryTermPageIntro
+        title=" FinOps: Bridging Finance and Operations in the Cloud Era"
+        toPath="/glossary"
+        toText="FinOps Glossary"
+      />
       <GlossaryTermPage>
         <GlossaryTermPageContent term={finops} />
         <GlossaryTermPageAside term={finops} />

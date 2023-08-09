@@ -16,11 +16,10 @@ const GlossaryTerm = ({ term }: { term: GlossaryTermType }) => {
         <a
           href={term.href}
           className="glossary-term__card-link"
-          target="_blank"
           rel="noopener noreferrer"
         >
           Learn more
-          <ArrowIcon size={{ width: "16px", height: "16px" }} />
+          <ArrowIcon />
         </a>
       )}
     </div>

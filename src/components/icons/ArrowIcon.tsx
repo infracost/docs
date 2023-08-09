@@ -6,8 +6,8 @@ const ArrowIcon = ({ size }: { size?: { width: string; height: string } }) => {
       focusable="false"
       className="arrow-icon"
       aria-hidden="true"
-      width={size ? size.width : "14"}
-      height={size ? size.height : "14"}
+      width={size ? size.width : "16"}
+      height={size ? size.height : "16"}
       fill="currentColor"
       viewBox="0 0 24 24"
     >

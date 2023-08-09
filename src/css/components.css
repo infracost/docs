@@ -60,6 +60,20 @@
   box-shadow: none;
 }
 
+.back-button {
+  font-size: 1rem;
+  position: relative;
+}
+
+.back-button .arrow-icon {
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* tags */
+
 .tag {
   border-radius: 9999px;
   display: inline-block;
@@ -198,6 +212,11 @@ input:focus {
   font-weight: bold;
   text-align: center;
   color: var(--nu20);
+}
+
+.intro__back-button {
+  margin-top: 2rem;
+  margin-bottom: 2rem;  
 }
 
 /* USED BY */
