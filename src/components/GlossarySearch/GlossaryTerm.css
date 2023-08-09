@@ -28,3 +28,51 @@
 		text-decoration: underline;
 	}
 }
+
+.glossary-term__page {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+}
+
+.glossary-term__article {	
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 4rem 1.5rem;
+}
+
+.glossary-term__content {	
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 4rem 1.5rem;
+}
+
+.glossary-term__aside {	
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem;
+	background-color: var(--nu50);
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	margin: 2rem 0;
+	height: fit-content;
+}
+
+
+@media (max-width: 1080px) {
+	.glossary-term__page {
+		grid-template-columns: 1fr;
+	}
+	.glossary-term__content {	
+		padding:  1.5rem;
+	}
+	.glossary-term__aside {
+		order: -1;
+		margin: 0;
+	}
+	.glossary-term__content,
+	.glossary-term__aside {
+		margin-top: 1.5rem;
+	}
+}

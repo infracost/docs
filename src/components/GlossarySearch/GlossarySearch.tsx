@@ -1,14 +1,20 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import terms from "./glossaryTerms.json";
 import "./GlossarySearch.css";
 import SearchIcon from "../icons/SearchIcon";
 import useSearch from "../utils/UseSearch";
 import GlossaryTerm from "./GlossaryTerm";
 
+type GlossaryPageSection = {
+  title: string;
+  paragraphs: string[];
+};
+
 export type GlossaryTermType = {
   key: string;
   href: string | null;
   description: string;
+  sections?: GlossaryPageSection[];
 };
 
 const GlossarySearch = () => {
@@ -82,6 +88,5 @@ function sortTermsAlphabetically(
 ): GlossaryTermType[] {
   return terms.slice().sort((a, b) => a.key.localeCompare(b.key));
 }
-
 
 export default GlossarySearch;
