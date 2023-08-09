@@ -12,7 +12,7 @@ type GlossaryPageSection = {
 
 export type GlossaryTermType = {
   key: string;
-  href: string | null;
+  slug: string | null;
   description: string;
   sections?: GlossaryPageSection[];
 };

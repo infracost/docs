@@ -12,9 +12,9 @@ const GlossaryTerm = ({ term }: { term: GlossaryTermType }) => {
 
       <div>{term.description}</div>
 
-      {term.href && (
+      {term.slug && (
         <a
-          href={term.href}
+          href={`/glossary/${term.slug}`}
           className="glossary-term__card-link"
           rel="noopener noreferrer"
         >
