@@ -9,6 +9,12 @@
 	padding: 1.5rem;
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		background-color: var(--nu50);
+		transform: scale(1.01);
+	}
 }
 
 .glossary-term__card-title {
@@ -17,12 +23,21 @@
 	font-weight: bold;
 }
 
-.glossary-term__card-link{
+.glossary-term__card-link .arrow-icon {
+	transition: all 0.2s ease-in-out;
+}
+
+.glossary-term__card-link {
 	font-size: 1rem;
 	margin-bottom: 0;
 	display: flex;
 	align-items: center;
 	gap: 0.325rem;
+	width: fit-content;
+
+	&:hover .arrow-icon {
+		animation: slideRight 0.5s ease-in-out;
+	}
 }
 
 .glossary-term__page {
@@ -70,4 +85,13 @@
 	.glossary-term__aside {
 		margin-top: 1.5rem;
 	}
+}
+
+@keyframes slideRight {
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

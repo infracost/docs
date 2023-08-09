@@ -37,6 +37,23 @@ input.glossary-search__input {
 	transform: translateY(-50%);
 }
 
+/* Search clear */
+.glossary-search__clear-button {
+	position: absolute;
+	top: 50%;
+	right: 1rem;
+	transform: translateY(-50%);
+	background-color: #1e1e48;
+}
+
+/* Hide the html5 button */
+.intro input[type="search"]::-webkit-search-decoration,
+.intro input[type="search"]::-webkit-search-cancel-button,
+.intro input[type="search"]::-webkit-search-results-button,
+.intro input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
 /* Search no results */
 .finops-glossary__search-no-results {
 	padding: 1.5rem;
