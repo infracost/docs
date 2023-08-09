@@ -3,7 +3,7 @@
     "url": "https://api.github.com/repos/infracost/infracost/releases/115107951",
     "assets_url": "https://api.github.com/repos/infracost/infracost/releases/115107951/assets",
     "upload_url": "https://uploads.github.com/repos/infracost/infracost/releases/115107951/assets{?name,label}",
-    "html_url": "https://github.com/infracost/infracost/releases/tag/v0.10.27",
+    "html_url": "https://github.com/infracost/infracost/releases/tag/v0.10.28",
     "id": 115107951,
     "author": {
       "login": "github-actions[bot]",
@@ -26,9 +26,9 @@
       "site_admin": false
     },
     "node_id": "RE_kwDOEF5zWc4G3Ghv",
-    "tag_name": "v0.10.27",
+    "tag_name": "v0.10.28",
     "target_commitish": "bfc0a2ba0886d1399950568a4fe32b9040c82115",
-    "name": "v0.10.27",
+    "name": "v0.10.28",
     "draft": false,
     "prerelease": false,
     "created_at": "2023-08-04T11:03:29Z",
@@ -66,7 +66,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:28Z",
         "updated_at": "2023-08-04T12:37:29Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-darwin-amd64.tar.gz"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-darwin-amd64.tar.gz"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078934",
@@ -100,7 +100,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:31Z",
         "updated_at": "2023-08-04T12:37:32Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-darwin-amd64.tar.gz.sha256"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-darwin-amd64.tar.gz.sha256"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078923",
@@ -134,7 +134,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:28Z",
         "updated_at": "2023-08-04T12:37:29Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-darwin-arm64.tar.gz"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-darwin-arm64.tar.gz"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078935",
@@ -168,7 +168,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:31Z",
         "updated_at": "2023-08-04T12:37:32Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-darwin-arm64.tar.gz.sha256"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-darwin-arm64.tar.gz.sha256"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078926",
@@ -202,7 +202,7 @@
         "download_count": 1,
         "created_at": "2023-08-04T12:37:28Z",
         "updated_at": "2023-08-04T12:37:29Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-linux-amd64.tar.gz"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-linux-amd64.tar.gz"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078936",
@@ -236,7 +236,7 @@
         "download_count": 1,
         "created_at": "2023-08-04T12:37:32Z",
         "updated_at": "2023-08-04T12:37:32Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-linux-amd64.tar.gz.sha256"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-linux-amd64.tar.gz.sha256"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078925",
@@ -270,7 +270,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:28Z",
         "updated_at": "2023-08-04T12:37:29Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-linux-arm64.tar.gz"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-linux-arm64.tar.gz"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078937",
@@ -304,7 +304,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:32Z",
         "updated_at": "2023-08-04T12:37:32Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-linux-arm64.tar.gz.sha256"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-linux-arm64.tar.gz.sha256"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078929",
@@ -338,7 +338,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:29Z",
         "updated_at": "2023-08-04T12:37:31Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-windows-amd64.tar.gz"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-windows-amd64.tar.gz"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078939",
@@ -372,7 +372,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:32Z",
         "updated_at": "2023-08-04T12:37:32Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-windows-amd64.tar.gz.sha256"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-windows-amd64.tar.gz.sha256"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078931",
@@ -406,7 +406,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:30Z",
         "updated_at": "2023-08-04T12:37:31Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-windows-amd64.zip"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-windows-amd64.zip"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078938",
@@ -440,7 +440,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:32Z",
         "updated_at": "2023-08-04T12:37:32Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-windows-amd64.zip.sha256"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-windows-amd64.zip.sha256"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078930",
@@ -474,7 +474,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:29Z",
         "updated_at": "2023-08-04T12:37:31Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-windows-arm64.tar.gz"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-windows-arm64.tar.gz"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078940",
@@ -508,7 +508,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:32Z",
         "updated_at": "2023-08-04T12:37:32Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-windows-arm64.tar.gz.sha256"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-windows-arm64.tar.gz.sha256"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078933",
@@ -542,7 +542,7 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:30Z",
         "updated_at": "2023-08-04T12:37:31Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-windows-arm64.zip"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-windows-arm64.zip"
       },
       {
         "url": "https://api.github.com/repos/infracost/infracost/releases/assets/120078941",
@@ -576,12 +576,12 @@
         "download_count": 0,
         "created_at": "2023-08-04T12:37:32Z",
         "updated_at": "2023-08-04T12:37:32Z",
-        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.27/infracost-windows-arm64.zip.sha256"
+        "browser_download_url": "https://github.com/infracost/infracost/releases/download/v0.10.28/infracost-windows-arm64.zip.sha256"
       }
     ],
-    "tarball_url": "https://api.github.com/repos/infracost/infracost/tarball/v0.10.27",
-    "zipball_url": "https://api.github.com/repos/infracost/infracost/zipball/v0.10.27",
-    "body": "# Infracost v0.10.27\r\n\r\nThis release provides several enhancements and additions that aim to improve tag policies' efficiency and control. This includes support for `data.aws_default_tags` and various adjustments to tag handling at launch and within volume resources.\r\n\r\n## New Features 🎁\r\n\r\n- Support for `data.aws_default_tags` block has been added for improved tag coverage of resources. [PR #2597](https://github.com/infracost/infracost/pull/2597)\r\n- Introducing various read file functions to give you more ways to interact with your local files in Infracost config template. [@hugorut](https://github.com/infracost/infracost/pull/2595)\r\n- Infracost tagging policies now handle volume tags, allowing for better resource management and discovery. [@hugorut](https://github.com/infracost/infracost/pull/2599)\r\n- Added support for `aws_launch_template` `tag_specifications`. [@hugorut](https://github.com/infracost/infracost/pull/2600)\r\n\r\n## Enhancements 🔧\r\n\r\n- You can now enjoy Terragrunt global cache for modules for more efficient module management. [@hugorut](https://github.com/infracost/infracost/pull/2584)\r\n- We've updated the Tag Policy comment format, it now shows the value of any invalid tags that don't adhear to a tagging policy. [@vdmgolub](https://github.com/infracost/infracost/pull/2586)\r\n\r\n## Fixes 🩹\r\n\r\n- Stripping count from module name as configuration key when marshalling has been fixed. Improving overall estimates for users who saw discrepancies with modules using `count` and `for_each` [@vdmgolub](https://github.com/infracost/infracost/pull/2589)\r\n- `aws_autoscaling_group` tag blocks that are have `progagate_at_launch` = `false` now fail tag policies. [@hugorut](https://github.com/infracost/infracost/pull/2598)\r\n\r\n## Chores\r\n\r\n- We've added memory and CPU profiling options to help with performance troubleshooting. [@hugorut](https://github.com/infracost/infracost/pull/2585)\r\n- To prevent redundancy, we now skip commenting if the run was done earlier. [@aliscott](https://github.com/infracost/infracost/pull/2587)\r\n\r\nFor the full list of changes, check out the [changelog](https://github.com/infracost/infracost/compare/v0.10.26...v0.10.27).\r\n"
+    "tarball_url": "https://api.github.com/repos/infracost/infracost/tarball/v0.10.28",
+    "zipball_url": "https://api.github.com/repos/infracost/infracost/zipball/v0.10.28",
+    "body": "# Infracost v0.10.28\r\n\r\nThis release provides several enhancements and additions that aim to improve tag policies' efficiency and control. This includes support for `data.aws_default_tags` and various adjustments to tag handling at launch and within volume resources.\r\n\r\n## New Features 🎁\r\n\r\n- Support for `data.aws_default_tags` block has been added for improved tag coverage of resources. [PR #2597](https://github.com/infracost/infracost/pull/2597)\r\n- Introducing various read file functions to give you more ways to interact with your local files in Infracost config template. [@hugorut](https://github.com/infracost/infracost/pull/2595)\r\n- Infracost tagging policies now handle volume tags, allowing for better resource management and discovery. [@hugorut](https://github.com/infracost/infracost/pull/2599)\r\n- Added support for `aws_launch_template` `tag_specifications`. [@hugorut](https://github.com/infracost/infracost/pull/2600)\r\n\r\n## Enhancements 🔧\r\n\r\n- You can now enjoy Terragrunt global cache for modules for more efficient module management. [@hugorut](https://github.com/infracost/infracost/pull/2584)\r\n- We've updated the Tag Policy comment format, it now shows the value of any invalid tags that don't adhear to a tagging policy. [@vdmgolub](https://github.com/infracost/infracost/pull/2586)\r\n\r\n## Fixes 🩹\r\n\r\n- Stripping count from module name as configuration key when marshalling has been fixed. Improving overall estimates for users who saw discrepancies with modules using `count` and `for_each` [@vdmgolub](https://github.com/infracost/infracost/pull/2589)\r\n- `aws_autoscaling_group` tag blocks that are have `progagate_at_launch` = `false` now fail tag policies. [@hugorut](https://github.com/infracost/infracost/pull/2598)\r\n\r\n## Chores\r\n\r\n- We've added memory and CPU profiling options to help with performance troubleshooting. [@hugorut](https://github.com/infracost/infracost/pull/2585)\r\n- To prevent redundancy, we now skip commenting if the run was done earlier. [@aliscott](https://github.com/infracost/infracost/pull/2587)\r\n\r\nFor the full list of changes, check out the [changelog](https://github.com/infracost/infracost/compare/v0.10.26...v0.10.28).\r\n"
   },
   {
     "url": "https://api.github.com/repos/infracost/infracost/releases/113132291",
