@@ -5,7 +5,6 @@ import GlossaryTermPage from "../../components/GlossaryTerm/GlossaryTermPage";
 import terms from "../../components/GlossarySearch/glossaryTerms.json";
 import GlossaryTermPageAside from "../../components/GlossaryTerm/GlossaryTermPageAside";
 import GlossaryTermPageContent from "../../components/GlossaryTerm/GlossaryTermPageContent";
-import BackButton from "../../components/BackButton";
 
 const Finops = () => {
   const finops = terms.filter((term) => term.key === "FinOps")[0];
@@ -13,7 +12,7 @@ const Finops = () => {
   return (
     <PageLayout
       title="FinOps - Infracost Glossary"
-      description="Cloud costs, loved by developers"
+      description="What is FinOps in cloud computing?"
       pageClass="finops default-page-bg"
       hideCTA={true}
       noIndex={false}

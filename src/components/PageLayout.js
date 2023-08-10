@@ -7,7 +7,14 @@ import Navbar from './Navbar';
 import CTA from './CTA';
 import Footer from './Footer';
 
-function PageLayout({ title, description, pageClass, children, hideCTA, noIndex }) {
+function PageLayout({
+  title,
+  description,
+  pageClass,
+  children,
+  hideCTA,
+  noIndex,
+}) {
   return (
     <HelmetProvider>
       <LayoutProvider>
