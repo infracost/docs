@@ -81,6 +81,6 @@ Tagging policies check all AWS, Azure and Google Terraform resources that suppor
 - For `aws_autoscaling_group` and `aws_autoscaling_group_tag`, if the `propagate_at_launch` attribute is not set to true, the resource fails tagging policies as resources launched from those Auto Scaling groups will not get the required tags.
 - For tags set in modules, the actual module version being used is checked.
 - For `aws_instance`, the `volume_tags` attribute is also checked.
-- For `aws_launch_template`, the `tag_specifications` attribute is also checked when the `resource_type` is `instance` or `volume` (others are ignored just now). These tags are then associated with either the `aws_instance` or `aws_autoscaling_group` resource that references the `aws_launch_template` and checked as part of those resources.
+- For `aws_launch_template`, the `tag_specifications` attribute is also checked. If the `resource_type` is `instance` or `volume` these tags are then associated with either the `aws_instance` or `aws_autoscaling_group` resource that references the `aws_launch_template` and checked as part of those resources.
 
 Please open a [GitHub issue](https://github.com/infracost/infracost/issues) or email [hello@infracost.io](mailto:hello@infracost.io) if you have any feedback on how tagging policies work. 
