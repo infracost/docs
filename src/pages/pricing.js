@@ -10,7 +10,7 @@ function Pricing() {
   return (
     <PageLayout
       title="Pricing"
-      description="Cloud cost estimates for engineers"
+      description="Explore transparent and customizable cloud cost estimates tailored for engineers. Find a plan that fits your needs and budget."
       pageClass="pricing default-page-bg"
       hideCTA={true}
     >
@@ -19,7 +19,8 @@ function Pricing() {
           <div className="container">
             <h1 className="tagline">Pricing</h1>
             <p className="sub-tagline">
-              Cloud costs in engineering and product workflows before resources are launched.
+              Cloud costs in engineering and product workflows before resources
+              are launched.
             </p>
             <p className="sub-tagline">The cloud checkout screen!</p>
           </div>
@@ -86,7 +87,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        Use our hosted Cloud Pricing API<sup>†</sup> or self-host
+                        Use our hosted Cloud Pricing API<sup>†</sup> or
+                        self-host
                       </span>
                     </li>
                     <li>
@@ -98,7 +100,7 @@ function Pricing() {
                   </ul>
 
                   <div className="price__description">
-                  † Up to 1,000 runs per month, upgrade packs can be purchased
+                    † Up to 1,000 runs per month, upgrade packs can be purchased
                     (<a href="mailto:hello@infracost.io">contact us</a>)
                   </div>
                 </div>
@@ -110,7 +112,9 @@ function Pricing() {
                   <span className="price__tier">Infracost Cloud</span>
                   <span className="price">
                     ${PRICE_PER_SEAT}
-                    <span className="price__suppl">per seat per month<sup>*</sup></span>
+                    <span className="price__suppl">
+                      per seat per month<sup>*</sup>
+                    </span>
                   </span>
                   <span className="sub">
                     For <b>FinOps</b>, <b>DevOps</b> and <b>Platform</b> teams
@@ -145,7 +149,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Tagging policies:</b> communicate and enforce required FinOps tag keys/values in pull requests
+                        <b>Tagging policies:</b> communicate and enforce
+                        required FinOps tag keys/values in pull requests
                       </span>
                     </li>
                     <li>
@@ -154,8 +159,8 @@ function Pricing() {
                       </span>
                       <span>
                         <b>Cost policies:</b> Ensure changes are using best
-                        practices, directly in workflow (e.g. AWS GP2 volumes should be
-                        GP3)
+                        practices, directly in workflow (e.g. AWS GP2 volumes
+                        should be GP3)
                       </span>
                     </li>
                     <li>
@@ -163,8 +168,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Guardrails:</b> Automatic budget checks &amp; approval
-                        workflows before money is spent
+                        <b>Guardrails:</b> Automatic budget checks &amp;
+                        approval workflows before money is spent
                       </span>
                     </li>
                     <li>
@@ -172,8 +177,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Jira integration: </b> Inform product owners of
-                        cost impact of features in their workflow
+                        <b>Jira integration: </b> Inform product owners of cost
+                        impact of features in their workflow
                       </span>
                     </li>
                     <li>
@@ -181,8 +186,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Reporting: </b> Daily, weekly &amp; monthly
-                        reports of all deployed &amp; upcoming changes
+                        <b>Reporting: </b> Daily, weekly &amp; monthly reports
+                        of all deployed &amp; upcoming changes
                       </span>
                     </li>
                     <li>
@@ -190,8 +195,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Team management: </b>Give access to all teams &amp; managers
-                        with different access levels
+                        <b>Team management: </b>Give access to all teams &amp;
+                        managers with different access levels
                       </span>
                     </li>
 

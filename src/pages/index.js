@@ -9,7 +9,7 @@ function Home() {
   return (
     <PageLayout
       title="Infracost: The cloud's checkout screen"
-      description="Know the cost impact of infrastructure changes before launching resources. Built into engineering and product workflows."
+      description="Anticipate the financial impact of your infrastructure changes before deploying resources. Seamlessly integrated into your engineering and product workflows for smarter decisions."
       pageClass="home"
     >
       <div className="home-hero">
@@ -102,9 +102,10 @@ function Home() {
             <div className="step-content">
               <h3>Cost visibility for engineering</h3>
               <p>
-                Infracost integrates with your CI/CD pipelines, and scans for Terraform code
-                changes and checks 4 million prices across AWS, Azure and Google Cloud to create a simple,
-                understandable cost estimate before any resources are launched.
+                Infracost integrates with your CI/CD pipelines, and scans for
+                Terraform code changes and checks 4 million prices across AWS,
+                Azure and Google Cloud to create a simple, understandable cost
+                estimate before any resources are launched.
               </p>
             </div>
             <div className="step-screenshot">
@@ -204,9 +205,11 @@ function Home() {
               <h3>Enterprise ready</h3>
               <p>
                 Infracost is being used by Fortune 500 companies. We support
-                custom price books, AWS EDP, and Enterprise Agreement discounts. Infracost integrate
-                with on-premise source control systems, CI/CD systems, and with Business Intelligence products. In addition, we are SOC2 compliant.
-                Contact us for more information on how we can help your enterprise.
+                custom price books, AWS EDP, and Enterprise Agreement discounts.
+                Infracost integrate with on-premise source control systems,
+                CI/CD systems, and with Business Intelligence products. In
+                addition, we are SOC2 compliant. Contact us for more information
+                on how we can help your enterprise.
               </p>
             </div>
             <div className="step-screenshot">
@@ -227,7 +230,10 @@ function Home() {
         <div className="container">
           <ul>
             <li>
-              <img src="/img/services/hashicorp.svg" alt="HashiCorp Terraform logo" />
+              <img
+                src="/img/services/hashicorp.svg"
+                alt="HashiCorp Terraform logo"
+              />
             </li>
             <li>
               <img src="/img/services/aws.svg" alt="Amazon Web Services logo" />
