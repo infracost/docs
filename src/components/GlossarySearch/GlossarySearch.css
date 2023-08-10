@@ -70,4 +70,8 @@ input.glossary-search__input {
 	border-radius: 8px;
 }
 
-
+@media screen and (max-width: 1080px) {
+	.finops-glossary__search {
+		width: 100%;
+	}
+}
