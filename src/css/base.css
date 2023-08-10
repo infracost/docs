@@ -126,7 +126,7 @@ h6 {
   color: var(--text-color-dark) 
 }
 
-.white-bg h3 {
+.white-bg h2, h3 {
   color: var(--text-color-dark) 
 }
 
