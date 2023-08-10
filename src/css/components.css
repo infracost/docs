@@ -195,6 +195,15 @@ input:not(.DocSearch-Input):focus {
   box-shadow: 0 0 10px #3e0f33;
 }
 
+/* KBD */
+kbd {
+  background-color: #2a2a5b;
+  border-radius: 4px;
+  color: var(--white);
+  border-color: #2a2a5b;
+  box-shadow: none;
+}
+
 
 /* INTRO */
 

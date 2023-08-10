@@ -4,6 +4,7 @@ import "./GlossarySearch.css";
 import SearchIcon from "../icons/SearchIcon";
 import useSearch from "../utils/UseSearch";
 import GlossaryTerm from "./GlossaryTerm";
+import Kbd from "../Kbd";
 
 type GlossaryPageSection = {
   title: string;
@@ -45,57 +46,58 @@ const GlossarySearch = () => {
     window.history.pushState({}, "", newUrl);
   };
 
- const SearchClearButton = (): ReactElement => {
-   if (searchValue) {
-     return (
-       <button
-         className="button flat glossary-search__clear-button"
-         onClick={() => handleInputChange({ target: { value: "" } })}
-       >
-         Clear search
-       </button>
-     );
-   }
-   return <></>;
- };
+  const SearchClearButton = (): ReactElement => {
+    if (searchValue) {
+      return (
+        <button
+          className="button flat glossary-search__clear-button"
+          onClick={() => handleInputChange({ target: { value: "" } })}
+        >
+          Clear
+          <Kbd keyName="Esc" />
+        </button>
+      );
+    }
+    return <></>;
+  };
 
- return (
-   <>
-     <div className="intro">
-       <div className="container glossary-search__intro-container">
-         <h1 className="tagline">FinOps Glossary</h1>
-         <div className="finops-glossary__search">
-           <input
-             value={searchValue.replace(/['"]+/g, "")}
-             type="search"
-             placeholder="Search FinOps Glossary"
-             className="glossary-search__input"
-             onChange={handleInputChange}
-           />
-           <SearchIcon />
-           <SearchClearButton />
-         </div>
-       </div>
-     </div>
-     <div className="container glossary-search__content-wrapper">
-       {results.length > 0 ? (
-         <div className="glossary-search__content-list">
-           {sortTermsAlphabetically(results).map((term) => (
-             <React.Fragment key={term.key}>
-               <GlossaryTerm term={term} />
-             </React.Fragment>
-           ))}
-         </div>
-       ) : (
-         <div>
-           <p className="finops-glossary__search-no-results">
-             No results found for <strong>{searchValue}</strong>
-           </p>
-         </div>
-       )}
-     </div>
-   </>
- );
+  return (
+    <>
+      <div className="intro">
+        <div className="container glossary-search__intro-container">
+          <h1 className="tagline">FinOps Glossary</h1>
+          <div className="finops-glossary__search">
+            <input
+              value={searchValue.replace(/['"]+/g, "")}
+              type="search"
+              placeholder="Search FinOps Glossary"
+              className="glossary-search__input"
+              onChange={handleInputChange}
+            />
+            <SearchIcon />
+            <SearchClearButton />
+          </div>
+        </div>
+      </div>
+      <div className="container glossary-search__content-wrapper">
+        {results.length > 0 ? (
+          <div className="glossary-search__content-list">
+            {sortTermsAlphabetically(results).map((term) => (
+              <React.Fragment key={term.key}>
+                <GlossaryTerm term={term} />
+              </React.Fragment>
+            ))}
+          </div>
+        ) : (
+          <div>
+            <p className="finops-glossary__search-no-results">
+              No results found for <strong>{searchValue}</strong>
+            </p>
+          </div>
+        )}
+      </div>
+    </>
+  );
 };
 
 function sortTermsAlphabetically(
