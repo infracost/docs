@@ -13,7 +13,7 @@ const Finops = () => {
     <PageLayout
       title="FinOps - Infracost Glossary"
       description="What is FinOps in cloud computing?"
-      pageClass="finops default-page-bg"
+      pageClass="finops"
       hideCTA={true}
       noIndex={false}
     >

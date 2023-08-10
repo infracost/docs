@@ -121,6 +121,15 @@ h6 {
 	background-color: var(--nu60);
 }
 
+.white-bg {
+  background-color: white;
+  color: var(--text-color-dark) 
+}
+
+.white-bg h3 {
+  color: var(--text-color-dark) 
+}
+
 .close {
   color: var(--nu-10);
   opacity: 1;

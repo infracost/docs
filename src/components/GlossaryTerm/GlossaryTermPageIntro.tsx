@@ -17,8 +17,10 @@ const GlossaryTermPageIntro = ({
           <h1 className="tagline">{title}</h1>
         </div>
       </div>
-      <div className="container intro__back-button">
-        <BackButton toPath={toPath} toText={toText} />
+      <div className="white-bg">
+        <div className="container intro__back-button">
+          <BackButton toPath={toPath} toText={toText} />
+        </div>
       </div>
     </>
   );

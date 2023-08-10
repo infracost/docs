@@ -5,7 +5,11 @@ const GlossaryTermPage = ({
 }: {
   children: ReactElement | ReactElement[];
 }) => {
-  return <main className="container glossary-term__page">{children}</main>;
+  return (
+    <main className="white-bg">
+      <div className="glossary-term__page container">{children}</div>
+    </main>
+  );
 };
 
 export default GlossaryTermPage;
