@@ -175,11 +175,11 @@ label {
   margin-bottom: .5rem;
 }
 
-input::placeholder {
-  color: #696986;
+input:not(.DocSearch-Input)::placeholder {
+  color: #a4a4c5;
 }
 
-input {
+input:not(.DocSearch-Input) {
   padding: 1rem;
   background: var(--input-bg);
   border-radius: 16px;
@@ -189,7 +189,7 @@ input {
   font-size: 1.25rem;
 }
 
-input:focus {
+input:not(.DocSearch-Input):focus {
   border: 1px solid #cc21a5;
   outline: none !important;
   box-shadow: 0 0 10px #3e0f33;
