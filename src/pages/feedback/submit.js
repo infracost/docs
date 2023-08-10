@@ -12,12 +12,13 @@ function FeedbackSubmit() {
 
   return (
     <PageLayout
-        title="Feedback"
-        description="Infracost is open source and free for the community."
-        pageClass="feedback"
-        hideCTA={true}
-        noIndex={true} />
-  )
+      title="Feedback"
+      description="Your voice matters to us! Infracost is an open-source platform and free for the community. Share your feedback and contribute to our continuous growth and improvement."
+      pageClass="feedback"
+      hideCTA={true}
+      noIndex={true}
+    />
+  );
 }
 
 export default FeedbackSubmit;

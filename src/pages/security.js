@@ -7,11 +7,11 @@ import Check from '../components/icons/Check';
 function Security() {
   return (
     <PageLayout
-        title="Security"
-      description="Cloud cost estimates for engineers"
-        pageClass="security"
-        hideCTA={true}>
-
+      title="Security"
+      description="Ensuring your cloud cost estimates are secure is our priority. Learn about our cutting-edge security measures and protocols."
+      pageClass="security"
+      hideCTA={true}
+    >
       <div className="security-wrapper">
         <div className="container">
           <div className="intro">

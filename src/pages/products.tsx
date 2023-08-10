@@ -51,7 +51,7 @@ function Products() {
   return (
     <PageLayout
       title="Products"
-      description="Cloud costs, loved by developers"
+      description="Discover our range of products to manage your cloud costs effectively. Designed with love for developers, and a focus on user-friendliness."
       pageClass="products default-page-bg"
       hideCTA={false}
       noIndex={false}
