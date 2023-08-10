@@ -118,7 +118,6 @@ div .menu {
 {
   background-color: transparent;
   color: white;
-  
 }
 
 .navbar .top .menu__dropdown-items {
@@ -144,6 +143,11 @@ div .menu {
 
 .navbar .top .menu__dropdown-item-a {
   color: var(--text-color-dark);
+}
+
+.navbar .top .menu__dropdown-item-a:hover
+{
+  background-color:#F5F5F9;
 }
 
 /* Other */
