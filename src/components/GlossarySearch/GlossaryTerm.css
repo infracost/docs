@@ -21,6 +21,9 @@
 	font-size: 1.5rem;
 	margin-bottom: 0;
 	font-weight: bold;
+	display: flex;
+	gap: .5rem;
+	align-items: baseline;
 }
 
 .glossary-term__card-link .arrow-icon {
@@ -67,6 +70,12 @@
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
 	height: fit-content;
+}
+
+.glossary-term__header {	
+	display: flex;
+	align-items: baseline;
+	gap: .5rem;
 }
 
 
