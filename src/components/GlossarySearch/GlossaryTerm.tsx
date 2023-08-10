@@ -22,7 +22,7 @@ const GlossaryTerm = ({ term }: { term: GlossaryTermType }) => {
           className="glossary-term__card-link"
           rel="noopener noreferrer"
         >
-          Learn more
+          More about {term.key}
           <ArrowIcon />
         </a>
       )}
