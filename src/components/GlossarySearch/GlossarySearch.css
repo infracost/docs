@@ -20,20 +20,26 @@
 }
 
 /* Glossary search */
-input.glossary-search__input {
-	width: 100%;
-	padding: 1.5rem 2rem 1.5rem 3rem;
-	background-color: #2a2a5b;
-}
 
 .finops-glossary__search {
 	position: relative;
+	border-radius: 3rem;
+	padding: 2px;
+	width: 50%;
+	margin: 0 auto;
+}
+
+input.glossary-search__input {
+	width: 100%;
+	padding: 1.5rem 2rem 1.5rem 4rem;
+	background-color: #2a2a5b;
+	border-radius: 3rem;
 }
 
 .finops-glossary__search > .search-icon {
 	position: absolute;
 	top: 50%;
-	left: 1rem;
+	left: 2rem;
 	transform: translateY(-50%);
 }
 
@@ -41,7 +47,7 @@ input.glossary-search__input {
 .glossary-search__clear-button {
 	position: absolute;
 	top: 50%;
-	right: 1rem;
+	right: 2rem;
 	transform: translateY(-50%);
 	background-color: #1e1e48;
 }
