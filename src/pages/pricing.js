@@ -10,7 +10,7 @@ function Pricing() {
   return (
     <PageLayout
       title="Pricing"
-      description="Explore transparent and customizable cloud cost estimates tailored for engineers. Find a plan that fits your needs and budget."
+      description="Estimate the cost of infrastructure changes before deploying resources with Proactive FinOps"
       pageClass="pricing default-page-bg"
       hideCTA={true}
     >

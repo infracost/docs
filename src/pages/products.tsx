@@ -51,7 +51,7 @@ function Products() {
   return (
     <PageLayout
       title="Products"
-      description="Discover our range of products to manage your cloud costs effectively. Designed with love for developers, and a focus on user-friendliness."
+      description="Infracost has multiple products for each person ranging from engineering to FinOps. Making FinOps proactive by shifting cloud costs left"
       pageClass="products default-page-bg"
       hideCTA={false}
       noIndex={false}

@@ -9,7 +9,7 @@ function Home() {
   return (
     <PageLayout
       title="Infracost: The cloud's checkout screen"
-      description="Anticipate the financial impact of your infrastructure changes before deploying resources. Seamlessly integrated into your engineering and product workflows for smarter decisions."
+      description="Estimate the cost of infrastructure changes before deploying resources. Seamlessly integrated into engineering and product workflows."
       pageClass="home"
     >
       <div className="home-hero">
