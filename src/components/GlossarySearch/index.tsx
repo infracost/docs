@@ -1,10 +1,10 @@
-import React, { ReactElement } from "react";
-import terms from "./glossaryTerms.json";
-import "./GlossarySearch.css";
-import SearchIcon from "../icons/SearchIcon";
-import useSearch from "../utils/UseSearch";
-import GlossaryTerm from "./GlossaryCard";
-import Kbd from "../Kbd";
+import React, { ReactElement } from 'react';
+import terms from './glossaryTerms.json';
+import './GlossarySearch.css';
+import SearchIcon from '../icons/SearchIcon';
+import useSearch from '../utils/UseSearch';
+import GlossaryTerm from './GlossaryCard';
+import Kbd from '../Kbd';
 
 type GlossaryPageSection = {
   title: string;
@@ -21,19 +21,19 @@ export type GlossaryTermType = {
 const GlossarySearch = () => {
   const { results, searchValue, setSearchValue } = useSearch<GlossaryTermType>({
     dataSet: terms,
-    keys: ["key", "description"],
+    keys: ['key', 'description'],
   });
 
   const handleInputChange = (e) => {
-    const value = e.target.value;
+    const { value } = e.target;
     setSearchValue(value);
 
     const params = new URLSearchParams(window.location.search);
 
     if (value) {
-      params.set("search", value);
+      params.set('search', value);
     } else {
-      params.delete("search");
+      params.delete('search');
     }
 
     // If there are no parameters, update the URL without the query string.
@@ -43,7 +43,7 @@ const GlossarySearch = () => {
       : window.location.pathname;
 
     // Update the browser URL without refreshing the page
-    window.history.pushState({}, "", newUrl);
+    window.history.pushState({}, '', newUrl);
   };
 
   const SearchClearButton = (): ReactElement => {
@@ -51,7 +51,7 @@ const GlossarySearch = () => {
       return (
         <button
           className="button flat glossary-search__clear-button"
-          onClick={() => handleInputChange({ target: { value: "" } })}
+          onClick={() => handleInputChange({ target: { value: '' } })}
         >
           Clear
           <Kbd keyName="Esc" />
@@ -68,7 +68,7 @@ const GlossarySearch = () => {
           <h1 className="tagline">FinOps Glossary</h1>
           <div className="finops-glossary__search">
             <input
-              value={searchValue.replace(/['"]+/g, "")}
+              value={searchValue.replace(/['"]+/g, '')}
               type="search"
               placeholder="Search FinOps Glossary"
               className="glossary-search__input"
@@ -102,9 +102,7 @@ const GlossarySearch = () => {
   );
 };
 
-function sortTermsAlphabetically(
-  terms: GlossaryTermType[]
-): GlossaryTermType[] {
+function sortTermsAlphabetically(terms: GlossaryTermType[]): GlossaryTermType[] {
   return terms.slice().sort((a, b) => a.key.localeCompare(b.key));
 }
 

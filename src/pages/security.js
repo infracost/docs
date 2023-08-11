@@ -16,8 +16,8 @@ function Security() {
           <div className="intro">
             <h1 className="tagline">Security at Infracost</h1>
             <p className="sub-tagline">
-              Infracost’s software is trusted by thousands of companies around
-              the world, including many of the Fortune 500.
+              Infracost’s software is trusted by thousands of companies around the world, including
+              many of the Fortune 500.
             </p>
           </div>
 
@@ -38,8 +38,7 @@ function Security() {
                   vulnerabilities.
                 </p>
                 <p>
-                  Once we've received your email we'll keep you updated as we
-                  fix the vulnerability.
+                  Once we've received your email we'll keep you updated as we fix the vulnerability.
                 </p>
               </div>
             </div>
@@ -51,11 +50,7 @@ function Security() {
               <div>
                 <p>
                   <div className="certification">
-                    <img
-                      class="badge"
-                      src="/img/icons/soc2.png"
-                      alt="SOC 2 Type II"
-                    />
+                    <img class="badge" src="/img/icons/soc2.png" alt="SOC 2 Type II" />
                     <div>
                       <span class="icon">
                         <Check size={18} color="#19D97D" />

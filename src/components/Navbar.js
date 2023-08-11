@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from '@theme/SearchBar';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { useWindowSize } from '@docusaurus/theme-common';
-import { useNavbarSecondaryMenu, useLockBodyScroll, useHideableNavbar } from '@docusaurus/theme-common/internal';
-import GitHubStarCount from '../components/GitHubStarCount';
-import { Menu } from "@headlessui/react";
+import {
+  useNavbarSecondaryMenu,
+  useLockBodyScroll,
+  useHideableNavbar,
+} from '@docusaurus/theme-common/internal';
+import { Menu } from '@headlessui/react';
+import GitHubStarCount from './GitHubStarCount';
 
 function Navbar({ isDocs }) {
   const isBrowser = useIsBrowser();
@@ -19,14 +23,14 @@ function Navbar({ isDocs }) {
       setAtTop(window.scrollY <= 64);
     };
 
-    window.addEventListener("scroll", checkAtTop);
+    window.addEventListener('scroll', checkAtTop);
   }
 
   useLockBodyScroll(showSidebar);
 
   const windowSize = useWindowSize();
   useEffect(() => {
-    if (windowSize === "desktop") {
+    if (windowSize === 'desktop') {
       setShowSidebar(false);
     }
   }, [windowSize]);
@@ -70,45 +74,45 @@ function Navbar({ isDocs }) {
 
   const menuItems = [
     {
-      label: "FinOps",
-      href: "/finops",
+      label: 'FinOps',
+      href: '/finops',
     },
     {
-      label: "Products",
-      href: "/products",
+      label: 'Products',
+      href: '/products',
     },
     {
-      label: "Use Cases",
-      href: "/use-cases",
+      label: 'Use Cases',
+      href: '/use-cases',
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: 'Pricing',
+      href: '/pricing',
     },
     {
-      label: "Resources",
+      label: 'Resources',
       groupItems: [
         {
-          label: "Docs",
-          href: "/docs",
+          label: 'Docs',
+          href: '/docs',
         },
         {
-          label: "FinOps Glossary",
-          href: "/glossary",
+          label: 'FinOps Glossary',
+          href: '/glossary',
         },
         {
-          label: "Blog",
-          href: "/blog",
+          label: 'Blog',
+          href: '/blog',
         },
       ],
     },
     {
-      label: "About",
-      href: "/about",
+      label: 'About',
+      href: '/about',
     },
     {
-      label: "Sign up / Log in",
-      href: "https://dashboard.infracost.io",
+      label: 'Sign up / Log in',
+      href: 'https://dashboard.infracost.io',
     },
   ];
 
@@ -211,9 +215,9 @@ function Navbar({ isDocs }) {
   return (
     <nav
       ref={navbarRef}
-      className={`navbar ${atTop ? "at-top" : ""} ${
-        showSidebar ? "sidebar-open" : ""
-      } ${isDocs ? "docs" : ""}`}
+      className={`navbar ${atTop ? 'at-top' : ''} ${showSidebar ? 'sidebar-open' : ''} ${
+        isDocs ? 'docs' : ''
+      }`}
     >
       <div className="container">
         <div className="top level">
@@ -239,10 +243,10 @@ function Navbar({ isDocs }) {
               <div className="left">{hamburger}</div>
               <div className="right">{getStarted}</div>
             </div>
-            {mobileDocsSidebarState === "show" ? (
+            {mobileDocsSidebarState === 'show' ? (
               <MobileDocsSidebar
                 content={docsMenu.content}
-                onHide={() => setMobileDocsSidebarState("hide")}
+                onHide={() => setMobileDocsSidebarState('hide')}
               />
             ) : (
               <div className="sidebar-content">

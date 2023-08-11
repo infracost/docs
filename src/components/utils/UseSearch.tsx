@@ -1,6 +1,6 @@
-import { useState, useMemo } from "react";
-import Fuse from "fuse.js";
-import { useLocation } from "@docusaurus/router";
+import { useState, useMemo } from 'react';
+import Fuse from 'fuse.js';
+import { useLocation } from '@docusaurus/router';
 
 interface IUseSearchProps<T> {
   dataSet: T[];
@@ -12,8 +12,8 @@ const SCORE_THRESHOLD = 0.4;
 export default function useSearch<T>({ dataSet, keys }: IUseSearchProps<T>) {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
-  const urlSearch = searchParams.get("search");
-  const [searchValue, setSearchValue] = useState(urlSearch ?? "");
+  const urlSearch = searchParams.get('search');
+  const [searchValue, setSearchValue] = useState(urlSearch ?? '');
 
   const fuse = useMemo(() => {
     const options = {
@@ -30,7 +30,7 @@ export default function useSearch<T>({ dataSet, keys }: IUseSearchProps<T>) {
     const searchResults = fuse.search(searchValue);
 
     return searchResults
-      .filter((fuseResult) => fuseResult.score ?? 0 < SCORE_THRESHOLD)
+      .filter((fuseResult) => fuseResult.score ?? SCORE_THRESHOLD > 0)
       .map((fuseResult) => fuseResult.item);
   }, [fuse, searchValue, dataSet]);
 
