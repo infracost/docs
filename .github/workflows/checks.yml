@@ -1,0 +1,45 @@
+name: Checks
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./web
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: use node 16.15.1
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.15.1
+
+      - name: cache npm
+        id: cache npm
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./.npm
+            ./node_modules
+          key: ${{ runner.os }}-npm-web-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: install node modules
+        run: npm ci --cache=.npm
+
+      - name: check project formatting
+        run: npm run format:check
+
+      - name: lint project
+        run: npm run lint
+
+      - name: build project
+        run: npm run build
