@@ -1,0 +1,55 @@
+/* CTA */
+.glossary-cta {
+	background: var(--primary-gradient);
+}
+
+.glossary-cta__wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: space-between;
+	align-items: center;
+	background: url('/img/shift-left.svg') center right -200px no-repeat;
+	background-size: cover;
+	padding: 1.5rem 2rem;
+	position: relative;
+}
+
+.glossary-cta__text-wrapper {
+	display: flex;
+	align-items: start;
+	flex-direction: column;
+}
+
+.glossary-cta, 
+.glossary-cta__wrapper {
+	border-radius: 8px;
+}
+
+.glossary-cta__text-wrapper p {
+	margin: 0;
+	font-weight: 700;
+}
+
+.glossary-cta__header,
+.glossary-cta__text {
+	color: var(--header-color);
+}
+
+.glossary-cta__header {
+  font-size: 1.875rem;
+  font-weight: 900;
+	flex: 1;
+	border-radius: 8px;
+}
+
+.glossary-cta__text {
+  font-size: 1rem;
+	line-height: 1.4;
+}
+
+@media screen and (max-width: 769px) {
+  .glossary-term__cta {
+    padding: 1rem 0;
+  }	
+}

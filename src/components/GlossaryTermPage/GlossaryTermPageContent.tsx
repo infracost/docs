@@ -1,5 +1,6 @@
 import React from "react";
 import { GlossaryTermType } from "../GlossarySearch";
+import Cta from "./Cta";
 
 const GlossaryTermPageContent = ({ term }: { term: GlossaryTermType }) => (
   <div className="glossary-term__content">
@@ -10,6 +11,7 @@ const GlossaryTermPageContent = ({ term }: { term: GlossaryTermType }) => (
         key={`${term.key}-section-${index}}`}
       />
     ))}
+    <Cta />
   </div>
 );
 

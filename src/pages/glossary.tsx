@@ -14,7 +14,6 @@ const Finops = () => {
       <GlossarySearch />
     </PageLayout>
   );
-  g;
 };
 
 export default Finops;
