@@ -13,10 +13,7 @@ function BlogPostAuthor({ author }) {
   return (
     <div className="avatar">
       {imageURL && (
-        <Link
-          className="avatar__photo-link avatar__photo blog-card__avatar"
-          href={url}
-        >
+        <Link className="avatar__photo-link avatar__photo blog-card__avatar" href={url}>
           <img className={styles.image} src={imageURL} alt={name} />
         </Link>
       )}

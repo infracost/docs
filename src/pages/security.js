@@ -3,12 +3,11 @@ import PageLayout from '../components/PageLayout';
 import UsedBy from '../components/UsedBy';
 import Check from '../components/icons/Check';
 
-
 function Security() {
   return (
     <PageLayout
       title="Security"
-      description="Ensuring your cloud cost estimates are secure is our priority. Learn about our cutting-edge security measures and protocols."
+      description="Cloud cost estimates for engineers"
       pageClass="security"
       hideCTA={true}
     >
@@ -17,7 +16,8 @@ function Security() {
           <div className="intro">
             <h1 className="tagline">Security at Infracost</h1>
             <p className="sub-tagline">
-              Infracost’s software is trusted by thousands of companies around the world, including many of the Fortune 500.
+              Infracost’s software is trusted by thousands of companies around the world, including
+              many of the Fortune 500.
             </p>
           </div>
 
@@ -28,10 +28,14 @@ function Security() {
               </div>
               <div>
                 <p>
-                  If you believe you have found a security vulnerability within Infracost, please let us know right away. We'll try and fix the problem as soon as possible.
+                  If you believe you have found a security vulnerability within Infracost, please
+                  let us know right away. We'll try and fix the problem as soon as possible.
                 </p>
                 <p>
-                  Do not report vulnerabilities using public GitHub issues. Instead, email <a href="mailto:security@infracost.io">security@infracost.io</a> with a detailed account of the issue. Please submit one issue per email, this helps us triage vulnerabilities.
+                  Do not report vulnerabilities using public GitHub issues. Instead, email{' '}
+                  <a href="mailto:security@infracost.io">security@infracost.io</a> with a detailed
+                  account of the issue. Please submit one issue per email, this helps us triage
+                  vulnerabilities.
                 </p>
                 <p>
                   Once we've received your email we'll keep you updated as we fix the vulnerability.
@@ -48,13 +52,16 @@ function Security() {
                   <div className="certification">
                     <img class="badge" src="/img/icons/soc2.png" alt="SOC 2 Type II" />
                     <div>
-                      <span class="icon"><Check size={18} color="#19D97D" /></span>
+                      <span class="icon">
+                        <Check size={18} color="#19D97D" />
+                      </span>
                       <span>SOC 2 Type II</span>
                     </div>
                   </div>
                 </p>
                 <p>
-                  Please email <a href="mailto:hello@infracost.io">hello@infracost.io</a> to request our audit report or to submit a security questionnaire.
+                  Please email <a href="mailto:hello@infracost.io">hello@infracost.io</a> to request
+                  our audit report or to submit a security questionnaire.
                 </p>
               </div>
             </div>
@@ -66,27 +73,33 @@ function Security() {
               <div>
                 <h3>Infrastructure</h3>
                 <p>
-                  Infracost uses Amazon Web Services to host our applications. We utilize AWS services for Intrusion Detection and Audit Logging and utilize VPCs and Security Groups to isolate our infrastructure.
-                  Production environments are separated from development environments.
+                  Infracost uses Amazon Web Services to host our applications. We utilize AWS
+                  services for Intrusion Detection and Audit Logging and utilize VPCs and Security
+                  Groups to isolate our infrastructure. Production environments are separated from
+                  development environments.
                 </p>
                 <p>
-                  We use Vanta to continually monitor our AWS configurations are meeting our high security standards.
+                  We use Vanta to continually monitor our AWS configurations are meeting our high
+                  security standards.
                 </p>
                 <h3>Application</h3>
                 <p>
-                  Infracost uses code analysis and vulnerability scanning tools, including GitHub CodeQL, Dependabot and Snyk.
+                  Infracost uses code analysis and vulnerability scanning tools, including GitHub
+                  CodeQL, Dependabot and Snyk.
                 </p>
                 <p>
-                  We implement best practices for our Software Development Lifecycle including continuous integration and deployment, review requests and code branch protection.
+                  We implement best practices for our Software Development Lifecycle including
+                  continuous integration and deployment, review requests and code branch protection.
                 </p>
-                <p>
-                </p>
+                <p></p>
                 <h3>Data</h3>
                 <p>
-                  All customer data stored by Infracost is encrypted at rest and during transit. All Infracost's databases have regular backups enabled and periodically tested.
+                  All customer data stored by Infracost is encrypted at rest and during transit. All
+                  Infracost's databases have regular backups enabled and periodically tested.
                 </p>
                 <p>
-                  <a href="/docs/faq/#security-and-privacy">See our FAQ</a> for more information about how Infracost handles user data to ensure security and privacy.
+                  <a href="/docs/faq/#security-and-privacy">See our FAQ</a> for more information
+                  about how Infracost handles user data to ensure security and privacy.
                 </p>
               </div>
             </div>
@@ -95,7 +108,6 @@ function Security() {
       </div>
 
       <UsedBy />
-
     </PageLayout>
   );
 }

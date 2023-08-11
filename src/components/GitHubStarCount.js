@@ -40,9 +40,7 @@ function GitHubStarCount() {
         return;
       }
 
-      const resp = await fetch(
-        'https://api.github.com/repos/infracost/infracost'
-      );
+      const resp = await fetch('https://api.github.com/repos/infracost/infracost');
       const data = await resp.json();
 
       if (!abortController.signal.aborted) {

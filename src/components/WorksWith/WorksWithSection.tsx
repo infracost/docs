@@ -9,9 +9,7 @@ type WorksWithSectionProps = {
 
 const WorksWithSection = (props: WorksWithSectionProps) => (
   <div className="works-with__section">
-    <div
-      className={`works-with__section-label works-with__section-label--${props.colourCoding}`}
-    >
+    <div className={`works-with__section-label works-with__section-label--${props.colourCoding}`}>
       {props.label}
     </div>
     <div className="works-with__section-logos">{props.children}</div>

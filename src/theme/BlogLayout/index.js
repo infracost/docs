@@ -12,11 +12,7 @@ function BlogLayout(props) {
   return (
     <Layout {...layoutProps}>
       <div className={toc ? 'container blog-page' : 'blog-container'}>
-        <main
-          className={toc ? '' : 'blog-grid'}
-          itemScope
-          itemType="http://schema.org/Blog"
-        >
+        <main className={toc ? '' : 'blog-grid'} itemScope itemType="http://schema.org/Blog">
           {children}
         </main>
         {toc && <>{toc}</>}

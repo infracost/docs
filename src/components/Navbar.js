@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from '@theme/SearchBar';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { useWindowSize } from '@docusaurus/theme-common';
-import { useNavbarSecondaryMenu, useLockBodyScroll, useHideableNavbar } from '@docusaurus/theme-common/internal';
+import {
+  useNavbarSecondaryMenu,
+  useLockBodyScroll,
+  useHideableNavbar,
+} from '@docusaurus/theme-common/internal';
 import GitHubStarCount from '../components/GitHubStarCount';
 
 function Navbar({ isDocs }) {
@@ -42,12 +46,7 @@ function Navbar({ isDocs }) {
   const docsMenu = useNavbarSecondaryMenu();
 
   useEffect(() => {
-    if (
-      isDocs &&
-      showSidebar &&
-      !!docsMenu.content &&
-      mobileDocsSidebarState !== 'hide'
-    ) {
+    if (isDocs && showSidebar && !!docsMenu.content && mobileDocsSidebarState !== 'hide') {
       setMobileDocsSidebarState('show');
     }
   }, [showSidebar, docsMenu]);
@@ -95,10 +94,7 @@ function Navbar({ isDocs }) {
       <a className="navbar-item navbar-link" href="/docs">
         Docs
       </a>
-      <a
-        className="navbar-item navbar-link"
-        href="https://dashboard.infracost.io"
-      >
+      <a className="navbar-item navbar-link" href="https://dashboard.infracost.io">
         Sign up / Log in
       </a>
     </div>
@@ -127,10 +123,7 @@ function Navbar({ isDocs }) {
       <a className="navbar-item" href="/docs">
         Docs
       </a>
-      <a
-        className="navbar-item navbar-link"
-        href="https://dashboard.infracost.io"
-      >
+      <a className="navbar-item navbar-link" href="https://dashboard.infracost.io">
         Sign up / Log in
       </a>
     </>
@@ -160,13 +153,7 @@ function Navbar({ isDocs }) {
         target="_blank"
         aria-label="Join our community slack"
       >
-        <img
-          className="icon"
-          src="/img/icons/slack.svg"
-          alt="Slack icon"
-          width={24}
-          height={24}
-        />
+        <img className="icon" src="/img/icons/slack.svg" alt="Slack icon" width={24} height={24} />
         <span className="link-text">Slack</span>
       </a>
     </>
@@ -174,18 +161,10 @@ function Navbar({ isDocs }) {
 
   const outreach = (
     <>
-      <a
-        className="navbar-item"
-        href="mailto:hello@infracost.io"
-        target="_blank"
-      >
+      <a className="navbar-item" href="mailto:hello@infracost.io" target="_blank">
         hello@infracost.io
       </a>
-      <a
-        className="navbar-item"
-        href="https://twitter.com/infracost"
-        target="_blank"
-      >
+      <a className="navbar-item" href="https://twitter.com/infracost" target="_blank">
         Twitter
       </a>
     </>
@@ -200,9 +179,9 @@ function Navbar({ isDocs }) {
   return (
     <nav
       ref={navbarRef}
-      className={`navbar ${atTop ? 'at-top' : ''} ${
-        showSidebar ? 'sidebar-open' : ''
-      } ${isDocs ? 'docs' : ''}`}
+      className={`navbar ${atTop ? 'at-top' : ''} ${showSidebar ? 'sidebar-open' : ''} ${
+        isDocs ? 'docs' : ''
+      }`}
     >
       <div className="container">
         <div className="top level">

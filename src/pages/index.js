@@ -3,7 +3,7 @@ import PageLayout from '../components/PageLayout';
 import Check from '../components/icons/Check';
 import SocialMentionCard from '../components/SocialMentionCard';
 import UsedBy from '../components/UsedBy';
-import WebPPngFallback from "../components/utils/WebPPngFallback";
+import WebPPngFallback from '../components/utils/WebPPngFallback';
 
 function Home() {
   return (
@@ -24,13 +24,10 @@ function Home() {
                 The cloud's checkout screen<span className="emojis">💰📉</span>
               </h1>
               <p className="description">
-                Know the cost impact of infrastructure changes before launching
-                resources. Built into engineering and product workflows.
+                Know the cost impact of infrastructure changes before launching resources. Built
+                into engineering and product workflows.
               </p>
-              <a
-                href="https://dashboard.infracost.io/"
-                className="button primary"
-              >
+              <a href="https://dashboard.infracost.io/" className="button primary">
                 Get started
               </a>
               <div className="labels">
@@ -86,14 +83,8 @@ function Home() {
 
       <div className="container">
         <div className="heading">
-          <img
-            src="/img/icons/product-walkthrough-icon.svg"
-            alt="Product walkthrough icon"
-          />
-          <h2>
-            Know the cost impact of Infrastructure changes before launching
-            resources
-          </h2>
+          <img src="/img/icons/product-walkthrough-icon.svg" alt="Product walkthrough icon" />
+          <h2>Know the cost impact of Infrastructure changes before launching resources</h2>
           <p>Cloud cost estimates for Terraform in pull requests</p>
         </div>
 
@@ -102,19 +93,15 @@ function Home() {
             <div className="step-content">
               <h3>Cost visibility for engineering</h3>
               <p>
-                Infracost integrates with your CI/CD pipelines, and scans for
-                Terraform code changes and checks 4 million prices across AWS,
-                Azure and Google Cloud to create a simple, understandable cost
-                estimate before any resources are launched.
+                Infracost integrates with your CI/CD pipelines, and scans for Terraform code changes
+                and checks 4 million prices across AWS, Azure and Google Cloud to create a simple,
+                understandable cost estimate before any resources are launched.
               </p>
             </div>
             <div className="step-screenshot">
               <div className="image-wrapper p-0">
-                <WebPPngFallback filePath={"/img/screenshots/pr-step-1"}>
-                  <img
-                    src="/img/screenshots/pr-step-1.png"
-                    alt="Cost visibility for engineering"
-                  />
+                <WebPPngFallback filePath={'/img/screenshots/pr-step-1'}>
+                  <img src="/img/screenshots/pr-step-1.png" alt="Cost visibility for engineering" />
                 </WebPPngFallback>
               </div>
             </div>
@@ -124,18 +111,14 @@ function Home() {
             <div className="step-content">
               <h3>Cost visibility for team leads and FinOps</h3>
               <p>
-                Infracost Cloud shows team leads, FinOps and Platform teams
-                which changes are going to have, or have had the biggest impact
-                on cloud costs.
+                Infracost Cloud shows team leads, FinOps and Platform teams which changes are going
+                to have, or have had the biggest impact on cloud costs.
               </p>
-              <p>
-                This shows when, where and by whome cost changes were
-                introduced.
-              </p>
+              <p>This shows when, where and by whome cost changes were introduced.</p>
             </div>
             <div className="step-screenshot">
               <div className="image-wrapper p-0">
-                <WebPPngFallback filePath={"/img/screenshots/cost-visibility"}>
+                <WebPPngFallback filePath={'/img/screenshots/cost-visibility'}>
                   <img
                     src="/img/screenshots/cost-visibility.png"
                     alt="Cost visibility for team leads and FinOps"
@@ -149,22 +132,18 @@ function Home() {
             <div className="step-content">
               <h3>Cost guardrails and policies</h3>
               <p>
-                Guardrails monitor all changes, and alert engineers and team
-                leads if a change is going to break budgets. Catch costly
-                changes before the money has been spent.
+                Guardrails monitor all changes, and alert engineers and team leads if a change is
+                going to break budgets. Catch costly changes before the money has been spent.
               </p>
               <p>
-                Policies check all changes against best practices and your
-                custom policies to inform engineers of better options (e.g. GP2
-                to GP3 volumes), while maintaining a live view of all policies
-                and statuses.
+                Policies check all changes against best practices and your custom policies to inform
+                engineers of better options (e.g. GP2 to GP3 volumes), while maintaining a live view
+                of all policies and statuses.
               </p>
             </div>
             <div className="step-screenshot">
               <div className="image-wrapper p-0">
-                <WebPPngFallback
-                  filePath={"/img/screenshots/cost-guardrails-and-policies"}
-                >
+                <WebPPngFallback filePath={'/img/screenshots/cost-guardrails-and-policies'}>
                   <img
                     src="/img/screenshots/cost-guardrails-and-policies.png"
                     alt="Cost guardrails and policies"
@@ -178,19 +157,14 @@ function Home() {
             <div className="step-content">
               <h3>Costs visibility for product changes (in Jira)</h3>
               <p>
-                Product managers should know the cost impact of a feature
-                request or change, before that feature is shipped. Infracost
-                integrates directly with Jira to show the cost impact of each
-                Jira issue.
+                Product managers should know the cost impact of a feature request or change, before
+                that feature is shipped. Infracost integrates directly with Jira to show the cost
+                impact of each Jira issue.
               </p>
             </div>
             <div className="step-screenshot">
               <div className="image-wrapper pb-0">
-                <WebPPngFallback
-                  filePath={
-                    "/img/screenshots/cost-visibility-for-product-changes"
-                  }
-                >
+                <WebPPngFallback filePath={'/img/screenshots/cost-visibility-for-product-changes'}>
                   <img
                     src="/img/screenshots/cost-visibility-for-product-changes.png"
                     alt="Costs visibility for product changes (in JIRA)"
@@ -204,17 +178,16 @@ function Home() {
             <div className="step-content">
               <h3>Enterprise ready</h3>
               <p>
-                Infracost is being used by Fortune 500 companies. We support
-                custom price books, AWS EDP, and Enterprise Agreement discounts.
-                Infracost integrate with on-premise source control systems,
-                CI/CD systems, and with Business Intelligence products. In
-                addition, we are SOC2 compliant. Contact us for more information
-                on how we can help your enterprise.
+                Infracost is being used by Fortune 500 companies. We support custom price books, AWS
+                EDP, and Enterprise Agreement discounts. Infracost integrate with on-premise source
+                control systems, CI/CD systems, and with Business Intelligence products. In
+                addition, we are SOC2 compliant. Contact us for more information on how we can help
+                your enterprise.
               </p>
             </div>
             <div className="step-screenshot">
               <div className="image-wrapper p-0">
-                <WebPPngFallback filePath={"/img/screenshots/enterprise-ready"}>
+                <WebPPngFallback filePath={'/img/screenshots/enterprise-ready'}>
                   <img
                     src="/img/screenshots/enterprise-ready.png"
                     alt="Infracost is enterprise ready"
@@ -242,10 +215,7 @@ function Home() {
               <img src="/img/services/azure.svg" alt="Microsoft Azure logo" />
             </li>
             <li>
-              <img
-                src="/img/services/google-cloud.svg"
-                alt="Google Cloud logo"
-              />
+              <img src="/img/services/google-cloud.svg" alt="Google Cloud logo" />
             </li>
             <li>
               <img src="/img/services/github.svg" alt="GitHub logo" />
@@ -257,10 +227,7 @@ function Home() {
               <img src="/img/services/bitbucket.svg" alt="Bitbucket logo" />
             </li>
             <li>
-              <img
-                src="/img/services/terraform.svg"
-                alt="HashiCorp Terraform logo"
-              />
+              <img src="/img/services/terraform.svg" alt="HashiCorp Terraform logo" />
             </li>
           </ul>
         </div>
@@ -269,10 +236,7 @@ function Home() {
       <div className="social-mentions">
         <div className="container">
           <div className="heading">
-            <img
-              src="/img/icons/social-icons.svg"
-              alt="Twitter and LinkedIn logos"
-            />
+            <img src="/img/icons/social-icons.svg" alt="Twitter and LinkedIn logos" />
             <h2>We love what people are saying about Infracost</h2>
             <span className="subtitle">Don't just take our word for it…</span>
           </div>
@@ -285,9 +249,8 @@ function Home() {
               profileImage="ShabanovAlexey.jpg"
               link="https://twitter.com/ShabanovAlexey/status/1305550128162496512"
             >
-              This tool aims to calculate costs impact based on a terraform
-              change. An amazing addition for your SRE process if you want to
-              keep your costs under control.
+              This tool aims to calculate costs impact based on a terraform change. An amazing
+              addition for your SRE process if you want to keep your costs under control.
             </SocialMentionCard>
             <SocialMentionCard
               platform="twitter"
@@ -299,8 +262,8 @@ function Home() {
             >
               I love this code quality metric:
               <br />
-              »infracost GitHub action […] automatically adds a pull request
-              comment showing the cost estimate diff«
+              »infracost GitHub action […] automatically adds a pull request comment showing the
+              cost estimate diff«
             </SocialMentionCard>
             <SocialMentionCard
               platform="linkedin"
@@ -310,8 +273,8 @@ function Home() {
               profileUrl="https://www.linkedin.com/in/mttov/"
               link="https://www.linkedin.com/posts/activity-6751942384017383424-JgUL/"
             >
-              Infracost is an outstanding tool and a must have for every
-              Terraform project. It’s great to see it grow!
+              Infracost is an outstanding tool and a must have for every Terraform project. It’s
+              great to see it grow!
             </SocialMentionCard>
             <SocialMentionCard
               platform="twitter"
@@ -321,12 +284,11 @@ function Home() {
               profileUrl="https://twitter.com/ayrtonfreeman"
               link="https://twitter.com/ayrtonfreeman/status/1334493975387004930"
             >
-              Thank you very much to{" "}
+              Thank you very much to{' '}
               <a href="https://twitter.com/infracost" target="_blank">
                 @infracost
-              </a>{" "}
-              team who implemented an awesome terragrunt report from feedbacks
-              in Github. :-)
+              </a>{' '}
+              team who implemented an awesome terragrunt report from feedbacks in Github. :-)
             </SocialMentionCard>
             <SocialMentionCard
               platform="linkedin"
@@ -346,17 +308,15 @@ function Home() {
               profileUrl="https://twitter.com/jderusse"
               link="https://twitter.com/jderusse/status/1303828273747628032"
             >
-              Just discovered{" "}
+              Just discovered{' '}
               <a href="https://github.com/infracost/infracost" target="_blank">
                 https://github.com/infracost/infr…
               </a>
               <br />
               <br />
-              Shows hourly and monthly cost estimates for a Terraform project.{" "}
+              Shows hourly and monthly cost estimates for a Terraform project. <br />
               <br />
-              <br />
-              Can also be used to automatically add a PR comment showing the
-              cost estimate diff 😍
+              Can also be used to automatically add a PR comment showing the cost estimate diff 😍
             </SocialMentionCard>
           </div>
         </div>

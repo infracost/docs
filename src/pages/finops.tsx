@@ -1,6 +1,6 @@
-import React from "react";
-import PageLayout from "../components/PageLayout";
-import FinopsSection from "../components/FinopsSection";
+import React from 'react';
+import PageLayout from '../components/PageLayout';
+import FinopsSection from '../components/FinopsSection';
 
 const Finops = () => {
   return (

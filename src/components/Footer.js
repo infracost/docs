@@ -41,10 +41,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="https://github.com/infracost/infracost"
-                  target="_blank"
-                >
+                <a href="https://github.com/infracost/infracost" target="_blank">
                   GitHub
                 </a>
               </li>
@@ -78,8 +75,7 @@ function Footer() {
               <li>
                 <a href="/security">Security</a>
               </li>
-              <li>
-              </li>
+              <li></li>
               <li>
                 <a href="mailto:hello@infracost.io" target="_blank">
                   hello@infracost.io
@@ -90,9 +86,7 @@ function Footer() {
         </div>
         <div className="company-info level">
           <div className="left">
-            <span className="copyright">
-              Copyright © {currentYear} Infracost Inc.
-            </span>
+            <span className="copyright">Copyright © {currentYear} Infracost Inc.</span>
           </div>
           <div className="right">
             <ul>

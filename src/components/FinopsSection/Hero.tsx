@@ -1,6 +1,6 @@
-import React, { ReactElement } from "react";
-import { animated, useSpring } from "@react-spring/web";
-import ScrollPrompt from "./ScrollPrompt";
+import React, { ReactElement } from 'react';
+import { animated, useSpring } from '@react-spring/web';
+import ScrollPrompt from './ScrollPrompt';
 
 const Hero = () => {
   const sections: ReactElement[] = [
@@ -18,9 +18,7 @@ const Hero = () => {
     </>,
     <>
       <h2 className="finops-hero-item">
-        <span className="finops-hero-item finops-hero-item__highlight">
-          Proactive FinOps
-        </span>
+        <span className="finops-hero-item finops-hero-item__highlight">Proactive FinOps</span>
       </h2>
     </>,
   ];
@@ -36,11 +34,11 @@ const Hero = () => {
                 style={useSpring({
                   from: {
                     opacity: 0,
-                    transform: "translateY(-30px)",
+                    transform: 'translateY(-30px)',
                   },
                   to: {
                     opacity: 1,
-                    transform: "translateY(0px)",
+                    transform: 'translateY(0px)',
                   },
                   delay: index * 300,
                 })}

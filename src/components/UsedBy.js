@@ -3,11 +3,11 @@ import React from 'react';
 function UsedBy(props) {
   const { logos, sectionTagline, classes } = props;
 
-  const tagline = sectionTagline ?? "Used by teams at";
+  const tagline = sectionTagline ?? 'Used by teams at';
 
   if (logos && logos.length) {
     return (
-      <div className={classes ? `used-by ${classes}` : "used-by"}>
+      <div className={classes ? `used-by ${classes}` : 'used-by'}>
         <div className="container">
           <p className="tagline">{tagline}</p>
           <ul>
@@ -23,7 +23,7 @@ function UsedBy(props) {
   }
 
   return (
-    <div className={classes ? `used-by ${classes}` : "used-by"}>
+    <div className={classes ? `used-by ${classes}` : 'used-by'}>
       <div className="container">
         <p className="tagline">{tagline}</p>
         <ul>
@@ -61,10 +61,7 @@ function UsedBy(props) {
             <img src="/img/users/jpmorgan.svg" alt="J.P. Morgan logo" />
           </li>
           <li>
-            <img
-              src="/img/users/nbc_sports_group.png"
-              alt="NBC Sports Group logo"
-            />
+            <img src="/img/users/nbc_sports_group.png" alt="NBC Sports Group logo" />
           </li>
         </ul>
       </div>

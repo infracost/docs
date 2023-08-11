@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement } from 'react';
 
-import SeparatorLine from "../../SeparatorLine/SeparatorLine";
+import SeparatorLine from '../../SeparatorLine/SeparatorLine';
 
-import "./FinopsItem.css";
+import './FinopsItem.css';
 
 type FinopsProps = {
   title: string;
@@ -15,7 +15,7 @@ const FinopsItem = (props: FinopsProps) => {
   const { title, image, children, alternate } = props;
 
   return (
-    <div className={`finops-card ${alternate ? "finops-card--alternate" : ""}`}>
+    <div className={`finops-card ${alternate ? 'finops-card--alternate' : ''}`}>
       <div className="finops-card__body">
         <h1 className="finops-card__tagline">{title}</h1>
         <SeparatorLine />

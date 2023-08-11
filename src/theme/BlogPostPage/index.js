@@ -20,8 +20,7 @@ function BlogPostPage(props) {
     assets,
     metadata,
   } = BlogPostContents;
-  const { title, description, nextItem, prevItem, date, tags, authors } =
-    metadata;
+  const { title, description, nextItem, prevItem, date, tags, authors } = metadata;
   const {
     hide_table_of_contents: hideTableOfContents,
     keywords,
@@ -64,25 +63,15 @@ function BlogPostPage(props) {
           />
         )}
         {tags.length > 0 && (
-          <meta
-            property="article:tag"
-            content={tags.map((tag) => tag.label).join(',')}
-          />
+          <meta property="article:tag" content={tags.map((tag) => tag.label).join(',')} />
         )}
       </PageMetadata>
 
-      <BlogPostItem
-        frontMatter={frontMatter}
-        assets={assets}
-        metadata={metadata}
-        isBlogPostPage
-      >
+      <BlogPostItem frontMatter={frontMatter} assets={assets} metadata={metadata} isBlogPostPage>
         <BlogPostContents />
       </BlogPostItem>
 
-      {(nextItem || prevItem) && (
-        <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
-      )}
+      {(nextItem || prevItem) && <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />}
     </BlogLayout>
   );
 }
