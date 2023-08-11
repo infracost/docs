@@ -1,5 +1,5 @@
 import React from "react";
-import { GlossaryTermType } from "../GlossarySearch/GlossarySearch";
+import { GlossaryTermType } from "../GlossarySearch";
 import BookIcon from "../icons/BookIcon";
 
 const GlossaryTermPageAside = ({ term }: { term: GlossaryTermType }) => {

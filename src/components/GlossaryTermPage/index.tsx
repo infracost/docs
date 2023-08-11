@@ -1,5 +1,7 @@
 import React, { ReactElement } from "react";
 
+import "./GlossaryTermPage.css";
+
 const GlossaryTermPage = ({
   children,
 }: {

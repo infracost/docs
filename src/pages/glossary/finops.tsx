@@ -1,10 +1,10 @@
 import React from "react";
 import PageLayout from "../../components/PageLayout";
-import GlossaryTermPageIntro from "../../components/GlossaryTerm/GlossaryTermPageIntro";
-import GlossaryTermPage from "../../components/GlossaryTerm/GlossaryTermPage";
+import GlossaryTermPageIntro from "../../components/GlossaryTermPage/GlossaryTermPageIntro";
+import GlossaryTermPage from "../../components/GlossaryTermPage";
 import terms from "../../components/GlossarySearch/glossaryTerms.json";
-import GlossaryTermPageAside from "../../components/GlossaryTerm/GlossaryTermPageAside";
-import GlossaryTermPageContent from "../../components/GlossaryTerm/GlossaryTermPageContent";
+import GlossaryTermPageAside from "../../components/GlossaryTermPage/GlossaryTermPageAside";
+import GlossaryTermPageContent from "../../components/GlossaryTermPage/GlossaryTermPageContent";
 
 const Finops = () => {
   const finops = terms.filter((term) => term.key === "FinOps")[0];

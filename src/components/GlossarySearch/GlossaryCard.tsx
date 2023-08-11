@@ -1,6 +1,6 @@
 import React from "react";
-import { GlossaryTermType } from "./GlossarySearch";
-import "./GlossaryTerm.css";
+import { GlossaryTermType } from "./index";
+import "./GlossaryCard.css";
 import ArrowIcon from "../icons/ArrowIcon";
 import BookIcon from "../icons/BookIcon";
 

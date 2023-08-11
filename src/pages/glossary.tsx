@@ -1,6 +1,6 @@
 import React from "react";
 import PageLayout from "../components/PageLayout";
-import GlossarySearch from "../components/GlossarySearch/GlossarySearch";
+import GlossarySearch from "../components/GlossarySearch";
 
 const Finops = () => {
   return (

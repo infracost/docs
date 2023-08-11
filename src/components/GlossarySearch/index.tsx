@@ -3,7 +3,7 @@ import terms from "./glossaryTerms.json";
 import "./GlossarySearch.css";
 import SearchIcon from "../icons/SearchIcon";
 import useSearch from "../utils/UseSearch";
-import GlossaryTerm from "./GlossaryTerm";
+import GlossaryTerm from "./GlossaryCard";
 import Kbd from "../Kbd";
 
 type GlossaryPageSection = {

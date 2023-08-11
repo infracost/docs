@@ -1,5 +1,5 @@
 import React from "react";
-import { GlossaryTermType } from "../GlossarySearch/GlossarySearch";
+import { GlossaryTermType } from "../GlossarySearch";
 
 const GlossaryTermPageContent = ({ term }: { term: GlossaryTermType }) => (
   <div className="glossary-term__content">
