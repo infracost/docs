@@ -11,9 +11,7 @@ function PageLayout({ title, description, pageClass, children, hideCTA, noIndex 
   return (
     <HelmetProvider>
       <LayoutProvider>
-        <PageMetadata
-          title={title}
-          description={description} />
+        <PageMetadata title={title} description={description} />
 
         {noIndex && (
           <Helmet>
@@ -28,7 +26,7 @@ function PageLayout({ title, description, pageClass, children, hideCTA, noIndex 
           {children}
         </div>
 
-        {!hideCTA && (<CTA />)}
+        {!hideCTA && <CTA />}
         <Footer />
       </LayoutProvider>
     </HelmetProvider>

@@ -41,23 +41,8 @@ function useReadingTimePlural() {
 function BlogPostItem(props) {
   const readingTimePlural = useReadingTimePlural();
   const { withBaseUrl } = useBaseUrlUtils();
-  const {
-    children,
-    frontMatter,
-    assets,
-    metadata,
-    isBlogPostPage = false,
-  } = props;
-  const {
-    date,
-    formattedDate,
-    permalink,
-    tags,
-    readingTime,
-    title,
-    editUrl,
-    authors,
-  } = metadata;
+  const { children, frontMatter, assets, metadata, isBlogPostPage = false } = props;
+  const { date, formattedDate, permalink, tags, readingTime, title, editUrl, authors } = metadata;
   const image = assets.image ?? frontMatter.image;
   const truncated = metadata.hasTruncateMarker;
   const truncatedPost = !isBlogPostPage && truncated;
@@ -123,11 +108,7 @@ function BlogPostItem(props) {
               {image ? (
                 <img className="blog-card__img" src={`/${image}`} alt="" />
               ) : (
-                <img
-                  className="blog-card__img"
-                  src="/img/blog-card-fallback-img.png"
-                  alt=""
-                />
+                <img className="blog-card__img" src="/img/blog-card-fallback-img.png" alt="" />
               )}
             </div>
           </Link>

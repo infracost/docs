@@ -1,5 +1,5 @@
-import React from "react";
-import Check from "../components/icons/Check";
+import React from 'react';
+import Check from '../components/icons/Check';
 
 const LiWithCheck = ({ children }) => (
   <li className="product-card__li">

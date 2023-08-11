@@ -3,19 +3,18 @@ import PageLayout from '../components/PageLayout';
 import TwitterIcon from '../components/icons/TwitterIcon';
 import LinkedInIcon from '../components/icons/LinkedInIcon';
 
-
 function About() {
   return (
     <PageLayout
       title="About"
-      description="Infracost strives to empower engineering teams, enabling them to utilize cloud infrastructure both economically and efficiently. Discover the team behind Infracost."
+      description="Infracost exists to empower engineering teams to use cloud infrastructure economically and efficiently."
       pageClass="about"
     >
       <div className="intro">
         <div className="container">
           <h1 className="tagline">
-            Infracost exists to empower engineering teams to use cloud
-            infrastructure economically and efficiently
+            Infracost exists to empower engineering teams to use cloud infrastructure economically
+            and efficiently
           </h1>
         </div>
       </div>
@@ -221,22 +220,16 @@ function About() {
           </div>
 
           <p>
-            Hassan, Ali and Alistair have been working together in the cloud
-            computing space since 2012. Their experience is wide-reaching from
-            founding multiple startups and leading them through acquisitions, to
-            creating highly scalable software used by enterprises including
-            Sony, Samsung, PBS, Disney, Netflix and Forbes. Tim joined the team
-            as the first Infracost engineer in 2021, soon followed by Vadim,
-            Hugo and Artur.
+            Hassan, Ali and Alistair have been working together in the cloud computing space since
+            2012. Their experience is wide-reaching from founding multiple startups and leading them
+            through acquisitions, to creating highly scalable software used by enterprises including
+            Sony, Samsung, PBS, Disney, Netflix and Forbes. Tim joined the team as the first
+            Infracost engineer in 2021, soon followed by Vadim, Hugo and Artur.
           </p>
 
           <p className="contact">
-            Contact us:{" "}
-            <a
-              href="mailto:hello@infracost.io"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            Contact us:{' '}
+            <a href="mailto:hello@infracost.io" target="_blank" rel="noopener noreferrer">
               hello@infracost.io
             </a>
           </p>
@@ -253,10 +246,7 @@ function About() {
                   rel="noopener noreferrer"
                   aria-label="Infracost's profile on Y Combinator's website"
                 >
-                  <img
-                    src="/img/investors/yc_aligned.svg"
-                    alt="Y Combinator logo"
-                  />
+                  <img src="/img/investors/yc_aligned.svg" alt="Y Combinator logo" />
                 </a>
               </div>
               <div className="backer-item">
@@ -266,23 +256,14 @@ function About() {
                   rel="noopener noreferrer"
                   aria-label="Infracost's profile on Sequoia's website"
                 >
-                  <img
-                    src="/img/investors/sequoia_aligned.svg"
-                    alt="Sequoia logo"
-                  />
+                  <img src="/img/investors/sequoia_aligned.svg" alt="Sequoia logo" />
                 </a>
               </div>
               <div className="backer-item">
-                <img
-                  src="/img/investors/mango_aligned.svg"
-                  alt="Mango Capital logo"
-                />
+                <img src="/img/investors/mango_aligned.svg" alt="Mango Capital logo" />
               </div>
               <div className="backer-item">
-                <img
-                  src="/img/investors/sv_angel_aligned.svg"
-                  alt="SV Angel logo"
-                />
+                <img src="/img/investors/sv_angel_aligned.svg" alt="SV Angel logo" />
               </div>
             </div>
           </div>

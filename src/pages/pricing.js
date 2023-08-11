@@ -29,11 +29,11 @@ function Pricing() {
         <div className="container">
           <UsedBy
             logos={[
-              "safe-fleet.svg",
-              "cisco.svg",
-              "bmw.svg",
-              "nbc_sports_group.png",
-              "capgemini.svg",
+              'safe-fleet.svg',
+              'cisco.svg',
+              'bmw.svg',
+              'nbc_sports_group.png',
+              'capgemini.svg',
             ]}
             sectionTagline="Trusted by teams at:"
             classes="used-by--flush"
@@ -71,10 +71,7 @@ function Pricing() {
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
-                      <span>
-                        CI/CD integrations (GitHub, GitLab, Bitbucket, Azure
-                        DevOps...)
-                      </span>
+                      <span>CI/CD integrations (GitHub, GitLab, Bitbucket, Azure DevOps...)</span>
                     </li>
                     <li>
                       <span className="icon primary">
@@ -100,8 +97,8 @@ function Pricing() {
                   </ul>
 
                   <div className="price__description">
-                    † Up to 1,000 runs per month, upgrade packs can be purchased
-                    (<a href="mailto:hello@infracost.io">contact us</a>)
+                    † Up to 1,000 runs per month, upgrade packs can be purchased (
+                    <a href="mailto:hello@infracost.io">contact us</a>)
                   </div>
                 </div>
               </div>
@@ -120,10 +117,7 @@ function Pricing() {
                     For <b>FinOps</b>, <b>DevOps</b> and <b>Platform</b> teams
                   </span>
                   <div className="action">
-                    <a
-                      href="https://dashboard.infracost.io"
-                      className="button primary"
-                    >
+                    <a href="https://dashboard.infracost.io" className="button primary">
                       Start free trial
                     </a>
                   </div>
@@ -140,8 +134,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Visibility:</b> All changes & cost impacts in a
-                        single dashboard
+                        <b>Visibility:</b> All changes & cost impacts in a single dashboard
                       </span>
                     </li>
                     <li>
@@ -149,8 +142,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Tagging policies:</b> communicate and enforce
-                        required FinOps tag keys/values in pull requests
+                        <b>Tagging policies:</b> communicate and enforce required FinOps tag
+                        keys/values in pull requests
                       </span>
                     </li>
                     <li>
@@ -158,9 +151,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Cost policies:</b> Ensure changes are using best
-                        practices, directly in workflow (e.g. AWS GP2 volumes
-                        should be GP3)
+                        <b>Cost policies:</b> Ensure changes are using best practices, directly in
+                        workflow (e.g. AWS GP2 volumes should be GP3)
                       </span>
                     </li>
                     <li>
@@ -168,8 +160,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Guardrails:</b> Automatic budget checks &amp;
-                        approval workflows before money is spent
+                        <b>Guardrails:</b> Automatic budget checks &amp; approval workflows before
+                        money is spent
                       </span>
                     </li>
                     <li>
@@ -177,8 +169,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Jira integration: </b> Inform product owners of cost
-                        impact of features in their workflow
+                        <b>Jira integration: </b> Inform product owners of cost impact of features
+                        in their workflow
                       </span>
                     </li>
                     <li>
@@ -186,8 +178,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Reporting: </b> Daily, weekly &amp; monthly reports
-                        of all deployed &amp; upcoming changes
+                        <b>Reporting: </b> Daily, weekly &amp; monthly reports of all deployed &amp;
+                        upcoming changes
                       </span>
                     </li>
                     <li>
@@ -195,8 +187,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Team management: </b>Give access to all teams &amp;
-                        managers with different access levels
+                        <b>Team management: </b>Give access to all teams &amp; managers with
+                        different access levels
                       </span>
                     </li>
 
@@ -205,8 +197,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Audit trails: </b>Track when and who made changes &
-                        approved budgets
+                        <b>Audit trails: </b>Track when and who made changes & approved budgets
                       </span>
                     </li>
 
@@ -215,8 +206,8 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        <b>Custom price books: </b>Enterprise negotiated rates,
-                        EDPs and EA discounts
+                        <b>Custom price books: </b>Enterprise negotiated rates, EDPs and EA
+                        discounts
                       </span>
                     </li>
 
@@ -231,9 +222,8 @@ function Pricing() {
                   </ul>
 
                   <div className="price__description">
-                    * A seat is only needed for people making infrastructure
-                    changes (not any other code), and those who access the
-                    Infracost Cloud dashboard
+                    * A seat is only needed for people making infrastructure changes (not any other
+                    code), and those who access the Infracost Cloud dashboard
                   </div>
                 </div>
               </div>
@@ -244,17 +234,17 @@ function Pricing() {
                   <span className="price__tier">Infracost Enterprise</span>
                   <span className="price">Talk to us</span>
                   <span className="sub">
-                    {" "}
+                    {' '}
                     For larger <b>Enterprises</b> with complex setups
                   </span>
 
                   <div className="action text">
                     <div>
-                      Contact us on{" "}
+                      Contact us on{' '}
                       <a href="mailto:hello@infracost.io?subject=Enterprise support">
-                        {" "}
+                        {' '}
                         hello@infracost.io
-                      </a>{" "}
+                      </a>{' '}
                       for details
                     </div>
                   </div>
@@ -270,9 +260,7 @@ function Pricing() {
                       <span className="icon primary">
                         <Check size={18} />
                       </span>
-                      <span>
-                        GitHub Enterprise Server & GitLab Enterprise apps
-                      </span>
+                      <span>GitHub Enterprise Server & GitLab Enterprise apps</span>
                     </li>
                     <li>
                       <span className="icon primary">

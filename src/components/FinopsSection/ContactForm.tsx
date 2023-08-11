@@ -1,5 +1,5 @@
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import React, { useState } from "react";
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React, { useState } from 'react';
 
 interface FormData {
   name: string;
@@ -8,30 +8,28 @@ interface FormData {
 }
 
 const isFormValid = (formData: FormData): boolean => {
-  return formData.name !== "" && formData.email !== "" && formData.companyName !== "";
+  return formData.name !== '' && formData.email !== '' && formData.companyName !== '';
 };
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    companyName: "",
+    name: '',
+    email: '',
+    companyName: '',
   });
 
   const { siteConfig } = useDocusaurusContext();
   const [error, setError] = useState<string | null>(null);
   const [showSuccess, setShowShowSuccess] = useState(false);
 
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
 
     // Custom email format validation
-    if (name === "email" && !isValidEmail(value)) {
-      event.target.setCustomValidity("Please enter a valid email address.");
+    if (name === 'email' && !isValidEmail(value)) {
+      event.target.setCustomValidity('Please enter a valid email address.');
     } else {
-      event.target.setCustomValidity("");
+      event.target.setCustomValidity('');
     }
 
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -44,12 +42,12 @@ const ContactForm: React.FC = () => {
       const response = await fetch(
         `${siteConfig.customFields?.infracostDashboardApiEndpoint}/docs/request-finops-demo/`,
         {
-          method: "POST",
+          method: 'POST',
           body: JSON.stringify(formData),
           headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-            "x-infracost-docs-token": `${siteConfig.customFields?.infracostDocsApiToken}`,
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+            'x-infracost-docs-token': `${siteConfig.customFields?.infracostDocsApiToken}`,
           },
         }
       );
@@ -61,12 +59,12 @@ const ContactForm: React.FC = () => {
       }
 
       // Clear the form after submission (optional)
-      setFormData({ name: "", email: "", companyName: "" });
+      setFormData({ name: '', email: '', companyName: '' });
       setShowShowSuccess(true);
       // Clear the error message (if any)
       setError(null);
     } catch (error) {
-      setError("Failed to submit the form. Please try again later.");
+      setError('Failed to submit the form. Please try again later.');
     }
   };
 
@@ -87,17 +85,10 @@ const ContactForm: React.FC = () => {
       {showSuccess ? (
         <div className="finops-form__success">
           <h3>Thank you</h3>
-          <p>
-            Your request has been received. We will get in touch with you as
-            soon as possible.
-          </p>
+          <p>Your request has been received. We will get in touch with you as soon as possible.</p>
         </div>
       ) : (
-        <form
-          onSubmit={handleSubmit}
-          style={{ width: "100%" }}
-          id="finops-form"
-        >
+        <form onSubmit={handleSubmit} style={{ width: '100%' }} id="finops-form">
           <div className="finops-form__section">
             <label htmlFor="name">Name</label>
             <input

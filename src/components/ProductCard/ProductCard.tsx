@@ -36,26 +36,18 @@ const ProductCard = (props: ProductProps) => {
   } = props;
 
   return (
-    <div
-      className={`product-card ${alternate ? 'product-card--alternate' : ''}`}
-    >
+    <div className={`product-card ${alternate ? 'product-card--alternate' : ''}`}>
       <div className="product-card__body">
         <Pill colour={pillColourCoding}>{pillText}</Pill>
         <h1 className="product-card__tagline">{title}</h1>
         <div className="product-card__sub-tagline">
           <span>👩&zwj;💻</span> Designed for
-          <span className="product-card__sub-tagline--strong">
-            {designerFor}
-          </span>
+          <span className="product-card__sub-tagline--strong">{designerFor}</span>
         </div>
         <SeparatorLine />
         {children}
         <div className="product-card__cta-wrapper">
-          <a
-            href={ctaLink}
-            className="button primary"
-            target={targetBlank ? '_blank' : ''}
-          >
+          <a href={ctaLink} className="button primary" target={targetBlank ? '_blank' : ''}>
             {ctaText}
           </a>
         </div>
