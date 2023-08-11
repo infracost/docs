@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { animated, useSpring, useTransition } from '@react-spring/web';
+import React from 'react';
+import { animated, useSpring } from '@react-spring/web';
 
 const RequestDemoModal = ({ setModalVisible }) => {
   const backdropStyle = useSpring({

@@ -10,6 +10,7 @@ function FeedbackSubmit() {
     window.location.replace(
       `${siteConfig.customFields.infracostDashboardEndpoint}/feedback/redirect${window.location.search}`
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

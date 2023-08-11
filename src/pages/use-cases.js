@@ -21,7 +21,7 @@ function UseCases() {
           <div className="container">
             <div className="use-case">
               <h3>
-                <img src="/img/icons/visibility-icon.svg" />
+                <img src="/img/icons/visibility-icon.svg" alt="" />
                 <span>Understand cost changes before any resources are launched</span>
               </h3>
               <div className="box">
@@ -129,7 +129,7 @@ function UseCases() {
 
             <div className="use-case">
               <h3>
-                <img src="/img/icons/approval-icon.svg" />
+                <img src="/img/icons/approval-icon.svg" alt="" />
                 <span>Proactive cloud cost guardrails and policies</span>
               </h3>
               <div className="box">
@@ -204,7 +204,7 @@ function UseCases() {
 
             <div className="use-case">
               <h3>
-                <img src="/img/icons/choices-icon.svg" />
+                <img src="/img/icons/choices-icon.svg" alt="" />
                 <span>Product management cost awareness of change requests</span>
               </h3>
               <div className="box">

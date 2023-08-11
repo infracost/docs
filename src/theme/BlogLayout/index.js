@@ -8,7 +8,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 
 function BlogLayout(props) {
-  const { sidebar, toc, children, ...layoutProps } = props;
+  const { toc, children, ...layoutProps } = props;
   return (
     <Layout {...layoutProps}>
       <div className={toc ? 'container blog-page' : 'blog-container'}>

@@ -10,7 +10,7 @@ const url = (name: string, wrap = false) =>
   `${wrap ? 'url(' : ''}/img/finops/${name}${wrap ? ')' : ''}`;
 
 const Index = () => {
-  const parallax = useRef<IParallax>(null!);
+  const parallax = useRef<IParallax | null>(null);
 
   const items = [
     <Hero />,
@@ -76,16 +76,16 @@ const Index = () => {
     if (anchor) {
       anchor.scrollIntoView();
     }
-    parallax.current.scrollTo(3.5);
+    parallax.current?.scrollTo(3.5);
   };
 
   return (
     <>
       <div className="finops-cta container">
         <div className="finops-cta__wrapper">
-          <a className="button primary" onClick={handleDemoButtonClick}>
+          <div className="button primary" onClick={handleDemoButtonClick}>
             Request live demo now
-          </a>
+          </div>
         </div>
       </div>
       <div className="finops-parallax">
