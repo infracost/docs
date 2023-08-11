@@ -1,8 +1,6 @@
 import React from 'react';
 
-function TwitterIcon({ fill }) {
-  fill = fill || '#c0b9c9';
-
+function TwitterIcon({ fill = '#c0b9c9' }) {
   return (
     <svg
       alt="Twitter icon"

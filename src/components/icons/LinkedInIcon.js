@@ -1,9 +1,6 @@
 import React from 'react';
 
-function LinkedInIcon({ fill, color }) {
-  fill = fill || '#c0b9c9';
-  color = color || '#ffffff';
-
+function LinkedInIcon({ fill = '#c0b9c9', color = '#ffffff' }) {
   return (
     <svg
       alt="LinkedIn icon"

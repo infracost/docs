@@ -2,6 +2,26 @@ import React, { ReactElement } from 'react';
 import { animated, useSpring } from '@react-spring/web';
 import ScrollPrompt from './ScrollPrompt';
 
+const Section = ({ content, delay }) => {
+  const animation = useSpring({
+    from: {
+      opacity: 0,
+      transform: 'translateY(-30px)',
+    },
+    to: {
+      opacity: 1,
+      transform: 'translateY(0px)',
+    },
+    delay,
+  });
+
+  return (
+    <animated.div style={animation} className="finops-hero__section">
+      {content}
+    </animated.div>
+  );
+};
+
 const Hero = () => {
   const sections: ReactElement[] = [
     <>
@@ -29,23 +49,7 @@ const Hero = () => {
         <>
           <div id="hero-wrapper">
             {sections.map((section, index) => (
-              <animated.div
-                key={index}
-                style={useSpring({
-                  from: {
-                    opacity: 0,
-                    transform: 'translateY(-30px)',
-                  },
-                  to: {
-                    opacity: 1,
-                    transform: 'translateY(0px)',
-                  },
-                  delay: index * 300,
-                })}
-                className="finops-hero__section"
-              >
-                {section}
-              </animated.div>
+              <Section key={index} content={section} delay={index * 300} />
             ))}
           </div>
         </>

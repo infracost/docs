@@ -49,7 +49,7 @@ function Navbar({ isDocs }) {
     if (isDocs && showSidebar && !!docsMenu.content && mobileDocsSidebarState !== 'hide') {
       setMobileDocsSidebarState('show');
     }
-  }, [showSidebar, docsMenu]);
+  }, [showSidebar, docsMenu, mobileDocsSidebarState, isDocs]);
 
   const { navbarRef } = useHideableNavbar(false);
 
