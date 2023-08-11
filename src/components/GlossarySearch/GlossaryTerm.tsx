@@ -14,7 +14,7 @@ const GlossaryTerm = ({ term }: { term: GlossaryTermType }) => {
         </h2>
       </div>
 
-      <div>{term.description}</div>
+      <div className="glossary-term__card-description">{term.description}</div>
 
       {term.slug && (
         <a
