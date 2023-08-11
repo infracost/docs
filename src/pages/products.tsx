@@ -112,7 +112,7 @@ function Products() {
             designerFor="Engineering teams, team leads, managers and FinOps"
             image={cloudImg}
             pillText="Infracost Cloud"
-            pillColourCoding={ColourCoding['cloud']}
+            pillColourCoding={ColourCoding.cloud}
             ctaText="Start free trial now"
             ctaLink="https://dashboard.infracost.io?screen_hint=signup"
           >

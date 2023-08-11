@@ -4,7 +4,7 @@ import { ColourCoding } from '../../pages/products';
 import './Pill.css';
 
 type PillProps = {
-  children: String;
+  children: string;
   colour: ColourCoding;
 };
 

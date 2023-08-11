@@ -7,9 +7,8 @@ interface FormData {
   companyName: string;
 }
 
-const isFormValid = (formData: FormData): boolean => {
-  return formData.name !== '' && formData.email !== '' && formData.companyName !== '';
-};
+const isFormValid = (formData: FormData): boolean =>
+  formData.name !== '' && formData.email !== '' && formData.companyName !== '';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
