@@ -1,6 +1,7 @@
-const path = require('path');
-const remarkExternalLinks = require('remark-external-links');
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable global-require */
 
+const remarkExternalLinks = require('remark-external-links');
 require('dotenv').config();
 
 module.exports = {
