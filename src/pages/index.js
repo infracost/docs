@@ -203,10 +203,7 @@ function Home() {
         <div className="container">
           <ul>
             <li>
-              <img
-                src="/img/services/hashicorp.svg"
-                alt="HashiCorp Terraform logo"
-              />
+              <img src="/img/services/hashicorp.svg" alt="HashiCorp Terraform logo" />
             </li>
             <li>
               <img src="/img/services/aws.svg" alt="Amazon Web Services logo" />
