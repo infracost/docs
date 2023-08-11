@@ -31,17 +31,17 @@ function Footer() {
             <h1>Community</h1>
             <ul>
               <li>
-                <a href="https://infracost.io/community-chat" target="_blank">
+                <a href="https://infracost.io/community-chat" target="_blank" rel="noreferrer">
                   Join Slack
                 </a>
               </li>
               <li>
-                <a href="https://community-chat.infracost.io" target="_blank">
+                <a href="https://community-chat.infracost.io" target="_blank" rel="noreferrer">
                   Search Slack
                 </a>
               </li>
               <li>
-                <a href="https://github.com/infracost/infracost" target="_blank">
+                <a href="https://github.com/infracost/infracost" target="_blank" rel="noreferrer">
                   GitHub
                 </a>
               </li>
@@ -49,12 +49,13 @@ function Footer() {
                 <a
                   href="https://github.com/infracost/infracost/#community-and-contributing"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Contribute
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/infracost" target="_blank">
+                <a href="https://twitter.com/infracost" target="_blank" rel="noreferrer">
                   Twitter
                 </a>
               </li>
@@ -77,7 +78,7 @@ function Footer() {
               </li>
               <li></li>
               <li>
-                <a href="mailto:hello@infracost.io" target="_blank">
+                <a href="mailto:hello@infracost.io" target="_blank" rel="noreferrer">
                   hello@infracost.io
                 </a>
               </li>

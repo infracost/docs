@@ -5,11 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 import React from 'react';
-import { PageMetadata } from '@docusaurus/theme-common';
+import { PageMetadata, ThemeClassNames } from '@docusaurus/theme-common';
 import BlogLayout from '@theme/BlogLayout';
 import BlogPostItem from '@theme/BlogPostItem';
 import BlogPostPaginator from '@theme/BlogPostPaginator';
-import { ThemeClassNames } from '@docusaurus/theme-common';
 import TOC from '@theme/TOC';
 
 function BlogPostPage(props) {

@@ -285,7 +285,7 @@ function Home() {
               link="https://twitter.com/ayrtonfreeman/status/1334493975387004930"
             >
               Thank you very much to{' '}
-              <a href="https://twitter.com/infracost" target="_blank">
+              <a href="https://twitter.com/infracost" target="_blank" rel="noreferrer">
                 @infracost
               </a>{' '}
               team who implemented an awesome terragrunt report from feedbacks in Github. :-)
@@ -309,7 +309,7 @@ function Home() {
               link="https://twitter.com/jderusse/status/1303828273747628032"
             >
               Just discovered{' '}
-              <a href="https://github.com/infracost/infracost" target="_blank">
+              <a href="https://github.com/infracost/infracost" target="_blank" rel="noreferrer">
                 https://github.com/infracost/infr…
               </a>
               <br />

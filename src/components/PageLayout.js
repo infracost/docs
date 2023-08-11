@@ -3,9 +3,9 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import LayoutProvider from '@theme/Layout/Provider';
 import { PageMetadata } from '@docusaurus/theme-common';
 import AnnouncementBar from '@theme/AnnouncementBar';
-import Navbar from '../components/Navbar';
-import CTA from '../components/CTA';
-import Footer from '../components/Footer';
+import Navbar from './Navbar';
+import CTA from './CTA';
+import Footer from './Footer';
 
 function PageLayout({ title, description, pageClass, children, hideCTA, noIndex }) {
   return (

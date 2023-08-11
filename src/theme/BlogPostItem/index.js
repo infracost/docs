@@ -13,9 +13,9 @@ import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
 import { usePluralForm } from '@docusaurus/theme-common';
 import MDXComponents from '@theme/MDXComponents';
 import EditThisPage from '@theme/EditThisPage';
-import styles from './styles.module.css';
 import TagsListInline from '@theme/TagsListInline';
 import BlogPostAuthors from '@theme/BlogPostAuthors'; // Very simple pluralization: probably good enough for now
+import styles from './styles.module.css';
 
 function useReadingTimePlural() {
   const { selectMessage } = usePluralForm();

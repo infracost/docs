@@ -7,7 +7,7 @@ import {
   useLockBodyScroll,
   useHideableNavbar,
 } from '@docusaurus/theme-common/internal';
-import GitHubStarCount from '../components/GitHubStarCount';
+import GitHubStarCount from './GitHubStarCount';
 
 function Navbar({ isDocs }) {
   const isBrowser = useIsBrowser();
@@ -136,6 +136,7 @@ function Navbar({ isDocs }) {
         href="https://github.com/infracost/infracost"
         target="_blank"
         aria-label="Star us on GitHub"
+        rel="noreferrer"
       >
         <img
           className="icon"
@@ -152,6 +153,7 @@ function Navbar({ isDocs }) {
         href="https://www.infracost.io/community-chat"
         target="_blank"
         aria-label="Join our community slack"
+        rel="noreferrer"
       >
         <img className="icon" src="/img/icons/slack.svg" alt="Slack icon" width={24} height={24} />
         <span className="link-text">Slack</span>
@@ -161,10 +163,15 @@ function Navbar({ isDocs }) {
 
   const outreach = (
     <>
-      <a className="navbar-item" href="mailto:hello@infracost.io" target="_blank">
+      <a className="navbar-item" href="mailto:hello@infracost.io" target="_blank" rel="noreferrer">
         hello@infracost.io
       </a>
-      <a className="navbar-item" href="https://twitter.com/infracost" target="_blank">
+      <a
+        className="navbar-item"
+        href="https://twitter.com/infracost"
+        target="_blank"
+        rel="noreferrer"
+      >
         Twitter
       </a>
     </>

@@ -30,7 +30,7 @@ const RequestDemoModal = ({ setModalVisible }) => {
         <h3 className="finops-request-demo__modal-title">Request demo</h3>
         <p>
           Please contact{' '}
-          <a href="mailto:hello@infracost.io" target="_blank">
+          <a href="mailto:hello@infracost.io" target="_blank" rel="noreferrer">
             hello@infracost.io
           </a>{' '}
           to request a demo.

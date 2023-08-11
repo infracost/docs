@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import { ColourCoding } from '../../pages/products';
 import SeparatorLine from '../SeparatorLine/SeparatorLine';
-import Pill from './../Pill/Pill';
+import Pill from '../Pill/Pill';
 
 import './ProductCard.css';
 
@@ -47,7 +47,12 @@ const ProductCard = (props: ProductProps) => {
         <SeparatorLine />
         {children}
         <div className="product-card__cta-wrapper">
-          <a href={ctaLink} className="button primary" target={targetBlank ? '_blank' : ''}>
+          <a
+            href={ctaLink}
+            className="button primary"
+            target={targetBlank ? '_blank' : ''}
+            rel="noreferrer"
+          >
             {ctaText}
           </a>
         </div>
