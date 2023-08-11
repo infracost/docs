@@ -8,10 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./web
-
     steps:
       - uses: actions/checkout@v3
 
@@ -21,7 +17,7 @@ jobs:
           node-version: 16.15.1
 
       - name: cache npm
-        id: cache npm
+        id: cache-npm
         uses: actions/cache@v3
         with:
           path: |
