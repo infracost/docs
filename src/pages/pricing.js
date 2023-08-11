@@ -19,8 +19,7 @@ function Pricing() {
           <div className="container">
             <h1 className="tagline">Pricing</h1>
             <p className="sub-tagline">
-              Cloud costs in engineering and product workflows before resources
-              are launched.
+              Cloud costs in engineering and product workflows before resources are launched.
             </p>
             <p className="sub-tagline">The cloud checkout screen!</p>
           </div>
@@ -84,8 +83,7 @@ function Pricing() {
                         <Check size={18} />
                       </span>
                       <span>
-                        Use our hosted Cloud Pricing API<sup>†</sup> or
-                        self-host
+                        Use our hosted Cloud Pricing API<sup>†</sup> or self-host
                       </span>
                     </li>
                     <li>
