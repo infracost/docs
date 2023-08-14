@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Check({ color = 'fff', size = 24 }) {
+function Check({ color = '#db44b8', size = 24 }) {
   return (
     <svg
       enableBackground="new 0 0 {515.556 515.556}"
