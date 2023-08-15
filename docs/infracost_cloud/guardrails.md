@@ -9,7 +9,13 @@ Guardrails help you control costs by monitoring pull requests (PRs) and triggeri
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/cost-saving.png")} alt="Cost savings from guardrails" />
 
-Guardrails also have an audit trail of the pull requests that triggered them:
+## Preventive costs
+
+We figure out how much you've saved on guardrails by looking at the difference between the costliest run that activated the guardrail and the final cost when you made your latest change. So, let's say an engineer opens a pull request with a change that would've increased the cost by $10k, but the guardrail is triggered. Your team then works to reduce the cost, and the changes finally get approved and merged with an increased cost of $2k. In this case, you've saved $8k because of the guardrail.
+
+But, there's an exception when you decide not to make a change after it activates the guardrail. Suppose you propose a change that would cost an extra $7k, but the guardrail is triggered. If you then decide it's too expensive and discard the changes by closing the pull request, we count that as a saving of $7k, because you avoided that extra cost.
+
+Guardrails also have an audit trail of the pull requests that triggered them so you can see details of the preventive costs:
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/guardrail-events.png")} alt="Guardrail events" />
 

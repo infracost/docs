@@ -10,7 +10,7 @@ Infracost Cloud enables you to see actual costs using your AWS account's Cost an
 This page outlines how you can give Infracost Cloud read access to your AWS CUR data (and resources listings), which Infracost requires to provide this functionality. We plan to build similar functionality for Azure and Google in the future.
 
 :::info
-This feature is in private beta, email [hello@infracost.io](mailto:hello@infracost.io) if you'd like access.
+This feature is in private beta. Before following this document, email [hello@infracost.io](mailto:hello@infracost.io) to request access.
 :::
 
 ## Connect Infracost Cloud to existing AWS CUR S3 bucket
