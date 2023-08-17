@@ -23,7 +23,7 @@ Give your tagging policy a name, and select the whether the policy should be eva
 
 ### b. Define tag keys and values
 
-You can define what tag keys are mandatory, which tag values are allowed, and make it easy for engineers to take action. You can also validate tag values using a regular expression.
+You can define what tag keys are mandatory, which tag values are allowed, and make it easy for engineers to take action. You can also validate tag values using a regular expression (ECMAScript is used). Partial matches are used, so for example `dev` will match `dev`, `development` and `api-development`; but `.*-dev-.*` will not match `development`.
 
 <img src={useBaseUrl("img/infracost-cloud/tagging-policies/define-tags.png")} alt="Define tag keys and values." />
 
