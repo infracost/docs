@@ -9,11 +9,11 @@ const GlossaryTerm = ({ term }: { term: GlossaryTermType }) => (
     <div className="glossary-term__card-header">
       <h2 className="glossary-term__card-title">
         <BookIcon />
-        {term.key}
+        {term.termTitle}
       </h2>
     </div>
 
-    <div className="glossary-term__card-description">{term.description}</div>
+    <div className="glossary-term__card-description">{term.definition}</div>
 
     {term.slug && (
       <a
@@ -21,7 +21,7 @@ const GlossaryTerm = ({ term }: { term: GlossaryTermType }) => (
         className="glossary-term__card-link"
         rel="noopener noreferrer"
       >
-        More about {term.key}
+        More about {term.termTitle}
         <ArrowIcon />
       </a>
     )}

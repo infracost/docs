@@ -8,7 +8,7 @@ const GlossaryTermPageContent = ({ term }: { term: GlossaryTermType }) => (
       <Section
         title={section.title}
         content={section.paragraphs}
-        key={`${term.key}-section-${index}}`}
+        key={`${term.slug}-section-${index}}`}
       />
     ))}
     <Cta />

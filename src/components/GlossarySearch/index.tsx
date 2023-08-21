@@ -12,16 +12,17 @@ type GlossaryPageSection = {
 };
 
 export type GlossaryTermType = {
-  key: string;
+  termTitle: string;
+  pageTitle: string;
   slug: string | null;
-  description: string;
+  definition: string;
   sections?: GlossaryPageSection[];
 };
 
 const GlossarySearch = () => {
   const { results, searchValue, setSearchValue } = useSearch<GlossaryTermType>({
     dataSet: terms,
-    keys: ['key', 'description'],
+    keys: ['termTitle', 'description'],
   });
 
   const handleInputChange = (e) => {
@@ -84,7 +85,7 @@ const GlossarySearch = () => {
           {results.length > 0 ? (
             <div className="glossary-search__content-list">
               {sortTermsAlphabetically(results).map((term) => (
-                <React.Fragment key={term.key}>
+                <React.Fragment key={term.termTitle}>
                   <GlossaryTerm term={term} />
                 </React.Fragment>
               ))}
@@ -103,7 +104,7 @@ const GlossarySearch = () => {
 };
 
 function sortTermsAlphabetically(terms: GlossaryTermType[]): GlossaryTermType[] {
-  return terms.slice().sort((a, b) => a.key.localeCompare(b.key));
+  return terms.slice().sort((a, b) => a.termTitle.localeCompare(b.termTitle));
 }
 
 export default GlossarySearch;

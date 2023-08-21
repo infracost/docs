@@ -1,6 +1,6 @@
 /* GLOSSARY TERM PAGE */
 
-.glossary-term__page {
+.glossary-term__page-container {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
 }

@@ -8,7 +8,7 @@ const GlossaryTermPageAside = ({ term }: { term: GlossaryTermType }) => (
       <BookIcon />
       Definition
     </h3>
-    <p>{term.description}</p>
+    <p>{term.definition}</p>
   </aside>
 );
 

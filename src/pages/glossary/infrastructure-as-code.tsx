@@ -7,7 +7,7 @@ import GlossaryTermPageAside from '../../components/GlossaryTermPage/GlossaryTer
 import GlossaryTermPageContent from '../../components/GlossaryTermPage/GlossaryTermPageContent';
 
 const Term = () => {
-  const term = terms.filter((term) => term.slug === 'finops')[0];
+  const term = terms.filter((term) => term.slug === 'infrastructure-as-code')[0];
 
   return (
     <PageLayout
