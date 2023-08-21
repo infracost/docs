@@ -3,7 +3,7 @@
 .glossary-term__card {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: .5rem;
 	padding: 1rem;
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
@@ -20,12 +20,6 @@
 	display: flex;
 	gap: 0.5rem;
 	align-items: baseline;
-	padding: 0.5rem 0.5rem 0 0.5rem;
-}
-
-.glossary-term__card-description {
-	padding: 0 0.5rem 0.5rem 0.5rem;
-	border-radius: 6px;
 }
 
 /* Hover animations */
@@ -50,6 +44,8 @@
   background-position: 0 0;
   display: inline;
   transition: .2s ease-in;
+	padding-left: 1.5rem;
+
 }
 
 /* link */
@@ -61,6 +57,8 @@
 	align-items: center;
 	gap: 0.325rem;
 	width: fit-content;
+	padding-left: 1.5rem;
+
 }
 
 .glossary-term__card-link:hover .arrow-icon {
