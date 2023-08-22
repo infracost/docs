@@ -3,19 +3,19 @@
 .glossary-term__card {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	gap: .5rem;
-	padding: 1rem;
+	padding: 1rem 1.5rem;
 	border: 1px solid var(--border-color);
 	border-radius: 8px;
 	transition: all 0.2s ease-in-out;
-	background-color: var(--nu10);
 	border: 1px solid var(--border-light);
 }
 
 
 .glossary-term__card-title {
 	font-size: 1.5rem;
-	margin-bottom: 0;
+	margin-bottom: .5rem;
 	font-weight: bold;
 	display: flex;
 	gap: 0.5rem;
@@ -30,7 +30,7 @@
 }
 
 .glossary-term__card:hover {
-	background-color: #eeeef7;
+	background-color: #fafafa;
 	transform: translateY(-.25rem) scale(1.02);
 }
 
@@ -44,7 +44,6 @@
   background-position: 0 0;
   display: inline;
   transition: .2s ease-in;
-	padding-left: 1.5rem;
 
 }
 
@@ -57,8 +56,6 @@
 	align-items: center;
 	gap: 0.325rem;
 	width: fit-content;
-	padding-left: 1.5rem;
-
 }
 
 .glossary-term__card-link:hover .arrow-icon {

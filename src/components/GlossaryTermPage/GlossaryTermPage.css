@@ -2,7 +2,7 @@
 
 .glossary-term__page-container {
 	display: grid;
-	grid-template-columns: 3fr 1fr;
+	grid-template-columns: 2fr 1fr;
 }
 
 .glossary-term__article {	
@@ -15,15 +15,14 @@
 .glossary-term__content {	
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 1rem;
 	padding: 0 4rem 4rem 0;
 }
 
 .glossary-term__aside {	
 	display: flex;
 	flex-direction: column;
-	padding: 1.5rem;
-	background-color: var(--nu10);
+	padding: 1rem;
 	border: 1px solid var(--border-light);
 	border-radius: 8px;
 	height: fit-content;
@@ -33,19 +32,31 @@
 	display: flex;
 	align-items: baseline;
 	gap: 0.5rem;
+	margin-bottom: 0;
+}
+
+.glossary-term__def {
+	font-size: smaller;
+	color: var(--faded-text);
+	font-weight: 100;
+}
+
+.glossary-term__definition {
+	margin: .4rem 0
 }
 
 
 @media (max-width: 1080px) {
-	.glossary-term__page {
+	.glossary-term__page-container {
 		grid-template-columns: 1fr;
 	}
 	.glossary-term__content {	
-		padding:  1.5rem;
+		padding: 0 1.5rem 1.5rem 1.5rem;
 	}
 	.glossary-term__aside {
 		order: -1;
 		margin: 0;
+		padding-left: 1.5rem;
 	}
 	.glossary-term__content,
 	.glossary-term__aside {

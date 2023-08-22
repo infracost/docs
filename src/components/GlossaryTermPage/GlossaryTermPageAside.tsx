@@ -1,14 +1,13 @@
 import React from 'react';
 import { GlossaryTermType } from '../GlossarySearch';
-import BookIcon from '../icons/BookIcon';
 
 const GlossaryTermPageAside = ({ term }: { term: GlossaryTermType }) => (
   <aside className="glossary-term__aside">
     <h3 className="glossary-term__header">
-      <BookIcon />
-      Definition
+      {term.termTitle}
+      <span className="glossary-term__def">(definition)</span>
     </h3>
-    <p>{term.definition}</p>
+    <span className="glossary-term__definition">{term.definition}</span>
   </aside>
 );
 

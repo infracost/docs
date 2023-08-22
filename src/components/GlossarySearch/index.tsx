@@ -5,6 +5,7 @@ import SearchIcon from '../icons/SearchIcon';
 import useSearch from '../utils/UseSearch';
 import GlossaryTerm from './GlossaryCard';
 import Kbd from '../Kbd';
+import OpenBookIcon from '../icons/OpenBookIcon';
 
 type GlossaryPageSection = {
   title: string;
@@ -66,7 +67,10 @@ const GlossarySearch = () => {
     <>
       <div className="intro">
         <div className="container glossary-search__intro-container">
-          <h1 className="tagline">FinOps Glossary</h1>
+          <h1 className="tagline">
+            <OpenBookIcon size={{ width: '24px', height: '24px' }} />
+            FinOps Glossary
+          </h1>
           <div className="finops-glossary__search">
             <input
               value={searchValue.replace(/['"]+/g, '')}

@@ -8,6 +8,12 @@
 	justify-content: center;
 }
 
+.glossary-search__intro-container .tagline {
+	display: flex;
+	gap: .5rem;
+	align-items: center;
+}
+
 /* Content */
 .glossary-search__content-wrapper {
 	padding: 4rem 1.5rem;
