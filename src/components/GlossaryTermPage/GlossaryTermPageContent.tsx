@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import { GlossaryTermType } from '../GlossarySearch';
 import Cta from './Cta';
 
@@ -20,7 +21,7 @@ const Section = ({ title, content }) => (
     <h3>{title}</h3>
     <article>
       {content.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
+        <ReactMarkdown key={index}>{paragraph}</ReactMarkdown>
       ))}
     </article>
   </section>
