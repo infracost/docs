@@ -5,10 +5,10 @@ const Cta = () => (
   <div className="glossary-cta">
     <div className="glossary-cta__wrapper">
       <div className="glossary-cta__text-wrapper">
-        <p className="glossary-cta__header">Shifting FinOps Left 👈</p>
+        <h3 className="glossary-cta__header">Shifting FinOps Left 👈</h3>
         <p className="glossary-cta__text">
-          Optimize Your Cloud Spending with Strategic Financial Management – Join the FinOps
-          Revolution!
+          Put cloud costs in engineering workflows, and see the cost of upcoming code changes{' '}
+          <b>before resources are launched</b>.
         </p>
       </div>
       <a href="https://dashboard.infracost.io/" className="button medium flat primary">

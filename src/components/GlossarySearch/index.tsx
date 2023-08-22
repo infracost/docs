@@ -18,6 +18,7 @@ export type GlossaryTermType = {
   slug: string | null;
   definition: string;
   sections?: GlossaryPageSection[];
+  imgUrl?: string;
 };
 
 const GlossarySearch = () => {

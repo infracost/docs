@@ -22,23 +22,47 @@
 .glossary-term__aside {	
 	display: flex;
 	flex-direction: column;
-	padding: 1rem;
 	border: 1px solid var(--border-light);
 	border-radius: 8px;
 	height: fit-content;
+	overflow: hidden;
+	box-shadow: var(--box-shadow);
+}
+
+.glossary-term__aside-img-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 150px;
+	background: url('/img/glossary/background.svg') no-repeat center center;
+}
+
+.glossary-term__aside-img {	
+	object-fit: contain;
+	width: auto;
+	height: 50px;
+}
+
+.glossary-term__aside-content {
+	padding: 1rem;
 }
 
 .glossary-term__header {	
 	display: flex;
 	align-items: baseline;
 	gap: 0.5rem;
-	margin-bottom: 0;
+	margin-bottom: .5rem;
 }
 
 .glossary-term__def {
 	font-size: smaller;
 	color: var(--faded-text);
 	font-weight: 100;
+}
+
+.glossary-term__aside-def svg {
+	margin-bottom: 2px;
 }
 
 .glossary-term__definition {

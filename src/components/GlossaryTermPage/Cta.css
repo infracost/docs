@@ -26,26 +26,23 @@
 	border-radius: 8px;
 }
 
-.glossary-cta__text-wrapper p {
-	margin: 0;
-	font-weight: 700;
+h3.glossary-cta__header {
+	margin-bottom: .5rem;
+	font-size: 1.875rem;
+  font-weight: 900;
 }
 
-.glossary-cta__header,
+.glossary-cta__text {
+	margin: 0;
+	font-weight: 400;
+	font-size: larger;
+	line-height: 1.4;
+}
+
+
+h3.glossary-cta__header,
 .glossary-cta__text {
 	color: var(--header-color);
-}
-
-.glossary-cta__header {
-  font-size: 1.875rem;
-  font-weight: 900;
-	flex: 1;
-	border-radius: 8px;
-}
-
-.glossary-cta__text {
-  font-size: 1rem;
-	line-height: 1.4;
 }
 
 @media screen and (max-width: 769px) {

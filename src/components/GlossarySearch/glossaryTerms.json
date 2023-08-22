@@ -179,6 +179,7 @@
     "termTitle": "Pulumi",
     "pageTitle": "Understanding Pulumi",
     "slug": "pulumi",
+    "imgUrl": "pulumi.svg",
     "definition": "Pulumi is an open-source Infrastructure as Code (IaC) tool that allows developers to define and provision cloud infrastructure using familiar programming languages.",
     "sections": [
       {
@@ -276,6 +277,7 @@
     "termTitle": "HashiCorp",
     "pageTitle": "Understanding HashiCorp and its Tools",
     "slug": "hashicorp",
+    "imgUrl": "hashicorp.svg",
     "definition": "HashiCorp is a software company known for products that provide consistent workflows to provision, secure, connect, and run infrastructure.",
     "sections": [
       {
@@ -455,6 +457,7 @@
   {
     "termTitle": "Chargeback",
     "pageTitle": "Chargeback in FinOps: Allocating Cloud Costs Effectively",
+    "imgUrl": "/img/glossary/chargeback.png",
     "slug": "chargeback",
     "definition": "A financial management tool where departments or teams are billed internally for their consumption or use of IT services and resources.",
     "sections": [
@@ -545,8 +548,8 @@
     ]
   },
   {
-    "termTitle": "EA (Enterprise Agreement)",
-    "pageTitle": "Understanding EA (Enterprise Agreement)",
+    "termTitle": "Enterprise Agreement (EA)",
+    "pageTitle": "Understanding Enterprise Agreements",
     "slug": "enterprise-agreement",
     "definition": "EA is a volume licensing package for large organizations, offering product discounts and extended terms.",
     "sections": [
@@ -807,6 +810,7 @@
     "termTitle": "AWS",
     "pageTitle": "Understanding AWS in the Context of FinOps",
     "slug": "aws",
+    "imgUrl": "aws.svg",
     "definition": "Amazon Web Services, a subsidiary of Amazon providing cloud computing platforms and APIs to businesses, governments, and individuals.",
     "sections": [
       {
@@ -845,9 +849,10 @@
     ]
   },
   {
-    "termTitle": "GCP (Google Cloud Platform)",
+    "termTitle": "Google Cloud Platform (GCP)",
     "pageTitle": "Understanding GCP (Google Cloud Platform)",
     "slug": "google-cloud-platform",
+    "imgUrl": "google-cloud.svg",
     "definition": "GCP is Google's suite of cloud services, offering computing, storage, and various application services.",
     "sections": [
       {
@@ -896,6 +901,7 @@
     "termTitle": "Azure",
     "pageTitle": "Navigating Azure in the FinOps Landscape",
     "slug": "azure",
+    "imgUrl": "azure.svg",
     "definition": "Microsoft Azure, a cloud computing service by Microsoft offering solutions like IaaS, PaaS, and SaaS used for building, testing, deploying, and managing applications.",
     "sections": [
       {
@@ -1087,6 +1093,7 @@
     "termTitle": "Spotify Backstage",
     "pageTitle": "Understanding Spotify Backstage",
     "slug": "spotify-backstage",
+    "imgUrl": "spotify-backstage.svg",
     "definition": "Backstage is an open-source platform built by Spotify to unify and simplify the infrastructure, tooling, and services used by developers in their daily work.",
     "sections": [
       {
