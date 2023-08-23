@@ -1,9 +1,9 @@
 [
   {
     "termTitle": "FinOps",
-    "pageTitle": "FinOps: Bridging Finance and Operations in the Cloud Era",
+    "pageTitle": "FinOps: Bridging Finance and DevOps in the Cloud Era",
     "slug": "finops",
-    "definition": "FinOps is the practice of bringing financial accountability to variable spending. It enables teams to understand and control costs and scale efficiently.",
+    "definition": "FinOps is the practice of bringing financial accountability to variable spending. At its core it is about bringing cross-functional teams of Engineering, Finance and management together to manage and optimize cloud costs.",
     "sections": [
       {
         "title": "Introduction",
@@ -14,7 +14,7 @@
       {
         "title": "What is FinOps?",
         "paragraphs": [
-          "FinOps stands for Financial Operations and is a cultural practice that aims to create a balance between speed, cost, and quality within an organization's cloud environment. By fostering collaboration between IT, finance, and business teams, FinOps ensures that every dollar spent in the cloud translates into business value."
+          "FinOps brings togther Finance and DevOps, and is a cultural practice that aims to create a balance between speed, cost, and quality within an organization's cloud environment. By fostering collaboration between IT, finance, and business teams, FinOps ensures that every dollar spent in the cloud translates into business value."
         ]
       },
       {
@@ -36,21 +36,21 @@
         "title": "Conclusion",
         "paragraphs": [
           "FinOps represents a fundamental shift in the way organizations approach cloud financial management. By embracing this practice, organizations can navigate the complex landscape of cloud economics, turning what was once a daunting challenge into a strategic asset.",
-          "In the end, FinOps is about empowerment, efficiency, and alignment, transforming the way organizations understand and control their cloud costs, and, in turn, ensuring that investments in the cloud are strategic, deliberate, and value-driven."
+          "In the end, FinOps is about empowerment, efficiency, and alignment, transforming the way organizations understand, control and optimize their cloud costs, and, in turn, ensuring that investments in the cloud are strategic, deliberate, and value-driven."
         ]
       }
     ]
   },
   {
     "termTitle": "Cloud Computing",
-    "pageTitle": "Demystifying Cloud Computing: A Comprehensive Overview",
+    "pageTitle": "Cloud Computing: on-demand delivery of IT resources",
     "slug": "cloud-computing",
-    "definition": "Delivery of computing services over the internet, offering scalable resources like storage, processing, and networking without direct management by users.",
+    "definition": "Delivery of on-demand computing services over the internet, offering scalable resources like storage, compute, and networking with pay as you go pricing.",
     "sections": [
       {
         "title": "Introduction",
         "paragraphs": [
-          "Cloud computing has revolutionized the way businesses operate, offering a flexible and scalable environment for hosting applications, data storage, and more. This guide dives deep into the world of cloud computing, unraveling its complexities for beginners and experts alike."
+          "Cloud computing has revolutionized the way businesses operate, offering a flexible and scalable environment for hosting applications, data storage, and more."
         ]
       },
       {
@@ -62,9 +62,10 @@
       {
         "title": "Types of Cloud Computing",
         "paragraphs": [
-          "1. Infrastructure as a Service (IaaS): Provides users with internet-based access to vital infrastructure such as physical computers, data storage, and more.",
-          "2. Platform as a Service (PaaS): Offers a platform allowing customers to develop, run, and manage applications without dealing with the infrastructure complexities.",
-          "3. Software as a Service (SaaS): Refers to software applications delivered over the web on a subscription basis."
+          "There are three main layers to Cloud Computing:",
+          "1. Infrastructure as a Service (IaaS): Provides users with internet-based access to vital infrastructure such as physical computers, data storage, and more. For example, Amaon Web Services, Microsoft Azure, and Google Compute Cloud Platform.",
+          "2. Platform as a Service (PaaS): Offers a platform allowing customers to develop, run, and manage applications without dealing with the infrastructure complexities. For example, Heroku.",
+          "3. Software as a Service (SaaS): Refers to software applications delivered over the web on a subscription basis. For example, Netflix or Google Mail."
         ]
       },
       {
@@ -85,47 +86,47 @@
   },
   {
     "termTitle": "Anomaly (Cost Anomalies)",
-    "pageTitle": "Cost Anomalies in FinOps: Identifying and Managing Unexpected Costs",
+    "pageTitle": "Cost Anomalies in FinOps: Unexpected Costs",
     "slug": "cost-anomalies",
-    "definition": "Unexpected variations in expenses, typically indicating unexpected spikes or drops in resource usage or misconfigurations.",
+    "definition": "FinOps anomalies are unexpected variations in cloud costs. Typically indicating unexpected spikes or drops in resource usage, misconfigurations, or unexpected purchases in cloud resources.",
     "sections": [
       {
         "title": "Introduction",
         "paragraphs": [
-          "Within the realm of FinOps, cost anomalies can be a significant concern. These unexpected cost surges or decreases can impact financial forecasting and budgeting. This guide explores the nature of cost anomalies and provides insights into managing them effectively."
+          "Within the realm of FinOps, cost anomalies can be a significant concern. These unexpected cost surges or decreases can impact financial forecasting and budgeting, and create friction between different teams."
         ]
       },
       {
         "title": "What are Cost Anomalies?",
         "paragraphs": [
-          "Cost anomalies refer to unexpected fluctuations in cloud expenses that don't align with regular consumption patterns. These can be attributed to various causes, including technical glitches, unauthorized usage, misconfigured resources, or sudden spikes in demand."
+          "Cost anomalies refer to unexpected fluctuations in cloud costs that don't align with regular consumption patterns. These can be attributed to various causes, including technical glitches, unauthorized usage, misconfigured resources, or sudden spikes in demand."
         ]
       },
       {
         "title": "Detecting Cost Anomalies",
         "paragraphs": [
-          "Early detection of cost anomalies is essential for timely mitigation. Using monitoring tools, setting up alerts, and routinely analyzing cloud expenditure reports can assist in pinpointing irregularities.",
+          "Early detection of cost anomalies is essential for timely mitigation. Using cost estimation tools, monitoring tools, setting up alerts, and routinely analyzing cloud expenditure reports can assist in pinpointing irregularities.",
           "Machine learning and predictive analytics can also be deployed to detect patterns and highlight anomalies with higher precision."
         ]
       },
       {
         "title": "Managing and Mitigating Cost Anomalies",
         "paragraphs": [
-          "Once detected, it's vital to investigate the root cause of the anomaly. Whether it's due to misconfiguration, unauthorized access, or genuine increased usage, identifying the cause can lead to more targeted solutions.",
-          "Establishing clear governance policies, enhancing security measures, and continuous staff training can also reduce the risk of future anomalies."
+          "Once detected, it's vital to investigate the root cause of the anomaly. Whether it's due to misconfiguration, unauthorized usage, or genuine increased usage, identifying the cause can lead to more targeted solutions.",
+          "Establishing clear governance policies and processes, and continuous staff training can also reduce the risk of future anomalies."
         ]
       },
       {
         "title": "Conclusion",
         "paragraphs": [
-          "In the context of FinOps, staying on top of cost anomalies ensures that cloud expenditures remain predictable and under control.",
+          "In the context of FinOps, staying on top of cost anomalies ensures that cloud expenditures remain predictable, under control and within budgets.",
           "By leveraging advanced tools and maintaining vigilant monitoring practices, organizations can navigate the challenges posed by cost anomalies and ensure efficient cloud financial management."
         ]
       }
     ]
   },
   {
-    "termTitle": "IaC (Infrastructure as Code)",
+    "termTitle": "Infrastructure as Code (IaC)",
     "pageTitle": "Understanding IaC (Infrastructure as Code)",
     "slug": "infrastructure-as-code",
     "definition": "IaC is the management of infrastructure using code and automation, rather than manual processes.",
@@ -137,13 +138,13 @@
         ]
       },
       {
-        "title": "Principles of IaC",
+        "title": "Principles and best practices of IaC",
         "paragraphs": [
-          "Core principles of IaC include:",
+          "Principles and best practices of IaC include:",
           "- **Idempotence**: Running the same code should produce the same result every time, ensuring consistency.",
-          "- **Declarative Code**: Specifying 'what' the desired end state is, rather than 'how' to achieve it.",
+          "- **Immutable Infrastructure**: Provisioning of new infrastructure instead of changing existing resources.",
           "- **Version Control**: Storing IaC scripts in version control systems to track changes and facilitate collaboration.",
-          "- **Automation**: Minimizing manual interventions for efficiency and reduced error rates."
+          "- **Automation**: Minimizing manual interventions, or overwriting for efficiency and reduced error rates."
         ]
       },
       {
@@ -161,16 +162,14 @@
         "paragraphs": [
           "There are several tools that support IaC, including:",
           "- **Terraform**: A cloud-agnostic tool for creating and managing infrastructure resources.",
-          "- **Ansible**: An automation tool for configuration management and application deployment.",
-          "- **Chef & Puppet**: Tools that focus on automation of infrastructure provisioning and management.",
+          "- **Pulumi**:  A cloud-agnostic tool for creating and managing infrastructure resources.",
           "- **Cloud-specific solutions**: Such as AWS CloudFormation and Azure Resource Manager (ARM) templates."
         ]
       },
       {
         "title": "Conclusion",
         "paragraphs": [
-          "Infrastructure as Code represents a paradigm shift in the way we think about and manage infrastructure.",
-          "As DevOps and cloud computing continue to evolve, IaC will remain a fundamental principle, driving efficiency, consistency, and scalability."
+          "Infrastructure as Code represents a paradigm shift in the way we think about and manage infrastructure. As DevOps and cloud computing continue to evolve, IaC will remain a fundamental principle, driving efficiency, consistency, and scalability."
         ]
       }
     ]
@@ -226,12 +225,12 @@
     "termTitle": "Terraform",
     "pageTitle": "Understanding Terraform",
     "slug": "terraform",
-    "definition": "Terraform is an open-source Infrastructure as Code (IaC) tool developed by HashiCorp that allows users to define and provision cloud infrastructure using declarative configuration files.",
+    "definition": "Terraform is an Infrastructure as Code (IaC) tool developed by HashiCorp that allows users to define and provision cloud infrastructure using declarative configuration files.",
     "sections": [
       {
         "title": "Origins of Terraform",
         "paragraphs": [
-          "Developed by HashiCorp, Terraform was introduced as a solution to the growing need for automated, reproducible infrastructure deployments across diverse cloud providers and on-premises environments. Since its inception, Terraform has become a popular choice for cloud infrastructure automation, with a vast and active community supporting its growth."
+          "Developed by HashiCorp, Terraform was introduced as a solution to the growing need for automated, reproducible infrastructure deployments across diverse cloud providers and on-premises environments. Since its inception, Terraform has become a popular choice for cloud infrastructure automation."
         ]
       },
       {
@@ -267,8 +266,7 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "As cloud environments grow in complexity, tools like Terraform become essential for managing and automating infrastructure.",
-          "By adopting Infrastructure as Code practices with Terraform, organizations can ensure consistent, reproducible, and scalable infrastructure deployments."
+          "As cloud environments grow in complexity, tools like Terraform become essential for managing and automating infrastructure. By adopting Infrastructure as Code practices with Terraform, organizations can ensure consistent, reproducible, and scalable infrastructure deployments."
         ]
       }
     ]
@@ -283,7 +281,7 @@
       {
         "title": "Origins of HashiCorp",
         "paragraphs": [
-          "Founded by Mitchell Hashimoto and Armon Dadgar in 2012, HashiCorp started with the vision of revolutionizing datacenter management: application development, delivery, and maintenance. Over the years, it has released multiple open-source tools that focus on individual parts of the application delivery pipeline, each designed to be composable to support diverse workflows."
+          "Founded by Mitchell Hashimoto and Armon Dadgar, HashiCorp started with the vision of revolutionizing datacenter management: application development, delivery, and maintenance. Over the years, it has released multiple tools that focus on individual parts of the application delivery pipeline, each designed to be composable to support diverse workflows."
         ]
       },
       {
@@ -307,14 +305,13 @@
       {
         "title": "Why HashiCorp's Tools Are Widely Adopted",
         "paragraphs": [
-          "HashiCorp's solutions stand out because of their emphasis on infrastructure as code, immutability, and automation. Their tools are designed to be cloud-agnostic, ensuring that users aren't locked into a single provider. Additionally, the vibrant community around HashiCorp products aids in rapid innovation and support."
+          "HashiCorp's solutions stand out because of their emphasis on infrastructure as code, immutability, and automation. Their tools are designed to be cloud-agnostic, ensuring that users aren't locked into a single provider. Additionally, the community around HashiCorp products aids in rapid innovation and support."
         ]
       },
       {
         "title": "Conclusion",
         "paragraphs": [
-          "HashiCorp has cemented its position as a leader in the infrastructure automation and management domain.",
-          "With a suite of tools that cater to various stages of the DevOps lifecycle, it continues to shape the future of cloud infrastructure and application deployment."
+          "HashiCorp has cemented its position as a leader in the infrastructure automation and management domain. With a suite of tools that cater to various stages of the DevOps lifecycle, it continues to shape the future of cloud infrastructure and application deployment."
         ]
       }
     ]
@@ -340,21 +337,20 @@
       {
         "title": "CI/CD and Cloud Costs",
         "paragraphs": [
-          "CI/CD pipelines often require cloud resources for build and deployment tasks. Whether it's the use of virtual machines for testing or container orchestration tools for deployment, each step can incur costs.",
-          "Optimizing these pipelines for cost, such as tearing down unnecessary resources immediately after use or choosing cost-effective cloud services for specific tasks, becomes a FinOps responsibility."
+          "CI/CD pipelines look after how Infrastructure as Code, and in turn cloud resources are launched. Whether it's the use of virtual machines for testing or container orchestration tools for deployment, all the resources being launched will have costs associated with them.",
+          "When it comes to FinOps, you can integrate tools into the CI/CD pipelines so that you know, before any resources are launched, how much the reosurces will cost. You can also check for the right tags and values to be present in the code, and ensure best practice and optimized resources are being used, all before anything goes to production."
         ]
       },
       {
         "title": "Conclusion",
         "paragraphs": [
-          "While CI/CD practices aim at development efficiency and rapid releases, they must be paired with FinOps principles to ensure that the speed doesn't result in unchecked cloud expenses.",
-          "An optimized CI/CD process not only delivers code efficiently but does so in a cost-effective manner."
+          "While CI/CD practices aim at development efficiency and rapid releases, they must be paired with FinOps principles to ensure that the speed doesn't result in unchecked cloud expenses. An optimized CI/CD process not only delivers code efficiently but does so in a cost-effective manner and ensures code adheres to best FinOps practices."
         ]
       }
     ]
   },
   {
-    "termTitle": "TCO (Total Cost of Ownership)",
+    "termTitle": "Total Cost of Ownership (TCO)",
     "pageTitle": "Understanding Total Cost of Ownership (TCO)",
     "slug": "total-cost-of-ownership",
     "definition": "TCO quantifies the overall costs of a product or system, encompassing acquisition, operation, and maintenance costs over its lifecycle.",
@@ -362,7 +358,7 @@
       {
         "title": "Basics of TCO",
         "paragraphs": [
-          "Total Cost of Ownership (TCO) is a comprehensive financial estimate that helps individuals or companies determine direct and indirect costs of a product or system. It provides a holistic view of both upfront and hidden costs, aiding in more informed purchasing decisions."
+          "Total Cost of Ownership (TCO) is a comprehensive financial estimate that helps companies determine direct and indirect costs of a product or system. It provides a holistic view of both upfront and hidden costs, aiding in more informed purchasing decisions."
         ]
       },
       {
@@ -399,15 +395,14 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "TCO is a critical metric for businesses and individuals when assessing the true costs of products or systems.",
-          "While it provides a comprehensive view of expenses, it's crucial to combine TCO analysis with other evaluation metrics for a balanced decision-making process."
+          "TCO is a critical metric for businesses and individuals when assessing the true costs of products or systems. While it provides a comprehensive view of expenses, it's crucial to combine TCO analysis with other evaluation metrics for a balanced decision-making process."
         ]
       }
     ]
   },
   {
     "termTitle": "Showback",
-    "pageTitle": "Understanding Showback in FinOps",
+    "pageTitle": "Define: Showback in FinOps",
     "slug": "showback",
     "definition": "Showback refers to the process of providing transparency about IT costs to business units, without actually charging them.",
     "sections": [
@@ -448,15 +443,14 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "While showback doesn't entail actual billing, its role in fostering transparency and accountability is crucial.",
-          "By providing visibility into IT costs, organizations can promote more responsible resource consumption and better budget management."
+          "While showback doesn't entail actual billing, its role in fostering transparency and accountability is crucial. By providing visibility into IT costs, organizations can promote more responsible resource consumption and better budget management."
         ]
       }
     ]
   },
   {
     "termTitle": "Chargeback",
-    "pageTitle": "Chargeback in FinOps: Allocating Cloud Costs Effectively",
+    "pageTitle": "Define: Chargeback in FinOps",
     "imgUrl": "/img/glossary/chargeback.png",
     "slug": "chargeback",
     "definition": "A financial management tool where departments or teams are billed internally for their consumption or use of IT services and resources.",
@@ -464,7 +458,7 @@
       {
         "title": "Introduction",
         "paragraphs": [
-          "In the world of FinOps, the practice of chargeback stands as a cornerstone for transparent and accountable cloud cost management. As organizations strive for cost visibility and accurate allocation, understanding chargeback becomes paramount. This guide sheds light on the role of chargeback in cloud financial operations."
+          "In the world of FinOps, the practice of chargeback stands as a cornerstone for transparent and accountable cloud cost management. As organizations strive for cost visibility and accurate allocation, understanding chargeback becomes paramount."
         ]
       },
       {
@@ -479,14 +473,14 @@
           "Chargeback serves several crucial functions in FinOps:",
           "1. **Transparency**: It provides a clear view of who is consuming what, enabling better budgeting and forecasting.",
           "2. **Accountability**: By assigning costs directly to users or departments, it promotes responsible cloud usage.",
-          "3. **Optimization**: With detailed cost data, teams can identify inefficiencies and areas for potential savings."
+          "3. **Optimization**: With detailed cost data, teams can identify inefficiencies and areas for potential savings, and benefit from their efforts."
         ]
       },
       {
         "title": "Implementing Chargeback",
         "paragraphs": [
           "Successful chargeback implementation involves:",
-          "1. **Tagging Resources**: Properly tagging cloud resources ensures that costs can be tracked back to their source.",
+          "1. **Allocating Resources**: Properly allocating cloud resources ensures that costs can be tracked back to their source.",
           "2. **Regular Reporting**: Generate and distribute regular cost reports to relevant stakeholders.",
           "3. **Feedback Loop**: Engage with teams to understand their usage patterns and address any concerns or disputes."
         ]
@@ -494,22 +488,21 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "The chargeback method in FinOps plays a pivotal role in fostering a culture of cost awareness and responsibility.",
-          "By implementing and refining chargeback practices, organizations can achieve more transparent, efficient, and accountable cloud cost management."
+          "The chargeback method in FinOps plays a role in fostering a culture of cost awareness and responsibility. By implementing and refining chargeback practices, organizations can achieve more transparent, efficient, and accountable cloud cost management."
         ]
       }
     ]
   },
   {
-    "termTitle": "EDP (Enterprise Discount Program)",
-    "pageTitle": "Understanding EDP (Enterprise Discount Program)",
+    "termTitle": "Enterprise Discount Program (EDP)",
+    "pageTitle": "Understanding EDP (Enterprise Discount Programs)",
     "slug": "enterprise-discount-program",
-    "definition": "EDP offers large organizations bulk purchase discounts, promoting loyalty and volume transactions.",
+    "definition": "EDPs offer large organizations bulk purchase discounts, promoting loyalty and volume transactions on AWS Cloud.",
     "sections": [
       {
         "title": "Origins of Enterprise Discount Programs",
         "paragraphs": [
-          "Recognizing the purchasing power and needs of large enterprises, companies introduced EDPs to incentivize bulk buying and reward consistent large-volume transactions. These programs aim to create a win-win: businesses get discounts, and providers increase sales and foster client loyalty."
+          "Recognizing the purchasing power and needs of large enterprises, AWS introduced EDPs to incentivize bulk buying and reward consistent large-volume transactions. This programs aims to create a win-win: businesses get discounts, and AWS increases sales and foster client loyalty."
         ]
       },
       {
@@ -535,14 +528,13 @@
       {
         "title": "Points to Consider Before Joining an EDP",
         "paragraphs": [
-          "It's essential to review the program's terms, understand commitment levels, anticipate future needs, and ensure the program aligns with the organization's strategic and financial goals."
+          "It's essential to review the program's terms, understand commitment levels, anticipate future needs, and ensure the program aligns with the organization's strategic and financial goals. Usually these programs works on an use-it-or-lose-it basis, meaning you have to spend the minimum level of commitment."
         ]
       },
       {
         "title": "Conclusion",
         "paragraphs": [
-          "Enterprise Discount Programs provide an avenue for large organizations to optimize their purchasing power.",
-          "However, to maximize benefits, companies must ensure the program aligns with their broader objectives and operational requirements."
+          "Enterprise Discount Programs provide an avenue for large organizations to optimize their purchasing power with AWS. However, to maximize benefits, companies must ensure the program aligns with their broader objectives and operational requirements."
         ]
       }
     ]
@@ -551,7 +543,7 @@
     "termTitle": "Enterprise Agreement (EA)",
     "pageTitle": "Understanding Enterprise Agreements",
     "slug": "enterprise-agreement",
-    "definition": "EA is a volume licensing package for large organizations, offering product discounts and extended terms.",
+    "definition": "EA is a volume licensing package for large organizations, offering product discounts and extended terms and support.",
     "sections": [
       {
         "title": "Origins of Enterprise Agreements",
@@ -588,8 +580,7 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "Enterprise Agreements offer large organizations a structured way to manage and optimize their software licensing.",
-          "It's vital, however, to assess needs and terms diligently to ensure maximum benefit."
+          "Enterprise Agreements offer large organizations a structured way to manage and optimize their software licensing. It's vital, however, to assess needs and terms diligently to ensure maximum benefit before commitment."
         ]
       }
     ]
@@ -598,18 +589,18 @@
     "termTitle": "Commitment Usage Discount (CUD)",
     "pageTitle": "Understanding Commitment Usage Discount (CUD)",
     "slug": "commitment-usage-discount",
-    "definition": "A pricing advantage offered by cloud providers to users who commit to long-term resource usage or reserved instances.",
+    "definition": "A pricing advantage offered by Google cloud to users who commit to long-term resource usage.",
     "sections": [
       {
         "title": "Origins of CUD",
         "paragraphs": [
-          "As cloud computing grew in popularity and competition among CSPs intensified, providers sought ways to enhance customer loyalty and predictability in their revenue streams. Commitment Usage Discounts emerged as a strategy to incentivize users to commit to longer-term usage, benefiting both the user, through cost savings, and the provider, through sustained resource allocation and revenue."
+          "As cloud computing grew in popularity and competition among CSPs intensified, providers sought ways to enhance customer loyalty and predictability in their revenue streams. Commitment Usage Discounts emerged as a strategy for Google Cloud to incentivize users to commit to longer-term usage, benefiting both the user, through cost savings, and the provider, through sustained resource allocation and revenue."
         ]
       },
       {
         "title": "How CUD Works",
         "paragraphs": [
-          "Users typically choose a specified amount of resources or services they intend to use for a predetermined period. In exchange for this commitment, the CSP offers a reduced rate compared to standard, on-demand pricing. The greater the commitment, usually, the higher the discount.",
+          "Users typically choose a specified amount of resources or services they intend to use, or a minimum spend for a predetermined period. In exchange for this commitment, the CSP offers a reduced rate compared to standard, on-demand pricing. The greater the commitment, usually, the higher the discount.",
           "It's crucial for users to accurately forecast their needs, as under-utilization can diminish the benefits of the discount, while over-utilization can lead to additional costs."
         ]
       },
@@ -631,22 +622,21 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "Commitment Usage Discounts provide an effective mechanism for businesses to optimize their cloud expenditure while ensuring resource availability.",
-          "However, as with any financial commitment, businesses should thoroughly evaluate their needs, understand the terms of the agreement, and regularly reassess to ensure continued alignment with their evolving requirements."
+          "Commitment Usage Discounts provide an effective mechanism for businesses to optimize their cloud expenditure while ensuring resource availability. However, as with any financial commitment, businesses should thoroughly evaluate their needs, understand the terms of the agreement, and regularly reassess to ensure continued alignment with their evolving requirements."
         ]
       }
     ]
   },
   {
     "termTitle": "Cost and Usage Report (CUR)",
-    "pageTitle": "Understanding Cost and Usage Report (CUR)",
+    "pageTitle": "Understanding Cost and Usage Reports (CUR)",
     "slug": "cost-and-usage-report",
     "definition": "Detailed breakdown of cloud expenses and usage, helping organizations track, optimize, and forecast their cloud expenditures.",
     "sections": [
       {
         "title": "Origins of CUR",
         "paragraphs": [
-          "As cloud adoption grew, organizations faced the challenge of managing and understanding their cloud expenses. With multiple services, regions, and potentially multiple accounts involved, there was a need for a granular and comprehensive report. Recognizing this, CSPs introduced Cost and Usage Reports to help customers navigate and analyze their cloud expenditures more effectively."
+          "As cloud adoption grew, organizations faced the challenge of managing and understanding their cloud expenses. With multiple services, regions, and potentially multiple accounts involved, there was a need for a granular and comprehensive report. Recognizing this, Cloud Service Providers introduced Cost and Usage Reports to help customers navigate and analyze their cloud expenditures more effectively."
         ]
       },
       {
@@ -679,8 +669,7 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "The Cost and Usage Report (CUR) is an invaluable tool for businesses aiming to harness the power of the cloud responsibly and cost-effectively.",
-          "Regularly reviewing and acting upon the insights from these reports ensures that organizations can maximize the value they derive from their cloud investments."
+          "The Cost and Usage Report (CUR) is an invaluable tool for businesses aiming to harness the power of the cloud responsibly and cost-effectively. Regularly reviewing and acting upon the insights from these reports ensures that organizations can maximize the value they derive from their cloud investments."
         ]
       }
     ]
@@ -689,7 +678,7 @@
     "termTitle": "Amortized Costs",
     "pageTitle": "Understanding Amortized Costs in FinOps",
     "slug": "amortized-costs",
-    "definition": "Costs spread over time, accounting for both initial and ongoing expenses, giving a comprehensive view of long-term financial impact.",
+    "definition": "Upfront costs spread over time, accounting for both initial and ongoing expenses, giving a comprehensive view of long-term financial impact.",
     "sections": [
       {
         "title": "Introduction",
@@ -706,15 +695,13 @@
       {
         "title": "Amortized Costs in Cloud Computing",
         "paragraphs": [
-          "When discussing cloud expenses, especially in relation to FinOps, amortized costs can refer to how certain cloud expenses are distributed over their usage period.",
-          "For instance, an organization might make an upfront payment for a reserved cloud instance for a year. Instead of recognizing the entire cost at the time of purchase, the cost would be amortized, or spread out, over the year, reflecting the true financial impact over time."
+          "When discussing cloud expenses, especially in relation to FinOps, amortized costs can refer to how certain cloud expenses are distributed over their usage period. For instance, an organization might make an upfront payment for a reserved cloud instance for a year. Instead of recognizing the entire cost at the time of purchase, the cost would be amortized, or spread out, over the year, reflecting the true financial impact over time."
         ]
       },
       {
         "title": "Conclusion",
         "paragraphs": [
-          "Grasping the concept of amortized costs is crucial for businesses aiming to understand their financial landscape, whether it's paying off traditional debt or navigating the complex world of cloud expenses.",
-          "In the realm of FinOps, ensuring that costs are transparent and reflect actual usage and value is paramount, making the understanding of amortization essential."
+          "Grasping the concept of amortized costs is crucial for businesses aiming to understand their financial landscape, whether it's paying off traditional debt or navigating the complex world of cloud expenses. In the realm of FinOps, ensuring that costs are transparent and reflect actual usage and value is paramount, making the understanding of amortization essential."
         ]
       }
     ]
@@ -754,15 +741,14 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "The Cloud Center of Excellence (CCoE) plays a pivotal role in an organization's cloud journey, ensuring not just adoption but effective utilization of cloud resources.",
-          "Despite potential challenges, the value offered by a well-functioning CCoE in guiding and optimizing cloud strategies can significantly outweigh the hurdles, positioning the organization for success in a cloud-centric world."
+          "The Cloud Center of Excellence (CCoE) plays a pivotal role in an organization's cloud journey, ensuring not just adoption but effective utilization of cloud resources. Despite potential challenges, the value offered by a well-functioning CCoE in guiding and optimizing cloud strategies can significantly outweigh the hurdles, positioning the organization for success in a cloud-centric world."
         ]
       }
     ]
   },
   {
     "termTitle": "Cloud Service Provider (CSP)",
-    "pageTitle": "Understanding Cloud Service Provider (CSP)",
+    "pageTitle": "Define: Cloud Service Provider (CSP)",
     "slug": "cloud-service-provider",
     "definition": "A company offering cloud-based platforms, infrastructure, applications, or storage services to other organizations and/or individuals.",
     "sections": [
@@ -800,8 +786,7 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "Cloud Service Providers (CSPs) have revolutionized the way businesses manage and deploy IT resources. Offering flexibility, scalability, and cost-efficiency, CSPs enable businesses to be more agile and competitive.",
-          "While there are many providers in the market, choosing the right CSP involves understanding the business's unique requirements and ensuring alignment with the offerings of the chosen provider."
+          "Cloud Service Providers (CSPs) have revolutionized the way businesses manage and deploy IT resources. Offering flexibility, scalability, and cost-efficiency, CSPs enable businesses to be more agile and competitive. While there are many providers in the market, choosing the right CSP involves understanding the business's unique requirements and ensuring alignment with the offerings of the chosen provider."
         ]
       }
     ]
@@ -816,7 +801,7 @@
       {
         "title": "Introduction",
         "paragraphs": [
-          "Amazon Web Services (AWS) stands as a dominant player in the cloud industry. For many businesses leveraging the cloud, understanding AWS cost structures and optimization is pivotal in FinOps strategy. This guide offers an overview of AWS in the world of FinOps."
+          "Amazon Web Services (AWS) stands as a dominant player in the cloud industry. For many businesses leveraging the cloud, understanding AWS cost structures and optimization is pivotal in FinOps strategy."
         ]
       },
       {
@@ -836,14 +821,15 @@
         "title": "Benefits of AWS for FinOps",
         "paragraphs": [
           "AWS provides granular data on resource usage and costs, allowing FinOps teams to dive deep into expenses and identify optimization opportunities.",
-          "With AWS's extensive toolset and well-documented best practices, businesses can automate cost governance, set up effective alerts, and integrate cost management into their CI/CD pipelines."
+          "With AWS's extensive toolset and well-documented best practices, businesses can automate cost governance, set up effective alerts, and integrate cost management into their processes.",
+          "Many companies choose to use 3rd party tools and service to manage their cloud costs."
         ]
       },
       {
         "title": "Conclusion",
         "paragraphs": [
-          "AWS, with its broad range of services and transparent cost structures, presents both opportunities and challenges for FinOps professionals.",
-          "With diligent management, continuous monitoring, and the leveraging of AWS-native tools, organizations can effectively manage their cloud expenditures and maximize the ROI from their AWS deployments."
+          "AWS, with its broad range of services and cost structures, presents both opportunities and challenges for FinOps professionals.",
+          "With diligent management, continuous monitoring, and the leveraging of AWS-native tools and 3rd party tools, organizations can effectively manage their cloud expenditures and maximize the Return on Investment (ROI) from their AWS deployments."
         ]
       }
     ]
@@ -891,14 +877,13 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "Google Cloud Platform offers a comprehensive suite of services that cater to diverse business needs, from startups to Fortune 500 companies.",
-          "By keeping up with evolving cloud trends and demands, GCP continues to be a dominant force in the cloud market landscape."
+          "Google Cloud Platform offers a comprehensive suite of services that cater to diverse business needs, from startups to Fortune 500 companies. By keeping up with evolving cloud trends and demands, GCP continues to be a dominant force in the cloud market landscape."
         ]
       }
     ]
   },
   {
-    "termTitle": "Azure",
+    "termTitle": "Microsoft Azure",
     "pageTitle": "Navigating Azure in the FinOps Landscape",
     "slug": "azure",
     "imgUrl": "azure.svg",
@@ -907,7 +892,7 @@
       {
         "title": "Introduction",
         "paragraphs": [
-          "As one of the leading cloud service providers, Microsoft Azure plays a significant role in many organizations' cloud strategies. For those vested in FinOps, understanding Azure's cost structures and optimization techniques becomes essential. This guide illuminates Azure's presence in the FinOps world."
+          "As one of the leading cloud service providers, Microsoft Azure plays a significant role in many organizations' cloud strategies. For those vested in FinOps, understanding Azure's cost structures and optimization techniques becomes essential."
         ]
       },
       {
@@ -933,110 +918,7 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "Microsoft Azure, with its extensive suite of services and integrations, offers both opportunities and intricacies for FinOps teams.",
-          "Embracing a proactive approach to cost management, combined with leveraging Azure-specific tools, can help organizations maintain cloud financial health and derive maximum value from their Azure investments."
-        ]
-      }
-    ]
-  },
-  {
-    "termTitle": "Tags (metadata)",
-    "pageTitle": "Understanding Tags in Metadata Context",
-    "slug": "tags",
-    "definition": "Tags are keywords or labels used to classify and categorize digital content, enabling easier search and organization.",
-    "sections": [
-      {
-        "title": "Concept of Tags",
-        "paragraphs": [
-          "In digital systems, tags are simple textual or numerical labels attached to items, such as documents, photos, or web pages. They offer a flexible and intuitive way to categorize and filter content, often complementing structured methods like folders or directories."
-        ]
-      },
-      {
-        "title": "Applications of Tags",
-        "paragraphs": [
-          "Tags are widely used across various platforms and contexts:",
-          "- **Websites & Blogs**: For categorizing articles or posts.",
-          "- **Photo Libraries**: To identify and sort images based on subjects, locations, or events.",
-          "- **Code Repositories**: To mark specific versions or releases.",
-          "- **Social Media**: To highlight topics, as seen with hashtags.",
-          "- **Cloud Platforms**: To categorize and manage resources, aiding in cost allocation or access control."
-        ]
-      },
-      {
-        "title": "Benefits of Using Tags",
-        "paragraphs": [
-          "Tags offer several advantages:",
-          "- **Flexibility**: Unlike rigid hierarchical structures, tags allow multiple classifications for an item.",
-          "- **Searchability**: Enhance the discoverability of content within large databases or platforms.",
-          "- **User Participation**: On platforms like social media, users can create their own tags, facilitating organic content categorization.",
-          "- **Dynamics**: Tags can be easily added, modified, or removed without affecting the underlying content."
-        ]
-      },
-      {
-        "title": "Challenges with Tagging",
-        "paragraphs": [
-          "Despite their benefits, tagging can have challenges:",
-          "- **Inconsistency**: Different users might use varied tags for similar content.",
-          "- **Over-tagging**: Using too many tags can dilute their effectiveness.",
-          "- **Ambiguity**: Some tags might be unclear without context.",
-          "- **Maintenance**: As content evolves, old tags might become irrelevant or misleading."
-        ]
-      },
-      {
-        "title": "Conclusion",
-        "paragraphs": [
-          "While tags offer a user-friendly way to categorize and find content, their effectiveness largely depends on their consistent and thoughtful application.",
-          "In systems where tagging is vital, having guidelines or controlled vocabularies can help maintain clarity and usefulness."
-        ]
-      }
-    ]
-  },
-  {
-    "termTitle": "VSCode extension",
-    "pageTitle": "Understanding VSCode Extensions",
-    "slug": "vscode-extension",
-    "definition": "A VSCode extension enhances the functionality of Visual Studio Code, offering additional features or integrations to improve the development workflow.",
-    "sections": [
-      {
-        "title": "Introduction to VSCode Extensions",
-        "paragraphs": [
-          "Visual Studio Code (VSCode) is a lightweight, extensible code editor developed by Microsoft. One of its distinguishing features is its vast ecosystem of extensions. These extensions allow users to tailor the editor to their unique needs, adding tools, languages, and features that enhance productivity and ease development tasks."
-        ]
-      },
-      {
-        "title": "How Extensions Enhance VSCode",
-        "paragraphs": [
-          "VSCode extensions can dramatically augment the user experience in multiple ways:",
-          "- **Language Support**: Extensions can add support for additional programming languages, complete with syntax highlighting, linting, and debugging capabilities.",
-          "- **Source Control**: Integrations with version control systems like Git, enabling seamless commits, pulls, and merges directly from the editor.",
-          "- **Debugging Tools**: Advanced debuggers, profilers, and monitors for various programming environments.",
-          "- **Themes & UI**: Customized themes, icons, and user interface enhancements for personalized aesthetics and usability.",
-          "- **Productivity Tools**: Features like code snippets, intelligent code completion, and project management integrations."
-        ]
-      },
-      {
-        "title": "Finding and Installing Extensions",
-        "paragraphs": [
-          "VSCode has a built-in Extension Marketplace accessible directly from the editor:",
-          "- **Browsing**: The Marketplace categorizes extensions by popularity, category, and publisher, making it easy to discover new tools.",
-          "- **Installation**: With a single click, users can install extensions. Once installed, most extensions are immediately active, with some requiring a restart.",
-          "- **Updates & Management**: The editor periodically checks for updates to extensions and allows users to manage their installed tools easily."
-        ]
-      },
-      {
-        "title": "Creating Custom Extensions",
-        "paragraphs": [
-          "Developers are not limited to existing extensions; they can create their own:",
-          "- **APIs & Documentation**: Microsoft provides comprehensive APIs and documentation for developers looking to create custom extensions.",
-          "- **Testing & Debugging**: VSCode supports testing and debugging of extensions in a sandboxed environment, ensuring stability.",
-          "- **Publishing**: Once ready, developers can publish their extensions to the VSCode Marketplace, making them available to the global VSCode community."
-        ]
-      },
-      {
-        "title": "Conclusion",
-        "paragraphs": [
-          "Extensions are at the heart of VSCode's adaptability and popularity, enabling developers to create a bespoke coding environment tailored to their needs.",
-          "With a thriving community and endless possibilities for customization, the VSCode extensions ecosystem continues to grow, driving innovation and productivity for developers worldwide."
+          "Microsoft Azure, with its extensive suite of services and integrations, offers both opportunities and intricacies for FinOps teams. Embracing a proactive approach to cost management, combined with leveraging Azure tools, can help organizations maintain cloud financial health and derive maximum value from their Azure investments."
         ]
       }
     ]
@@ -1083,8 +965,7 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "Platform Engineering plays a pivotal role in modern software delivery, providing the tools and environments that allow teams to deliver consistently and rapidly.",
-          "As the complexity of software ecosystems grows, the role of platform engineers will continue to be crucial in ensuring efficient, reliable, and scalable software delivery processes."
+          "Platform Engineering plays a pivotal role in modern software delivery, providing the tools and environments that allow teams to deliver consistently and rapidly. As the complexity of software ecosystems grows, the role of platform engineers will continue to be crucial in ensuring efficient, reliable, and scalable software delivery processes."
         ]
       }
     ]
@@ -1131,8 +1012,7 @@
       {
         "title": "Conclusion",
         "paragraphs": [
-          "Spotify Backstage represents a paradigm shift in how organizations view developer tooling and infrastructure.",
-          "As the complexity of developer ecosystems grows, unified platforms like Backstage become essential to maintain cohesiveness, consistency, and productivity."
+          "Spotify Backstage represents a paradigm shift in how organizations view developer tooling and infrastructure. As the complexity of developer ecosystems grows, unified platforms like Backstage become essential to maintain cohesiveness, consistency, and productivity."
         ]
       }
     ]
