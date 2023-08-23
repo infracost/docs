@@ -14,7 +14,7 @@
       {
         "title": "What is FinOps?",
         "paragraphs": [
-          "FinOps brings togther Finance and DevOps, and is a cultural practice that aims to create a balance between speed, cost, and quality within an organization's cloud environment. By fostering collaboration between IT, finance, and business teams, FinOps ensures that every dollar spent in the cloud translates into business value."
+          "FinOps brings together Finance and DevOps, and is a cultural practice that aims to create a balance between speed, cost, and quality within an organization's cloud environment. By fostering collaboration between IT, finance, and business teams, FinOps ensures that every dollar spent in the cloud translates into business value."
         ]
       },
       {
@@ -63,7 +63,7 @@
         "title": "Types of Cloud Computing",
         "paragraphs": [
           "There are three main layers to Cloud Computing:",
-          "1. Infrastructure as a Service (IaaS): Provides users with internet-based access to vital infrastructure such as physical computers, data storage, and more. For example, Amaon Web Services, Microsoft Azure, and Google Compute Cloud Platform.",
+          "1. Infrastructure as a Service (IaaS): Provides users with internet-based access to vital infrastructure such as physical computers, data storage, and more. For example, Amazon Web Services, Microsoft Azure, and Google Compute Cloud Platform.",
           "2. Platform as a Service (PaaS): Offers a platform allowing customers to develop, run, and manage applications without dealing with the infrastructure complexities. For example, Heroku.",
           "3. Software as a Service (SaaS): Refers to software applications delivered over the web on a subscription basis. For example, Netflix or Google Mail."
         ]
@@ -870,7 +870,7 @@
       {
         "title": "Getting Started with GCP",
         "paragraphs": [
-          "Businesses can begin their GCP journey by creating a Google Cloud account, setting up a project, and exploring available services. Google offers documentation, training, and Quickstart guides to assist newcomers."
+          "Businesses can begin their GCP journey by creating a Google Cloud account, setting up a project, and exploring available services. Google offers documentation, training, and quickstart guides to assist newcomers."
         ]
       },
       {
