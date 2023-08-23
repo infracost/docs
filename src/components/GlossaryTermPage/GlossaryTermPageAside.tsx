@@ -2,14 +2,15 @@ import React from 'react';
 import { GlossaryTermType } from '../GlossarySearch';
 import OpenBookIcon from '../icons/OpenBookIcon';
 
-const imgUrlPrefix = '/img/glossary/';
+const glossaryPrefix = '/img/glossary/';
+const vendorPrefix = '/img/services/';
 
 const GlossaryTermPageAside = ({ term }: { term: GlossaryTermType }) => (
   <aside className="glossary-term__aside">
     <div className="glossary-term__aside-img-container">
       <img
         className="glossary-term__aside-img"
-        src={term.imgUrl ? `${imgUrlPrefix}/${term.imgUrl}` : `${imgUrlPrefix}/generic.png`}
+        src={term.imgUrl ? `${vendorPrefix}/${term.imgUrl}` : `${glossaryPrefix}/infra.svg`}
         alt=""
       />
       <div className="glossary-term__aside-def">

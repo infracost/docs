@@ -87,10 +87,14 @@
 	.glossary-term__aside {
 		order: -1;
 		margin: 0;
+	}
+	.glossary-term__aside-def{
+		margin-left: .625rem;
+	}
+	.glossary-term__aside-content {
 		padding-left: 1.5rem;
 	}
-	.glossary-term__content,
-	.glossary-term__aside {
+	.glossary-term__content{
 		margin-top: 1.5rem;
 	}
 }
