@@ -451,7 +451,6 @@
   {
     "termTitle": "Chargeback",
     "pageTitle": "Define: Chargeback in FinOps",
-    "imgUrl": "/img/glossary/chargeback.png",
     "slug": "chargeback",
     "definition": "A financial management tool where departments or teams are billed internally for their consumption or use of IT services and resources.",
     "sections": [

@@ -55,9 +55,16 @@
 	margin-bottom: .5rem;
 }
 
-.glossary-term__def {
+.glossary-term__aside-def {
+	display: flex;
+	gap: .25rem;
+	align-items: center;
 	font-size: smaller;
-	color: var(--faded-text);
+	position: absolute;
+	color: white;
+	bottom: .5rem;
+	left: 1rem;
+	opacity: .5;
 	font-weight: 100;
 }
 
