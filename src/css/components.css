@@ -24,8 +24,7 @@
 
 .button.primary {
   background: var(--button-primary-gradient);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    inset 0px 1px 0px rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 1px 0px rgba(255, 255, 255, 0.25);
   font-size: 1.125rem;
 }
 
@@ -36,20 +35,14 @@
 
 .button.secondary {
   background: linear-gradient(180deg, #2a2a5b 0%, #1b1b42 100%);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    inset 0px 1px 0px rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 1px 0px rgba(255, 255, 255, 0.25);
   font-size: 1.125rem;
 }
 
 .button.secondary:hover {
-  background: linear-gradient(
-    180deg,
-    #1b1b42 0%,
-    #2a2a5b 100%
-  );
+  background: linear-gradient(180deg, #1b1b42 0%, #2a2a5b 100%);
   color: var(--white);
 }
-
 
 .button.small {
   font-size: 0.75rem;
@@ -60,7 +53,6 @@
   font-size: 0.975rem;
   padding: 0.75rem 1rem;
 }
-
 
 .button.flat {
   box-shadow: none;
@@ -133,7 +125,7 @@
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   display: flex;
-  overflow:hidden;
+  overflow: hidden;
   filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.3));
   padding: 0.5rem;
 }
@@ -174,11 +166,10 @@
   }
 }
 
-
 /* INPUTS and LABELS */
 
 label {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 input:not(.DocSearch-Input)::placeholder {
@@ -190,7 +181,7 @@ input:not(.DocSearch-Input) {
   background: var(--input-bg);
   border-radius: 16px;
   border: 1px solid var(--border-color);
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   color: white;
   font-size: 1.25rem;
 }
@@ -209,7 +200,6 @@ kbd {
   border-color: #2a2a5b;
   box-shadow: none;
 }
-
 
 /* INTRO */
 
@@ -231,7 +221,7 @@ kbd {
 
 .intro__back-button {
   padding-top: 2rem;
-  padding-bottom: 2rem;  
+  padding-bottom: 2rem;
 }
 
 /* USED BY */
@@ -246,9 +236,8 @@ kbd {
 .used-by--flush {
   padding: 0;
   border: none;
-  background-color: transparent!important;
+  background-color: transparent !important;
 }
-
 
 .used-by .tagline {
   color: #8083ac;
@@ -257,12 +246,10 @@ kbd {
   text-align: center;
 }
 
-
 .used-by--flush .tagline {
   color: white;
   margin-top: 2rem;
 }
-
 
 .used-by ul {
   display: flex;
@@ -292,7 +279,7 @@ kbd {
   border-top: 1px solid var(--border-color);
   padding: 3em 0;
   text-align: center;
-	background: var(--secondary-gradient);
+  background: var(--secondary-gradient);
 }
 
 .cta .action {
