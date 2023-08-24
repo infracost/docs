@@ -130,7 +130,7 @@ function Navbar({ isDocs }) {
   );
 
   const topMenu = (
-    <div className="menu">
+    <div className="nav menu">
       {menuItems.map((item, index) => (
         <Menu key={`${item.label}-${index}`}>
           {item.href ? (
