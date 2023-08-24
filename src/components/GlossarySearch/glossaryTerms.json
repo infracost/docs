@@ -225,6 +225,7 @@
     "termTitle": "Terraform",
     "pageTitle": "Understanding Terraform",
     "slug": "terraform",
+    "imgUrl": "terraform.svg",
     "definition": "Terraform is an Infrastructure as Code (IaC) tool developed by HashiCorp that allows users to define and provision cloud infrastructure using declarative configuration files.",
     "sections": [
       {
