@@ -38,15 +38,18 @@
   --header-color: var(--nu10);
   --link-color: var(--secondary);
   --link-hover-color: #cc21a5;
-  --faded-text: #7f819f;
+  --faded-text: #afb1c6;
 
   --border-color: var(--nu30);
   --border-color-secondary: #ffffff25;
+  --border-light: #ebebf2;
   --page-background-color: var(--nu50);
   --page-background-secondary-color: var(--nu60);
 
   --twitter-blue: #1da1f2;
   --linkedin-blue: #0072b1;
+
+  --box-shadow: 0px 6px 12px #00000010;
 }
 
 html {
@@ -118,6 +121,15 @@ h6 {
 
 .default-page-bg {
 	background-color: var(--nu60);
+}
+
+.white-bg {
+  background-color: white;
+  color: var(--text-color-dark) 
+}
+
+.white-bg h2, .white-bg h3 {
+  color: var(--text-color-dark) 
 }
 
 .close {

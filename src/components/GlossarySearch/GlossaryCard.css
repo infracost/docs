@@ -1,0 +1,69 @@
+/* GLOSSARY TERM CARD */
+
+.glossary-term__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid var(--border-light);
+}
+
+.glossary-term__card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+/* Hover animations */
+.glossary-term__card-title,
+.glossary-term__card-description,
+.glossary-term__card-link .arrow-icon {
+  transition: all 0.2s ease-in-out;
+}
+
+.glossary-term__card:hover {
+  background-color: #fafafa;
+  transform: translateY(-0.25rem) scale(1.02);
+}
+
+.glossary-term__card:hover .glossary-term__card-description {
+  background-position: -100% 0;
+}
+
+.glossary-term__card-description {
+  background-size: 200%;
+  background-position: 0 0;
+  display: inline;
+  transition: 0.2s ease-in;
+}
+
+/* link */
+
+.glossary-term__card-link {
+  font-size: 1rem;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.325rem;
+  width: fit-content;
+}
+
+.glossary-term__card-link:hover .arrow-icon {
+  animation: slideRight 0.5s ease-in-out;
+}
+
+@keyframes slideRight {
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

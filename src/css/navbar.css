@@ -32,7 +32,8 @@
   display: block;
 }
 
-.navbar .left, .navbar .right {
+.navbar .left,
+.navbar .right {
   align-items: center;
 }
 
@@ -90,20 +91,71 @@
   margin-right: 1rem;
 }
 
-.navbar .top .menu {
-  display: flex;
+/* Top nav items */
+
+div .menu {
+  overflow: initial;
 }
 
-.navbar .top .menu .navbar-item:not(:last-child) {
-  margin-right: 1.5rem;
+.navbar .menu {
+  display: flex;
+  gap: 2rem;
 }
+
+.navbar .menu__dropdown {
+  position: relative;
+}
+
+.navbar .menu__dropdown-button {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar .menu__dropdown-button,
+.navbar .menu__item {
+  background-color: transparent;
+  color: white;
+}
+
+.navbar .top .menu__dropdown-items {
+  position: absolute;
+  background-color: white;
+  transform-origin: top left;
+  display: flex;
+  flex-direction: column;
+  top: calc(100% + 0.75rem);
+  left: 0;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-light);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05), inset 0px 1px 0px rgba(255, 255, 255, 0.15);
+  min-width: 200px;
+}
+
+.navbar .top .menu__dropdown-item {
+  padding: 11.25px 15px;
+  display: flex;
+  white-space: nowrap;
+}
+
+.navbar .top .menu__dropdown-item-a {
+  color: var(--text-color-dark);
+}
+
+.navbar .top .menu__dropdown-item-a:hover {
+  background-color: #f5f5f9;
+}
+
+/* Other */
 
 .navbar .top .get-started {
   display: none;
 }
 
 .navbar .sidebar-backdrop {
-  background-color: rgba(0,0,0,.6);
+  background-color: rgba(0, 0, 0, 0.6);
   bottom: 0;
   display: none;
   height: 100vh;
@@ -120,7 +172,7 @@
   box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
   height: 100vh;
   left: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: fixed;
   top: 0;
   transform: translateX(-100%);
@@ -184,9 +236,25 @@
   margin-right: 0.75rem;
 }
 
-@media (max-width: 996px) {
+@media (max-width: 1280px) {
   .navbar > .container {
     padding: 0 1.5rem;
+  }
+
+  .navbar .menu {
+    flex-direction: column;
+  }
+
+  .navbar .menu__dropdown-items {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 1rem;
+  }
+
+  .navbar .menu__dropdown-item-a {
+    color: white;
   }
 
   .navbar.sidebar-open {
@@ -234,7 +302,7 @@
   }
 }
 
-@media (min-width: 997px) {
+@media (min-width: 1280px) {
   .navbar.sidebar-open .sidebar {
     transform: translateX(-100%);
   }
