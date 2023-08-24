@@ -7,7 +7,7 @@ import GlossaryTermPageAside from '../GlossaryTermPage/GlossaryTermPageAside';
 import GlossaryTermPageContent from '../GlossaryTermPage/GlossaryTermPageContent';
 
 const Term = ({ slug }: { slug: string }) => {
-  const term = terms.filter((term) => term.slug === slug)[0];
+  const term = terms.find((term) => term.slug === slug.toLowerCase());
 
   if (!term) {
     return null;

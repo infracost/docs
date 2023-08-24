@@ -12,7 +12,7 @@ const Cta = () => (
         </p>
       </div>
       <a href="https://dashboard.infracost.io/" className="button medium flat primary">
-        Signup and get started now
+        Sign up and get started now
       </a>
     </div>
   </div>
