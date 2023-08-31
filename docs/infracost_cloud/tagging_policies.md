@@ -77,13 +77,19 @@ If you do not use source control integrations ([GitHub App](/docs/integrations/g
 
 Tagging policies check all AWS, Azure and Google Terraform resources that support tagging, including resources that Infracost does not show cost estimates for yet. The following list describes things that are checked by tagging policies:
 - Default tags that are applied as part of Terraform `provider` blocks are also checked.
-- For Google Cloud resources, label keys and values are checked.
-- For `aws_autoscaling_group` and `aws_autoscaling_group_tag`, if the `propagate_at_launch` attribute is not set to true, the resource fails tagging policies as resources launched from those Auto Scaling groups will not get the required tags.
+- For Google Cloud resources, `label` keys and values are checked.
 - For tags set in modules, the actual module version being used is checked.
+
+<details><summary>AWS-specific notes</summary>
+
+- For `aws_autoscaling_group`, if the `propagate_at_launch` attribute is not set to true, the resource fails tagging policies as resources launched from those Auto Scaling groups will not get the required tags.
 - For `aws_instance` with `ebs_block_device` or `root_block_device` definitions, tags for the attached volumes are checked as follows:
   - if `volume_tags` attribute is set it is checked. Otherwise,
   - if there is at least one `ebs_block_device` and no `*_block_device.tags` set, `volume_tags` are checked. Otherwise,
   - `.tags` for each `*_block_device` are checked.
 - For `aws_launch_template`, the `tag_specifications` attribute is also checked. If the `resource_type` is `instance` or `volume` these tags are then associated with either the `aws_instance` or `aws_autoscaling_group` resource that references the `aws_launch_template` and checked as part of those resources.
+- The following individual tag resources are not checked as these are used to tag resources defined outside of Terraform: `aws_autoscaling_group_tag`, `aws_ec2_tag`, `aws_transfer_tag`, `aws_ecs_tag`, `aws_dynamodb_tag`.
+
+</details>
 
 Please open a [GitHub issue](https://github.com/infracost/infracost/issues) or email [hello@infracost.io](mailto:hello@infracost.io) if you have any feedback on how tagging policies work. 
