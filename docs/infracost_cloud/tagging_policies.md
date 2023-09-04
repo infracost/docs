@@ -92,4 +92,11 @@ Tagging policies check all AWS, Azure and Google Terraform resources that suppor
 
 </details>
 
+<details><summary>Google-specific notes</summary>
+
+- For the following resources, `user_labels` are checked: `google_monitoring_alert_policy`, `google_monitoring_custom_service`, `google_monitoring_notification_channel`, `google_monitoring_service`, `google_sql_database_instance`, `google_monitoring_slo`.
+
+</details>
+
+
 Please open a [GitHub issue](https://github.com/infracost/infracost/issues) or email [hello@infracost.io](mailto:hello@infracost.io) if you have any feedback on how tagging policies work. 
