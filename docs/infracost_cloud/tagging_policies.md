@@ -94,7 +94,8 @@ Tagging policies check all AWS, Azure and Google Terraform resources that suppor
 
 <details><summary>Google-specific notes</summary>
 
-- For the following resources, `labels` and `user_labels` are merged before policies are checked: `google_monitoring_alert_policy`, `google_monitoring_custom_service`, `google_monitoring_notification_channel`, `google_monitoring_service`, `google_sql_database_instance`, `google_monitoring_slo`.
+- For the following resources, `user_labels` are checked: `google_monitoring_alert_policy`, `google_monitoring_custom_service`, `google_monitoring_notification_channel`, `google_monitoring_service`, `google_sql_database_instance`, `google_monitoring_slo`.
+
 </details>
 
 
