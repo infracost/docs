@@ -1,5 +1,6 @@
 ---
-slug: cloud-cost-optimization-fomula
+slug: cloud-cost-optimization-formula
+
 title: "Cloud Cost Optimization: A Formula"
 author: Hassan Khajeh-Hosseini
 author_url: https://twitter.com/hassankhosseini
