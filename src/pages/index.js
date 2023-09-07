@@ -27,7 +27,7 @@ function Home() {
                 Know the cost impact of infrastructure changes before launching resources. Built
                 into engineering and product workflows.
               </p>
-              <a href="/docs/" className="button primary">
+              <a href="https://dashboard.infracost.io" className="button primary">
                 Get started
               </a>
               <div className="labels">
