@@ -88,6 +88,10 @@ div[class^=announcementBar_] {
   }
 }
 
+pre {
+  white-space: pre-wrap;
+}
+
 .DocSearch {
   --docsearch-text-color: var(--text-color);
   --docsearch-muted-color: var(--header-color);
