@@ -130,4 +130,6 @@ Should show HTTP 400 "GET query missing"
 Confirms that the Cloud Pricing API is receiving authenticated requests.
 ```
 
+If you receive HTTP 200 after checking the /health endpoint as described above, continue to get authentication errors after confirming your API key is correct, and deployed the Cloud Pricing API using the provided [Helm Chart](https://github.com/infracost/helm-charts), a simple deletion of the current pod running the cloud pricing API may clear environment variable issues within your K8s cluster. This can be done by running `kubectl delete pod cloud-pricing-api-POD_UNIQUE_ID`.
+
 If you see `Invalid API response: 403 error` when running the Infracost CLI it might be because you have a `http_proxy` or `https_proxy` set in your environment. You can try disabling the proxy by running `export no_proxy="<HOSTNAME OF CLOUD PRICING API>:<PORT>"` and re-running the CLI to see if this is the issue.
