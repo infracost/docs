@@ -5,7 +5,7 @@ hide_table_of_contents: false
 custom_edit_url: null
 ---
 
-Effective date: 1 January 2021
+Effective date: 6 September 2023
 
 ### 1. Introduction
 
@@ -218,6 +218,24 @@ You can enable or disable Do Not Track by visiting the Preferences or Settings p
 We may employ third party companies and individuals to facilitate our Service (“Service Providers”), provide Service on our behalf, perform Service-related services or assist us in analysing how our Service is used.
 
 These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.
+
+The following is list of some of the main sub-processors and service providers used:
+
+| Name | Address | Purpose |
+|---|---|---|
+| Amazon Web Services |410 Terry Avenue North, Seattle, WA 98109-5210, U.S.A.|Production infrastructure is stored in the US in AWS' us-east-2 region.
+|Auth0|10900 NE 8th St, Bellevue, WA 98004, U.S.A.|Used for authentication of users with the system.|
+|Postmark (ActiveCampaign, LLC)|1 N Dearborn St Fl 5, Chicago, Illinois, 60602, U.S.A.|Sending user emails.|
+|Mixpanel|One Front Street, Floor 28, San Francisco, CA 94111, U.S.A.|Product analytics.|
+|Segment|100 California St, Suite 700, San Francisco, CA 94103, U.S.A.|Product analytics.|
+|Sentry|1800 North Point Drive, Stevens Point, WI 54481, U.S.A.|Production error analytics.|
+|Google Workspace|1600 Amphitheatre Parkway, Mountain View, CA 94043, U.S.A.|Workspaces including email and documents.|
+|Clearbit|90 Sheridan St, San Francisco, California 94103, U.S.A.|Customer Relation Management (CRM) software.|
+|Close.com|7775 #69574, San Francisco, California 94102, U.S.A.|Customer Relation Management (CRM) software.|
+|Stripe|354 Oyster Point Blvd, South San Francisco, California 94080, U.S.A|Payment system (if choosing to pay via Stripe)|
+|Retool, Inc.|292 Ivy St, San Francisco, California 94102, USA|Product analytics.|
+
+
 
 ### 13. Analytics
 
