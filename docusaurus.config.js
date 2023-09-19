@@ -248,12 +248,9 @@ module.exports = {
           trackingID: "G-9GFV9Z9NNZ",
           anonymizeIP: true,
         },
-      },
-    ],
-    [
-      '@docusaurus/plugin-google-tag-manager',
-      {
-        containerId: 'GTM-NKN87ZL3',
+        googleTagManager: {
+          containerId: 'GTM-NKN87ZL3',
+        },
       },
     ],
   ],
