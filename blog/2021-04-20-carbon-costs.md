@@ -25,7 +25,7 @@ With the rise of infrastructure as code deploying to the cloud has become even m
 
 We think it's important that, as engineers, we take responsibility to reduce this waste. We are looking at [how we can integrate carbon emission estimates into Infracost](https://github.com/infracost/infracost/issues/86). If you have expertise in this area, e.g. know what data sources we can use (as discussed in the GitHub issue), please [reach out to us](https://www.infracost.io/community-chat). We're interested in hearing what we can do to help.
 
-1. [https://www.iea.org/reports/data-centres-and-data-transmission-networks](https://www.iea.org/reports/data-centres-and-data-transmission-networks)
+1. [https://templatelab.com/data-centres-and-data-transmission-networks/](https://templatelab.com/data-centres-and-data-transmission-networks/)
 2. [https://www.mdpi.com/2078-1547/6/1/117](https://www.mdpi.com/2078-1547/6/1/117)
 3. [https://www.nature.com/articles/d41586-018-06610-y](https://www.nature.com/articles/d41586-018-06610-y)
 4. [https://blog.google/outreach-initiatives/environment/deepmind-ai-reduces-energy-used-for/](https://blog.google/outreach-initiatives/environment/deepmind-ai-reduces-energy-used-for/)
