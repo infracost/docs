@@ -6,37 +6,80 @@
     "definition": "FinOps is the practice of bringing financial accountability to variable spending. At its core it is about bringing cross-functional teams of Engineering, Finance and management together to manage and optimize cloud costs.",
     "sections": [
       {
-        "title": "Introduction",
+        "title": "What is Cloud FinOps?",
         "paragraphs": [
-          "In today's rapidly shifting cloud landscape, managing costs can be a complex task. Traditional financial models may struggle to keep up with the dynamic nature of cloud spending, leading to unexpected costs and inefficiencies. Enter FinOps, a practice designed to bring agility to the financial aspect of cloud management."
+          "![What is Cloud FinOps?](/img/glossary/finops/what-is-cloud-finops.svg)",
+          "## FinOps: A History and Introduction",
+          "Amazon Web Services launched in 2006; however, there was no way for users to see a detailed view of which services they were using and how much they were spending. As bills started to grow in terms of money spent and complexity, in 2011 the first cloud cost management tools were created (PlanForCloud, Cloudability, NewVem, and more). These were categorized as cloud cost management tools and folded under cloud management platforms (CMP).",
+          "Cloudability (acquired by Apptio) helped create the [FinOps Foundation](https://www.finops.org/) in 2019, and in 2020, the FinOps Foundation merged with the Linux Foundation.",
+          "FinOps is a practice that is an evolved form of cloud cost management. It combines multiple personas in an organization (e.g., engineering, procurement, product, and executives) to analyze and manage the bills and ultimately achieve cost optimization. It contains FinOps principles, including collaboration, and promotes shared responsibility, ownership, and centralization.",
+          "## FinOps Framework: Bringing Accountability to Cloud Spend",
+          "![The FinOps Framework](/img/glossary/finops/bringing-accountability.svg)",
+          "The [FinOps framework](https://www.finops.org/framework/) serves as the architectural foundation for cloud financial management. It integrates technology, business, and finance to maximize business value from cloud utilization while maintaining control over cloud costs. By fostering a culture of shared responsibility for cloud usage, the FinOps framework enables organizations to manage their cloud resources more efficiently, bringing accountability to cloud spend.",
+          "## Adoption of FinOps Design Principles",
+          "Adopting FinOps design principles helps establish a self-governing, cost-conscious culture. It promotes both financial accountability and business agility in cloud computing. It aligns cloud utilization with financial operations, allowing organizations to realize the cloud's full potential while maintaining more financial control.",
+          "### Key Principles",
+          "1. **Cost Transparency & Ownership**: FinOps brings visibility to cloud spending, helping teams (especially engineering teams) understand the trade-offs between cost, performance, and quality. It also includes owning portions of the cloud spend by groups.",
+          "2. **Cross-Functional Teams**: FinOps encourages collaboration among technology, business, and finance teams to make data-driven spending decisions. 3. Variable Spend Model: The FinOps framework accommodates the cloud's spend model, enabling dynamic allocation and de-allocation of resources based on need.",
+          "3. **Variable Spend Model**: The FinOps framework accommodates the cloud's spend model, enabling dynamic allocation and de-allocation of resources based on need.",
+          "## Value of FinOps",
+          "FinOps transforms the way companies approach cloud cost management. It moves organizations from simply being reactive to proactive in managing cloud costs. Being proactive enables organizations to:",
+          "1. **Achieve Maximum Business Value**: Through cost optimization and effective cloud resource management.",
+          "2. **Enable Innovation**: You can invest more in new technologies and practices by freeing up resources.",
+          "3. **Promote Collaboration**: Breaking down silos between technology, business, and financial teams.",
+          "4. **Increase Visibility**: Providing comprehensive views into cloud spend.",
+          "## Where to Start Learning FinOps",
+          "![Learning FinOps](/img/glossary/finops/where-to-start.svg)",
+          "For those beginning their FinOps journey, the FinOps Foundation offers a range of resources, including [certification programs](https://learn.finops.org/), best practices, and case studies. Those resources help to develop a FinOps mindset within organizations and among individual contributors. FinOps practitioners are people who practice cloud cost management daily. The FinOps foundation also offers FinOps practitioners certification.",
+          "## Core Stakeholders of Cloud Financial Management",
+          "1. **Engineering Teams**: Account for cloud usage, ensuring efficient utilization of resources.",
+          "2. **Business Teams**: Make informed decisions based on cloud spending and performance metrics.",
+          "3. **Finance Teams**: Develop financial processes to support the variable spend model of the cloud.",
+          "## Cultural Principles in the Success of Cloud FinOps",
+          "The cultural principles of ownership shared responsibility, and collaboration are critical for the success of a cloud FinOps program. These principles foster cross-functional teams that enable organizations to work cohesively to manage cloud costs and make data-driven spending decisions.",
+          "## Key Areas of Focus",
+          "1. **Ownership**: Each team takes ownership of their cloud resources and spending, from engineering teams to product teams and business units.",
+          "2. **Shared Responsibility**: Promotes shared responsibility for cloud financial operations among various stakeholders.",
+          "3. **Collaboration**: Cross-functional teams collaborate to deliver quality services while managing costs.",
+          "## Cloud FinOps Benefits",
+          "1. **Optimization**: Helps in optimizing cloud costs by promoting more effective cloud resource management practices.",
+          "2. **Visibility**: Offers complete visibility into cloud spend, enabling data-driven decisions.",
+          "3. **Financial Control:** More financial control over cloud spend enables better alignment with business objectives.",
+          "4. **Management Practice**: Establishes cloud financial management as a management practice within the organization, enabling better procurement and ownership of cloud resources.",
+          "## Tools to Solve Business Challenges",
+          "Amazon Web Services, Microsoft Azure, and Google Cloud provide rich tools and services to facilitate your cloud FinOps journey. From detailed spending dashboards to custom financial reports, they offer solutions enabling organizations to manage their cloud financial operations better.",
+          "On top of the tools the public cloud providers provide, many third-party tools have taken FinOps to the next level and offer many additional features and benefits.",
+          "Many companies utilize both the tools provided by cloud providers and multiple third-party services. The most recent FinOps survey reported that an average of 3 to 4 services were used."
         ]
       },
       {
-        "title": "What is FinOps?",
+        "title": "Maximum Business Value",
         "paragraphs": [
-          "FinOps brings together Finance and DevOps, and is a cultural practice that aims to create a balance between speed, cost, and quality within an organization's cloud environment. By fostering collaboration between IT, finance, and business teams, FinOps ensures that every dollar spent in the cloud translates into business value."
-        ]
-      },
-      {
-        "title": "The Three Phases of FinOps",
-        "paragraphs": [
-          "Inform: The first phase is about creating visibility and understanding where and how money is spent in the cloud. This includes setting up proper tracking, tagging, and monitoring.",
-          "Optimize: Once there's clear visibility, the next step is to identify areas for improvement and optimization. This could involve rightsizing resources, identifying waste, or renegotiating contracts.",
-          "Operate: The final phase involves continuously monitoring and controlling costs, ensuring that spending aligns with business goals and that there's ongoing collaboration between all involved parties."
-        ]
-      },
-      {
-        "title": "Why FinOps Matters",
-        "paragraphs": [
-          "FinOps is more than just a cost-saving measure; it's a strategic approach to cloud financial management. By creating transparency and fostering collaboration, organizations can make more informed decisions, aligning their cloud investments with business objectives.",
-          "The practice of FinOps promotes a shared understanding and responsibility for cloud costs across the organization. No longer are financial considerations the sole domain of the finance department; every team member becomes a stakeholder in the financial health of the organization's cloud operations."
-        ]
-      },
-      {
-        "title": "Conclusion",
-        "paragraphs": [
-          "FinOps represents a fundamental shift in the way organizations approach cloud financial management. By embracing this practice, organizations can navigate the complex landscape of cloud economics, turning what was once a daunting challenge into a strategic asset.",
-          "In the end, FinOps is about empowerment, efficiency, and alignment, transforming the way organizations understand, control and optimize their cloud costs, and, in turn, ensuring that investments in the cloud are strategic, deliberate, and value-driven."
+          "![Maximum business value](/img/glossary/finops/max-business-value.svg)",
+          "Understanding [\"what is cloud FinOps\"](https://www.finops.org/introduction/what-is-finops/) helps organizations manage the complexity of cloud costs by harmonizing engineering, business, and finance. The FinOps framework offers a structured approach to adopting cloud financial management practices. It focuses on three key areas: cost optimization, visibility, and organization-wide collaboration. By integrating these practices, companies can attain maximum business value from cloud investments.",
+          "## Frequently Asked Questions (FAQs)",
+          "### What Is Cloud FinOps?",
+          "FinOps is a collaborative approach to managing and optimizing an organization's cloud spending. It involves key stakeholders from finance, information technology, and business teams.",
+          "### Is Cloud FinOps Different from FinOps?",
+          "While the terms are often used interchangeably, Cloud FinOps focuses explicitly on the financial operations associated with cloud computing. In contrast, FinOps was traditionally used by financial operations teams to cover activities including purchasing, income, cash management, etc.",
+          "### Who Should Be Involved in FinOps?",
+          "Cross-functional teams, including members from finance, engineering, and sales, are critical to a successful Cloud FinOps strategy. The engineering team is one of the most influential teams within the three areas as they control the primary usage of resources.",
+          "### Why Is FinOps Necessary?",
+          "As organizations increasingly move to the cloud, there is a growing need for specialized financial management practices to monitor and control costs effectively.",
+          "### What Are Some FinOps Best Practices?",
+          "Some best practices include implementing cloud cost estimation, informing engineers of costs before they happen, automated cloud cost reporting, regular audits of cloud usage, and establishing a dedicated Cloud FinOps team to oversee spending and perform optimization tasks.",
+          "### How Does Cloud FinOps Promote Cost Optimization?",
+          "By creating visibility into cloud spending and fostering a culture of shared responsibility, Cloud FinOps enables the organization to make data-driven decisions to optimize costs.",
+          "### Can Small Businesses Benefit from Cloud FinOps?",
+          "Absolutely. Businesses of all sizes can benefit from implementing a Cloud FinOps practice to encourage collaboration and manage their cloud costs and money more effectively.",
+          "### What Tools Are Typically Used in Cloud FinOps?",
+          "Various cost management and optimization tools can be utilized in Cloud FinOps, ranging from native tools provided by Amazon Web Services, Microsoft Azure, and Google Cloud providers to specialized third-party solutions, like Infracost.",
+          "### How Do I Begin My Cloud FinOps Journey?",
+          "Starting your FinOps practice generally involves assessing your cloud financial management practices and forming a dedicated FinOps team. Then, implement tools and processes to help engineering, finance, and management get the most value from your cloud financial operations.",
+          "### How Is FinOps Different from Traditional IT Finance?",
+          "FinOps offers more agility and real-time insights into cloud spending, making it more adaptable to the variable spend model most value associated with cloud computing. Traditional IT Finance is a more significant term encompassing a larger portion of a company's financials.",
+          "### Doesn't it all come down to Cloud Resources being used?",
+          "The core pricing model cloud providers use is usage-based, meaning the more resources are used, the more you pay. So, although it comes down to what resources are being used (or purchased), it makes a big difference in how these resources are paid."
         ]
       }
     ]
