@@ -18,7 +18,7 @@ const GlossaryTermPageContent = ({ term }: { term: GlossaryTermType }) => (
 
 const Section = ({ title, content }) => (
   <section>
-    <h3>{title}</h3>
+    <h1>{title}</h1>
     <article>
       {content.map((paragraph, index) => (
         <ReactMarkdown key={index}>{paragraph}</ReactMarkdown>
