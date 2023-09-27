@@ -19,5 +19,5 @@ The pull request status filters (open, merged, closed) fetch pull requests with 
 
 The following screenshot shows an example email report.
 
-<img src={useBaseUrl("img/infracost-cloud/report-email.png")} alt="Weekly report email" />
+<img src={useBaseUrl("img/infracost-cloud/report-email.png")} alt="Weekly report email" width="75%" />
 
