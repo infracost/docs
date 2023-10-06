@@ -261,7 +261,7 @@ The following table shows the parameters each `project` can have in the config f
 </tr>
 <tr>
   <td><code>dependency_paths</code></td>
-  <td>Optional. <span style={{textDecoration: "underline"}}>Only applicable for GitHub App and GitLab App users</span>. Array of strings. Array of additional file or directory paths that should trigger project estimates. All paths are relative to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
+  <td>Optional. <span style={{textDecoration: "underline"}}>Only applicable for GitHub App and GitLab App users</span>. Array of strings. Array of file or directory paths that should trigger project estimates. If this is specified, code changes to the <code>path</code> target will <b>NOT</b> trigger cost estimates unless the <code>path</code> is included in <code>dependency_paths</code>. All paths are relative to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
   <pre>
 {`dependency_paths:
   - "config/**.json"
