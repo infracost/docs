@@ -106,15 +106,21 @@ If you believe you have found a vulnerability within Infracost, please let us kn
 
 ### What's the difference between Infracost and Terraform Cloud's cost estimation?
 
-The key differences are:
-1. Infracost [supports over 1,100 resources](/docs/supported_resources/overview) and growing fast thanks to our [large open source community](https://github.com/infracost/infracost/#community-and-contributing) of contributors. Terraform Cloud supports 200 resources and is closed source.
-2. Infracost parses HCL code directly, which makes it super-fast as a Terraform plan is not needed.
-3. Infracost can be used to model [usage-based resources](/docs/features/usage_based_resources) and do what-if analysis.
-4. Infracost has a [CLI tool](/docs#installation) that can be used in your terminal or [integrated](/docs/integrations/cicd) into your workflows regardless of the source control and CI/CD system being used.
-5. Infracost can be used with [Terragrunt](/docs/features/terragrunt).
-6. Infracost can be used with [Terraform modules](/docs/features/terraform_modules).
-7. Infracost can output JSON and be used to create [cost policies](/docs/features/cost_policies) with Open Policy Agent, Conftest and HashiCorp Sentinel.
-8. [Infracost Cloud](/docs/infracost_cloud/get_started/) builds on top of Infracost open source to give team leads, managers and FinOps practitioners dashboards, guardrails, centralized cost policies and Jira integration so they can help guide the team.
+#### 1. Infracost is the de-facto standard cost estimation tool as it provides *the most accurate estimates*:
+- Infracost [supports over 1,100 resources](/docs/supported_resources/overview) across AWS, Azure and Google. Terraform Cloud only supports 200 resources.
+- Infracost supports estimating [usage-based resources](/docs/features/usage_based_resources) and what-if analysis, e.g. what-if my AWS Lambda calls double. Terraform Cloud only supports fixed-cost resources.
+- Infracosts support [custom price books](/docs/infracost_cloud/custom_price_books/), including Enterprise Discount Programs, and SKU-level price overrides, so your organization's costs can be accurately estimated. Terraform Cloud only support public prices.
+
+#### 2. In addition to cost estimates, Infracost enables you to *establish FinOps policies and governance* using the following unique features:
+- [Tagging policies](/docs/infracost_cloud/tagging_policies/): Infracost provides FinOps practitioners and team leads an easy no-code method of communicating and enforcing required tag key/values in engineering workflows (for cost allocation and reporting). This feature also provides analytics across all code repos and pin-points the files/lines that engineers need to update to fix any tagging issues such as invalid values being used.
+- [FinOps policies](/docs/infracost_cloud/cost_policies/): Infracost includes a suite of best practice FinOps policies, including detecting previous generation instance types, storage types, and requiring retention policies on object storage and log groups. This feature also provides analytics that shows where the biggest issues are and how they can be fixed.
+- [Guardrails](/docs/infracost_cloud/guardrails/): Infracost helps you control costs by monitoring pull requests and triggering notifications and approvals when your defined thresholds are exceeded. Infracost also has a projects concept as well as [Jira integration](/docs/infracost_cloud/jira_integration/) that shows the sum of pull request costs for a project or Jira issue.
+
+#### 3. Finally, Infracost has the following *technical benefits* over Terraform Cloud:
+- Infracost parses HCL code directly, which means it does not need a Terraform plan or access to cloud credentials or secrets. This enables all engineers to run Infracost using a [VSCode Extension](/docs/integrations/vscode/) or CLI from their development machines thus giving them the fastest possible feedback loop without requiring everyone to have access to secrets.
+- Infracost has a [CLI tool](/docs#installation) that can be [integrated](/docs/integrations/cicd) into any workflow regardless of the source control and CI/CD system being used.
+- Infracost can be used with [Terragrunt](/docs/features/terragrunt).
+- Infracost can be used with [Terraform modules](/docs/features/terraform_modules).
 
 ### What Terraform versions are supported?
 
