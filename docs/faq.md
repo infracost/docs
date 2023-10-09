@@ -106,21 +106,20 @@ If you believe you have found a vulnerability within Infracost, please let us kn
 
 ### What's the difference between Infracost and Terraform Cloud's cost estimation?
 
-#### 1. Infracost is the de-facto standard cost estimation tool as it provides *the most accurate estimates*:
-- Infracost [supports over 1,100 resources](/docs/supported_resources/overview) across AWS, Azure and Google. Terraform Cloud only supports 200 resources.
-- Infracost supports estimating [usage-based resources](/docs/features/usage_based_resources) and what-if analysis, e.g. what-if my AWS Lambda calls double. Terraform Cloud only supports fixed-cost resources.
-- Infracosts support [custom price books](/docs/infracost_cloud/custom_price_books/), including Enterprise Discount Programs, and SKU-level price overrides, so your organization's costs can be accurately estimated. Terraform Cloud only support public prices.
+There are three key areas of differentiation.
 
-#### 2. In addition to cost estimates, Infracost enables you to *establish FinOps policies and governance* using the following unique features:
-- [Tagging policies](/docs/infracost_cloud/tagging_policies/): Infracost provides FinOps practitioners and team leads an easy no-code method of communicating and enforcing required tag key/values in engineering workflows (for cost allocation and reporting). This feature also provides analytics across all code repos and pin-points the files/lines that engineers need to update to fix any tagging issues such as invalid values being used.
-- [FinOps policies](/docs/infracost_cloud/cost_policies/): Infracost includes a suite of best practice FinOps policies, including detecting previous generation instance types, storage types, and requiring retention policies on object storage and log groups. This feature also provides analytics that shows where the biggest issues are and how they can be fixed.
-- [Guardrails](/docs/infracost_cloud/guardrails/): Infracost helps you control costs by monitoring pull requests and triggering notifications and approvals when your defined thresholds are exceeded. Infracost also has a projects concept as well as [Jira integration](/docs/infracost_cloud/jira_integration/) that shows the sum of pull request costs for a project or Jira issue.
+#### 1. Cost estimation differences
+- Terraform Cloud (TFC) cost estimation does not cover many of the cloud resources from AWS, Azure and GCP. Infracost supports over 1,100 resources from AWS, Azure and GCP; TFC covers around 200. Here's a quick comparison: [Infracost Azure coverage](/docs/supported_resources/azure/) vs [TFC Azure coverage](https://developer.hashicorp.com/terraform/enterprise/cost-estimation/azure).
+- Cost estimation of usage based resources: Infracost supports estimating usage-based resources such as AWS Lambda or Azure Blob storage with usage profiles (e.g. use 100GB to estimate S3 costs). TFC does not support estimating usage-based resources.
+- Your discount rates: Infracost supports your discount levels including AWS EDP, Azure EA and custom price books. Terraform Cloud only support public prices.
 
-#### 3. Finally, Infracost has the following *technical benefits* over Terraform Cloud:
-- Infracost parses HCL code directly, which means it does not need a Terraform plan or access to cloud credentials or secrets. This enables all engineers to run Infracost using a [VSCode Extension](/docs/integrations/vscode/) or CLI from their development machines thus giving them the fastest possible feedback loop without requiring everyone to have access to secrets.
-- Infracost has a [CLI tool](/docs#installation) that can be [integrated](/docs/integrations/cicd) into any workflow regardless of the source control and CI/CD system being used.
-- Infracost can be used with [Terragrunt](/docs/features/terragrunt).
-- Infracost can be used with [Terraform modules](/docs/features/terraform_modules).
+#### 2. FinOps guardrails, policies, and tag checker
+Infracost supports FinOps guardrails (budget checks, and kicking-off approval workflows), a set of best practice policies, and checking for the right tag keys and tag values - all out of the box.
+
+TFC does not provide these; it does enable you to write code to check for policies, but you will have to either teach FinOps practitioners and managers to code, and enable them to do it (there is no user interface), or have an engineering team do all that and maintain it. On top of these, Infracost provides an inventory of all resources that are failing tags and policies so you can see where your biggest issues are and how to fix them.
+
+#### 3. Infracost can be run on engineering machines
+Since Infracost does not need a Terraform plan file, cloud credentials or secrets, engineers can install the Infracost [VSCode Extension](/docs/integrations/vscode/) or the CLI and get cost estimates before sending pull requests, directly on their machines. Infracost also supports cost estimation of Terraform modules as well as Terragrunt projects. TFC cost estimation does not have these capabilities.
 
 ### What Terraform versions are supported?
 
