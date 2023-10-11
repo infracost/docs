@@ -102,8 +102,8 @@ Trust your engineers - you are on the same team.
 
 ## Conclusion
 
-In conclusion, optimizing cloud costs requires a combination of financial decisions, engineering, and an understanding of the equation: Cloud Costs = Usage x Unit Price. 
+In conclusion, optimizing cloud costs requires a combination of financial decisions, engineering, and an understanding of the equation: Cloud Costs = Usage x Unit Price.
 
-Unit Price optimization can be done through committing to use a resource for a certain duration or dollar amount, or through negotiating an overall discount with the cloud provider. 
+Unit Price optimization can be done through committing to use a resource for a certain duration or dollar amount, or through negotiating an overall discount with the cloud provider.
 
 Usage optimization requires engineering effort, and is the main component of the equation to impact for long term optimization.

@@ -125,11 +125,11 @@ h6 {
 
 .white-bg {
   background-color: white;
-  color: var(--text-color-dark) 
+  color: var(--text-color-dark)
 }
 
 .white-bg h2, .white-bg h3 {
-  color: var(--text-color-dark) 
+  color: var(--text-color-dark)
 }
 
 .close {

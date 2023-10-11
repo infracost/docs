@@ -11,7 +11,7 @@ function SocialMentionCard(props) {
         <div className="heading">
           <a className="author" href={profileUrl} target="_blank" rel="noopener noreferrer">
             <div className="profile-image">
-              <img src={`/img/social/${profileImage}`} alt="" />
+              <img src={`/docs/img/social/${profileImage}`} alt="" />
             </div>
             <div className="author-details">
               <span className="name">{name}</span>

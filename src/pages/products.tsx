@@ -16,9 +16,9 @@ export enum ColourCoding {
 
 function Products() {
   const vsCodeExtensionImg = (
-    <WebPPngFallback filePath={'/img/vscode-extension/maintf'}>
+    <WebPPngFallback filePath={'/docs/img/vscode-extension/maintf'}>
       <img
-        src="/img/vscode-extension/maintf.png"
+        src="/docs/img/vscode-extension/maintf.png"
         alt="Infracost VS Code Extension"
         width="655"
         height="385"
@@ -27,9 +27,9 @@ function Products() {
   );
 
   const ciCdImg = (
-    <WebPPngFallback filePath="/img/ci-cd/github_actions_screenshot">
+    <WebPPngFallback filePath="/docs/img/ci-cd/github_actions_screenshot">
       <img
-        src="/img/ci-cd/github_actions_screenshot.png"
+        src="/docs/img/ci-cd/github_actions_screenshot.png"
         alt="Infracost CI/CD"
         width="572"
         height="346"
@@ -38,9 +38,9 @@ function Products() {
   );
 
   const cloudImg = (
-    <WebPPngFallback filePath="/img/infracost-cloud/dashboard">
+    <WebPPngFallback filePath="/docs/img/infracost-cloud/dashboard">
       <img
-        src="/img/infracost-cloud/dashboard.png"
+        src="/docs/img/infracost-cloud/dashboard.png"
         alt="Infracost Cloud"
         width="572"
         height="437"
@@ -60,7 +60,7 @@ function Products() {
         <div className="intro">
           <h1 className="tagline container">
             Cloud costs, loved by developers{' '}
-            <img src="/img/icons/heart.svg" alt="Heart icon" width={27} height={24} />
+            <img src="/docs/img/icons/heart.svg" alt="Heart icon" width={27} height={24} />
           </h1>
         </div>
         <div className="container products-wrapper__container">

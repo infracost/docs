@@ -25,87 +25,87 @@ module.exports = {
       {
         redirects: [
           {
-            from: "/docs/integrations",
-            to: "/docs/integrations/github_actions",
+            from: "/integrations",
+            to: "/integrations/github_actions",
           },
           {
             from: [
-              "/docs/environment_variables",
-              "/docs/integrations/environment_variables",
+              "/environment_variables",
+              "/integrations/environment_variables",
             ],
-            to: "/docs/features/environment_variables",
+            to: "/features/environment_variables",
           },
           {
-            from: "/docs/infracost_api",
-            to: "/docs/integrations/infracost_api",
+            from: "/infracost_api",
+            to: "/integrations/infracost_api",
           },
           {
-            from: "/docs/terraform_cloud_enterprise",
-            to: "/docs/integrations/terraform_cloud_enterprise",
+            from: "/terraform_cloud_enterprise",
+            to: "/integrations/terraform_cloud_enterprise",
           },
           {
-            from: "/docs/terragrunt",
-            to: "/docs/features/terragrunt",
+            from: "/terragrunt",
+            to: "/features/terragrunt",
           },
           {
-            from: "/docs/config_file",
-            to: "/docs/features/config_file",
+            from: "/config_file",
+            to: "/features/config_file",
           },
           {
-            from: "/docs/report",
-            to: "/docs/features/cli_commands",
+            from: "/report",
+            to: "/features/cli_commands",
           },
           {
-            from: "/docs/supported_resources",
-            to: "/docs/supported_resources/overview",
+            from: "/supported_resources",
+            to: "/supported_resources/overview",
           },
           {
-            from: "/docs/iac_tools/terraform_cloud_enterprise",
-            to: "/docs/integrations/terraform_cloud_enterprise",
+            from: "/iac_tools/terraform_cloud_enterprise",
+            to: "/integrations/terraform_cloud_enterprise",
           },
           {
-            from: "/docs/iac_tools/terragrunt",
-            to: "/docs/features/terragrunt",
+            from: "/iac_tools/terragrunt",
+            to: "/features/terragrunt",
           },
           {
-            from: "/docs/multi_project/config_file",
-            to: "/docs/features/config_file",
+            from: "/multi_project/config_file",
+            to: "/features/config_file",
           },
           {
-            from: "/docs/features/config_file_template/",
-            to: "/docs/features/config_file",
+            from: "/features/config_file_template/",
+            to: "/features/config_file",
           },
           {
-            from: "/docs/usage_based_resources/",
-            to: "/docs/features/usage_based_resources/",
+            from: "/usage_based_resources/",
+            to: "/features/usage_based_resources/",
           },
           {
-            from: "/docs/multi_project/report",
-            to: "/docs/features/cli_commands",
+            from: "/multi_project/report",
+            to: "/features/cli_commands",
           },
           {
-            from: "/docs/terraform_modules",
-            to: "/docs/features/terraform_modules",
+            from: "/terraform_modules",
+            to: "/features/terraform_modules",
           },
           {
-            from: "/docs/guides/terraform_modules",
-            to: "/docs/features/terraform_modules",
+            from: "/guides/terraform_modules",
+            to: "/features/terraform_modules",
           },
           {
-            from: "/docs/infracost_cloud/overview",
-            to: "/docs/infracost_cloud/get_started",
+            from: "/infracost_cloud/overview",
+            to: "/infracost_cloud/get_started",
           },
           {
-            from: "/docs/integrations/jira",
-            to: "/docs/infracost_cloud/jira_integration",
+            from: "/integrations/jira",
+            to: "/infracost_cloud/jira_integration",
           },
           {
-            from: "/docs/infracost_cloud/authentication",
-            to: "/docs/infracost_cloud/key_concepts",
+            from: "/infracost_cloud/authentication",
+            to: "/infracost_cloud/key_concepts",
           },
           {
-            from: '/docs/infracost_cloud/sso/overview',
-            to: '/docs/infracost_cloud/sso',
+            from: '/infracost_cloud/sso/overview',
+            to: '/infracost_cloud/sso',
           },
         ],
       },
@@ -121,7 +121,7 @@ module.exports = {
     announcementBar: {
       id: "support_us",
       content:
-        '<span class="announcement-message">If you like Infracost, give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">star on GitHub</a>!<img src="/img/icons/star-white.svg" class="star-right" alt="Star icon" /></span>',
+        '<span class="announcement-message">If you like Infracost, give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">star on GitHub</a>!<img src="/docs/img/icons/star-white.svg" class="star-right" alt="Star icon" /></span>',
       backgroundColor: "#2A2A5B",
       textColor: "#EBEBF2",
     },

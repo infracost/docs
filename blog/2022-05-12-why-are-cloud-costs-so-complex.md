@@ -12,7 +12,7 @@ date: "2022-05-12"
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-In 2009 I started my PhD research to focus on the decisions that needed to be made for an organization to adopt public clouds. These included the benefits, the risks and the costs of using such systems. My aim was to create a set of vendor neutral tools that would assist decision makers during the process. 
+In 2009 I started my PhD research to focus on the decisions that needed to be made for an organization to adopt public clouds. These included the benefits, the risks and the costs of using such systems. My aim was to create a set of vendor neutral tools that would assist decision makers during the process.
 
 <!--truncate-->
 

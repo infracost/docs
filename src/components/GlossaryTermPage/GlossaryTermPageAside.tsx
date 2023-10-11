@@ -2,8 +2,8 @@ import React from 'react';
 import { GlossaryTermType } from '../GlossarySearch';
 import OpenBookIcon from '../icons/OpenBookIcon';
 
-const glossaryPrefix = '/img/glossary';
-const vendorPrefix = '/img/services';
+const glossaryPrefix = '/docs/img/glossary';
+const vendorPrefix = '/docs/img/services';
 
 const GlossaryTermPageAside = ({ term }: { term: GlossaryTermType }) => (
   <aside className="glossary-term__aside">
