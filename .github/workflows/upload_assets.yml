@@ -1,0 +1,55 @@
+on:
+  workflow_call:
+    inputs:
+      aws-region:
+        default: us-east-2
+        type: string
+      domain:
+        type: string
+      infracost-dashboard-api-endpoint:
+        type: string
+      infracost-dashboard-endpoint:
+        type: string
+    secrets:
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      INFRACOST_DOCS_API_TOKEN:
+        required: true
+
+name: Upload assets
+
+jobs:
+  release:
+    name: Upload assets
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: use node 18.12.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.0
+      - name: install node modules
+        run: npm ci
+      - name: build project
+        run: npm run build
+        env:
+          INFRACOST_DASHBOARD_API_ENDPOINT: ${{ inputs.infracost-dashboard-api-endpoint }}
+          INFRACOST_DASHBOARD_ENDPOINT: ${{ inputs.infracost-dashboard-endpoint }}
+          INFRACOST_DOCS_API_TOKEN: ${{ secrets.INFRACOST_DOCS_API_TOKEN }}
+      - name: configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ inputs.aws-region }}
+      - name: sync S3 and cloudfront
+        id: sync_s3_and_cloudfront
+        run: |
+          CLOUDFRONT_DISTRIBUTION=$(aws cloudfront list-distributions | jq -r '.DistributionList.Items[] | select(.Aliases.Items[0]=="'${{ inputs.domain }}'")')
+          CLOUDFRONT_DISTRIBUTION_ID=$(echo $CLOUDFRONT_DISTRIBUTION | jq -r '.Id')
+          S3_BUCKET=$(echo $CLOUDFRONT_DISTRIBUTION | jq -r '.Origins.Items[] | select (.Id=="docs") | .DomainName' | sed 's/\(.*\)\.s3-website\.[^.]*\.amazonaws.com/\1/')
+          aws s3 sync build s3://${S3_BUCKET}
+          aws cloudfront create-invalidation --distribution-id=${CLOUDFRONT_DISTRIBUTION_ID} --paths "/docs/*" --no-cli-pager

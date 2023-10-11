@@ -1,9 +1,16 @@
-on: workflow_dispatch
+on:
+  workflow_run:
+    workflows: [ Checks ]
+    types: [ completed]
+    branches: [ master ]
 
 name: "Release"
 
 jobs:
-  release-dev:
-    uses: ./.github/workflows/release_dev.yml
-  release-prod:
-    uses: ./.github/workflows/release_prod.yml
+  release:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - uses: ./.github/workflows/release_dev.yml
+      - uses: ./.github/workflows/release_prod.yml

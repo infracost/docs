@@ -4,7 +4,13 @@ name: "Release dev"
 
 jobs:
   release-dev:
-    runs-on: ubuntu-latest
-    steps:
-      - name: hello-world
-        run: echo "Hello World!"
+    uses: ./.github/workflows/upload_assets.yml
+    with:
+      aws-region: us-east-2
+      domain: www.dev.infracost.io
+      infracost-dashboard-api-endpoint: https://dashboard.api.infracost.io
+      infracost-dashboard-endpoint: https://dashboard.infracost.io
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+      INFRACOST_DOCS_API_TOKEN: ${{ secrets.INFRACOST_DOCS_API_TOKEN }}
