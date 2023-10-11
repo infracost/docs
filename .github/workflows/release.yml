@@ -1,0 +1,9 @@
+on: workflow_dispatch
+
+name: "Release"
+
+jobs:
+  release-dev:
+    uses: ./.github/workflows/release_dev.yml
+  release-prod:
+    uses: ./.github/workflows/release_prod.yml
