@@ -7,7 +7,7 @@ require('dotenv').config();
 module.exports = {
   title: "Infracost",
   url: "https://www.infracost.io",
-  baseUrl: "/",
+  baseUrl: "/docs/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
   trailingSlash: true,
@@ -216,7 +216,7 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
-          routeBasePath: "/docs",
+          routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: `https://github.com/infracost/docs/edit/master`,
         },
