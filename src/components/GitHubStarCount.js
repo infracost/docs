@@ -60,7 +60,7 @@ function GitHubStarCount() {
     <div className="github-stars">
       <img
         className="star-icon"
-        src="/img/icons/star.svg"
+        src="/docs/img/icons/star.svg"
         alt="GitHub star icon"
         width={14}
         height={14}

@@ -108,7 +108,7 @@ function BlogPostItem(props) {
               {image ? (
                 <img className="blog-card__img" src={`/${image}`} alt="" />
               ) : (
-                <img className="blog-card__img" src="/img/blog-card-fallback-img.png" alt="" />
+                <img className="blog-card__img" src="/docs/img/blog-card-fallback-img.png" alt="" />
               )}
             </div>
           </Link>

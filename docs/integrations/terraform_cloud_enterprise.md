@@ -78,7 +78,7 @@ Infracost is a [verified](https://www.hashicorp.com/partners/tech/infracost) Ter
 
 | Terraform Cloud dashboard | Details link |
 |--------------|-----------|
-<a href="https://infracost.io/img/screenshots/tfc_integration.png"><img src={useBaseUrl("img/screenshots/tfc_integration.png")} alt="Infracost running as a Run Task" width="550px" /></a> | <a href="https://infracost.io/img/screenshots/infracost_dashboard.png"><img src={useBaseUrl("img/screenshots/infracost_dashboard.png")} alt="Infracost details link" width="550px" /></a>
+<a href="https://infracost.io/docs/img/screenshots/tfc_integration.png"><img src={useBaseUrl("img/screenshots/tfc_integration.png")} alt="Infracost running as a Run Task" width="550px" /></a> | <a href="https://infracost.io/docs/img/screenshots/infracost_dashboard.png"><img src={useBaseUrl("img/screenshots/infracost_dashboard.png")} alt="Infracost details link" width="550px" /></a>
 
 ## Running Infracost on local dev machines
 

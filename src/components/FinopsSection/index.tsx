@@ -7,7 +7,7 @@ import LiWithCheck from '../LiWithCheck';
 import ContactForm from './ContactForm';
 
 const url = (name: string, wrap = false) =>
-  `${wrap ? 'url(' : ''}/img/finops/${name}${wrap ? ')' : ''}`;
+  `${wrap ? 'url(' : ''}/docs/img/finops/${name}${wrap ? ')' : ''}`;
 
 const Index = () => {
   const parallax = useRef<IParallax | null>(null);

@@ -16,7 +16,7 @@ const ScrollPrompt = () => {
 
   return (
     <animated.div className="finops-scroll-prompt" style={styles}>
-      <img src="/img/finops/scroll-more.svg" alt="Scroll down" />
+      <img src="/docs/img/finops/scroll-more.svg" alt="Scroll down" />
     </animated.div>
   );
 };

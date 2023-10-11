@@ -13,7 +13,7 @@ function UsedBy(props) {
           <ul>
             {logos.map((name) => (
               <li key={name}>
-                <img src={`/img/users/${name}`} alt={`${name} logo`} />
+                <img src={`/docs/img/users/${name}`} alt={`${name} logo`} />
               </li>
             ))}
           </ul>
@@ -28,40 +28,40 @@ function UsedBy(props) {
         <p className="tagline">{tagline}</p>
         <ul>
           <li>
-            <img src="/img/users/gitlab.svg" alt="GitLab logo" />
+            <img src="/docs/img/users/gitlab.svg" alt="GitLab logo" />
           </li>
           <li>
-            <img src="/img/users/hpe.svg" alt="HPE logo" />
+            <img src="/docs/img/users/hpe.svg" alt="HPE logo" />
           </li>
           <li>
-            <img src="/img/users/mango.svg" alt="Mango logo" />
+            <img src="/docs/img/users/mango.svg" alt="Mango logo" />
           </li>
           <li>
-            <img src="/img/users/bmw.svg" alt="BMW logo" />
+            <img src="/docs/img/users/bmw.svg" alt="BMW logo" />
           </li>
           <li>
-            <img src="/img/users/hellofresh.png" alt="HelloFresh logo" />
+            <img src="/docs/img/users/hellofresh.png" alt="HelloFresh logo" />
           </li>
           <li>
-            <img src="/img/users/clariant.png" alt="Clariant logo" />
+            <img src="/docs/img/users/clariant.png" alt="Clariant logo" />
           </li>
           <li>
-            <img src="/img/users/accenture.svg" alt="Accenture logo" />
+            <img src="/docs/img/users/accenture.svg" alt="Accenture logo" />
           </li>
           <li>
-            <img src="/img/users/dazn.svg" alt="DAZN logo" />
+            <img src="/docs/img/users/dazn.svg" alt="DAZN logo" />
           </li>
           <li>
-            <img src="/img/users/daimler.svg" alt="Daimler logo" />
+            <img src="/docs/img/users/daimler.svg" alt="Daimler logo" />
           </li>
           <li>
-            <img src="/img/users/picpay.svg" alt="PicPay logo" />
+            <img src="/docs/img/users/picpay.svg" alt="PicPay logo" />
           </li>
           <li>
-            <img src="/img/users/jpmorgan.svg" alt="J.P. Morgan logo" />
+            <img src="/docs/img/users/jpmorgan.svg" alt="J.P. Morgan logo" />
           </li>
           <li>
-            <img src="/img/users/nbc_sports_group.png" alt="NBC Sports Group logo" />
+            <img src="/docs/img/users/nbc_sports_group.png" alt="NBC Sports Group logo" />
           </li>
         </ul>
       </div>

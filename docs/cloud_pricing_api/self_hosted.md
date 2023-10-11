@@ -99,11 +99,11 @@ The Cloud Pricing API downloads the pricing DB dump from `https://pricing.api.in
 
 If the `init-job` or the `cronjob` pods still fail to download prices, you can try changing their Kubernetes yaml to manually download the pricing DB dump using `curl` and pass any required corporate network proxy settings.
 ```
-command: 
+command:
   - /bin/bash
-  - -c 
-  - | 
-     npm run db:setup && 
+  - -c
+  - |
+     npm run db:setup &&
      curl -s -H "X-Api-Key: ${INFRACOST_API_KEY}" https://pricing.api.infracost.io/data-download/latest | grep -o '"downloadUrl": *"[^"]*"' | grep -o '"[^"]*"$' | xargs -n1 curl --progress-bar --output ./data/products/products.csv.gz &&
      npm run data:load
 ```

@@ -56,14 +56,14 @@ function Navbar({ isDocs }) {
 
   const hamburger = (
     <span className="hamburger" onClick={toggleSidebar}>
-      <img src="/img/icons/hamburger.svg" alt="Menu" width={20} height={17} />
+      <img src="/docs/img/icons/hamburger.svg" alt="Menu" width={20} height={17} />
     </span>
   );
 
   const logo = (
     <a className="logo" href="/" aria-label="Infracost logo">
       <img
-        src="/img/logo.svg"
+        src="/docs/img/logo.svg"
         className="logo-large"
         alt="Infracost logo"
         width={118}
@@ -169,7 +169,7 @@ function Navbar({ isDocs }) {
       >
         <img
           className="icon"
-          src="/img/icons/github.svg"
+          src="/docs/img/icons/github.svg"
           alt="GitHub icon"
           width={24}
           height={24}
@@ -184,7 +184,7 @@ function Navbar({ isDocs }) {
         aria-label="Join our community slack"
         rel="noreferrer"
       >
-        <img className="icon" src="/img/icons/slack.svg" alt="Slack icon" width={24} height={24} />
+        <img className="icon" src="/docs/img/icons/slack.svg" alt="Slack icon" width={24} height={24} />
         <span className="link-text">Slack</span>
       </a>
     </>

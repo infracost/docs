@@ -25,7 +25,7 @@ function About() {
           <div className="profiles">
             <div className="profile">
               <div className="profile-image">
-                <img src="/img/about/hassan.jpg" alt="Hassan" />
+                <img src="/docs/img/about/hassan.jpg" alt="Hassan" />
               </div>
               <span className="name">Hassan Khajeh-Hosseini</span>
               <div className="social">
@@ -56,7 +56,7 @@ function About() {
 
             <div className="profile">
               <div className="profile-image">
-                <img src="/img/about/ali.jpg" alt="Ali" />
+                <img src="/docs/img/about/ali.jpg" alt="Ali" />
               </div>
               <span className="name">Ali Khajeh-Hosseini</span>
               <div className="social">
@@ -87,7 +87,7 @@ function About() {
 
             <div className="profile">
               <div className="profile-image">
-                <img src="/img/about/alistair.jpg" alt="Alistair" />
+                <img src="/docs/img/about/alistair.jpg" alt="Alistair" />
               </div>
               <span className="name">Alistair Scott</span>
               <div className="social">
@@ -118,7 +118,7 @@ function About() {
 
             <div className="profile">
               <div className="profile-image">
-                <img src="/img/about/tim.jpg" alt="Tim" />
+                <img src="/docs/img/about/tim.jpg" alt="Tim" />
               </div>
               <span className="name">Tim McFadden</span>
               <div className="social">
@@ -138,7 +138,7 @@ function About() {
 
             <div className="profile">
               <div className="profile-image">
-                <img src="/img/about/vadim.jpg" alt="Vadim" />
+                <img src="/docs/img/about/vadim.jpg" alt="Vadim" />
               </div>
               <span className="name">Vadim Golub</span>
               <div className="social">
@@ -169,7 +169,7 @@ function About() {
 
             <div className="profile">
               <div className="profile-image">
-                <img src="/img/about/hugo.jpg" alt="Hugo" />
+                <img src="/docs/img/about/hugo.jpg" alt="Hugo" />
               </div>
               <span className="name">Hugo Rut</span>
               <div className="social">
@@ -200,7 +200,7 @@ function About() {
 
             <div className="profile">
               <div className="profile-image">
-                <img src="/img/about/artur.jpg" alt="Artur" />
+                <img src="/docs/img/about/artur.jpg" alt="Artur" />
               </div>
               <span className="name">Artur Janas</span>
               <div className="social">
@@ -246,7 +246,7 @@ function About() {
                   rel="noopener noreferrer"
                   aria-label="Infracost's profile on Y Combinator's website"
                 >
-                  <img src="/img/investors/yc_aligned.svg" alt="Y Combinator logo" />
+                  <img src="/docs/img/investors/yc_aligned.svg" alt="Y Combinator logo" />
                 </a>
               </div>
               <div className="backer-item">
@@ -256,14 +256,14 @@ function About() {
                   rel="noopener noreferrer"
                   aria-label="Infracost's profile on Sequoia's website"
                 >
-                  <img src="/img/investors/sequoia_aligned.svg" alt="Sequoia logo" />
+                  <img src="/docs/img/investors/sequoia_aligned.svg" alt="Sequoia logo" />
                 </a>
               </div>
               <div className="backer-item">
-                <img src="/img/investors/mango_aligned.svg" alt="Mango Capital logo" />
+                <img src="/docs/img/investors/mango_aligned.svg" alt="Mango Capital logo" />
               </div>
               <div className="backer-item">
-                <img src="/img/investors/sv_angel_aligned.svg" alt="SV Angel logo" />
+                <img src="/docs/img/investors/sv_angel_aligned.svg" alt="SV Angel logo" />
               </div>
             </div>
           </div>

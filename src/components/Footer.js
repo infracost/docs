@@ -31,7 +31,7 @@ function Footer() {
             <h1>Community</h1>
             <ul>
               <li>
-                <a href="https://infracost.io/community-chat" target="_blank" rel="noreferrer">
+                <a href="/community-chat" target="_blank" rel="noreferrer">
                   Join Slack
                 </a>
               </li>
@@ -68,7 +68,7 @@ function Footer() {
                 <a href="/about">About</a>
               </li>
               <li>
-                <a href="https://infracost.io/join-the-team">Careers</a>
+                <a href="/join-the-team">Careers</a>
               </li>
               <li>
                 <a href="/blog">Blog</a>

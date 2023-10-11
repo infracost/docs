@@ -12,7 +12,7 @@ Connect Infracost Cloud to Jira to enrich your team's cost estimates with powerf
 Once enabled, the Jira integration:
 - **Updates Jira issues with cost estimates** along with a direct link to your Infracost Cloud dashboard. Use this to dive into specific cloud costs impacted by engineering changes.
   ![jira issue](/img/jira/app-issue.png)
-- You'll also be able to **review and unblock pull requests** that triggered [guardrails](docs/infracost_cloud/guardrails/).
+- You'll also be able to **review and unblock pull requests** that triggered [guardrails](/docs/infracost_cloud/guardrails/).
   ![jira filter](/img/jira/app-guardrails.png)
 - We'll also add Jira metadata to any Infracost Cloud estimate, meaning you can **search, filter and analyze costs** based on your team's Jira issues.
   ![dashboard](/img/jira/dashboard.png)
@@ -27,7 +27,7 @@ Once enabled, the Jira integration:
   ![copy token](/img/jira/2-copy-token.png)
 4. Once you generate the token, a status banner appears. This highlights if Jira has successfully connected to Infracost Cloud. We'll check back here later to make sure everything looks good.
   ![integration status](/img/jira/3-integration-status.png)
-5. Click the install app button, this takes you over to Atlassian Jira to complete the setup. 
+5. Click the install app button, this takes you over to Atlassian Jira to complete the setup.
   ![install app](/img/jira/4-install-app.png)
 6. This will take you an approval screen where you'll be able to select which server you want to install the Infracost Jira app into.
   ![select server](/img/jira/5-select-server.png)

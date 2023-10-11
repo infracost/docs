@@ -50,7 +50,7 @@ function Security() {
               <div>
                 <p>
                   <div className="certification">
-                    <img class="badge" src="/img/icons/soc2.png" alt="SOC 2 Type II" />
+                    <img class="badge" src="/docs/img/icons/soc2.png" alt="SOC 2 Type II" />
                     <div>
                       <span class="icon">
                         <Check size={18} color="#19D97D" />
