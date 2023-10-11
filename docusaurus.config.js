@@ -112,7 +112,7 @@ module.exports = {
     ],
   ],
   themeConfig: {
-    image: "img/social-image.png",
+    image: "docs/img/social-image.png",
     colorMode: {
       defaultMode: "light",
       disableSwitch: true,
@@ -138,78 +138,6 @@ module.exports = {
         facetFilters: [],
       },
     },
-    navbar: {
-      logo: {
-        alt: "Infracost logo",
-        src: "img/logo.svg",
-      },
-      items: [
-        {
-          to: "docs/",
-          activeBasePath: "docs",
-          label: "Docs",
-          position: "right",
-        },
-        {
-          to: "blog",
-          blog: "blog",
-          label: "Blog",
-          position: "right",
-        },
-      ],
-    },
-    footer: {
-      links: [
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "Getting started",
-              to: "docs/",
-            },
-            {
-              label: "CI/CD integrations",
-              to: "docs/integrations/cicd",
-            },
-            {
-              label: "Support",
-              to: "docs/support",
-            },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
-            {
-              label: "Slack",
-              href: "https://www.infracost.io/community-chat",
-            },
-            {
-              label: "GitHub",
-              href: `https://github.com/infracost/infracost`,
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "hello@infracost.io",
-              href: `mailto:hello@infracost.io`,
-            },
-            {
-              label: "Blog",
-              to: "blog/",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/infracost",
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} Infracost`,
-    },
   },
   presets: [
     [
@@ -219,23 +147,6 @@ module.exports = {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: `https://github.com/infracost/docs/edit/master`,
-        },
-        blog: {
-          blogDescription:
-            "Infracost blog - Cloud cost estimates for Terraform",
-          blogSidebarCount: "ALL",
-          blogSidebarTitle: "All posts",
-          include: ["**/*.md", "**/*.mdx"],
-          postsPerPage: 12,
-          archiveBasePath: null,
-          remarkPlugins: [
-            [
-              remarkExternalLinks,
-              {
-                rel: ["noopener"],
-              },
-            ],
-          ],
         },
         theme: {
           customCss: require.resolve("./src/css/index.css"),
