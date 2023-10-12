@@ -184,7 +184,13 @@ function Navbar({ isDocs }) {
         aria-label="Join our community slack"
         rel="noreferrer"
       >
-        <img className="icon" src="/docs/img/icons/slack.svg" alt="Slack icon" width={24} height={24} />
+        <img
+          className="icon"
+          src="/docs/img/icons/slack.svg"
+          alt="Slack icon"
+          width={24}
+          height={24}
+        />
         <span className="link-text">Slack</span>
       </a>
     </>
