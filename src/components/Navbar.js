@@ -74,16 +74,21 @@ function Navbar({ isDocs }) {
 
   const menuItems = [
     {
-      label: 'FinOps',
-      href: '/finops',
-    },
-    {
       label: 'Products',
-      href: '/products',
-    },
-    {
-      label: 'Use Cases',
-      href: '/use-cases',
+      groupItems: [
+        {
+          label: 'Product Overview',
+          href: '/products',
+        },
+        {
+          label: 'For FinOps',
+          href: '/finops',
+        },
+        {
+          label: 'Other Use Cases',
+          href: '/use-cases',
+        },
+      ],
     },
     {
       label: 'Pricing',
@@ -97,8 +102,12 @@ function Navbar({ isDocs }) {
           href: '/docs',
         },
         {
-          label: 'FinOps Glossary',
-          href: '/glossary',
+          label: 'Resource Articles',
+          href: '/resources',
+        },
+        {
+          label: 'Glossary',
+          href: 'glossary',
         },
         {
           label: 'Blog',
@@ -108,11 +117,16 @@ function Navbar({ isDocs }) {
     },
     {
       label: 'About',
-      href: '/about',
-    },
-    {
-      label: 'Sign up / Log in',
-      href: 'https://dashboard.infracost.io',
+      groupItems: [
+        {
+          label: 'About Us',
+          href: '/about',
+        },
+        {
+          label: 'Contact Us',
+          href: '/contact',
+        },
+      ],
     },
   ];
 
@@ -134,27 +148,36 @@ function Navbar({ isDocs }) {
       {menuItems.map((item, index) => (
         <Menu key={`${item.label}-${index}`}>
           {item.href ? (
-            <a className="menu__item" href={item.href}>
-              {item.label}
-            </a>
+            <div className="infra-navbar__nav-item">
+              <a className="infra-navbar__menu-item" href={item.href}>
+                {item.label}
+              </a>
+            </div>
           ) : (
-            <div className="menu__dropdown">
-              <Menu.Button className="menu__dropdown-button">
+            <div className="infra-navbar__group">
+              <div className="infra-navbar__group-title">
                 {item.label} {caret}
-              </Menu.Button>
-              <Menu.Items className="menu__dropdown-items">
+              </div>
+              <div className="infra-navbar__items">
                 {item.groupItems.map((item) => (
-                  <Menu.Item key={item.href} className="menu__dropdown-item">
-                    <a className="menu__dropdown-item-a" href={item.href}>
+                  <div className="infra-navbar__item" key={item.href}>
+                    <a className="infra-navbar__item-a" href={item.href}>
                       {item.label}
                     </a>
-                  </Menu.Item>
+                  </div>
                 ))}
-              </Menu.Items>
+              </div>
             </div>
           )}
         </Menu>
       ))}
+      <Menu>
+        <div className="infra-navbar__nav-item">
+          <a className="infra-navbar__menu-item--login" href="https://dashboard.infracost.io">
+            Sign up / Log in
+          </a>
+        </div>
+      </Menu>
     </div>
   );
 
@@ -168,7 +191,7 @@ function Navbar({ isDocs }) {
         rel="noreferrer"
       >
         <img
-          className="icon"
+          className="icon filter-invert"
           src="/docs/img/icons/github.svg"
           alt="GitHub icon"
           width={24}
@@ -186,7 +209,7 @@ function Navbar({ isDocs }) {
       >
         <img
           className="icon"
-          src="/docs/img/icons/slack.svg"
+          src="/docs/img/icons/slack.webp"
           alt="Slack icon"
           width={24}
           height={24}
@@ -221,9 +244,7 @@ function Navbar({ isDocs }) {
   return (
     <nav
       ref={navbarRef}
-      className={`navbar ${atTop ? 'at-top' : ''} ${showSidebar ? 'sidebar-open' : ''} ${
-        isDocs ? 'docs' : ''
-      }`}
+      className={`navbar ${atTop ? 'at-top' : ''} ${showSidebar ? 'sidebar-open' : ''} docs`}
     >
       <div className="container">
         <div className="top level">
@@ -231,16 +252,12 @@ function Navbar({ isDocs }) {
             {hamburger}
             {logo}
             <div className="community">{community}</div>
+            <SearchBar
+              handleSearchBarToggle={setIsSearchBarExpanded}
+              isSearchBarExpanded={isSearchBarExpanded}
+            />
           </div>
-          <div className="right">
-            {topMenu}
-            {isDocs && (
-              <SearchBar
-                handleSearchBarToggle={setIsSearchBarExpanded}
-                isSearchBarExpanded={isSearchBarExpanded}
-              />
-            )}
-          </div>
+          <div className="right">{topMenu}</div>
         </div>
         <div className="sidebar-backdrop" onClick={toggleSidebar}></div>
         <div className="sidebar">
@@ -256,11 +273,7 @@ function Navbar({ isDocs }) {
               />
             ) : (
               <div className="sidebar-content">
-                <div className="navbar-section">
-                  {/* <h4>Docs</h4> */}
-
-                  {topMenu}
-                </div>
+                <div className="navbar-section">{topMenu}</div>
                 <div className="navbar-section">
                   <h4>Community</h4>
                   {community}

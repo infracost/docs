@@ -87,7 +87,7 @@
 
 .github-stars {
   align-self: flex-start;
-  background-color: var(--white);
+  background-color: var(--border-light);
   border-radius: 4px;
   color: var(--page-background-color);
   display: inline-block;
@@ -113,7 +113,7 @@
   content: '\A';
   border-style: solid;
   border-width: 5px 6px 5px 0;
-  border-color: transparent var(--white) transparent transparent;
+  border-color: transparent var(--border-light) transparent transparent;
   position: absolute;
   left: -5px;
   top: calc(50% - 5px);
