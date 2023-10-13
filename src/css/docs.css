@@ -113,8 +113,14 @@ pre {
 .DocSearch.DocSearch-Button {
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  margin-left: 1.5rem;
+  margin-left: .5rem;
   margin-right: 0;
+  background-color: white;
+  color: var(--nu50);
+}
+
+.DocSearch-Button-Container .DocSearch-Search-Icon {
+  filter: invert();
 }
 
 @media (max-width: 996px) {
@@ -130,8 +136,10 @@ pre {
 }
 
 .DocSearch.DocSearch-Button:hover {
-  border: 1px solid var(--primary);
+  background-color: white;
+  color: var(--nu50);
   box-shadow: none;
+  box-shadow: 0px 15px 25px -7px #0000001a;
 }
 
 .DocSearch.DocSearch-Button .DocSearch-Button-Placeholder {
@@ -139,8 +147,9 @@ pre {
 }
 
 .DocSearch.DocSearch-Button .DocSearch-Button-Key {
-  background: none;
-  border: 1px solid var(--border-color);
+  background: white;
+  color: var(--nu50);
+  border: 1px solid var(--border-light);
   box-shadow: none;
   font-size: 0.875rem;
   padding: 0.125rem;
@@ -185,13 +194,13 @@ pre {
 }
 
 .navbar.docs {
-  background-color: var(--ifm-navbar-background-color);
+  background-color: white;
   backdrop-filter: none;
+  border-bottom: none;
 }
 
 .navbar.docs.at-top {
-  background-color: var(--ifm-navbar-background-color);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-light);
   position: sticky;
 }
 
