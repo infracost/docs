@@ -7,7 +7,6 @@ import {
   useLockBodyScroll,
   useHideableNavbar,
 } from '@docusaurus/theme-common/internal';
-import { Menu } from '@headlessui/react';
 import GitHubStarCount from './GitHubStarCount';
 
 function Navbar({ isDocs }) {
@@ -54,21 +53,21 @@ function Navbar({ isDocs }) {
 
   const { navbarRef } = useHideableNavbar(false);
 
-  const hamburger = (
-    <span className="hamburger" onClick={toggleSidebar}>
-      <img src="/docs/img/icons/hamburger.svg" alt="Menu" width={20} height={17} />
-    </span>
-  );
-
   const logo = (
     <a className="logo" href="/" aria-label="Infracost logo">
       <img
-        src="/docs/img/logo.svg"
+        src="/docs/img/logo-light.svg"
         className="logo-large"
         alt="Infracost logo"
         width={118}
         height={24}
       />
+    </a>
+  );
+
+  const login = (
+    <a className="infra-navbar__menu-item--login" href="https://dashboard.infracost.io">
+      Sign up / Log in
     </a>
   );
 
@@ -130,23 +129,10 @@ function Navbar({ isDocs }) {
     },
   ];
 
-  const caret = (
-    <svg
-      aria-hidden="true"
-      focusable="false"
-      width="24"
-      height="24"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
-    </svg>
-  );
-
   const topMenu = (
     <div className="nav menu">
       {menuItems.map((item, index) => (
-        <Menu key={`${item.label}-${index}`}>
+        <div key={`${item.label}-${index}`}>
           {item.href ? (
             <div className="infra-navbar__nav-item">
               <a className="infra-navbar__menu-item" href={item.href}>
@@ -169,19 +155,13 @@ function Navbar({ isDocs }) {
               </div>
             </div>
           )}
-        </Menu>
-      ))}
-      <Menu>
-        <div className="infra-navbar__nav-item">
-          <a className="infra-navbar__menu-item--login" href="https://dashboard.infracost.io">
-            Sign up / Log in
-          </a>
         </div>
-      </Menu>
+      ))}
+      {!showSidebar ? <div className="infra-navbar__nav-item">{login}</div> : null}
     </div>
   );
 
-  const community = (
+  const community = (showSidebar) => (
     <>
       <a
         className="navbar-item github"
@@ -191,7 +171,7 @@ function Navbar({ isDocs }) {
         rel="noreferrer"
       >
         <img
-          className="icon filter-invert"
+          className={`icon ${showSidebar ? '' : 'dark'}`}
           src="/docs/img/icons/github.svg"
           alt="GitHub icon"
           width={24}
@@ -235,12 +215,6 @@ function Navbar({ isDocs }) {
     </>
   );
 
-  const getStarted = (
-    <a href="/docs" className="get-started button primary small">
-      Get started
-    </a>
-  );
-
   return (
     <nav
       ref={navbarRef}
@@ -249,34 +223,67 @@ function Navbar({ isDocs }) {
       <div className="container">
         <div className="top level">
           <div className="left">
-            {hamburger}
             {logo}
-            <div className="community">{community}</div>
+            <div className="community">{community(showSidebar)}</div>
             <SearchBar
               handleSearchBarToggle={setIsSearchBarExpanded}
               isSearchBarExpanded={isSearchBarExpanded}
             />
           </div>
-          <div className="right">{topMenu}</div>
+          <div className="right">
+            {topMenu}
+            <span className="hamburger filter-invert" onClick={toggleSidebar}>
+              <img src="/docs/img/icons/hamburger.svg" alt="Menu" width={32} height={32} />
+            </span>
+          </div>
         </div>
         <div className="sidebar-backdrop" onClick={toggleSidebar}></div>
         <div className="sidebar">
           <div className="container">
             <div className="header level">
-              <div className="left">{hamburger}</div>
-              <div className="right">{getStarted}</div>
+              <div className="left">
+                {mobileDocsSidebarState === 'show' ? (
+                  <button
+                    type="button"
+                    className="back"
+                    onClick={() => setMobileDocsSidebarState('hide')}
+                  >
+                    ← Back to main menu
+                  </button>
+                ) : (
+                  <div className="infra-navbar__nav-item infra-navbar__menu-item--login-mobile">
+                    {login}
+                  </div>
+                )}
+              </div>
+              <div className="right filter-invert">
+                <span className="" onClick={toggleSidebar}>
+                  <img src="/docs/img/icons/close.svg" alt="Menu" width={25} height={25} />
+                </span>
+              </div>
             </div>
             {mobileDocsSidebarState === 'show' ? (
-              <MobileDocsSidebar
-                content={docsMenu.content}
-                onHide={() => setMobileDocsSidebarState('hide')}
-              />
+              docsMenu.content
             ) : (
               <div className="sidebar-content">
-                <div className="navbar-section">{topMenu}</div>
+                <div className="navbar-section">
+                  {menuItems.map((item, index) => (
+                    <div key={`${item.label}-${index}`}>
+                      {item.href ? (
+                        <div className="infra-navbar__nav-item">
+                          <a className="infra-navbar__menu-item" href={item.href}>
+                            {item.label}
+                          </a>
+                        </div>
+                      ) : (
+                        <MenuGroup item={item} />
+                      )}
+                    </div>
+                  ))}
+                </div>
                 <div className="navbar-section">
                   <h4>Community</h4>
-                  {community}
+                  {community(showSidebar)}
                 </div>
                 <div className="navbar-section">
                   <h4>Outreach</h4>
@@ -291,15 +298,52 @@ function Navbar({ isDocs }) {
   );
 }
 
-function MobileDocsSidebar({ content, onHide }) {
+const caret = (
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    width="24"
+    height="24"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    className="infra-navbar__group-caret-icon"
+  >
+    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path>
+  </svg>
+);
+
+const MenuGroup = ({ item }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <>
-      <button type="button" className="back navbar-item" onClick={onHide}>
-        ← Back to main menu
-      </button>
-      {content}
-    </>
+    <div className="infra-navbar__group">
+      <div
+        className="infra-navbar__group-title infra-navbar__group-title--with-caret"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {item.label}
+        <div
+          className={`infra-navbar__group-caret ${
+            isOpen ? `infra-navbar__group-caret--expanded` : ''
+          }`}
+        >
+          {caret}
+        </div>
+      </div>
+      {isOpen && (
+        <div className="infra-navbar__items">
+          {item.groupItems?.length &&
+            item.groupItems.map((item) => (
+              <div key={item.href} className="infra-navbar__item">
+                <a className="infra-navbar__item-a" href={item.href}>
+                  {item.label}
+                </a>
+              </div>
+            ))}
+        </div>
+      )}
+    </div>
   );
-}
+};
 
 export default Navbar;
