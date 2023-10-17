@@ -51,5 +51,5 @@ jobs:
           CLOUDFRONT_DISTRIBUTION=$(aws cloudfront list-distributions | jq -r '.DistributionList.Items[] | select(.Aliases.Items[0]=="'${{ inputs.domain }}'")')
           CLOUDFRONT_DISTRIBUTION_ID=$(echo $CLOUDFRONT_DISTRIBUTION | jq -r '.Id')
           S3_BUCKET=$(echo $CLOUDFRONT_DISTRIBUTION | jq -r '.Origins.Items[] | select (.Id=="docs") | .DomainName' | sed 's/\(.*\)\.s3-website\.[^.]*\.amazonaws.com/\1/')
-          aws s3 sync build s3://${S3_BUCKET}
+          aws s3 sync build s3://${S3_BUCKET}/docs
           aws cloudfront create-invalidation --distribution-id=${CLOUDFRONT_DISTRIBUTION_ID} --paths "/docs/*" --no-cli-pager
