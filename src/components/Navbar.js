@@ -132,7 +132,7 @@ function Navbar({ isDocs }) {
   const topMenu = (
     <div className="nav menu">
       {menuItems.map((item, index) => (
-        <div key={`${item.label}-${index}`}>
+        <React.Fragment key={`${item.label}-${index}`}>
           {item.href ? (
             <div className="infra-navbar__nav-item">
               <a className="infra-navbar__menu-item" href={item.href}>
@@ -155,7 +155,7 @@ function Navbar({ isDocs }) {
               </div>
             </div>
           )}
-        </div>
+        </React.Fragment>
       ))}
       {!showSidebar ? <div className="infra-navbar__nav-item">{login}</div> : null}
     </div>
