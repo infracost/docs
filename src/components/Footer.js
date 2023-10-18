@@ -11,19 +11,19 @@ function Footer() {
             <h1>Documentation</h1>
             <ul>
               <li>
-                <a href="/docs">Getting started</a>
+                <a href="/docs/">Getting started</a>
               </li>
               <li>
-                <a href="/docs/integrations/cicd">CI/CD integrations</a>
+                <a href="/docs/integrations/cicd/">CI/CD integrations</a>
               </li>
               <li>
-                <a href="/docs/supported_resources">Supported resources</a>
+                <a href="/docs/supported_resources/">Supported resources</a>
               </li>
               <li>
-                <a href="/docs/support">Support</a>
+                <a href="/docs/support/">Support</a>
               </li>
               <li>
-                <a href="/docs/faq">FAQ</a>
+                <a href="/docs/faq/">FAQ</a>
               </li>
             </ul>
           </div>
@@ -31,23 +31,23 @@ function Footer() {
             <h1>Community</h1>
             <ul>
               <li>
-                <a href="/community-chat" target="_blank" rel="noreferrer">
+                <a href="/community-chat/" target="_blank" rel="noreferrer">
                   Join Slack
                 </a>
               </li>
               <li>
-                <a href="https://community-chat.infracost.io" target="_blank" rel="noreferrer">
+                <a href="https://community-chat.infracost.io/" target="_blank" rel="noreferrer">
                   Search Slack
                 </a>
               </li>
               <li>
-                <a href="https://github.com/infracost/infracost" target="_blank" rel="noreferrer">
+                <a href="https://github.com/infracost/infracost/" target="_blank" rel="noreferrer">
                   GitHub
                 </a>
               </li>
               <li>
                 <a
-                  href="https://github.com/infracost/infracost/#community-and-contributing"
+                  href="https://github.com/infracost/infracost/#community-and-contributing/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -55,7 +55,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/infracost" target="_blank" rel="noreferrer">
+                <a href="https://twitter.com/infracost/" target="_blank" rel="noreferrer">
                   Twitter
                 </a>
               </li>
@@ -65,22 +65,17 @@ function Footer() {
             <h1>Company</h1>
             <ul>
               <li>
-                <a href="/about">About</a>
+                <a href="/about/">About</a>
               </li>
               <li>
-                <a href="/join-the-team">Careers</a>
+                <a href="/blog/">Blog</a>
               </li>
               <li>
-                <a href="/blog">Blog</a>
-              </li>
-              <li>
-                <a href="/security">Security</a>
+                <a href="/security/">Security</a>
               </li>
               <li></li>
               <li>
-                <a href="mailto:hello@infracost.io" target="_blank" rel="noreferrer">
-                  hello@infracost.io
-                </a>
+                <a href="/contact/">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -92,10 +87,10 @@ function Footer() {
           <div className="right">
             <ul>
               <li>
-                <a href="/docs/privacy-policy">Privacy policy</a>
+                <a href="/docs/privacy-policy/">Privacy policy</a>
               </li>
               <li>
-                <a href="/docs/terms-of-service">Terms of service</a>
+                <a href="/docs/terms-of-service/">Terms of service</a>
               </li>
             </ul>
           </div>
