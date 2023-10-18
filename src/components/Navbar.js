@@ -77,36 +77,36 @@ function Navbar({ isDocs }) {
       groupItems: [
         {
           label: 'Product Overview',
-          href: '/products',
+          href: '/products/',
         },
         {
           label: 'For FinOps',
-          href: '/finops',
+          href: '/finops/',
         },
       ],
     },
     {
       label: 'Pricing',
-      href: '/pricing',
+      href: '/pricing/',
     },
     {
       label: 'Resources',
       groupItems: [
         {
           label: 'Docs',
-          href: '/docs',
+          href: '/docs/',
         },
         {
           label: 'Resource Articles',
-          href: '/resources',
+          href: '/resources/',
         },
         {
           label: 'Glossary',
-          href: 'glossary',
+          href: '/glossary/',
         },
         {
           label: 'Blog',
-          href: '/blog',
+          href: '/blog/',
         },
       ],
     },
@@ -115,11 +115,11 @@ function Navbar({ isDocs }) {
       groupItems: [
         {
           label: 'About Us',
-          href: '/about',
+          href: '/about/',
         },
         {
           label: 'Contact Us',
-          href: '/contact',
+          href: '/contact/',
         },
       ],
     },
