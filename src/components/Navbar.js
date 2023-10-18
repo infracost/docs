@@ -83,10 +83,6 @@ function Navbar({ isDocs }) {
           label: 'For FinOps',
           href: '/finops',
         },
-        {
-          label: 'Other Use Cases',
-          href: '/use-cases',
-        },
       ],
     },
     {
