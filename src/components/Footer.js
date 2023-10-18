@@ -36,18 +36,18 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://community-chat.infracost.io/" target="_blank" rel="noreferrer">
+                <a href="https://community-chat.infracost.io" target="_blank" rel="noreferrer">
                   Search Slack
                 </a>
               </li>
               <li>
-                <a href="https://github.com/infracost/infracost/" target="_blank" rel="noreferrer">
+                <a href="https://github.com/infracost/infracost" target="_blank" rel="noreferrer">
                   GitHub
                 </a>
               </li>
               <li>
                 <a
-                  href="https://github.com/infracost/infracost/#community-and-contributing/"
+                  href="https://github.com/infracost/infracost/#community-and-contributing"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -55,7 +55,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com/infracost/" target="_blank" rel="noreferrer">
+                <a href="https://twitter.com/infracost" target="_blank" rel="noreferrer">
                   Twitter
                 </a>
               </li>
