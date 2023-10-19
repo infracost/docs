@@ -23,7 +23,7 @@ Go to the Visibility > Repos page to see which FinOps policies the repo is faili
 
 ## 2. Analytics on policy coverage
 
-The Governance > FinOps page shows the status of all policies (screenshot on top of this page), and which policies have the highest number of failing resources. A weekly chart showing the percentage of applicable resources passing FinOps policies is also shown on this page. This gives you 
+The Governance > FinOps page shows the status of all policies (screenshot on top of this page), and which policies have the highest number of failing resources. A weekly chart showing the percentage of applicable resources passing FinOps policies is also shown on this page. This shows how well you're progressing on implementing FinOps best practices across all of your repos over time.
 
 <img src={useBaseUrl("img/infracost-cloud/finops-policies/coverage-chart.png")} alt="Infracost Cloud shows you the percentage of resources that are passing your FinOps policies." />
 
