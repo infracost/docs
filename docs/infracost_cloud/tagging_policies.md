@@ -59,7 +59,7 @@ This means that you do not need to wait for a pull request to test your policy. 
 
 From the Governance > Tagging policies page, you can see the percentage of taggable resources that are passing your tagging policies over the last 6 months. Whilst cloud vendor tools such as AWS Cost Explorer show the percentage of untagged costs, Infracost Cloud shows the percentage of infrastructure-as-code resources that are strictly following your tagging policies, which is much clearer for engineers to action and improve. This is an important KPI that FinOps teams track and improve over time to reduce the percentage of costs that cannot be categorized and allocated.
 
-<img src={useBaseUrl("img/infracost-cloud/tagging-policies/coverage-chart.png")} alt="Infracost Cloud shows you the percentage of resources that are following your tagging policies." />
+<img src={useBaseUrl("img/infracost-cloud/tagging-policies/coverage-chart.png")} alt="Infracost Cloud shows you the percentage of resources that are passing your tagging policies." />
 
 You can also see pull requests that failed policies (shown above). Each of these pull requests would have been deployed with missing or incorrect tags had Infracost not flagged them for engineers to action. Fixing these issues before code is deployed saves significant engineering time as otherwise engineers need to create new pull requests, wait for code reviews, and re-deploy their changes.
 

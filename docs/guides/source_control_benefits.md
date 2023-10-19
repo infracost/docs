@@ -19,9 +19,9 @@ Source control integrations ([GitHub App](/docs/integrations/github_app/) or [Gi
 
 Currently, version 0.10.28+ of the Infracost CLI is needed for the Infracost Cloud features to work correctly. We recommend you upgrade the CLI every one to two months to pickup latest features and bug fixes.
 
-### 2. Branch costs and tagging policy failures
+### 2. Branch costs, FinOps and tagging policy failures
 
-To show costs and tagging policy failures on default (e.g. master or main) or other base branches:
+To show costs, FinOps and tagging policy failures on default (e.g. master or main) or other base branches:
   - In your CI/CD integration, on each default or base branch push, you should run these steps to run Infracost breakdown and upload the results. If you do not need a [config file](/docs/features/config_file/), you can use `infracost breakdown --path=.` and point it to your repo root or Terraform directory.
   ```sh
   infracost breakdown --config-file=infracost.yaml \
@@ -30,10 +30,10 @@ To show costs and tagging policy failures on default (e.g. master or main) or ot
   infracost upload --path=/tmp/infracost.json
   ```
 
-### 3. Tagging policies
+### 3. FinOps and tagging policies
 
-To make the [Tagging policies](/docs/infracost_cloud/tagging_policies/) "blocking/unblocking pull requests" feature work:
-  - In your CI/CD integration, you should check the exit code of the `infracost comment` command (or `infracost upload` if you don't use `comment`), and fail the build if it returns an exit code of `1`. That indicates that tagging policies failed. Once the engineer fixes the issue, the CLI returns exit code `0` (meaning success).
+To make the [FinOps policies](/docs/infracost_cloud/finops_policies/) and [Tagging policies](/docs/infracost_cloud/tagging_policies/) "blocking/unblocking pull requests" feature work:
+  - In your CI/CD integration, you should check the exit code of the `infracost comment` command (or `infracost upload` if you don't use `comment`), and fail the build if it returns an exit code of `1`. That indicates that FinOps or tagging policies failed. Once the engineer fixes the issue, the CLI returns exit code `0` (meaning success).
 
 ### 4. Guardrails
 
