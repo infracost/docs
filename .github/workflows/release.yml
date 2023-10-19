@@ -7,10 +7,17 @@ on:
 name: "Release"
 
 jobs:
-  release:
+  release-dev:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - uses: ./.github/workflows/release_dev.yml
+
+  release-prod:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: release-dev
+
+    steps:
       - uses: ./.github/workflows/release_prod.yml

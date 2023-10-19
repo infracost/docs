@@ -5,10 +5,9 @@ name: "Release prod"
 jobs:
   release-prod:
     uses: ./.github/workflows/upload_assets.yml
-    needs: release-dev
     with:
       aws-region: us-east-2
-      domain: infracost.io
+      domain: www-new.infracost.io
       infracost-dashboard-api-endpoint: https://dashboard.api.infracost.io
       infracost-dashboard-endpoint: https://dashboard.infracost.io
     secrets:
