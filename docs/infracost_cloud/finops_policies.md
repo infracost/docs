@@ -29,7 +29,7 @@ The Governance > FinOps page shows the status of all policies (screenshot on top
 
 ## 3. Test pull requests
 
-When engineers create a pull request to change infrastructure, Infracost scans the code and checks the FinOps policies against all changed resources. Infracost shows the best practices alongside an explanation of why it's important to consider implementing the change. Infracost also shows the exact file and line numbers that needs to be changed if the engineer choses to implement the change. This shifts-left on FinOps policies and results in the fastest possible feedback loop.
+When engineers create a pull request to change infrastructure, Infracost scans the code and checks the FinOps policies against all changed resources. Infracost shows the best practices alongside an explanation of why it's important to consider implementing the change. Infracost also shows the exact file and line numbers that need to be changed if the engineer chooses to implement the change. This shifts-left on FinOps policies and results in the fastest possible feedback loop.
 
 <img src={useBaseUrl("img/infracost-cloud/finops-policies/pr-comment.png")} alt="Create a pull request to test FinOps policies." />
 
