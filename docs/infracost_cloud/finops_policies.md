@@ -1,0 +1,46 @@
+---
+slug: finops_policies
+title: FinOps policies
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Infracost enables you to pro-actively check FinOps best practices in the engineering workflow. Companies can check for FinOps best practices before they deploy infrastructure code. This approach boosts developer productivity by providing quick feedback and encouraging the creation of efficient infrastructure code from the outset, removing the need for post-deployment revisions. Additionally, it spares FinOps teams from the continual effort of urging engineers to adhere to best practices, thereby preventing significant amounts of money being wasted in the cloud.
+
+<img src={useBaseUrl("img/infracost-cloud/finops-policies/policies.png")} alt="Infracost includes many AWS, Azure and Google FinOps policies out of the box" />
+
+## Usage
+
+Infracost scans your code and checks for 40 AWS, Azure and Google FinOps policies out of the box. This gives you immediate analytics on how well you're following the best practices. Furthermore, when engineers send pull requests to make code changes, Infracost shows them the exact file and line numbers they need to change to follow the FinOps policies, alongside an explanation about why it's important to consider implementing the change. This enables engineering teams to learn about FinOps best practices before infrastructure code deployment.
+
+This page assumes you have already setup the Infracost source control integration with [GitHub or GitLab](/docs/integrations/cicd/#source-control-integrations-recommended) (or added Infracost to your CI/CD pipeline).
+
+## 1. See policy failures on repos
+
+Once you've connected a repo to Infracost, go to the Visibility > Repos page. Here you can see which FinOps policies the repo is failing on; for example, the following screenshot shows a repo that is failing 3 policies. The file and line numbers are also shown with a suggested fix so engineers can easily take action.
+
+<img src={useBaseUrl("img/infracost-cloud/finops-policies/repo-page.png")} alt="See all FinOps and Tagging policy failures for each repo" />
+
+## 2. Analytics on policy coverage
+
+The Governance > FinOps page shows the status of all policies (screenshot on top of this page), and which policies are failing the most. A weekly chart showing the percentage of applicable resources passing FinOps policies is also shown on this page.
+
+<img src={useBaseUrl("img/infracost-cloud/finops-policies/coverage-chart.png")} alt="Infracost Cloud shows you the percentage of resources that are passing your FinOps policies." />
+
+## 3. Test pull requests
+
+When engineers create a pull request to change infrastructure, Infracost scans the code and checks the FinOps policies against all changed resources. It notifies the engineer immediately of any issues; the pull request comment (shown below) tells them exactly what file and line number they need to change to resolve the issue. This shifts-left on FinOps policies and results in the fastest possible feedback loop.
+
+<img src={useBaseUrl("img/infracost-cloud/finops-policies/pr-comment.png")} alt="Create a pull request to test FinOps policies." />
+
+<img src={useBaseUrl("img/infracost-cloud/finops-policies/pr-comment-expanded.png")} alt="The pull request comment shows exactly what file and line number need to be updated to fix the issue." />
+
+:::note
+If you do not use source control integrations ([GitHub App](/docs/integrations/github_app/) or [GitLab App](/docs/integrations/gitlab_app/)), you must [implement some extra steps](/docs/guides/source_control_benefits/) for CI/CD integrations to work with tagging policies. Tagging policies do not currently work with the [Terraform Plan JSON](/docs/features/cli_commands/#option-2-terraform-plan-json) method; [contact us](mailto:hello@infracost.io) for assistance.
+:::
+
+## 4. Update policy settings
+
+From the Governance > FinOps page, you can click on the details for any policy and update its settings. These settings include the option to block requests that fail the policy, and the ability to customize the message shown to engineers in the pull request. This is useful if you need to customize the message to recommend your company's specific policy or a link to internal wiki pages where engineers can learn more.
+
+<img src={useBaseUrl("img/infracost-cloud/finops-policies/policy-settings.png")} alt="Each policy has settings that can be updated to enforce it in pull requests or customize the message shown in the pull request." />

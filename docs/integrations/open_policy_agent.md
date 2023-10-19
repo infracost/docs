@@ -1,6 +1,6 @@
 ---
-slug: cost_policies
-title: Cost policies
+slug: open_policy_agent
+title: Open Policy Agent
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -8,19 +8,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::tip
-This open source feature requires you to write code using Open Policy Agent's Rego language, and change your CI/CD pipelines to evaluate policies.
+This is an experimental feature. It requires you to write code using Open Policy Agent's Rego language, and change your CI/CD pipelines to evaluate policies.
 
-If you prefer an easier solution and a web user interface to setup policies, we recommend using the [Tagging policies](/docs/infracost_cloud/tagging_policies), [Centralized cost policies](/docs/infracost_cloud/cost_policies) and [Guardrails](/docs/infracost_cloud/guardrails) features instead. These features also show you immediate policy coverage analytics across all of your code repos without you needing to change your CI/CD pipelines.
+If you prefer an easier solution and a web user interface to setup policies, we recommend using the [FinOps policies](/docs/infracost_cloud/finops_policies), [Tagging policies](/docs/infracost_cloud/tagging_policies), and [Guardrails](/docs/infracost_cloud/guardrails) features instead. These features also show you immediate policy coverage analytics across all of your code repos without you needing to send pull requests or change CI/CD pipelines.
 :::
 
-Cost policies enable DevOps and FinOps teams to help engineers to take action around cloud costs. Policies are usually written by centralized teams so they can send advice or set guardrails for all engineering teams. Policies are checked in CI/CD and trigger when pre-defined conditions are hit.
-
-## Use cases
-
-Infracost policies enable centralized teams, who are often helping others with cloud costs, to:
-- **Provide advice before** resources are launched: "Whilst you're changing this EC2 instances, consider changing its GP2 volume type to GP3 as it's cheaper and offers better performance".
-- **Setup guardrails**: "This change puts the monthly costs above $10K, which is the budget for this product. Consider asking the team lead to review it". 
-- **Prevent human error**: "This change is blocked as it increases monthly costs by more than $100K!".
+Open Policy Agent (OPA) integration enable DevOps teams to help engineers to take action around cloud costs. Policies are usually written by centralized teams so they can send advice or set guardrails for all engineering teams. Policies are checked in CI/CD and trigger when pre-defined conditions are hit.
 
 Infracost is often used in addition to budget alerts and cost management reports to provide an addition layer of communication and protection in CI/CD. Engineers often find it distracting, and time-consuming to retro fix infrastructure after something has gone to production, thus it's better to help them earlier as part of their workflow.
 
@@ -39,21 +32,21 @@ The [`infracost comment`](/docs/features/cli_commands/#comment-on-pull-requests)
     <div className="img-box">
       <img 
           src={useBaseUrl("img/screenshots/policy-failure-github.png")} 
-          alt="Example cost policy failing in GitHub Actions"/>
+          alt="Example policy failing in GitHub Actions"/>
     </div>
   </TabItem>
   <TabItem value="passed-opa">
     <div className="img-box">
       <img 
           src={useBaseUrl("img/screenshots/policy-passing-github.png")} 
-          alt="Example cost policy passing in GitHub Actions"/>
+          alt="Example policy passing in GitHub Actions"/>
     </div>
   </TabItem>
 </Tabs>
 
-### Cost policy basics
+### Policy basics
 
-Policy files are written in OPA's native query language, [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/). Infracost leverages Rego to enable you to write flexible and powerful cost policies defined through **rules**. Rules dictate what checks infrastructure changes must **pass** before being merged. Rules are defined in text files as such:
+Policy files are written in OPA's native query language, [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/). Infracost leverages Rego to enable you to write flexible and powerful policies defined through **rules**. Rules dictate what checks infrastructure changes must **pass** before being merged. Rules are defined in text files as such:
 
 ```bash
 package infracost # You must specify infracost as the Rego package name
@@ -84,7 +77,7 @@ deny[out] {
 
 ### Quick start
 
-To help you write cost policies we've created an [OPA playground](https://play.openpolicyagent.org/p/o1MLyC74CJ) with some example policy rules and Infracost output. Use this and the following steps to generate your very own policies.
+To help you write policies we've created an [OPA playground](https://play.openpolicyagent.org/p/o1MLyC74CJ) with some example policy rules and Infracost output. Use this and the following steps to generate your very own policies.
 
 1. Generate a new Infracost [breakdown](/docs/features/cli_commands/#breakdown) output using `infracost breakdown --path plan.json --format json --out-file infracost.json`, and paste the contents of `infracost.json` into the **INPUT** section to the right of the playground.
 

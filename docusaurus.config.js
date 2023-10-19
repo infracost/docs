@@ -72,8 +72,12 @@ module.exports = {
             to: '/features/config_file',
           },
           {
-            from: '/usage_based_resources/',
-            to: '/features/usage_based_resources/',
+            from: '/features/cost_policies',
+            to: '/integrations/open_policy_agent',
+          },
+          {
+            from: "/usage_based_resources/",
+            to: "/features/usage_based_resources/",
           },
           {
             from: '/multi_project/report',
@@ -102,6 +106,10 @@ module.exports = {
           {
             from: '/infracost_cloud/sso/overview',
             to: '/infracost_cloud/sso',
+          },
+          {
+            from: '/infracost_cloud/cost_policies',
+            to: '/infracost_cloud/finops_policies',
           },
         ],
       },
