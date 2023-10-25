@@ -5,7 +5,7 @@ title: FAQ
 
 ## How does Infracost work?
 
-Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd). There is also a SaaS product, [Infracost Cloud](/pricing/), that complements the open source CLI by giving teams advanced visibility and controls.
+Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd). There is also a SaaS product, <a href="https://www.infracost.io/pricing/" target="_self" rel="">Infracost Cloud</a>, that complements the open source CLI by giving teams advanced visibility and controls.
 When the CLI runs, it:
 
 1. **Extracts cost-related parameters**<br />
@@ -22,7 +22,7 @@ When the CLI runs, it:
 
 ## Security and Privacy
 
-Security is of paramount importance to us. We are SOC 2 Type II certified. Our [Security page](/security) gives an overview of the processes and systems Infracost has in place to ensure we are continually protecting our users' data.
+Security is of paramount importance to us. We are SOC 2 Type II certified. Our <a href="https://www.infracost.io/security/" target="_self" rel="">Security page</a> gives an overview of the processes and systems Infracost has in place to ensure we are continually protecting our users' data.
 
 If you have any questions or concerns, please [contact us](mailto:hello@infracost.io).
 
@@ -96,7 +96,7 @@ If you have [enabled](/docs/infracost_cloud/get_started/) this, the CLI sends it
 
 ### Do you sell my data?
 
-No. Infracost is backed by top-tier investors including Y Combinator and Sequoia. We also have an [paid product](/pricing). For more information about how we handle data see our [Privacy Policy](/docs/privacy-policy).
+No. Infracost is backed by top-tier investors including Y Combinator and Sequoia. We also have an <a href="https://www.infracost.io/pricing/" target="_self" rel="">paid product</a>. For more information about how we handle data see our [Privacy Policy](/docs/privacy-policy).
 
 ### How should I report a security vulnerability?
 
@@ -139,7 +139,7 @@ Sure! See the [currency](/docs/features/environment_variables/#infracost_currenc
 
 ### What's the difference between source control and CI/CD integration?
 
-Source control integration is when you connect Infracost directly to your GitHub or GitLab. CI/CD integration is when you install the Infracost CLI in your CI/CD pipelines and run commands. 
+Source control integration is when you connect Infracost directly to your GitHub or GitLab. CI/CD integration is when you install the Infracost CLI in your CI/CD pipelines and run commands.
 
 We recommend source control integration as it is much simpler to setup, and faster to run. [This page](/docs/guides/source_control_benefits/) explains more about the benefits of source control integrations over CI/CD integrations.
 
