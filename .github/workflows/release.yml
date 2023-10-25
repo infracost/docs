@@ -11,8 +11,10 @@ jobs:
   release-dev:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     uses: ./.github/workflows/release_dev.yml
+    secrets: inherit
 
   release-prod:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     needs: release-dev
     uses: ./.github/workflows/release_prod.yml
+    secrets: inherit
