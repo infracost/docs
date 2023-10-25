@@ -5,7 +5,7 @@ title: GitLab App (recommended)
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The Infracost GitLab App is an automated integration meaning that Infracost runs on our infrastructure and we keep it up to date. Infracost is trusted by thousands of companies around the world, including many of the Fortune 500. We are [SOC 2 Type II](/security) certified.
+The Infracost GitLab App is an automated integration meaning that Infracost runs on our infrastructure and we keep it up to date. Infracost is trusted by thousands of companies around the world, including many of the Fortune 500. We are <a href="https://www.infracost.io/security/" target="_self" rel="">SOC 2 Type II</a> certified.
 
 | 1. Install the Infracost GitLab App | 2. Get merge request comments |
 |--------------|-----------|
