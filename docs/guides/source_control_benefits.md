@@ -17,7 +17,7 @@ Source control integrations ([GitHub App](/docs/integrations/github_app/) or [Gi
 
 ### 1. Required CLI version
 
-Currently, version 0.10.28+ of the Infracost CLI is needed for the Infracost Cloud features to work correctly. We recommend you upgrade the CLI every one to two months to pickup latest features and bug fixes.
+Currently, version 0.10.30+ of the Infracost CLI is needed for the Infracost Cloud features to work correctly. We recommend you upgrade the CLI every one to two months to pickup latest features and bug fixes.
 
 ### 2. Branch costs, FinOps and tagging policy failures
 
