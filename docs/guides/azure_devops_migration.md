@@ -35,7 +35,6 @@ Changing your workflow to work with the parse HCL option requires the following 
 1. Remove the Terraform and Terragrunt dependencies:
     - Delete any `TerraformInstaller` steps as Infracost now parses the HCL code directly, so it does not depend on these.
     - Delete any stages and jobs that runs `terraform` or `terragrunt`, e.g. "terraform init", "terraform plan" and "terraform show" are no longer needed.
-    - If you are not using the [fetch usage from CloudWatch](/docs/features/usage_based_resources/#fetch-from-cloudwatch) feature, delete any steps that set cloud credentials.
 
 2. Bump the version of the InfracostSetup task from `0` to `1`:
 

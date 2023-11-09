@@ -84,7 +84,7 @@ Yes! Please see the [self-hosting guide](/docs/cloud_pricing_api/self_hosted) fo
 
 ### Does Infracost need cloud credentials?
 
-No. However, if you want Infracost to fetch usage data from your AWS account, you need to give it [read-only access](/docs/features/usage_based_resources/#credentials).
+No! Infracost parses code and uses pricing data to estimate costs.
 
 ### Does the Infracost CLI send the Terraform plan to the Cloud Pricing API?
 
