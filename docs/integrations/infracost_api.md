@@ -7,17 +7,20 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-:::note
-The majority of users should use the [Infracost CLI](/docs/#quick-start), which **does not** send the Terraform plan file to the Cloud Pricing API; instead it [retrieves](/docs/faq#what-data-is-sent-to-the-cloud-pricing-api) prices using cost-related parameters, such as the instance type or disk size.
-:::
-
-This API can be useful for CI/CD integrations such as [Atlantis](/docs/integrations/cicd#atlantis), where it might be easier to use `curl` or an HTTP library instead of installing the Infracost CLI. Terraform plan JSON files can be sent to this API, which runs `infracost` and returns the results. Whilst this API deletes files from the server after they are processed, it is a good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this.
+The majority of users should be able to use Infracost [CI/CD integrations](/docs/integrations/cicd/). However, when a self-service provisioning portal such ServiceNow or Atlantis needs to integrate with Infracost, an HTTP library is often the simplest option. This API accepts a Terraform plan JSON file and returns the results in various formats.
 
 To use this API, send an HTTP POST request to desired endpoint (e.g. https://pricing.api.infracost.io/diff) with a Terraform plan JSON file sent in the `path` parameter using the multipart/form-data request body format, as shown in the following example curl request. The `x-api-key` header must be set to your [Infracost API key](/docs/#2-get-api-key).
 
+This API deletes files from the server after they are processed, however, it is also good security practice to remove secrets from the file before sending it to the API. For example, AWS provides [a grep command](https://gist.github.com/alikhajeh1/f2c3f607c44dabc70c73e04d47bb1307) that can be used to do this.
+
 ## Breakdown
 
-Show breakdown of costs.
+Show breakdown of costs. This is the main API call that should be used. It can return a [JSON response](/docs/features/json_output_format/), which contains the total costs as well as detailed breakdowns:
+```
+cat infracost.json | jq -r '.totalMonthlyCost'
+cat infracost.json | jq -r '.pastTotalMonthlyCost'
+cat infracost.json | jq -r '.diffTotalMonthlyCost'
+```
 
 Send an HTTP POST to: https://pricing.api.infracost.io/breakdown
 
@@ -52,7 +55,7 @@ values={[
   terraform plan -out tfplan.binary
   terraform show -json tfplan.binary > plan.json
 
-  curl -X POST -H "x-api-key: my-api-key" -F "ci-platform=atlantis" \
+  curl -X POST -H "x-api-key: ico-8MuTCaA3tIDGWomw4BsNmbfTMaS6y955" -F "ci-platform=atlantis" \
        -F "path=@plan.json" \
        https://pricing.api.infracost.io/breakdown
   ```
@@ -85,7 +88,7 @@ values={[
   </TabItem>
   <TabItem value="json">
 
-  See example [JSON output here](/docs/features/cli_commands/#examples).
+  See example [JSON output here](/docs/features/json_output_format/).
 
   </TabItem>
   <TabItem value="html">
@@ -95,7 +98,9 @@ values={[
 
 ## Diff 
 
-Show diff of monthly costs between current and planned state.
+The [breakdown](#breakdown) API call should be used most of the time as it supports a JSON format and includes the breakdown as well as the diff of the costs (between current and planned state).
+
+This API call is useful when you want to get a text diff format, similar to `git diff`, as shown in the example response below.
 
 Send an HTTP POST to: https://pricing.api.infracost.io/diff
 
