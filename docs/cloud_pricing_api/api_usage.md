@@ -6,13 +6,13 @@ title: Overview and usage
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) is a GraphQL-based API that includes all public prices from AWS, Azure and Google; it contains over **3 million prices!** The prices are automatically updated via a weekly job. This API is used by the [Infracost CLI](https://github.com/infracost/infracost), thus you do not need to interact with it directly, however, you can also use it independently.
+The Cloud Pricing API is a GraphQL-based API that includes all public prices from AWS, Azure and Google; it contains over **3 million prices!** The prices are automatically updated via a weekly job. This API is used by the [Infracost CLI](https://github.com/infracost/infracost), thus you do not need to interact with it directly, however, you can also use it independently.
 
 GraphQL is a natural fit for cloud pricing as it can model the JSON structure used by cloud vendors. This enables you to query nested JSON structures using vendor-specific parameters, and request only the attributes you need to be returned in the response. For example, you can find all prices that match AWS EC2 m3.large instance in us-east-1 (over 400 prices), then explore the 30+ attributes that AWS return to describe instances (e.g. `clockSpeed` or `networkPerformance`).
 
 ## Concepts
 
-The API has [two main types](https://github.com/infracost/cloud-pricing-api/blob/master/src/db/types.ts): Products and Prices. Each product can have many Prices. This simple high-level schema provides flexibility to model the exact values that the cloud vendor APIs return at the same time as having useful top-level product filters. The values returned by the API are the same ones that the cloud vendors return in their APIs.
+The API has two main types: Products and Prices. Each product can have many Prices. This simple high-level schema provides flexibility to model the exact values that the cloud vendor APIs return at the same time as having useful top-level product filters. The values returned by the API are the same ones that the cloud vendors return in their APIs.
 
 The main properties of Products are:
 
@@ -42,7 +42,7 @@ The main properties of Prices are:
 
 Infracost runs a hosted version of this API that you can use:
 1. Register for an API key by [downloading infracost](/docs/#quick-start) and running `infracost auth login`.
-2. Pass the above API key using the `X-Api-Key: xxxx` HTTP header when calling [https://pricing.api.infracost.io/graphql](https://pricing.api.infracost.io/graphql). The following example fetches the latest price for an AWS EC2 m3.large instance in us-east-1. More examples can be found [here](https://github.com/infracost/cloud-pricing-api/tree/master/examples/queries).
+2. Pass the above API key using the `X-Api-Key: xxxx` HTTP header when calling [https://pricing.api.infracost.io/graphql](https://pricing.api.infracost.io/graphql). The following example fetches the latest price for an AWS EC2 m3.large instance in us-east-1.
 
 <Tabs
   defaultValue="curl_request"
@@ -92,7 +92,7 @@ Infracost runs a hosted version of this API that you can use:
   }
   ```
 
-  </TabItem>  
+  </TabItem>
   <TabItem value="response">
 
   ```json
@@ -114,4 +114,4 @@ Infracost runs a hosted version of this API that you can use:
 
 ## What will you build?
 
-Whilst our main use-case for developing the Cloud Pricing API is the Infracost CLI, we're excited to see what the community does with this API. Please share your use-cases and issues with us on [GitHub](https://github.com/infracost/cloud-pricing-api/issues) or [Slack](https://www.infracost.io/community-chat) or [email](mailto:hello@infracost.io).
+Whilst our main use-case for developing the Cloud Pricing API is the Infracost CLI, we're excited to see what the community does with this API. Please share your use-cases and issues with us on [Slack](https://www.infracost.io/community-chat) or [email](mailto:hello@infracost.io).

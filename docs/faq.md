@@ -5,7 +5,7 @@ title: FAQ
 
 ## How does Infracost work?
 
-Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](https://github.com/infracost/cloud-pricing-api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd). There is also a SaaS product, <a href="https://www.infracost.io/pricing/" target="_self" rel="">Infracost Cloud</a>, that complements the open source CLI by giving teams advanced visibility and controls.
+Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](/docs/cloud_pricing_api/overview) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd). There is also a SaaS product, <a href="https://www.infracost.io/pricing/" target="_self" rel="">Infracost Cloud</a>, that complements the open source CLI by giving teams advanced visibility and controls.
 When the CLI runs, it:
 
 1. **Extracts cost-related parameters**<br />
@@ -77,10 +77,6 @@ query {
   }
 }
 ```
-
-### Can I run my own Cloud Pricing API?
-
-Yes! Please see the [self-hosting guide](/docs/cloud_pricing_api/self_hosted) for details.
 
 ### Does Infracost need cloud credentials?
 

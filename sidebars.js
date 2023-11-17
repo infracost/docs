@@ -78,7 +78,6 @@ module.exports = {
       collapsed: true,
       items: [
         'cloud_pricing_api/api_usage',
-        'cloud_pricing_api/self_hosted',
       ],
     },
     {
