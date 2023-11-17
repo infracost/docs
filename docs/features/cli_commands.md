@@ -136,7 +136,7 @@ If the above method does not work for your use-case, you can use Terraform to ge
 
 ## Combined output formats
 
-The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `html`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-message`. To use them:
+The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-message`. To use them:
 
 1. Generate Infracost JSON output for each Terraform project and combine them into one file. This is the recommended way to store the snapshot of a cost estimate; it can be used by the CLI to generate other formats. The JSON format can also be used to setup [cost policies](/docs/features/cost_policies/).
   ```sh
@@ -155,14 +155,7 @@ The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `
 
   # Diff output
   infracost output --path infracost.json --format diff
-
-  # HTML output
-  infracost output --path infracost.json --format html --out-file report.html
   ```
-
-  Cost estimates can be shared with others including team members or management using either:
-    - The [share reports](/docs/features/share_links/) feature (recommended).
-    - Generating the HTML format, uploading it to object storage such as AWS S3. This format also includes the file names and Terraform tags from the files that were used to generate it.
 
 Run `infracost output --help` to see other options, such as `--fields` and `--show-skipped`.
 
@@ -172,7 +165,6 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
   defaultValue="json"
   values={[
     {label: 'JSON format', value: 'json'},
-    {label: 'HTML', value: 'html'},
     {label: 'Table', value: 'table'},
     {label: 'Diff', value: 'diff'},
     {label: 'Pull request comment', value: 'pull-request-comment'},
@@ -193,9 +185,6 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
   cat infracost.json | jq -r '.diffTotalMonthlyCost'
   ```
 
-  </TabItem>
-  <TabItem value="html">
-    <img src={useBaseUrl("img/screenshots/html_report.png")} alt="Infracost HTML report" />
   </TabItem>
   <TabItem value="table">
 

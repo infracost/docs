@@ -18,7 +18,6 @@ module.exports = {
         'features/usage_based_resources',
         'features/terraform_modules',
         'features/terragrunt',
-        'features/share_links',
         'features/environment_variables',
       ],
     },
