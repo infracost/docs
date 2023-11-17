@@ -55,7 +55,7 @@ values={[
   terraform plan -out tfplan.binary
   terraform show -json tfplan.binary > plan.json
 
-  curl -X POST -H "x-api-key: ico-8MuTCaA3tIDGWomw4BsNmbfTMaS6y955" -F "ci-platform=atlantis" \
+  curl -X POST -H "x-api-key: my-api-key" -F "ci-platform=atlantis" \
        -F "path=@plan.json" \
        https://pricing.api.infracost.io/breakdown
   ```
