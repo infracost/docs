@@ -1,14 +1,14 @@
 ---
 slug: /
 title: Get started
-description: Get started with Infracost in your Terraform workflow, integrate it into your CI pipeline and view cost estimates for your AWS/Azure/Google infrastructure.
+description: Get started with Infracost and add it to your CI/CD pipeline to view AWS/Azure/Google cost estimates in pull requests.
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Infracost shows cloud cost estimates for Terraform. It lets engineers see a cost breakdown and understand costs **before making changes**, either in the terminal, VS Code or pull requests. This provides your team with a safety net as people can discuss costs as part of the workflow.
+Infracost enables a shift-left approach for cloud costs by providing cost estimates for Terraform **before** deployment. Additionally, it can check for FinOps best practices in accordance with the Well-Architected Frameworks of cloud vendors, and your company's required tag keys/values. This not only saves your team money but also streamlines discussions about costs within the engineering workflow rather than it being a post-deployment consideration.
 
 ### 1. Install Infracost
 Get the latest Infracost release:
@@ -157,12 +157,12 @@ Example output:
 
 ---
 
-### 5. See costs in dashboard
+### 5. See costs and best practices in dashboard
 
 <ol type="i">
   <li>The following command instructs the CLI to send its JSON output to Infracost Cloud. This is our SaaS product that builds on top of Infracost open source and works with CI/CD integrations (next step).
 
-  It enables team leads, managers and FinOps practitioners to setup tagging policies, guardrails and best practices to help guide the team. For example, you can check for required tag keys/values, or suggest switching AWS GP2 volumes to GP3 as they are more performant and cheaper.
+  It enables you to check for best practices such as using latest generation instance types or block storage, e.g. consider switching AWS gp2 volumes to gp3 as they are more performant and cheaper. Team leads, managers and FinOps practitioners can also setup tagging policies and guardrails to help guide the team.
   </li>
 
   ```shell
@@ -179,7 +179,7 @@ Example output:
 ---
 
 ### 6. Add to your CI/CD
-[Use our integrations](/docs/integrations/cicd) to add cost estimates to pull requests, it only takes 15 minutes. This provides your team with a safety net as people can understand cloud costs upfront, and discuss them as part of your workflow.
+[Use our integrations](/docs/integrations/cicd) to add cost estimates to pull requests, it only takes 15 minutes. This provides your team with a safety net as people can understand cloud costs and best practices upfront, and discuss them as part of your workflow.
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 

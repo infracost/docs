@@ -5,7 +5,7 @@ title: Get started
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost Cloud is our SaaS product that builds on top of Infracost open source. It enables team leads, managers and FinOps practitioners to setup tagging policies, guardrails and best practices to help guide the team. For example, you can check for required tag keys/values, or suggest switching AWS GP2 volumes to GP3 as they are more performant and cheaper. See our [demo video](https://www.youtube.com/watch?v=IYyul9WX7Pw) to learn more.
+Infracost Cloud is our SaaS product that builds on top of Infracost open source. It enables you to check for best practices such as using latest generation instance types or block storage, e.g. consider switching AWS gp2 volumes to gp3 as they are more performant and cheaper. Team leads, managers and FinOps practitioners can also setup tagging policies and guardrails to help guide the team. See our [demo video](https://www.youtube.com/watch?v=9f4kOy21au8) to learn more.
 
 <img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Team visibility across all changes" />
 
@@ -29,11 +29,42 @@ If you do not use the GitHub App or GitLab App integrations, you need to impleme
 
 ### 4. Send a pull request
 
-Send a new pull request to change something in Terraform that costs money, Infracost should post a pull request comment in your CI/CD system.
+In your code repo, create a new branch and add the following example Terraform code into your `main.tf` file (or equivalent). Commit and push the change, then use the branch to send a new pull request. Infracost should post a pull request comment showing the cost estimate as well as FinOps best practices that could be considered.
+
+<details><summary>Example Terraform code</summary>
+
+```hcl
+provider "aws" {
+  region                      = "us-east-1"
+  skip_credentials_validation = true
+  skip_requesting_account_id  = true
+  access_key                  = "mock_access_key"
+  secret_key                  = "mock_secret_key"
+}
+
+resource "aws_instance" "web_app" {
+  ami           = "ami-674cbc1e"
+  instance_type = "m3.xlarge"
+
+  tags = {
+    Environment = "production"
+    Service = "web-app"
+  }
+
+  root_block_device {
+    volume_size = 50
+  }
+}
+```
+</details>
+
+In the above example, the Infracost pull request comment points out that:
+1. The `root_block_device` defaults to AWS `gp2` since `volume_type` has not been specified. You should consider using `gp3` as it enables you to define performance independent of storage capacity, while providing up to 20% lower price per GB.
+2. Also, the `m3` instance type is previous generation and should be upgraded to `m5` since that gives you a 27% saving for a more performant machine.
 
 ### 5. See cost estimate in Infracost Cloud
 
-Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Dashboard** to see your pull request on the chart and cost breakdowns by repo, pull request and user. Clicking on a chart dot shows the corresponding estimate so you can investigate deeper or talk to the people working on the change. You can also see all repos and their pull requests from the **Visibility** > **Pull requests** page.
+Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organization** > **Visibility** > **Pull requests** to see all pull requests in a central place. You can also filter and sort them and check their details.
 
 <img src={useBaseUrl("img/infracost-cloud/pull-requests-tab.png")} alt="Infracost Cloud shows pull request cost changes" />
 
@@ -41,4 +72,4 @@ Go to [**Infracost Cloud**](https://dashboard.infracost.io) > **your organizatio
 
 Use the Members page to [invite](/docs/infracost_cloud/key_concepts/#team-management) your team members to join your organization.
 
-We also recommend setting up [tagging policies](/docs/infracost_cloud/tagging_policies/) and [guardrails](/docs/infracost_cloud/guardrails/).
+We also recommend setting up [tagging policies](/docs/infracost_cloud/tagging_policies/) and [guardrails](/docs/infracost_cloud/guardrails/). You can also review how well you're following [FinOps best practices](/docs/infracost_cloud/finops_policies/).

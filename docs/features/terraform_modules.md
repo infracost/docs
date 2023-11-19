@@ -78,12 +78,12 @@ Public registry modules are automatically supported so no extra setup is needed 
 * **Private GitLab registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to `gitlab.com` (or your GitLab hostname) and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [GitLab token](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry).
 * **Private JFrog registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your JFrog hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [identity token](https://www.jfrog.com/confluence/display/JFROG/Terraform+Registry#TerraformRegistry-manual-configurationManuallyGeneratinganIdentityToken).
 * **Spacelift**: Login to your Spacelift organization that has the modules, and go to the Organization Settings > API keys page; create a new API Key called "infracost" and select Space=root or the space(s) that contain your modules. Set the Role to Reader. Open the downloaded `.config` file and use the `token` value from the `credentials "spacelift.io"` section as the `INFRACOST_TERRAFORM_CLOUD_TOKEN`. The `INFRACOST_TERRAFORM_CLOUD_HOST` should be set to `spacelift.io` or whatever the hostname for your modules are in your Terraform files (e.g. `source = "myhost.com/mymodule"`). Finally, from the Spacelift Organization Settings > Login policy page, update your policy to allow the Infracost API key ID to login. The API key ID can be found in the API keys page:
-```
-package spacelift
-allow {
-  input.session.login == "api::API_KEY_ID_FROM_SPACELIFT_UI"
-}
-```
+  ```
+  package spacelift
+  allow {
+    input.session.login == "api::API_KEY_ID_FROM_SPACELIFT_UI"
+  }
+  ```
 * **Other private registry modules:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to the hostname of the registry and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to the access token for that registry.
 * **Modules from multiple private registries:** use the Terraform CLI config file option below.
 
