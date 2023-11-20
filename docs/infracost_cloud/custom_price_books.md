@@ -28,3 +28,9 @@ You can apply these discounts in Infracost Cloud:
 ## Custom price books
 
 We can also apply SKU-level custom cloud pricing to your Infracost Cloud organization. Please [contact us](mailto:hello@infracost.io) to set this up. We would need details of the services or SKUs that you'd like to customize.
+
+## Reserved Instances and Savings Plans
+
+For cost estimation purposes, engineers often prefer a simple price point that they can use in their calculations and when making design decisions. Reserved Instances and Savings Plans complicate this due to the dynamic nature of their discounts, which is applied after resources are launched.
+
+Therefore, to simplify cost estimation for engineers, some companies prefer to use "blended rate" of resources, which combines on-demand and discounted prices into one price point. The blended rate is shown in cloud vendor Cost and Usage Reports (e.g. AWS CUR) and we can import them into your Infracost Cloud organization so they can be used instead of on-demand prices. Please [contact us](mailto:hello@infracost.io) to setup a way for you to provide these to us.

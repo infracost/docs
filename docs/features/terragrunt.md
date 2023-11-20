@@ -3,7 +3,7 @@ slug: terragrunt
 title: Terragrunt
 ---
 
-The Infracost `breakdown` and `diff` commands automatically detect Terragrunt projects:
+The Infracost `breakdown` and `diff` commands automatically detect Terragrunt projects, though we generally recommend setting up a [config file](/docs/features/config_file/) for Terragrunt repos.
 
 ```shell
 infracost breakdown --path=path/to/terragrunt/repo
