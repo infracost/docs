@@ -39,17 +39,6 @@ There are three key benefits of using the GitHub App over manual CI/CD integrati
 
 7. When the pull request is merged the Infracost Cloud dashboard will show you the time it was merged, who approved it, who merged it, and any labels associated with it on GitHub.
 
-## Pull request status
-
-The Infracost GitHub App enables the [dashboard](https://dashboard.infracost.io/) to show you the status of pull requests so you can filter on them. You can also filter on the date range that the pull request was last updated, and the base branch that pull requests are being merged into (e.g. main, stage, production).
-
-<img src={useBaseUrl("img/infracost-cloud/pull-request-status-filter.png")} alt="Create new organization" />
-
-The pull request status can be:
-  - **open**: the pull request is currently open, thus if you want to review the most expensive pull requests that are in-flight, only focus on these.
-  - **closed**: the pull request was closed without being merged. These pull requests can probably be ignored altogether as most of the time they're just noise.
-  - **merged**: the pull request was merged into the base branch, these can be checked when auditing actual cloud costs to see what happened.
-
 ## GitHub Enterprise
 
 Our automated GitHub App integration works with both GitHub Enterprise Cloud and GitHub Enterprise Server. Directly integrating Infracost Cloud to GitHub Enterprise means you'll get the latest features, the fastest cost estimates and the most robust solution.

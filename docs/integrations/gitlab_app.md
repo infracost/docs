@@ -39,17 +39,6 @@ There are three key benefits of using the GitLab App over manual CI/CD integrati
 
 7. When the merge request is merged the Infracost Cloud dashboard will show you the time it was merged, who approved it, who merged it, and any labels associated with it on GitLab.
 
-## Merge request status
-
-The Infracost GitLab App enables the [dashboard](https://dashboard.infracost.io/) to show you the status of merge requests so you can filter on them. You can also filter on the date range that the merge request was last updated, and the base branch that merge requests are being merged into (e.g. main, stage, production).
-
-<img src={useBaseUrl("img/infracost-cloud/pull-request-status-filter.png")} alt="Pull request status filter" />
-
-The merge request status can be:
-  - **open**: the merge request is currently open, thus if you want to review the most expensive merge requests that are in-flight, only focus on these.
-  - **closed**: the merge request was closed without being merged. These merge requests can probably be ignored altogether as most of the time they're just noise.
-  - **merged**: the merge request was merged into the base branch, these can be checked when auditing actual cloud costs to see what happened.
-
 ## GitLab Enterprise and self-managed
 
 Our automated GitLab App integration works with both GitLab Enterprise and GitLab self-managed installations too. Directly integrating Infracost Cloud to GitLab self-managed means you'll get the latest features, the fastest cost estimates and the most robust solution.
