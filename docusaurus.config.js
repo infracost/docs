@@ -141,6 +141,7 @@ module.exports = {
       searchParameters: {
         facetFilters: [],
       },
+      externalUrlRegex: 'infracost\\.io/blog',
     },
   },
   presets: [
