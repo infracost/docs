@@ -15,7 +15,7 @@ Infracost can also be used alongside third-party systems including:
 - [Terranetes](https://terranetes.appvia.io/terranetes-controller/admin/costs)
 - [Terrakube](https://docs.terrakube.io/user-guide/cost-estimation)
 - [Keptn](https://artifacthub.io/packages/keptn/keptn-integrations/infracost)
-- [Brainboard](https://www.brainboard.co/integrations/infracost)
+- [Brainboard](https://www.brainboard.co/cloud-integration/infracost)
 - [Semaphore](https://docs.semaphoreci.com/examples/estimating-cloud-costs-with-infracost/)
 - [cloud-concierge](https://docs.cloudconcierge.io/how-it-works/pull-request-output#resource-cost-calculations)
 
