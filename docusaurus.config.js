@@ -111,6 +111,10 @@ module.exports = {
             from: '/infracost_cloud/cost_policies',
             to: '/infracost_cloud/finops_policies',
           },
+          {
+            from: '/cloud_pricing_api/self_hosted',
+            to: '/',
+          },
         ],
       },
     ],
