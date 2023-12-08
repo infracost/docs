@@ -13,10 +13,9 @@ The Infracost GitLab App is an automated integration meaning that Infracost runs
 
 ## Benefits
 
-There are three key benefits of using the GitLab App over manual CI/CD integrations:
+There are two key benefits of using the GitLab App over manual CI/CD integrations:
 1. You can add Infracost to multiple repos with one click, no need to install or update CLI versions in your CI/CD pipeline.
 2. Infracost runs significantly faster as only changed folders are run based on the GitLab App events.
-3. If you use Infracost Cloud (our SaaS product), all features work without you needing to make any changes to your CI/CD pipelines. If you use CI/CD integrations, you should implement [these extra steps](/docs/guides/source_control_benefits/).
 
 ## Usage
 

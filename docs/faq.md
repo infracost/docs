@@ -127,7 +127,7 @@ Auto-scaling groups have a dynamic instance count so it's useful for engineers t
 
 By default, Infracost parses the code to detect the instance count, thus it has to follow the static logic from the autoscaling group in AWS, Azure or Google. For example, the `aws_autoscaling_group` resource has a `desired_capacity` that is used, and if that is not set, the `min_size` is used, and otherwise we default to an instance count of 1.
 
-You can override the instance count manually in the [usage file](/docs/features/usage_based_resources/). The usage file can also be [populated](/docs/features/usage_based_resources/#fetch-from-cloud-apis) from the last 30-day average from CloudWatch; if this is not available Infracost will fetch the current instance count from the AWS API instead.
+You can override the instance count manually in the [usage file](/docs/features/usage_based_resources/).
 
 ### Can I show costs in a different currency?
 
