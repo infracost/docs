@@ -390,6 +390,8 @@ The following global variables are **only** available in CI:
 
 Config file templates support a wide range of built-in functions to make it easy for you to write config files that work for your project structure. Below you'll find a list of supported functions with detailed examples.
 
+> Please be aware that the functions and examples provided are designed for a Unix-based system. If you are using Windows, make sure to adjust the path syntax accordingly. For instance, use backslashes `\` in paths as per Windows system requirements.
+
 #### Filepath functions
 
 Config file templates include the following functions to help you traverse your project structure:
@@ -413,7 +415,7 @@ Returns a list of matches that in the project directory tree that match the patt
 ##### Arguments:
 
   | name    | description                                                                                                                   | example                                                                                                                                      |
-  | ------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+  |---------|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
   | pattern | a path pattern to one or more files or directories in your project. Keys that you wish to extract must be prefixed with `':'` | `"environment/:env/terraform.tfvars"`, `"infra/:env/:app"`, `"environment/:app/:env.tfvars"`, `":optional-parent?/:optional-child?/main.tf"` |
 
 ##### Returns:
