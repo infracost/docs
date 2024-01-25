@@ -19,7 +19,7 @@ Our CI/CD integrations run the Infracost CLI and parse Terraform HCL code direct
 
 This option uses the Terraform plan JSON that Terraform Cloud/Enterprise generates. The following features are not currently supported by this option: posting pull request comments, multiple currencies, modelling usage-based resources via the usage-file. Please [contact us](mailto:hello@infracost.io) if you need these features.
 
-<a href="https://www.infracost.io/blog/terraform-runtasks-what-why-how/" target="_self" rel="">Terraform Run Tasks]</a> can be used to integrate Infracost into Terraform Cloud/Enterprise directly. It sits between the plan and apply stage and shows a cost estimate for the changes that are about to be deployed. There is also a shareable details link that will open a pre-authenticated link with a detailed breakdown of costs per resource.
+<a href="https://www.infracost.io/blog/terraform-runtasks-what-why-how/" target="_self" rel="">Terraform Run Tasks</a> can be used to integrate Infracost into Terraform Cloud/Enterprise directly. It sits between the plan and apply stage and shows a cost estimate for the changes that are about to be deployed. There is also a shareable details link that will open a pre-authenticated link with a detailed breakdown of costs per resource.
 
 #### 1. Generate Infracost Endpoint
 Sign up or log in to [Infracost Cloud](https://dashboard.infracost.io/tfc-sign-up) and go to the Integrations page to enable the Terraform Cloud integration. This creates an Infracost endpoint URL and HMAC key that you'll use in the next step. You can also create an organization in Infracost to match the organization name you have in Terraform Cloud.
