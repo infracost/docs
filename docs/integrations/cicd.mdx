@@ -37,7 +37,7 @@ export const CIBox = ({image, link, maxHeight, newWindow, text}) => (
   </a>
 )
 
-Use one of our many integrations so your engineering team can see cost estimates and FinOps best practices in pull requests **before making changes**. This provides your team with a safety net as people can discuss costs as part of the workflow.
+Use one of our many integrations so your engineering team can see cost estimates and FinOps best practices in pull requests **before making changes**. This provides your team with a safety net as people can discuss FinOps as part of the workflow.
 
 <img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" width="85%" />
 
@@ -45,8 +45,8 @@ If you run into any issues, please join our [community Slack channel](https://ww
 
 ## Source control integrations (recommended)
 
-Infracost supports direct integration with GitHub and GitLab.
-We recommend these integrations as they are much simpler to setup, and faster to run. [This page](/docs/guides/source_control_benefits/) explains more about the benefits of source control integrations over CI/CD integrations.
+Infracost supports direct integration with GitHub and GitLab. We recommend these integrations as they are much simpler to setup and faster to run.
+
 <Grid logos={[
     {
       image: "/docs/img/services/github.svg",
@@ -97,18 +97,8 @@ The following integrations can also be used to post pull request comments.
       link: "https://bitbucket.org/infracost/infracost-bitbucket-pipeline/src/master/",
       newWindow: true
     },
-    {
-      image: "/docs/img/services/circleci.svg",
-      link: "https://github.com/infracost/infracost-circleci",
-      newWindow: true
-    },
-    {
-      link: "/docs/integrations/generic_cicd",
-      text: "Other CI/CD integrations using Docker or CLI",
-      newWindow: false
-    },
 ]}/>
 
-## Third-party integrations
+<br/>
 
-Infracost can also be used alongside many other [third-party systems](/docs/integrations/third_party_integrations/) including Terraform Cloud/Enterprise, Env0, Scalr and Spacelift. Note that these integrations are very minimal, do not post pull request comments or work with other Infracost Cloud features such as [FinOps policies](/docs/infracost_cloud/finops_policies/), [Tagging policies](/docs/infracost_cloud/tagging_policies/), or [Guardrails](/docs/infracost_cloud/guardrails/).
+For other CI/CD systems, the GitLab CI integration above is a good example to follow. Please [email us](mailto:hello@infracost.io) if you need help. We maintain the [`infracost/infracost:ci-0.10`](https://hub.docker.com/r/infracost/infracost/tags) Docker image that can be used in other CI/CD integrations. This uses the latest patch version of 0.10 to pick up bug fixes and new resources.

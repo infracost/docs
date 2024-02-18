@@ -25,7 +25,7 @@ module.exports = {
         redirects: [
           {
             from: '/integrations',
-            to: '/integrations/github_actions',
+            to: '/integrations/cicd',
           },
           {
             from: ['/environment_variables', '/integrations/environment_variables'],
@@ -100,6 +100,14 @@ module.exports = {
             to: '/infracost_cloud/jira_integration',
           },
           {
+            from: '/integrations/generic_cicd',
+            to: '/integrations/cicd/',
+          },
+          {
+            from: '/integrations/vscode',
+            to: '/features/vscode/',
+          },
+          {
             from: '/infracost_cloud/authentication',
             to: '/infracost_cloud/key_concepts',
           },
@@ -114,6 +122,10 @@ module.exports = {
           {
             from: '/cloud_pricing_api/self_hosted',
             to: '/',
+          },
+          {
+            from: '/cloud_pricing_api/overview',
+            to: '/supported_resources/cloud_pricing_api',
           },
         ],
       },

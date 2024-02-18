@@ -23,10 +23,6 @@ You can create multiple guardrails, for example one with a lower threshold that 
 
 To create a guardrail, log in to [Infracost Cloud](https://dashboard.infracost.io) and go to the Governance > Guardrails page.
 
-:::note
-If you do not use source control integrations ([GitHub App](/docs/integrations/github_app/) or [GitLab App](/docs/integrations/gitlab_app/)), you must [implement some extra steps](/docs/guides/source_control_benefits/) for CI/CD integrations to work with guardrails.
-:::
-
 ### 1. Scope of guardrail
 
 Give your guardrail a name, and select the whether the guardrail should be evaluated against the pull request cost as a whole, or against projects individually.

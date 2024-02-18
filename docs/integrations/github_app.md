@@ -1,6 +1,6 @@
 ---
 slug: github_app
-title: GitHub App (recommended)
+title: GitHub App
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -13,10 +13,9 @@ The Infracost GitHub App is an automated integration meaning that Infracost runs
 
 ## Benefits
 
-There are three key benefits of using the GitHub App over manual CI/CD integrations:
+There are two key benefits of using the GitHub App over manual CI/CD integrations:
 1. You can add Infracost to multiple repos with one click, no need to install or update CLI versions in your CI/CD pipeline.
-2. Infracost runs significantly faster as only changed folders are run based on the GitHub App events.
-3. If you use Infracost Cloud (our SaaS product), all features work without you needing to make any changes to your CI/CD pipelines. If you use CI/CD integrations, you should implement [these extra steps](/docs/guides/source_control_benefits/).
+2. Infracost runs faster as only changed folders are run based on the GitHub App events.
 
 ## Usage
 
@@ -68,3 +67,9 @@ Each time a pull request is opened or a new commit is pushed to open pull reques
 ### Disable pull request comments
 
 From the Org Settings > Integrations > GitHub App page, you can disable pull request comments so cost estimates, guardrails and tagging policies are only shown in Infracost Cloud. This enables you to test these features without impacting engineering workflows.
+
+### GitHub Actions to App migration
+
+1. Follow the [usage](#usage) docs to install the app. You can do this from the same Infracost organization you use already, and going into the Org Settings > Integrations page.
+2. Test it by [sending a pull request](/docs/infracost_cloud/get_started/#4-send-a-pull-request).
+3. Remove all Infracost steps from your GitHub Actions.

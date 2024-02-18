@@ -35,10 +35,6 @@ When engineers create a pull request to change infrastructure, Infracost scans t
 
 <img src={useBaseUrl("img/infracost-cloud/finops-policies/pr-comment-expanded.png")} alt="The pull request comment shows exactly what file and line number need to be updated to fix the issue." />
 
-:::note
-If you do not use source control integrations ([GitHub App](/docs/integrations/github_app/) or [GitLab App](/docs/integrations/gitlab_app/)), you must [implement some extra steps](/docs/guides/source_control_benefits/) for CI/CD integrations to work with tagging policies. Tagging policies do not currently work with the [Terraform Plan JSON](/docs/features/cli_commands/#option-2-terraform-plan-json) method; [contact us](mailto:hello@infracost.io) for assistance.
-:::
-
 ## 4. Update policy settings
 
 From the Governance > FinOps page, you can click on the details of any policy and update its settings. These settings include the option to block requests that fail the policy, and the ability to customize the message shown to engineers in pull requests. This is useful if you need to customize the message to recommend your company's specific policy or a link to internal wiki pages where engineers can learn more.

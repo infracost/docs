@@ -1,6 +1,6 @@
 ---
 slug: gitlab_app
-title: GitLab App (recommended)
+title: GitLab App
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';

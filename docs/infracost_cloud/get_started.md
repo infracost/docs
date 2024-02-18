@@ -31,26 +31,36 @@ In your code repo, create a new branch. In the test branch, add a new file calle
 
 ```hcl
 provider "aws" {
-  region = "us-east-1"
+  region                      = "us-east-1"
+  skip_credentials_validation = true
+  skip_requesting_account_id  = true
+  access_key                  = "mock_access_key"
+  secret_key                  = "mock_secret_key"
 }
 
 resource "aws_instance" "my_web_app" {
-  instance_type = "m3.xlarge"     # <<<<< Try changing this to m5.xlarge to compare the costs
+  ami           = "ami-005e54dee72cc1d00"
+
+  instance_type = "m3.xlarge" # <<<<<<<<<< Try changing this to m5.xlarge to compare the costs
 
   tags = {
     Environment = "production"
-    Service = "web-app"
+    Service     = "web-app"
   }
 
   root_block_device {
-    volume_size = 1000             # <<<<< Try adding volume_type="gp3" to compare costs
+    volume_size = 1000 # <<<<<<<<<< Try adding volume_type="gp3" to compare costs
   }
 }
 
 resource "aws_lambda_function" "my_hello_world" {
-  runtime = "nodejs12.x"
-  memory_size = 512
+  runtime       = "nodejs12.x"
+  handler       = "exports.test"
+  image_uri     = "test"
+  function_name = "test"
+  role          = "arn:aws:ec2:us-east-1:123123123123:instance/i-1231231231"
 
+  memory_size = 512
   tags = {
     Environment = "Prod"
   }
@@ -67,41 +77,64 @@ In the above example, the Infracost pull request comment points out that:
 
 ```hcl
 provider "azurerm" {
+  skip_provider_registration = true
+  features {}
 }
 
 resource "azurerm_linux_virtual_machine" "my_linux_vm" {
-  location = "eastus"
+  location            = "eastus"
+  name                = "test"
+  resource_group_name = "test"
+  admin_username      = "testuser"
+  admin_password      = "Testpa5s"
 
-  size = "Standard_F16s" # <<<<< Try changing this to Standard_F16s_v2 to compare the costs
+  size = "Standard_F16s" # <<<<<<<<<< Try changing this to Standard_F16s_v2 to compare the costs
 
   tags = {
     Environment = "production"
-    Service = "web-app"
+    Service     = "web-app"
   }
 
   os_disk {
-    caching = "ReadWrite"
+    caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
+  }
+
+  network_interface_ids = [
+    "/subscriptions/123/resourceGroups/testrg/providers/Microsoft.Network/networkInterfaces/testnic",
+  ]
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
+    version   = "latest"
   }
 }
 
-resource "azurerm_app_service_plan" "my_app_service" {
-  location = "eastus"
+resource "azurerm_service_plan" "my_app_service" {
+  location            = "eastus"
+  name                = "test"
+  resource_group_name = "test_resource_group"
+  os_type             = "Windows"
 
-  sku {
-    tier     = "PremiumV2"
-    size     = "P1v2"
-    capacity = 4 # <<<<< Try changing this to 8 to compare the costs
-  }
+  sku_name     = "P1v2"
+  worker_count = 4 # <<<<<<<<<< Try changing this to 8 to compare the costs
 
   tags = {
     Environment = "Prod"
-    Service = "web-app"
+    Service     = "web-app"
   }
 }
 
-resource "azurerm_function_app" "my_function" {
+resource "azurerm_linux_function_app" "my_function" {
   location                   = "eastus"
+  name                       = "test"
+  resource_group_name        = "test"
+  service_plan_id            = "/subscriptions/123/resourceGroups/testrg/providers/Microsoft.Web/serverFarms/serverFarmValue"
+  storage_account_name       = "test"
+  storage_account_access_key = "test"
+  site_config {}
 
   tags = {
     Environment = "Prod"
@@ -111,7 +144,7 @@ resource "azurerm_function_app" "my_function" {
 
 In the above example, the Infracost pull request comment points out that:
 1. The `Standard_F16s` instance type is previous generation and should be upgraded to `Standard_F16s_v2`, since that gives you a more performant machine at a lower cost.
-2. The `PremiumV2` App Service plan should be upgraded to a v3 plan, such as `P0v3` (with `tier=PremiumV3`), since that gives you more performance and is eligible for savings plans and reserved instance pricing, opening opportunities for major savings.
+2. The App Service plan SKU name should be upgraded to a v3 plan, such as `P0v3`, since that gives you more performance and is eligible for savings plans and reserved instance pricing, opening opportunities for major savings.
 
 </details>
 
@@ -119,35 +152,48 @@ In the above example, the Infracost pull request comment points out that:
 
 ```hcl
 provider "google" {
- region      = "us-central1"
+  region  = "us-central1"
+  project = "test"
 }
 
 resource "google_compute_instance" "my_instance" {
-  zone         = "us-central1-a"
+  zone = "us-central1-a"
+  name = "test"
 
-  machine_type = "n1-standard-16" # <<<<< Try changing this to n1-standard-32 to compare the costs
+  machine_type = "n1-standard-16" # <<<<<<<<<< Try changing this to n1-standard-32 to compare the costs
+  network_interface {
+    network = "default"
+    access_config {}
+  }
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
+  }
 
   scheduling {
     preemptible = true
   }
 
   guest_accelerator {
-    type = "nvidia-tesla-t4" # <<<<< Try changing this to nvidia-tesla-p4 to compare the costs
+    type  = "nvidia-tesla-t4" # <<<<<<<<<< Try changing this to nvidia-tesla-p4 to compare the costs
     count = 4
   }
 
   labels = {
-    Environment = "production"
-    Service = "web-app"
+    environment = "production"
+    service     = "web-app"
   }
 }
 
 resource "google_cloudfunctions_function" "my_function" {
-  runtime = "nodejs10"
+  runtime             = "nodejs20"
+  name                = "test"
   available_memory_mb = 512
 
   labels = {
-    Environment = "Prod"
+    environment = "Prod"
   }
 }
 ```

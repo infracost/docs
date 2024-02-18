@@ -5,20 +5,20 @@ title: FAQ
 
 ## How does Infracost work?
 
-Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](/docs/cloud_pricing_api/overview) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd). There is also a SaaS product, <a href="https://www.infracost.io/pricing/" target="_self" rel="">Infracost Cloud</a>, that complements the open source CLI by giving teams advanced visibility and controls.
+Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](/docs/supported_resources/cloud_pricing_api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd). There is also a SaaS product, <a href="https://www.infracost.io/pricing/" target="_self" rel="">Infracost Cloud</a>, that complements the open source CLI by giving teams advanced visibility and controls.
 When the CLI runs, it:
 
 1. **Extracts cost-related parameters**<br />
   The CLI parses Terraform HCL code to extract only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size.
 
 2. **Retrieves prices from the Cloud Pricing API**<br />
-  The CLI retrieves prices from the Cloud Pricing API. The CLI **does not** send the actual plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response).
+  The CLI retrieves prices from the Cloud Pricing API. The CLI **does not** send the Terraform plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response).
 
 3. **Calculates the monthly costs**<br />
-  The CLI calculates the monthly costs. The results can be output in table, JSON format or [other formats](/docs/features/cli_commands/#combined-output-formats).
+  The CLI calculates the monthly costs. The results can be output in [various formats](/docs/features/cli_commands/#combined-output-formats) including JSON or text table.
 
 4. **Infracost Cloud**<br />
-  If you have enabled this product, the CLI sends the final cost estimate in JSON format to your account in Infracost Cloud.
+  If you use Infracost Cloud, the CLI sends the final cost estimate in JSON format to your dashboard, the JSON does not contain any cloud credentials or secrets.
 
 ## Security and Privacy
 
@@ -80,15 +80,15 @@ query {
 
 ### Does Infracost need cloud credentials?
 
-No! Infracost parses code and uses pricing data to estimate costs.
+No! Infracost parses code directly and uses pricing data to estimate costs.
 
 ### Does the Infracost CLI send the Terraform plan to the Cloud Pricing API?
 
-No. The Infracost CLI parses the Terraform plan JSON file to find [cost-related parameters](/docs/faq#example-request) and uses those to lookup cloud prices.
+No. The Infracost CLI parses the Terraform HCL code directly or the plan JSON file to find [cost-related parameters](/docs/faq#example-request) and uses those to lookup cloud prices.
 
 ### What data is sent to Infracost Cloud?
 
-If you have [enabled](/docs/infracost_cloud/get_started/) this, the CLI sends its [JSON output](/docs/features/cli_commands/#examples) to your account in Infracost Cloud; you can generate and inspect this JSON. It does not contain any cloud credentials or secrets.
+If you use [Infracost Cloud](/docs/infracost_cloud/get_started/), the CLI sends its [JSON output](/docs/features/cli_commands/#combined-output-formats) to your dashboard; you can generate and inspect this JSON. It does not contain any cloud credentials or secrets.
 
 ### Do you sell my data?
 
@@ -135,9 +135,7 @@ Sure! See the [currency](/docs/features/environment_variables/#infracost_currenc
 
 ### What's the difference between source control and CI/CD integration?
 
-Source control integration is when you connect Infracost directly to your GitHub or GitLab. CI/CD integration is when you install the Infracost CLI in your CI/CD pipelines and run commands.
-
-We recommend source control integration as it is much simpler to setup, and faster to run. [This page](/docs/guides/source_control_benefits/) explains more about the benefits of source control integrations over CI/CD integrations.
+Source control integration is when you connect Infracost directly to your GitHub or GitLab. CI/CD integration is when you install the Infracost CLI in your CI/CD pipelines and run commands. We recommend source control integration as it is simpler to setup and faster to run.
 
 ### Do you offer support?
 
