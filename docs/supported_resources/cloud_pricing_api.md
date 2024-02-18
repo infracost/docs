@@ -1,6 +1,6 @@
 ---
-slug: overview
-title: Overview and usage
+slug: cloud_pricing_api
+title: Cloud Pricing API
 ---
 
 import Tabs from '@theme/Tabs';

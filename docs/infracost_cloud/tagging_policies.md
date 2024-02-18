@@ -69,10 +69,6 @@ When engineers create a pull request to change infrastructure, Infracost scans t
 
 <img src={useBaseUrl("img/infracost-cloud/tagging-policies/pull-request-tags.png")} alt="Create a pull request to test your tagging policy." />
 
-:::note
-If you do not use source control integrations ([GitHub App](/docs/integrations/github_app/) or [GitLab App](/docs/integrations/gitlab_app/)), you must [implement some extra steps](/docs/guides/source_control_benefits/) for CI/CD integrations to work with tagging policies. Tagging policies do not currently work with the [Terraform Plan JSON](/docs/features/cli_commands/#option-2-terraform-plan-json) method; [contact us](mailto:hello@infracost.io) for assistance.
-:::
-
 ## How tagging policies work
 
 Tagging policies check all AWS, Azure and Google Terraform resources that support tagging, including resources that Infracost does not show cost estimates for yet. The following list describes things that are checked by tagging policies:

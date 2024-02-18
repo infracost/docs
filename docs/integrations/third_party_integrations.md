@@ -5,7 +5,8 @@ title: Third-party integrations
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost can also be used alongside third-party systems including:
+Infracost can be used in the following third-party systems. You should only consider using them if you cannot use our [CI/CD integrations](/docs/integrations/cicd/) as these integrations are very minimal, do not post pull request comments nor do they work with other Infracost Cloud features such as [FinOps policies](/docs/infracost_cloud/finops_policies/), [Tagging policies](/docs/infracost_cloud/tagging_policies/) or [Guardrails](/docs/infracost_cloud/guardrails/).
+
 - [Terraform Cloud/Enterprise Run Tasks](/docs/integrations/terraform_cloud_enterprise/)
 - [Scalr](https://docs.scalr.com/en/latest/cost_estimate.html)
 - [Spacelift](https://docs.spacelift.io/vendors/terraform/infracost)
