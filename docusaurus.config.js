@@ -92,6 +92,34 @@ module.exports = {
             to: '/features/terraform_modules',
           },
           {
+            from: '/guides/v0.8_migration',
+            to: '/',
+          },
+          {
+            from: '/guides/v0.9_migration',
+            to: '/',
+          },
+          {
+            from: '/guides/v0.10_migration',
+            to: '/',
+          },
+          {
+            from: '/guides/actions_migration',
+            to: '/integrations/cicd',
+          },
+          {
+            from: '/guides/azure_devops_migration',
+            to: '/integrations/cicd',
+          },
+          {
+            from: '/guides/atlantis_migration',
+            to: '/integrations/cicd',
+          },
+          {
+            from: '/guides/gitlab_ci_migration',
+            to: '/integrations/cicd',
+          },
+          {
             from: '/infracost_cloud/overview',
             to: '/infracost_cloud/get_started',
           },
