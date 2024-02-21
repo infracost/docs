@@ -140,6 +140,9 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_backup_policy_vm`                                                       |
 | `azurerm_blueprint_assignment`                                                   |
 | `azurerm_cdn_profile`                                                            |
+| `azurerm_consumption_budget_management_group`                                    |
+| `azurerm_consumption_budget_resource_group`                                      |
+| `azurerm_consumption_budget_subscription`                                        |
 | `azurerm_container_registry_scope_map`                                           |
 | `azurerm_container_registry_token`                                               |
 | `azurerm_container_registry_webhook`                                             |
@@ -148,6 +151,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_cosmosdb_sql_stored_procedure`                                          |
 | `azurerm_cosmosdb_sql_trigger`                                                   |
 | `azurerm_cosmosdb_sql_user_defined_function`                                     |
+| `azurerm_cost_anomaly_alert`                                                     |
+| `azurerm_cost_management_scheduled_action`                                       |
 | `azurerm_dashboard`                                                              |
 | `azurerm_data_factory_custom_dataset`                                            |
 | `azurerm_data_factory_data_flow`                                                 |
@@ -342,6 +347,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_relay_hybrid_connection_authorization_rule`                             |
 | `azurerm_relay_namespace_authorization_rule`                                     |
 | `azurerm_resource_group`                                                         |
+| `azurerm_resource_group_cost_management_export`                                  |
+| `azurerm_resource_group_cost_management_view`                                    |
 | `azurerm_resource_provider_registration`                                         |
 | `azurerm_role_assignment`                                                        |
 | `azurerm_role_definition`                                                        |
@@ -411,6 +418,11 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_subnet_service_endpoint_storage_policy`                                 |
 | `azurerm_subnet`                                                                 |
 | `azurerm_subscription`                                                           |
+| `azurerm_subscription_cost_management_export`                                    |
+| `azurerm_subscription_cost_management_view`                                      |
+| `azurerm_subscription_policy_assignment`                                         |
+| `azurerm_subscription_policy_exemption`                                          |
+| `azurerm_subscription_policy_remediation`                                        |
 | `azurerm_synapse_firewall_rule`                                                  |
 | `azurerm_synapse_private_link_hub`                                               |
 | `azurerm_user_assigned_identity`                                                 |
@@ -420,6 +432,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_virtual_desktop_workspace_application_group_association`                |
 | `azurerm_virtual_desktop_workspace`                                              |
 | `azurerm_virtual_hub_connection`                                                 |
+| `azurerm_virtual_hub_route_table`                                                |
+| `azurerm_virtual_hub_route_table_route`                                          |
 | `azurerm_virtual_machine_data_disk_attachment`                                   |
 | `azurerm_virtual_machine_extension`                                              |
 | `azurerm_virtual_machine_scale_set_extension`                                    |
