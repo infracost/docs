@@ -128,58 +128,8 @@ Infracost can also estimate [usage-based resources](/docs/features/usage_based_r
 
 ---
 
-### 4. Show cost estimate diff
-
-<ol type="i">
-  <li>Generate an Infracost JSON file as the baseline:</li>
-
-  ```shell
-  infracost breakdown --path . --format json --out-file infracost-base.json
-  ```
-
-  <li>Edit your Terraform project. If you're using our example project, try changing the instance type:</li>
-
-  ```shell
-  vim main.tf
-  ```
-
-  <li>Generate a diff by comparing the latest code change with the baseline:</li>
-
-  ```shell
-  infracost diff --path . --compare-to infracost-base.json
-  ```
-</ol>
-
-<p>
-Example output:
-<img src={useBaseUrl("img/screenshots/get-started-diff.png")} alt="Infracost diff command" />
-</p>
-
----
-
-### 5. See costs and best practices in dashboard
-
-<ol type="i">
-  <li>The following command instructs the CLI to send its JSON output to Infracost Cloud. This is our SaaS product that builds on top of Infracost open source and works with CI/CD integrations (next step).
-
-  It enables you to check for best practices such as using latest generation instance types or block storage, e.g. consider switching AWS gp2 volumes to gp3 as they are more performant and cheaper. Team leads, managers and FinOps practitioners can also setup tagging policies and guardrails to help guide the team.
-  </li>
-
-  ```shell
-  infracost upload --path infracost-base.json
-  ```
-
-  <li>
-    Log in to <a href="https://dashboard.infracost.io">Infracost Cloud</a> > Visibility > Repos page to see the cost estimate.
-  </li>
-</ol>
-
-<img src={useBaseUrl("img/infracost-cloud/dashboard-chart.png")} alt="Infracost Cloud dashboard showing pull request costs over the last 30 days" />
-
----
-
-### 6. Add to your CI/CD
-[Use our integrations](/docs/integrations/cicd) to add cost estimates to pull requests, it only takes 15 minutes. This provides your team with a safety net as people can understand cloud costs and best practices upfront, and discuss them as part of your workflow.
+### 4. Add to your CI/CD
+[Use our integrations](/docs/integrations/cicd) to add Infracost to pull requests, it only takes 15 minutes! This provides your team with a safety net as people can understand cloud costs and FinOps best practices upfront, and discuss them as part of your workflow. See our [demo video](https://www.youtube.com/watch?v=BQeO137DDo8) to learn more.
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
