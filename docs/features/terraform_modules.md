@@ -21,7 +21,7 @@ For registry modules, enter the following information:
 * **Terraform Enterprise:** set the host to your Terraform Enterprise hostname and the token to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
 * **GitLab:** set the host to `gitlab.com` (or your GitLab hostname) and the token to your [GitLab token](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry).
 * **JFrog:** set the host to your JFrog hostname and the token to an [identity token](https://www.jfrog.com/confluence/display/JFROG/Terraform+Registry#TerraformRegistry-manual-configurationManuallyGeneratinganIdentityToken).
-* **Spacelift**: Login to your Spacelift organization that has the modules, and go to the Organization Settings > API keys page; create a new API Key called "infracost" and select Space=root or the space(s) that contain your modules. Set the Role to Reader. Open the downloaded `.config` file and use the `token` value from the `credentials "spacelift.io"` section your token in Infracost Cloud. The host should be set to `spacelift.io` or whatever the hostname for your modules are in your Terraform files (e.g. `source = "myhost.com/mymodule"`). Finally, from the Spacelift Organization Settings > Login policy page, update your policy to allow the API key ID to login. The API key ID can be found in the API keys page:
+* **Spacelift**: Login to your Spacelift organization that has the modules, and go to the Organization Settings > API keys page; create a new API Key called "infracost" and select `Space=root` or the space(s) that contain your modules. Set the Role to Reader. Open the downloaded `.config` file and use the `token` value from the `credentials "spacelift.io"` section as your token in Infracost Cloud. The host should be set to `spacelift.io` or whatever the hostname for your modules is in your Terraform files (e.g. `source = "myhost.com/mymodule"`). Finally, from the Spacelift Organization Settings > Login policy page, update your policy to allow the API key ID to log in. The API key ID can be found on the API keys page:
   ```
   package spacelift
   allow {
@@ -29,7 +29,7 @@ For registry modules, enter the following information:
   }
   ```
 * **Other registries:** set the host to the hostname of the registry and the token to the access token for that registry.
-* **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [hello@infracost.io](mailto:infracost.io) so we can assist you.
+* **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [hello@infracost.io](mailto:hello@infracost.io) so we can assist you.
 
 For S3 modules, set the [required environment variables](/docs/features/terraform_modules/#s3-modules) in the "Additional environment variables" section of the Run configurations page.
 
@@ -68,7 +68,7 @@ If your SSH key has a passphrase too, you can also add an environment variable o
 
 #### Git HTTPS modules
 
-#### Option 1: use SSH instead of HTTPS
+##### Option 1: use SSH instead of HTTPS
 We suggest tweaking your Terraform code to download modules using [SSH instead of HTTPS](https://developer.hashicorp.com/terraform/language/modules/sources#github). This is usually a 1-line change, and it should be safe as you are just telling Terraform/Infracost to download the module differently (but obviously test it). Here's an example of an HTTPS module being used:
 
 ```terraform
@@ -105,7 +105,7 @@ Set the following environment variables in your CI/CD pipeline:
 * **Terraform Enterprise:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your Terraform Enterprise hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
 * **GitLab:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to `gitlab.com` (or your GitLab hostname) and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [GitLab token](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry).
 * **JFrog:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your JFrog hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [identity token](https://www.jfrog.com/confluence/display/JFROG/Terraform+Registry#TerraformRegistry-manual-configurationManuallyGeneratinganIdentityToken).
-* **Spacelift**: Login to your Spacelift organization that has the modules, and go to the Organization Settings > API keys page; create a new API Key called "infracost" and select Space=root or the space(s) that contain your modules. Set the Role to Reader. Open the downloaded `.config` file and use the `token` value from the `credentials "spacelift.io"` section as the `INFRACOST_TERRAFORM_CLOUD_TOKEN`. The `INFRACOST_TERRAFORM_CLOUD_HOST` should be set to `spacelift.io` or whatever the hostname for your modules are in your Terraform files (e.g. `source = "myhost.com/mymodule"`). Finally, from the Spacelift Organization Settings > Login policy page, update your policy to allow the API key ID to login. The API key ID can be found in the API keys page:
+* **Spacelift**: Login to your Spacelift organization that has the modules, and go to the Organization Settings > API keys page; create a new API Key called "infracost" and select `Space=root` or the space(s) that contain your modules. Set the Role to Reader. Open the downloaded `.config` file and use the `token` value from the `credentials "spacelift.io"` section as the `INFRACOST_TERRAFORM_CLOUD_TOKEN`. The `INFRACOST_TERRAFORM_CLOUD_HOST` should be set to `spacelift.io` or whatever the hostname for your modules is in your Terraform files (e.g. `source = "myhost.com/mymodule"`). Finally, from the Spacelift Organization Settings > Login policy page, update your policy to allow the API key ID to log in. The API key ID can be found on the API keys page:
   ```
   package spacelift
   allow {
@@ -113,7 +113,7 @@ Set the following environment variables in your CI/CD pipeline:
   }
   ```
 * **Other registries:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to the hostname of the registry and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to the access token for that registry.
-* **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [hello@infracost.io](mailto:infracost.io) so we can assist you.
+* **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [hello@infracost.io](mailto:hello@infracost.io) so we can assist you.
 
 #### S3 modules
 
@@ -201,4 +201,4 @@ projects:
       - my-ec2.tfvars
 ```
 
-For local development environments, use the Terraform CLI config file: by default Infracost reads registry credentials from your `~/.terraform.d/credentials.tfrc.json` file or the path specified by the  [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable. If you're using a custom Terraform CLI config file to specify the credentials make sure you are setting the `TF_CLI_CONFIG_FILE` environment variable to the absolute path of that file.
+For local development environments, use the Terraform CLI config file: by default Infracost reads registry credentials from your `~/.terraform.d/credentials.tfrc.json` file or the path specified by the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable. If you're using a custom Terraform CLI config file to specify the credentials make sure you are setting the `TF_CLI_CONFIG_FILE` environment variable to the absolute path of that file.
