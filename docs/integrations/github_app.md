@@ -50,7 +50,7 @@ Follow the same [usage steps](#usage) as the regular GitHub App above.
 If you use the GitHub Enterprise "Enable IP allow list", the Infracost GitHub App will automatically add the required IP address to your GitHub organization's IP allow list. If you need to do that manually, please allow incoming traffic from `3.133.40.66` to your GitHub instance port 443 (or whatever port you use); this is the IP address used by Infracost Cloud services to call the integration.
 
 #### Outgoing traffic from GitHub
-If you have restricted out-going traffic from your instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should whitelist `13.58.92.216`, `3.142.138.46` and `13.58.157.166` but we recommend you whitelist the domain as these IP addresses are likely to change.
+If you have restricted out-going traffic from your instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should whitelist `3.130.17.156`, `3.139.245.198` and `3.23.73.234` but we recommend you whitelist the domain as these IP addresses are likely to change.
 
 ### GitHub Enterprise Server
 

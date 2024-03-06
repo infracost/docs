@@ -28,7 +28,7 @@ Sign up or log in to [Infracost Cloud](https://dashboard.infracost.io/tfc-sign-u
 
 This step is only needed by Terraform Enterprise (TFE) users. You need to allow incoming traffic from `3.133.40.66` to your TFE instance port 443 (or whatever port you use); this is the IP address used by Infracost Cloud services to call your Run Task integration.
 
-If you have restricted out-going traffic from your TFE instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should whitelist `13.58.92.216`, `3.142.138.46` and `13.58.157.166` but we recommend you whitelist the domain as these IP addresses are likely to change.
+If you have restricted out-going traffic from your TFE instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should whitelist `3.130.17.156`, `3.139.245.198` and `3.23.73.234` but we recommend you whitelist the domain as these IP addresses are likely to change.
 
 #### 3. Configure a Run Task
 Follow the [instructions for configuring a Run Task](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html#configuring-a-run-task) in Terraform Cloud. There are two steps you need to do: setup the integration, and enable it as a **post-plan stage** in your workspaces.
