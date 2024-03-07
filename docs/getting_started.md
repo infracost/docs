@@ -66,6 +66,17 @@ Get the latest Infracost release:
   To upgrade Infracost, run `choco upgrade infracost`.
 
   </TabItem>
+  <TabItem value="windows-winget">
+
+  ```shell
+  winget install infracost # Run Command Prompt or PowerShell as Administrator
+
+  infracost --version # Should show 0.10.24
+  ```
+
+  To upgrade Infracost, run `winget upgrade infracost`.
+
+  </TabItem>
   <TabItem value="windows-manual">
 
   Download and unzip the [latest release](https://github.com/infracost/infracost/releases/latest/download/infracost-windows-amd64.zip). Run it from the Command Prompt or Powershell using `.\infracost.exe` alongside other required commands/flags. You should also move the exe file to a folder that is in your `PATH` [environment variable](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows), e.g. `C:\Windows`.
