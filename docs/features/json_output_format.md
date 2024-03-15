@@ -14,8 +14,16 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
   "currency": "USD",
   // The metadata section is not finalized and is subject to change
   "metadata": {
+    // did the config file specify project specific usage files
+    "configFileHasUsageFile": false,
+    // path to the config file
+    "configFilePath": "",
     // can be "breakdown" or "diff" so it's clear how the JSON file was generated
     "infracostCommand": "breakdown",
+    // was as the api used to estimate usage costs
+    "usageApiEnabled": true,
+    // path to the file that was used to estimate usage costs
+    "usageFilePath": "infracost-usage.yaml",
     // name of the branch that was used to generate the estimate
     "vcsBranch": "change-instance-type",
     // long commit SHA of the branch that was used to generate the estimate
@@ -70,7 +78,8 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
             "message": "Missing Terraform vars",
             "data": [
               "variable.instancetype"
-            ]
+            ],
+            "isError": false
           }
         ],
         // errors contains critical errors that the project encountered that meant we were not able to produce a breakdown.
@@ -81,7 +90,8 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
             "code": 2,
             "message": "No valid Terraform files found at the given path, try a different directory.",
             // data contains additional metadata about the error if applicable.
-            "data": []
+            "data": [],
+            "isError": true
           }
         ]
       },
@@ -94,7 +104,8 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
       "pastBreakdown": {
         "resources": [],
         "totalHourlyCost": "0",
-        "totalMonthlyCost": "0"
+        "totalMonthlyCost": "0",
+        "totalMonthlyUsageCost": "0"
       },
       /* When Infracost is used with a Terraform plan JSON, this contains
       the breakdown of resources that are in the planned Terraform state.
@@ -195,7 +206,8 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
                 "monthlyQuantity": null,
                 "price": "0.2",
                 "hourlyCost": null,
-                "monthlyCost": null
+                "monthlyCost": null,
+                "usageBased": true
               },
               {
                 "name": "Duration",
@@ -204,13 +216,15 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
                 "monthlyQuantity": null,
                 "price": "0.0000166667",
                 "hourlyCost": null,
-                "monthlyCost": null
+                "monthlyCost": null,
+                "usageBased": true
               }
             ]
           }
         ],
         "totalHourlyCost": "1.017315068493150679",
-        "totalMonthlyCost": "742.64"
+        "totalMonthlyCost": "742.64",
+        "totalMonthlyUsageCost": "0",
       },
       // This contains the diff of resources between the pastBreakdown and breakdown
       "diff": {
@@ -290,7 +304,8 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
                 "monthlyQuantity": "0",
                 "price": "0.2",
                 "hourlyCost": "0",
-                "monthlyCost": "0"
+                "monthlyCost": "0",
+                "usageBased": true
               },
               {
                 "name": "Duration",
@@ -299,13 +314,15 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
                 "monthlyQuantity": "0",
                 "price": "0.0000166667",
                 "hourlyCost": "0",
-                "monthlyCost": "0"
+                "monthlyCost": "0",
+                "usageBased": true
               }
             ]
           }
         ],
         "totalHourlyCost": "1.017315068493150679",
-        "totalMonthlyCost": "742.64"
+        "totalMonthlyCost": "742.64",
+        "totalMonthlyUsageCost": "0",
       },
       // The summary format is not finalized and is subject to change
       "summary": {
@@ -321,8 +338,10 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
   ],
   "totalHourlyCost": "1.017315068493150679",
   "totalMonthlyCost": "742.64",
+  "totalMonthlyUsageCost": "0",
   "pastTotalHourlyCost": "0",
   "pastTotalMonthlyCost": "0",
+  "pastTotalMonthlyUsageCost": "0",
   "diffTotalHourlyCost": "1.017315068493150679",
   "diffTotalMonthlyCost": "742.64",
   "timeGenerated": "2022-05-23T20:11:05.005205-07:00",
@@ -338,3 +357,5 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
   }
 }
 ```
+
+The JSON schema is available [on github](https://github.com/infracost/infracost/blob/master/schema/infracost.schema.json). 
