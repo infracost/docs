@@ -98,6 +98,15 @@ No. Infracost is backed by top-tier investors including Y Combinator and Sequoia
 
 If you believe you have found a vulnerability within Infracost, please let us know right away. Follow the process [outlined here](https://github.com/infracost/infracost/blob/master/SECURITY.md).
 
+### How can I whitelist Infracost IP addresses?
+
+Infracost provides static IPs for its Cloud Pricing API and Infracost Cloud services. You can whitelist these IPs in your firewall rules.
+
+| Name | Source | Destination | Domains | Port | IPs |
+|-|-|-|-|-|-|
+| Inbound | Infracost Cloud | Your CI/CD system | N/A | 443 | 3.133.40.66 |
+| Outbound | Your CI/CD system | Infracost Cloud | dashboard.api.infracost.io <br />pricing.api.infracost.io | 443 | 76.223.127.201 <br /> 52.223.24.69 |
+
 ## Features
 
 ### What's the difference between Infracost and Terraform Cloud's cost estimation?
