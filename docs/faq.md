@@ -100,12 +100,12 @@ If you believe you have found a vulnerability within Infracost, please let us kn
 
 ### How can I whitelist Infracost IP addresses?
 
-Infracost provides static IPs for its Cloud Pricing API and Infracost Cloud services. You can whitelist these IPs in your firewall rules.
+Infracost provides static IPs for its Cloud Pricing API and Infracost Cloud services. If your environment has network traffic restrictions, you can whitelist these IPs in your firewall rules.
 
-| Name | Source | Destination | Domains | Port | IPs |
-|-|-|-|-|-|-|
-| Inbound | Infracost Cloud | Your CI/CD system | N/A | 443 | 3.133.40.66 |
-| Outbound | Your CI/CD system | Infracost Cloud | dashboard.api.infracost.io <br />pricing.api.infracost.io | 443 | 76.223.127.201 <br /> 52.223.24.69 |
+| Name | Source | Destination | Domains | Port | IPs | Notes |
+|-|-|-|-|-|-|-|
+| Inbound | Infracost Cloud | Your CI/CD system | N/A | 443 | 3.133.40.66 | Only needed if you use [source control integrations](/docs/integrations/cicd/#source-control-integrations-recommended) |
+| Outbound | Your CI/CD system | Infracost Cloud | dashboard.api.infracost.io <br/> pricing.api.infracost.io | 443 | 76.223.127.201 <br /> 52.223.24.69 | Infracost CLI uses both domains |
 
 ## Features
 
