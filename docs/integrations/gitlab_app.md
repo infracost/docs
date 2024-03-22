@@ -50,7 +50,7 @@ If you use GitLab's IP allow-list to restrict access to your GitLab installation
 
 ### Outgoing traffic from GitLab
 
-If you have restricted out-going traffic from your instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should whitelist `3.130.17.156`, `3.139.245.198` and `3.23.73.234` but we recommend you whitelist the domain as these IP addresses are likely to change.
+If you have restricted out-going traffic from your instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should whitelist `52.223.24.69`, and `76.223.127.201`.
 
 ### Other network/security requirements
 
