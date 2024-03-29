@@ -65,8 +65,8 @@ Edit the generated usage file with your usage estimates, for example a Lambda fu
   version: 0.1
   resource_usage:
     aws_lambda_function.hi:
-      monthly_requests: 0 # Monthly requests to the Lambda function.
-      request_duration_ms: 0 # Average duration of each request in milliseconds.
+      monthly_requests: 100 # Monthly requests to the Lambda function.
+      request_duration_ms: 12500000 # Average duration of each request in milliseconds.
   ```
 
 ### 3. Run with usage file
