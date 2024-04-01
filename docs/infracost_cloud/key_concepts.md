@@ -41,7 +41,7 @@ Infracost API keys are associated with organizations and can be retrieved from t
 
 ### Team management
 
-From the Members page, you can invite your team members to join your organization. Currently three roles are supported:
+From the Members page, you can invite your team members to join your organization. Currently these roles are supported:
 - Org Owner: they have complete control over the organization. From the Members page, the owner can make another member the owner instead. We recommend giving the main billing contact the owner role. Only the owner can delete the organization or change its name or slug.
 - Org Admin: they can do everything in the organization except deleting it, or changing its name or slug. We recommend giving FinOps/Platform team members the admin role so they can setup the Infracost integrations for everyone and manage custom price books etc.
 - Org Editor: they can change everything except things in the Org Settings area and data exports. This means they cannot invite members to the organization either. We recommend giving team leads/managers the editor role so they can also add guardrails, policies and reports for their teams if required.
