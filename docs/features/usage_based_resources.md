@@ -35,7 +35,7 @@ Predefined usage values can be overridden by creating a new usage default; simpl
 
 The `infracost-usage.yml` file lets engineers set usage values in their repos. These are merged with any values defined in [Infracost Cloud](#infracost-cloud) and take precedence over them. To use this method:
 
-1. Copy [this file](https://github.com/infracost/infracost/blob/master/infracost-usage-defaults.medium.yml) into your repo and customize the required values. This predefined file attempts to set each usage-based cost as $5/month for common configurations, helping engineers understand that these resources are not free.
+1. Copy [this file](https://github.com/infracost/infracost/blob/master/infracost-usage-defaults.small.yml) into your repo and customize the required values. This predefined file attempts to set each usage-based cost as $5/month for common configurations, helping engineers understand that these resources are not free.
 2. [GitHub](/docs/integrations/github_app/) and [GitLab](/docs/integrations/gitlab_app/) App users should put this file at the root of repos (or another location specified in the [config file](/docs/features/config_file/)). CLI and CI/CD users should add the `--usage-file=infracost-usage.yml` flag to **both** `infracost breakdown` and `infracost diff` commands:
 
   ```sh
