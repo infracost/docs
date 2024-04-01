@@ -1,211 +1,75 @@
 ---
 slug: usage_based_resources
-title: Usage-based resources
+title: Usage costs
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost differentiates the **price** of a resource from its **cost**. The price is the per-unit value provided by cloud vendors, while the cost is calculated by multiplying the resource's price by its usage. By default, Infracost displays prices for usage-based resources like AWS S3 or Lambda, providing users with visibility into the few relevant prices (for them) out of the millions of cloud prices.
+Infracost differentiates Baseline costs and Usage costs:
+- **Baseline costs** are consistent charges for provisioned resources, like the hourly cost for a virtual machine, which stays constant no matter how much it is used. Infracost estimates these resources assuming they are used for the whole month (730 hours).
+- **Usage costs** are charges based on actual usage, like the storage cost for an object storage bucket. Infracost estimates these resources using monthly usage values defined in your [Infracost Cloud](#infracost-cloud) organization or from an [infracost-usage.yml](#infracost-usageyml) file at the root of code repos. 
 
-Furthermore, users have the option to provide usage estimates in a file to calculate costs. This feature also simplifies rapid **what-if analysis**. For example, they can assess how costs would change if their Lambda function gets 2x more requests, or if they optimize the code to reduce the average run time by 25%.
+<img src={useBaseUrl("img/infracost-cloud/baseline-vs-usage-costs.png")} alt="Baseline and usage costs in pull request comments" />
 
-<Tabs
-  defaultValue="without-usage-file"
-  values={[
-    {label: 'Default output', value: 'without-usage-file'},
-    {label: 'Output with usage file', value: 'with-usage-file'},
-  ]}>
-  <TabItem value="without-usage-file">
+## Infracost Cloud
 
-  ```
-  Name                               Quantity  Unit         Monthly Cost
+Infracost Cloud can be used to define usage defaults for all repos in a central place. This enables FinOps, DevOps and Platform teams to set rough values based on historic usage, which lets development teams generate more accurate estimates. Development teams can also provide usage values in their repos using an [infracost-usage.yml](#infracost-usageyml) file; these are merged with the centrally-defined values and take precedence over them.
 
-  aws_lambda_function.hi
-  ├─ Requests              Cost depends on usage: $0.20 per 1M requests
-  └─ Duration              Cost depends on usage: $0.0000166667 per GB-seconds
-  ```
-  </TabItem>
-  <TabItem value="with-usage-file">
+### Predefined values
 
-  ```
-  Name                               Quantity  Unit         Monthly Cost
+For all resource types, we've predefined values that attempt to set each usage-based cost as $5/month for common configurations, helping engineers understand that these resources are not free. To see the predefined values, go to Org Settings > Usage defaults.
 
-  aws_lambda_function.hi
-  ├─ Requests                             100  1M requests        $20.00
-  └─ Duration                      12,500,000  GB-seconds        $208.33
+Disabling predefined values means that usage keys not [overridden](#add-overrides) in your usage defaults will not show costs in pull request comments and Infracost Cloud. Therefore, engineers might think these resources are free.
 
-  PROJECT TOTAL                                                  $228.33
-  ```
-  </TabItem>
-</Tabs>
+<img src={useBaseUrl("img/infracost-cloud/usage-defaults.png")} alt="Usage defaults in Infracost Cloud" />
 
-## Usage
+### Add overrides
 
-Instead of using cloud vendor cost calculators or spreadsheets, you can specify usage estimates in an auto-generated file called `infracost-usage.yml`. The Infracost GitHub/GitLab App integrations will use this file automatically when it is placed at the repo root, or another location specified in the [config file](/docs/features/config_file/). The CLI can also use this file.
+Predefined usage values can be overridden by creating a new usage default; simply search for a resource type and add override values (shown below). You can also set [project](/docs/infracost_cloud/key_concepts/#projects) filters so the overrides only apply to certain projects. This is useful when defining production vs non-production usage values where production values are much higher.
 
-### 1. Generate usage file
+<img src={useBaseUrl("img/infracost-cloud/usage-overrides.png")} alt="Usage overrides in Infracost Cloud" />
 
-Assuming you have [installed](/docs/#1-install-infracost) the Infracost CLI, use the `--sync-usage-file` flag to generate a new usage file or update an existing one. You must specify the location of the new or existing usage file using the `--usage-file` flag:
-  ```sh
-  infracost breakdown --sync-usage-file --usage-file infracost-usage.yml --path /code
-  ```
+## infracost-usage.yml
 
-This creates/updates the usage file by:
-1. Adding any missing resources or fields as comments with a zero value.
-2. Deleting any resources that are not used in the Terraform project.
+The `infracost-usage.yml` file lets engineers set usage values in their repos. These are merged with any values defined in [Infracost Cloud](#infracost-cloud) and take precedence over them. To use this method:
 
-When using the `--usage-file` flag with the `breakdown` or `output` commands, cost components with a 0 hourly/monthly quantity are not shown so the output is less noisy. These are included in the JSON format.
-
-### 2. Edit usage file
-
-Edit the generated usage file with your usage estimates, for example a Lambda function can have the following parameters. This file can be checked into git alongside other code, and updated when needed.
-
-  ```yaml
-  version: 0.1
-  resource_usage:
-    aws_lambda_function.hi:
-      monthly_requests: 0 # Monthly requests to the Lambda function.
-      request_duration_ms: 0 # Average duration of each request in milliseconds.
-  ```
-
-### 3. Run with usage file
-
-The Infracost GitHub/GitLab App integrations will use the `infracost-usage.yml` file automatically when it is placed at the repo root. You can also run `infracost breakdown` or `infracost diff` with the usage file to see monthly cost estimates:
+1. Copy [this file](https://github.com/infracost/infracost/blob/master/infracost-usage-defaults.medium.yml) into your repo and customize the required values. This predefined file attempts to set each usage-based cost as $5/month for common configurations, helping engineers understand that these resources are not free.
+2. [GitHub](/docs/integrations/github_app/) and [GitLab](/docs/integrations/gitlab_app/) App users should put this file at the root of repos (or another location specified in the [config file](/docs/features/config_file/)). CLI and CI/CD users should add the `--usage-file=infracost-usage.yml` flag to **both** `infracost breakdown` and `infracost diff` commands:
 
   ```sh
   infracost breakdown --path /code --usage-file infracost-usage.yml
-
-  Name                               Quantity  Unit         Monthly Cost
-
-  aws_lambda_function.hi
-  ├─ Requests                             100  1M requests        $20.00
-  └─ Duration                      12,500,000  GB-seconds        $208.33
-
-  PROJECT TOTAL                                                  $228.33
   ```
 
-## Usage profiles
+The `infracost-usage.yml` file can also be used to set values for specific resources. For example, you can set values for `aws_lambda_function.my_function` as opposed to the `aws_lambda_function` resource type that applies to all Lambda functions. This is useful when dealing with outlier resources that require customization.
 
-You can use the `resource_type_default_usage` section of the usage file and create separate files for different traffic profiles, e.g. low/medium/high shown below. This enables you to get a rough estimate for many projects quickly without defining usage values for each individual resource in those projects, by running `infracost breakdown --path /code --usage-file infracost-usage-medium.yml`.
+<details><summary>Customizing usage values for individual resources</summary>
 
-<Tabs
-  defaultValue="infracost-usage-low"
-  values={[
-    {label: 'infracost-usage-low.yml', value: 'infracost-usage-low'},
-    {label: 'infracost-usage-medium.yml', value: 'infracost-usage-medium'},
-    {label: 'infracost-usage-high.yml', value: 'infracost-usage-high'}
-  ]}>
-  <TabItem value="infracost-usage-low">
-
-  ```yml
-  version: 0.1
-  resource_type_default_usage:
-    aws_lambda_function:
-      monthly_requests: 1000000
-      request_duration_ms: 100
-
-    aws_dynamodb_table:
-      storage_gb: 5
-      monthly_write_request_units: 20
-      monthly_read_request_units: 40
-
-    aws_cloudwatch_log_group:
-      storage_gb: 10
-      monthly_data_ingested_gb: 10
-      monthly_data_scanned_gb: 10
-  ```
-  </TabItem>
-  <TabItem value="infracost-usage-medium">
-
-  ```yml
-  version: 0.1
-  resource_type_default_usage:
-    aws_lambda_function:
-      monthly_requests: 5000000
-      request_duration_ms: 200
-
-    aws_dynamodb_table:
-      storage_gb: 100
-      monthly_write_request_units: 50
-      monthly_read_request_units: 70
-
-    aws_cloudwatch_log_group:
-      storage_gb: 100
-      monthly_data_ingested_gb: 100
-      monthly_data_scanned_gb: 100
-  ```
-  </TabItem>
-  <TabItem value="infracost-usage-high">
-
-  ```yml
-  version: 0.1
-  resource_type_default_usage:
-    aws_lambda_function:
-      monthly_requests: 10000000
-      request_duration_ms: 200
-
-    aws_dynamodb_table:
-      storage_gb: 500
-      monthly_write_request_units: 90
-      monthly_read_request_units: 140
-
-    aws_cloudwatch_log_group:
-      storage_gb: 500
-      monthly_data_ingested_gb: 500
-      monthly_data_scanned_gb: 500
-  ```
-  </TabItem>
-</Tabs>
-
-## Supported parameters
-
-### Reference file
-
-The [infracost-usage-example.yml](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml) reference file contains the list of all of the available parameters and their descriptions for all resource types. These parameters can be added to either a resource (e.g. `aws_dynamodb_table.mytable`) or a resource type (e.g. `aws_dynamodb_table`) using the resource type defaults mentioned below.
-
-### Resource type defaults
-
-Usage for a resource type, e.g. `aws_dynamodb_table`, can also be defined in the `resource_type_default_usage` section of the usage file. Resource type defaults apply to all resources of that type regardless of the module they reside in.
-
-This is useful when you want to create traffic profiles such as lower/medium/high. Resource type defaults can be overridden on a per-resource basis (shown below); usage keys that are re-defined at a resource level override the default, and new usage keys are merged with the defaults. 
-
-```yaml
+The following `infracost-usage.yml` file demonstrates how values for individual resources can be customized:
+```yml
 version: 0.1
+# Defaults applied to all resources of this type
 resource_type_default_usage:
   aws_dynamodb_table:
     storage_gb: 1000 # Set in all DynamoDB table resources
 
+# Values applied to individual resources
 resource_usage:
   aws_dynamodb_table.my_table:
     monthly_write_request_units: 200 # Merged with default that defines storage_gb, so both attributes are set for this resource
 
   aws_dynamodb_table.my_other_table:
     storage_gb: 50 # Overrides the default
-```
 
-### Terraform modules
-
-Usage for resources inside modules can be specified using the full path of the resource. This is the same value as Infracost outputs in the Name column, for example:
-
-```yaml
-version: 0.1
-resource_usage:
+  # Use the full path of the resource for modules (same value that Infracost outputs in the Name column)
   module.my_module.aws_dynamodb_table.my_table:
     storage_gb: 1000
-
-  module.lambda_function.aws_lambda_function.this[0]:
-    monthly_requests: 20000
-    request_duration_ms: 600
 ```
 
-### Resource arrays/maps
+#### Resource arrays/maps
 
 The wildcard character `[*]` can be used for resource arrays (resources with [`count` meta-argument](https://www.terraform.io/docs/language/meta-arguments/count.html)) and resource maps (resources with [`for_each` meta-argument](https://www.terraform.io/docs/language/meta-arguments/for_each.html)), such as AWS CloudWatch Log Groups. Infracost will apply the usage values individually to each element of the array/map (they all get the same values). If both an array element such as `this[0]` (or map element such as `this["foo"]`) and `[*]` are specified for a resource, only the array/map element's usage will be applied to that resource. This enables you to define default values using `[*]` and override specific elements using their index or key.
-
-When wildcard entries exist in the usage file and `--sync-usage-file` is used:
-- values are generated for each element of the wildcard.
-- entries are added for each wildcard element when usage data is [fetched from AWS CloudWatch](#fetch-from-cloudwatch), which overrides the wildcard value.
 
 <Tabs
   defaultValue="using-array-wildcard"
@@ -278,7 +142,7 @@ When wildcard entries exist in the usage file and `--sync-usage-file` is used:
   </TabItem>
 </Tabs>
 
-### EC2 reserved instances
+#### EC2 reserved instances
 
 What-if anlaysis can be done on AWS EC2 Reserved Instances (RI) using the usage file. The RI type, term and payment option can be defined as shown below, to quickly get a monthly cost estimate. This works with `aws_instance` as well as `aws_eks_node_group` and `aws_autoscaling_group` as they also create EC2 instances. Let us know how you'd like Infracost to show the upfront costs by [creating a GitHub issue](https://github.com/infracost/infracost/issues/).
 
@@ -291,3 +155,5 @@ What-if anlaysis can be done on AWS EC2 Reserved Instances (RI) using the usage 
       reserved_instance_term: 1_year # Term for Reserved Instances. Can be: 1_year, 3_year.
       reserved_instance_payment_option: all_upfront # Payment option for Reserved Instances. Can be: no_upfront, partial_upfront, all_upfront.
   ```
+
+</details>
