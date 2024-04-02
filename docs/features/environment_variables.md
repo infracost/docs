@@ -63,7 +63,7 @@ terraform {
 	cloud {
 		organization = "acmeinc"
 		workspace {
-			prefix = "infracost-"
+			prefix = "acme-"
 		}
 	}
 }
