@@ -303,7 +303,7 @@ The following table shows the parameters each `project` can have in the config f
 </tr>
 <tr>
   <td><code>terraform_cloud_workspace</code></td>
-  <td>Optional. String. For Terraform Enterprise users. Used to set the Terraform Cloud workspace. Only set this if your local workspace name differs from your cloud workspace, and you do not already have a Terraform cloud block defining the remote workspace name (e.g. using `prefix`).</td>
+  <td>Optional. String. For Terraform Cloud/Enterprise users. Used to set the Terraform Cloud workspace. Only set this if your local workspace name differs from your cloud workspace, and you do not already have a Terraform Cloud block defining the remote workspace name (e.g. using `prefix`).</td>
 </tr>
 <tr>
   <td><code>terraform_cloud_org</code></td>
