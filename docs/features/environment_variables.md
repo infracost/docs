@@ -54,7 +54,7 @@ For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API 
 For Terraform Enterprise users, used to override the default `app.terraform.io` backend host.
 
 ### INFRACOST_TERRAFORM_CLOUD_WORKSPACE
-For Terraform Enterprise users, used if you Terraform cloud workspace name is different from the Terraform workspace name.
+For Terraform Enterprise/Cloud users, used if your Terraform Cloud workspace name is different from the Terraform workspace name.
 
 Only use if Infracost cannot infer the workspace name from the Terraform cloud block configuration. If you have a valid Terraform cloud block, e.g:
 
