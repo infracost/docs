@@ -307,7 +307,7 @@ The following table shows the parameters each `project` can have in the config f
 </tr>
 <tr>
   <td><code>terraform_cloud_org</code></td>
-  <td>Optional. String. For Terraform Enterprise users. Used to set the Terraform Cloud organization. Only set this if you do not already have a Terraform cloud block that defines your Terraform cloud organization name.</td>
+  <td>Optional. String. For Terraform Cloud/Enterprise users. Used to set the Terraform Cloud organization. Only set this if you do not already have a Terraform Cloud block that defines your Terraform cloud organization name.</td>
 </tr>
 </table>
 
