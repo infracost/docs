@@ -61,7 +61,7 @@ Only use if Infracost cannot infer the workspace name from the Terraform Cloud b
 ```hcl
 terraform {
 	cloud {
-		organization = "infracost"
+		organization = "acmeinc"
 		workspace {
 			prefix = "infracost-"
 		}
