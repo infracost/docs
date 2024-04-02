@@ -70,7 +70,7 @@ terraform {
 ```
 
 ### INFRACOST_TERRAFORM_CLOUD_ORG
-For Terraform Enterprise users, used to specify the organization name. This is only needed if you do not have a valid Terraform cloud block configuration with an organization name.
+For Terraform Cloud/Enterprise users, used to specify the organization name. This is only needed if you do not have a valid Terraform Cloud block configuration with an organization name.
 
 ### INFRACOST_TERRAFORM_SOURCE_MAP
 
