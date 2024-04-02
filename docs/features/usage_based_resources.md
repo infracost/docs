@@ -11,11 +11,9 @@ Infracost differentiates Baseline costs and Usage costs:
 - **Baseline costs** are consistent charges for provisioned resources, like the hourly cost for a virtual machine, which stays constant no matter how much it is used. Infracost estimates these resources assuming they are used for the whole month (730 hours).
 - **Usage costs** are charges based on actual usage, like the storage cost for an object storage bucket. Infracost estimates these resources using monthly usage values defined in your [Infracost Cloud](#infracost-cloud) organization or from an [infracost-usage.yml](#infracost-usageyml) file at the root of code repos. 
 
-<img src={useBaseUrl("img/infracost-cloud/baseline-vs-usage-costs.png")} alt="Baseline and usage costs in pull request comments" />
-
 To determine whether a resource incurs baseline or usage costs, you can examine cloud vendor pricing details, paying attention to whether prices are listed hourly. If they are and your Terraform code specifies resource size, it indicates a baseline cost. Alternatively, you can utilize Infracost; costs marked with a `*` denote usage costs, while others represent baseline costs. Infracost exists to make cloud pricing easy to understand!
 
-<iframe width="90%" height="450" src="https://www.youtube.com/embed/dZxO4XUq7UE" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
+<iframe width="90%" height="450" src="https://www.youtube.com/embed/dZxO4XUq7UE" title="Demo of usage costs feature" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
 
 ## Infracost Cloud
 
