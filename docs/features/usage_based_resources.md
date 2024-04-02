@@ -13,6 +13,8 @@ Infracost differentiates Baseline costs and Usage costs:
 
 <img src={useBaseUrl("img/infracost-cloud/baseline-vs-usage-costs.png")} alt="Baseline and usage costs in pull request comments" />
 
+To determine whether a resource incurs baseline or usage costs, you can examine cloud vendor pricing details, paying attention to whether prices are listed hourly. If they are and your Terraform code specifies resource size, it indicates a baseline cost. Alternatively, you can utilize Infracost; costs marked with a `*` denote usage costs, while others represent baseline costs. Infracost exists to make cloud pricing easy to understand!
+
 ## Infracost Cloud
 
 Infracost Cloud can be used to define usage defaults for all repos in a central place. This enables FinOps, DevOps and Platform teams to set rough values based on historic usage, which lets development teams generate more accurate estimates. Development teams can also provide usage values in their repos using an [infracost-usage.yml](#infracost-usageyml) file; these are merged with the centrally-defined values and take precedence over them.
