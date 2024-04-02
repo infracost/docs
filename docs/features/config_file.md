@@ -301,6 +301,14 @@ The following table shows the parameters each `project` can have in the config f
   <td><code>terraform_workspace</code></td>
   <td>Optional. String. Used to set the Terraform workspace. Only set this for multi-workspace repos, otherwise it might result in the Terraform error "workspaces not supported".</td>
 </tr>
+<tr>
+  <td><code>terraform_cloud_workspace</code></td>
+  <td>Optional. String. For Terraform Enterprise users. Used to set the Terraform Cloud workspace. Only set this if your local workspace name differs from your cloud workspace, and you do not already have a Terraform cloud block defining the remote workspace name (e.g. using `prefix`).</td>
+</tr>
+<tr>
+  <td><code>terraform_cloud_org</code></td>
+  <td>Optional. String. For Terraform Enterprise users. Used to set the Terraform Cloud organization. Only set this if you do not already have a Terraform cloud block that defines your Terraform cloud organization name.</td>
+</tr>
 </table>
 
 ## Template syntax
