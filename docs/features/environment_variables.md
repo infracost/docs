@@ -56,7 +56,7 @@ For Terraform Enterprise users, used to override the default `app.terraform.io` 
 ### INFRACOST_TERRAFORM_CLOUD_WORKSPACE
 For Terraform Enterprise/Cloud users, used if your Terraform Cloud workspace name is different from the Terraform workspace name.
 
-Only use if Infracost cannot infer the workspace name from the Terraform cloud block configuration. If you have a valid Terraform cloud block, e.g:
+Only use if Infracost cannot infer the workspace name from the Terraform Cloud block configuration. If you have a valid Terraform Cloud block (shown below), use `INFRACOST_TERRAFORM_WORKSPACE` instead.
 
 ```hcl
 terraform {
