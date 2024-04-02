@@ -68,7 +68,6 @@ terraform {
 	}
 }
 ```
-Use `INFRACOST_TERRAFORM_WORKSPACE` instead.
 
 ### INFRACOST_TERRAFORM_CLOUD_ORG
 For Terraform Enterprise users, used to specify the organization name. This is only needed if you do not have a valid Terraform cloud block configuration with an organization name.
