@@ -53,6 +53,25 @@ For Terraform Cloud/Enterprise users, set this to a [Team API Token or User API 
 ### INFRACOST_TERRAFORM_CLOUD_HOST
 For Terraform Enterprise users, used to override the default `app.terraform.io` backend host.
 
+### INFRACOST_TERRAFORM_CLOUD_WORKSPACE
+For Terraform Enterprise/Cloud users, used if your Terraform Cloud workspace name is different from the Terraform workspace name.
+
+Only use if Infracost cannot infer the workspace name from the Terraform Cloud block configuration. If you have a valid Terraform Cloud block (shown below), use `INFRACOST_TERRAFORM_WORKSPACE` instead.
+
+```hcl
+terraform {
+	cloud {
+		organization = "acmeinc"
+		workspace {
+			prefix = "acme-"
+		}
+	}
+}
+```
+
+### INFRACOST_TERRAFORM_CLOUD_ORG
+For Terraform Cloud/Enterprise users, used to specify the organization name. This is only needed if you do not have a valid Terraform Cloud block configuration with an organization name.
+
 ### INFRACOST_TERRAFORM_SOURCE_MAP
 
 Accepts a comma separated list of `source=dest` pairs, and replaces any matched source URL value found in Terraform `module` or Terragrunt `terraform` blocks. This is useful when you have module URLs that are referenced in your infra-as-code repos one way (e.g. using a private URL), but they should use a different URL when Infracost runs them (e.g. using a public URL). See [this docs section](/docs/features/terraform_modules/#source-map) for more details.
