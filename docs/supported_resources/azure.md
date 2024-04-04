@@ -74,7 +74,7 @@ There are Terraform resources that Infracost supports, and Azure charges for.
 There are Terraform resources that Infracost supports, and we classify as free.
 
 | Terraform resources                                                              |
-| -------------------------------------------------------------------------------- |
+|----------------------------------------------------------------------------------|
 | `azurerm_api_management_api_diagnostic`                                          |
 | `azurerm_api_management_api_operation_policy`                                    |
 | `azurerm_api_management_api_operation`                                           |
@@ -107,6 +107,8 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_api_management_property`                                                |
 | `azurerm_api_management_subscription`                                            |
 | `azurerm_api_management_user`                                                    |
+| `azurerm_app_configuration_feature`                                              |
+| `azurerm_app_configuration_key`                                                  |
 | `azurerm_app_service_active_slot`                                                |
 | `azurerm_app_service_certificate`                                                |
 | `azurerm_app_service_managed_certificate`                                        |
