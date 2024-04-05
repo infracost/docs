@@ -13,11 +13,17 @@ Infracost differentiates Baseline costs and Usage costs:
 
 To determine whether a resource incurs baseline or usage costs, you can examine cloud vendor pricing details, paying attention to whether prices are listed hourly. If they are and your Terraform code specifies resource size, it indicates a baseline cost. Alternatively, you can utilize Infracost; costs marked with a `*` denote usage costs, while others represent baseline costs. Infracost exists to make cloud pricing easy to understand!
 
+<img src={useBaseUrl("img/infracost-cloud/pull-request-with-usage-cost.png")} alt="Usage costs in pull requests" />
+
+## How to override (improve) estimates
+
+Checkout the following demo video on how to override and improve estimates for usage-based resources.
+
 <iframe width="90%" height="450" src="https://www.youtube.com/embed/dZxO4XUq7UE" title="Demo of usage costs feature" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
 
 ## Infracost Cloud
 
-Infracost Cloud can be used to define usage defaults for all repos in a central place. This enables FinOps, DevOps and Platform teams to set rough values based on historic usage, which lets development teams generate more accurate estimates. Development teams can also provide usage values in their repos using an [infracost-usage.yml](#infracost-usageyml) file; these are merged with the centrally-defined values and take precedence over them.
+Infracost Cloud can be used to define usage defaults for all repos in a central place (this is a paid feature). This enables FinOps, DevOps and Platform teams to set rough values based on historic usage, which lets development teams generate more accurate estimates. Development teams can also provide usage values in their repos using an [infracost-usage.yml](#infracost-usageyml) file; these are merged with the centrally-defined values and take precedence over them.
 
 ### Predefined values
 
@@ -35,7 +41,7 @@ Predefined usage values can be overridden by creating a new usage default; simpl
 
 ## infracost-usage.yml
 
-The `infracost-usage.yml` file lets engineers set usage values in their repos. These are merged with any values defined in [Infracost Cloud](#infracost-cloud) and take precedence over them. To use this method:
+The `infracost-usage.yml` file lets engineers set usage values in their repos (this is a free feature). These are merged with any values defined in [Infracost Cloud](#infracost-cloud) and take precedence over them. This method does not currently support [project filters](/docs/features/usage_based_resources/#add-overrides). To use this method:
 
 1. Copy [this file](https://github.com/infracost/infracost/blob/master/infracost-usage-defaults.small.yml) into your repo and customize the required values. This predefined file attempts to set each usage-based cost as $5/month for common configurations, helping engineers understand that these resources are not free.
 2. [GitHub](/docs/integrations/github_app/) and [GitLab](/docs/integrations/gitlab_app/) App users should put this file at the root of repos (or another location specified in the [config file](/docs/features/config_file/)). CLI and CI/CD users should add the `--usage-file=infracost-usage.yml` flag to **both** `infracost breakdown` and `infracost diff` commands:
