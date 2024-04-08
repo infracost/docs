@@ -17,7 +17,7 @@ To determine whether a resource incurs baseline or usage costs, you can examine 
 
 ## How to override & improve estimates
 
-Check out our demo video below to learn how to override and improve estimates for usage-based resources. This be done from:
+Check out our demo video below to learn how to override and improve estimates for usage-based resources. This can be done from:
 - [Infracost Cloud](#infracost-cloud) (recommended): define usage defaults for all repos in a central place. This is a paid feature and enables FinOps, DevOps and Platform teams to set rough values based on historic usage, which lets development teams generate more accurate estimates.
 - [infracost-usage.yml](#infracost-usageyml): development teams can also use this file to provide usage values in their repos. This is a free feature. These values are merged with the centrally-defined values and take precedence over them.
 
