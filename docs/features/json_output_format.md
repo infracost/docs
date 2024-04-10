@@ -358,4 +358,4 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
 }
 ```
 
-The JSON schema is available [on github](https://github.com/infracost/infracost/blob/master/schema/infracost.schema.json). 
+The JSON schema is available [on github](https://github.com/infracost/infracost/blob/master/schema/infracost.schema.json). Additional context such as the operating system, Terraform version, type of CI system, and Infracost version are also recorded alongside error tracking events so we can identify and fix issues quickly.
