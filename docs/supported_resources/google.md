@@ -4,6 +4,7 @@ title: Google
 ---
 
 Please note:
+
 1. Free trials and free tiers, which are usually **not** a significant part of cloud costs, are ignored. This because Infracost can only see the Terraform projects it is run against but free tiers are account-wide and there are often multiple Terraform projects in an account.
 2. Google Cloud Platform (GCP) on-demand prices are used by default.
 
@@ -19,6 +20,8 @@ There are Terraform resources that Infracost supports, and Google charges for.
 | BigQuery                     | `google_bigquery_dataset`, `google_bigquery_table`                                                                                                                                                                                                                                                                                                                         | |
 | Cloud DNS                    | `google_dns_managed_zone`, `google_dns_record_set`                                                                                                                                                                                                                                                                                                                         | Most expensive price tier is used. |
 | Cloud Functions              | `google_cloudfunctions_function`                                                                                                                                                                                                                                                                                                                                           | |
+| Cloud Run Service       | `google_cloud_run_service`, `google_cloud_run_v2_service` | |
+| Cloud Run Job             | `google_cloud_run_v2_job`                                                                                                                                                                                                                                                                                                                                                    | |
 | Cloud Load Balancing         | `google_compute_forwarding_rule`, `google_compute_global_forwarding_rule`, `google_compute_target_grpc_proxy`, `google_compute_target_http_proxy`, `google_compute_target_https_proxy`, `google_compute_target_ssl_proxy`, `google_compute_target_tcp_proxy`, `google_compute_region_target_http_proxy`, `google_compute_region_target_https_proxy`                        | Price for additional forwarding rule is used. |
 | Cloud Logging                | `google_logging_billing_account_bucket_config`, `google_logging_billing_account_sink`, `google_logging_folder_bucket_config`, `google_logging_folder_sink`, `google_logging_organization_bucket_config`, `google_logging_organization_sink`, `google_logging_project_bucket_config`, `google_logging_project_sink`                                                         | |
 | Cloud Monitoring             | `google_monitoring_metric_descriptor`                                                                                                                                                                                                                                                                                                                                      | |
@@ -33,7 +36,7 @@ There are Terraform resources that Infracost supports, and Google charges for.
 | Kubernetes Engine (GKE)      | `google_container_cluster`, `google_container_node_pool`                                                                                                                                                                                                                                                                                                                   | The free zonal cluster is not supported. Notes from Compute Engine also apply to the instances used in the clusters' node pools. |
 | Memorystore Redis            | `google_redis_instance`                                                                                                                                                                                                                                                                                                                                                    | |
 | Secret Manager               | `google_secret_manager_secret`, `google_secret_manager_secret_version`                                                                                                                                                                                                                                                                                                     | |
-| VPC Service Networking       | `google_service_networking_connection`                                                                                                                                                                                                                                                                                                                                     | |
+| VPC Service Networking       | `google_service_networking_connection`                                                                                                                                                                                                                                                                            | |
 
 ## Free resources
 
@@ -53,6 +56,12 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `google_cloudfunctions_function_iam_binding` |
 | `google_cloudfunctions_function_iam_member` |
 | `google_cloudfunctions_function_iam_policy` |
+| `google_cloud_run_service_iam_policy` |
+| `google_cloud_run_service_iam_binding` |
+| `google_cloud_run_service_iam_member` |
+| `google_cloud_run_domain_mapping` |
+| `google_cloud_run_v2_job_iam` |
+| `google_cloud_run_v2_service_iam` |
 | `google_compute_attached_disk` |
 | `google_compute_backend_bucket_signed_url_key` |
 | `google_compute_backend_bucket` |
