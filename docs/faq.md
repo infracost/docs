@@ -9,7 +9,7 @@ Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Prici
 When the CLI runs, it:
 
 1. **Extracts cost-related parameters**<br />
-  The CLI parses Terraform HCL code to extract only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size.
+  The CLI parses Terraform HCL code to extract only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size. The CLI automatically discovers all projects or environment in your repo.
 
 2. **Retrieves prices from the Cloud Pricing API**<br />
   The CLI retrieves prices from the Cloud Pricing API. The CLI **does not** send the Terraform plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response).
@@ -22,9 +22,7 @@ When the CLI runs, it:
 
 ## Security and Privacy
 
-Security is of paramount importance to us. We are SOC 2 Type II certified. Our <a href="https://www.infracost.io/security/" target="_self" rel="">Security page</a> gives an overview of the processes and systems Infracost has in place to ensure we are continually protecting our users' data.
-
-If you have any questions or concerns, please [contact us](mailto:hello@infracost.io).
+Security is of paramount importance to us. We are SOC 2 Type II certified. Our <a href="https://security.infracost.io" target="_self" rel="">Trust center page</a> enables you to request details and provides an overview of the processes and systems Infracost has in place to ensure we are continually protecting our users' data. If you have any questions or concerns, please [contact us](mailto:hello@infracost.io).
 
 ### What data is sent to the Cloud Pricing API?
 
@@ -109,6 +107,10 @@ Infracost provides static IPs for its Cloud Pricing API and Infracost Cloud serv
 
 ## Features
 
+### Which cloud providers and IaC frameworks are supported?
+
+Currently AWS, Azure and Google are supported with Terraform.
+
 ### What's the difference between Infracost and Terraform Cloud's cost estimation?
 
 There are three key areas of differentiation.
@@ -137,6 +139,10 @@ Auto-scaling groups have a dynamic instance count so it's useful for engineers t
 By default, Infracost parses the code to detect the instance count, thus it has to follow the static logic from the autoscaling group in AWS, Azure or Google. For example, the `aws_autoscaling_group` resource has a `desired_capacity` that is used, and if that is not set, the `min_size` is used, and otherwise we default to an instance count of 1.
 
 You can override the instance count manually in the [usage file](/docs/features/usage_based_resources/).
+
+### How do you deal with Reserved Instances and Savings Plans?
+
+See [this doc](/docs/infracost_cloud/custom_price_books/#reserved-instances-and-savings-plans) for details.
 
 ### Can I show costs in a different currency?
 

@@ -27,10 +27,18 @@ You can apply these discounts in Infracost Cloud:
 
 ## Custom price books
 
-We can also apply SKU-level custom cloud pricing to your Infracost Cloud organization. Please [contact us](mailto:hello@infracost.io) to set this up. We would need details of the services or SKUs that you'd like to customize.
+We can also apply SKU-level custom cloud pricing to your Infracost Cloud organization. Please [contact us](mailto:hello@infracost.io) to set this up. We would need details of the services or SKUs that you'd like to customize. For example, AWS customers can get this information in the Cost & Usage Reports, and Azure customers can use the [Price Sheet CSV export](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/ea-pricing?wt.mc_id=searchAPI_azureportal_inproduct_rmskilling&sessionId=e5ed2c1e32b5482c8c7c9a1ecf3b13b2#download-pricing-for-an-enterprise-agreement).
 
 ## Reserved Instances and Savings Plans
 
-For cost estimation purposes, engineers often prefer a simple price point that they can use in their calculations and when making design decisions. Reserved Instances and Savings Plans complicate this due to the dynamic nature of their discounts, which is applied after resources are launched.
+For cost estimation purposes, engineers often prefer a simple price point that they can use in their calculations and when making design decisions. Reserved Instances (RIs) and Savings Plans (SPs) complicate this due to the dynamic nature of their discounts, which is applied after resources are launched. Companies usually manage this by having:
+- Central FinOps teams often change RIs and SPs regularly to match instance usage.
+- Engineers compare like-for-like using on-demand prices; FinOps team ensures maximum savings of RIs/SPs; Engineers ship fast.
+- Engineers use consistent number & make upfront design decisions quickly.
+- Custom price books include main discounts already.
 
-Therefore, to simplify cost estimation for engineers, some companies prefer to use "blended rate" of resources, which combines on-demand and discounted prices into one price point. The blended rate is shown in cloud vendor Cost and Usage Reports (e.g. AWS CUR) and we can import them into your Infracost Cloud organization so they can be used instead of on-demand prices. Please [contact us](mailto:hello@infracost.io) to setup a way for you to provide these to us.
+Showing engineers on-demand prices means that only the FinOps team is changing things, vs engineers also trying to second-guess the RI/SP discount allocation.
+
+However, some companies prefer to use "blended rate" of resources, which combines on-demand and discounted prices into one price point. The blended rate is shown in cloud vendor Cost and Usage Reports (e.g. AWS CUR) and we can import them into your Infracost Cloud organization so they can be used instead of on-demand prices.
+
+Please [contact us](mailto:hello@infracost.io) to discuss what works best for your organization.
