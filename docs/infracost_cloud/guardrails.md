@@ -7,15 +7,15 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Guardrails help you control costs by monitoring pull requests (PRs) and triggering actions when your defined thresholds are exceeded. Once you define a cost or percentage-based threshold for the relevant repositories, projects, and branches, you can set up email, Slack, or Microsoft Teams notifications. You can also customize the PR comment (e.g. "This change exceeds the budget, please discuss with your team lead") or even block the PR until it has been reviewed.
 
-<img src={useBaseUrl("img/infracost-cloud/guardrails/cost-saving.png")} alt="Cost savings from guardrails" />
+<img src={useBaseUrl("img/infracost-cloud/guardrails/index.png")} alt="Guardrails" />
 
-## Preventive costs
+## Cost prevention
 
 We figure out how much you've saved on guardrails by looking at the difference between the costliest run that activated the guardrail and the final cost when you made your latest change. So, let's say an engineer opens a pull request with a change that would've increased the cost by $10k, but the guardrail is triggered. Your team then works to reduce the cost, and the changes finally get approved and merged with an increased cost of $2k. In this case, you've saved $8k because of the guardrail.
 
-Guardrails also have an audit trail of the pull requests that triggered them so you can see details of the preventive costs:
+From the Infracost Cloud dashboard, you can see the total cost prevention from guardrails. Clicking on that number will show you an audit trail of the pull requests and their cost prevention numbers.
 
-<img src={useBaseUrl("img/infracost-cloud/guardrails/guardrail-events.png")} alt="Guardrail events" />
+<img src={useBaseUrl("img/infracost-cloud/guardrails/cost-savings.png")} width="70%" alt="Guardrail cost prevention" />
 
 ## Usage
 
