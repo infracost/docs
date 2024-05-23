@@ -11,6 +11,7 @@ Infracost can be used in the following third-party systems. You should only cons
 - [Scalr](https://docs.scalr.com/en/latest/cost_estimate.html)
 - [Spacelift](https://docs.spacelift.io/vendors/terraform/infracost)
 - [Env0](https://docs.env0.com/docs/cost-monitoring#cost-estimation)
+- [Harness](https://www.harness.io/products/infrastructure-as-code-management)
 - [Terrateam](https://docs.terrateam.io/integrations/infracost)
 - [Terraspace](https://terraspace.cloud/docs/cloud/cost-estimation)
 - [Terranetes](https://terranetes.appvia.io/terranetes-controller/admin/costs)
@@ -19,6 +20,8 @@ Infracost can be used in the following third-party systems. You should only cons
 - [Brainboard](https://docs.brainboard.co/ci-cd-engine/supported-plugins#cost-estimation)
 - [Semaphore](https://docs.semaphoreci.com/examples/estimating-cloud-costs-with-infracost/)
 - [cloud-concierge](https://docs.cloudconcierge.io/how-it-works/pull-request-output#resource-cost-calculations)
+
+If you're looking for ways to generate Terraform from existing cloud resources, you might want to consider [Terraformer](https://github.com/GoogleCloudPlatform/terraformer) or [Finisterra](http://finisterra.io/). 
 
 ## Creating an integration
 
