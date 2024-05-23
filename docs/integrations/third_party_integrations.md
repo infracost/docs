@@ -21,8 +21,6 @@ Infracost can be used in the following third-party systems. You should only cons
 - [Semaphore](https://docs.semaphoreci.com/examples/estimating-cloud-costs-with-infracost/)
 - [cloud-concierge](https://docs.cloudconcierge.io/how-it-works/pull-request-output#resource-cost-calculations)
 
-If you're looking for ways to generate Terraform from existing cloud resources, you might want to consider [Terraformer](https://github.com/GoogleCloudPlatform/terraformer) or [Finisterra](http://finisterra.io/). 
-
 ## Creating an integration
 
 Please follow these steps when creating a third-party integration with Infracost:
