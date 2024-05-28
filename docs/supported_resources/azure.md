@@ -203,6 +203,10 @@ There are Terraform resources that Infracost supports, and we classify as free.
 | `azurerm_data_factory_trigger_custom_event`                                      |
 | `azurerm_data_factory_trigger_schedule`                                          |
 | `azurerm_data_factory_tumbling_window`                                           |
+| `azurerm_dev_test_global_vm_shutdown_schedule`                                   |
+| `azurerm_dev_test_lab`                                                           |
+| `azurerm_dev_test_policy`                                                        |
+| `azurerm_dev_test_schedule`                                                      |
 | `azurerm_eventgrid_domain`                                                       |
 | `azurerm_eventgrid_event_subscription`                                           |
 | `azurerm_eventgrid_system_topic_event_subscription`                              |
