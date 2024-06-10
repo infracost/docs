@@ -36,7 +36,6 @@ module.exports = {
         'infracost_cloud/data_export',
         'infracost_cloud/sso',
         'infracost_cloud/custom_price_books',
-        'infracost_cloud/actual_costs',
         'infracost_cloud/readme_badge',
         'infracost_cloud/key_concepts',
       ],
