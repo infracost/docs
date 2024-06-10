@@ -15,7 +15,7 @@ This section assumes you have already setup the Infracost source control integra
 
 ## 1. See policy failures on repos
 
-Once you've connected a repo to Infracost, it scans your code and checks for **40 AWS, Azure and Google** FinOps policies out of the box. This gives you immediate analytics on how well you're following the best practices.
+Once you've connected a repo to Infracost, it scans your code and checks for over **50 AWS, Azure and Google** FinOps policies out of the box. This gives you immediate analytics on how well you're following the best practices.
 
 Go to the Visibility > Repos page to see which FinOps policies the repo is failing on; for example, the following screenshot shows a repo that is failing 3 policies. The file and line numbers are also shown with a suggested fix so engineers can easily take action.
 
@@ -38,5 +38,7 @@ When engineers create a pull request to change infrastructure, Infracost scans t
 ## 4. Update policy settings
 
 From the Governance > FinOps page, you can click on the details of any policy and update its settings. These settings include the option to block requests that fail the policy, and the ability to customize the message shown to engineers in pull requests. This is useful if you need to customize the message to recommend your company's specific policy or a link to internal wiki pages where engineers can learn more.
+
+You can also define whether a policy should trigger only when new resources are being added. This is useful when changing an existing resource, such a database's instance type, requires downtime and thus you prefer engineers to not do that within their existing open pull request.
 
 <img src={useBaseUrl("img/infracost-cloud/finops-policies/policy-settings.png")} alt="Each policy has settings that can be updated to enforce it in pull requests or customize the message shown in the pull request." />

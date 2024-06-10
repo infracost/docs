@@ -62,6 +62,11 @@ The GitLab App needs access to code repos so it can run the CLI against them, an
 
 Each time a merge request is opened or a new commit is pushed to open merge requests, the Infracost GitLab App shows the cost difference between the most recent commit of the merge request branch, and the merge base of the base branch. The merge base is the latest common commit of the merge request base and target branch. This mirrors GitLab's merge request diff logic and shows only the cost of 'what a merge request introduces'.
 
+The GitLab App automatically reflects the following changes in Infracost:
+- Repos that are **renamed** are automatically updated in Infracost.
+- When a repo is **moved** from one GitLab Org to another, that change is reflected in Infracost. When the source and destination GitLab Orgs are in different Infracost Orgs, the move is also performed as long as the Infracost Cloud orgs are in the same Enterprise.
+- Repos that are **deleted** or **archived** are marked as archived in Infracost and preserved for audit purposes. Their issues no longer show in the dashboard.
+
 ### Disable merge request comments
 
 From the Org Settings > Integrations > GitLab App page, you can disable merge request comments so cost estimates, guardrails and tagging policies are only shown in Infracost Cloud. This enables you to test these features without impacting engineering workflows.
