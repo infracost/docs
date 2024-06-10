@@ -18,21 +18,21 @@ Data exports can be setup at either the Infracost organization level, or the ent
 <img src={useBaseUrl("img/infracost-cloud/data-export.png")} alt="Export data to AWS S3 and Azure Blob Storage" />
 
 ### Organization data export
-Once configured, two CSV files we be updated daily with the latest information, replacing any earlier versions of the file:
+Once configured, two CSV files will be updated daily with the latest information, replacing any earlier versions of the file:
 1. `infracost_merged_closed_prs_YYYYMM.csv` containing information on pull requests that were merged or closed during the current month and year. This data can be used to see the portion of cloud costs caused by engineering changes, versus organic changes from things like data transfer.
 2. `infracost_open_prs.csv` containing information on pull requests that are currently open. This data can be used to see potential increases that'll impact your costs in the future, so you are not surprised and can plan accordingly.
 
 Both files have the same set of CSV fields. You can see the schema by browsing to Infracost Cloud > Visibility > Cost explorer and clicking on the Export CSV button to get an example file from your dataset.
 
 ### Enterprise data export
-The enterprise data export consistent of daily CSV files that contain a summary of all tagging and FinOps policy issues across all code repos in all organizations that are part of your enterprise. This data export also contains the number of issues that were prevented or fixed, and the total amount of cost prevention or reduction from of your policies.
+The enterprise data export consists of daily CSV files that contain a summary of all tagging and FinOps policy issues across all code repos in all organizations that are part of your enterprise. This data export also includes the number of issues that were prevented or fixed and the total amount of cost prevention or reduction from your policies.
 
-- `infracost_enterprise_branch_summary_YYYYMMDD.csv`: This file shows the current issues from the base branches (e.g. main or master) of all repos across all Infracost orgs, so you can see trends over time. Each file is a complete snapshot of the time it was generated at. This file will show 0 in the issues columns if a repo has no issues. Repos archived and deleted in GitHub/GitLab are not included in this file so the numbers shown will match the Infracost Cloud dashboard. If a repo is renamed, the next day's exported file will reflect the new repo_name. 
+- `infracost_enterprise_branch_summary_YYYYMMDD.csv`: This file shows the current issues from the base branches (e.g. main or master) of all repos across all Infracost orgs, so you can see trends over time. Each file is a complete snapshot of the time it was generated at. This file will show 0 in the issues columns if a repo has no issues. Repos archived and deleted in GitHub/GitLab are not included in this file so the numbers shown will match the Infracost Cloud dashboard. If a repo is renamed, the next day's exported file will reflect the new `repo_name`. 
 - `infracost_enterprise_merged_prs_summary_YYYYMM.csv`: This file shows the cost impact for all pull requests merged in the month. Thus this file has the same data that is used in the cost impact summary in the Infracost Cloud dashboard.
 
-   Every day, the file for the current month will be updated with the latest information for month-to-date, replacing any earlier versions of the file. So for example, on the first day of April 2024, infracost_merged_prs_summary_202404.csv will be created, and on the 2nd of April, the same file will overwritten with the latest information. On 1st of May, infracost_merged_prs_summary_202405.csv will be created.
+   Every day, the file for the current month will be updated with the latest information for the month-to-date, replacing any earlier versions of the file. So for example, on the first day of April 2024, infracost_merged_prs_summary_202404.csv will be created, and on the 2nd of April, the same file will be overwritten with the latest information. On the 1st of May, infracost_merged_prs_summary_202405.csv will be created.
 
-   Only repos that have merged pull requests appear in this file. If a repo has no impact data for the current month, it will not be included in this file. If a repo is archived or deleted in GitHub/GitLab, it will still included in this file as long as it had merged pull requests in the current month. If a repo is renamed, the next day's exported file will reflect the new repo_name. 
+   Only repos that have merged pull requests appear in this file. If a repo has no impact data for the current month, it will not be included in this file. If a repo is archived or deleted in GitHub/GitLab, it will still be included in this file as long as it has merged pull requests in the current month. If a repo is renamed, the next day's exported file will reflect the new `repo_name`. 
 - `infracost_enterprise_licenses_summary_YYYYMM.csv`: This file shows the total number of licenses used across all Infracost orgs in the enterprise for the current month. The pull request authors are de-duplicated across the Infracost orgs in the enterprise. This file will always have 1 row. 
 
 ## Export to AWS S3 bucket
