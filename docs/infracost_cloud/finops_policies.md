@@ -43,16 +43,20 @@ You can also define whether a policy should trigger only when new resources are 
 
 <img src={useBaseUrl("img/infracost-cloud/finops-policies/policy-settings.png")} alt="Each policy has settings that can be updated to enforce it in pull requests or customize the message shown in the pull request." />
 
-## 5. Customisable preferred instance types policies
+### Customizable policies
 
-Infracost provides several policies (for AWS, Azure, and GCP) that allow you to limit the instance types that engineers can use. This can be useful for a number of reasons depending on your organizations goals, and is therefore customisable via the policy settings page.
+Infracost provides several policies (for AWS, Azure, and GCP) that enable FinOps teams to encourage or enforce the regions and instance types that engineers should use. This is useful for a number of reasons depending on your organizations goals, and is therefore customizable via each policy's settings page.
 
-You can specify any number of region/instance type pairs to allow. For example, you can limit the instance types to the latest generation, or to those that are the most cost-effective, or to those which your organization has standardized upon.
+#### Using preferred regions
+In many cases, enterprises want to encourage their engineers to use specific cloud regions. For example, some enterprises want to encourage [low CO2 Google Cloud regions](https://cloud.google.com/sustainability/region-carbon), and others want to only allow certain AWS or Azure regions due to compliance reasons.
 
-You should add allowed pairs to the policy settings page, under "Preferred Instance Types", as shown in the screenshot below. One pair should be specified per line, with each region and instance type separated by a colon. Wildcards (`*`) can be used to match any region or instance type, on a full or partial basis.
+To set this up, go to Infracost Cloud > Governance > FinOps policies > Inactive tab and click on the "General - consider using preferred regions" policy. You can enter the list of regions that you'd like to encourage engineers to use, and whether pull requests that fail this policy should be blocked or not.
+
+#### Using preferred instance types
+Many enterprises have Reserved Instances, Savings Plans or Committed Use Discounts. In all three cases, these are limited to specific regions and instance types or families. It is often useful to encourage or limit engineers to the instance types that your organization has standardized upon for cost savings purposes.
+
+To set this up, go to Infracost Cloud > Governance > FinOps policies > Inactive tab and click on the "General - consider using preferred instance types" policy. You can specify any number of region/instance type or family pairs to allow as shown in the screenshot below. One pair should be specified per line, with each region and instance type separated by a colon. Wildcards (`*`) can be used to match any region or instance type, on a full or partial basis.
 
 <img src={useBaseUrl("img/infracost-cloud/finops-policies/preferred.png")} alt="Preferred instance types are configurable via the policy settings page." />
 
 You can override wildcard settings with more specific ones. For example, adding the pair `*:t1.micro` will allow the use of `t1.micro` instances in all regions, but adding the more specific pair `us-west-2:t2.micro` will override this, meaning only `t2.micro` instances can be used in the `us-west-2` region, but `t1.micro` instances can still be used in all other regions.
-
-
