@@ -52,6 +52,11 @@ In many cases, enterprises want to encourage their engineers to use specific clo
 
 To set this up, go to Infracost Cloud > Governance > FinOps policies > Inactive tab and click on the "General - consider using preferred regions" policy. You can enter the list of regions that you'd like to encourage engineers to use, and whether pull requests that fail this policy should be blocked or not.
 
+Use the region identifiers below for this policy:
+- AWS: [list of regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/), e.g. `us-east-1`.
+- Azure: [list of regions](https://cloud.google.com/about/locations/), e.g. `eastus`. You can also run `az account list-locations -o table` to see the list for your account.
+- Google: [list of regions](https://cloud.google.com/about/locations/), e.g. `us-west1`
+
 #### Using preferred instance types
 Many enterprises have Reserved Instances, Savings Plans or Committed Use Discounts. In all three cases, these are limited to specific regions and instance types or families. It is often useful to encourage or limit engineers to the instance types that your organization has standardized upon for cost savings purposes.
 
