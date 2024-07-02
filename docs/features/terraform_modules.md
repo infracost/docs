@@ -25,8 +25,19 @@ For registry modules, enter the following information:
   ```
   package spacelift
   allow {
-    input.session.login == "api::API_KEY_ID_FROM_SPACELIFT_UI"
+    # Try this without the space_read line first, if that doesn't work then add that line, or change "root" to the space that contains your modules
+    space_read["root"] {
+      input.session.login == "api::API_KEY_ID_FROM_SPACELIFT_UI"
+    }
   }
+  ```
+
+  Unfortunately the Spacelift registry API doesn't differentiate token permission issues, so when the following curl returns an empty versions array, it means your token isn't working:
+
+  ```
+  $ curl -H 'Authorization: Bearer mytoken' https://app.spacelift.io/registry/modules/v1/MY_ORG/MY_MODULE/spacelift/versions
+
+  {"modules":[{"source":"MY_ORG/MY_MODULE/spacelift","versions":[]}]} # token isn't working
   ```
 * **Other registries:** set the host to the hostname of the registry and the token to the access token for that registry.
 * **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [hello@infracost.io](mailto:hello@infracost.io) so we can assist you.
@@ -109,8 +120,19 @@ Set the following environment variables in your CI/CD pipeline:
   ```
   package spacelift
   allow {
-    input.session.login == "api::API_KEY_ID_FROM_SPACELIFT_UI"
+    # Try this without the space_read line first, if that doesn't work then add that line, or change "root" to the space that contains your modules
+    space_read["root"] {
+      input.session.login == "api::API_KEY_ID_FROM_SPACELIFT_UI"
+    }
   }
+  ```
+
+  Unfortunately the Spacelift registry API doesn't differentiate token permission issues, so when the following curl returns an empty versions array, it means your token isn't working:
+
+  ```
+  $ curl -H 'Authorization: Bearer mytoken' https://app.spacelift.io/registry/modules/v1/MY_ORG/MY_MODULE/spacelift/versions
+
+  {"modules":[{"source":"MY_ORG/MY_MODULE/spacelift","versions":[]}]} # token isn't working
   ```
 * **Other registries:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to the hostname of the registry and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to the access token for that registry.
 * **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [hello@infracost.io](mailto:hello@infracost.io) so we can assist you.
