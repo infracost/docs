@@ -10,7 +10,7 @@ The Infracost Cloud API enables you to programmatically manage [tagging policies
 The best way to fix this problem is to address the root cause: validate the **tag values** when the code is being written. That is why we built this API, so enterprises can regularly push thousands of tag values to Infracost and it will automatically validate them in pull requests.
 
 This has two key benefits:
-1. Engineers get the fastest-possible feedback loop, "hey, it looks like you have a typo in your tag value, PROD should be production", at the right time in the right place (engineering workflow).
+1. Engineers get the fastest-possible feedback loop, at the right time in the right place (engineering workflow). You can customize the message engineers see, for example, "The application ID isn't valid, please ensure your application is registered at https://services.acme-inc.com/list".
 2. FinOps teams to see the percentage of resources that are tagged with correct values, and guess what, it automatically improves over time! No more chasing engineers and creating Jira tasks for this mundane stuff.
 
 ## Usage
