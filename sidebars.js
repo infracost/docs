@@ -34,6 +34,7 @@ module.exports = {
         'infracost_cloud/jira_integration',
         'infracost_cloud/reports',
         'infracost_cloud/data_export',
+        'infracost_cloud/api',
         'infracost_cloud/sso',
         'infracost_cloud/custom_price_books',
         'infracost_cloud/readme_badge',
