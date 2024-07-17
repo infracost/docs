@@ -85,7 +85,7 @@ Tagging policies check all AWS, Azure and Google Terraform resources that suppor
   - `.tags` for each `*_block_device` are checked.
   - provider `default_tags` are automatically applied to `volume_tags` unless you are using an AWS provider version earlier than `5.39`.
 - For `aws_launch_template`, the `tag_specifications` attribute is also checked. If the `resource_type` is `instance` or `volume` these tags are then associated with either the `aws_instance` or `aws_autoscaling_group` resource that references the `aws_launch_template` and checked as part of those resources.
-- The `propagate_tags` attribute is checked for any resource that requires that to be set for tags to propagate to dynamically created resources, such as `aws_ecs_service` and `aws_scheduler_schedule`.
+- The `propagate_tags` attribute is checked for any resource that requires that to be set for tags to propagate to dynamically created resources: `aws_ecs_service`, `aws_scheduler_schedule`, `aws_batch_job_definition`, `aws_dynamodb_table`, `aws_pipes_pipe`, and `aws_cloudwatch_event_target`.
 - The following individual tag resources are not checked as these are used to tag resources defined outside of Terraform: `aws_autoscaling_group_tag`, `aws_ec2_tag`, `aws_transfer_tag`, `aws_ecs_tag`, `aws_dynamodb_tag`.
 
 </details>
