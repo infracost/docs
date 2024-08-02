@@ -109,6 +109,26 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
     </details>
 4. Once we receive the form, we will email you to schedule a quick screenshare call to enable SSO. On the call, we will verify your SSO connection is configured correctly and delete the initial user that was created without SSO.
 
+## SAML group mapping
+
+Infracost Enterprise supports SAML group mapping, which allows you to map SAML groups to Infracost Cloud groups. This allows you to manage access to Infracost Cloud by managing SAML groups in your SAML provider.
+
+To enable this feature you will need to provide the following information:
+1. The full list of group names set up in your SAML provider, and how they should map to Infracost organizations and roles, e.g:
+
+  | SAML group | Infracost organization slug | Infracost role |
+  |------------|-----------------------------|----------------|
+  | InfracostViewer | my-org | Org Viewer |
+  | InfracostEditor | my-org | Org Editor |
+  | InfracostAdmin | my-org | Org Admin |
+  | InfracostOwner | my-org | Enterprise Admin |
+
+  This supports all the Infracost roles listed in the [roles documentation](/docs/infracost_cloud/roles), as well as a special role `Enterprise Admin` which has access to all organizations in your enterprise account.
+2. The attribute name in the SAML assertion that will contain the group names, for example `memberOf`.
+3. If possible, an example of the SAML assertion that will be sent.
+
+To enable SAML group mapping, please reach out to [hello@infracost.io](mailto:hello@infracost.io).
+
 ## SSO login notes
 
 After SSO is configured:
