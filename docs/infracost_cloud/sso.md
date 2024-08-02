@@ -14,25 +14,27 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
 2. From the top dropdown menu, switch to your company organization or create a new organization for your company.
 3. Follow the applicable sections below to setup SSO, each option ends with a form where you enter your SSO details.
     <details>
-      <summary>Azure Active Directory</summary>
+      <summary>Microsft Entra ID</summary>
       <ol style={{'list-style-type': 'decimal'}}>
         <li>In the <a href="https://dashboard.infracost.io" target="_blank" rel="noopener noreferrer">Infracost Cloud
             dashboard</a> go to <code>Org Settings</code> and copy your <code>Org ID</code>. You will need to
           provide this to Infracost in a future step.</li>
         <li>Login to the <a href="https://portal.azure.com" target="_blank" rel="noopener noreferrer">Azure portal</a>
         </li>
-        <li>Go to <code>Azure Active Directory &gt; App registrations</code></li>
-        <li>Click <code>New registration</code></li>
+        <li>Go to <code>Microsoft Entra ID &gt; Enterprise applications</code></li>
+        <li>Click <code>New application</code></li>
+        <li>Click <code>Create your own application</code></li>
         <li>For the name enter <code>Infracost Cloud</code></li>
-        <li>For the Redirect URL select <code>Web</code> for the platform and enter
-          <code>https://login.infracost.io/login/callback</code>
-        </li>
-        <li>Click on <code>Add a certificate or secret &gt; New client secret</code></li>
-        <li>Copy the Application (client) ID. You will need to provide this to Infracost in a future step.</li>
-        <li>Add a client secret with Description <code>Infracost Cloud SSO</code> that expires in 24 months.</li>
-        <li>Copy the Client Secret Value. You will need to provide this to Infracost in the next step.</li>
+        <li>Make sure 'Integrate any other application you don't find in the gallery (Non-gallery)' is selected.</li>
+        <li>On the left select <code>Single sign-on</code> and select <code>SAML</code></li>
+        <li>Click <code>Edit</code> in the Basic SAML Configuration section.</li>
+        <li>Click <code>Add identifier</code> and enter <code>urn:auth0:infracost:&lt;YOUR INFRACOST ORG ID&gt;</code></li>
+        <li>Click <code>Add reply URL</code> and enter <code>https://login.infracost.io/login/callback?connection=&lt;YOUR INFRACOST ORG ID&gt;</code></li>
+        <li>Click <code>Save</code></li>
+        <li>Download 'Certificate (Base64)'. You will need to provide this to Infracost in a future step.</li>
+        <li>Copy the 'Login URL'. You will need to provide this to Infracost in the next step.</li>
         <li>Fill out the <a href="https://forms.gle/W9Hjm8xBgqQEtnwd7" target="_blank" rel="noopener noreferrer">SSO
-            setup form here</a>, providing the Application (client) ID, Client secret value and the domain you want
+            setup form here</a>, providing the Login URL, certificate and the domains you want
           enabled for SSO.</li>
       </ol>
     </details>
@@ -123,7 +125,7 @@ To enable this feature you will need to provide the following information:
   | InfracostAdmin | my-org | Org Admin |
   | InfracostOwner | my-org | Enterprise Admin |
 
-  This supports all the Infracost roles listed in the [roles documentation](/docs/infracost_cloud/roles), as well as a special role `Enterprise Admin` which has access to all organizations in your enterprise account.
+  This supports all the Infracost roles listed in the [roles documentation](/docs/infracost_cloud/key_concepts/#team-management), as well as a special role `Enterprise Admin` which has access to all organizations in your enterprise account.
 2. The attribute name in the SAML assertion that will contain the group names, for example `memberOf`.
 3. If possible, an example of the SAML assertion that will be sent.
 
