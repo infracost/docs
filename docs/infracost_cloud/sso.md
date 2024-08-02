@@ -15,7 +15,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
 3. Follow the applicable sections below to setup SSO, each option ends with a form where you enter your SSO details.
     <details>
       <summary>Azure Active Directory</summary>
-      <ol>
+      <ol style={{'list-style-type': 'decimal'}}>
         <li>In the <a href="https://dashboard.infracost.io" target="_blank" rel="noopener noreferrer">Infracost Cloud
             dashboard</a> go to <code>Org Settings</code> and copy your <code>Org ID</code>. You will need to
           provide this to Infracost in a future step.</li>
@@ -38,7 +38,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
     </details>
     <details>
       <summary>Okta</summary>
-      <ol>
+      <ol style={{'list-style-type': 'decimal'}}>
         <li>In the <a href="https://dashboard.infracost.io" target="_blank" rel="noopener noreferrer">Infracost Cloud
             dashboard</a> go to <code>Org Settings</code> and copy your <code>Org ID</code>. You will need to
           provide this to Infracost in a future step.</li>
@@ -68,7 +68,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
     </details>
     <details>
       <summary>Google Workspace</summary>
-      <ol>
+      <ol style={{'list-style-type': 'decimal'}}>
         <li>In the <a href="https://dashboard.infracost.io" target="_blank" rel="noopener noreferrer">Infracost Cloud
             dashboard</a> go to <code>Org Settings</code> and copy your <code>Org ID</code>. You will need this when
           setting up the SAML app in Google Workspace.</li>
@@ -99,7 +99,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
     </details>
     <details>
       <summary>Other SAML providers</summary>
-      <ol>
+      <ol style={{'list-style-type': 'decimal'}}>
         <li>In the <a href="https://dashboard.infracost.io" target="_blank" rel="noopener noreferrer">Infracost Cloud
             dashboard</a> go to <code>Org Settings</code> and copy your <code>Org ID</code>. You will need to
           provide this in the next step.</li>
