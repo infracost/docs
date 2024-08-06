@@ -76,6 +76,29 @@ For Terraform Cloud/Enterprise users, used to specify the organization name. Thi
 
 Accepts a comma separated list of `source=dest` pairs, and replaces any matched source URL value found in Terraform `module` or Terragrunt `terraform` blocks. This is useful when you have module URLs that are referenced in your infra-as-code repos one way (e.g. using a private URL), but they should use a different URL when Infracost runs them (e.g. using a public URL). See [this docs section](/docs/features/terraform_modules/#source-map) for more details.
 
+### Spacelift
+
+Infracost integrates with Spacelift to fetch environment variables and propagate them as Terraform tfvars. This is beneficial to make Infracost aware of Spacelift variables that influence costs, tags, or FinOps policies of your infrastructure.
+
+To configure Infracost with Spacelift, follow these steps:
+
+1. **Generate an API Key:**
+  - Create an API key in your Spacelift account (more information on how to generate a token can be found [here](https://docs.spacelift.io/integrations/api#spacelift-api-key-token)).
+  - Assign **reader** access to the spaces from which you want to read environment variables.
+
+2. **Define Environment Variables:**
+  - Set the following environment variables:
+
+#### INFRACOST_SPACELIFT_API_KEY_ENDPOINT
+- The URL to your Spacelift account, e.g., `https://mycorp.app.spacelift.io`.
+
+#### INFRACOST_SPACELIFT_API_KEY_ID
+- The ID of your Spacelift API key.
+
+#### INFRACOST_SPACELIFT_API_KEY_SECRET
+- The secret associated with your API key. This is only available when the secret is created.
+
+
 ### INFRACOST_PARALLELISM
 Do not set this if you are using the Infracost [GitHub](/docs/integrations/github_app/) or [GitLab App](/docs/integrations/gitlab_app/).
 If using multiple projects using a [config_file](/docs/features/config_file) this limits the number of projects processed in parallel. By default the parallelization level is set to 4×CPU count but capped at 16. To help with debugging set this to `1` so that the projects are processed synchronously.
