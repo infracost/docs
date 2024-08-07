@@ -2,6 +2,7 @@
 /* eslint-disable global-require */
 
 require('dotenv').config();
+const themes = require('prism-react-renderer').themes;
 
 module.exports = {
   title: 'Infracost',
@@ -174,7 +175,7 @@ module.exports = {
       textColor: '#EBEBF2',
     },
     prism: {
-      theme: require('prism-react-renderer/themes/dracula'),
+      theme: themes.dracula,
       additionalLanguages: ['hcl'],
     },
     algolia: {
