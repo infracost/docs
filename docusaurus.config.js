@@ -176,7 +176,7 @@ module.exports = {
     },
     prism: {
       theme: themes.dracula,
-      additionalLanguages: ['hcl'],
+      additionalLanguages: ['hcl', 'bash', 'json', 'yaml'],
     },
     algolia: {
       appId: 'ERN68FLCI1',

@@ -246,162 +246,165 @@ Example folder structure:
 The following table shows the parameters each `project` can have in the config file:
 
 <table>
-  <tr>
-    <th>Parameter</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>
-      <code>path</code>
-    </td>
-    <td>
-      Required. String. Path to the Terraform directory. The path is relative to the working
-      directory you run <code>infracost</code> from. A path can be repeated with different
-      parameters, e.g. for multiple Terraform var files.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>name</code>
-    </td>
-    <td>
-      Optional. String. Defaults to code path, workspace or Terraform/Terragrunt module within a
-      repo. Name of project to use in all outputs (pull request comment, Infracost Cloud and CLI).
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>terraform_var_files</code>
-    </td>
-    <td>
-      Optional. Array of string. Variable files to use when parsing Terraform HCL code, similar to
-      Terraform's <code>-var-file</code> flag. Files with the <code>.auto.tfvars</code> extension do
-      not need to be added to the list as they are processed automatically by Infracost. The file
-      paths are relative to the <code>path</code> of the project. For example:
-      <pre>
-        {`terraform_var_files:
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>
+        <code>path</code>
+      </td>
+      <td>
+        Required. String. Path to the Terraform directory. The path is relative to the working
+        directory you run <code>infracost</code> from. A path can be repeated with different
+        parameters, e.g. for multiple Terraform var files.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>name</code>
+      </td>
+      <td>
+        Optional. String. Defaults to code path, workspace or Terraform/Terragrunt module within a
+        repo. Name of project to use in all outputs (pull request comment, Infracost Cloud and CLI).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>terraform_var_files</code>
+      </td>
+      <td>
+        Optional. Array of string. Variable files to use when parsing Terraform HCL code, similar to
+        Terraform's <code>-var-file</code> flag. Files with the <code>.auto.tfvars</code> extension
+        do not need to be added to the list as they are processed automatically by Infracost. The
+        file paths are relative to the <code>path</code> of the project. For example:
+        <pre>
+          {`terraform_var_files:
   - global.tfvars
   - dev.tfvars`}
-      </pre>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>terraform_vars</code>
-    </td>
-    <td>
-      Optional. Map of strings. Input variables to use when parsing the Terraform HCL code, similar
-      to Terraform's <code>-var</code> flag. For example:
-      <pre>
-        {`terraform_vars:
+        </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>terraform_vars</code>
+      </td>
+      <td>
+        Optional. Map of strings. Input variables to use when parsing the Terraform HCL code,
+        similar to Terraform's <code>-var</code> flag. For example:
+        <pre>
+          {`terraform_vars:
   instance_count: 5
   artifact_version: foobar`}
-      </pre>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>dependency_paths</code>
-    </td>
-    <td>
-      Optional.{' '}
-      <span style={{ textDecoration: 'underline' }}>
-        Only applicable for GitHub App and GitLab App users
-      </span>
-      . Array of strings. Array of file or directory paths that should trigger project estimates. If
-      this is specified, code changes to the <code>path</code> target will <b>NOT</b> trigger cost estimates
-      unless the <code>path</code> is included in <code>dependency_paths</code>. All paths are relative
-      to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
-      <pre>
-        {`dependency_paths:
+        </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>dependency_paths</code>
+      </td>
+      <td>
+        Optional.{' '}
+        <span style={{ textDecoration: 'underline' }}>
+          Only applicable for GitHub App and GitLab App users
+        </span>
+        . Array of strings. Array of file or directory paths that should trigger project estimates.
+        If this is specified, code changes to the <code>path</code> target will <b>NOT</b> trigger
+        cost estimates unless the <code>path</code> is included in <code>dependency_paths</code>.
+        All paths are relative to the working directory of your <code>infracost.yml</code> file.
+        Supports glob patterns, for example:
+        <pre>
+          {`dependency_paths:
   - "config/**.json"
   - default.yml
   - "modules/**"`}
-      </pre>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>usage_file</code>
-    </td>
-    <td>
-      Optional. String. Path to Infracost usage file that specifies values for{' '}
-      <a href="/docs/features/usage_based_resources">usage based resources</a>. The path is relative
-      to the working directory you run <code>infracost</code> from.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>exclude_paths</code>
-    </td>
-    <td>
-      Optional. Array of strings. Array of directory paths to exclude from evaluation, relative to{' '}
-      <code>path</code> of project. Supports glob patterns too, for example:
-      <pre>
-        {`exclude_paths:
+        </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>usage_file</code>
+      </td>
+      <td>
+        Optional. String. Path to Infracost usage file that specifies values for{' '}
+        <a href="/docs/features/usage_based_resources">usage based resources</a>. The path is
+        relative to the working directory you run <code>infracost</code> from.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>exclude_paths</code>
+      </td>
+      <td>
+        Optional. Array of strings. Array of directory paths to exclude from evaluation, relative to{' '}
+        <code>path</code> of project. Supports glob patterns too, for example:
+        <pre>
+          {`exclude_paths:
   - projects/myproject
   - "app/*/ignore_dir"`}
-      </pre>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>include_all_paths</code>
-    </td>
-    <td>
-      Optional. Boolean. Defaults to false meaning that Infracost will autodetect only <b>root</b>{' '}
-      Terraform modules. Setting this to true forces the autodetect function to estimate all
-      directories (i.e. root and non-root modules) with valid project files, down to a max depth of
-      10 directories.
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>env</code>
-    </td>
-    <td>
-      Optional. Map of strings. Environment variables that are passed to the project during
-      processing. Also supports referencing existing environment variables using the syntax{' '}
-      <code>$&#123;MY_ENV_VAR&#125;</code>. Environment variables that start with{' '}
-      <code>INFRACOST_</code> are global in scope (not per-project) and cannot be used inside this
-      parameter. For example:
-      <pre>
-        {`env:
+        </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>include_all_paths</code>
+      </td>
+      <td>
+        Optional. Boolean. Defaults to false meaning that Infracost will autodetect only <b>root</b>{' '}
+        Terraform modules. Setting this to true forces the autodetect function to estimate all
+        directories (i.e. root and non-root modules) with valid project files, down to a max depth
+        of 10 directories.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>env</code>
+      </td>
+      <td>
+        Optional. Map of strings. Environment variables that are passed to the project during
+        processing. Also supports referencing existing environment variables using the syntax{' '}
+        <code>$&#123;MY_ENV_VAR&#125;</code>. Environment variables that start with{' '}
+        <code>INFRACOST_</code> are global in scope (not per-project) and cannot be used inside this
+        parameter. For example:
+        <pre>
+          {`env:
   INSTANCE_TYPE: t3.large
   MY_ENV_KEY: $\{MY_SECRET_ENV_VAR\}`}
-      </pre>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>terraform_workspace</code>
-    </td>
-    <td>
-      Optional. String. Used to set the Terraform workspace. Only set this for multi-workspace
-      repos, otherwise it might result in the Terraform error "workspaces not supported".
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>terraform_cloud_workspace</code>
-    </td>
-    <td>
-      Optional. String. For Terraform Cloud/Enterprise users. Used to set the Terraform Cloud
-      workspace. Only set this if your local workspace name differs from your cloud workspace, and
-      you do not already have a Terraform Cloud block defining the remote workspace name (e.g. using
-      `prefix`).
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <code>terraform_cloud_org</code>
-    </td>
-    <td>
-      Optional. String. For Terraform Cloud/Enterprise users. Used to set the Terraform Cloud
-      organization. Only set this if you do not already have a Terraform Cloud block that defines
-      your Terraform cloud organization name.
-    </td>
-  </tr>
+        </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>terraform_workspace</code>
+      </td>
+      <td>
+        Optional. String. Used to set the Terraform workspace. Only set this for multi-workspace
+        repos, otherwise it might result in the Terraform error "workspaces not supported".
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>terraform_cloud_workspace</code>
+      </td>
+      <td>
+        Optional. String. For Terraform Cloud/Enterprise users. Used to set the Terraform Cloud
+        workspace. Only set this if your local workspace name differs from your cloud workspace, and
+        you do not already have a Terraform Cloud block defining the remote workspace name (e.g.
+        using `prefix`).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>terraform_cloud_org</code>
+      </td>
+      <td>
+        Optional. String. For Terraform Cloud/Enterprise users. Used to set the Terraform Cloud
+        organization. Only set this if you do not already have a Terraform Cloud block that defines
+        your Terraform cloud organization name.
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ## Template syntax

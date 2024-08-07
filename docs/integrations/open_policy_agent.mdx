@@ -84,9 +84,9 @@ To help you write policies we've created an [OPA playground](https://play.openpo
 
 <img src={useBaseUrl('img/screenshots/paste-output.png')} />
 
-2. Rewrite, duplicate or delete the rules in the policy section of the playground. Being sure to stick to the format defined in [the last section](#cost-policy-basics). Please add a comment to [this GitHub discussion](https://github.com/infracost/infracost/discussions/1278) if you have any feedback about the Infracost JSON output.
+2. Rewrite, duplicate or delete the rules in the policy section of the playground. Being sure to stick to the format defined in [the last section](#policy-basics). Please add a comment to [this GitHub discussion](https://github.com/infracost/infracost/discussions/1278) if you have any feedback about the Infracost JSON output.
 
-3. Click the **Evaluate** button and make sure that you have an output with a single property `deny` which contains an array of rule outputs. These rules must contain both a `failed` boolean and a `msg` property (see the [last section](#cost-policy-basics) for more info):
+3. Click the **Evaluate** button and make sure that you have an output with a single property `deny` which contains an array of rule outputs. These rules must contain both a `failed` boolean and a `msg` property (see the [last section](#policy-basics) for more info):
 
 ```json
 {
