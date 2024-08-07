@@ -8,12 +8,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Infracost has multiple commands, all of which support `--help`:
+
 - Basic commands:
+
   - [`infracost breakdown`](#breakdown): Show breakdown of costs, can also be used to generate a baseline
   - [`infracost diff`](#diff): Show diff of monthly costs between current branch and baseline
   - [`infracost generate config`](#generate-config): Generate Infracost config file from a template file
 
 - The following commands work with the Infracost JSON output, which is generated via `infracost diff --format json`:
+
   - [`infracost output`](#combined-output-formats): Combine and output Infracost JSON files in different formats
   - [`infracost comment`](#comment-on-pull-requests): Post cost estimates to pull requests in GitHub, GitLab, Azure Repos and Bitbucket
   - [`infracost upload`](#upload-runs): Upload an Infracost JSON file to Infracost Cloud
@@ -37,16 +40,17 @@ If your repo has **multiple Terraform projects or workspaces**, use an Infracost
 
 This is the **default and recommended** option. It does not require a Terraform plan so it's super-fast. Internally Infracost parses the Terraform HCL code directly thus no cloud credentials or Terraform secrets are required.
 
-  ```shell
-  cd path/to/code
+```shell
+cd path/to/code
 
-  # Terraform variables can be set using --terraform-var-file or --terraform-var
-  infracost breakdown --path .
-  ```
+# Terraform variables can be set using --terraform-var-file or --terraform-var
+infracost breakdown --path .
+```
 
 #### Notes
 
 Usually no extra setup is needed for handling the following on your local development machines. For CI/CD, see the corresponding pages.
+
 - **Private modules** see [this page](/docs/features/terraform_modules/) for more details.
 - **Terragrunt** see [this page](/docs/features/terragrunt/) for more details.
 
@@ -54,27 +58,27 @@ Usually no extra setup is needed for handling the following on your local develo
 
 If the above method does not work for your use-case, you can use Terraform to generate a plan JSON file (as shown below), and point Infracost to it using `--path`.
 
-  ```shell
-  cd path/to/code
+```shell
+cd path/to/code
 
-  terraform init
-  terraform plan -out tfplan.binary
-  terraform show -json tfplan.binary > plan.json
+terraform init
+terraform plan -out tfplan.binary
+terraform show -json tfplan.binary > plan.json
 
-  infracost breakdown --path plan.json
-  ```
+infracost breakdown --path plan.json
+```
 
 ### CDK for Terraform
 
 The [CDK for Terraform](https://developer.hashicorp.com/terraform/cdktf) is also supported as it can generate Terraform. Thus the same Terraform directory option can be used to get a cost breakdown:
 
-  ```shell
-  cd path/to/code
+```shell
+cd path/to/code
 
-  cdktf synth
+cdktf synth
 
-  infracost breakdown --path cdktf.out/stacks/mystack/
-  ```
+infracost breakdown --path cdktf.out/stacks/mystack/
+```
 
 ## Diff
 
@@ -89,24 +93,27 @@ This is the **default and recommended** option. It does not require a Terraform 
 <ol type="i">
   <li>Generate an Infracost JSON file as the baseline:</li>
 
-  ```shell
-  cd path/to/code
+```shell
+cd path/to/code
 
-  # Terraform variables can be set using --terraform-var-file or --terraform-var
-  infracost breakdown --path . --format json --out-file infracost-base.json
-  ```
+# Terraform variables can be set using --terraform-var-file or --terraform-var
+infracost breakdown --path . --format json --out-file infracost-base.json
+```
 
-  <li>Edit your Terraform project:</li>
+{' '}
+<li>Edit your Terraform project:</li>
 
-  ```shell
-  vim main.tf
-  ```
+```shell
+vim main.tf
+```
 
-  <li>Generate a diff by comparing the latest code change with the baseline:</li>
+{' '}
+<li>Generate a diff by comparing the latest code change with the baseline:</li>
 
-  ```shell
-  infracost diff --path . --compare-to infracost-base.json
-  ```
+```shell
+infracost diff --path . --compare-to infracost-base.json
+```
+
 </ol>
 
 The same [notes from breakdown](/docs/features/cli_commands/#notes) apply to this method of running diff.
@@ -123,136 +130,139 @@ infracost diff --path infracost-today.json --compare-to infracost-last-week.json
 
 If the above method does not work for your use-case, you can use Terraform to generate a plan JSON file (as shown below), and point Infracost to it using `--path`. With this option, Infracost parses the current and planned state from the plan JSON file, thus you do not need to run a `infracost breakdown` to create a baseline first.
 
-  ```shell
-  cd path/to/code
+```shell
+cd path/to/code
 
-  terraform init
-  terraform plan -out tfplan.binary
-  terraform show -json tfplan.binary > plan.json
+terraform init
+terraform plan -out tfplan.binary
+terraform show -json tfplan.binary > plan.json
 
-  infracost diff --path plan.json
-  ```
+infracost diff --path plan.json
+```
 
 ## Combined output formats
 
 The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-message`. To use them:
 
 1. Generate Infracost JSON output for each Terraform project and combine them into one file. This is the recommended way to store the snapshot of a cost estimate; it can be used by the CLI to generate other formats. The JSON format can also be used to setup [cost policies](/docs/features/cost_policies/).
-  ```sh
-  infracost breakdown --path dev --format json --out-file infracost-dev.json
-  infracost breakdown --path prod --format json --out-file infracost-prod.json
 
-  # Combine above Infracost JSON files, glob patterns need quotes
-  infracost output --path "infracost-*.json" --format json --out-file infracost.json
-  ```
+```sh
+infracost breakdown --path dev --format json --out-file infracost-dev.json
+infracost breakdown --path prod --format json --out-file infracost-prod.json
+
+# Combine above Infracost JSON files, glob patterns need quotes
+infracost output --path "infracost-*.json" --format json --out-file infracost.json
+```
 
 2. Use the `infracost output` command to generate different formats, for example:
 
-  ```sh
-  # Slack output
-  infracost output --path infracost.json --format slack-message --out-file slack.md
+```sh
+# Slack output
+infracost output --path infracost.json --format slack-message --out-file slack.md
 
-  # Diff output
-  infracost output --path infracost.json --format diff
-  ```
+# Diff output
+infracost output --path infracost.json --format diff
+```
 
 Run `infracost output --help` to see other options, such as `--fields` and `--show-skipped`.
 
 ### Examples
 
 <Tabs
-  defaultValue="json"
-  values={[
-    {label: 'JSON format', value: 'json'},
-    {label: 'Table', value: 'table'},
-    {label: 'Diff', value: 'diff'},
-    {label: 'Pull request comment', value: 'pull-request-comment'},
-    {label: 'Slack message', value: 'slack-message'}
-  ]}>
-  <TabItem value="json">
+defaultValue="json"
+values={[
+{label: 'JSON format', value: 'json'},
+{label: 'Table', value: 'table'},
+{label: 'Diff', value: 'diff'},
+{label: 'Pull request comment', value: 'pull-request-comment'},
+{label: 'Slack message', value: 'slack-message'}
+]}>
+<TabItem value="json">
 
-  See [this example JSON output](/docs/features/json_output_format/). You can use `jq` to extract values, for example:
+See [this example JSON output](/docs/features/json_output_format/). You can use `jq` to extract values, for example:
 
-  ```shell
-  infracost breakdown --path /code --format json --out-file infracost-base.json
-  # Edit your Terraform project, e.g. vim main.tf
-  infracost diff --path . --compare-to infracost-base.json --format json --out-file infracost.json
+```shell
+infracost breakdown --path /code --format json --out-file infracost-base.json
+# Edit your Terraform project, e.g. vim main.tf
+infracost diff --path . --compare-to infracost-base.json --format json --out-file infracost.json
 
-  # To see the total monthly cost increase of a project:
-  cat infracost.json | jq -r '.projects[0].diff.totalMonthlyCost'
-  # To see the sum of all projects:
-  cat infracost.json | jq -r '.diffTotalMonthlyCost'
-  ```
+# To see the total monthly cost increase of a project:
+cat infracost.json | jq -r '.projects[0].diff.totalMonthlyCost'
+# To see the sum of all projects:
+cat infracost.json | jq -r '.diffTotalMonthlyCost'
+```
 
   </TabItem>
   <TabItem value="table">
 
-  ```
-  Project: infracost/infracost/examples/terraform
+```
+Project: infracost/infracost/examples/terraform
 
-  Name                                     Quantity  Unit                           Monthly Cost
+Name                                     Quantity  Unit                           Monthly Cost
 
-  aws_instance.web_app
-  ├─ Linux/UNIX usage (on-demand, m5.4xlarge)   730  hours                              $560.64
-  ├─ root_block_device
-  │  └─ General Purpose SSD storage (gp2)        50  GB                                   $5.00
-  └─ ebs_block_device[0]
-      ├─ Provisioned IOPS SSD storage (io1)   1,000  GB                                 $125.00
-      └─ Provisioned IOPS                       800  IOPS                                $52.00
+aws_instance.web_app
+├─ Linux/UNIX usage (on-demand, m5.4xlarge)   730  hours                              $560.64
+├─ root_block_device
+│  └─ General Purpose SSD storage (gp2)        50  GB                                   $5.00
+└─ ebs_block_device[0]
+    ├─ Provisioned IOPS SSD storage (io1)   1,000  GB                                 $125.00
+    └─ Provisioned IOPS                       800  IOPS                                $52.00
 
-  aws_lambda_function.hello_world
-  ├─ Requests                       Monthly cost depends on usage: $0.20 per 1M requests
-  └─ Duration                       Monthly cost depends on usage: $0.0000166667 per GB-seconds
+aws_lambda_function.hello_world
+├─ Requests                       Monthly cost depends on usage: $0.20 per 1M requests
+└─ Duration                       Monthly cost depends on usage: $0.0000166667 per GB-seconds
 
-  PROJECT TOTAL                                                               $742.64
+PROJECT TOTAL                                                               $742.64
 
-  ----------------------------------
-  To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
-  ```
+----------------------------------
+To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
+```
+
   </TabItem>
   <TabItem value="diff">
 
-  ```
-  Project: infracost/infracost/examples/terraform
+```
+Project: infracost/infracost/examples/terraform
 
-  + aws_instance.web_app
-    +$743
++ aws_instance.web_app
+  +$743
 
-      + Linux/UNIX usage (on-demand, m5.4xlarge)
-        +$561
+    + Linux/UNIX usage (on-demand, m5.4xlarge)
+      +$561
 
-      + root_block_device
+    + root_block_device
 
-          + General Purpose SSD storage (gp2)
-            +$5.00
+        + General Purpose SSD storage (gp2)
+          +$5.00
 
-      + ebs_block_device[0]
+    + ebs_block_device[0]
 
-          + Provisioned IOPS SSD storage (io1)
-            +$125
+        + Provisioned IOPS SSD storage (io1)
+          +$125
 
-          + Provisioned IOPS
-            +$52.00
+        + Provisioned IOPS
+          +$52.00
 
-  + aws_lambda_function.hello_world
-    Cost depends on usage
++ aws_lambda_function.hello_world
+  Cost depends on usage
 
-      + Requests
-        Cost depends on usage
-          +$0.20 per 1M requests
+    + Requests
+      Cost depends on usage
+        +$0.20 per 1M requests
 
-      + Duration
-        Cost depends on usage
-          +$0.0000166667 per GB-seconds
+    + Duration
+      Cost depends on usage
+        +$0.0000166667 per GB-seconds
 
-  Monthly cost change for examples/terraform
-  Amount:  +$743 ($0.00 -> $743)
+Monthly cost change for examples/terraform
+Amount:  +$743 ($0.00 -> $743)
 
-  ----------------------------------
-  Key: ~ changed, + added, - removed
+----------------------------------
+Key: ~ changed, + added, - removed
 
-  To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
-  ```
+To estimate usage-based resources use --usage-file, see https://infracost.io/usage-file
+```
+
   </TabItem>
   <TabItem value="pull-request-comment">
     <p>The following screenshot is for the <code>github-comment</code> format. The <code>gitlab-comment</code>, <code>azure-repos-comment</code> and <code>bitbucket-comment</code> formats produce similar output.</p>
@@ -268,29 +278,32 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
 
 The Infracost CLI can post cost estimates to pull request or commits on [GitHub](#github), [GitLab](#gitlab), [Azure Repos](#azure-repos) and [Bitbucket](#bitbucket), which is useful in CI/CD pipelines.
 
-<details><summary>Example commands to post a pull request comment</summary>
+<details>
+  <summary>Example commands to post a pull request comment</summary>
 
-  ```shell
-  # Generate Infracost JSON baseline
-  git checkout main
-  infracost breakdown --config-file infracost.yml --format json \
-      --out-file infracost-base.json
+```shell
+# Generate Infracost JSON baseline
+git checkout main
+infracost breakdown --config-file infracost.yml --format json \
+    --out-file infracost-base.json
 
-  # Generate a diff by comparing the latest code change with the baseline
-  git checkout my-branch
-  infracost diff --config-file infracost.yml --format json \
-      --compare-to infracost-base.json --out-file infracost.json
+# Generate a diff by comparing the latest code change with the baseline
+git checkout my-branch
+infracost diff --config-file infracost.yml --format json \
+    --compare-to infracost-base.json --out-file infracost.json
 
-  # Post one comment with above Infracost JSON file
-  infracost comment github --path infracost.json ...
-  ```
+# Post one comment with above Infracost JSON file
+infracost comment github --path infracost.json ...
+```
+
 </details>
 
 The following `--behavior` options are supported when posting cost estimate comments:
-  - `update` (good default): Create a single comment and update it. The "quietest" option.
-  - `hide-and-new`: Minimize previous comments and create a new one. Only supported by GitHub.
-  - `delete-and-new`: Delete previous comments and create a new one.
-  - `new`: Create a new cost estimate comment on every push.
+
+- `update` (good default): Create a single comment and update it. The "quietest" option.
+- `hide-and-new`: Minimize previous comments and create a new one. Only supported by GitHub.
+- `delete-and-new`: Delete previous comments and create a new one.
+- `new`: Create a new cost estimate comment on every push.
 
 ### GitHub
 
@@ -521,24 +534,26 @@ infracost comment bitbucket --path=infracost.json \
 When you use the `infracost comment` command, Infracost automatically detects pull request and commit metadata from various CI/CD systems. The metadata is stored in the Infracost JSON output as it is useful to show you what repo, pull request or commit was used to generate the cost estimate.
 
 The metadata is also needed by Infracost Cloud's dashboard to show you pull request costs over time. If you **do not** use `infracost comment`, you can still define this metadata as follows and use Infracost Cloud as normal:
+
 1. Set the [required environment variables](/docs/features/environment_variables/#environment-variables-to-set-metadata) **before** you run `infracost breakdown` and `diff`.
 2. If you have multiple Terraform projects in your repo, use a [config file](/docs/features/config_file/) to combine them into one Infracost JSON file.
 3. In your CI/CD system, run `infracost upload --path infracost.json`. This uploads the Infracost JSON file to Infracost Cloud and associates it with the organization from your `INFRACOST_API_KEY`. This command uploads the data regardless of your Org Settings.
 
-  Example commands:
-  ```shell
-  # Generate Infracost JSON baseline
-  git checkout main
-  infracost breakdown --config-file infracost.yml --format json \
-      --out-file infracost-base.json
+Example commands:
 
-  # Generate a diff by comparing the latest code change with the baseline
-  git checkout my-branch
-  infracost diff --config-file infracost.yml --format json \
-      --compare-to infracost-base.json --out-file infracost.json
+```shell
+# Generate Infracost JSON baseline
+git checkout main
+infracost breakdown --config-file infracost.yml --format json \
+    --out-file infracost-base.json
 
-  # Instead of using `infracost comment`, just upload the file to Infracost Cloud
-  infracost upload --path infracost.json
-  ```
+# Generate a diff by comparing the latest code change with the baseline
+git checkout my-branch
+infracost diff --config-file infracost.yml --format json \
+    --compare-to infracost-base.json --out-file infracost.json
+
+# Instead of using `infracost comment`, just upload the file to Infracost Cloud
+infracost upload --path infracost.json
+```
 
 If you defined pull request metadata, you should see the cost estimate in your Infracost Cloud dashboard. If you did not define pull request metadata and only defined commit metadata, you should see the cost estimate in the Repos > All estimates page.

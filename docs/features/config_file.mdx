@@ -46,6 +46,7 @@ projects:
 ```
 
 Now we will use the `infracost generate config` command to generate an `infracost.yml` file and use that to run `infracost breakdown` as shown below:
+
 ```sh
 $ infracost generate config --repo-path=. \
     --template-path=infracost.yml.tmpl \
@@ -83,23 +84,27 @@ To add a config file for your repos:
 
 1. Use the `infracost generate config` command (shown above) when you are writing a config file to test that it generates your project list correctly.
 
-  The [examples](#examples) section shows common examples you should use as a starting point. The [project parameters](#project-parameters) and the [template syntax](#template-syntax) sections show the full list of options supported by config files.
+The [examples](#examples) section shows common examples you should use as a starting point. The [project parameters](#project-parameters) and the [template syntax](#template-syntax) sections show the full list of options supported by config files.
 
 2. Once you are happy with the generated project list, go to [Infracost Cloud](https://dashboard.infracost.io) > Repos > my-repo > Settings page. Paste your config file there and click on Save.
 
-  You can also store the `infracost.yml.tmpl` file in the root of your repo. This is useful if you do not use Infracost Cloud, or prefer to keep config files in your repos. The config file in Infracost Cloud takes precedence over the repo root file.
+You can also store the `infracost.yml.tmpl` file in the root of your repo. This is useful if you do not use Infracost Cloud, or prefer to keep config files in your repos. The config file in Infracost Cloud takes precedence over the repo root file.
 
 3. If you use the Infracost [GitHub App](/docs/integrations/github_app/) or the [GitLab App](/docs/integrations/gitlab_app/), your config file from Infracost Cloud or the repo root is automatically used. Go to the Repos page and click on the default branch costs, click on the "Re-run estimate" button and wait for it to update the page. You should now see your project list from the generated config file.
 
-  If you do not use the GitHub App or GitLab App, in your CI/CD pipeline run the `infracost generate config` command followed by the `infracost breakdown` and `diff` commands with the `--config-file` flag pointing to the generated config file (as shown in the above overview section).
+If you do not use the GitHub App or GitLab App, in your CI/CD pipeline run the `infracost generate config` command followed by the `infracost breakdown` and `diff` commands with the `--config-file` flag pointing to the generated config file (as shown in the above overview section).
 
 4. If you have many repos with a similar directory structure, you can define a default config file to be used by all of your repos from the Org Settings > Default repo config file page. This config file can be overridden on a per-repo basis from the Repos > my-repo > Settings page, or by adding an `infracost.yml.tmpl` to the repo root. This enables you to add many repositories to Infracost quickly.
 
-  <img src={useBaseUrl("img/infracost-cloud/default-repo-config-file.png")} alt="Default config file used by all repos in the GitHub App or GitLab App integration" />
+<img
+  src={useBaseUrl('img/infracost-cloud/default-repo-config-file.png')}
+  alt="Default config file used by all repos in the GitHub App or GitLab App integration"
+/>
 
 ## Examples
 
-<details><summary>Looping over projects with environments contained in a sub folder</summary>
+<details>
+  <summary>Looping over projects with environments contained in a sub folder</summary>
 
 ```yaml
 version: 0.1
@@ -109,9 +114,11 @@ projects:
       name: {{ $project.app }}-{{ $project.env }}
 {{- end }}
 ```
+
 </details>
 
-<details><summary>Excluding certain projects</summary>
+<details>
+  <summary>Excluding certain projects</summary>
 
 ```yaml
 version: 0.1
@@ -125,9 +132,11 @@ projects:
   {{- end}}
 {{- end }}
 ```
+
 </details>
 
-<details><summary>Only matching certain project</summary>
+<details>
+  <summary>Only matching certain project</summary>
 
 ```yaml
 version: 0.1
@@ -139,9 +148,11 @@ projects:
         - {{ $project._path }}
 {{- end }}
 ```
+
 </details>
 
-<details><summary>Looping over multiple projects with a var file contained at the root level as well as project</summary>
+<details>
+  <summary>Looping over multiple projects with a var file contained at the root level as well as project</summary>
 
 ```yaml
 version: 0.1
@@ -156,9 +167,11 @@ projects:
         {{- end}}
 {{- end }}
 ```
+
 </details>
 
-<details><summary>Project with configuration defined in a non-Terraform file</summary>
+<details>
+  <summary>Project with configuration defined in a non-Terraform file</summary>
 
 ```yaml
 version: 0.1
@@ -171,9 +184,11 @@ projects:
     {{- end }}
 {{- end }}
 ```
+
 </details>
 
-<details><summary>Looping over projects with complex `matchPaths` matchers</summary>
+<details>
+  <summary>Looping over projects with complex `matchPaths` matchers</summary>
 
 ```yaml
 // Example folder structure:
@@ -223,6 +238,7 @@ Example folder structure:
 // Returns:
 // [{app: foo, env: prod}, {app: foo, env: prod, region: euwest}, {app: bar, env: dev}]
 ```
+
 </details>
 
 ## Project parameters
@@ -230,83 +246,162 @@ Example folder structure:
 The following table shows the parameters each `project` can have in the config file:
 
 <table>
-<tr>
-  <th>Parameter</th><th>Description</th>
-</tr>
-<tr>
-  <td><code>path</code></td>
-  <td>Required. String. Path to the Terraform directory. The path is relative to the working directory you run <code>infracost</code> from. A path can be repeated with different parameters, e.g. for multiple Terraform var files.</td>
-</tr>
-<tr>
-  <td><code>name</code></td>
-  <td>Optional. String. Defaults to code path, workspace or Terraform/Terragrunt module within a repo. Name of project to use in all outputs (pull request comment, Infracost Cloud and CLI).</td>
-</tr>
-<tr>
-  <td><code>terraform_var_files</code></td>
-  <td>Optional. Array of string. Variable files to use when parsing Terraform HCL code, similar to Terraform's <code>-var-file</code> flag. Files with the <code>.auto.tfvars</code> extension do not need to be added to the list as they are processed automatically by Infracost. The file paths are relative to the <code>path</code> of the project. For example:
-  <pre>
-{`terraform_var_files:
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>
+      <code>path</code>
+    </td>
+    <td>
+      Required. String. Path to the Terraform directory. The path is relative to the working
+      directory you run <code>infracost</code> from. A path can be repeated with different
+      parameters, e.g. for multiple Terraform var files.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>name</code>
+    </td>
+    <td>
+      Optional. String. Defaults to code path, workspace or Terraform/Terragrunt module within a
+      repo. Name of project to use in all outputs (pull request comment, Infracost Cloud and CLI).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>terraform_var_files</code>
+    </td>
+    <td>
+      Optional. Array of string. Variable files to use when parsing Terraform HCL code, similar to
+      Terraform's <code>-var-file</code> flag. Files with the <code>.auto.tfvars</code> extension do
+      not need to be added to the list as they are processed automatically by Infracost. The file
+      paths are relative to the <code>path</code> of the project. For example:
+      <pre>
+        {`terraform_var_files:
   - global.tfvars
   - dev.tfvars`}
-  </pre></td>
-</tr>
-<tr>
-  <td><code>terraform_vars</code></td>
-  <td>Optional. Map of strings. Input variables to use when parsing the Terraform HCL code, similar to Terraform's <code>-var</code> flag. For example:
-  <pre>
-{`terraform_vars:
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>terraform_vars</code>
+    </td>
+    <td>
+      Optional. Map of strings. Input variables to use when parsing the Terraform HCL code, similar
+      to Terraform's <code>-var</code> flag. For example:
+      <pre>
+        {`terraform_vars:
   instance_count: 5
   artifact_version: foobar`}
-  </pre></td>
-</tr>
-<tr>
-  <td><code>dependency_paths</code></td>
-  <td>Optional. <span style={{textDecoration: "underline"}}>Only applicable for GitHub App and GitLab App users</span>. Array of strings. Array of file or directory paths that should trigger project estimates. If this is specified, code changes to the <code>path</code> target will <b>NOT</b> trigger cost estimates unless the <code>path</code> is included in <code>dependency_paths</code>. All paths are relative to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
-  <pre>
-{`dependency_paths:
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>dependency_paths</code>
+    </td>
+    <td>
+      Optional.{' '}
+      <span style={{ textDecoration: 'underline' }}>
+        Only applicable for GitHub App and GitLab App users
+      </span>
+      . Array of strings. Array of file or directory paths that should trigger project estimates. If
+      this is specified, code changes to the <code>path</code> target will <b>NOT</b> trigger cost estimates
+      unless the <code>path</code> is included in <code>dependency_paths</code>. All paths are relative
+      to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
+      <pre>
+        {`dependency_paths:
   - "config/**.json"
   - default.yml
   - "modules/**"`}
-  </pre></td>
-</tr>
-<tr>
-  <td><code>usage_file</code></td>
-  <td>Optional. String. Path to Infracost usage file that specifies values for <a href="/docs/features/usage_based_resources">usage based resources</a>. The path is relative to the working directory you run <code>infracost</code> from.</td>
-</tr>
-<tr>
-  <td><code>exclude_paths</code></td>
-  <td>Optional. Array of strings. Array of directory paths to exclude from evaluation, relative to <code>path</code> of project. Supports glob patterns too, for example:
-  <pre>
-{`exclude_paths:
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>usage_file</code>
+    </td>
+    <td>
+      Optional. String. Path to Infracost usage file that specifies values for{' '}
+      <a href="/docs/features/usage_based_resources">usage based resources</a>. The path is relative
+      to the working directory you run <code>infracost</code> from.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>exclude_paths</code>
+    </td>
+    <td>
+      Optional. Array of strings. Array of directory paths to exclude from evaluation, relative to{' '}
+      <code>path</code> of project. Supports glob patterns too, for example:
+      <pre>
+        {`exclude_paths:
   - projects/myproject
   - "app/*/ignore_dir"`}
-  </pre></td>
-</tr>
-<tr>
-  <td><code>include_all_paths</code></td>
-  <td>Optional. Boolean. Defaults to false meaning that Infracost will autodetect only <b>root</b> Terraform modules. Setting this to true forces the autodetect function to estimate all directories (i.e. root and non-root modules) with valid project files, down to a max depth of 10 directories.</td>
-</tr>
-<tr>
-  <td><code>env</code></td>
-  <td>Optional. Map of strings. Environment variables that are passed to the project during processing. Also supports referencing existing environment variables using the syntax <code>$&#123;MY_ENV_VAR&#125;</code>. Environment variables that start with <code>INFRACOST_</code> are global in scope (not per-project) and cannot be used inside this parameter. For example:
-  <pre>
-{`env:
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>include_all_paths</code>
+    </td>
+    <td>
+      Optional. Boolean. Defaults to false meaning that Infracost will autodetect only <b>root</b>{' '}
+      Terraform modules. Setting this to true forces the autodetect function to estimate all
+      directories (i.e. root and non-root modules) with valid project files, down to a max depth of
+      10 directories.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>env</code>
+    </td>
+    <td>
+      Optional. Map of strings. Environment variables that are passed to the project during
+      processing. Also supports referencing existing environment variables using the syntax{' '}
+      <code>$&#123;MY_ENV_VAR&#125;</code>. Environment variables that start with{' '}
+      <code>INFRACOST_</code> are global in scope (not per-project) and cannot be used inside this
+      parameter. For example:
+      <pre>
+        {`env:
   INSTANCE_TYPE: t3.large
   MY_ENV_KEY: $\{MY_SECRET_ENV_VAR\}`}
-  </pre></td>
-</tr>
-<tr>
-  <td><code>terraform_workspace</code></td>
-  <td>Optional. String. Used to set the Terraform workspace. Only set this for multi-workspace repos, otherwise it might result in the Terraform error "workspaces not supported".</td>
-</tr>
-<tr>
-  <td><code>terraform_cloud_workspace</code></td>
-  <td>Optional. String. For Terraform Cloud/Enterprise users. Used to set the Terraform Cloud workspace. Only set this if your local workspace name differs from your cloud workspace, and you do not already have a Terraform Cloud block defining the remote workspace name (e.g. using `prefix`).</td>
-</tr>
-<tr>
-  <td><code>terraform_cloud_org</code></td>
-  <td>Optional. String. For Terraform Cloud/Enterprise users. Used to set the Terraform Cloud organization. Only set this if you do not already have a Terraform Cloud block that defines your Terraform cloud organization name.</td>
-</tr>
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>terraform_workspace</code>
+    </td>
+    <td>
+      Optional. String. Used to set the Terraform workspace. Only set this for multi-workspace
+      repos, otherwise it might result in the Terraform error "workspaces not supported".
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>terraform_cloud_workspace</code>
+    </td>
+    <td>
+      Optional. String. For Terraform Cloud/Enterprise users. Used to set the Terraform Cloud
+      workspace. Only set this if your local workspace name differs from your cloud workspace, and
+      you do not already have a Terraform Cloud block defining the remote workspace name (e.g. using
+      `prefix`).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>terraform_cloud_org</code>
+    </td>
+    <td>
+      Optional. String. For Terraform Cloud/Enterprise users. Used to set the Terraform Cloud
+      organization. Only set this if you do not already have a Terraform Cloud block that defines
+      your Terraform cloud organization name.
+    </td>
+  </tr>
 </table>
 
 ## Template syntax
@@ -379,11 +474,11 @@ sets successive elements returned from [`matchPaths`](#matchpaths) to `$project`
 
 Templates have access to the following global variables:
 
-* `.Branch` - The name of the current branch that the template is executed on.
+- `.Branch` - The name of the current branch that the template is executed on.
 
 The following global variables are **only** available in CI:
 
-* `.BaseBranch` - The name of the base branch that the pull request is being merged into (which is usually main or master).
+- `.BaseBranch` - The name of the base branch that the pull request is being merged into (which is usually main or master).
 
   ```gotemplate
   {{ if eq .BaseBranch "production" }}
@@ -401,6 +496,7 @@ Config file templates support a wide range of built-in functions to make it easy
 #### Filepath functions
 
 Config file templates include the following functions to help you traverse your project structure:
+
 - [`matchPaths`](#matchpaths)
 - [`pathExists`](#pathexists)
 - [`isDir`](#isdir)
@@ -420,69 +516,72 @@ Returns a list of matches that in the project directory tree that match the patt
 
 ##### Arguments:
 
-  | name    | description                                                                                                                   | example                                                                                                                                      |
-  |---------|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-  | pattern | a path pattern to one or more files or directories in your project. Keys that you wish to extract must be prefixed with `':'` | `"environment/:env/terraform.tfvars"`, `"infra/:env/:app"`, `"environment/:app/:env.tfvars"`, `":optional-parent?/:optional-child?/main.tf"` |
+| name    | description                                                                                                                   | example                                                                                                                                      |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| pattern | a path pattern to one or more files or directories in your project. Keys that you wish to extract must be prefixed with `':'` | `"environment/:env/terraform.tfvars"`, `"infra/:env/:app"`, `"environment/:app/:env.tfvars"`, `":optional-parent?/:optional-child?/main.tf"` |
 
 ##### Returns:
 
 A collection of matches in the current project. Results are returned with a map of extracted keys from the pattern. In addition, each result has two additional properties:
 
-  * `_path` - the full path of that the pattern matched on
-  * `_dir`  - the base directory that the pattern matched on
+- `_path` - the full path of that the pattern matched on
+- `_dir` - the base directory that the pattern matched on
 
 ##### Example:
 
-  <Tabs
+<Tabs
 defaultValue="template"
 values={[
 {label: 'Template usage', value: 'template'},
 {label: 'Directory tree', value: 'tree'},
 {label: 'Output', value: 'output'},
 ]}>
-  <TabItem value="template">
+<TabItem value="template">
 
-  Using the `range` expression to iterate over the results like so:
+Using the `range` expression to iterate over the results like so:
 
-  ```gotemplate
-  version: 0.1
+```gotemplate
+version: 0.1
 
-  projects:
-  {{- range $project := matchPaths "environment/:env/terraform.tfvars" }}
-    - path: .
-      name: {{ $project.env }}
-      terraform_var_files:
-        - {{ $project._path }}
-  {{- end }}
-  ```
+projects:
+{{- range $project := matchPaths "environment/:env/terraform.tfvars" }}
+  - path: .
+    name: {{ $project.env }}
+    terraform_var_files:
+      - {{ $project._path }}
+{{- end }}
+```
+
   </TabItem>
   <TabItem value="tree">
 
-  ```shell
-  ├── environment
-  │     ├── dev
-  │     │   └── terraform.tfvars
-  │     └── prod
-  │         └── terraform.tfvars
-  ├── infracost.yml.tmpl
-  └── main.tf
-  ```
+```shell
+├── environment
+│     ├── dev
+│     │   └── terraform.tfvars
+│     └── prod
+│         └── terraform.tfvars
+├── infracost.yml.tmpl
+└── main.tf
+```
+
   </TabItem>
   <TabItem value="output">
 
-  ```yaml
-  version: 0.1
+```yaml
+version: 0.1
 
-  projects:
-    - path: .
-      name: dev
-      terraform_var_files:
-        - environment/dev/terraform.tfvars
-    - path: .
-      name: prod
-      terraform_var_files:
-        - environment/prod/terraform.tfvars
-  ```
+projects:
+  - path: .
+    name: dev
+    terraform_var_files:
+      - environment/dev/terraform.tfvars
+  - path: .
+    name: prod
+    terraform_var_files:
+      - environment/prod/terraform.tfvars
+```
+
   </TabItem>
 </Tabs>
 
@@ -494,55 +593,58 @@ Returns true if the path exists within base.
 
 ##### Arguments
 
-  | name | description                                                                                                       | example                           |
-  | ---- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-  | base | The directory to search for the given file or directory. Use `"."` to start from the project root.                | `"."`, `"some/dir"` |
-  | path | The path of the file or directory to search for. This must be relative to the base path provided at argument one. | `"dir/to/find"`, `"file/to/find.txt"` |
+| name | description                                                                                                       | example                               |
+| ---- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| base | The directory to search for the given file or directory. Use `"."` to start from the project root.                | `"."`, `"some/dir"`                   |
+| path | The path of the file or directory to search for. This must be relative to the base path provided at argument one. | `"dir/to/find"`, `"file/to/find.txt"` |
 
 ##### Example
 
-  <Tabs
+<Tabs
 defaultValue="template"
 values={[
 {label: 'Template', value: 'template'},
 {label: 'Directory tree', value: 'tree'},
 {label: 'Output', value: 'output'},
 ]}>
-  <TabItem value="template">
+<TabItem value="template">
 
-  ```gotemplate
-  version: 0.1
+```gotemplate
+version: 0.1
 
-  projects:
-  {{- range $project := matchPaths "environment/:env/terraform.tfvars" }}
-    {{- if pathExists $project._dir "include.txt" }}
-    - path: .
-      name: {{ $project.env }}
-    {{- end }}
+projects:
+{{- range $project := matchPaths "environment/:env/terraform.tfvars" }}
+  {{- if pathExists $project._dir "include.txt" }}
+  - path: .
+    name: {{ $project.env }}
   {{- end }}
-  ```
+{{- end }}
+```
+
   </TabItem>
   <TabItem value="tree">
 
-  ```shell
-  ├── environment
-  │     ├── dev
-  │     │   ├── include.txt
-  │     │   └── terraform.tfvars
-  │     └── prod
-  │         └── terraform.tfvars
-  ├── infracost.yml.tmpl
-  └── main.tf
-  ```
+```shell
+├── environment
+│     ├── dev
+│     │   ├── include.txt
+│     │   └── terraform.tfvars
+│     └── prod
+│         └── terraform.tfvars
+├── infracost.yml.tmpl
+└── main.tf
+```
+
   </TabItem>
   <TabItem value="output">
 
-  ```yml
-  version: 0.1
-  projects:
-    - path: .
-      name: dev
-  ```
+```yml
+version: 0.1
+projects:
+  - path: .
+    name: dev
+```
+
   </TabItem>
 </Tabs>
 
@@ -554,54 +656,58 @@ Returns true if the path is a directory.
 
 ##### Arguments
 
-  | name | description       | example         |
-  | ---- | ----------------- | --------------- |
-  | path | The path to check | `"."`, `"some/dir"` |
+| name | description       | example             |
+| ---- | ----------------- | ------------------- |
+| path | The path to check | `"."`, `"some/dir"` |
 
 ##### Example
-  <Tabs
+
+<Tabs
 defaultValue="template"
 values={[
 {label: 'Template', value: 'template'},
 {label: 'Directory tree', value: 'tree'},
 {label: 'Output', value: 'output'},
 ]}>
-  <TabItem value="template">
+<TabItem value="template">
 
-  ```gotemplate
-  version: 0.1
+```gotemplate
+version: 0.1
 
-  projects:
-  {{- range $project := matchPaths "environment/:env" }}
-    {{- if isDir $project._path }}
-    - path: $project._path
-      name: {{ $project.env }}
-    {{- end }}
+projects:
+{{- range $project := matchPaths "environment/:env" }}
+  {{- if isDir $project._path }}
+  - path: $project._path
+    name: {{ $project.env }}
   {{- end }}
-  ```
+{{- end }}
+```
+
   </TabItem>
   <TabItem value="tree">
 
-  ```shell
-  ├── environment
-  │     ├── dev
-  │     │   └── main.tf
-  │     └── prod
-  │     │   └── main.tf
-  │     └── config.yml
-  └── infracost.yml.tmpl
-  ```
+```shell
+├── environment
+│     ├── dev
+│     │   └── main.tf
+│     └── prod
+│     │   └── main.tf
+│     └── config.yml
+└── infracost.yml.tmpl
+```
+
   </TabItem>
   <TabItem value="output">
 
-  ```yml
-  version: 0.1
-  projects:
-    - path: environment/dev
-      name: dev
-    - path: environment/prod
-      name: prod
-  ```
+```yml
+version: 0.1
+projects:
+  - path: environment/dev
+    name: dev
+  - path: environment/prod
+    name: prod
+```
+
   </TabItem>
 </Tabs>
 
@@ -614,7 +720,7 @@ Reads the file at the given directory, this can then be printed into the templat
 ##### Arguments
 
 | name | description                                                       | example            |
-|------|-------------------------------------------------------------------|--------------------|
+| ---- | ----------------------------------------------------------------- | ------------------ |
 | path | The path of the file relative to the location of the config file. | `"some/file.json"` |
 
 ---
@@ -626,10 +732,11 @@ Decode the contents of a string as a YAML structure.
 ##### Arguments
 
 | name     | description                                                                                           | example                       |
-|----------|-------------------------------------------------------------------------------------------------------|-------------------------------|
+| -------- | ----------------------------------------------------------------------------------------------------- | ----------------------------- |
 | contents | The YAML string to decode, this is normally obtained by loading a file using the `readFile` function. | `(readFile "some/file.yaml")` |
 
 ##### Example
+
 <Tabs
 defaultValue="template"
 values={[
@@ -639,38 +746,41 @@ values={[
 ]}>
 <TabItem value="template">
 
-  ```gotemplate
-  version: 0.1
-  {{- $yaml := parseYaml (readFile "config/env.yaml") }}
-  projects:
-    - path: infra
-      name: my-infra
-      env:
-      {{- range $key, $value := $yaml.envs }}
-        {{ $key }}: {{ $value }}
-      {{- end }}
-  ```
+```gotemplate
+version: 0.1
+{{- $yaml := parseYaml (readFile "config/env.yaml") }}
+projects:
+  - path: infra
+    name: my-infra
+    env:
+    {{- range $key, $value := $yaml.envs }}
+      {{ $key }}: {{ $value }}
+    {{- end }}
+```
+
   </TabItem>
   <TabItem value="tree">
 
-  ```shell
-  ├── config
-  │   └── env.yaml
-  └── infra
-      └── main.tf
-  ```
+```shell
+├── config
+│   └── env.yaml
+└── infra
+    └── main.tf
+```
+
   </TabItem>
   <TabItem value="output">
 
-  ```yml
-  version: 0.1
-  projects:
-    - path: infra
-      name: my-infra
-      env:
-        foo: bar
-        baz: bat
-  ```
+```yml
+version: 0.1
+projects:
+  - path: infra
+    name: my-infra
+    env:
+      foo: bar
+      baz: bat
+```
+
   </TabItem>
 </Tabs>
 
@@ -683,10 +793,11 @@ Decode the contents of a string as a JSON object.
 ##### Arguments
 
 | name     | description                                                                                           | example                       |
-|----------|-------------------------------------------------------------------------------------------------------|-------------------------------|
+| -------- | ----------------------------------------------------------------------------------------------------- | ----------------------------- |
 | contents | The JSON string to decode, this is normally obtained by loading a file using the `readFile` function. | `(readFile "some/file.json")` |
 
 ##### Example
+
 <Tabs
 defaultValue="template"
 values={[
@@ -696,38 +807,41 @@ values={[
 ]}>
 <TabItem value="template">
 
-  ```gotemplate
-  version: 0.1
-  {{- $json := parseJson (readFile "config/env.json") }}
-  projects:
-    - path: infra 
-      name: my-infra
-      env:
-      {{- range $key, $value := $json.envs }}
-        {{ $key }}: {{ $value }}
-      {{- end }}
-  ```
+```gotemplate
+version: 0.1
+{{- $json := parseJson (readFile "config/env.json") }}
+projects:
+  - path: infra
+    name: my-infra
+    env:
+    {{- range $key, $value := $json.envs }}
+      {{ $key }}: {{ $value }}
+    {{- end }}
+```
+
   </TabItem>
   <TabItem value="tree">
 
-  ```shell
-  ├── config
-  │   └── env.json
-  └── infra
-      └── main.tf
-  ```
+```shell
+├── config
+│   └── env.json
+└── infra
+    └── main.tf
+```
+
   </TabItem>
   <TabItem value="output">
 
-  ```yml
-  version: 0.1
-  projects:
-    - path: infra
-      name: my-infra
-      env:
-        foo: bar
-        baz: bat
-  ```
+```yml
+version: 0.1
+projects:
+  - path: infra
+    name: my-infra
+    env:
+      foo: bar
+      baz: bat
+```
+
   </TabItem>
 </Tabs>
 
@@ -742,56 +856,60 @@ This is useful for providing the correct relative path for shared variable files
 ##### Arguments
 
 | name   | description                                                        | example             |
-|--------|--------------------------------------------------------------------|---------------------|
+| ------ | ------------------------------------------------------------------ | ------------------- |
 | base   | The base path that the resulting relative path is computed against | `"."`, `"some/dir"` |
 | target | The target path, relative to the repo root directory               | `"global.tfvars"`   |
 
 ##### Example
-  <Tabs
+
+<Tabs
 defaultValue="template"
 values={[
 {label: 'Template', value: 'template'},
 {label: 'Directory tree', value: 'tree'},
 {label: 'Output', value: 'output'},
 ]}>
-  <TabItem value="template">
+<TabItem value="template">
 
-  ```gotemplate
-  version: 0.1
+```gotemplate
+version: 0.1
 
-  projects:
-  {{- range $project := matchPaths "environment/:env" }}
-    - path: $project._path
-      name: {{ $project.env }}
-      terraform_var_files:
-        {{ relPath $project.path "global.tfvars" }}
-  {{- end }}
-  ```
+projects:
+{{- range $project := matchPaths "environment/:env" }}
+  - path: $project._path
+    name: {{ $project.env }}
+    terraform_var_files:
+      {{ relPath $project.path "global.tfvars" }}
+{{- end }}
+```
+
   </TabItem>
   <TabItem value="tree">
 
-  ```shell
-  ├── environment
-  │     ├── dev
-  │     │   └── main.tf
-  │     └── prod
-  │         └── main.tf
-  └── global.tfvars
-  ```
+```shell
+├── environment
+│     ├── dev
+│     │   └── main.tf
+│     └── prod
+│         └── main.tf
+└── global.tfvars
+```
+
   </TabItem>
   <TabItem value="output">
 
-  ```yml
-  version: 0.1
-  projects:
-    - path: environment/dev
-      name: dev
-      terraform_var_files:
-        - ../../global.tfvars
-    - path: environment/prod
-      name: prod
-        - ../../global.tfvars
-  ```
+```yml
+version: 0.1
+projects:
+  - path: environment/dev
+    name: dev
+    terraform_var_files:
+      - ../../global.tfvars
+  - path: environment/prod
+    name: prod
+      - ../../global.tfvars
+```
+
   </TabItem>
 </Tabs>
 
@@ -800,6 +918,7 @@ values={[
 #### `base`
 
 Returns the last element of path, for example:
+
 - `base "full/path/here.txt"` returns `here.txt`
 - `base "full/path"` returns `path`
 
@@ -808,6 +927,7 @@ Returns the last element of path, for example:
 #### `ext`
 
 Returns the file name extension used by path, for example:
+
 - `ext "full/path/here.txt"` returns `.txt`
 
 ---
@@ -815,6 +935,7 @@ Returns the file name extension used by path, for example:
 #### `stem`
 
 Returns the last element of path with the extension removed, for example:
+
 - `stem "full/path/here.txt"` returns `here`
 
 ---
@@ -823,10 +944,10 @@ Returns the last element of path with the extension removed, for example:
 
 Config file templates support control flow functions including [`eq`](#eq), [`ne`](#eq) and [`not`](#not). Templates can also use the control flow functions `lt`, `le`, `gt`, `ge`, `and` and `or` from the base text/template library. The documentation for these additional functions can be [found here](https://pkg.go.dev/text/template#hdr-Functions).
 
-
 #### `eq`
 
 Returns the boolean truth of arg1 == arg2, for example:
+
 - `eq $project.arg1 $project.arg2`
 
 ---
@@ -834,6 +955,7 @@ Returns the boolean truth of arg1 == arg2, for example:
 #### `ne`
 
 Returns the boolean truth of arg1 != arg2, for example:
+
 - `ne $project.arg1 $project.arg2`
 
 ---
@@ -841,6 +963,7 @@ Returns the boolean truth of arg1 != arg2, for example:
 #### `not`
 
 Returns the boolean negation of its single argument, for example:
+
 - `not (pathExists "path")`
 
 ---
@@ -849,10 +972,10 @@ Returns the boolean negation of its single argument, for example:
 
 Config file templates support for the following string manipulation functions [`startsWith`](#startswith), [`endsWith`](#endswith) and [`contains`](#contains). Templates can also use the string functions `print`, `printf` and `println` from the base text/template library. The documentation for these additional functions can be [found here](https://pkg.go.dev/text/template#hdr-Functions).
 
-
 #### `startsWith`
 
 Tests whether the string begins with prefix, for example:
+
 - `startsWith "mystring" "my"` returns true
 - `startsWith "mystring" "foo"` returns false
 
@@ -861,6 +984,7 @@ Tests whether the string begins with prefix, for example:
 #### `endsWith`
 
 Tests whether the string ends with suffix, for example:
+
 - `endsWith "mystring" "string"` returns true
 - `endsWith "mystring" "foo"` returns false
 
@@ -869,6 +993,7 @@ Tests whether the string ends with suffix, for example:
 #### `contains`
 
 Reports whether the substring is within the subject, for example:
+
 - `contains "mystringbar" "string"` returns true
 - `endsWith "mystringbar" "foo"` returns false
 

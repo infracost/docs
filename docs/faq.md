@@ -9,16 +9,16 @@ Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Prici
 When the CLI runs, it:
 
 1. **Extracts cost-related parameters**<br />
-  The CLI parses Terraform HCL code to extract only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size. The CLI automatically discovers all projects or environment in your repo.
+   The CLI parses Terraform HCL code to extract only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size. The CLI automatically discovers all projects or environment in your repo.
 
 2. **Retrieves prices from the Cloud Pricing API**<br />
-  The CLI retrieves prices from the Cloud Pricing API. The CLI **does not** send the Terraform plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response).
+   The CLI retrieves prices from the Cloud Pricing API. The CLI **does not** send the Terraform plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response).
 
 3. **Calculates the monthly costs**<br />
-  The CLI calculates the monthly costs. The results can be output in [various formats](/docs/features/cli_commands/#combined-output-formats) including JSON or text table.
+   The CLI calculates the monthly costs. The results can be output in [various formats](/docs/features/cli_commands/#combined-output-formats) including JSON or text table.
 
 4. **Infracost Cloud**<br />
-  If you use Infracost Cloud, the CLI sends the final cost estimate in JSON format to your dashboard, the JSON does not contain any cloud credentials or secrets.
+   If you use Infracost Cloud, the CLI sends the final cost estimate in JSON format to your dashboard, the JSON does not contain any cloud credentials or secrets.
 
 ## Security and Privacy
 
@@ -33,33 +33,33 @@ The Cloud Pricing API needs the relevant data to return a unique cloud price poi
 Here is an example request to the Cloud Pricing API for a t3.micro instance and the returned response:
 
 #### Example request:
+
 ```graphql
 query {
   products(
     filter: {
-      vendorName: "aws",
-      service: "AmazonEC2",
-      productFamily: "Compute Instance",
-      region: "us-east-1",
+      vendorName: "aws"
+      service: "AmazonEC2"
+      productFamily: "Compute Instance"
+      region: "us-east-1"
       attributeFilters: [
-        { key: "instanceType", value: "t3.micro" },
-        { key: "tenancy", value: "Shared" },
-        { key: "capacitystatus", value: "Used" },
-        { key: "operatingSystem", value: "Linux" },
+        { key: "instanceType", value: "t3.micro" }
+        { key: "tenancy", value: "Shared" }
+        { key: "capacitystatus", value: "Used" }
+        { key: "operatingSystem", value: "Linux" }
         { key: "preInstalledSw", value: "NA" }
       ]
-    },
+    }
   ) {
-    prices(
-      filter: {
-        purchaseOption: "on_demand"
-      }
-    ) { USD }
+    prices(filter: { purchaseOption: "on_demand" }) {
+      USD
+    }
   }
 }
 ```
 
 #### Example response:
+
 ```json
 {
   "data": {
@@ -100,10 +100,10 @@ If you believe you have found a vulnerability within Infracost, please let us kn
 
 Infracost provides static IPs for its Cloud Pricing API and Infracost Cloud services. If your environment has network traffic restrictions, you can whitelist these IPs in your firewall rules.
 
-| Name | Source | Destination | Domains | Port | IPs | Notes |
-|-|-|-|-|-|-|-|
-| Inbound | Infracost Cloud | Your CI/CD system | N/A | 443 | 3.133.40.66 | Only needed if you use [source control integrations](/docs/integrations/cicd/#source-control-integrations-recommended) |
-| Outbound | Your CI/CD system | Infracost Cloud | dashboard.api.infracost.io <br/> pricing.api.infracost.io | 443 | 76.223.127.201 <br /> 52.223.24.69 | Infracost CLI uses both domains |
+| Name     | Source            | Destination       | Domains                                                   | Port | IPs                                | Notes                                                                                                                  |
+| -------- | ----------------- | ----------------- | --------------------------------------------------------- | ---- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Inbound  | Infracost Cloud   | Your CI/CD system | N/A                                                       | 443  | 3.133.40.66                        | Only needed if you use [source control integrations](/docs/integrations/cicd/#source-control-integrations-recommended) |
+| Outbound | Your CI/CD system | Infracost Cloud   | dashboard.api.infracost.io <br/> pricing.api.infracost.io | 443  | 76.223.127.201 <br /> 52.223.24.69 | Infracost CLI uses both domains                                                                                        |
 
 ## Features
 
@@ -116,16 +116,19 @@ Currently AWS, Azure and Google are supported with Terraform.
 There are three key areas of differentiation.
 
 #### 1. Cost estimation differences
+
 - Terraform Cloud (TFC) cost estimation does not cover many of the cloud resources from AWS, Azure and GCP. Infracost supports over 1,100 resources from AWS, Azure and GCP; TFC covers around 200. Here's a quick comparison: [Infracost Azure coverage](/docs/supported_resources/azure/) vs [TFC Azure coverage](https://developer.hashicorp.com/terraform/enterprise/cost-estimation/azure).
 - Cost estimation of usage based resources: Infracost supports estimating usage-based resources such as AWS Lambda or Azure Blob storage with usage profiles (e.g. use 100GB to estimate S3 costs). TFC does not support estimating usage-based resources.
 - Your discount rates: Infracost supports your discount levels including AWS EDP, Azure EA and custom price books. Terraform Cloud only support public prices.
 
 #### 2. FinOps guardrails, policies, and tag checker
+
 Infracost supports FinOps guardrails (budget checks, and kicking-off approval workflows), a set of best practice policies, and checking for the right tag keys and tag values - all out of the box.
 
 TFC does not provide these; it does enable you to write code to check for policies, but you will have to either teach FinOps practitioners and managers to code, and enable them to do it (there is no user interface), or have an engineering team do all that and maintain it. On top of these, Infracost provides an inventory of all resources that are failing tags and policies so you can see where your biggest issues are and how to fix them.
 
 #### 3. Infracost can be run on engineering machines
+
 Since Infracost does not need a Terraform plan file, cloud credentials or secrets, engineers can install the Infracost [VSCode Extension](/docs/integrations/vscode/) or the CLI and get cost estimates before sending pull requests, directly on their machines. Infracost also supports cost estimation of Terraform modules as well as Terragrunt projects. TFC cost estimation does not have these capabilities.
 
 ### What Terraform versions are supported?

@@ -7,13 +7,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Infracost GitLab App is an automated integration meaning that Infracost runs on our infrastructure and we keep it up to date. Infracost is trusted by thousands of companies around the world, including many of the Fortune 500. We are <a href="https://www.infracost.io/security/" target="_self" rel="">SOC 2 Type II</a> certified.
 
-| 1. Install the Infracost GitLab App | 2. Get merge request comments |
-|--------------|-----------|
-<img src={useBaseUrl("img/screenshots/gitlab-app-install.png")} alt="Install the GitLab App into any GitLab organization" width="100%"/> | <img src={useBaseUrl("img/screenshots/gitlab-app-comment.png")} alt="Infracost automatically leaves a comment on every merge request"/>
+| 1. Install the Infracost GitLab App                                                                                                      | 2. Get merge request comments                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src={useBaseUrl("img/screenshots/gitlab-app-install.png")} alt="Install the GitLab App into any GitLab organization" width="100%"/> | <img src={useBaseUrl("img/screenshots/gitlab-app-comment.png")} alt="Infracost automatically leaves a comment on every merge request"/> |
 
 ## Benefits
 
 There are two key benefits of using the GitLab App over manual CI/CD integrations:
+
 1. You can add Infracost to multiple repos with one click, no need to install or update CLI versions in your CI/CD pipeline.
 2. Infracost runs significantly faster as only changed folders are run based on the GitLab App events.
 
@@ -23,14 +24,15 @@ There are two key benefits of using the GitLab App over manual CI/CD integration
 
 2. Every Infracost user has a default organization for personal use. Create a new organization for your company using the organization dropdown at the top of the page.
 
-  <img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
+<img src={useBaseUrl('img/infracost-cloud/create-orgs.png')} alt="Create new organization" />
 
 3. Click on Org Settings > Integrations > GitLab and follow the wizard to select the repos you want to give Infracost access to.
 
 4. If you use private modules:
-    - For private **git modules**, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way that Terraform does.
 
-    - For private **registry modules**, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) and set the required Terraform registry token and host in the integration settings page in Infracost Cloud.
+   - For private **git modules**, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way that Terraform does.
+
+   - For private **registry modules**, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) and set the required Terraform registry token and host in the integration settings page in Infracost Cloud.
 
 5. If you need to customize how Infracost runs, add an `infracost.yml` or `infracost.yml.tmpl` [config file](/docs/features/config_file/) in the Repo > my repo > Settings tab, or to the root of your repo. The GitLab App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage.yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
 
@@ -63,6 +65,7 @@ The GitLab App needs access to code repos so it can run the CLI against them, an
 Each time a merge request is opened or a new commit is pushed to open merge requests, the Infracost GitLab App shows the cost difference between the most recent commit of the merge request branch, and the merge base of the base branch. The merge base is the latest common commit of the merge request base and target branch. This mirrors GitLab's merge request diff logic and shows only the cost of 'what a merge request introduces'.
 
 The GitLab App automatically reflects the following changes in Infracost:
+
 - Repos that are **renamed** are automatically updated in Infracost.
 - When a repo is **moved** from one GitLab Org to another, that change is reflected in Infracost. When the source and destination GitLab Orgs are in different Infracost Orgs, the move is also performed as long as the Infracost Cloud orgs are in the same Enterprise.
 - Repos that are **deleted** or **archived** are marked as archived in Infracost and preserved for audit purposes. Their issues no longer show in the dashboard.
