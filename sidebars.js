@@ -50,6 +50,7 @@ module.exports = {
         'integrations/gitlab_app',
         'integrations/cicd_integrations',
         'integrations/slack',
+        'integrations/spacelift',
         'integrations/terraform_cloud_enterprise',
         'integrations/open_policy_agent',
         'integrations/infracost_api',
