@@ -7,39 +7,33 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-export const Grid = ({logos}) => {
-    const items = logos.map((e, i) => {
-      return (<CIBox key={i} {...e}/>)
-    })
-    return (
-      <div
-        className="ci-grid"
-        >
-        {items}
-      </div>
-    )
+export const Grid = ({ logos }) => {
+  const items = logos.map((e, i) => {
+    return <CIBox key={i} {...e} />;
+  });
+  return <div className="ci-grid">{items}</div>;
 };
 
-export const CIBox = ({image, link, maxHeight, newWindow, text}) => (
-  <a
-    className="ci-box"
-    href={link}
-    >
+export const CIBox = ({ image, link, maxHeight, newWindow, text }) => (
+  <a className="ci-box" href={link}>
     <img
       src={image}
-      target={newWindow ? "_blank" : null}
+      target={newWindow ? '_blank' : null}
       style={{
-        margin: "0 auto",
-        maxHeight: maxHeight ?? "2rem"
+        margin: '0 auto',
+        maxHeight: maxHeight ?? '2rem',
       }}
-      />
-      {text && (<div className="ci-subtitle">{text}</div>)}
+    />
+    {text && <div className="ci-subtitle">{text}</div>}
   </a>
-)
+);
 
 Use one of our many integrations so your engineering team can see cost estimates and FinOps best practices in pull requests **before making changes**. This provides your team with a safety net as people can discuss FinOps as part of the workflow.
 
-<img src={useBaseUrl("img/screenshots/actions-pull-request.png")} alt="Infracost pull request comment" />
+<img
+  src={useBaseUrl('img/screenshots/actions-pull-request.png')}
+  alt="Infracost pull request comment"
+/>
 
 If you run into any issues, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
 
@@ -47,59 +41,63 @@ If you run into any issues, please join our [community Slack channel](https://ww
 
 Infracost supports direct integration with GitHub and GitLab. We recommend these integrations as they are much simpler to setup and faster to run.
 
-<Grid logos={[
+<Grid
+  logos={[
     {
-      image: "/docs/img/services/github.svg",
-      text: "GitHub.com, Enterprise Cloud & Enterprise Server",
-      link: "/docs/integrations/github_app",
-      newWindow: false
+      image: '/docs/img/services/github.svg',
+      text: 'GitHub.com, Enterprise Cloud & Enterprise Server',
+      link: '/docs/integrations/github_app',
+      newWindow: false,
     },
     {
-      image: "/docs/img/services/gitlab.svg",
-      text: "GitLab.com & self-managed",
-      link: "/docs/integrations/gitlab_app",
-      newWindow: true
+      image: '/docs/img/services/gitlab.svg',
+      text: 'GitLab.com & self-managed',
+      link: '/docs/integrations/gitlab_app',
+      newWindow: true,
     },
-]}/>
+  ]}
+/>
 
 ## CI/CD integrations
 
 The following integrations can also be used to post pull request comments.
 
-<Grid logos={[
+<Grid
+  logos={[
     {
-      image: "/docs/img/services/github-actions.png",
-      link: "https://github.com/infracost/actions",
-      newWindow: true
+      image: '/docs/img/services/github-actions.png',
+      link: 'https://github.com/infracost/actions',
+      newWindow: true,
     },
     {
-      image: "/docs/img/services/gitlab-ci.png",
-      link: "https://gitlab.com/infracost/infracost-gitlab-ci",
-      newWindow: true
+      image: '/docs/img/services/gitlab-ci.png',
+      link: 'https://gitlab.com/infracost/infracost-gitlab-ci',
+      newWindow: true,
     },
     {
-      image: "/docs/img/services/atlantis.png",
-      link: "https://github.com/infracost/infracost-atlantis/",
-      newWindow: true
+      image: '/docs/img/services/atlantis.png',
+      link: 'https://github.com/infracost/infracost-atlantis/',
+      newWindow: true,
     },
     {
-      image: "/docs/img/services/azure-pipelines.png",
-      link: "https://github.com/infracost/infracost-azure-devops",
-      newWindow: true
+      image: '/docs/img/services/azure-pipelines.png',
+      link: 'https://github.com/infracost/infracost-azure-devops',
+      newWindow: true,
     },
     {
-      image: "/docs/img/services/jenkins.svg",
-      link: "https://github.com/infracost/infracost-jenkins/",
-      newWindow: true
+      image: '/docs/img/services/jenkins.svg',
+      link: 'https://github.com/infracost/infracost-jenkins/',
+      newWindow: true,
     },
     {
-      image: "/docs/img/services/bitbucket-pipelines.png",
-      link: "https://bitbucket.org/infracost/infracost-bitbucket-pipeline/src/master/",
-      newWindow: true
+      image: '/docs/img/services/bitbucket-pipelines.png',
+      link: 'https://bitbucket.org/infracost/infracost-bitbucket-pipeline/src/master/',
+      newWindow: true,
     },
-]}/>
+  ]}
+/>
 
-<br/>
+<br />
 
 For other CI/CD systems, the GitLab CI integration above is a good example to follow. Please [email us](mailto:hello@infracost.io) if you need help. We maintain the [`infracost/infracost:ci-0.10`](https://hub.docker.com/r/infracost/infracost/tags) Docker image that can be used in other CI/CD integrations. This uses the latest patch version of 0.10 to pick up bug fixes and new resources.
 

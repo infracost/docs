@@ -76,9 +76,7 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
           {
             "code": 1,
             "message": "Missing Terraform vars",
-            "data": [
-              "variable.instancetype"
-            ],
+            "data": ["variable.instancetype"],
             "isError": false
           }
         ],
@@ -224,7 +222,7 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
         ],
         "totalHourlyCost": "1.017315068493150679",
         "totalMonthlyCost": "742.64",
-        "totalMonthlyUsageCost": "0",
+        "totalMonthlyUsageCost": "0"
       },
       // This contains the diff of resources between the pastBreakdown and breakdown
       "diff": {
@@ -322,7 +320,7 @@ See the [CLI commands page](/docs/features/cli_commands/#examples) for details o
         ],
         "totalHourlyCost": "1.017315068493150679",
         "totalMonthlyCost": "742.64",
-        "totalMonthlyUsageCost": "0",
+        "totalMonthlyUsageCost": "0"
       },
       // The summary format is not finalized and is subject to change
       "summary": {
