@@ -89,14 +89,16 @@ For Terraform Cloud/Enterprise users, used to specify the organization name. Thi
 Accepts a comma separated list of `source=dest` pairs, and replaces any matched source URL value found in Terraform `module` or Terragrunt `terraform` blocks. This is useful when you have module URLs that are referenced in your infra-as-code repos one way (e.g. using a private URL), but they should use a different URL when Infracost runs them (e.g. using a public URL). See [this docs section](/docs/features/terraform_modules/#source-map) for more details.
 
 ### INFRACOST_SPACELIFT_API_KEY_ENDPOINT
+
 - The URL to your Spacelift account, e.g., `https://mycorp.app.spacelift.io`. For more information see our documentation on our Spacelift integration [here](/docs/integrations/spacelift/).
 
 ### INFRACOST_SPACELIFT_API_KEY_ID
+
 - The ID of your Spacelift API key. For more information see our documentation on our Spacelift integration [here](/docs/integrations/spacelift/).
 
 ### INFRACOST_SPACELIFT_API_KEY_SECRET
-- The secret associated with your API key. This is only available when the secret is created. For more information see our documentation on our Spacelift integration [here](/docs/integrations/spacelift/).
 
+- The secret associated with your API key. This is only available when the secret is created. For more information see our documentation on our Spacelift integration [here](/docs/integrations/spacelift/).
 
 ### INFRACOST_PARALLELISM
 
