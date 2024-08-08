@@ -764,7 +764,7 @@ values={[
     - path: $project._path
       name: {{ $project.env }}
       terraform_var_files:
-        {{ relPath $project.path "global.tfvars" }}
+        {{ relPath $project._path "global.tfvars" }}
   {{- end }}
   ```
   </TabItem>
