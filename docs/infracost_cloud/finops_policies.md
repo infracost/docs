@@ -65,3 +65,11 @@ To set this up, go to Infracost Cloud > Governance > FinOps policies > Inactive 
 <img src={useBaseUrl("img/infracost-cloud/finops-policies/preferred.png")} alt="Preferred instance types are configurable via the policy settings page." />
 
 You can override wildcard settings with more specific ones. For example, adding the pair `*:t1.micro` will allow the use of `t1.micro` instances in all regions, but adding the more specific pair `us-west-2:t2.micro` will override this, meaning only `t2.micro` instances can be used in the `us-west-2` region, but `t1.micro` instances can still be used in all other regions.
+
+## 5. Policies for non-production environments
+
+Some FinOps policies are only applicable to non-production environments, for example, consider using single-AZ databases in non-production environments. These policies are often overlooked as engineers tend to use the same infra-as-code logic for production; however, they provide easy and significant cost savings. In Infracost Cloud, go to the Governance > FinOps policies page, and search for "non-production" to see these policies, and the resources that are failing the policies.
+
+Infracost supports such policies by enabling you to define filters that define your production environments (e.g. projects within repos, entire repos or branches that are considered production). You only need to define the filters that match your production environments; Infracost considers everything else as non-production. By default, projects with the words "production", "prod" and "prd" are considered production. You can customize the filters from the Org Settings > Production filters page. Anytime you update this page, you need to go to the Governance > FinOps policies page and click on **Re-run policies** to see the latest failing resources.
+
+<img src={useBaseUrl("img/infracost-cloud/finops-policies/production-filters.png")} alt="Production filters can be defined in the Org Settings." />
