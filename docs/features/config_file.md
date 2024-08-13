@@ -309,7 +309,7 @@ The following table shows the parameters each `project` can have in the config f
 </tr>
 <tr>
   <td><code>yor_config_path</code></td>
-  <td>Optional. String. For Yor users, set this to the path to your Yor config file in order to take into account Yor tag values when applying tagging policies. Alternatively, if you use the `YOR_SIMPLE_TAGS` environment variable, the Infracost CLI will automatically include those tags. Note that conditional logic in the Yor config file will not be applied, and all discovered tag groups/values will be applied.</td>
+  <td>Optional. String. For Yor users, set this to the path of your Yor config file in order to take into account Yor tag values when applying tagging policies. Alternatively, if you use the `YOR_SIMPLE_TAGS` environment variable, the Infracost CLI will automatically include those tags. Note that conditional logic in the Yor config file will not be considered, and all discovered tag groups/values will be applied.</td>
 </tr>
 </table>
 
