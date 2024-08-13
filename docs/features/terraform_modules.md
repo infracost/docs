@@ -13,7 +13,7 @@ See the following two sections for separate instructions on how to setup private
 
 If you use the Infracost [GitHub](/docs/integrations/github_app/) or [GitLab App](/docs/integrations/gitlab_app/), go to [Infracost Cloud](https://dashboard.infracost.io/) > Org Settings > Integrations, and click on the GitHub or GitLab App organization that has the repos with private module access errors. Click on Next to go to the Run configurations page.
 
-For git modules, enter your SSH or HTTPS credentials.
+For git modules, ensure that the Infracost GitHub App or the GitLab App has access to the module repos, no further action is needed as Infracost will automatically use that access to process the modules.
 
 For registry modules, enter the following information:
 
