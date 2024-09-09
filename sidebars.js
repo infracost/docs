@@ -77,5 +77,9 @@ module.exports = {
       type: 'doc',
       id: 'troubleshooting',
     },
+    {
+      type: 'doc',
+      id: 'support',
+    },
   ]
 };
