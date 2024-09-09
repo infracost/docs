@@ -72,4 +72,6 @@ Some FinOps policies are only applicable to non-production environments, for exa
 
 Infracost supports such policies by allowing you to define filters that identify your production environments (e.g. projects within repos, entire repos or branches that are considered production). You only need to define the filters that match your production environments; Infracost considers everything else as non-production. By default, projects with the words "production", "prod" and "prd" are considered production. You can customize the filters from the Org Settings > Production filters page. Anytime you update this page, you need to go to the Governance > FinOps policies page and click on **Re-run policies** to see the latest failing resources.
 
+Module repositories are skipped during the evaluation of non-production FinOps policies. Instead, the repositories that utilize these modules are checked for those policies.
+
 <img src={useBaseUrl("img/infracost-cloud/finops-policies/production-filters.png")} alt="Production filters can be defined in the Org Settings." />

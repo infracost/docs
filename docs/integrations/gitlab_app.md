@@ -25,7 +25,7 @@ There are two key benefits of using the GitLab App over manual CI/CD integration
 
   <img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
 
-3. Click on Org Settings > Integrations > GitLab and follow the wizard to select the repos you want to give Infracost access to.
+3. Click on Settings > Org Settings > Integrations > GitLab and follow the wizard to select the repos you want to give Infracost access to.
 
 4. If you use private modules:
     - For private **git modules**, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way that Terraform does.

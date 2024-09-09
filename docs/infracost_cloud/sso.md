@@ -134,7 +134,8 @@ To enable SAML group mapping, please reach out to [hello@infracost.io](mailto:he
 ## SSO login notes
 
 After SSO is configured:
-- Anyone who enters an email address that contains your company domain name(s) in the [usual log in page](https://dashboard.infracost.io) will be redirected to your SSO provider for authentication.
+- SSO is enabled on your company domain name(s), such as acme-inc.com. So anyone who enters an email address that contains your company domain names in the [usual log in page](https://dashboard.infracost.io) will be redirected to your SSO provider for authentication.
+- Once SSO is enabled, users logging-in with Github/Google can continue to use those methods until you request us to enable the "Enforce SSO login" option. After that point, SSO will be the only way to login.
 - You can invite users to your Infracost Cloud organization from the Org Settings > Members page. They will also need to be added to the corresponding group in your SSO provider so they can login.
 - If a user had already logged-in prior to SSO being enabled, on their first login after SSO is enabled, they will be asked to confirm if they want to link their login accounts. They must click "Continue" do this to be able to access your company's Infracost Cloud organization, otherwise a new empty organization will be created for them. If they skip this step, email [hello@infracost.io](mailto:hello@infracost.io) so we can assist you.
     <img src={useBaseUrl("img/infracost-cloud/auth0-account-link.png")} alt="Linking login accounts" width="80%" />
