@@ -21,11 +21,12 @@ Data exports can be setup at either the Infracost organization level, or the ent
 
 ### Organization data export
 Once configured, CSV files will be updated daily with the latest information, replacing any earlier versions of the file:
-1. `infracost_merged_closed_prs_YYYYMM.csv` containing information on pull requests that were merged or closed during the current month and year. This data can be used to see the portion of cloud costs caused by engineering changes, versus organic changes from things like data transfer. Information about guardrails are also included in this file, so you can see who is approving guardrails and who is merging without approvals.
-2. `infracost_open_prs.csv` containing information on pull requests that are currently open. This data can be used to see potential increases that'll impact your costs in the future, so you are not surprised and can plan accordingly.
-3. `infracost_branch_policy_summary_v1_YYYYMMDD.csv` containing the same information as the `infracost_enterprise_branch_policy_summary_v1_YYYYMMDD.csv` described below, but just for the organization (as opposed to all organizations in the enterprise).
+1. `infracost_branch_policy_summary_v1_YYYYMMDD.csv` containing the same information as the `infracost_enterprise_branch_policy_summary_v1_YYYYMMDD.csv` described below, but just for the organization (as opposed to all organizations in the enterprise).
    
    This file supersedes the deprecated `infracost_branch_summary_YYYYMMDD.csv` file (which will stop being generated on 1 Nov 2024).
+2. `infracost_merged_prs_summary_YYYYMM.csv` containing the same information as the `infracost_enterprise_merged_prs_summary_YYYYMM.csv` described below, but just for the organization (as opposed to all organizations in the enterprise).
+3. `infracost_merged_closed_prs_YYYYMM.csv` containing cost information on pull requests that were merged or closed during the current month and year. This data can be used to see the portion of cloud costs caused by engineering changes, versus organic changes from things like data transfer. Information about guardrails are also included in this file, so you can see who is approving guardrails and who is merging without approvals.
+4. `infracost_open_prs.csv` containing information on pull requests that are currently open. This data can be used to see potential increases that'll impact your costs in the future, so you are not surprised and can plan accordingly.
 
 ### Enterprise data export
 The enterprise data export consists of daily CSV files that contain a summary of all tagging and FinOps policy issues across all code repos in all organizations that are part of your enterprise. This data export also includes the number of issues that were prevented or fixed and the total amount of cost prevention or reduction from your policies.
