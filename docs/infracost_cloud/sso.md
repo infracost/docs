@@ -120,12 +120,23 @@ To enable this feature you will need to provide the following information:
 
   | SAML group | Infracost organization slug | Infracost role |
   |------------|-----------------------------|----------------|
-  | InfracostViewer | my-org | Org Viewer |
-  | InfracostEditor | my-org | Org Editor |
+  | InfracostOwner | my-org | Org Owner |
   | InfracostAdmin | my-org | Org Admin |
-  | InfracostOwner | my-org | Enterprise Admin |
+  | InfracostEditor | my-org | Org Editor |
+  | InfracostViewer | my-org | Org Viewer |
 
-  This supports all the Infracost roles listed in the [roles documentation](/docs/infracost_cloud/key_concepts/#team-management), as well as a special role `Enterprise Admin` which has access to all organizations in your enterprise account.
+  This supports all the Infracost roles listed in the [roles documentation](/docs/infracost_cloud/key_concepts/#team-management) for specific organizations.
+  Where customers have multiple organizations under an enterprise organization, the SAML groups can be treated as global roles that span all orgs in the enterprise, eg;
+
+  | SAML Group                | Infracost role    |
+  | ------------------------- | ----------------- |
+  | InfracostEnterpriseOwner  | Enterprise Owner  |
+  | InfracostEnterpriseAdmin  | Enterprise Admin  |
+  | InfracostEnterpriseEditor | Enterprise Editor |
+  | InfracostEnterpriseViewer | Enterprise Viewer |
+
+  In an enterprise with 10 organizations, if a user is assigned the `InfracostEnterpriseViewer` SAML group, they will be a viewer in all 10 organizations.
+
 2. The attribute name in the SAML assertion that will contain the group names, for example `memberOf`.
 3. If possible, an example of the SAML assertion that will be sent.
 
