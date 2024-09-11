@@ -5,7 +5,7 @@ title: Single sign-on (SSO)
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost Cloud supports authenticating with Enterprise SSO providers. Furthermore, users can automatically be provisioned based on your SAML user groups and permissions.
+Infracost Cloud supports authenticating with Enterprise SSO providers; furthermore, users can automatically be provisioned based on your SAML user groups and permissions.
 
 ## Setup SSO
 
