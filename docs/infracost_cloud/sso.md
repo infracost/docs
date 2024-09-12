@@ -165,6 +165,7 @@ After SSO is configured:
 - You can invite users to your Infracost Cloud organization from the Org Settings > Members page. They will also need to be added to the corresponding group in your SSO provider so they can login.
 - If a user had already logged-in prior to SSO being enabled, on their first login after SSO is enabled, they will be asked to confirm if they want to link their login accounts. They must click "Continue" do this to be able to access your company's Infracost Cloud organization, otherwise a new empty organization will be created for them. If they skip this step, email [hello@infracost.io](mailto:hello@infracost.io) so we can assist you.
     <img src={useBaseUrl("img/infracost-cloud/auth0-account-link.png")} alt="Linking login accounts" width="80%" />
+- For organizations using Okta: If users see the error "User is not assigned to this application" when signing in, it means they need to be added to the Okta Infracost app.
 
 ## SAML group mapping
 
@@ -203,3 +204,4 @@ To enable this feature you should:
     </pre>
   </details>
 4. Once we receive your email, we will email you to schedule a quick screenshare call to enable the SAML groups. On the call, we will verify that users are automatically provisioned correctly.
+5. After enabling SAML, you can send us a custom support URL. This URL will be shown to users who sign in with SSO but aren’t part of your SAML user groups. It helps guide these users on how to follow your company’s process to join the correct SAML group and access Infracost Cloud.
