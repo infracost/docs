@@ -80,6 +80,10 @@ function Navbar({ isDocs }) {
           href: '/products/',
         },
         {
+          label: 'Case Studies',
+          href: '/bourne-leisure/',
+        },
+        {
           label: 'For FinOps',
           href: '/finops/',
         },
@@ -101,7 +105,7 @@ function Navbar({ isDocs }) {
           href: '/resources/',
         },
         {
-          label: 'Glossary',
+          label: 'FinOps Glossary',
           href: '/glossary/',
         },
         {
