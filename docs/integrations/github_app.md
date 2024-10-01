@@ -60,7 +60,9 @@ Infracost Cloud optionally supports mTLS with GitHub Enterprise Server by using 
 
 ## How the GitHub App works
 
-The GitHub App needs read access to code repos so it can run the CLI against them, and write access to pull requests so it can post the cost estimate comment. You can select the repos you would like to give access to the App.
+The [Infracost GitHub App](https://github.com/marketplace/infracost) is verified by GitHub, and installed in thousands of GitHub orgs.
+
+The app needs *read access to code repos* so it can run the CLI against them, and *write access to pull requests* so it can post a comment with policy issues and cost estimates. You can select the repos you would like to give access to the App.
 
 Each time a pull request is opened or a new commit is pushed to open pull requests, the Infracost GitHub App shows the cost difference between the most recent commit of the pull request branch, and the merge base of the base branch. The merge base is the latest common commit of the pull request base and target branch. This mirrors GitHub's pull request diff logic and shows only the cost of 'what a pull request introduces'.
 
