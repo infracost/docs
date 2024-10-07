@@ -161,7 +161,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
 
 After SSO is configured:
 - SSO is enabled on your company domain name(s), such as acme-inc.com. So anyone who enters an email address that contains your company domain names in the [Infracost log in page](https://dashboard.infracost.io) will be redirected to your SSO provider for authentication.
-- Once SSO is enabled, users logging-in with Github/Google can continue to use those methods until you request us to enable the "Enforce SSO login" option. After that point, SSO will be the only way to login.
+- Once SSO is enabled, users logging-in with Github/Google can continue to use those methods until you request us to enable the "Enforce SSO login" option. After that point, SSO will be the only way to login; thus when a user is removed from your SSO system, they will lose their access to Infracost Cloud.
 - You can invite users to your Infracost Cloud organization from the Org Settings > Members page. They will also need to be added to the corresponding group in your SSO provider so they can login.
 - If a user had already logged-in prior to SSO being enabled, on their first login after SSO is enabled, they will be asked to confirm if they want to link their login accounts. They must click "Continue" do this to be able to access your company's Infracost Cloud organization, otherwise a new empty organization will be created for them. If they skip this step, email [hello@infracost.io](mailto:hello@infracost.io) so we can assist you.
     <img src={useBaseUrl("img/infracost-cloud/auth0-account-link.png")} alt="Linking login accounts" width="80%" />
@@ -204,4 +204,6 @@ To enable this feature you should:
     </pre>
   </details>
 4. Once we receive your email, we will email you to schedule a quick screenshare call to enable the SAML groups. On the call, we will verify that users are automatically provisioned correctly.
+
+  On the call, if you choose to enable the "Enforce SSO login" option, Org Owners can still delete users from Infracost Cloud to cleanup old users from the Org Settings > Members page. However, if those users login again, their users will be auto-provisioned again.
 5. After enabling SAML, you can send us a custom support URL. This URL will be shown to users who sign in with SSO but aren’t part of your SAML user groups. It helps guide these users on how to follow your company’s process to join the correct SAML group and access Infracost Cloud.
