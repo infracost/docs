@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Infracost uses config files to help manage multiple Terraform projects within a repo, especially when dealing with complex setups like monorepos or Terragrunt repos. Config files also help define how projects map to Terraform var files so that Infracost knows how to apply them.
 
-If you have any questions or need help writing a config file, please join our [community Slack channel](https://www.infracost.io/community-chat), we'll help you very quickly 😄
+The Infracost team writes and manages config files for customers and companies doing a PoC with Infracost Cloud, please email us at hello@infracost.io for details.
 
 ## Overview
 
@@ -46,7 +46,7 @@ Each `tfvars` file stored under the environment folder corresponds to a differen
 
 For more complex repo structures, Infracost’s default auto-detection may need a bit of fine-tuning. This option allows you to provide simple "hints" that guide Infracost to accurately detect the projects and var files without the need for a fully static config.
 
-In the example above, Infracost would automatically detect the `dev` and `prod` environments, but it might overlook the `qual` environment unless specified. Additionally, it could detect the `legacy` project, which we’d prefer to exclude. By customizing the auto-detect settings, you can ensure that all the active environments (`dev`, `qual`, and `prod`) are included, while `legacy` is ignored.
+In the example above, Infracost would automatically detect the `dev` and `prod` environments, but it might overlook the `qual` environment unless specified. Additionally, it could detect the `legacy` project, which we’d prefer to exclude. By customizing the auto-detect settings, you can ensure that all the active environments (`dev`, `qual`, and `prod`) are included, while `legacy` is ignored. See the [Auto-detect parameters](#auto-detect-parameters) section for a list of the supported parameters in the `autodetect` block.
 
 ```yml
 version: 0.1
@@ -61,7 +61,7 @@ autodetect:
 
 ### Option 2: Static config file
 
-For straightforward, static setups where the project structure doesn’t change frequently, you can manually define each project and its associated Terraform var files in a static config file. This approach works well when you have a small fixed set of projects and environments.
+For straightforward, static setups where the project structure doesn’t change frequently, you can manually define each project and its associated Terraform var files in a static config file. This approach works well when you have a small fixed set of projects and environments. See the [Static config file](#static-config-file-project-parameters) section for a list of the parameters you can use in the `projects` block.
 
 ```yml
 version: 0.1
@@ -84,7 +84,7 @@ projects:
 
 For more dynamic setups, such as when projects are regularly added or removed, you can use an advanced config template. This allows you to loop over the environment projects and automatically generate the config for active environments.
 
-Here’s how you can loop through the environment files and exclude the legacy environment:
+Here’s how you can loop through the environment files and exclude the legacy environment. See the [Advanced config template](#advanced-config-template-syntax) section for syntax details.
 
 ```gotemplate title="infracost.yml.tmpl" showLineNumbers
 version: 0.1
@@ -190,6 +190,19 @@ To update the repo based on the new config, go to the Repos page, ensure the 'Cu
 
 ## Auto-detect parameters
 
+The following table describes the supported parameters for the `autodetect` block.
+
+```yml
+version: 0.1
+autodetect:
+  env_names:
+    - dev
+    - qual
+    - prod
+  exclude_dirs:
+    - legacy
+```
+
 <table>
   <thead>
     <tr>
@@ -287,7 +300,18 @@ To update the repo based on the new config, go to the Repos page, ensure the 'Cu
   </tbody>
 </table>
 
-## Project parameters
+## Static config file project parameters
+
+The following table describes the supported parameters for the `projects` block.
+
+```yml
+version: 0.1
+projects:
+  - path: infra
+    name: dev
+    terraform_var_files:
+      - ../environment/dev.tfvars
+```
 
 <table>
   <thead>
