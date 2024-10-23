@@ -64,6 +64,27 @@ The [Infracost GitHub App](https://github.com/marketplace/infracost) is verified
 
 The app needs *read access to code repos* so it can run the CLI against them, and *write access to pull requests* so it can post a comment with policy issues and cost estimates. You can select the repos you would like to give access to the App.
 
+<details>
+  <summary>Details of required permissions</summary>
+
+The Infracost GitHub App requires the following permissions.
+
+- **Read-only** access is needed for the following so Infracost gets notified of repo or pull request changes and can process the code:
+  - Metadata (Search repositories, list collaborators, and access repository metadata)
+  - Contents (Repository contents, commits, branches, downloads, releases, and merges)
+  - Actions (Workflows, workflow runs and artifacts)
+  - Deployments (Deployments and deployment statuses)
+  - Issues (Issues and related comments, assignees, labels, and milestones)
+  - Administration (Repository creation, deletion, settings, teams, and collaborators)
+  - Members (Organization members and teams)
+- **Read and write** access is needed for the following so Infracost can post pull request comments and update statuses in GitHub:
+  - Pull requests (Pull requests and related comments, assignees, labels, milestones, and merges)
+  - Checks (checks on code)
+  - Commit statuses
+  - Webhooks (Manage the post-receive hooks for a repository)
+
+</details>
+
 Each time a pull request is opened or a new commit is pushed to open pull requests, the Infracost GitHub App shows the cost difference between the most recent commit of the pull request branch, and the merge base of the base branch. The merge base is the latest common commit of the pull request base and target branch. This mirrors GitHub's pull request diff logic and shows only the cost of 'what a pull request introduces'.
 
 The GitHub App automatically reflects the following changes in Infracost:
