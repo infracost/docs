@@ -47,6 +47,7 @@ module.exports = {
       collapsed: true,
       items: [
         'integrations/github_app',
+        'integrations/azure_repos_app',
         'integrations/gitlab_app',
         'integrations/cicd_integrations',
         'integrations/slack',

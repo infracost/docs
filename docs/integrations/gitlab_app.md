@@ -27,10 +27,7 @@ There are two key benefits of using the GitLab App over manual CI/CD integration
 
 3. Click on Settings > Org Settings > Integrations > GitLab and follow the wizard to select the repos you want to give Infracost access to.
 
-4. If you use private modules:
-    - For private **git modules**, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way that Terraform does.
-
-    - For private **registry modules**, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) and set the required Terraform registry token and host in the integration settings page in Infracost Cloud.
+4. If you use private modules, see [this docs section](/docs/features/terraform_modules/#source-control-integrations).
 
 5. If you need to customize how Infracost runs, add an `infracost.yml` or `infracost.yml.tmpl` [config file](/docs/features/config_file/) in the Repo > my repo > Settings tab, or to the root of your repo. The GitLab App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage.yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
 
@@ -58,9 +55,9 @@ Email us at [hello@infracost.io](mailto:hello@infracost.io) if you have custom n
 
 ## How the GitLab App works
 
-The GitLab App needs access to code repos so it can run the CLI against them, and post merge request comments with the cost estimate. Therefore the bot/user that is installing the GitLab App should have "Maintainer" access to repos; "Developer" and lower does not work as those roles are not authorized to create repo webhooks (that are used to notify Infracost Cloud about new merge requests).
+The GitLab App needs access to code repos so it can run the CLI against them, and post merge request comments with with any cost estimates, tagging, and FinOps policy issues. Therefore the bot/user that is installing the GitLab App should have "Maintainer" access to repos; "Developer" and lower does not work as those roles are not authorized to create repo webhooks (that are used to notify Infracost Cloud about new merge requests).
 
-Each time a merge request is opened or a new commit is pushed to open merge requests, the Infracost GitLab App shows the cost difference between the most recent commit of the merge request branch, and the merge base of the base branch. The merge base is the latest common commit of the merge request base and target branch. This mirrors GitLab's merge request diff logic and shows only the cost of 'what a merge request introduces'.
+Each time a merge request is opened or a new commit is pushed to an open merge request, the Infracost Azure Repos App shows the any tagging or FinOps policies issues that were introduced by the by the merge request along with the cost difference between the most recent commit of the merge request branch and the merge base of the base branch. This mirrors Azure DevOps merge request diff logic and shows only the changes the merge request introduces.
 
 The GitLab App automatically reflects the following changes in Infracost:
 - Repos that are **renamed** are automatically updated in Infracost.

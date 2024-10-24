@@ -86,8 +86,8 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
             Thanks!
           </pre>
           </li>
-        <li>In the Okta Admin dashboard assign any users to the Infracost Cloud app. You can also add an Infracost
-          button to your SSO portal as we support IdP-Initiated logins from Okta too.</li>
+        <li>In the Okta Admin dashboard assign any users to the Infracost Cloud app. You can also add an Infracost button or icon to your SSO portal as we support IdP-Initiated logins from Okta too, save the following image to use for that:</li>
+        <img src={useBaseUrl("img/small-logo.png")} width="128px" />
       </ol>
     </details>
     <details>

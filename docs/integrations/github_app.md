@@ -27,10 +27,7 @@ There are two key benefits of using the GitHub App over manual CI/CD integration
 
 3. Click on Settings > Org Settings > Integrations > GitHub and follow the wizard to select the repos you want to give Infracost access to.
 
-4. If you use private modules:
-    - For private **git modules**, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way that Terraform does.
-
-    - For private **registry modules**, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) and set the required Terraform registry token and host in the integration settings page in Infracost Cloud.
+4. If you use private modules, see [this docs section](/docs/features/terraform_modules/#source-control-integrations).
 
 5. If you need to customize how Infracost runs, add an `infracost.yml` or `infracost.yml.tmpl` [config file](/docs/features/config_file/) in the Repo > my repo > Settings tab, or to the root of your repo. The GitHub App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage.yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
 
@@ -62,7 +59,7 @@ Infracost Cloud optionally supports mTLS with GitHub Enterprise Server by using 
 
 The [Infracost GitHub App](https://github.com/marketplace/infracost) is verified by GitHub, and installed in thousands of GitHub orgs.
 
-The app needs *read access to code repos* so it can run the CLI against them, and *write access to pull requests* so it can post a comment with policy issues and cost estimates. You can select the repos you would like to give access to the App.
+The app needs *read access to code repos* so it can run the CLI against them, and *write access to pull requests* so it can post a comment with any cost estimates, tagging, and FinOps policy issues. You can select the repos you would like to give access to the App.
 
 <details>
   <summary>Details of required permissions</summary>
@@ -85,7 +82,7 @@ The Infracost GitHub App requires the following permissions.
 
 </details>
 
-Each time a pull request is opened or a new commit is pushed to open pull requests, the Infracost GitHub App shows the cost difference between the most recent commit of the pull request branch, and the merge base of the base branch. The merge base is the latest common commit of the pull request base and target branch. This mirrors GitHub's pull request diff logic and shows only the cost of 'what a pull request introduces'.
+Each time a pull request is opened or a new commit is pushed to an open pull request, the Infracost GitHub App shows the any tagging or FinOps policies issues that were introduced by the by the pull request along with the cost difference between the most recent commit of the pull request branch and the merge base of the base branch. This mirrors GitHub's pull request diff logic and shows only the changes the pull request introduces.
 
 The GitHub App automatically reflects the following changes in Infracost:
 - Repos that are **renamed** are automatically updated in Infracost.
