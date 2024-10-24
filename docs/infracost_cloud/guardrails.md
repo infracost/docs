@@ -48,7 +48,7 @@ Next you should select the thresholds that should trigger this guardrail, the th
 
 ### 4. Notifications to send
 
-You can select the users who should be emailed when a guardrail is triggered. You can also create a [Slack channel webhook](https://slack.com/intl/en-tr/help/articles/115005265063-Incoming-webhooks-for-Slack) and use that for notifications.
+You can select the users who should be emailed when a guardrail is triggered. You can also create a [Slack channel webhook](https://api.slack.com/messaging/webhooks) and use that for notifications.
 
 We recommend enabling the pull request option, so engineers are shown the guardrail information in the Infracost pull request comment too. Regardless of which notification option you select, you can set a custom message to be included in them to give additional context or instructions. For example, you can describe why this guardrail is important or what will happen next after someone has reviewed the notification.
 
