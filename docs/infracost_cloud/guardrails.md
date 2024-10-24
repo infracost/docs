@@ -80,17 +80,26 @@ The following screenshot shows an example pull request comment with a custom mes
 
 This feature works by failing the CI/CD pipeline that runs Infracost (`infracost comment` will `exit 1`). Depending on how you have configured your source control system this blocks the pull request from being merged, but your source control system admins can usually override this during urgent cases.
 
-#### Setup
-
-To setup this feature, you should:
+To setup this feature follow the instructions below for your source control system.
 
 1. Enable the "Block pull request from being merged" option when you create the guardrail.
 
   <img src={useBaseUrl("img/infracost-cloud/guardrails/actions.png")} alt="Blocking pull requests" />
 
-2. If you are using the GitHub App integration, in your GitHub repository, go to Settings > Branches > and tick the "Require status checks to pass before merging" option under Protect matching branches. GitLab users should follow [this doc](https://docs.gitlab.com/ee/user/project/merge_requests/status_checks.html#block-merges-of-merge-requests-unless-all-status-checks-have-passed) to setup a similar configuration.
+2. Configure your source control system to require status checks to pass before merging pull requests.
 
-  <img src={useBaseUrl("img/infracost-cloud/guardrails/github-require-status-pass.png")} alt="Configure GitHub to require status checks to pass before pull requests can be merged" />
+    **GitHub App**:
+      1. Go to Settings > Branches > and tick the "Require status checks to pass before merging" option under Protect matching branches.
+      <img src={useBaseUrl("img/infracost-cloud/guardrails/github-require-status-pass.png")} alt="Configure GitHub to require status checks to pass before pull requests can be merged" />
+
+    **Azure Repos App**:
+      1. Go to Project Settings > Repositories > Policies
+      2. Add a new or edit the existing Branch Policy for your default branches
+      3. Add a new Status Check for `checks/infracost`, and set it to Required.
+      <img src={useBaseUrl("img/infracost-cloud/guardrails/azure-repos-require-status-pass.png")} alt="Configure Azure Repos to require status checks to pass before pull requests can be merged" />
+
+    **GitLab App**:
+      1. Follow [this doc](https://docs.gitlab.com/ee/user/project/merge_requests/status_checks.html#block-merges-of-merge-requests-unless-all-status-checks-have-passed) to setup a similar configuration.
 
 #### Example output
 
@@ -108,7 +117,7 @@ If someone with admin access on GitHub or GitLab overrides the guardrail and mer
 
 ## How Guardrails work
 
-Cost thresholds are currency-independent, a guardrail with a threshold of 2000 would be triggered by a pull request that increases your monthly costs by $2001 or €2001. 
+Cost thresholds are currency-independent, a guardrail with a threshold of 2000 would be triggered by a pull request that increases your monthly costs by $2001 or €2001.
 
 The following example describes how guardrails work. Let's say you have two guardrails:
 1. A guardrail called "20 percent threshold" that notified FinOps when a pull request (PR) increases costs by more than 20%. This keeps them in the loop and avoids surprising them as this is an anticipated change being made by engineering.
