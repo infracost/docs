@@ -131,14 +131,14 @@ projects:
 
 To use config files in your repos, follow these steps:
 
-### 1. Source Control Integrations (GitHub and GitLab App)
+### 1. Source Control Integrations (GitHub, Azure Repos and GitLab App)
 
 When integrating Infracost with systems like GitHub or GitLab, we recommend the following order of precedence:
 
 1. **Infracost Cloud’s Org Settings > Default Repo Config File**: Set a default config file for all repos in your organization. This is useful if a lot of your repos have a similar structure since it applies globally, and individual repos can override it.
   <img
     src={useBaseUrl('img/infracost-cloud/default-repo-config-file.png')}
-    alt="Default config file used by all repos in the GitHub App or GitLab App integration"
+    alt="Default config file used by all repos in the GitHub, Azure Repos or GitLab App integration"
   />
 2. **Repo Settings in Infracost Cloud**: For specific repos, customize the config in the **Repo Settings** tab, which takes precedence over the default Org config.
 3. **`infracost.yml` or `infracost.yml.tmpl` in the repo root**: If needed, store a config file in the root of your repo. This file will be used only if there is no config set in Infracost Cloud, since the Cloud settings take precedence.
@@ -351,7 +351,7 @@ projects:
     </tr>
     <tr>
       <td><code>dependency_paths</code></td>
-      <td>Optional. <span style={{textDecoration: "underline"}}>Only applicable for GitHub App and GitLab App users</span>. Array of strings. Array of file or directory paths that should trigger project estimates. If this is specified, code changes to the <code>path</code> target will <b>NOT</b> trigger cost estimates unless the <code>path</code> is included in <code>dependency_paths</code>. All paths are relative to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
+      <td>Optional. <span style={{textDecoration: "underline"}}>Only applicable for GitHub, Azure Repos and GitLab App users</span>. Array of strings. Array of file or directory paths that should trigger project estimates. If this is specified, code changes to the <code>path</code> target will <b>NOT</b> trigger cost estimates unless the <code>path</code> is included in <code>dependency_paths</code>. All paths are relative to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
       <pre>
 {`dependency_paths:
   - "config/**.json"

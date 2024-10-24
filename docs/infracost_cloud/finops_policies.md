@@ -11,7 +11,7 @@ Infracost enables you to pro-actively check FinOps best practices in the enginee
 
 ## Usage
 
-This section assumes you have already setup the Infracost source control integration with [GitHub or GitLab](/docs/integrations/cicd/#source-control-integrations-recommended) (or added Infracost to your CI/CD pipeline).
+This section assumes you have already setup the Infracost source control integration with [GitHub , Azure Repos or GitLab](/docs/integrations/cicd/#source-control-integrations-recommended) (or added Infracost to your CI/CD pipeline).
 
 ## 1. See policy failures on repos
 

@@ -49,7 +49,7 @@ From the Members page, you can invite your team members to join your organizatio
 
 ## Repos
 
-Repos, short for code repositories, is where your code lives in GitHub, GitLab or any other source control system. A repo contains one or more projects. Infracost Cloud lets you track how the costs and policy issues of repos and projects change over time.
+Repos, short for code repositories, is where your code lives in GitHub, Azure Repos, GitLab or any other source control system. A repo contains one or more projects. Infracost Cloud lets you track how the costs and policy issues of repos and projects change over time.
 
 ## Projects
 
