@@ -9,12 +9,12 @@ The Infracost Azure Repos App is an automated integration meaning that Infracost
 
 | 1. Install the Infracost Azure Repos App | 2. Get pull request comments |
 |--------------|-----------|
-<img src={useBaseUrl("img/screenshots/azure-app-install.png")} alt="Install the Infracost Azure Repos App into any Azure organization"/> | <img src={useBaseUrl("img/screenshots/azure-app-comment.png")} alt="Infracost automatically leaves a comment on every pull request"/>
+<img src={useBaseUrl("img/screenshots/azure-app-install.png")} width="90%" alt="Install the Infracost Azure Repos App into any Azure organization"/> | <img src={useBaseUrl("img/screenshots/azure-app-comment.png")} alt="Infracost automatically leaves a comment on every pull request"/>
 
 ## Benefits
 
 There are two key benefits of using the Azure Repos App over manual CI/CD integrations:
-1. You can add Infracost to multiple repositories with one click, no need to install or update CLI versions in your CI/CD pipeline.
+1. You can add Infracost to multiple repositories with a few clicks, no need to install or update CLI versions in your CI/CD pipeline. The Infracost Azure Repos App uses a service principal and operates independently of Azure users.
 2. Infracost runs faster as only changed folders are run based on Azure Repos App events.
 
 ## Usage
@@ -31,7 +31,7 @@ There are two key benefits of using the Azure Repos App over manual CI/CD integr
 
 5. The Infracost Azure Repos App also requires **admin consent** during setup. This step ensures that the app has the necessary permissions to manage service hooks and policies across the selected projects. [Learn more about admin consent](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/user-admin-consent-overview#admin-consent).
 
-6. During setup, Infracost will use a short-lived Personal Access Token (PAT) with additional permissions to:
+6. During setup, Infracost will need a temporary Personal Access Token (PAT) with additional permissions to do the following. The PAT can be deleted in Azure Repos after the setup is done.
    - Create an Azure Active Directory (AAD) group that can manage service hooks and branch policies.
    - Add the Infracost service principal to this group.
    - Add selected projects to this group so Infracost can manage webhooks and policies in those projects.
@@ -42,12 +42,9 @@ There are two key benefits of using the Azure Repos App over manual CI/CD integr
       - **Project and Team (Read)** - to list projects.
       - **Member Entitlement Management (Read & Write)** - to add projects to the Infracost group.
 
-   > **Note**: If you add new projects in the future, you will need to provide the PAT again to temporarily elevate access for setting up that project.
+   > **Note**: If you add new projects in the future, you will need to provide a PAT again to temporarily elevate access for setting up that project.
 
-
-7. If you use private modules:
-    - For private **git modules**, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way Terraform does.
-    - For private **registry modules**, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) and set the required Terraform registry token and host in the integration settings page in Infracost Cloud.
+7. If you use private modules, see [this docs section](/docs/features/terraform_modules/#source-control-integrations).
 
 8. If you need to customize how Infracost runs, add an `infracost.yml` or `infracost.yml.tmpl` [config file](/docs/features/config_file/) in the **Repo** > **My repo** > **Settings** tab, or to the root of your repo. The Azure Repos App will automatically use that file if it’s present. The app will also apply any usage values defined in the `infracost-usage.yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
 

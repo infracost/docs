@@ -11,11 +11,11 @@ See the following two sections for separate instructions on how to setup private
 
 ### Source control integrations
 
-If you use the Infracost [GitHub](/docs/integrations/github_app/) or [GitLab App](/docs/integrations/gitlab_app/), go to [Infracost Cloud](https://dashboard.infracost.io/) > Org Settings > Integrations, and click on the GitHub or GitLab App organization that has the repos with private module access errors. Click on Next to go to the Run configurations page.
+If you use the Infracost [GitHub](/docs/integrations/github_app/), [GitLab App](/docs/integrations/gitlab_app/) or [Azure Repos App](/docs/integrations/azure_repos_app/), go to [Infracost Cloud](https://dashboard.infracost.io/) > Settings > Org Settings > Integrations, and click on the GitHub, GitLab or Azure Repos App organization that has the repos with private module access errors. Click on Next to go to the Run configurations page then:
 
-For git modules, ensure that the Infracost GitHub App or the GitLab App has access to the module repos, no further action is needed as Infracost will automatically use that access to process the modules.
+For **git modules**, ensure that the Infracost App has access to the module repos, no further action is needed as Infracost will automatically use that access to process the modules.
 
-For registry modules, enter the following information:
+For **registry modules**, enter the following information:
 
 * **Terraform Cloud:** set the host to `app.terraform.io` and the token to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
 * **Terraform Enterprise:** set the host to your Terraform Enterprise hostname and the token to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).

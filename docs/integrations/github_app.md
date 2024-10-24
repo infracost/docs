@@ -27,10 +27,7 @@ There are two key benefits of using the GitHub App over manual CI/CD integration
 
 3. Click on Settings > Org Settings > Integrations > GitHub and follow the wizard to select the repos you want to give Infracost access to.
 
-4. If you use private modules:
-    - For private **git modules**, add your private SSH key (RSA format is recommended) and/or Git HTTPS credentials so Infracost can clone the repos in the same way that Terraform does.
-
-    - For private **registry modules**, see [this page](/docs/features/terraform_modules/#terraform-registry-modules) and set the required Terraform registry token and host in the integration settings page in Infracost Cloud.
+4. If you use private modules, see [this docs section](/docs/features/terraform_modules/#source-control-integrations).
 
 5. If you need to customize how Infracost runs, add an `infracost.yml` or `infracost.yml.tmpl` [config file](/docs/features/config_file/) in the Repo > my repo > Settings tab, or to the root of your repo. The GitHub App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage.yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
 
