@@ -9,7 +9,7 @@ The Infracost Azure Repos App is an automated integration meaning that Infracost
 
 | 1. Install the Infracost Azure Repos App | 2. Get pull request comments |
 |--------------|-----------|
-<img src={useBaseUrl("img/screenshots/azure-app-install.png")} width="90%" alt="Install the Infracost Azure Repos App into any Azure organization"/> | <img src={useBaseUrl("img/screenshots/azure-app-comment.png")} alt="Infracost automatically leaves a comment on every pull request"/>
+<img src={useBaseUrl("img/screenshots/azure-app-install.png")} width="70%" alt="Install the Infracost Azure Repos App into any Azure organization"/> | <img src={useBaseUrl("img/screenshots/azure-app-comment.png")} alt="Infracost automatically leaves a comment on every pull request"/>
 
 ## Benefits
 
@@ -61,7 +61,7 @@ Each time a pull request is opened or a new commit is pushed to an open pull req
 The Azure Repos App automatically reflects the following changes in Infracost:
 - Repos that are **renamed** are updated in Infracost.
 - When a repo is **moved** from one Azure DevOps project to another, the change is reflected in Infracost as long as the projects belong to the same Azure organization.
-- Repos that are **deleted** or **archived** are marked as archived in Infracost for audit purposes. Their issues will no longer show in the dashboard.
+- Repos that are **deleted** or **disabled** (also known as archived) are marked as archived in Infracost for audit purposes. Their issues will no longer show in the dashboard.
 
 ### Disable pull request comments
 
