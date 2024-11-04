@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The [cloud cost optimization formula](https://www.infracost.io/blog/cloud-cost-optimization-formula/) has a *usage* and a *unit price* that contributes to your cloud bill. The usage component of that formula is fully dependent on engineering teams taking action to change the usage, whereas the unit price can be done in a centralized manner via FinOps tasks such as purchasing reserved instances.
 
-Tackling waste requires engineering involvement at every level. FinOps policies gives you a way to prioritize, organize, and fix issues at the source. It's more than just reporting waste; it empowers engineers to take direct action in *their* workflows.
+Tackling waste requires engineering involvement at every level. FinOps policies give you a way to prioritize, organize, and fix issues at the source. It's more than just reporting waste; it empowers engineers to take direct action in *their* workflows.
 
 FinOps policies make waste reduction of the usage a team-wide, actionable process. No meetings or Jira tickets, just a streamlined approach to cut unnecessary costs from day one.
 
@@ -22,7 +22,7 @@ FinOps policies make waste reduction of the usage a team-wide, actionable proces
 
 ### 2. Use policies to drive action, not meetings & Jira tickets
 
-Too often, waste reports lead to long meetings and endless Jira tickets. FinOps policies flips the script with an actionable, streamlined approach. It identifies which of the 70+ AWS, Azure, and Google best practices from the Well-Architected Frameworks aren’t being followed. From there, FinOps teams can decide which policies are most critical to their organization, picking the top 3-5 to focus on each quarter.
+Too often, waste reports lead to long meetings and endless Jira tickets. FinOps policies flip the script with an actionable, streamlined approach. It identifies which of the 70+ AWS, Azure, and Google best practices from the Well-Architected Frameworks aren’t being followed. From there, FinOps teams can decide which policies are most critical to their organization, picking the top 3-5 to focus on each quarter.
 
 Once priorities are set, Infracost takes care of the rest: FinOps teams simply enable pull request comments for those selected policies, and Infracost automatically checks all pull requests against them. Engineers can then focus on fixing these high-priority issues directly in their code, reducing waste without the need for extra meetings or task-tracking.
 
@@ -35,7 +35,7 @@ Results matter, and we made sure Infracost makes it easy to track wins. Here’s
 - **Proactive prevention:** Out of 8.1K new issues since July 1, 80% (6.5K) were prevented before the code was merged.
 - **Burning down the backlog:** The team has resolved 41% (39K) of existing tagging issues since July, which translates to 13K fixes per month. At this pace, they’re on track to clear-out all 55K remaining issues in four months!
 
-<img src={useBaseUrl("img/infracost-cloud/finops-policies/burndown-chart.png")} alt="Infracost Cloud shows you a burndown chart if how you're doing." />
+<img src={useBaseUrl("img/infracost-cloud/finops-policies/burndown-chart.png")} alt="Infracost Cloud shows you a burndown chart of how you're doing." />
 
 ## Test pull requests
 
@@ -47,7 +47,7 @@ When engineers create a pull request to change infrastructure, Infracost scans t
 
 ## Update policy settings
 
-From the Governance > FinOps page, you can click on the 3 dots for any policy and  update its settings. These settings include the option to block requests that fail the policy, and the ability to customize the message shown to engineers in pull requests. This is useful if you need to customize the message to recommend your company's specific policy or a link to internal wiki pages where engineers can learn more.
+From the Governance > FinOps page, you can click on the 3 dots for any policy and update its settings. These settings include the option to block requests that fail the policy, and the ability to customize the message shown to engineers in pull requests. This is useful if you need to customize the message to recommend your company's specific policy or a link to internal wiki pages where engineers can learn more.
 
 You can also define whether a policy should trigger only when new resources are being added. This is useful when changing an existing resource, such as a database's instance type, requires downtime and thus you prefer engineers to not do that within their existing open pull request.
 
