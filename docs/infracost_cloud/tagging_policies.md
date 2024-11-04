@@ -15,59 +15,53 @@ Infracost enables you to define your tagging policies so you can communicate and
 
 You can create multiple tagging policies, for example one policy that applies to all resources, and another one that applies to certain resource types. To create a tagging policy, log in to [Infracost Cloud](https://dashboard.infracost.io) and go to the **Governance** > **Tagging policies** page, and follow the steps below.
 
-### a. Scope of tagging policy
+### a. Define tag keys and values
 
-Give your tagging policy a name, and select the whether the policy should be evaluated against all or specific resource types. Resource-type specific tags are useful in cases you want resources such as EC2 instances to have specific tags such as shutdown schedules.
+You can define what tag keys are mandatory, which tag values are allowed, and make it easy for engineers to take action.
 
-<img src={useBaseUrl("img/infracost-cloud/tagging-policies/name-and-scope.png")} alt="Define tagging policy name and scope." />
-
-### b. Define tag keys and values
-
-You can define what tag keys are mandatory, which tag values are allowed, and make it easy for engineers to take action. You can also validate tag values using a regular expression (ECMAScript is used). Partial matches are used, so for example `dev` will match `dev`, `development` and `api-development`; but `.*-dev-.*` will not match `development`.
+You can also validate tag values using a regular expression (ECMAScript is used). Partial matches are used, so for example `dev` will match `dev`, `development` and `api-development`; but `.*-dev-.*` will not match `development`. In this case, it's helpful to include a brief description of allowed values and examples in the tag key's custom message box.
 
 <img src={useBaseUrl("img/infracost-cloud/tagging-policies/define-tags.png")} alt="Define tag keys and values." />
 
-### c. Optionally block pull requests
+### b. Custom pull request message
 
-Next you can define whether pull requests that fail this policy should be blocked until the policy failure is fixed. Depending on how your source control system is configured, your admins can usually bypass this for edge cases.
-
-<img src={useBaseUrl("img/infracost-cloud/tagging-policies/actions-to-take.png")} alt="You can optionally block pull requests that fail a policy." />
-
-### d. Custom pull request message 
-
-We recommend you leave "Include details in pull requests" as enabled so engineers are shown details of tagging policy failures. However, during testing, you can disable this so you can see the details in Infracost Cloud but not in pull request comments.
-
-You can also set a custom message to be included in pull request comments to give additional context or instructions. For example, you can describe why tagging policies are important or link to your internal wiki page.
+You should also set a custom message to be included in pull request comments to give additional context or instructions. For example, you can describe **why** tagging is important for your organization and link to your internal wiki page.
 
 <img src={useBaseUrl("img/infracost-cloud/tagging-policies/customizations.png")} alt="You can customize the pull request message." />
 
-### e. Pull requests to monitor
+### c. Optionally block pull requests
+
+Next you can define whether pull requests that fail this policy should be blocked until the policy failure is fixed. We recommend giving engineering teams a warning period of 1-3 months before putting policies into enforcement mode. Depending on how your source control system is configured, your admins can usually bypass this for edge cases.
+
+<img src={useBaseUrl("img/infracost-cloud/tagging-policies/actions-to-take.png")} alt="You can optionally block pull requests that fail a policy." />
+
+### d. Advanced settings
+
+We recommend you leave "Include details in pull requests" as enabled so engineers are shown details of tagging policy failures. However, during testing, you can disable this so you can see the details in Infracost Cloud but not in pull request comments.
+
+The "Resource types filter" filter is specially useful for Azure users, as they often only require tags to be set for `azurerm_resource_group` resources, and enable an Azure feature so resources inherit tags from their resource group. 
 
 Usually users monitor all pull requests for tagging policies. However, you can also set filters, e.g. only monitor pull requests in certain repositories so you can do gradual rollouts of your policy. Once you are done, save the tagging policy.
 
 <img src={useBaseUrl("img/infracost-cloud/tagging-policies/filters.png")} alt="Create a tagging policy using pull request filters." />
 
-## 2. See policy failures on repos
+## 2. See all tagging issues
 
-Once you have created a tagging policy, Infracost Cloud shows you a central dashboard of any tagging policy failures that are currently happening on your main or master branch across all of your code repos.
+Once you have created a tagging policy, click on the "Re-run policies" button. This will scan all of your repositories main or master branch and show all tagging issues. This means that you do not need to wait for a pull request to test your policy. 
 
-This means that you do not need to wait for a pull request to test your policy. Go to one of your repos from Visibility > Repos, and click on the Re-run estimate button. Any tagging policy failures will be shown.
+Whilst cloud vendor tools such as AWS Cost Explorer show the percentage of untagged costs, Infracost Cloud shows the exact infrastructure-as-code resources that are not using your allowed tag keys and values. You can also filter on specific repos or VCS organizations to zoom-in on a subset of the issues.
 
-<img src={useBaseUrl("img/infracost-cloud/tagging-policies/branch-policies.png")} alt="Infracost Cloud shows you any tagging policy failures that are currently happening on your main or master branch too." />
+<img src={useBaseUrl("img/infracost-cloud/tagging-policies/coverage-chart.png")} alt="Infracost Cloud shows all resources that are not using your allowed tag keys or values." />
 
-## 3. Analytics on policy coverage
+Infracost makes tagging actionable for engineers. Tracking the percentage of resources that are tagged correctly is an important KPI that FinOps teams track and improve over time. This reduces the percentage of costs that cannot be categorized and allocated.
 
-From the Governance > Tagging policies page, you can see the percentage of taggable resources that are passing your tagging policies over the last 6 months. Whilst cloud vendor tools such as AWS Cost Explorer show the percentage of untagged costs, Infracost Cloud shows the percentage of infrastructure-as-code resources that are strictly following your tagging policies, which is much clearer for engineers to action and improve. This is an important KPI that FinOps teams track and improve over time to reduce the percentage of costs that cannot be categorized and allocated.
-
-<img src={useBaseUrl("img/infracost-cloud/tagging-policies/coverage-chart.png")} alt="Infracost Cloud shows you the percentage of resources that are passing your tagging policies." />
-
-You can also see pull requests that failed policies (shown above). Each of these pull requests would have been deployed with missing or incorrect tags had Infracost not flagged them for engineers to action. Fixing these issues before code is deployed saves significant engineering time as otherwise engineers need to create new pull requests, wait for code reviews, and re-deploy their changes.
-
-## 4. Test pull requests
+## 3. Test pull requests
 
 When engineers create a pull request to change infrastructure, Infracost scans the code and checks the tagging policies against all changed resources. It notifies the engineer immediately of any issues; the pull request comment (shown below) tells them exactly what file and line number they need to change to resolve the issue. This shifts-left on the tagging policy and results in the fastest possible feedback loop.
 
 <img src={useBaseUrl("img/infracost-cloud/tagging-policies/pull-request-tags.png")} alt="Create a pull request to test your tagging policy." />
+
+From the Visibility > Pull requests page, you can also see pull requests that failed policies. Each of these pull requests would have been deployed with missing or incorrect tags had Infracost not flagged them for engineers to action. Fixing these issues before code is deployed saves significant engineering time as otherwise engineers need to create new pull requests, wait for code reviews, and re-deploy their changes.
 
 ## How tagging policies work
 
