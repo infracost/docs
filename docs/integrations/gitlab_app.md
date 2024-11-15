@@ -43,7 +43,13 @@ Follow the same [usage steps](#usage) as the regular GitLab App above but note t
 
 ### Incoming traffic to GitLab
 
-If you use GitLab's IP allow-list to restrict access to your GitLab installation, you need to allow incoming traffic from `3.133.40.66` to your GitLab instance's port 443 (or whatever port you use); this is the IP address used by Infracost Cloud services to call the integration.
+If you use GitLab's IP allow-list to restrict access to your GitLab installation, you need to allow incoming traffic from the following IP addresses to your GitLab instance's port 443 (or whatever port you use); these are the IP addresses used by Infracost Cloud services to call the integration:
+- 3.133.40.66
+- 3.16.104.91
+- 3.147.121.170
+- 3.141.214.65
+- 18.221.82.195
+- 18.119.42.142
 
 ### Outgoing traffic from GitLab
 

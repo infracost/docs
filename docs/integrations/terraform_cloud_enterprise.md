@@ -31,7 +31,13 @@ Sign up or log in to [Infracost Cloud](https://dashboard.infracost.io) and go to
 
 ### 2. Firewall configuration for TFE
 
-This step is only needed by Terraform Enterprise (TFE) users. You need to allow incoming traffic from `3.133.40.66` to your TFE instance port 443 (or whatever port you use); this is the IP address used by Infracost Cloud services to call your Run Task integration.
+This step is only needed by Terraform Enterprise (TFE) users. You need to allow incoming traffic from the following IP addresses to your TFE instance port 443 (or whatever port you use); these are the IP addresses used by Infracost Cloud services to call your Run Task integration.
+- 3.133.40.66
+- 3.16.104.91
+- 3.147.121.170
+- 3.141.214.65
+- 18.221.82.195
+- 18.119.42.142
 
 If you have restricted out-going traffic from your TFE instance, you need to allow traffic to be sent to [our Outbound domains/IPs](/docs/faq/#how-can-i-whitelist-infracost-ip-addresses).
 

@@ -102,7 +102,7 @@ Infracost provides static IPs for its Cloud Pricing API and Infracost Cloud serv
 
 | Name | Source | Destination | Domains | Port | IPs | Notes |
 |-|-|-|-|-|-|-|
-| Inbound | Infracost Cloud | Your CI/CD system | N/A | 443 | 3.133.40.66 | Only needed if you use [source control integrations](/docs/integrations/cicd/#source-control-integrations-recommended) |
+| Inbound | Infracost Cloud | Your CI/CD system | N/A | 443 | 3.133.40.66 <br /> 3.16.104.91 <br /> 3.147.121.170 <br /> 3.141.214.65 <br /> 18.221.82.195 <br /> 18.119.42.142 | Only needed if you use [source control integrations](/docs/integrations/cicd/#source-control-integrations-recommended) |
 | Outbound | Your CI/CD system | Infracost Cloud | dashboard.api.infracost.io <br/> pricing.api.infracost.io | 443 | 76.223.127.201 <br /> 52.223.24.69 | Infracost CLI uses both domains |
 
 ## Features
