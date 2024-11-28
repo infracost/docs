@@ -104,3 +104,26 @@ From the Org Settings > Integrations > GitHub App page, you can disable pull req
 1. Follow the [usage](#usage) docs to install the app. You can do this from the same Infracost organization you use already, and going into the Org Settings > Integrations page.
 2. Test it by [sending a pull request](/docs/infracost_cloud/get_started/#4-send-a-pull-request).
 3. Remove all Infracost steps from your GitHub Actions.
+
+### Dismissing Policy failures
+
+Infracost finops and tagging policy failures can be dismissed directly from the GitHub pull request UI. This allows engineers to ship critical changes without having to fix all policy failures.
+
+Any GitHub pull request comment will contain information on how to dismiss the policy failure. 
+
+<img src={useBaseUrl("img/github/desc.png")} alt="pr comment" />
+
+Engineers can can comment `@infracost help` to get more information on how to dismiss the policy failure.
+
+<img src={useBaseUrl("img/github/help.png")} alt="help" />
+
+Dismissing a policy failure works as follows:
+- The engineer adds a comment to the pull request to dismiss the policy failure using the command `@infracost dismiss <optional reason>`.
+- The Infracost GitHub App will then read the comment and react to the comment to let the engineer know the policy failure is queued for dismissal.
+  <img src={useBaseUrl("img/github/reaction.png")} alt="reaction" />
+- Infracost will then run another status check on the pull request on the PR once the policy failure is dismissed. This will update the Infracost comment to remove all the policy failures.
+  <img src={useBaseUrl("img/github/passing.png")} alt="passing" />
+- Any blocking status checks will be updated to succeeded, enabling the engineer to merge the pull request.
+  <img src={useBaseUrl("img/github/checks.png")} alt="checks" />
+- Dismissed policy failures are shown in Infracost Cloud in the policies pages. You can filter by dismissed policy failures to see all the issues your engineers have dismissed.
+  <img src={useBaseUrl("img/github/dismissed-table.png")} alt="dismissed table" />  
