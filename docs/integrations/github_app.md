@@ -104,3 +104,26 @@ From the Org Settings > Integrations > GitHub App page, you can disable pull req
 1. Follow the [usage](#usage) docs to install the app. You can do this from the same Infracost organization you use already, and going into the Org Settings > Integrations page.
 2. Test it by [sending a pull request](/docs/infracost_cloud/get_started/#4-send-a-pull-request).
 3. Remove all Infracost steps from your GitHub Actions.
+
+### Dismissing policy issues
+
+Infracost FinOps and Tagging issues can be dismissed directly from the GitHub pull request UI, even if the policy is set to block pull requests. This allows engineers to ship critical changes without having to fix all issues. During non-emergency circumstances, we recommend engineers fix the issues they can, and dismiss any that they cannot fix.
+
+Any GitHub pull request comment will contain information on how to dismiss the issues. 
+
+<img src={useBaseUrl("img/github/desc.png")} alt="pr comment" />
+
+Engineers can add a pull request comment `@infracost help` to get more information on how to dismiss the issues.
+
+<img src={useBaseUrl("img/github/help.png")} alt="help" />
+
+Dismissing a policy issue works as follows:
+- The engineer adds a comment to the pull request to dismiss the issue using the command `@infracost dismiss <optional reason>`.
+- The Infracost GitHub App will then read the comment and react to the comment to let the engineer know the issue is queued for dismissal.
+  <img src={useBaseUrl("img/github/reaction.png")} alt="reaction" />
+- Infracost will then run another status check on the pull request once the issue is dismissed. This will update the Infracost comment to remove all the issues.
+  <img src={useBaseUrl("img/github/passing.png")} alt="passing" />
+- Any blocking status checks will be updated to succeeded, enabling the engineer to merge the pull request.
+  <img src={useBaseUrl("img/github/checks.png")} alt="checks" />
+- Dismissed issues are shown in Infracost Cloud in the policies pages. You can filter by dismissed issues to see all the issues your engineers have dismissed and their reasons.
+  <img src={useBaseUrl("img/github/dismissed-table.png")} alt="dismissed table" />  
