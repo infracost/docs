@@ -33,7 +33,7 @@ There are two key benefits of using the Azure Repos App over manual CI/CD integr
 
 6. During setup, Infracost will need a short-lived Personal Access Token (PAT) with additional permissions to do the following. The PAT can be deleted in Azure Repos after the setup is done.
    - Create an Azure Active Directory (AAD) group that can manage service hooks and branch policies.
-   - Add the Infracost service principal to this group.
+   - Add the Infracost service principal to this group. The Azure DevOps Access Level for the Infracost service principal needs to be "Basic" (not the free Stakeholder one) so it has permission to list repos.
    - Add selected projects to this group so Infracost can manage webhooks and policies in those projects.
    Ensure that the short-lived PAT belongs to an Owner or Project Collection Administrator and has the following scopes:
       - **Graph (Read & Manage)** - to create the Infracost group.

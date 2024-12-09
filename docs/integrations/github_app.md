@@ -99,17 +99,11 @@ The GitHub App automatically reflects the following changes in Infracost:
 
 From the Org Settings > Integrations > GitHub App page, you can disable pull request comments so cost estimates, guardrails and tagging policies are only shown in Infracost Cloud. This enables you to test these features without impacting engineering workflows.
 
-### GitHub Actions to App migration
-
-1. Follow the [usage](#usage) docs to install the app. You can do this from the same Infracost organization you use already, and going into the Org Settings > Integrations page.
-2. Test it by [sending a pull request](/docs/infracost_cloud/get_started/#4-send-a-pull-request).
-3. Remove all Infracost steps from your GitHub Actions.
-
 ### Dismissing policy issues
 
 Infracost FinOps and Tagging issues can be dismissed directly from the GitHub pull request UI, even if the policy is set to block pull requests. This allows engineers to ship critical changes without having to fix all issues. During non-emergency circumstances, we recommend engineers fix the issues they can, and dismiss any that they cannot fix.
 
-Any GitHub pull request comment will contain information on how to dismiss the issues. 
+GitHub pull request comments contain information on how to dismiss issues.
 
 <img src={useBaseUrl("img/github/desc.png")} alt="pr comment" />
 
@@ -127,3 +121,9 @@ Dismissing a policy issue works as follows:
   <img src={useBaseUrl("img/github/checks.png")} alt="checks" />
 - Dismissed issues are shown in Infracost Cloud in the policies pages. You can filter by dismissed issues to see all the issues your engineers have dismissed and their reasons.
   <img src={useBaseUrl("img/github/dismissed-table.png")} alt="dismissed table" />  
+
+### GitHub Actions to App migration
+
+1. Follow the [usage](#usage) docs to install the app. You can do this from the same Infracost organization you use already, and going into the Org Settings > Integrations page.
+2. Test it by [sending a pull request](/docs/infracost_cloud/get_started/#4-send-a-pull-request).
+3. Remove all Infracost steps from your GitHub Actions.
