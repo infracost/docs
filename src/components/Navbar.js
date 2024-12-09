@@ -109,6 +109,10 @@ function Navbar({ isDocs }) {
           href: '/glossary/',
         },
         {
+          label: 'FinOps Policies',
+          href: '/finops-policies/',
+        },
+        {
           label: 'Blog',
           href: '/blog/',
         },
