@@ -41,7 +41,7 @@ Try the following troubleshooting steps and join our [community Slack channel](h
 
 If Infracost is **erroring or running too slow**, email us at [hello@infracost.io](mailto:hello@infracost.io) so we can arrange a debugging session with you quickly.
 
-If your pull requests comments are being posted but they are **not showing in the dashboard**, ensure that the:
+If your pull request comments are being posted but they are **not showing in the dashboard**, ensure that the:
 1. In Infracost Cloud's Org settings page, the cost estimate dashboard is enabled.
 2. Infracost CLI version (`infracost --version`) being used is latest patch version of v0.10.
 3. [Required environment variables](/docs/features/environment_variables/#environment-variables-to-set-metadata) are set before the `infracost breakdown` and `infracost diff` commands are run. You can verify this by running `cat infracost.json | jq .metadata` or `infracost breakdown --path /code --format json | jq .metadata` and checking the Infracost JSON block shows your pull request metadata.
