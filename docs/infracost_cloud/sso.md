@@ -5,9 +5,9 @@ title: Single sign-on (SSO)
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost Cloud supports authenticating with Enterprise SSO providers; furthermore, users can automatically be provisioned based on your SAML user groups and permissions.
+Infracost Cloud supports authenticating with Enterprise SSO providers. It is important that **both steps** in this page are implemented to ensure users are automatically provisioned based on your SAML user groups, and they can login using your SSO provider.
 
-## Setup SSO
+## Step 1: Setup SSO
 
 Assuming you have already purchased Infracost Cloud, you can setup SSO by following these steps. Email [hello@infracost.io](mailto:hello@infracost.io) if you would like to enable SSO for proof-of-concept projects where many people are involved.
 1. Go to [Infracost Cloud](https://dashboard.infracost.io) and sign up with your email and a password. You will delete this user after SSO is enabled.
@@ -157,7 +157,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
     </details>
 4. Once we receive your email, we will email you to schedule a quick screenshare call to enable SSO. On the call, we will verify your SSO connection is configured correctly and delete the initial user that was created without SSO.
 
-### SSO login notes
+#### SSO login notes
 
 After SSO is configured:
 - SSO is enabled on your company domain name(s), such as acme-inc.com. So anyone who enters an email address that contains your company domain names in the [Infracost log in page](https://dashboard.infracost.io) will be redirected to your SSO provider for authentication.
@@ -167,15 +167,15 @@ After SSO is configured:
     <img src={useBaseUrl("img/infracost-cloud/auth0-account-link.png")} alt="Linking login accounts" width="80%" />
 - For organizations using Okta: If users see the error "User is not assigned to this application" when signing in, it means they need to be added to the Okta Infracost app.
 
-## SAML group mapping
+## Step 2: SAML group mapping
 
 Infracost can also **provision users automatically** based on your SAML user groups. This allows you to manage access to Infracost Cloud by managing SAML groups in your SAML provider, instead of inviting users individually to your Infracost Cloud account. With SAML groups, users are automatically provisioned when they sign-in for the first time; their roles are updated every time they sign-in.
 
 To enable this feature you should:
 1. Follow the above instructions to [Setup SSO](#setup-sso) first.
-2. Create SAML user groups in your SAML provider and put users in those groups. Infracost supports [four roles](/docs/infracost_cloud/key_concepts/#team-management) (Viewer, Editor, Admin, Owner) so we recommend four user groups.
+2. Create SAML user groups in your SAML provider and put users in those groups. Infracost supports [four roles](/docs/infracost_cloud/key_concepts/#team-management) (Viewer, Editor, Admin, Owner); but we recommend **two user groups** to start with: "Admin" for people who manage Infracost, and "Viewer" for all engineers.
 
-  If you already have a SAML group that most engineers are part of, you should consider re-using that for the Infracost Viewer role. This enables them to see their repo's pre-existing issues and fix them.
+  If you already have a SAML group that most engineers are part of, you should re-use that for the Infracost Viewer role. This enables them to see their repo's pre-existing issues and fix them.
 
   Users that are part of multiple groups will get the highest role from their group. For example, if a user is part of the InfracostViewer and InfracostEditor groups, they'll get the Editor role.
 
