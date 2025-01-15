@@ -39,7 +39,7 @@ This step is only needed by Terraform Enterprise (TFE) users. You need to allow 
 - 18.221.82.195
 - 18.119.42.142
 
-If you have restricted out-going traffic from your TFE instance, you need to allow traffic to be sent to [our Outbound domains/IPs](/docs/faq/#how-can-i-whitelist-infracost-ip-addresses).
+If you have restricted out-going traffic from your TFE instance, you need to allow traffic to be sent to [our Outbound domains/IPs](/docs/faq/#how-can-i-allowlist-infracost-ip-addresses).
 
 ### 3. Configure a Run Task
 

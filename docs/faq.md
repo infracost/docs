@@ -96,9 +96,9 @@ No. Infracost is backed by top-tier investors including Y Combinator and Sequoia
 
 If you believe you have found a vulnerability within Infracost, please let us know right away. Follow the process [outlined here](https://github.com/infracost/infracost/blob/master/SECURITY.md).
 
-### How can I whitelist Infracost IP addresses?
+### How can I allowlist Infracost IP addresses?
 
-Infracost provides static IPs for its Cloud Pricing API and Infracost Cloud services. If your environment has network traffic restrictions, you can whitelist these IPs in your firewall rules.
+Infracost provides static IPs for its Cloud Pricing API and Infracost Cloud services. If your environment has network traffic restrictions, you can allowlist these IPs in your firewall rules.
 
 | Name | Source | Destination | Domains | Port | IPs | Notes |
 |-|-|-|-|-|-|-|
