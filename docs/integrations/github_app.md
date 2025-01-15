@@ -53,7 +53,7 @@ If you use the GitHub Enterprise "Enable IP allow list", the Infracost GitHub Ap
 - 18.119.42.142
 
 #### Outgoing traffic from GitHub
-If you have restricted out-going traffic from your instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should whitelist `52.223.24.69`, and `76.223.127.201`.
+If you have restricted out-going traffic from your instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should allowlist `52.223.24.69`, and `76.223.127.201`.
 
 ### GitHub Enterprise Server
 
