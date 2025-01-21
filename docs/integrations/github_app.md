@@ -135,7 +135,7 @@ Snoozing a blocked PR works as follows:
   <img src={useBaseUrl("img/github/snooze.png")} alt="snooze" className="img-rounded" />
 - The Infracost GitHub App will then read the comment and react to the comment to let the engineer know the issue is queued for snoozing.
 - Any blocking Infracost status checks will be updated to succeeded, enabling the engineer to merge the pull request.
-    <img src={useBaseUrl("img/github/snooze-checks.png")} alt="checks" className="img-rounded" />
+  <img src={useBaseUrl("img/github/snooze-checks.png")} alt="checks" className="img-rounded" />
 - The next opened PR that touches the related code will display a comment with the snoozed issues and block merging, just like the original.
 
 ### GitHub Actions to App migration
