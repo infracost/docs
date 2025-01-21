@@ -99,27 +99,27 @@ The GitHub App automatically reflects the following changes in Infracost:
 
 From the Org Settings > Integrations > GitHub App page, you can disable pull request comments so cost estimates, guardrails and tagging policies are only shown in Infracost Cloud. This enables you to test these features without impacting engineering workflows.
 
-### Dismiss or snooze policy issues
+### Dismiss or snooze blocking policy issues
 
 Infracost FinOps and Tagging issues can be dismissed or snoozed directly from the GitHub pull request UI, even if the policy is set to block pull requests. This allows engineers to ship critical changes without having to fix all issues. During non-emergency circumstances, we recommend engineers fix the issues they can, and dismiss/snooze any that they cannot fix.
 
-GitHub pull request comments contain information on how to dismiss/snooze issues.
+GitHub pull request comments contain information on how to dismiss/snooze the issues.
 
 <img src={useBaseUrl("img/github/desc.png")} alt="pr comment" className="img-rounded" />
 
-Engineers can add a pull request comment `@infracost help` to get more information on how to dismiss the issues.
+Engineers can add a pull request comment `@infracost help` to get more information on how to dismiss/snooze the issues.
 
 <img src={useBaseUrl("img/github/help.png")} alt="help" className="img-rounded" />
 
 #### Dismiss
 
-The dismiss command makes Infracost ignore the detected issues going forward. If you simply need to unblock a PR merge and intend to address the issue later, consider using the snooze command.
+The dismiss command makes Infracost ignore the detected blocking issues going forward. If you simply need to unblock a PR merge and intend to address the issue later, consider using the snooze command.
 
 Dismissing a policy issue works as follows:
 - The engineer adds a comment to the pull request to dismiss the issue using the command `@infracost dismiss <optional reason>`.
 - The Infracost GitHub App will then read the comment and react to the comment to let the engineer know the issue is queued for dismissal.
   <img src={useBaseUrl("img/github/reaction.png")} alt="reaction" className="img-rounded" />
-- Infracost will then run another status check on the pull request once the issue is dismissed. This will update the Infracost comment to remove all the issues.
+- Infracost will then run another status check on the pull request once the issue is dismissed. This will update the Infracost comment to remove all the blocking issues.
   <img src={useBaseUrl("img/github/passing.png")} alt="passing" className="img-rounded" />
 - Any blocking status checks will be updated to succeeded, enabling the engineer to merge the pull request.
   <img src={useBaseUrl("img/github/checks.png")} alt="checks" className="img-rounded" />
