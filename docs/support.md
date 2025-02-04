@@ -3,7 +3,7 @@ slug: /support
 title: Support
 ---
 
-If you need help using Infracost, or want to talk about something else, please email us at [hello@infracost.io](mailto:hello@infracost.io).
+If you need help using Infracost, or want to talk about something else, please email us at [support@infracost.io](mailto:support@infracost.io).
 
 For community support, please join our [community Slack channel](https://www.infracost.io/community-chat).
 

@@ -9,7 +9,7 @@ Infracost Cloud supports authenticating with Enterprise SSO providers. It is imp
 
 ## Step 1: Setup SSO
 
-Assuming you have already purchased Infracost Cloud, you can setup SSO by following these steps. Email [hello@infracost.io](mailto:hello@infracost.io) if you would like to enable SSO for proof-of-concept projects where many people are involved.
+Assuming you have already purchased Infracost Cloud, you can setup SSO by following these steps. Email [support@infracost.io](mailto:support@infracost.io) if you would like to enable SSO for proof-of-concept projects where many people are involved.
 1. Go to [Infracost Cloud](https://dashboard.infracost.io) and sign up with your email and a password. You will delete this user after SSO is enabled.
 2. From the top dropdown menu, switch to your company organization or create a new organization for your company.
 3. Follow the applicable sections below to setup SSO, each option ends with you emailing us your SSO details.
@@ -35,7 +35,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>Copy the 'Login URL'. You will need to provide this to Infracost in the next step.</li>
         <li>Email us the following information with the certificate attached:
           <pre>
-            To: hello@infracost.io<br/>
+            To: support@infracost.io<br/>
             Subject: Enable SSO<br/>
             Body:<br/><br/>
             Please enable SSO for our organization.<br/><br/>
@@ -74,7 +74,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>Copy the Identity Provider Single Sign-On URL and download the certificate.</li>
         <li>Email us the following information with the certificate attached:
           <pre>
-            To: hello@infracost.io<br/>
+            To: support@infracost.io<br/>
             Subject: Enable SSO<br/>
             Body:<br/><br/>
             Please enable SSO for our organization.<br/><br/>
@@ -119,7 +119,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
             class="img_ev3q" /></li>
         <li>Email us the following information with the certificate attached:
           <pre>
-            To: hello@infracost.io<br/>
+            To: support@infracost.io<br/>
             Subject: Enable SSO<br/>
             Body:<br/><br/>
             Please enable SSO for our organization.<br/><br/>
@@ -141,7 +141,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
           provide this in the next step.</li>
         <li>Email us the following information with the certificate attached:
           <pre>
-            To: hello@infracost.io<br/>
+            To: support@infracost.io<br/>
             Subject: Enable SSO<br/>
             Body:<br/><br/>
             Please enable SSO for our organization.<br/><br/>
@@ -163,7 +163,7 @@ After SSO is configured:
 - SSO is enabled on your company domain name(s), such as acme-inc.com. So anyone who enters an email address that contains your company domain names in the [Infracost log in page](https://dashboard.infracost.io) will be redirected to your SSO provider for authentication.
 - Once SSO is enabled, users logging-in with Github/Google can continue to use those methods until you request us to enable the "Enforce SSO login" option. After that point, SSO will be the only way to login; thus when a user is removed from your SSO system, they will lose their access to Infracost Cloud.
 - You can invite users to your Infracost Cloud organization from the Org Settings > Members page. They will also need to be added to the corresponding group in your SSO provider so they can login.
-- If a user had already logged-in prior to SSO being enabled, on their first login after SSO is enabled, they will be asked to confirm if they want to link their login accounts. They must click "Continue" do this to be able to access your company's Infracost Cloud organization, otherwise a new empty organization will be created for them. If they skip this step, email [hello@infracost.io](mailto:hello@infracost.io) so we can assist you.
+- If a user had already logged-in prior to SSO being enabled, on their first login after SSO is enabled, they will be asked to confirm if they want to link their login accounts. They must click "Continue" do this to be able to access your company's Infracost Cloud organization, otherwise a new empty organization will be created for them. If they skip this step, email [support@infracost.io](mailto:support@infracost.io) so we can assist you.
     <img src={useBaseUrl("img/infracost-cloud/auth0-account-link.png")} alt="Linking login accounts" width="80%" />
 - For organizations using Okta: If users see the error "User is not assigned to this application" when signing in, it means they need to be added to the Okta Infracost app.
 
@@ -185,7 +185,7 @@ To enable this feature you should:
   <details>
     <summary>Email template</summary>
     <pre>
-      To: hello@infracost.io<br/>
+      To: support@infracost.io<br/>
       Subject: Enable SAML groups<br/>
       Body:<br/><br/>
       Please enable SAML groups for our organization.<br/><br/>

@@ -39,7 +39,7 @@ If you're having issues posting pull request comments, please review the trouble
 
 Try the following troubleshooting steps and join our [community Slack channel](https://www.infracost.io/community-chat) - we'll help you very quickly 😄🚀
 
-If Infracost is **erroring or running too slow**, email us at [hello@infracost.io](mailto:hello@infracost.io) so we can arrange a debugging session with you quickly.
+If Infracost is **erroring or running too slow**, email us at [support@infracost.io](mailto:support@infracost.io) so we can arrange a debugging session with you quickly.
 
 If your pull request comments are being posted but they are **not showing in the dashboard**, ensure that the:
 1. In Infracost Cloud's Org settings page, the cost estimate dashboard is enabled.
