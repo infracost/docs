@@ -57,7 +57,7 @@ If you have restricted out-going traffic from your instance, you need to allow t
 
 ### Other network/security requirements
 
-Email us at [hello@infracost.io](mailto:hello@infracost.io) if you have custom network or security requirements, for example the use of TLS certificates, or private tunnels.
+Email us at [support@infracost.io](mailto:support@infracost.io) if you have custom network or security requirements, for example the use of TLS certificates, or private tunnels.
 
 ## How the GitLab App works
 

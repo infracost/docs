@@ -23,7 +23,7 @@ For **registry modules**, enter the following information:
 * **JFrog:** set the host to your JFrog hostname and the token to an [identity token](https://www.jfrog.com/confluence/display/JFROG/Terraform+Registry#TerraformRegistry-manual-configurationManuallyGeneratinganIdentityToken).
 * **Spacelift**: See our dedicated [Spacelift integration](/docs/integrations/spacelift) page for instructions. 
 * **Other registries:** set the host to the hostname of the registry and the token to the access token for that registry.
-* **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [hello@infracost.io](mailto:hello@infracost.io) so we can assist you.
+* **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [support@infracost.io](mailto:support@infracost.io) so we can assist you.
 
 For S3 modules, set the [required environment variables](/docs/features/terraform_modules/#s3-modules) in the "Additional environment variables" section of the Run configurations page.
 
@@ -101,7 +101,7 @@ Set the following environment variables in your CI/CD pipeline:
 * **JFrog:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your JFrog hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [identity token](https://www.jfrog.com/confluence/display/JFROG/Terraform+Registry#TerraformRegistry-manual-configurationManuallyGeneratinganIdentityToken).
 * **Spacelift**: See our dedicated [Spacelift integration](/docs/integrations/spacelift) page for instructions.
 * **Other registries:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to the hostname of the registry and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to the access token for that registry.
-* **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [hello@infracost.io](mailto:hello@infracost.io) so we can assist you.
+* **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [support@infracost.io](mailto:support@infracost.io) so we can assist you.
 
 #### S3 modules
 

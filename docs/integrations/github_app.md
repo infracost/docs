@@ -57,7 +57,7 @@ If you have restricted out-going traffic from your instance, you need to allow t
 
 ### GitHub Enterprise Server
 
-Email us at [hello@infracost.io](mailto:hello@infracost.io) to enable GitHub Enterprise Server in your Infracost Cloud account. This requires a meeting with your server admin so we can install the Infracost GitHub App in your GitHub organization.
+Email us at [support@infracost.io](mailto:support@infracost.io) to enable GitHub Enterprise Server in your Infracost Cloud account. This requires a meeting with your server admin so we can install the Infracost GitHub App in your GitHub organization.
 
 Infracost Cloud optionally supports mTLS with GitHub Enterprise Server by using client certificates. If a client's GitHub Enterprise Server requires such a certificate, they have the option to supply Infracost with one. This certificate is securely stored and encrypted at rest. For each request sent to the client's GitHub Enterprise Server, Infracost Cloud will use this certificate. When Infracost Cloud instantiates its ephemeral isolated runners they use this certificate when scanning the code to provide cost estimates and when posting comments to the pull requests.
 

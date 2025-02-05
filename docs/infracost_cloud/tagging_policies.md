@@ -89,4 +89,4 @@ Tagging policies check all AWS, Azure and Google Terraform resources that suppor
 </details>
 
 
-Please open a [GitHub issue](https://github.com/infracost/infracost/issues) or email [hello@infracost.io](mailto:hello@infracost.io) if you have any feedback on how tagging policies work. 
+Please email [support@infracost.io](mailto:support@infracost.io) if you have any feedback on how tagging policies work. 

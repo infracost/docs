@@ -205,8 +205,13 @@ function Navbar({ isDocs }) {
 
   const outreach = (
     <>
-      <a className="navbar-item" href="mailto:hello@infracost.io" target="_blank" rel="noreferrer">
-        hello@infracost.io
+      <a
+        className="navbar-item"
+        href="mailto:support@infracost.io"
+        target="_blank"
+        rel="noreferrer"
+      >
+        support@infracost.io
       </a>
       <a
         className="navbar-item"
