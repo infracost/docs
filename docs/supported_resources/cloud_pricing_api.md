@@ -66,7 +66,7 @@ Infracost runs a hosted version of this API that you can use:
   </TabItem>
   <TabItem value="graphql_request">
 
-  The [GraphQL Playground](https://pricing.api.infracost.io/graphql) can be used with something like the [modheader](https://bewisse.com/modheader/) browser extension so you can set the custom HTTP header `X-Api-Key` to your Infracost API key.
+  The [GraphQL Playground](https://pricing.api.infracost.io/graphql) can be used with any browser extension that allows you to set custom request headers so you can set the HTTP header `X-Api-Key` to your Infracost API key.
 
   ```shell
   query {
