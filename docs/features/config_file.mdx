@@ -912,6 +912,7 @@ values={[
 #### `base`
 
 Returns the last element of path, for example:
+
 - `base "full/path/here.txt"` returns `here.txt`
 - `base "full/path"` returns `path`
 
@@ -920,6 +921,7 @@ Returns the last element of path, for example:
 #### `ext`
 
 Returns the file name extension used by path, for example:
+
 - `ext "full/path/here.txt"` returns `.txt`
 
 ---
@@ -927,6 +929,7 @@ Returns the file name extension used by path, for example:
 #### `stem`
 
 Returns the last element of path with the extension removed, for example:
+
 - `stem "full/path/here.txt"` returns `here`
 
 ---
@@ -946,6 +949,7 @@ Creates a list of items.
 #### `eq`
 
 Returns the boolean truth of arg1 == arg2, for example:
+
 - `eq $project.arg1 $project.arg2`
 
 ---
@@ -953,6 +957,7 @@ Returns the boolean truth of arg1 == arg2, for example:
 #### `ne`
 
 Returns the boolean truth of arg1 != arg2, for example:
+
 - `ne $project.arg1 $project.arg2`
 
 ---
@@ -960,18 +965,29 @@ Returns the boolean truth of arg1 != arg2, for example:
 #### `not`
 
 Returns the boolean negation of its single argument, for example:
+
 - `not (pathExists "path")`
 
 ---
 
 ### String Functions
 
-Config file templates support for the following string manipulation functions [`startsWith`](#startswith), [`endsWith`](#endswith) and [`contains`](#contains). Templates can also use the string functions `print`, `printf` and `println` from the base text/template library. The documentation for these additional functions can be [found here](https://pkg.go.dev/text/template#hdr-Functions).
+Config file templates support for the following string manipulation functions.
+Templates can also use the string functions `print`, `printf` and `println` from the base text/template library.
+The documentation for these additional functions can be [found here](https://pkg.go.dev/text/template#hdr-Functions).
 
+#### `lower`
+
+Returns the lowercase version of the string, for example:
+
+- `lower "FOO"` returns `foo`
+
+---
 
 #### `startsWith`
 
 Tests whether the string begins with prefix, for example:
+
 - `startsWith "mystring" "my"` returns true
 - `startsWith "mystring" "foo"` returns false
 
@@ -980,6 +996,7 @@ Tests whether the string begins with prefix, for example:
 #### `endsWith`
 
 Tests whether the string ends with suffix, for example:
+
 - `endsWith "mystring" "string"` returns true
 - `endsWith "mystring" "foo"` returns false
 
@@ -988,8 +1005,17 @@ Tests whether the string ends with suffix, for example:
 #### `contains`
 
 Reports whether the substring is within the subject, for example:
+
 - `contains "mystringbar" "string"` returns true
 - `endsWith "mystringbar" "foo"` returns false
+
+---
+
+#### `splitList`
+
+Splits a string into a list of substrings with the specified separator, for example:
+
+- `splitList "a,b,c" ","` returns `[a b c]`
 
 ---
 
@@ -1063,6 +1089,7 @@ projects:
     {{- end }}
 {{- end }}
 ```
+
 </details>
 
 <details><summary>Looping over projects with environments contained in a sub folder</summary>
