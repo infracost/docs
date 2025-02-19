@@ -173,9 +173,9 @@ Infracost can also **provision users automatically** based on your SAML user gro
 
 To enable this feature you should:
 1. Follow the above instructions to [Setup SSO](#setup-sso) first.
-2. Create SAML user groups in your SAML provider and put users in those groups. Infracost supports [four roles](/docs/infracost_cloud/key_concepts/#team-management) (Viewer, Editor, Admin, Owner); but we recommend **two user groups** to start with: "Admin" for people who manage Infracost, and "Viewer" for all engineers.
+2. Create SAML user groups in your SAML provider and put users in those groups. Infracost supports [four roles](/docs/infracost_cloud/key_concepts/#team-management) (Viewer, Editor, Admin, Owner); we recommend **two user groups** to start with: "Owner" for people who manage Infracost, and "Viewer" for all engineers.
 
-  If you already have a SAML group that most engineers are part of, you should re-use that for the Infracost Viewer role. This enables them to see their repo's pre-existing issues and fix them.
+  If you already have a SAML group that most engineers are part of (e.g. for GitHub), you should re-use that for the Infracost Viewer role. This enables them to see their repo's pre-existing issues and fix them.
 
   Users that are part of multiple groups will get the highest role from their group. For example, if a user is part of the InfracostViewer and InfracostEditor groups, they'll get the Editor role.
 
