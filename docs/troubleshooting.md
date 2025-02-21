@@ -1,11 +1,11 @@
 ---
 slug: troubleshooting
-title: Troubleshooting
+title: CI/CD troubleshooting
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Please try the following troubleshooting steps and if they don't help, either [create an issue](https://github.com/infracost/infracost/issues/new/choose) or join our [community Slack channel](https://www.infracost.io/community-chat) - we'll help you very quickly 😄🚀
+This page describes steps you can follow to troubleshoot [CI/CD integrations](/docs/integrations/cicd/#cicd-integrations). [Contact us](/docs/support/) if you're having problems with [source control integrations](/docs/integrations/cicd/#source-control-integrations-recommended).
 
 ## 1. Enable additional logging
 
@@ -36,10 +36,6 @@ If you're having issues posting pull request comments, please review the trouble
 - [Bitbucket](https://bitbucket.org/infracost/infracost-bitbucket-pipeline) > see the Troubleshooting section
 
 ## 5. Infracost Cloud dashboard
-
-Try the following troubleshooting steps and join our [community Slack channel](https://www.infracost.io/community-chat) - we'll help you very quickly 😄🚀
-
-If Infracost is **erroring or running too slow**, email us at [support@infracost.io](mailto:support@infracost.io) so we can arrange a debugging session with you quickly.
 
 If your pull request comments are being posted but they are **not showing in the dashboard**, ensure that the:
 1. In Infracost Cloud's Org settings page, the cost estimate dashboard is enabled.

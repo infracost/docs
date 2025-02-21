@@ -21,7 +21,7 @@ Every Infracost user has a default organization for personal use. From the Org S
 
 ### 3. Setup Infracost Cloud
 
-Follow the onboarding wizard on the dashboard to setup Infracost Cloud. Infracost supports direct source control integration with [GitHub](/docs/integrations/github_app/) and [GitLab](/docs/integrations/gitlab_app/). We recommend these integrations as they are much simpler to setup, and faster to run. You can also use other [CI/CD integrations](/docs/integrations/cicd/).
+Follow the onboarding wizard on the dashboard to setup Infracost Cloud. Infracost supports direct source control integration with [GitHub](/docs/integrations/github_app/), [GitLab](/docs/integrations/gitlab_app/) and [Azure Repos](/docs/integrations/azure_repos_app). We recommend these integrations as they are much simpler to setup, and faster to run. You can also use other [CI/CD integrations](/docs/integrations/cicd/).
 
 ### 4. Send a pull request
 
