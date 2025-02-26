@@ -73,3 +73,38 @@ The GitLab App automatically reflects the following changes in Infracost:
 ### Disable merge request comments
 
 From the Org Settings > Integrations > GitLab App page, you can disable merge request comments so cost estimates, guardrails and tagging policies are only shown in Infracost Cloud. This enables you to test these features without impacting engineering workflows.
+
+### Dismiss or snooze blocking policy issues
+
+Infracost FinOps and Tagging issues can be dismissed or snoozed directly from the GitLab merge request UI, even if the policy is set to block merge requests. This allows engineers to ship critical changes without having to fix all issues. During non-emergency circumstances, we recommend engineers fix the issues they can, and dismiss/snooze any that they cannot fix.
+
+GitLab merge request comments contain information on how to dismiss/snooze the issues.
+
+Engineers can add a merge request comment `@infracost help` to get more information on how to dismiss/snooze the issues.
+
+<img src={useBaseUrl("img/gitlab/help.png")} alt="help" className="img-rounded" />
+
+#### Dismiss
+
+The dismiss command makes Infracost ignore the detected blocking issues going forward. If you simply need to unblock a MR merge and intend to address the issue later, consider using the snooze command.
+
+Dismissing a policy issue works as follows:
+- The engineer adds a comment to the merge request to dismiss the issue using the command `@infracost dismiss <optional reason>`.
+- The Infracost GitLab App will then read the comment and react to the comment to let the engineer know the issue is queued for dismissal.
+  <img src={useBaseUrl("img/gitlab/dismiss.png")} alt="reaction" className="img-rounded" />
+- Infracost will then run another status check on the merge request once the issue is dismissed. This will update the Infracost comment to remove all the blocking issues.
+- Any blocking status checks will be updated to succeeded, enabling the engineer to merge the merge request.
+  <img src={useBaseUrl("img/gitlab/complete.png")} alt="passing" className="img-rounded" />
+- Dismissed issues are shown in Infracost Cloud in the policies pages. You can filter by dismissed issues to see all the issues your engineers have dismissed and their reasons.
+  <img src={useBaseUrl("img/github/dismissed-table.png")} alt="dismissed table" className="img-rounded" />  
+
+#### Snooze
+
+The snooze command allows you to unblock the merging of a MR when Infracost detects any blocking policy issues. This is useful for urgent tasks, such as bug fixes.
+
+Snoozing a blocked MR works as follows:
+- The engineer adds a comment to the merge request to snooze the issue using the command `@infracost snooze <optional reason>`.
+  <img src={useBaseUrl("img/gitlab/snooze.png")} alt="snooze" className="img-rounded" />
+- The Infracost GitLab App will then read the comment and react to the comment to let the engineer know the issue is queued for snoozing.
+- Any blocking Infracost status checks will be updated to succeeded, enabling the engineer to merge the merge request.
+- The next opened MR that touches the related code will display a comment with the snoozed issues and block merging, just like the original.

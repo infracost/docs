@@ -67,6 +67,40 @@ The Azure Repos App automatically reflects the following changes in Infracost:
 
 From the **Org Settings** > **Integrations** > **Azure Repos App** page, you can disable pull request comments so cost estimates, guardrails, and tagging policies are only shown in Infracost Cloud. This allows testing these features without impacting the development workflow.
 
+### Dismiss or snooze blocking policy issues
+
+Infracost FinOps and Tagging issues can be dismissed or snoozed directly from the Azure Repos pull request UI, even if the policy is set to block pull requests. This allows engineers to ship critical changes without having to fix all issues. During non-emergency circumstances, we recommend engineers fix the issues they can, and dismiss/snooze any that they cannot fix.
+
+Azure Repos pull request comments contain information on how to dismiss/snooze the issues.
+
+Engineers can add a pull request comment `@infracost help` to get more information on how to dismiss/snooze the issues.
+
+<img src={useBaseUrl("img/gitlab/help.png")} alt="help" className="img-rounded" />
+
+#### Dismiss
+
+The dismiss command makes Infracost ignore the detected blocking issues going forward. If you simply need to unblock a PR merge and intend to address the issue later, consider using the snooze command.
+
+Dismissing a policy issue works as follows:
+- The engineer adds a comment to the pull request to dismiss the issue using the command `@infracost dismiss <optional reason>`.
+- The Infracost Azure Repos App will then read the comment and react to the comment to let the engineer know the issue is queued for dismissal.
+- Infracost will then run another status check on the pull request once the issue is dismissed. This will update the Infracost comment to remove all the blocking issues.
+  <img src={useBaseUrl("img/azure/dismiss.png")} alt="passing" className="img-rounded" />
+- Any blocking status checks will be updated to succeeded, enabling the engineer to merge the pull request.
+- Dismissed issues are shown in Infracost Cloud in the policies pages. You can filter by dismissed issues to see all the issues your engineers have dismissed and their reasons.
+  <img src={useBaseUrl("img/github/dismissed-table.png")} alt="dismissed table" className="img-rounded" />  
+
+#### Snooze
+
+The snooze command allows you to unblock the merging of a PR when Infracost detects any blocking policy issues. This is useful for urgent tasks, such as bug fixes.
+
+Snoozing a blocked PR works as follows:
+- The engineer adds a comment to the pull request to snooze the issue using the command `@infracost snooze <optional reason>`.
+  <img src={useBaseUrl("img/azure/snooze.png")} alt="snooze" className="img-rounded" />
+- The Infracost Azure Repos App will then read the comment and react to the comment to let the engineer know the issue is queued for snoozing.
+- Any blocking Infracost status checks will be updated to succeeded, enabling the engineer to merge the pull request.
+- The next opened PR that touches the related code will display a comment with the snoozed issues and block merging, just like the original.
+
 ## Azure DevOps to Infracost App migration
 
 1. Follow the [usage steps](#usage) to install the app. You can do this from the same Infracost organization you are already using. Go to **Org Settings** > **Integrations**.
