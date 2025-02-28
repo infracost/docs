@@ -7,41 +7,23 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Authentication
 
-You can sign up or log in via the the web and the CLI. Infracost Cloud supports logging in via GitHub, Google, an email/password, or Enterprise SSO.
+Infracost Cloud supports logging in via [GitHub](/docs/faq/#can-i-log-in-with-github), Google, an email/password, or [enterprise SSO providers](/docs/infracost_cloud/sso/overview).
 
-### Web
 1. Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in.
 2. Switch to the desired organization. Every Infracost user has a default organization for personal use. You should create a new organization for your company using the organization dropdown at the top of the page.
-3. Go to Org Settings page and copy your API key:
-  <img src={useBaseUrl("img/infracost-cloud/org-api-key.png")} alt="Copy organization API key" />
-3. To use it in CI/CD, set the `INFRACOST_API_KEY` environment variable.
-4. To use it in the CLI, run `infracost configure set api_key MY_API_KEY`.
-5. Run Infracost [commands](/docs/features/cli_commands) or [CI/CD integrations](/docs/integrations/cicd/) as usual.
+3. Follow the onboarding steps in the dashboard.
 
 If you signed up using an email/password, you can change your password by logging out and clicking on "Don't remember your password?".
 
-Email addresses are unique in Infracost Cloud. Thus when you log in with GitHub, Google or an email/password, if the email associated with the login is the same as a previous login, you will be given the option to link the accounts together, so you can log in using either method.
-
-### CLI
-1. [Upgrade](/docs/#1-install-infracost) to the latest version.
-2. Run `infracost auth login`.
-  This opens an authentication web page and saves the API key locally. If you run into issues, follow the [web](#web) log in and set the CLI API key manually.
-3. Run Infracost [commands](/docs/features/cli_commands) as usual. If you need to create a new organization or retrieve your API key, use our [web](#web) UI.
-
-### Enterprise Single Sign On (SSO)
-Infracost Cloud also supports authenticating with [Enterprise SSO providers](/docs/infracost_cloud/sso/overview).
+Email addresses are unique in Infracost Cloud. Thus when you log in with GitHub, Google or an email/password, if the email associated with the login is the same as a previous login, you will have to link the accounts together in Infracost, so you can log in using either method.
 
 ## Organizations
 
 In Infracost Cloud, organizations are used to group repos, policies and other associated settings.
 
-### API keys
+## Team management
 
-Infracost API keys are associated with organizations and can be retrieved from the Org Settings page. If you revoke an API key and generate a new one in its place, you must update all CI/CD integrations and CLI installations that used the old API key.
-
-### Team management
-
-From the Members page, you can invite your team members to join your organization. Currently these roles are supported:
+From the Org Settings > Members page, you can invite your team members to join your organization. Currently these roles are supported:
 - **Org Owner**: they have complete control over the organization. We recommend giving the main billing contact the owner role. From the Members page, the owner can transfer this role to another member. Only the owner can delete the organization or change its name or slug.
 - **Org Admin**: they can do everything except deleting the organization, or changing its name or slug. We recommend giving FinOps/Platform team members the admin role so they can setup integrations for everyone, manage users, custom price books, and configure other Org Settings.
 - **Org Editor**: they can change everything except Org Settings and data exports. This means they cannot invite members to the organization either. They can view everything except the following Org Settings: API keys, Members, Plan and billing, Custom price books, Integrations. We recommend giving team leads/managers the editor role so they can also add guardrails, policies and reports for their teams if required.

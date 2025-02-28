@@ -19,7 +19,7 @@ There are two key benefits of using the GitHub App over manual CI/CD integration
 
 ## Usage
 
-1. Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in to start your free trial (no credit card is needed).
+1. Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in to start your free trial (no credit card is needed). See [this FAQ](/docs/faq/#can-i-log-in-with-github) if you're having trouble logging in with GitHub.
 
 2. Every Infracost user has a default organization for personal use. Create a new organization for your company using the organization dropdown at the top of the page.
 

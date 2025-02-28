@@ -39,7 +39,6 @@ module.exports = {
         'infracost_cloud/custom_price_books',
         'infracost_cloud/readme_badge',
         'infracost_cloud/key_concepts',
-        'infracost_cloud/github_login',
         'infracost_cloud/engineer_guide',
       ],
     },
