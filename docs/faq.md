@@ -3,6 +3,8 @@ slug: /faq
 title: FAQ
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 ## How does Infracost work?
 
 Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](/docs/supported_resources/cloud_pricing_api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd). There is also a SaaS product, <a href="https://www.infracost.io/pricing/" target="_self" rel="">Infracost Cloud</a>, that complements the open source CLI by giving teams advanced visibility and controls.
@@ -155,3 +157,9 @@ Source control integration is when you connect Infracost directly to your GitHub
 ### Do you offer support?
 
 Yes! We're happy to help you, see our [support page](/docs/support).
+
+### Can I log in with GitHub?
+
+Yes! When logging into Infracost via Github, your work email must be listed as a verified email to properly match up with your Infracost account. If your Github email is not verified, you'll receive an error message when attempting to sign in asking you to [verify your email with Github](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address#verifying-your-email-address).
+
+<img src={useBaseUrl("img/github/verify-email.png")} width="70%" alt="Github Verify Email Screenshot" />

@@ -11,7 +11,7 @@ Infracost Cloud is our SaaS product that builds on top of Infracost open source.
 
 ### 1. Sign up or log in
 
-Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in to start your free trial (no credit card is needed).
+Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in to start your free trial (no credit card is needed). See [this FAQ](/docs/faq/#can-i-log-in-with-github) if you're having trouble logging in with GitHub.
 
 ### 2. Create new organization
 
