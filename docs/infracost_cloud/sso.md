@@ -180,6 +180,9 @@ To enable this feature you should:
   Users that are part of multiple groups will get the highest role from their group. For example, if a user is part of the InfracostViewer and InfracostEditor groups, they'll get the Editor role.
 
   If you have multiple organizations under an Infracost enterprise, the SAML groups can also be treated as global roles that span all orgs in the enterprise. For example, your engineering user group can be given the Viewer role, and your central FinOps team can be given the Owner role in all organizations that are part of your enterprise.
+
+After enabling SAML, you can send us a custom support URL or email address. This will be shown to users who sign in with SSO but aren’t part of your SAML user groups. It helps guide these users on how to follow your company’s process to join the correct SAML group and access Infracost Cloud.
+
 3. Email us the following information
 
   <details>
@@ -200,10 +203,10 @@ To enable this feature you should:
         | InfracostOwner  | all orgs           | Org Owner      |<br/><br/>
       - The attribute name in the SAML assertion that will contain the group names, for example `memberOf`.<br/><br/>
       - If possible, an example of the SAML assertion that will be sent.<br/><br/>
+      - URL to your internal documentation on how your members should request access if needed (will be shown in the error message for anyone not in the SAML groups above):<br/><br/>
       Thanks!
     </pre>
   </details>
 4. Once we receive your email, we will enable the SAML groups and reply back to you so you can verify that users are automatically provisioned correctly.
 
   Org Admins and Owners will still be able to delete users from Infracost Cloud to cleanup old users from the Org Settings > Members page. However, if those users login again, their users will be auto-provisioned again. If users are removed from your SSO system, or SAML groups, they will not be able to login.
-5. After enabling SAML, you can send us a custom support URL or email address. This will be shown to users who sign in with SSO but aren’t part of your SAML user groups. It helps guide these users on how to follow your company’s process to join the correct SAML group and access Infracost Cloud.
