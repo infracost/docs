@@ -27,9 +27,7 @@ There are two key benefits of using the Azure Repos App over manual CI/CD integr
 
 3. Click on **Settings** > **Org Settings** > **Integrations** > **Azure Repos** and follow the wizard to select the projects you want to give Infracost access to.
 
-4. To install the Infracost Azure Repos App, the user must have either the **Cloud Application Administrator** or **Application Administrator** role in Azure Active Directory. The App itself will be installed with read permissions to Azure repos with the following permissions:
-   - `Code (read)` - using the `vso.code` scope
-   - `Sign in and read user profile` - using the `vso.profile` scope
+4. To install the Infracost Azure Repos App, the user must have either the **Cloud Application Administrator** or **Application Administrator** role in Azure Active Directory. The App itself will be installed with permission "**Sign in and read user profile**", which uses the `vso.profile` scope.
 
 5. The Infracost Azure Repos App also requires **admin consent** during setup. This step ensures that the app has the necessary permissions to manage service hooks and policies across the selected projects. [Learn more about admin consent](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/user-admin-consent-overview#admin-consent).
 
