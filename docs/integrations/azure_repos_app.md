@@ -29,9 +29,7 @@ There are two key benefits of using the Azure Repos App over manual CI/CD integr
 
 4. To install the Infracost Azure Repos App, the user must have either the **Cloud Application Administrator** or **Application Administrator** role in Azure Active Directory. The App itself will be installed with permission "**Sign in and read user profile**", which uses the `vso.profile` scope.
 
-5. The Infracost Azure Repos App also requires **admin consent** during setup. This step ensures that the app has the necessary permissions to manage service hooks and policies across the selected projects. [Learn more about admin consent](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/user-admin-consent-overview#admin-consent).
-
-6. During setup, Infracost will need a short-lived Personal Access Token (PAT) with additional permissions to do the following. The PAT can be deleted in Azure Repos after the setup is done.
+5. During setup, Infracost will need a short-lived Personal Access Token (PAT) with additional permissions to do the following. The PAT can be deleted in Azure Repos after the setup is done.
    - Create an Azure Active Directory (AAD) group that can manage service hooks and branch policies.
    - Add the Infracost service principal to this group. The Azure DevOps Access Level for the Infracost service principal needs to be "Basic" (not the free Stakeholder one) so it has permission to list repos.
    - Add selected projects to this group so Infracost can manage webhooks and policies in those projects.
@@ -44,13 +42,13 @@ There are two key benefits of using the Azure Repos App over manual CI/CD integr
 
    > **Note**: If you add new projects in the future, you will need to provide a PAT again to temporarily elevate access for setting up that project.
 
-7. If you use private modules, see [this docs section](/docs/features/terraform_modules/#source-control-integrations).
+6. If you use private modules, see [this docs section](/docs/features/terraform_modules/#source-control-integrations).
 
-8. If you need to customize how Infracost runs, add an `infracost.yml` or `infracost.yml.tmpl` [config file](/docs/features/config_file/) in the **Repo** > **My repo** > **Settings** tab, or to the root of your repo. The Azure Repos App will automatically use that file if it’s present. The app will also apply any usage values defined in the `infracost-usage.yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
+7. If you need to customize how Infracost runs, add an `infracost.yml` or `infracost.yml.tmpl` [config file](/docs/features/config_file/) in the **Repo** > **My repo** > **Settings** tab, or to the root of your repo. The Azure Repos App will automatically use that file if it’s present. The app will also apply any usage values defined in the `infracost-usage.yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
 
-9. Open a test pull request and wait for Infracost to leave a pull request comment. The [Infracost Cloud dashboard](https://dashboard.infracost.io) should also show the cost estimate.
+8. Open a test pull request and wait for Infracost to leave a pull request comment. The [Infracost Cloud dashboard](https://dashboard.infracost.io) should also show the cost estimate.
 
-10. When the pull request is merged, the Infracost Cloud dashboard will show you the time it was merged, who approved it, who merged it, and any labels associated with it on Azure Repos.
+9. When the pull request is merged, the Infracost Cloud dashboard will show you the time it was merged, who approved it, who merged it, and any labels associated with it on Azure Repos.
 
 ## How the Azure Repos App works
 
