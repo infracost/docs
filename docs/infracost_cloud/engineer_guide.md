@@ -16,7 +16,7 @@ You should review the Infracost pull request comment and push commits to fix iss
 <img src={useBaseUrl("img/infracost-cloud/engineer-guide/pr-comment.png")} alt="Infracost pull request comment" />
 
 ### 3. What if I can't fix it or don't have time just now?
-You can add a pull request comment with `@infracost help` to get more information on how to dismiss or snooze issues.
+First fix any issues you can. Then you can add a pull request comment with `@infracost help` to get more information on how to dismiss or snooze remaining issues.
 
 <img src={useBaseUrl("img/infracost-cloud/engineer-guide/help-command.png")} alt="Infracost pull request help command" />
 
