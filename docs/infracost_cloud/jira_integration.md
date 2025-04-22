@@ -58,11 +58,16 @@ Once enabled, the Jira integration:
 
 The Jira integration should work with Jira Cloud, Jira Data Center, and Jira Server. [Contact us](mailto:support@infracost.io) if you have any issues.
 
-Once you've set up the Jira integration, all future pull requests will be synced with Jira from Infracost Cloud. Infracost detects Jira issues from VCS systems exactly the same way the official Jira GitHub connection does. It checks if a Jira issue key prefixes either:
+Once you've set up the Jira integration, all future pull requests will be synced with Jira from Infracost Cloud. Infracost detects Jira issues from VCS systems in the following ways:
 
-1. A pull request title, e.g. _"TEST-2 my pull request title"_
-2. A git commit message, e.g. _"TEST-2 my commit message."_
-3. A git branch name, e.g. _"TEST-2-my-branch-name"_
+1. A Jira issue key at the beginning of a string, e.g., _"TEST-2 my pull request title"_
+2. A Jira issue key after a slash in a branch name, e.g., _"feature/TEST-2_some_description"_
+3. A Jira issue key at the end of a string, e.g., _"Some description TEST-2"_
+4. A Jira issue key within parentheses, e.g., _"Some description (TEST-2)"_
+
+This detection works across pull request titles, commit messages, and branch names.
+
+**Note:** Jira issue keys must follow the standard format of uppercase project key followed by a hyphen and number (e.g., "TEST-123"). Lowercase project keys (e.g., "test-123") will not be detected.
 
 ## Migration from legacy Infracost Jira integration
 
