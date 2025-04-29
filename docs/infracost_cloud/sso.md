@@ -14,7 +14,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
 2. From the top dropdown menu, switch to your company organization or create a new organization for your company.
 3. Follow the applicable sections below to setup SSO, each option ends with you emailing us your SSO details.
     <details>
-      <summary>Microsft Entra ID</summary>
+      <summary>Microsoft Entra ID</summary>
       <ol style={{'list-style-type': 'decimal'}}>
         <li>In the <a href="https://dashboard.infracost.io" target="_blank" rel="noopener noreferrer">Infracost Cloud
             dashboard</a> go to <code>Org Settings</code> and copy your <code>Org ID</code>. You will need to
