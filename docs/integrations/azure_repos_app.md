@@ -31,18 +31,17 @@ There are two key benefits of using the Azure Repos App over manual CI/CD integr
 
    <img src={useBaseUrl("img/azure/azure-app-install-2.png")} alt="Install the Infracost Azure Repos App" />
 
-5. After the Infracost Azure Repos App is installed, you will be redirected back to Infracost. Infracost will need a **short-lived Personal Access Token (PAT)** belonging to an **Owner** or **Project Collection Administrator** user. The PAT will need the following scopes and can be deleted in Azure Repos after the setup is done:
+5. After the Infracost Azure Repos App is installed, you will be redirected back to Infracost. Infracost will need a **short-lived Personal Access Token (PAT)** belonging to **Project Administrator** user. The PAT will need the following scopes and can be deleted in Azure Repos after the setup is done:
 
-   - **Graph (Read & Manage)** - to create the Infracost group.
+   - **Graph (Read & Manage)** - to create Infracost groups in selected projects.
    - **Identity (Read)** - to find the group’s identity descriptor.
-   - **Security (Manage)** - to assign service hooks permissions to the group.
+   - **Security (Manage)** - to assign permissions to the project groups.
    - **Project and Team (Read)** - to list projects.
-   - **Member Entitlement Management (Read & Write)** - to add projects to the Infracost group.
 
   If you add new projects in the future, you will need to provide a PAT again to temporarily elevate access for setting up that project. Infracost will use the PAT to do: 
-   - Create an Azure Active Directory (AAD) group that can manage service hooks and branch policies.
+   - Create an Azure Active Directory (AAD) group in each selected project.
    - Add the Infracost service principal to this group. The Azure DevOps Access Level for the Infracost service principal needs to be "Basic" (not the free Stakeholder one) so it has permission to list repos.
-   - Add selected Azure DevOps projects to this group so Infracost can manage webhooks and policies in those projects.
+   - Set permissions to the groups so Infracost can manage webhooks and policies in those projects.
 
 6. Once the repos are added to Infracost, you can [send a pull request](/docs/infracost_cloud/get_started/#4-send-a-pull-request) to test the integration.
 
