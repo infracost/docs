@@ -203,10 +203,12 @@ After enabling SAML, you can send us a custom support URL or email address. This
         | InfracostOwner  | all orgs           | Org Owner      |<br/><br/>
       - The attribute name in the SAML assertion that will contain the group names, for example `memberOf`.<br/><br/>
       - If possible, an example of the SAML assertion that will be sent.<br/><br/>
-      - URL to your internal documentation on how your members should request access if needed (will be shown in the error message for anyone not in the SAML groups above):<br/><br/>
       Thanks!
     </pre>
   </details>
 4. Once we receive your email, we will enable the SAML groups and reply back to you so you can verify that users are automatically provisioned correctly.
 
   Org Admins and Owners will still be able to delete users from Infracost Cloud to cleanup old users from the Org Settings > Members page. However, if those users login again, their users will be auto-provisioned again. If users are removed from your SSO system, or SAML groups, they will not be able to login.
+5. In Infracost Cloud, go to Settings > Org Settings > Custom Support, and add an email address or a link to your internal wiki or chat channel. This should explain how team members can request access.
+
+  This message will appear to anyone who signs in with SSO but isn’t part of your SAML groups - so they won’t get access until you add them to the right group on your side.
