@@ -61,9 +61,9 @@ Email us at [support@infracost.io](mailto:support@infracost.io) if you have cust
 
 ## How the GitLab App works
 
-The GitLab App needs access to code repos so it can run the CLI against them, and post merge request comments with with any cost estimates, tagging, and FinOps policy issues. Therefore the bot/user that is installing the GitLab App should have "Maintainer" access to repos; "Developer" and lower does not work as those roles are not authorized to create repo webhooks (that are used to notify Infracost Cloud about new merge requests).
+The GitLab App needs access to code repos so it can run the CLI against them, and post merge request comments with any cost estimates, tagging, and FinOps policy issues. Therefore the bot/user that is installing the GitLab App should have "Maintainer" access to repos; "Developer" and lower does not work as those roles are not authorized to create repo webhooks (that are used to notify Infracost Cloud about new merge requests).
 
-Each time a merge request is opened or a new commit is pushed to an open merge request, the Infracost Azure Repos App shows the any tagging or FinOps policies issues that were introduced by the by the merge request along with the cost difference between the most recent commit of the merge request branch and the merge base of the base branch. This mirrors Azure DevOps merge request diff logic and shows only the changes the merge request introduces.
+Each time a merge request is opened or a new commit is pushed to an open merge request, the Infracost GitLab App shows any tagging or FinOps policy issues that were introduced by the merge request along with the cost difference between the most recent commit of the merge request branch and the merge base of the base branch. This mirrors GitLab merge request diff logic and shows only the changes the merge request introduces.
 
 The GitLab App automatically reflects the following changes in Infracost:
 - Repos that are **renamed** are automatically updated in Infracost.
