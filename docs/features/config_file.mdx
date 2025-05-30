@@ -523,6 +523,7 @@ Config file templates include the following functions to help you traverse your 
 - [`base`](#base)
 - [`ext`](#ext)
 - [`stem`](#stem)
+- [`join`](#join)
 
 ---
 
@@ -542,6 +543,10 @@ A collection of matches in the current project. Results are returned with a map 
 
   * `_path` - the full path of that the pattern matched on
   * `_dir`  - the base directory that the pattern matched on
+
+If you specify a "one or more" match, the var can be an array that will represent all the intermediate directories that match:
+
+e.g. `infra/:env/:subfolders+/tf.tfvars` with a path like `/infra/dev/one/two/three/tf.tfvars` will have `$match.subfolders` be a list of `"one" "two" "three"`, which you can then `{{ join "-" $match.subfolders }}` to become `one-two-three`
 
 ##### Example:
 
@@ -931,6 +936,14 @@ Returns the file name extension used by path, for example:
 Returns the last element of path with the extension removed, for example:
 
 - `stem "full/path/here.txt"` returns `here`
+
+---
+
+#### `join`
+
+Joins multiple elements of a list together into a string, with the given separator
+
+- `join "-" (list "item1" "item2" "item3")` returns `"item1-item2-item3`
 
 ---
 
