@@ -39,7 +39,7 @@ Next you can define whether pull requests that fail this policy should be blocke
 
 We recommend you leave "Include details in pull requests" as enabled so engineers are shown details of tagging policy failures. However, during testing, you can disable this so you can see the details in Infracost Cloud but not in pull request comments.
 
-The "Resource types filter" filter is specially useful for Azure users, as they often only require tags to be set for `azurerm_resource_group` resources, and enable an Azure feature so resources inherit tags from their resource group. 
+The "Resource types filter" filter is specially useful for Azure users, as they often only require tags to be set for `azurerm_resource_group` resources, and enable an Azure feature so resources inherit tags from their resource group.
 
 Usually users monitor all pull requests for tagging policies. However, you can also set filters, e.g. only monitor pull requests in certain repositories so you can do gradual rollouts of your policy. Once you are done, save the tagging policy.
 
@@ -47,7 +47,7 @@ Usually users monitor all pull requests for tagging policies. However, you can a
 
 ## 2. See all tagging issues
 
-Once you have created a tagging policy, click on the "Re-run policies" button. This will scan all of your repositories main or master branch and show all tagging issues. This means that you do not need to wait for a pull request to test your policy. 
+Once you have created a tagging policy, click on the "Re-run policies" button. This will scan all of your repositories main or master branch and show all tagging issues. This means that you do not need to wait for a pull request to test your policy.
 
 Whilst cloud vendor tools such as AWS Cost Explorer show the percentage of untagged costs, Infracost Cloud shows the exact infrastructure-as-code resources that are not using your allowed tag keys and values. You can also filter on specific repos or VCS organizations to zoom-in on a subset of the issues.
 
@@ -59,13 +59,14 @@ Infracost makes tagging actionable for engineers. Tracking the percentage of res
 
 When engineers create a pull request to change infrastructure, Infracost scans the code and checks the tagging policies against all changed resources. It notifies the engineer immediately of any issues; the pull request comment (shown below) tells them exactly what file and line number they need to change to resolve the issue. This shifts-left on the tagging policy and results in the fastest possible feedback loop.
 
-<img src={useBaseUrl("img/infracost-cloud/tagging-policies/pull-request-tags.png")} alt="Create a pull request to test your tagging policy." />
+<img src={"https://dashboard.infracost.io/images/get_started/comment.png"} alt="Create a pull request to test your tagging policy." />
 
 From the Visibility > Pull requests page, you can also see pull requests that failed policies. Each of these pull requests would have been deployed with missing or incorrect tags had Infracost not flagged them for engineers to action. Fixing these issues before code is deployed saves significant engineering time as otherwise engineers need to create new pull requests, wait for code reviews, and re-deploy their changes.
 
 ## How tagging policies work
 
 Tagging policies check all AWS, Azure and Google Terraform resources that support tagging, including resources that Infracost does not show cost estimates for yet. The following list describes things that are checked by tagging policies:
+
 - Default tags that are applied as part of Terraform `provider` blocks are also checked.
 - For Google Cloud resources, `label` keys and values are checked.
 - For tags set in modules, the actual module version being used is checked.
@@ -88,5 +89,4 @@ Tagging policies check all AWS, Azure and Google Terraform resources that suppor
 
 </details>
 
-
-Please email [support@infracost.io](mailto:support@infracost.io) if you have any feedback on how tagging policies work. 
+Please email [support@infracost.io](mailto:support@infracost.io) if you have any feedback on how tagging policies work.
