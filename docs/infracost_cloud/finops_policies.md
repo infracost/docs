@@ -5,9 +5,9 @@ title: FinOps policies
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The [cloud cost optimization formula](https://www.infracost.io/blog/cloud-cost-optimization-formula/) has a *usage* and a *unit price* that contributes to your cloud bill. The usage component of that formula is fully dependent on engineering teams taking action to change the usage, whereas the unit price can be done in a centralized manner via FinOps tasks such as purchasing reserved instances.
+The [cloud cost optimization formula](https://www.infracost.io/blog/cloud-cost-optimization-formula/) has a _usage_ and a _unit price_ that contributes to your cloud bill. The usage component of that formula is fully dependent on engineering teams taking action to change the usage, whereas the unit price can be done in a centralized manner via FinOps tasks such as purchasing reserved instances.
 
-Tackling waste requires engineering involvement at every level. FinOps policies give you a way to prioritize, organize, and fix issues at the source. It's more than just reporting waste; it empowers engineers to take direct action in *their* workflows.
+Tackling waste requires engineering involvement at every level. FinOps policies give you a way to prioritize, organize, and fix issues at the source. It's more than just reporting waste; it empowers engineers to take direct action in _their_ workflows.
 
 FinOps policies make waste reduction of the usage a team-wide, actionable process. No meetings or Jira tickets, just a streamlined approach to cut unnecessary costs from day one.
 
@@ -16,7 +16,7 @@ FinOps policies make waste reduction of the usage a team-wide, actionable proces
 ### 1. Two steps to cut waste
 
 1. **Seal the leaks.** With cloud resources controlled by infrastructure-as-code, adding waste-reducing policies directly into CI/CD workflows is the best way to stop problems before they start.
-2. **Burndown existing issues.** The best way to do this is to empower engineering teams to action waste within *their* code and workflow, by pinpointing the exact files and lines they need to change.
+2. **Burndown existing issues.** The best way to do this is to empower engineering teams to action waste within _their_ code and workflow, by pinpointing the exact files and lines they need to change.
 
 <img src={useBaseUrl("img/infracost-cloud/finops-policies/chart.png")} alt="FinOps policies provide a streamlined approach to cut unnecessary costs from day one." />
 
@@ -41,9 +41,7 @@ Results matter, and we made sure Infracost makes it easy to track wins. Here’s
 
 When engineers create a pull request to change infrastructure, Infracost scans the code and checks the FinOps policies against all changed resources. Infracost shows the best practices alongside an explanation of why it's important to consider implementing the change. Infracost also shows the exact file and line numbers that need to be changed if the engineer chooses to implement the change. This shifts-left on FinOps policies and results in the fastest possible feedback loop.
 
-<img src={useBaseUrl("img/infracost-cloud/pull-request-comment.png")} alt="Create a pull request to test FinOps policies." />
-
-<img src={useBaseUrl("img/infracost-cloud/finops-policies/pr-comment-expanded.png")} alt="The pull request comment shows exactly what file and line number need to be updated to fix the issue." />
+<img src={"https://dashboard.infracost.io/images/get_started/comment.png"} alt="The pull request comment shows exactly what file and line number need to be updated to fix the issue." />
 
 ## Update policy settings
 
@@ -58,16 +56,19 @@ You can also define whether a policy should trigger only when new resources are 
 Infracost provides several policies (for AWS, Azure, and GCP) that enable FinOps teams to encourage or enforce the regions and instance types that engineers should use. This is useful for a number of reasons depending on your organizations goals, and is therefore customizable via each policy's settings page.
 
 #### Using preferred regions
+
 In many cases, enterprises want to encourage their engineers to use specific cloud regions. For example, some enterprises want to encourage [low CO2 Google Cloud regions](https://cloud.google.com/sustainability/region-carbon), and others want to only allow certain AWS or Azure regions due to compliance reasons.
 
 To set this up, go to Infracost Cloud > Governance > FinOps policies > Inactive tab and click on the "General - consider using preferred regions" policy. You can enter the list of regions that you'd like to encourage engineers to use, and whether pull requests that fail this policy should be blocked or not.
 
 Use the region identifiers below for this policy:
+
 - AWS: [list of regions](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/), e.g. `us-east-1`.
 - Azure: [list of regions](https://cloud.google.com/about/locations/), e.g. `eastus`. You can also run `az account list-locations -o table` to see the list for your account.
 - Google: [list of regions](https://cloud.google.com/about/locations/), e.g. `us-west1`
 
 #### Using preferred instance types
+
 Many enterprises have Reserved Instances, Savings Plans or Committed Use Discounts. In all three cases, these are limited to specific regions and instance types or families. It is often useful to encourage or limit engineers to the instance types that your organization has standardized upon for cost savings purposes.
 
 To set this up, go to Infracost Cloud > Governance > FinOps policies > Inactive tab and click on the "General - consider using preferred instance types" policy. You can specify any number of region/instance type or family pairs to allow as shown in the screenshot below. One pair should be specified per line, with each region and instance type separated by a colon. Wildcards (`*`) can be used to match any region or instance type, on a full or partial basis.
