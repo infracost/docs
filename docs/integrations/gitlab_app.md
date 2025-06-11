@@ -27,6 +27,9 @@ There are two key benefits of using the GitLab App over manual CI/CD integration
 
 3. Click on Settings > Org Settings > Integrations > GitLab and follow the wizard to select the repos you want to give Infracost access to.
 
+  Infracost has an [OAuth Application](https://docs.gitlab.com/api/applications/) that is used to connect to your GitLab.
+  Note that you should create or use a bot GitLab user with "Maintainer" access to the projects you want to use with Infracost. You must be logged in to GitLab UI with that bot user before proceeding to connect, as the Infracost GitLab App will be installed using that user’s account. [GitLab Service Accounts](https://docs.gitlab.com/ee/user/profile/service_accounts.html) cannot be used to install apps as they cannot login to the GitLab UI.
+
 4. If you use private modules, see [this docs section](/docs/features/terraform_modules/#source-control-integrations).
 
 5. If you need to customize how Infracost runs, add an `infracost.yml` or `infracost.yml.tmpl` [config file](/docs/features/config_file/) in the Repo > my repo > Settings tab, or to the root of your repo. The GitLab App will automatically use that file if it's present. The app will also apply any usage values defined in the `infracost-usage.yml` [usage file](/docs/features/usage_based_resources/) at the root of the repo.
