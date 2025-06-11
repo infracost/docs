@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 This page is for engineers seeing Infracost pull request comments for the first time. It provides an overview of Infracost and what to do next.
 
 ### 1. What is Infracost?
-Infracost ensures your Terraform code changes follow your organization's tagging and FinOps policies **before deployment** (shift left). This helps you adopt FinOps best practices from the start, avoiding the need for time-consuming corrections later. This also prevents money from being wasted in the cloud. Cost estimates shown by Infracost are based on your custom cloud pricing.
+Infracost ensures your Terraform code changes follow your organization's tagging and FinOps policies **before deployment** (shift left). This helps you adopt FinOps best practices from the start, avoiding the need for time-consuming corrections later. This also prevents money from being wasted in the cloud. Cost estimates shown by Infracost are based on your organization's custom prices.
 
 ### 2. What should I do when I see Infracost comments in pull requests?
 You should review the Infracost pull request comment and push commits to fix issues before you merge the pull request. See an example below, notice how this pull request is not following two FinOps best practices, and is also missing the important "component" tag.
@@ -16,7 +16,7 @@ You should review the Infracost pull request comment and push commits to fix iss
 <img src={useBaseUrl("img/infracost-cloud/engineer-guide/pr-comment.png")} alt="Infracost pull request comment" />
 
 ### 3. What if I can't fix it or don't have time just now?
-First fix any issues you can. Then you can add a pull request comment with `@infracost help` to get more information on how to dismiss or snooze remaining issues.
+First fix any issues you can. Then you can add a pull request comment with `@infracost help` to get more information on how to dismiss or snooze remaining issues. The dismiss and snooze commands only apply to issues from policies configured as "Require engineers to resolve or dismiss issues".
 
 <img src={useBaseUrl("img/infracost-cloud/engineer-guide/help-command.png")} alt="Infracost pull request help command" />
 
