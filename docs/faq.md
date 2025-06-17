@@ -7,20 +7,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## How does Infracost work?
 
-Infracost has a [CLI](https://github.com/infracost/infracost) and a [Cloud Pricing API](/docs/supported_resources/cloud_pricing_api) backend service, as well as many [CI/CD integrations](/docs/integrations/cicd). There is also a SaaS product, <a href="https://www.infracost.io/pricing/" target="_self" rel="">Infracost Cloud</a>, that complements the open source CLI by giving teams advanced visibility and controls.
-When the CLI runs, it:
+Infracost's CLI and [source control integrations](/docs/integrations/cicd/#source-control-integrations-recommended) (e.g. GitHub App): 
 
-1. **Extracts cost-related parameters**<br />
-  The CLI parses Terraform HCL code to extract only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size. The CLI automatically discovers all projects or environment in your repo.
+1. **Extract cost-related parameters**<br />
+  Infracost parses Terraform HCL code directly to extract only [cost-related parameters](/docs/faq#example-request), such as the instance type or disk size. Infracost automatically discovers all projects or environment in your repo.
 
 2. **Retrieves prices from the Cloud Pricing API**<br />
-  The CLI retrieves prices from the Cloud Pricing API. The CLI **does not** send the Terraform plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response).
+  Infracost retrieves prices from an internal Cloud Pricing API - which takes into account any [custom price books](/docs/infracost_cloud/custom_price_books/) in your org. The CLI **does not** send the Terraform plan JSON file, or any cloud credentials or secrets to the Cloud Pricing API. The API [returns the prices](/docs/faq#example-response).
 
-3. **Calculates the monthly costs**<br />
-  The CLI calculates the monthly costs. The results can be output in [various formats](/docs/features/cli_commands/#combined-output-formats) including JSON or text table.
+3. **Calculates costs and evaluates policies**<br />
+  Infracost uses the code diff to calculate costs and evaluates the code for FinOps best practice and your tagging policies. 
 
 4. **Infracost Cloud**<br />
-  If you use Infracost Cloud, the CLI sends the final cost estimate in JSON format to your dashboard, the JSON does not contain any cloud credentials or secrets.
+  If you use Infracost Cloud, the CLI sends the final cost estimate and policy issues in JSON format to your dashboard, the JSON does not contain any cloud credentials or secrets.
 
 ## Security and Privacy
 
