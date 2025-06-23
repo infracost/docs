@@ -89,11 +89,7 @@ To set up this feature, follow the steps below based on your source control syst
 
 2. **Configure Your Source Control System**: Configure your source control system to require the Infracost status check to pass before merging pull requests.
 
-   **GitHub App**:
-
-   1. Infracost needs to be marked as a Required Check in GitHub. The way that can be done for a single repository is in GitHub > Settings > Branches > and tick the "Require status checks to pass before merging" option under Protect matching branches. See the following step on how this can be done in enterprises with many code repos.
-      <img src={useBaseUrl("img/infracost-cloud/guardrails/github-require-status-pass.png")} alt="Configure GitHub to require status checks to pass before pull requests can be merged" />
-   2. GitHub's [Rulesets feature](https://github.blog/news-insights/product-news/github-repository-rules-are-now-generally-available/) can be used to make Infracost a required status check across all of your repos in your organization. The docs for this are [here](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets). [This docs section](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rule-layering) describes how rulesets interact at the organization and repo level.
+   [**Instructions for GitHub**](/docs/integrations/github_app/#make-infracost-a-required-check)
 
    **Azure Repos App**:
 
