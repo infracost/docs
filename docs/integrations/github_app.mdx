@@ -143,3 +143,13 @@ Snoozing a blocked PR works as follows:
 1. Follow the [usage](#usage) docs to install the app. You can do this from the same Infracost organization you use already, and going into the Org Settings > Integrations page.
 2. Test it by [sending a pull request](/docs/infracost_cloud/get_started/#4-send-a-pull-request).
 3. Remove all Infracost steps from your GitHub Actions.
+
+## Make Infracost a required check
+
+When you mark a policy as "Require engineers to resolve or dismiss issues", Infracost returns a "failed" status check to GitHub for pull requests that fail that policy. However, this does not, by itself, block the merge button in GitHub. To do that, you need to mark Infracost as "Required Check" in GitHub. There are two options for this:
+
+1. **Recommended**: Create a GitHub Ruleset to make Infracost a required status check across all of your repos in your GitHub organization. In GitHub, go to Settings > Repository > Rulsets and create a new ruleset with details from [**this screenshot**](/img/infracost-cloud/github-app/ruleset-required-check.png). Use "Infracost" (with the capital I) when adding the check.
+You can read more about Rulesets in the [GitHub docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets); [this docs section](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rule-layering) describes how rulesets interact at the organization and repo level.
+2. Branch protection rules can also be used, though that works on a per-repo basis so you will need to use the GitHub API to automate that for all of your repos. In GitHub, go to Settings > Branches > and tick the "Require status checks to pass before merging" option under Protect matching branches, as shown in [this screenshot](/img/infracost-cloud/github-app/bpr-required-check.png).
+
+Note that when engineers [dismiss or snooze](#dismiss-or-snooze-blocking-policy-issues) pull requests, Infracost returns a "passed" status check to GitHub and unblocks the pull requests. Infracost automatically returns the "skipped" status check when a repo does not have any Terraform.
