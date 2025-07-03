@@ -235,6 +235,8 @@ The following is list of some of the main sub-processors and service providers u
 |Stripe|354 Oyster Point Blvd, South San Francisco, California 94080, U.S.A|Payment system (if choosing to pay via Stripe)|
 |Retool, Inc.|292 Ivy St, San Francisco, California 94102, USA|Product analytics.|
 |Pylon Labs, Inc|188 King Street - #502, San Francisco, California 94107, USA|Customer support platform.|
+|Linear Orbit, Inc|2261 Market St STE 10632, San Francisco, CA 94114, USA|Product management platform.|
+|Notion Labs, Inc|685 Market Street, San Francisco, CA 94105, USA|Internal documentation.|
 
 
 
