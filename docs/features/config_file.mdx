@@ -943,7 +943,7 @@ Returns the last element of path with the extension removed, for example:
 
 Joins multiple elements of a list together into a string, with the given separator
 
-- `join "-" (list "item1" "item2" "item3")` returns `"item1-item2-item3`
+- `join "-" (list "item1" "item2" "item3")` returns `item1-item2-item3`
 
 ---
 
@@ -1028,7 +1028,7 @@ Reports whether the substring is within the subject, for example:
 
 Splits a string into a list of substrings with the specified separator, for example:
 
-- `splitList "a,b,c" ","` returns `[a b c]`
+- `splitList "," "a,b,c"` returns `[a b c]`
 
 ---
 
