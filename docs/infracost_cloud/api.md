@@ -92,6 +92,6 @@ The API also allows you to manage guardrails, which enable you to define cost th
       curl -X POST \
               -H "Authorization: Bearer $MY_TOKEN" \
               -H "Content-Type: text/csv" \
-              --data @custom_properties.csv \
+              --data-binary @custom_properties.csv \
               https://api.infracost.io/v1/orgs/MY_ORG/custom-properties
       ```
