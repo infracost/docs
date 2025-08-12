@@ -85,3 +85,13 @@ The API also allows you to manage guardrails, which enable you to define cost th
         --data @guardrail.json \
         https://api.infracost.io/v1/orgs/MY_ORG/guardrails
       ```
+5. Similarly, to update custom properties:
+    - Create a CSV file, custom_properties.csv, with your custom properties.
+    - Use `curl` or any programming language to call the API, we recommend running this once a day as it's unlikely that custom property values change that often.
+      ```sh
+      curl -X POST \
+              -H "Authorization: Bearer $MY_TOKEN" \
+              -H "Content-Type: text/csv" \
+              --data @custom_properties.csv \
+              https://api.infracost.io/v1/orgs/MY_ORG/custom-properties
+      ```
