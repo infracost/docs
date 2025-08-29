@@ -44,19 +44,9 @@ Our automated GitLab App integration works with both GitLab Enterprise and GitLa
 
 Follow the same [usage steps](#usage) as the regular GitLab App above but note that in the installation wizard, you will need to provide your GitLab's domain, and create a new OAuth application in GitLab. The Application ID and Secret from your OAuth application will be needed by Infracost Cloud.
 
-### Incoming traffic to GitLab
+### Incoming and outgoing traffic with GitLab
 
-If you use GitLab's IP allow-list to restrict access to your GitLab installation, you need to allow incoming traffic from the following IP addresses to your GitLab instance's port 443 (or whatever port you use); these are the IP addresses used by Infracost Cloud services to call the integration:
-- 3.133.40.66
-- 3.16.104.91
-- 3.147.121.170
-- 3.141.214.65
-- 18.221.82.195
-- 18.119.42.142
-
-### Outgoing traffic from GitLab
-
-If you have restricted out-going traffic from your instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should allowlist `52.223.24.69`, and `76.223.127.201`.
+If you use GitLab's IP allow-list to restrict access to your GitLab installation, or have restricted out-going traffic from your instance, see the [IP allowlisting section in our FAQ](/docs/faq#how-can-i-allowlist-infracost-ip-addresses) for the required IP addresses and domains.
 
 ### Other network/security requirements
 
