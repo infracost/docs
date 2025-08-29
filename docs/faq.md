@@ -162,3 +162,14 @@ Yes! We're happy to help you, see our [support page](/docs/support).
 Yes! When logging into Infracost via Github, your work email must be listed as a verified email to properly match up with your Infracost account. If your Github email is not verified, you'll receive an error message when attempting to sign in asking you to [verify your email with Github](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address#verifying-your-email-address).
 
 <img src={useBaseUrl("img/github/verify-email.png")} width="70%" alt="Github Verify Email Screenshot" />
+
+### Can I rename or move GitLab repositories?
+
+Yes! Infracost supports GitLab repository renaming and moving repositories to different projects. However, there is a brief period where webhooks and checks will be temporarily disrupted.
+
+When you rename or move a GitLab repository:
+- Webhooks will stop working temporarily because they need to be reinstalled
+- Infracost checks will be interrupted until the system detects the rename
+- Our system periodically scans for renamed repositories and automatically reinstalls webhooks
+
+**For large-scale operations**: If you're planning to rename or move many repositories at once, please [contact our support team](/docs/support) beforehand. We can help coordinate the process to minimize downtime and ensure checks resume quickly.
