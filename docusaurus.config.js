@@ -209,7 +209,7 @@ module.exports = {
           anonymizeIP: true,
         },
         googleTagManager: {
-          containerId: 'GTM-NKN87ZL3',
+          containerId: process.env.GTM_CONTAINER_ID || 'GTM-M9KR546K',
         },
       },
     ],
