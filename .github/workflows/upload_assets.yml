@@ -10,6 +10,8 @@ on:
         type: string
       infracost-dashboard-endpoint:
         type: string
+      gtm-container-id:
+        type: string
     secrets:
       AWS_ACCESS_KEY_ID:
         required: true
@@ -39,6 +41,7 @@ jobs:
           INFRACOST_DASHBOARD_API_ENDPOINT: ${{ inputs.infracost-dashboard-api-endpoint }}
           INFRACOST_DASHBOARD_ENDPOINT: ${{ inputs.infracost-dashboard-endpoint }}
           INFRACOST_DOCS_API_TOKEN: ${{ secrets.INFRACOST_DOCS_API_TOKEN }}
+          GTM_CONTAINER_ID: ${{ inputs.gtm-container-id }}
       - name: configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:

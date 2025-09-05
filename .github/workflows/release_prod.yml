@@ -12,6 +12,7 @@ jobs:
       domain: www.infracost.io
       infracost-dashboard-api-endpoint: https://dashboard.api.infracost.io
       infracost-dashboard-endpoint: https://dashboard.infracost.io
+      gtm-container-id: GTM-NKN87ZL3
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
