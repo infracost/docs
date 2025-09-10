@@ -21,6 +21,8 @@ You can define what tag keys are mandatory, which tag values are allowed, and ma
 
 You can also validate tag values using a regular expression (ECMAScript is used). Partial matches are used, so for example `dev` will match `dev`, `development` and `api-development`; but `.*-dev-.*` will not match `development`. In this case, it's helpful to include a brief description of allowed values and examples in the tag key's custom message box.
 
+You can make a regex pattern case-insensitive by adding `/i` to the end (e.g., `prod/i` will match `prod`, `Prod`, and `PROD`). However, we don't recommend using case-insensitive matching for tags, as tags are usually case-sensitive and it often leads to divergence, inconsistency, and inaccurate reporting.
+
 <img src={useBaseUrl("img/infracost-cloud/tagging-policies/define-tags.png")} alt="Define tag keys and values." />
 
 ### b. Custom pull request message
