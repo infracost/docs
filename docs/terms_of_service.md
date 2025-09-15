@@ -11,7 +11,7 @@ Last updated: 1 January 2021
 
 Welcome to **Infracost Inc.** (“Company”, “we”, “our”, “us”)! As you have just clicked our Terms of Service, please pause, grab a cup of coffee and carefully read the following pages. It will take you approximately 20 minutes.
 
-Infracost Inc. is registered as an incorporated company in the United States of America. We are also registered as Infracost UK Limited, a limited company in England and Wales with registration number 13180132 and registered offices at 9th Floor, 107 Cheapside, London, EC2V 6DN, United Kingdom.
+Infracost Inc. is registered as an incorporated company in the United States of America (Address: 2261 Market Street, STE 85821, San Francisco, CA 94114, USA). We are also registered as Infracost UK Limited, a limited company in England and Wales with registration number 13180132 and registered offices at 9th Floor, 107 Cheapside, London, EC2V 6DN, United Kingdom.
 
 These Terms of Service (“Terms”, “Terms of Service”) govern your use of our web pages located at https://infracost.io and Infracost command line tools (together or individually “Service”) operated by Infracost Inc.
 
