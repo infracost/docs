@@ -18,7 +18,7 @@ You should review the Infracost pull request comment and push commits to fix iss
 ### 3. What if I can't fix it or don't have time just now?
 First fix any issues you can. Then you can add a pull request comment with `@infracost help` to get more information on how to dismiss or snooze remaining issues. The dismiss and snooze commands only apply to issues from policies configured as "Require engineers to resolve or dismiss issues". 
 
-The dismiss command makes Infracost ignore the issues going forward. If you simply need to unblock a PR merge and intend to address the issue later, consider using the snooze command. This reminds you to fix the issue next time that code is changed.
+The dismiss command makes Infracost ignore the issues going forward. If you simply need to unblock a PR merge and intend to address the issue later, use the snooze command. This reminds you to fix the issue next time that code is changed.
 
 <img src={useBaseUrl("img/infracost-cloud/engineer-guide/help-command.png")} alt="Infracost pull request help command" />
 
