@@ -13,9 +13,10 @@ The Infracost GitHub App is an automated integration meaning that Infracost runs
 
 ## Benefits
 
-There are two key benefits of using the GitHub App over manual CI/CD integrations:
+There are three key benefits of using the GitHub App over manual CI/CD integrations:
 1. You can add Infracost to multiple repos with one click, no need to install or update CLI versions in your CI/CD pipeline.
-2. Infracost runs faster as only changed folders are run based on the GitHub App events.
+2. Infracost can automatically open pull requests for existing issues so engineers can review and merge them. See [this blog](https://www.infracost.io/blog/ai-for-finops-fix-cloud-cost-issues-faster/) for details.
+3. Infracost runs faster as only changed folders are run based on the GitHub App events.
 
 ## Usage
 
@@ -34,6 +35,8 @@ There are two key benefits of using the GitHub App over manual CI/CD integration
 6. Open a test pull request and wait for Infracost to leave a pull request comment. The [Infracost Cloud dashboard](https://dashboard.infracost.io) should also show the cost estimate too.
 
 7. When the pull request is merged the Infracost Cloud dashboard will show you the time it was merged, who approved it, who merged it, and any labels associated with it on GitHub.
+
+8. To fix an existing issue, go to Visibility > Issue Explorer and click on any of the FinOps policy issues. Click on the "Open AutoFix PR" button. Tagging policies aren't supported in AutoFix pull requests.
 
 ## GitHub Enterprise
 
@@ -63,9 +66,7 @@ Infracost Cloud optionally supports mTLS with GitHub Enterprise Server by using 
 
 ## How the GitHub App works
 
-The [Infracost GitHub App](https://github.com/marketplace/infracost) is verified by GitHub, and installed in thousands of GitHub orgs.
-
-The app needs *read access to code repos* so it can run the CLI against them, and *write access to pull requests* so it can post a comment with any cost estimates, tagging, and FinOps policy issues. You can select the repos you would like to give access to the App.
+The [Infracost GitHub App](https://github.com/marketplace/infracost) is verified by GitHub, and installed in thousands of GitHub orgs. The App needs *write access to pull requests* so it can post a comment with any cost estimates, tagging, and FinOps policy issues. You can select the repos you would like to give access to the App.
 
 <details>
   <summary>Details of required permissions</summary>
@@ -74,17 +75,24 @@ The Infracost GitHub App requires the following permissions.
 
 - **Read-only** access is needed for the following so Infracost gets notified of repo or pull request changes and can process the code:
   - Metadata (Search repositories, list collaborators, and access repository metadata)
-  - Contents (Repository contents, commits, branches, downloads, releases, and merges)
+  - Custom properties (repo and org custom properties values)
+  - Merge queues
+  - Copilot chat and editor context
   - Actions (Workflows, workflow runs and artifacts)
   - Deployments (Deployments and deployment statuses)
+  - Package (Packages published to GitHub package platform)
   - Issues (Issues and related comments, assignees, labels, and milestones)
   - Administration (Repository creation, deletion, settings, teams, and collaborators)
   - Members (Organization members and teams)
-- **Read and write** access is needed for the following so Infracost can post pull request comments and update statuses in GitHub:
+  - Email addresses
+- **Read and write** access is needed for the following so Infracost can post pull request comments, update statuses in GitHub and open AutoFix pull requests:
   - Pull requests (Pull requests and related comments, assignees, labels, milestones, and merges)
+  - Contents (Repository contents, commits, branches, downloads, releases, and merges)
   - Checks (checks on code)
   - Commit statuses
   - Webhooks (Manage the post-receive hooks for a repository)
+
+Email support@infracost.io if you have any questions about GitHub App permissions.
 
 </details>
 
@@ -99,44 +107,11 @@ The GitHub App automatically reflects the following changes in Infracost:
 
 From the Org Settings > Integrations > GitHub App page, you can disable pull request comments so cost estimates, guardrails and tagging policies are only shown in Infracost Cloud. This enables you to test these features without impacting engineering workflows.
 
-### Dismiss or snooze blocking policy issues
+### Dismiss or snooze policy issues
 
-Infracost FinOps and Tagging issues can be dismissed or snoozed directly from the GitHub pull request UI, even if the policy is set to block pull requests. This allows engineers to ship critical changes without having to fix all issues. During non-emergency circumstances, we recommend engineers fix the issues they can, and dismiss/snooze any that they cannot fix.
-
-GitHub pull request comments contain information on how to dismiss/snooze the issues.
-
-<img src={useBaseUrl("img/github/desc.png")} alt="pr comment" className="img-rounded" />
+Infracost FinOps and Tagging issues can be dismissed or snoozed directly from the GitHub pull request UI, even if the policy required engineers to fix it. This allows engineers to ship critical changes without having to fix all issues. During non-emergency circumstances, we recommend engineers fix the issues they can, and dismiss/snooze any that they cannot fix.
 
 Engineers can add a pull request comment `@infracost help` to get more information on how to dismiss/snooze the issues.
-
-<img src={useBaseUrl("img/github/help.png")} alt="help" className="img-rounded" />
-
-#### Dismiss
-
-The dismiss command makes Infracost ignore the detected blocking issues going forward. If you simply need to unblock a PR merge and intend to address the issue later, consider using the snooze command.
-
-Dismissing a policy issue works as follows:
-- The engineer adds a comment to the pull request to dismiss the issue using the command `@infracost dismiss <optional reason>`.
-- The Infracost GitHub App will then read the comment and react to the comment to let the engineer know the issue is queued for dismissal.
-  <img src={useBaseUrl("img/github/reaction.png")} alt="reaction" className="img-rounded" />
-- Infracost will then run another status check on the pull request once the issue is dismissed. This will update the Infracost comment to remove all the blocking issues.
-  <img src={useBaseUrl("img/github/passing.png")} alt="passing" className="img-rounded" />
-- Any blocking status checks will be updated to succeeded, enabling the engineer to merge the pull request.
-  <img src={useBaseUrl("img/github/checks.png")} alt="checks" className="img-rounded" />
-- Dismissed issues are shown in Infracost Cloud in the policies pages. You can filter by dismissed issues to see all the issues your engineers have dismissed and their reasons.
-  <img src={useBaseUrl("img/github/dismissed-table.png")} alt="dismissed table" className="img-rounded" />
-
-#### Snooze
-
-The snooze command allows you to unblock the merging of a PR when Infracost detects any blocking policy issues. This is useful for urgent tasks, such as bug fixes.
-
-Snoozing a blocked PR works as follows:
-- The engineer adds a comment to the pull request to snooze the issue using the command `@infracost snooze <optional reason>`.
-  <img src={useBaseUrl("img/github/snooze.png")} alt="snooze" className="img-rounded" />
-- The Infracost GitHub App will then read the comment and react to the comment to let the engineer know the issue is queued for snoozing.
-- Any blocking Infracost status checks will be updated to succeeded, enabling the engineer to merge the pull request.
-  <img src={useBaseUrl("img/github/snooze-checks.png")} alt="checks" className="img-rounded" />
-- The next opened PR that touches the related code will display a comment with the snoozed issues and block merging, just like the original.
 
 ### GitHub Actions to App migration
 
