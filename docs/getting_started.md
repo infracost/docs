@@ -8,7 +8,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Infracost enables a shift-left approach for cloud costs by providing cost estimates for Terraform **before** deployment. Additionally, it can check for FinOps best practices in accordance with the Well-Architected Frameworks of cloud vendors, and your company's required tag keys/values. This not only saves your team money but also streamlines discussions about costs within the engineering workflow rather than it being a post-deployment consideration. Infracost works with AWS, Azure and Google.
+Infracost helps teams **shift left** on cloud costs by catching and fixing issues directly in the engineering workflow—before they become expensive problems. It provides cost estimates for Terraform before deployment, checks for FinOps best practices. These are aligned with cloud vendor Well-Architected Frameworks and your company's tagging standards. Infracost even opens AutoFix pull requests to resolve issues automatically. This means engineers can prevent new cost surprises, fix existing problems with a single merge, and keep cost discussions inside the workflow they already use. Infracost supports AWS, Azure, and Google Cloud.
 
 ### 1. Install Infracost
 Get the latest Infracost release:
