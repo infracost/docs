@@ -1,0 +1,19 @@
+productcode,region,instancetype,operatingsystem,databaseengine,databaseedition,deploymentoption,licensemodel,vcpu,memory,description,hourlyprice
+AmazonEC2,us-east-1,t3a.large,Linux,,,,,2,8 GiB,,0.123
+AmazonEC2,ap-south-1,m7i.4xlarge,Windows,,,,,16,64 GiB,,0.123
+AmazonEC2,us-east-1,r6i.4xlarge,RHEL,,,,,16,128 GiB,,0.123
+AmazonElastiCache,us-east-1,cache.t3.small,,,,,,,,,0.123
+AmazonElastiCache,ap-south-1,cache.t3.medium,,,,,,,,,0.123
+AmazonRedshift,us-east-1,ra3.xlplus,,,,,,,,,0.123
+AmazonRDS,us-east-1,db.t3.micro,,PostgreSQL,,Multi-AZ,No license required,2,1 GiB,,0.123
+AmazonRDS,ap-south-1,db.t3.medium,,Aurora PostgreSQL,,Single-AZ,No license required,2,4 GiB,,0.123
+AmazonRDS,sa-east-1,db.m5.xlarge,,SQL Server,Standard,Single-AZ,License included,4,16 GiB,,0.123
+AmazonRDS,sa-east-1,db.r5.2xlarge,,Oracle,Standard Two,Multi-AZ,License included,8,64 GiB,,0.123
+AmazonRDS,us-east-1,db.r5.16xlarge,,Oracle,Enterprise,Single-AZ,Bring your own license,64,512 GiB,,0.123
+AmazonES,us-east-1,ultrawarm1.large.search,,,,,,,,,0.123
+AmazonEKS,us-west-2,,,,,,,,,USW2-Fargate-GB-Hours,0.123
+AWSLambda,eu-central-1,,,,,,,,,EUC1-Lambda-GB-Second-ARM,0.123
+AWSLambda,us-west-2,,,,,,,,,USW2-Lambda-GB-Second,0.123
+AmazonECS,us-east-1,,,,,,,,,USE1-Fargate-ARM-vCPU-Hours:perCPU,0.123
+AmazonECS,eu-central-1,,,,,,,,,EUC1-Fargate-GB-Hours,0.123
+AmazonECS,us-east-1,,,,,,,,,USE1-Fargate-ARM-GB-Hours,0.123

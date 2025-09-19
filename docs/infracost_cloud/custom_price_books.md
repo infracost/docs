@@ -27,7 +27,9 @@ You can apply these discounts in Infracost Cloud:
 
 ## Custom price books
 
-We can also apply SKU-level custom cloud pricing to your Infracost Cloud organization. Please [contact us](mailto:support@infracost.io) to set this up. We would need details of the services or SKUs that you'd like to customize. For example, AWS customers can get this information in the Cost & Usage Reports, and Azure customers can use the [Price Sheet CSV export](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/ea-pricing?wt.mc_id=searchAPI_azureportal_inproduct_rmskilling&sessionId=e5ed2c1e32b5482c8c7c9a1ecf3b13b2#download-pricing-for-an-enterprise-agreement).
+We can also apply service-level and region-level, or SKU-level custom cloud pricing to your Infracost Cloud organization. Email the following to [support@infracost.io](mailto:support@infracost.io) so we set this up for you:
+- AWS: include details from your Private Pricing Addendum (PPA).
+- Azure: include the [Price Sheet CSV export](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/ea-pricing?wt.mc_id=searchAPI_azureportal_inproduct_rmskilling&sessionId=e5ed2c1e32b5482c8c7c9a1ecf3b13b2#download-pricing-for-an-enterprise-agreement) file from your Azure portal.
 
 ## Reserved Instances and Savings Plans
 
@@ -39,6 +41,4 @@ For cost estimation purposes, engineers often prefer a simple price point that t
 
 Showing engineers on-demand prices means that only the FinOps team is changing things, vs engineers also trying to second-guess the RI/SP discount allocation.
 
-However, some companies prefer to use "blended rate" of resources, which combines on-demand and discounted prices into one price point. The blended rate is shown in cloud vendor Cost and Usage Reports (e.g. AWS CUR) and we can import them into your Infracost Cloud organization so they can be used instead of on-demand prices.
-
-Please [contact us](mailto:support@infracost.io) to discuss what works best for your organization.
+However, some companies prefer to use "blended rate" of resources, which combines on-demand and discounted prices into one price point. The blended rate is shown in cloud vendor Cost and Usage Reports (e.g. AWS CUR) and we can import them into your Infracost Cloud organization so they can be used instead of on-demand prices. Email your blended prices in [this CSV format](/files/aws_custom_prices.csv) to [support@infracost.io](mailto:support@infracost.io) so we can add them to your organization.
