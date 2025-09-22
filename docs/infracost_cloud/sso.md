@@ -181,9 +181,27 @@ To enable this feature you should:
 
   If you have multiple organizations under an Infracost enterprise, the SAML groups can also be treated as global roles that span all orgs in the enterprise. For example, your engineering user group can be given the Viewer role, and your central FinOps team can be given the Owner role in all organizations that are part of your enterprise.
 
-After enabling SAML, you can send us a custom support URL or email address. This will be shown to users who sign in with SSO but aren’t part of your SAML user groups. It helps guide these users on how to follow your company’s process to join the correct SAML group and access Infracost Cloud.
+  After enabling SAML, you can send us a custom support URL or email address. This will be shown to users who sign in with SSO but aren't part of your SAML user groups. It helps guide these users on how to follow your company's process to join the correct SAML group and access Infracost Cloud.
 
-3. Email us the following information
+3. Configure group claims in your SAML provider: The SAML assertion must include the relevant groups that the user belongs to, and it must be the group names that are sent, not the group IDs. The group claim field typically has one of these names:
+   - `groups`
+   - `roles`
+   - `memberOf`
+   - `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`
+   - `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`
+
+   Note the exact field name you configure as you'll need to provide this to Infracost in the next step.
+
+   <details>
+     <summary>Microsoft Entra ID</summary>
+     For Microsoft Entra ID, follow the <a href="https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#emit-cloud-only-group-display-name-in-token" target="_blank" rel="noopener noreferrer">Emit cloud-only group display name in token</a> section in the Microsoft documentation. Specifically:
+     <ul>
+       <li>Set the Group Claims to 'Groups assigned to the application'</li>
+       <li>Set the Source Attribute to 'Cloud-only group display names'</li>
+     </ul>
+   </details>
+
+4. Email us the following information
 
   <details>
     <summary>Email template</summary>
@@ -201,14 +219,14 @@ After enabling SAML, you can send us a custom support URL or email address. This
         | InfracostEditor | my_org             | Org Editor     |<br/>
         | InfracostAdmin  | my_org             | Org Admin      |<br/>
         | InfracostOwner  | all orgs           | Org Owner      |<br/><br/>
-      - The attribute name in the SAML assertion that will contain the group names, for example `memberOf`.<br/><br/>
+      - SAML Assertion Group attribute: [This typically has one of these names: `groups`, `roles`, `memberOf`, `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`, or `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`]<br/><br/>
       - If possible, an example of the SAML assertion that will be sent.<br/><br/>
       Thanks!
     </pre>
   </details>
-4. Once we receive your email, we will enable the SAML groups and reply back to you so you can verify that users are automatically provisioned correctly.
+5. Once we receive your email, we will enable the SAML groups and reply back to you so you can verify that users are automatically provisioned correctly.
 
   Org Admins and Owners will still be able to delete users from Infracost Cloud to cleanup old users from the Org Settings > Members page. However, if those users login again, their users will be auto-provisioned again. If users are removed from your SSO system, or SAML groups, they will not be able to login.
-5. In Infracost Cloud, go to Settings > Org Settings > Custom Support, and add an email address or a link to your internal wiki or chat channel. This should explain how team members can request access.
+6. In Infracost Cloud, go to Settings > Org Settings > Custom Support, and add an email address or a link to your internal wiki or chat channel. This should explain how team members can request access.
 
   This message will appear to anyone who signs in with SSO but isn’t part of your SAML groups - so they won’t get access until you add them to the right group on your side.
