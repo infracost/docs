@@ -69,9 +69,9 @@ Infracost Cloud optionally supports mTLS with GitHub Enterprise Server by using 
 The [Infracost GitHub App](https://github.com/marketplace/infracost) is verified by GitHub, and installed in thousands of GitHub orgs. The App needs *write access to pull requests* so it can post a comment with any cost estimates, tagging, and FinOps policy issues. You can select the repos you would like to give access to the App.
 
 <details>
-  <summary>Details of required permissions</summary>
+  <summary>Details of required permissions for main Infracost GitHub App</summary>
 
-The Infracost GitHub App requires the following permissions.
+The main Infracost GitHub App requires the following permissions, which enable all features to be used (including [AutoFix pull requests](https://www.infracost.io/blog/ai-for-finops-fix-cloud-cost-issues-faster/)):
 
 - **Read-only** access is needed for the following so Infracost gets notified of repo or pull request changes and can process the code:
   - Metadata (Search repositories, list collaborators, and access repository metadata)
@@ -80,7 +80,7 @@ The Infracost GitHub App requires the following permissions.
   - Copilot chat and editor context
   - Actions (Workflows, workflow runs and artifacts)
   - Deployments (Deployments and deployment statuses)
-  - Package (Packages published to GitHub package platform)
+  - Package (Packages published to GitHub package platform, e.g. AWS CDK constructs)
   - Issues (Issues and related comments, assignees, labels, and milestones)
   - Administration (Repository creation, deletion, settings, teams, and collaborators)
   - Members (Organization members and teams)
@@ -88,6 +88,34 @@ The Infracost GitHub App requires the following permissions.
 - **Read and write** access is needed for the following so Infracost can post pull request comments, update statuses in GitHub and open AutoFix pull requests:
   - Pull requests (Pull requests and related comments, assignees, labels, milestones, and merges)
   - Contents (Repository contents, commits, branches, downloads, releases, and merges)
+  - Checks (checks on code)
+  - Commit statuses
+  - Webhooks (Manage the post-receive hooks for a repository)
+
+Most companies protect their main/master branches with GitHub [Branch Protection Rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) or [Rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets). This ensures that neither developers nor GitHub Apps can push commits directly to these branches. Therefore, all changes must go through pull requests, where they are reviewed and approved by your engineers. Email support@infracost.io if you have any questions about GitHub App permissions.
+
+</details>
+
+<details>
+  <summary>Details of required permissions for "Infracost (Limited)" GitHub App</summary>
+
+The "Infracost (Limited)" GitHub App requires the following permissions. Since this App only has Read-only on "Contents", it does not work with the [AutoFix pull requests](https://www.infracost.io/blog/ai-for-finops-fix-cloud-cost-issues-faster/) feature.
+
+- **Read-only** access is needed for the following so Infracost gets notified of repo or pull request changes and can process the code:
+  - Contents (Repository contents, commits, branches, downloads, releases, and merges)
+  - Metadata (Search repositories, list collaborators, and access repository metadata)
+  - Custom properties (repo and org custom properties values)
+  - Merge queues
+  - Copilot chat and editor context
+  - Actions (Workflows, workflow runs and artifacts)
+  - Deployments (Deployments and deployment statuses)
+  - Package (Packages published to GitHub package platform, e.g. AWS CDK constructs)
+  - Issues (Issues and related comments, assignees, labels, and milestones)
+  - Administration (Repository creation, deletion, settings, teams, and collaborators)
+  - Members (Organization members and teams)
+  - Email addresses
+- **Read and write** access is needed for the following so Infracost can post pull request comments and update statuses in GitHub:
+  - Pull requests (Pull requests and related comments, assignees, labels, milestones, and merges)
   - Checks (checks on code)
   - Commit statuses
   - Webhooks (Manage the post-receive hooks for a repository)
