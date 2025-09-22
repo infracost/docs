@@ -219,7 +219,7 @@ To enable this feature you should:
         | InfracostEditor | my_org             | Org Editor     |<br/>
         | InfracostAdmin  | my_org             | Org Admin      |<br/>
         | InfracostOwner  | all orgs           | Org Owner      |<br/><br/>
-      - SAML Assertion Group attribute:  ((typically has one of these names: `groups`, `roles`, `memberOf`, `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`, or `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`. ))<br/><br/>
+      - SAML Assertion Group attribute: [This typically has one of these names: `groups`, `roles`, `memberOf`, `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`, or `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`]<br/><br/>
       - If possible, an example of the SAML assertion that will be sent.<br/><br/>
       Thanks!
     </pre>
