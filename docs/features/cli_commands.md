@@ -268,22 +268,24 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
 
 The Infracost CLI can post cost estimates to pull request or commits on [GitHub](#github), [GitLab](#gitlab), [Azure Repos](#azure-repos) and [Bitbucket](#bitbucket), which is useful in CI/CD pipelines.
 
-<details><summary>Example commands to post a pull request comment</summary>
+<details>
+<summary>Example commands to post a pull request comment</summary>
 
-  ```shell
-  # Generate Infracost JSON baseline
-  git checkout main
-  infracost breakdown --config-file infracost.yml --format json \
-      --out-file infracost-base.json
+```shell
+# Generate Infracost JSON baseline
+git checkout main
+infracost breakdown --config-file infracost.yml --format json \
+    --out-file infracost-base.json
 
-  # Generate a diff by comparing the latest code change with the baseline
-  git checkout my-branch
-  infracost diff --config-file infracost.yml --format json \
-      --compare-to infracost-base.json --out-file infracost.json
+# Generate a diff by comparing the latest code change with the baseline
+git checkout my-branch
+infracost diff --config-file infracost.yml --format json \
+    --compare-to infracost-base.json --out-file infracost.json
 
-  # Post one comment with above Infracost JSON file
-  infracost comment github --path infracost.json ...
-  ```
+# Post one comment with above Infracost JSON file
+infracost comment github --path infracost.json ...
+```
+
 </details>
 
 The following `--behavior` options are supported when posting cost estimate comments:
