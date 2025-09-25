@@ -19,8 +19,7 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>In the <a href="https://dashboard.infracost.io" target="_blank" rel="noopener noreferrer">Infracost Cloud
             dashboard</a> go to <code>Org Settings</code> and copy your <code>Org ID</code>. You will need to
           provide this to Infracost in a future step.</li>
-        <li>Login to the <a href="https://portal.azure.com" target="_blank" rel="noopener noreferrer">Azure portal</a>
-        </li>
+        <li>Login to the <a href="https://portal.azure.com" target="_blank" rel="noopener noreferrer">Azure portal</a></li>
         <li>Go to <code>Microsoft Entra ID &gt; Enterprise applications</code></li>
         <li>Click <code>New application</code></li>
         <li>Click <code>Create your own application</code></li>
@@ -46,7 +45,8 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>Click <code>Create App Integration</code></li>
         <li>Select <code>SAML 2.0</code> and click Next.</li>
         <li>For the App name enter <code>Infracost Cloud</code> and click Next.</li>
-        <li>For Single sign on URL enter
+        <li>
+          For Single sign on URL enter
           <code>https://login.infracost.io/login/callback?connection=&lt;YOUR INFRACOST ORG ID&gt;</code>
         </li>
         <li>For the Audience URL (SP Entity ID) enter <code>urn:auth0:infracost:&lt;YOUR INFRACOST ORG ID&gt;</code><img
@@ -76,15 +76,13 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>Copy the SSO URL and download the Certificate. You will need to supply these to Infracost in a future step.
           Click Continue.</li>
         <li>In the ACS URL enter:
-          <code>https://login.infracost.io/login/callback?connection=&lt;YOUR INFRACOST ORG ID&gt;</code>
-        </li>
+          <code>https://login.infracost.io/login/callback?connection=&lt;YOUR INFRACOST ORG ID&gt;</code></li>
         <li>In the Entity ID enter: <code>urn:auth0:infracost:&lt;YOUR INFRACOST ORG ID&gt;</code></li>
         <li>Tick <code>Signed response</code></li>
         <li>For Name ID format choose <code>UNSPECIFIED</code> and for Name ID choose
           <code>Basic Information &gt; Primary email</code>. The form should look like the following:<img loading="lazy"
             src="/docs/img/sso/google-workspace-service-provider.png" alt="Google Workspace Service Provider form"
-            class="img_ev3q" />
-        </li>
+            class="img_ev3q" /></li>
         <li>Click Continue</li>
         <li>Add the following Attributes and click Finish:<img loading="lazy"
             src="/docs/img/sso/google-workspace-attributes.png" alt="Google Workspace Service Provider form"

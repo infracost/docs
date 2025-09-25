@@ -30,7 +30,8 @@ Test the integration using the following steps:
 1. In your infra-as-code repo, create a new branch "infracost_test".
 2. In the test branch, add a new file called `infracost_test.tf` at the repo root with the following example Terraform code.
 
-    <details><summary>Example AWS Terraform code</summary>
+   <details>
+   <summary>Example AWS Terraform code</summary>
 
     ```hcl
     provider "aws" {
@@ -76,7 +77,8 @@ Test the integration using the following steps:
 
     </details>
 
-    <details><summary>Example Azure Terraform code</summary>
+    <details>
+    <summary>Example Azure Terraform code</summary>
 
     ```hcl
     provider "azurerm" {
@@ -151,7 +153,8 @@ Test the integration using the following steps:
 
     </details>
 
-    <details><summary>Example Google Terraform code</summary>
+    <details>
+    <summary>Example Google Terraform code</summary>
 
     ```hcl
     provider "google" {
