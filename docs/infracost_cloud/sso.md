@@ -52,12 +52,12 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>For the Audience URL (SP Entity ID) enter <code>urn:auth0:infracost:&lt;YOUR INFRACOST ORG ID&gt;</code><img
             loading="lazy" src="/docs/img/sso/okta-saml-settings.png" alt="Okta Attribute Statements form"
             class="img_ev3q" /></li>
-        <li>Add the following for the Attribute Statements section and click Next.<img loading="lazy"
+        <li>Add the following for the <code>Attribute Statements</code> section and click <code>Next</code>.<img loading="lazy"
             src="/docs/img/sso/okta-attribute-statements.png" alt="Okta Attribute Statements form" class="img_ev3q" /></li>
-        <li>Choose 'I'm an Okta customer adding an internal app' and click Finish</li>
-        <li>In the Sign on tab, scroll down to the SAML Signing Certificates section. On the right-hand side click the
-          button to View SAML setup instructions.</li>
-        <li>Copy the Identity Provider Single Sign-On URL and download the certificate.</li>
+        <li>Choose <code>I'm an Okta customer adding an internal app</code> and click <code>Finish</code></li>
+        <li>In the <code>Sign on</code> tab, scroll down to the <code>SAML Signing Certificates</code> section. On the right-hand side click the
+          button to <code>View SAML setup instructions</code>.</li>
+        <li>Copy the <code>Identity Provider Single Sign-On URL</code> and download the certificate.</li>
         <li>In the Okta Admin dashboard assign any users to the Infracost Cloud app. You can also add an Infracost button or icon to your SSO portal as we support IdP-Initiated logins from Okta too, save the following image to use for that:</li>
         <img src={useBaseUrl("img/small-logo.png")} width="128px" />
       </ol>
@@ -95,10 +95,10 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
 #### SSO login notes
 
 After SSO is configured:
-- SSO is enabled on your company domain name(s), such as acme-inc.com. So anyone who enters an email address that contains your company domain names in the [Infracost log in page](https://dashboard.infracost.io) will be redirected to your SSO provider for authentication.
+- SSO is enabled on your company domain name(s), such as `acme-inc.com`. So anyone who enters an email address that contains your company domain names in the [Infracost log in page](https://dashboard.infracost.io) will be redirected to your SSO provider for authentication.
 - Once SSO is enabled, it becomes the only login method for your organization. Users removed from your SSO system will automatically lose access to Infracost Cloud.
-- You can invite users to your Infracost Cloud organization from the Org Settings > Members page. They will also need to be added to the corresponding group in your SSO provider so they can login.
-- If a user had already logged-in prior to SSO being enabled, on their first login after SSO is enabled, they will be asked to confirm if they want to link their login accounts. They must click "Continue" do this to be able to access your company's Infracost Cloud organization, otherwise a new empty organization will be created for them. If they skip this step, email [support@infracost.io](mailto:support@infracost.io) so we can assist you.
+- You can invite users to your Infracost Cloud organization from the `Org Settings > Members` page. They will also need to be added to the corresponding group in your SSO provider so they can login.
+- If a user had already logged-in prior to SSO being enabled, on their first login after SSO is enabled, they will be asked to confirm if they want to link their login accounts. They must click `Continue` do this to be able to access your company's Infracost Cloud organization, otherwise a new empty organization will be created for them. If they skip this step, email [support@infracost.io](mailto:support@infracost.io) so we can assist you.
     <img src={useBaseUrl("img/infracost-cloud/auth0-account-link.png")} alt="Linking login accounts" width="80%" />
 - For organizations using Okta: If users see the error "User is not assigned to this application" when signing in, it means they need to be added to the Okta Infracost app.
 
@@ -108,7 +108,7 @@ Infracost uses SAML to **provision users automatically** based on your user grou
 
 To enable this feature you should:
 
-1. Create SAML user groups in your SAML provider and put users in those groups. Infracost supports [four roles](/docs/infracost_cloud/key_concepts/#team-management) (Viewer, Editor, Admin, Owner); we recommend **two user groups** to start with: "Owner" for people who manage Infracost, and "Viewer" for all engineers.
+1. Create SAML user groups in your SAML provider and put users in those groups. Infracost supports [four roles](/docs/infracost_cloud/key_concepts/#team-management) (`Viewer`, `Editor`, `Admin`, `Owner`); we recommend **two user groups** to start with: `Owner` for people who manage Infracost, and `Viewer` for all engineers.
 
   If you already have a SAML group that most engineers are part of (e.g. for GitHub), you should re-use that for the Infracost Viewer role. This enables them to see their repo's pre-existing issues and fix them.
 
@@ -172,8 +172,8 @@ To enable this feature you should:
 
 2. Once we receive your email, we will enable the SAML groups and reply back to you so you can verify that users are automatically provisioned correctly.
 
-  Org Admins and Owners will still be able to delete users from Infracost Cloud to cleanup old users from the Org Settings > Members page. However, if those users login again, their users will be auto-provisioned again. If users are removed from your SSO system, or SAML groups, they will not be able to login.
+  Org Admins and Owners will still be able to delete users from Infracost Cloud to cleanup old users from the `Org Settings > Members` page. However, if those users login again, their users will be auto-provisioned again. If users are removed from your SSO system, or SAML groups, they will not be able to login.
 
-3. In Infracost Cloud, go to Settings > Org Settings > Custom Support, and add an email address or a link to your internal wiki or chat channel. This should explain how team members can request access.
+3. In Infracost Cloud, go to `Settings > Org Settings > Custom Support`, and add an email address or a link to your internal wiki or chat channel. This should explain how team members can request access.
 
-  This message will appear to anyone who signs in with SSO but isn’t part of your SAML groups - so they won’t get access until you add them to the right group on your side.
+  This message will appear to anyone who signs in with SSO but isn’t part of your SAML groups — so they won’t get access until you add them to the right group on your side.
