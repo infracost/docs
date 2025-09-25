@@ -152,7 +152,6 @@ To enable this feature you should:
       - Identity Provider Single Sign-On URL: xxx<br/>
       - SSO domains (comma separated list of domains to enable for this SSO connection): xxx<br/>
       - The public certificate is attached: **Don't forget to attach it ;) **<br/><br/>
-
       - SAML group role mapping:<br/>
         | SAML group name | Infracost Org slug | Infracost role |<br/>
         |-----------------|--------------------|----------------|<br/>
@@ -161,14 +160,12 @@ To enable this feature you should:
         | InfracostAdmin  | my_org             | Org Admin      |<br/>
         | InfracostOwner  | all orgs           | Org Owner      |<br/><br/>
       - SAML Assertion Group attribute: [This typically has one of these names: `groups`, `roles`, `memberOf`, `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`, or `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`]<br/><br/>
-
       - If possible, an example of the SAML assertion that will be sent.<br/><br/>
-
       - How I'd like this enabled (Select one):<br/>
-        - Let's schedule a 10 minute screenshare to test and enable together for the fastest setup. Here are a few convenient times: XXX
-        - Enable initial SSO to test, but continue to allow existing login methods while we confirm everything is working
-        - Fully enable now, then let me know it's ready to test (WARNING: If there's a misconfiguration in your settings, it could lock your users out temporarily)
-
+        A. Let's schedule a 10 minute screenshare to test and enable together for the fastest setup. Here are a few convenient times: XXX<br/>
+        B. Enable initial SSO to test, but continue to allow existing login methods while we confirm everything is working<br/>
+        C. Fully enable now, then let me know it's ready to test (WARNING: If there's a misconfiguration in your settings, it could lock your users out temporarily)<br/>
+      <br/>
       Thanks!
     </pre>
   </details>
