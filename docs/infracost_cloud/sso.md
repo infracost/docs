@@ -5,7 +5,7 @@ title: Single sign-on (SSO)
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Infracost Cloud supports authenticating with Enterprise SSO providers. It is important that **both steps** in this page are implemented to ensure users are automatically provisioned based on your SAML user groups, and they can login using your SSO provider.
+Infracost Cloud supports authenticating with Enterprise SSO providers. It is important that **all steps** in this page are implemented to ensure users are automatically provisioned based on your SAML user groups, and they can login using your SSO provider.
 
 ## Step 1: Setup SSO
 
@@ -33,20 +33,6 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>Click <code>Save</code></li>
         <li>Download 'Certificate (Base64)'. You will need to provide this to Infracost.</li>
         <li>Copy the 'Login URL'. You will need to provide this to Infracost in the next step.</li>
-        <li>Email us the following information with the certificate attached:
-          <pre>
-            To: support@infracost.io<br/>
-            Subject: Enable SSO<br/>
-            Body:<br/><br/>
-            Please enable SSO for our organization.<br/><br/>
-            - Company name or Infracost Org ID: xxx<br/>
-            - SSO provider: Microsoft Entra ID<br/>
-            - Login URL: xxx<br/>
-            - Tenant domains, either the email domain (example.com) or Microsoft tenant domain (example.onmicrosoft.com): xxx<br/>
-            - The certificate is attached.<br/><br/>
-            Thanks!
-          </pre>
-        </li>
       </ol>
     </details>
     <details>
@@ -72,20 +58,6 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>In the Sign on tab, scroll down to the SAML Signing Certificates section. On the right-hand side click the
           button to View SAML setup instructions.</li>
         <li>Copy the Identity Provider Single Sign-On URL and download the certificate.</li>
-        <li>Email us the following information with the certificate attached:
-          <pre>
-            To: support@infracost.io<br/>
-            Subject: Enable SSO<br/>
-            Body:<br/><br/>
-            Please enable SSO for our organization.<br/><br/>
-            - Company name or Infracost Org ID: xxx<br/>
-            - SSO provider: Okta<br/>
-            - Identity Provider Single Sign-On URL: xxx<br/>
-            - SSO domains (comma separated list of domains to enable for this SSO connection): xxx<br/>
-            - The public certificate is attached.<br/><br/>
-            Thanks!
-          </pre>
-          </li>
         <li>In the Okta Admin dashboard assign any users to the Infracost Cloud app. You can also add an Infracost button or icon to your SSO portal as we support IdP-Initiated logins from Okta too, save the following image to use for that:</li>
         <img src={useBaseUrl("img/small-logo.png")} width="128px" />
       </ol>
@@ -117,45 +89,8 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>Add the following Attributes and click Finish:<img loading="lazy"
             src="/docs/img/sso/google-workspace-attributes.png" alt="Google Workspace Service Provider form"
             class="img_ev3q" /></li>
-        <li>Email us the following information with the certificate attached:
-          <pre>
-            To: support@infracost.io<br/>
-            Subject: Enable SSO<br/>
-            Body:<br/><br/>
-            Please enable SSO for our organization.<br/><br/>
-            - Company name or Infracost Org ID: xxx<br/>
-            - SSO provider: Google Workspace<br/>
-            - SSO URL: xxx<br/>
-            - SSO domains (comma separated list of domains to enable for this SSO connection): xxx<br/>
-            - The certificate is attached.<br/><br/>
-            Thanks!
-          </pre>
-        </li>
       </ol>
     </details>
-    <details>
-      <summary>Other SAML providers</summary>
-      <ol style={{'list-style-type': 'decimal'}}>
-        <li>In the <a href="https://dashboard.infracost.io" target="_blank" rel="noopener noreferrer">Infracost Cloud
-            dashboard</a> go to <code>Org Settings</code> and copy your <code>Org ID</code>. You will need to
-          provide this in the next step.</li>
-        <li>Email us the following information with the certificate attached:
-          <pre>
-            To: support@infracost.io<br/>
-            Subject: Enable SSO<br/>
-            Body:<br/><br/>
-            Please enable SSO for our organization.<br/><br/>
-            - Company name or Infracost Org ID: xxx<br/>
-            - SSO service provider: xxx<br/>
-            - SSO URL: xxx<br/>
-            - SSO domains (comma separated list of domains to enable for this SSO connection): xxx<br/>
-            - The SSO certificate is attached.<br/><br/>
-            Thanks!
-          </pre>
-        </li>
-      </ol>
-    </details>
-4. Once we receive your email, we will email you to schedule a quick screenshare call to enable SSO. On the call, we will verify your SSO connection is configured correctly and delete the initial user that was created without SSO.
 
 #### SSO login notes
 
@@ -169,11 +104,11 @@ After SSO is configured:
 
 ## Step 2: SAML group mapping
 
-Infracost can also **provision users automatically** based on your SAML user groups. This allows you to manage access to Infracost Cloud by managing SAML groups in your SAML provider, instead of inviting users individually to your Infracost Cloud account. With SAML groups, users are automatically provisioned when they sign-in for the first time; their roles are updated every time they sign-in.
+Infracost uses SAML to **provision users automatically** based on your user groups. This allows you to manage access to Infracost Cloud by managing SAML groups in your SAML provider, instead of inviting users individually to your Infracost Cloud account. With SAML groups, users are automatically provisioned when they sign-in for the first time; their roles are updated every time they sign-in.
 
 To enable this feature you should:
-1. Follow the above instructions to [Setup SSO](#setup-sso) first.
-2. Create SAML user groups in your SAML provider and put users in those groups. Infracost supports [four roles](/docs/infracost_cloud/key_concepts/#team-management) (Viewer, Editor, Admin, Owner); we recommend **two user groups** to start with: "Owner" for people who manage Infracost, and "Viewer" for all engineers.
+
+1. Create SAML user groups in your SAML provider and put users in those groups. Infracost supports [four roles](/docs/infracost_cloud/key_concepts/#team-management) (Viewer, Editor, Admin, Owner); we recommend **two user groups** to start with: "Owner" for people who manage Infracost, and "Viewer" for all engineers.
 
   If you already have a SAML group that most engineers are part of (e.g. for GitHub), you should re-use that for the Infracost Viewer role. This enables them to see their repo's pre-existing issues and fix them.
 
@@ -183,7 +118,7 @@ To enable this feature you should:
 
   After enabling SAML, you can send us a custom support URL or email address. This will be shown to users who sign in with SSO but aren't part of your SAML user groups. It helps guide these users on how to follow your company's process to join the correct SAML group and access Infracost Cloud.
 
-3. Configure group claims in your SAML provider: The SAML assertion must include the relevant groups that the user belongs to, and it must be the group names that are sent, not the group IDs. The group claim field typically has one of these names:
+2. Configure group claims in your SAML provider: The SAML assertion must include the relevant groups that the user belongs to, and it must be the group names that are sent, not the group IDs. The group claim field typically has one of these names:
    - `groups`
    - `roles`
    - `memberOf`
@@ -201,17 +136,23 @@ To enable this feature you should:
      </ul>
    </details>
 
-4. Email us the following information
+## Step 3: Email us key setup information
+
+1. Email us the following information:
 
   <details>
     <summary>Email template</summary>
     <pre>
       To: support@infracost.io<br/>
-      Subject: Enable SAML groups<br/>
+      Subject: Enable SSO & SAML<br/>
       Body:<br/><br/>
-      Please enable SAML groups for our organization.<br/><br/>
+      Please enable SSO & SAML groups for our organization.<br/><br/>
       - Company name or Infracost Org ID: xxx<br/><br/>
       - SSO service provider: [Microsoft Entra ID, Okta, Google Workspace, Other SAML Provider]<br/><br/>
+      - Identity Provider Single Sign-On URL: xxx<br/>
+      - SSO domains (comma separated list of domains to enable for this SSO connection): xxx<br/>
+      - The public certificate is attached: **Don't forget to attach it ;) **<br/><br/>
+
       - SAML group role mapping:<br/>
         | SAML group name | Infracost Org slug | Infracost role |<br/>
         |-----------------|--------------------|----------------|<br/>
@@ -220,13 +161,22 @@ To enable this feature you should:
         | InfracostAdmin  | my_org             | Org Admin      |<br/>
         | InfracostOwner  | all orgs           | Org Owner      |<br/><br/>
       - SAML Assertion Group attribute: [This typically has one of these names: `groups`, `roles`, `memberOf`, `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`, or `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`]<br/><br/>
+
       - If possible, an example of the SAML assertion that will be sent.<br/><br/>
+
+      - How I'd like this enabled (Select one):<br/>
+        - Let's schedule a 10 minute screenshare to test and enable together for the fastest setup. Here are a few convenient times: XXX
+        - Enable initial SSO to test, but continue to allow existing login methods while we confirm everything is working
+        - Fully enable now, then let me know it's ready to test (WARNING: If there's a misconfiguration in your settings, it could lock your users out temporarily)
+
       Thanks!
     </pre>
   </details>
-5. Once we receive your email, we will enable the SAML groups and reply back to you so you can verify that users are automatically provisioned correctly.
+
+2. Once we receive your email, we will enable the SAML groups and reply back to you so you can verify that users are automatically provisioned correctly.
 
   Org Admins and Owners will still be able to delete users from Infracost Cloud to cleanup old users from the Org Settings > Members page. However, if those users login again, their users will be auto-provisioned again. If users are removed from your SSO system, or SAML groups, they will not be able to login.
-6. In Infracost Cloud, go to Settings > Org Settings > Custom Support, and add an email address or a link to your internal wiki or chat channel. This should explain how team members can request access.
+
+3. In Infracost Cloud, go to Settings > Org Settings > Custom Support, and add an email address or a link to your internal wiki or chat channel. This should explain how team members can request access.
 
   This message will appear to anyone who signs in with SSO but isn’t part of your SAML groups - so they won’t get access until you add them to the right group on your side.
