@@ -137,7 +137,7 @@ If the above method does not work for your use-case, you can use Terraform to ge
 
 The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-message`. To use them:
 
-1. Generate Infracost JSON output for each Terraform project and combine them into one file. This is the recommended way to store the snapshot of a cost estimate; it can be used by the CLI to generate other formats. The JSON format can also be used to setup [cost policies](/docs/features/cost_policies/).
+1. Generate Infracost JSON output for each Terraform project and combine them into one file. This is the recommended way to store the snapshot of a cost estimate; it can be used by the CLI to generate other formats. The JSON format can also be used to setup [cost policies](/docs/integrations/open_policy_agent).
   ```sh
   infracost breakdown --path dev --format json --out-file infracost-dev.json
   infracost breakdown --path prod --format json --out-file infracost-prod.json
