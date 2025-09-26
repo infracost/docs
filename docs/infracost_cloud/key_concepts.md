@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Authentication
 
-Infracost Cloud supports logging in via [GitHub](/docs/faq/#can-i-log-in-with-github), Google, an email/password, or [enterprise SSO providers](/docs/infracost_cloud/sso/overview).
+Infracost Cloud supports logging in via [GitHub](/docs/faq/#can-i-log-in-with-github), Google, an email/password, or [enterprise SSO providers](/docs/infracost_cloud/sso).
 
 1. Go to [Infracost Cloud](https://dashboard.infracost.io) to sign up or log in.
 2. Switch to the desired organization. Every Infracost user has a default organization for personal use. You should create a new organization for your company using the organization dropdown at the top of the page.

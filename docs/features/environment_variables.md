@@ -29,9 +29,9 @@ These examples show the output of the number `64145.4525` with different formatt
 
 | Enivornment variables                                                        | Output for 64145.4525 |
 |------------------------------------------------------------------------------|-----------------------|
-| INFRACOST_CURRENCY=USD<BR/>INFRACOST_CURRENCY_FORMAT="USD: 1.234,567890 $"   | `64.145,452500 $`     |
-| INFRACOST_CURRENCY=EUR<BR/>INFRACOST_CURRENCY_FORMAT="EUR: 1.234,56€"        | `64.145,45€`          |
-| INFRACOST_CURRENCY=GBP<BR/>INFRACOST_CURRENCY_FORMAT="GBP: £ 1,234.567"      | `£ 64,145.453`        |
+| INFRACOST_CURRENCY=USD<br/>INFRACOST_CURRENCY_FORMAT="USD: 1.234,567890 $"   | `64.145,452500 $`     |
+| INFRACOST_CURRENCY=EUR<br/>INFRACOST_CURRENCY_FORMAT="EUR: 1.234,56€"        | `64.145,45€`          |
+| INFRACOST_CURRENCY=GBP<br/>INFRACOST_CURRENCY_FORMAT="GBP: £ 1,234.567"      | `£ 64,145.453`        |
 
 ### INFRACOST_LOG_LEVEL
 Controls the log verbosity level. Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot. Turns off spinners in output. Setting this environment variable is the same as using the `--log-level` flag.
