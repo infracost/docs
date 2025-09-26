@@ -8,7 +8,11 @@ module.exports = {
   url: 'https://www.infracost.io',
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
+  },
   trailingSlash: true,
   favicon: 'img/favicon.png',
   organizationName: 'infracost',
@@ -174,7 +178,7 @@ module.exports = {
       textColor: '#EBEBF2',
     },
     prism: {
-      theme: require('prism-react-renderer/themes/dracula'),
+      theme: require('prism-react-renderer').themes.dracula,
       additionalLanguages: ['hcl'],
     },
     algolia: {
