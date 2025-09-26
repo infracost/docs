@@ -52,7 +52,8 @@ The `infracost-usage.yml` file lets engineers set usage values in their repos. T
 
 This `infracost-usage.yml` file does not currently support [project filters](/docs/features/usage_based_resources/#add-overrides). However, you can set values for specific resources. For example, you can set values for `aws_lambda_function.my_function` as opposed to the `aws_lambda_function` resource type that applies to all Lambda functions. This is useful when dealing with outlier resources that require customization.
 
-<details><summary>Customizing usage values for individual resources</summary>
+<details>
+<summary>Customizing usage values for individual resources</summary>
 
 The following `infracost-usage.yml` file demonstrates how values for individual resources can be customized:
 ```yml

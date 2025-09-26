@@ -7,6 +7,23 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+export const CIBox = ({image, link, maxHeight, newWindow, text}) => (
+  <a
+    className="ci-box"
+    href={link}
+    >
+    <img
+      src={image}
+      target={newWindow ? "_blank" : null}
+      style={{
+        margin: "0 auto",
+        maxHeight: maxHeight ? maxHeight : "2rem"
+      }}
+      />
+      {text && (<div className="ci-subtitle">{text}</div>)}
+  </a>
+)
+
 export const Grid = ({logos}) => {
     const items = logos.map((e, i) => {
       return (<CIBox key={i} {...e}/>)
@@ -19,23 +36,6 @@ export const Grid = ({logos}) => {
       </div>
     )
 };
-
-export const CIBox = ({image, link, maxHeight, newWindow, text}) => (
-  <a
-    className="ci-box"
-    href={link}
-    >
-    <img
-      src={image}
-      target={newWindow ? "_blank" : null}
-      style={{
-        margin: "0 auto",
-        maxHeight: maxHeight ?? "2rem"
-      }}
-      />
-      {text && (<div className="ci-subtitle">{text}</div>)}
-  </a>
-)
 
 Use one of our many integrations so your engineering team can see cost estimates and FinOps best practices in pull requests **before making changes**. This provides your team with a safety net as people can discuss FinOps as part of the workflow.
 

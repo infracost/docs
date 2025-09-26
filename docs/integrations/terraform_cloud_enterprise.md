@@ -47,9 +47,10 @@ Follow the [instructions for configuring a Run Task](https://www.terraform.io/do
 - Enable the Run Task as a **post-plan stage** in your workspaces (only this "stage" option is supported by Infracost).
 - Set the Run Task to the **Mandatory** enforcement level so you can configure which Tagging or FinOps policies should block runs in Infracost Cloud.
 
-<details><summary>Example Terraform code to create a Run Task for your TFE organization</summary>
+<details>
+<summary>Example Terraform code to create a Run Task for your TFE organization</summary>
 
-  ```
+```
   # You can create Run Tasks for your TFE organization using the Terraform console
   # or inside your Terraform repository:
 

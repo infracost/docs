@@ -137,7 +137,7 @@ If the above method does not work for your use-case, you can use Terraform to ge
 
 The Infracost CLI can generate cost estimates in many formats: `json`, `diff`, `table`, `github-comment`, `gitlab-comment`, `azure-repos-comment`, `bitbucket-comment` and `slack-message`. To use them:
 
-1. Generate Infracost JSON output for each Terraform project and combine them into one file. This is the recommended way to store the snapshot of a cost estimate; it can be used by the CLI to generate other formats. The JSON format can also be used to setup [cost policies](/docs/features/cost_policies/).
+1. Generate Infracost JSON output for each Terraform project and combine them into one file. This is the recommended way to store the snapshot of a cost estimate; it can be used by the CLI to generate other formats. The JSON format can also be used to setup [cost policies](/docs/integrations/open_policy_agent).
   ```sh
   infracost breakdown --path dev --format json --out-file infracost-dev.json
   infracost breakdown --path prod --format json --out-file infracost-prod.json
@@ -268,22 +268,24 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
 
 The Infracost CLI can post cost estimates to pull request or commits on [GitHub](#github), [GitLab](#gitlab), [Azure Repos](#azure-repos) and [Bitbucket](#bitbucket), which is useful in CI/CD pipelines.
 
-<details><summary>Example commands to post a pull request comment</summary>
+<details>
+<summary>Example commands to post a pull request comment</summary>
 
-  ```shell
-  # Generate Infracost JSON baseline
-  git checkout main
-  infracost breakdown --config-file infracost.yml --format json \
-      --out-file infracost-base.json
+```shell
+# Generate Infracost JSON baseline
+git checkout main
+infracost breakdown --config-file infracost.yml --format json \
+    --out-file infracost-base.json
 
-  # Generate a diff by comparing the latest code change with the baseline
-  git checkout my-branch
-  infracost diff --config-file infracost.yml --format json \
-      --compare-to infracost-base.json --out-file infracost.json
+# Generate a diff by comparing the latest code change with the baseline
+git checkout my-branch
+infracost diff --config-file infracost.yml --format json \
+    --compare-to infracost-base.json --out-file infracost.json
 
-  # Post one comment with above Infracost JSON file
-  infracost comment github --path infracost.json ...
-  ```
+# Post one comment with above Infracost JSON file
+infracost comment github --path infracost.json ...
+```
+
 </details>
 
 The following `--behavior` options are supported when posting cost estimate comments:

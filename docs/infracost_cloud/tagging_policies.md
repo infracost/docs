@@ -73,7 +73,8 @@ Tagging policies check all AWS, Azure and Google Terraform resources that suppor
 - For Google Cloud resources, `label` keys and values are checked.
 - For tags set in modules, the actual module version being used is checked.
 
-<details><summary>AWS-specific notes</summary>
+<details>
+<summary>AWS-specific notes</summary>
 
 - For `aws_autoscaling_group`, if the `propagate_at_launch` attribute is not set to true, the resource fails tagging policies as resources launched from those Auto Scaling groups will not get the required tags.
 - For `aws_instance` with `ebs_block_device` or `root_block_device` definitions, tags for the attached volumes are checked as follows:
@@ -85,7 +86,8 @@ Tagging policies check all AWS, Azure and Google Terraform resources that suppor
 
 </details>
 
-<details><summary>Google-specific notes</summary>
+<details>
+<summary>Google-specific notes</summary>
 
 - For the following resources, `user_labels` are checked: `google_monitoring_alert_policy`, `google_monitoring_custom_service`, `google_monitoring_notification_channel`, `google_monitoring_service`, `google_sql_database_instance`, `google_monitoring_slo`.
 

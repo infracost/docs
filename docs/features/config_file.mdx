@@ -135,11 +135,12 @@ To use config files in your repos, follow these steps:
 
 When integrating Infracost with systems like GitHub or GitLab, we recommend the following order of precedence:
 
-1. **Infracost Cloud’s Org Settings > Default Repo Config File**: Set a default config file for all repos in your organization. This is useful if a lot of your repos have a similar structure since it applies globally, and individual repos can override it.
-  <img
-    src={useBaseUrl('img/infracost-cloud/default-repo-config-file.png')}
-    alt="Default config file used by all repos in the GitHub, Azure Repos or GitLab App integration"
-  />
+1. **Infracost Cloud's Org Settings > Default Repo Config File**: Set a default config file for all repos in your organization. This is useful if a lot of your repos have a similar structure since it applies globally, and individual repos can override it.
+
+   <img
+     src={useBaseUrl('img/infracost-cloud/default-repo-config-file.png')}
+     alt="Default config file used by all repos in the GitHub, Azure Repos or GitLab App integration"
+   />
 2. **Repo Settings in Infracost Cloud**: For specific repos, customize the config in the **Repo Settings** tab, which takes precedence over the default Org config.
 3. **`infracost.yml` or `infracost.yml.tmpl` in the repo root**: If needed, store a config file in the root of your repo. This file will be used only if there is no config set in Infracost Cloud, since the Cloud settings take precedence.
 
@@ -213,25 +214,27 @@ autodetect:
   <tbody>
     <tr>
       <td><code>env_names</code></td>
-      <td>Optional. Array of strings. Specifies environment names that should be used to group Terraform var files. Infracost uses these to detect and group projects by environments. For example:
-      <pre>
+      <td>
+        Optional. Array of strings. Specifies environment names that should be used to group Terraform var files. Infracost uses these to detect and group projects by environments. For example:
+        <pre>
 {`env_names:
   - dev
   - prod
   - staging`}
         </pre>
         These also support wildcards. For example, the following will detect <code>prod-us</code>, <code>prod-eu</code>, <code>dev-us</code> and <code>dev-eu</code> as separate environments:
-      <pre>
+        <pre>
 {`env_names:
   - "prod-*"
   - "dev-*"`}
         </pre>
-        </td>
+      </td>
     </tr>
     <tr>
       <td><code>exclude_dirs</code></td>
-      <td>Optional. Array of strings. A list of directories that should be excluded from project detection. Useful for ignoring outdated or test infrastructure. For example:
-      <pre>
+      <td>
+        Optional. Array of strings. A list of directories that should be excluded from project detection. Useful for ignoring outdated or test infrastructure. For example:
+        <pre>
 {`exclude_dirs:
   - legacy
   - tests`}
@@ -240,8 +243,9 @@ autodetect:
     </tr>
     <tr>
       <td><code>include_dirs</code></td>
-      <td>Optional. Array of strings. A list of directories that should be included in the project scan, ensuring these directories are detected. For example:
-      <pre>
+      <td>
+        Optional. Array of strings. A list of directories that should be included in the project scan, ensuring these directories are detected. For example:
+        <pre>
 {`include_dirs:
   - shared
   - ".infra/**"`}
@@ -250,8 +254,9 @@ autodetect:
     </tr>
     <tr>
       <td><code>path_overrides</code></td>
-      <td>Optional. Array of objects. Allows custom path overrides with rules to include or exclude specific combinations of environments and directories from project detection.
-      <pre>
+      <td>
+        Optional. Array of objects. Allows custom path overrides with rules to include or exclude specific combinations of environments and directories from project detection.
+        <pre>
 {`path_overrides:
   - path: "infra/base"
     only:
@@ -284,17 +289,20 @@ autodetect:
     </tr>
     <tr>
       <td><code>max_search_depth</code></td>
-      <td>Optional. Integer. Specifies the maximum directory depth to search for projects. Defaults to 10 if not provided.
+      <td>
+        Optional. Integer. Specifies the maximum directory depth to search for projects. Defaults to 10 if not provided.
       </td>
     </tr>
     <tr>
       <td><code>force_project_type</code></td>
-      <td>Optional. String. Forces the auto-detect function to classify all detected projects as a specific project type (either <code>terraform</code> or <code>terragrunt</code>). This is useful when auto-detect might conflict between the two types.
+      <td>
+        Optional. String. Forces the auto-detect function to classify all detected projects as a specific project type (either <code>terraform</code> or <code>terragrunt</code>). This is useful when auto-detect might conflict between the two types.
       </td>
     </tr>
     <tr>
       <td><code>terraform_var_file_extensions</code></td>
-      <td>Optional. String. A list of suffixes that should be used to recognise Terraform var files. This is useful when there are non-standard Terraform var file names which use different extensions.
+      <td>
+        Optional. String. A list of suffixes that should be used to recognise Terraform var files. This is useful when there are non-standard Terraform var file names which use different extensions.
       </td>
     </tr>
   </tbody>
@@ -331,33 +339,36 @@ projects:
     </tr>
     <tr>
       <td><code>terraform_var_files</code></td>
-      <td>Optional. Array of string. Variable files to use when parsing Terraform HCL code, similar to Terraform's <code>-var-file</code> flag. Files with the <code>.auto.tfvars</code> extension do not need to be added to the list as they are processed automatically by Infracost. The file paths are relative to the <code>path</code> of the project. For example:
-      <pre>
+      <td>
+        Optional. Array of string. Variable files to use when parsing Terraform HCL code, similar to Terraform's <code>-var-file</code> flag. Files with the <code>.auto.tfvars</code> extension do not need to be added to the list as they are processed automatically by Infracost. The file paths are relative to the <code>path</code> of the project. For example:
+        <pre>
 {`terraform_var_files:
   - global.tfvars
   - dev.tfvars`}
-      </pre>
+        </pre>
       </td>
     </tr>
     <tr>
       <td><code>terraform_vars</code></td>
-      <td>Optional. Map of strings. Input variables to use when parsing the Terraform HCL code, similar to Terraform's <code>-var</code> flag. For example:
-      <pre>
+      <td>
+        Optional. Map of strings. Input variables to use when parsing the Terraform HCL code, similar to Terraform's <code>-var</code> flag. For example:
+        <pre>
 {`terraform_vars:
   instance_count: 5
   artifact_version: foobar`}
-      </pre>
+        </pre>
       </td>
     </tr>
     <tr>
       <td><code>dependency_paths</code></td>
-      <td>Optional. <span style={{textDecoration: "underline"}}>Only applicable for GitHub, Azure Repos and GitLab App users</span>. Array of strings. Array of file or directory paths that should trigger project estimates. If this is specified, code changes to the <code>path</code> target will <b>NOT</b> trigger cost estimates unless the <code>path</code> is included in <code>dependency_paths</code>. All paths are relative to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
-      <pre>
+      <td>
+        Optional. <span style={{textDecoration: "underline"}}>Only applicable for GitHub, Azure Repos and GitLab App users</span>. Array of strings. Array of file or directory paths that should trigger project estimates. If this is specified, code changes to the <code>path</code> target will <b>NOT</b> trigger cost estimates unless the <code>path</code> is included in <code>dependency_paths</code>. All paths are relative to the working directory of your <code>infracost.yml</code> file. Supports glob patterns, for example:
+        <pre>
 {`dependency_paths:
   - "config/**.json"
   - default.yml
   - "modules/**"`}
-      </pre>
+        </pre>
       </td>
     </tr>
     <tr>
@@ -366,13 +377,14 @@ projects:
     </tr>
     <tr>
       <td><code>exclude_paths</code></td>
-      <td>Optional. Array of strings. Array of directory paths to exclude from evaluation, relative to <code>path</code> of project. Supports glob patterns too, for example:
-      <pre>
+      <td>
+        Optional. Array of strings. Array of directory paths to exclude from evaluation, relative to <code>path</code> of project. Supports glob patterns too, for example:
+        <pre>
 {`exclude_paths:
   - projects/myproject
   - "app/*/ignore_dir"`}
-      </pre>
-    </td>
+        </pre>
+      </td>
     </tr>
     <tr>
       <td><code>include_all_paths</code></td>
@@ -384,12 +396,13 @@ projects:
     </tr>
     <tr>
       <td><code>env</code></td>
-      <td>Optional. Map of strings. Environment variables that are passed to the project during processing. Also supports referencing existing environment variables using the syntax <code>$&#123;MY_ENV_VAR&#125;</code>. Environment variables that start with <code>INFRACOST_</code> are global in scope (not per-project) and cannot be used inside this parameter. For example:
-      <pre>
+      <td>
+        Optional. Map of strings. Environment variables that are passed to the project during processing. Also supports referencing existing environment variables using the syntax <code>$&#123;MY_ENV_VAR&#125;</code>. Environment variables that start with <code>INFRACOST_</code> are global in scope (not per-project) and cannot be used inside this parameter. For example:
+        <pre>
 {`env:
   INSTANCE_TYPE: t3.large
   MY_ENV_KEY: $\{MY_SECRET_ENV_VAR\}`}
-      </pre>
+        </pre>
       </td>
     </tr>
     <tr>
@@ -1077,7 +1090,8 @@ Surrounds the string with single quotes.
 
 ### Examples
 
-<details><summary>Advanced config template replicating Infracost's auto-detect behavior</summary>
+<details>
+  <summary>Advanced config template replicating Infracost's auto-detect behavior</summary>
 
 This is useful if you want to use the Infracost auto-detect functionality but add additional config like `terraform_vars`.
 
@@ -1105,7 +1119,8 @@ projects:
 
 </details>
 
-<details><summary>Looping over projects with environments contained in a sub folder</summary>
+<details>
+  <summary>Looping over projects with environments contained in a sub folder</summary>
 
 ```yaml
 version: 0.1
@@ -1117,7 +1132,8 @@ projects:
 ```
 </details>
 
-<details><summary>Excluding certain projects</summary>
+<details>
+  <summary>Excluding certain projects</summary>
 
 ```yaml
 version: 0.1
@@ -1133,7 +1149,8 @@ projects:
 ```
 </details>
 
-<details><summary>Only matching certain project</summary>
+<details>
+  <summary>Only matching certain project</summary>
 
 ```yaml
 version: 0.1
@@ -1147,7 +1164,8 @@ projects:
 ```
 </details>
 
-<details><summary>Looping over multiple projects with a var file contained at the root level as well as project</summary>
+<details>
+  <summary>Looping over multiple projects with a var file contained at the root level as well as project</summary>
 
 ```yaml
 version: 0.1
@@ -1164,7 +1182,8 @@ projects:
 ```
 </details>
 
-<details><summary>Project with configuration defined in a non-Terraform file</summary>
+<details>
+  <summary>Project with configuration defined in a non-Terraform file</summary>
 
 ```yaml
 version: 0.1
@@ -1179,7 +1198,8 @@ projects:
 ```
 </details>
 
-<details><summary>Looping over projects with complex <code>matchPaths</code> matchers</summary>
+<details>
+  <summary>Looping over projects with complex <code>matchPaths</code> matchers</summary>
 
 Example folder structure:
 ```
