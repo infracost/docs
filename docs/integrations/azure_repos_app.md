@@ -43,6 +43,8 @@ There are two key benefits of using the Azure Repos App over manual CI/CD integr
    - Add the Infracost service principal to this group. The Azure DevOps Access Level for the Infracost service principal needs to be "Basic" (not the free Stakeholder one) so it has permission to list repos.
    - Set permissions to the groups so Infracost can manage webhooks and policies in those projects.
 
+  NB: If you have projects added, but you keep seeing a warning that Infracost can't detect any repos, please ensure that the Infracost service principal has **Basic** access level in Azure DevOps Organization settings > Users. Azure can randomly switch it to **Stakeholder**, and we don't have control over this.
+
 6. Once the repos are added to Infracost, you can [send a pull request](/docs/infracost_cloud/get_started/#4-send-a-pull-request) to test the integration.
 
    <img src={useBaseUrl("img/screenshots/azure-app-comment.png")} alt="Infracost Azure PR comment" />
