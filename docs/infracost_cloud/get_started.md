@@ -27,11 +27,11 @@ Follow the onboarding wizard on the dashboard to setup Infracost Cloud. Infracos
 
 Test the integration using the following steps:
 
-1. In your infra-as-code repo, create a new branch "infracost_test".
-2. In the test branch, add a new file called `infracost_test.tf` at the repo root with the following example Terraform code.
+1.  In your infra-as-code repo, create a new branch "infracost_test".
+2.  In the test branch, add a new file called `infracost_test.tf` at the repo root with the following example Terraform code.
 
-   <details>
-   <summary>Example AWS Terraform code</summary>
+    <details>
+    <summary>Example AWS Terraform code</summary>
 
     ```hcl
     provider "aws" {
@@ -72,13 +72,14 @@ Test the integration using the following steps:
     ```
 
     In the above example, the Infracost pull request comment points out that:
-    1. The `root_block_device` defaults to AWS `gp2` since `volume_type` has not been specified. You should consider using `gp3` as it enables you to define performance independent of storage capacity, while providing up to 20% lower price per GB.
-    2. Also, the `m3` instance type is previous generation and should be upgraded to `m5` since that gives you a 27% saving for a more performant machine.
 
-    </details>
+         1. The `root_block_device` defaults to AWS `gp2` since `volume_type` has not been specified. You should consider using `gp3` as it enables you to define performance independent of storage capacity, while providing up to 20% lower price per GB.
+         2. Also, the `m3` instance type is previous generation and should be upgraded to `m5` since that gives you a 27% saving for a more performant machine.
 
-    <details>
-    <summary>Example Azure Terraform code</summary>
+     </details>
+
+     <details>
+       <summary>Example Azure Terraform code</summary>
 
     ```hcl
     provider "azurerm" {
@@ -148,13 +149,14 @@ Test the integration using the following steps:
     ```
 
     In the above example, the Infracost pull request comment points out that:
-    1. The `Standard_F16s` instance type is previous generation and should be upgraded to `Standard_F16s_v2`, since that gives you a more performant machine at a lower cost.
-    2. The App Service plan SKU name should be upgraded to a v3 plan, such as `P0v3`, since that gives you more performance and is eligible for savings plans and reserved instance pricing, opening opportunities for major savings.
 
-    </details>
+         1. The `Standard_F16s` instance type is previous generation and should be upgraded to `Standard_F16s_v2`, since that gives you a more performant machine at a lower cost.
+         2. The App Service plan SKU name should be upgraded to a v3 plan, such as `P0v3`, since that gives you more performance and is eligible for savings plans and reserved instance pricing, opening opportunities for major savings.
 
-    <details>
-    <summary>Example Google Terraform code</summary>
+     </details>
+
+     <details>
+     <summary>Example Google Terraform code</summary>
 
     ```hcl
     provider "google" {
@@ -206,12 +208,13 @@ Test the integration using the following steps:
 
     In the above example, the Infracost pull request comment points out that the `n1-standard-16` instance type is previous generation and should be upgraded to something like `n2-standard-16` as that gives you a more performance machine.
 
-    </details>
-3. Commit and push the change.
-4. Send a pull request from the test branch into main/master (don't worry we won't merge it!).
-5. 🎉 That's it! You should see a pull request comment showing the cost estimate as well as FinOps best practices that could be considered.
-  <img src={useBaseUrl("img/infracost-cloud/pull-request-comment.png")} alt="Pull request comment" />
-6. Feel free to change other things in the `infracost_test.tf` file. The pull request comment gets updated when new changes are pushed, e.g. the 📉 and 📈 emojis will update when costs decrease or increase. Close the pull request when you are done testing.
+     </details>
+
+3.  Commit and push the change.
+4.  Send a pull request from the test branch into main/master (don't worry we won't merge it!).
+5.  🎉 That's it! You should see a pull request comment showing the cost estimate as well as FinOps best practices that could be considered.
+    <img src={useBaseUrl("img/infracost-cloud/pull-request-comment.png")} alt="Pull request comment" />
+6.  Feel free to change other things in the `infracost_test.tf` file. The pull request comment gets updated when new changes are pushed, e.g. the 📉 and 📈 emojis will update when costs decrease or increase. Close the pull request when you are done testing.
 
 ### 5. See cost estimate in Infracost Cloud
 
