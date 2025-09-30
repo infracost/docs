@@ -55,7 +55,7 @@ Choose which issue metric to sum in your reports:
 | --------- | ----- | -------- |
 | Open Issues | Current unresolved issues requiring attention | Identifying where to focus remediation efforts, understanding current technical debt, or planning campaigns |
 | Fixed Issues | Issues that have been successfully resolved | Demonstrating team progress, celebrating wins, or identifying which teams/policies are seeing the most improvement |
-| Prevented Issues | Issues caught and blocked before reaching production | Measuring shift-left success, validating CI/CD policies, or showing ROI of prevention tooling |
+| Prevented Issues | Issues caught, and either prevented before reaching production or fixed by follow-up changes | Measuring shift-left success, validating CI/CD policies, or showing ROI of prevention tooling |
 | New Issues | Recently introduced issues within your selected timeframe | Identifying regression trends, spotting problematic deployments, or understanding if governance is improving |
 | Dismissed Issues | Issues marked as false positives or accepted risks | Auditing policy effectiveness, understanding exception patterns, or refining policy rules |
 
