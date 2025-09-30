@@ -13,7 +13,7 @@ Issue Explorer provides centralized visibility into cloud cost optimization oppo
 
 ## How it works
 
-Issue Explorer continuously scans your infrastructure code across all repositories and environments, identifying cost optimization opportunities and policy violations. It aggregates these findings into a unified dashboard, enabling FinOps teams to track governance compliance and engineering teams to prioritize fixes based on potential savings.
+Issue Explorer continuously scans your infrastructure code across all repositories and projects, identifying cost optimization opportunities and policy violations. It aggregates these findings into a unified dashboard, enabling FinOps teams to track governance compliance and engineering teams to prioritize fixes based on potential savings.
 
 ## Key Benefits
 - **Centralized visibility**: Track all infrastructure issues across multiple repositories and teams in one place
