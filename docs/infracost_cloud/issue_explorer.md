@@ -114,7 +114,7 @@ Set custom time periods to analyze trends, or focus on recent changes:
 * **Repo Name:** Focus on specific repositories
 * **Repo Org:** Filter by GitHub/GitLab organization
 * **Commit Author:** Track issues by who introduced them
-* **PR Comment:** Find issues flagged in pull request reviews
+* **PR Comment:** Find issues flagged (i.e. enabled) in pull request reviews
 
 #### Organization, Application, and Service Filters
 
