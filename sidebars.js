@@ -28,6 +28,7 @@ module.exports = {
       collapsed: false,
       items: [
         'infracost_cloud/get_started',
+        'infracost_cloud/issue_explorer',
         'infracost_cloud/finops_policies',
         'infracost_cloud/tagging_policies',
         'infracost_cloud/guardrails',
