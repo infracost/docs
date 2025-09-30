@@ -67,7 +67,7 @@ Organize your selected metric by different attributes to reveal patterns:
 
 | Group by | Reveals | Example insights |
 | -------- | ------- | ------- |
-| Policy | Which FinOps policies are most/least violated | "Unattached disk" violations are increasing while "preferred instance" violations are decreasing
+| Policy | Which FinOps policies are most/least violated | "gp2 volume" violations are increasing while "preferred instance" violations are decreasing
 | Repository | Which codebases contribute most to your issues | The payments-service repo has fixed 90% of issues while the legacy-api repo shows no improvement |
 | Repository Org | Patterns across GitHub/GitLab organizations | The platform-team org prevents 5x more issues than other orgs due to better CI/CD checks |
 | `CustomAttribute` | Patterns specific to your organization | _(Options include: Business unit, team, application, service, cost center, or any configured attribute)_ <br/><br/>The Data & Analytics business unit has the highest prevented-to-fixed ratio, showing strong shift-left adoption |
