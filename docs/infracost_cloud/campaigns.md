@@ -95,6 +95,19 @@ Ensure all resources have required tags:
   *  **Start and end dates**: 2025-02-01 – 2025-02-28
   *  **Advisory period**: 7 days
 
+### Instance Modernization
+
+* **Campaign name:** Q2 Instance Modernization
+* **Campaign description:** Upgrading to more recent instance types can significantly reduce costs and boost performance. By modernizing our compute resources, we can take advantage of better price-to-performance ratios, improved efficiency, and new features—helping us optimize over $10M/yr in compute spend. This campaign will focus on identifying and upgrading outdated instances where the savings and performance gains justify the engineering effort.
+* **Choose policies:** 
+ * `Compute - consider using current generation machine types`
+ * `EC2 - consider using latest generation instances for c family instances`
+ * `Virtual Machines - consider using the latest generation of Da series instances`
+* **Campaign objectives**
+  *  **Goal**: 50%
+  *  **Start and end dates**: 2025-04-01 – 2025-06-30
+  *  **Advisory period**: 14 days
+
 ### Rightsizing Quick Wins
 
 * **Campaign name:** Q3 Instance Optimizations
