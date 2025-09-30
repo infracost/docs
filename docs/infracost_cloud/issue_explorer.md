@@ -246,7 +246,7 @@ This data becomes powerful evidence for resource allocation decisions, team reco
 
 ## Turning Insights into Campaigns
 
-When your analysis reveals patterns in open issues—whether concentrated in specific teams, applications, or policy types—campaigns transform these insights into coordinated action.
+When your analysis reveals patterns in open issues—whether concentrated in specific teams, applications, or policy types—[campaigns transform these insights into coordinated action](/docs/infracost_cloud/campaigns).
 
 ## Related Features
 

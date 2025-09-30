@@ -24,7 +24,7 @@ Campaigns follow the [S.M.A.R.T. framework](https://en.wikipedia.org/wiki/SMART_
 
 ### 1. Review your policy violations
 
-Navigate to the [Issues Explorer](/infracost_cloud/issues_explorer/) to see which policies are failing the most across your organization. Infracost automatically analyzes all connected repositories and provides data-driven insights about where to focus.
+Navigate to the [Issue Explorer](/infracost_cloud/issue_explorer/) to see which policies are failing the most across your organization. Infracost automatically analyzes all connected repositories and provides data-driven insights about where to focus.
 
 ### 2. Create your first campaign
 
