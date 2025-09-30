@@ -38,7 +38,6 @@ navigation menu:
 
 ### Switching Chart Type
 
-[PLACEHOLDER: Add dashboard screenshot]
 
 Click either chart icon to instantly switch views—your filters and date ranges remain unchanged, letting you explore the same data from different perspectives.
 
