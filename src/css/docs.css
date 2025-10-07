@@ -57,10 +57,11 @@
   }
 }
 
-div[class^=announcementBar_] {
+div[class*="announcementBar_"] {
   background: linear-gradient(243.9deg, #BD62B6 0%, #6658C5 100%) !important;
   border-bottom: 1px solid var(--border-color);
 }
+
 
 .announcement-message {
   font-size: 0.875rem;
@@ -108,6 +109,11 @@ pre {
 
   --docsearch-key-gradient: none;
   --docsearch-key-shadow: none;
+  --docsearch-background-color: none;
+  --docsearch-hit-highlight-color: var(--primary);
+  --docsearch-highlight-color: var(--nu20);
+  --docsearch-secondary-text-color: var(--faded-text);
+  --docsearch-icon-color: var(--primary);
 }
 
 .DocSearch.DocSearch-Button {
@@ -144,6 +150,7 @@ pre {
 
 .DocSearch.DocSearch-Button .DocSearch-Button-Placeholder {
   font-size: 0.875rem;
+  color: var(--nu50);
 }
 
 .DocSearch.DocSearch-Button .DocSearch-Button-Key {

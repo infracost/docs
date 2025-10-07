@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable global-require */
+import { themes as prismThemes } from 'prism-react-renderer';
 
 require('dotenv').config();
 
@@ -80,8 +81,8 @@ module.exports = {
             to: '/integrations/open_policy_agent',
           },
           {
-            from: "/usage_based_resources/",
-            to: "/features/usage_based_resources/",
+            from: '/usage_based_resources/',
+            to: '/features/usage_based_resources/',
           },
           {
             from: '/multi_project/report',
@@ -178,8 +179,8 @@ module.exports = {
       textColor: '#EBEBF2',
     },
     prism: {
-      theme: require('prism-react-renderer').themes.dracula,
-      additionalLanguages: ['hcl'],
+      theme: prismThemes.dracula,
+      additionalLanguages: ['hcl', 'bash', 'json', 'diff', 'yaml'],
     },
     algolia: {
       appId: 'ERN68FLCI1',
