@@ -24,6 +24,7 @@ In Infracost Cloud, organizations are used to group repos, policies and other as
 ## Team management
 
 From the Org Settings > Members page, you can invite your team members to join your organization. Currently these roles are supported:
+
 - **Org Owner**: they have complete control over the organization. We recommend giving the main billing contact the owner role. From the Members page, the owner can transfer this role to another member. Only the owner can delete the organization or change its name or slug.
 - **Org Admin**: they can do everything except deleting the organization, or changing its name or slug. We recommend giving FinOps/Platform team members the admin role so they can setup integrations for everyone, manage users, custom price books, and configure other Org Settings.
 - **Org Editor**: they can change everything except Org Settings and data exports. This means they cannot invite members to the organization either. They can view everything except the following Org Settings: API keys, Members, Plan and billing, Custom price books, Integrations. We recommend giving team leads/managers the editor role so they can also add guardrails, policies and reports for their teams if required.
@@ -36,6 +37,7 @@ Repos, short for code repositories, is where your code lives in GitHub, Azure Re
 ## Projects
 
 Projects map to repo sub-groups. The majority of Infracost users will have repos that have many projects, these include:
+
 - code paths for mono repos, each path represents a deployment environment such as dev, stage, prod
 - workspaces, same idea as above but done using Terraform var files or workspaces
 - Terraform or Terragrunt modules, which are components of a repo, e.g. core-api or data-stack
@@ -51,4 +53,3 @@ Infracost auto-generates project names based on code paths, workspaces or Terraf
 ---
 
 <img src={useBaseUrl("img/infracost-cloud/infracost-cloud-project-name.png")} alt="Project name in Infracost Cloud" />
-

@@ -5,7 +5,7 @@ title: Reports
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-All Infracost Cloud users get a weekly email summarizing the main changes across all repos in their organization. This email shows the most impactful changes across repos, projects, pull requests and users. 
+All Infracost Cloud users get a weekly email summarizing the main changes across all repos in their organization. This email shows the most impactful changes across repos, projects, pull requests and users.
 
 ### Usage
 
@@ -18,4 +18,3 @@ Log in to [Infracost Cloud](https://dashboard.infracost.io) and go to Reports > 
 The following screenshot shows an example email report.
 
 <img src={useBaseUrl("img/infracost-cloud/report-email.png")} alt="Weekly report email" width="75%" />
-

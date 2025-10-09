@@ -24,3 +24,10 @@ yarn-error.log*
 .vscode/
 
 .env
+
+# Visual regression testing
+.lostpixel/
+lostpixel-pages.json
+test-results/
+playwright-report/
+.baseline/

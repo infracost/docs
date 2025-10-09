@@ -17,13 +17,13 @@ For **git modules**, ensure that the Infracost App has access to the module repo
 
 For **registry modules**, enter the following information:
 
-* **Terraform Cloud:** set the host to `app.terraform.io` and the token to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
-* **Terraform Enterprise:** set the host to your Terraform Enterprise hostname and the token to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
-* **GitLab:** set the host to `gitlab.com` (or your GitLab hostname) and the token to your [GitLab token](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry).
-* **JFrog:** set the host to your JFrog hostname and the token to an [identity token](https://www.jfrog.com/confluence/display/JFROG/Terraform+Registry#TerraformRegistry-manual-configurationManuallyGeneratinganIdentityToken).
-* **Spacelift**: See our dedicated [Spacelift integration](/docs/integrations/spacelift) page for instructions. 
-* **Other registries:** set the host to the hostname of the registry and the token to the access token for that registry.
-* **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [support@infracost.io](mailto:support@infracost.io) so we can assist you.
+- **Terraform Cloud:** set the host to `app.terraform.io` and the token to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
+- **Terraform Enterprise:** set the host to your Terraform Enterprise hostname and the token to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
+- **GitLab:** set the host to `gitlab.com` (or your GitLab hostname) and the token to your [GitLab token](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry).
+- **JFrog:** set the host to your JFrog hostname and the token to an [identity token](https://www.jfrog.com/confluence/display/JFROG/Terraform+Registry#TerraformRegistry-manual-configurationManuallyGeneratinganIdentityToken).
+- **Spacelift**: See our dedicated [Spacelift integration](/docs/integrations/spacelift) page for instructions.
+- **Other registries:** set the host to the hostname of the registry and the token to the access token for that registry.
+- **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [support@infracost.io](mailto:support@infracost.io) so we can assist you.
 
 For S3 modules, set the [required environment variables](/docs/features/terraform_modules/#s3-modules) in the "Additional environment variables" section of the Run configurations page.
 
@@ -35,34 +35,36 @@ If you use the Infracost [CI/CD integrations](/docs/integrations/cicd/#cicd-inte
 
 Infracost downloads private git SSH modules using SSH keys (same as Terraform/Terragrunt). Set an environment variable or secret, such as `GIT_SSH_KEY`, with your private SSH key then use the following code snippets to add it to the SSH agent in your CI/CD runner. The secret variable usually starts with `-----BEGIN RSA PRIVATE KEY-----`.
 
-  ```shell
-  mkdir -p ~/.ssh
-  eval `ssh-agent -s`
-  echo "$GIT_SSH_KEY" | tr -d '\r' | ssh-add -
-  # Update this to github.com, gitlab.com, bitbucket.org, ssh.dev.azure.com or your source control server's domain
-  ssh-keyscan github.com >> ~/.ssh/known_hosts
+```shell
+mkdir -p ~/.ssh
+eval `ssh-agent -s`
+echo "$GIT_SSH_KEY" | tr -d '\r' | ssh-add -
+# Update this to github.com, gitlab.com, bitbucket.org, ssh.dev.azure.com or your source control server's domain
+ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-  # Run Infracost commands in CI/CD as usual
-  infracost breakdown --path /code
-  ```
+# Run Infracost commands in CI/CD as usual
+infracost breakdown --path /code
+```
 
 If your SSH key has a passphrase too, you can also add an environment variable or secret with your passphrase:
-  ```shell
-  mkdir -p ~/.ssh
-  eval `ssh-agent -s`
-  echo '#!/bin/sh'> ~/.ssh_askpass
-  echo "echo $GIT_SSH_KEY_PASSPHRASE" >> ~/.ssh_askpass && chmod +x ~/.ssh_askpass
-  echo "$GIT_SSH_KEY" | tr -d '\r' | DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add -
-  # Update this to github.com, gitlab.com, bitbucket.org, ssh.dev.azure.com or your source control server's domain
-  ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-  # Run Infracost commands in CI/CD as usual
-  infracost breakdown --path /code
-  ```
+```shell
+mkdir -p ~/.ssh
+eval `ssh-agent -s`
+echo '#!/bin/sh'> ~/.ssh_askpass
+echo "echo $GIT_SSH_KEY_PASSPHRASE" >> ~/.ssh_askpass && chmod +x ~/.ssh_askpass
+echo "$GIT_SSH_KEY" | tr -d '\r' | DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add -
+# Update this to github.com, gitlab.com, bitbucket.org, ssh.dev.azure.com or your source control server's domain
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+# Run Infracost commands in CI/CD as usual
+infracost breakdown --path /code
+```
 
 #### Git HTTPS modules
 
 ##### Option 1: use SSH instead of HTTPS
+
 We suggest tweaking your Terraform code to download modules using [SSH instead of HTTPS](https://developer.hashicorp.com/terraform/language/modules/sources#github). This is usually a 1-line change, and it should be safe as you are just telling Terraform/Infracost to download the module differently (but obviously test it). Here's an example of an HTTPS module being used:
 
 ```terraform
@@ -85,9 +87,10 @@ module "my-module" {
 ##### Option 2: Provide HTTPS credentials
 
 If you cannot use Option 1, you need to add HTTPS credentials that can be used to download the private module repos into the `~/.git-credentials` file
-  ```bash
-  echo "https://git:MY-PASSWORD@github.com" >> ~/.git-credentials
-  ```
+
+```bash
+echo "https://git:MY-PASSWORD@github.com" >> ~/.git-credentials
+```
 
 This tells `git` to download HTTPS repos using the provided credentials (used by Terraform and Infracost internally).
 
@@ -95,13 +98,13 @@ This tells `git` to download HTTPS repos using the provided credentials (used by
 
 Set the following environment variables in your CI/CD pipeline:
 
-* **Terraform Cloud:** set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
-* **Terraform Enterprise:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your Terraform Enterprise hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
-* **GitLab:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to `gitlab.com` (or your GitLab hostname) and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [GitLab token](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry).
-* **JFrog:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your JFrog hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [identity token](https://www.jfrog.com/confluence/display/JFROG/Terraform+Registry#TerraformRegistry-manual-configurationManuallyGeneratinganIdentityToken).
-* **Spacelift**: See our dedicated [Spacelift integration](/docs/integrations/spacelift) page for instructions.
-* **Other registries:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to the hostname of the registry and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to the access token for that registry.
-* **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [support@infracost.io](mailto:support@infracost.io) so we can assist you.
+- **Terraform Cloud:** set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
+- **Terraform Enterprise:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your Terraform Enterprise hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html) (these tokens do not have permission to read variables marked as Sensitive).
+- **GitLab:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to `gitlab.com` (or your GitLab hostname) and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [GitLab token](https://docs.gitlab.com/ee/user/packages/terraform_module_registry/#authenticate-to-the-terraform-module-registry).
+- **JFrog:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to your JFrog hostname and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to your [identity token](https://www.jfrog.com/confluence/display/JFROG/Terraform+Registry#TerraformRegistry-manual-configurationManuallyGeneratinganIdentityToken).
+- **Spacelift**: See our dedicated [Spacelift integration](/docs/integrations/spacelift) page for instructions.
+- **Other registries:** set the `INFRACOST_TERRAFORM_CLOUD_HOST` environment variable to the hostname of the registry and `INFRACOST_TERRAFORM_CLOUD_TOKEN` to the access token for that registry.
+- **Modules from multiple registries:** this could be supported by using the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) environment variable; contact [support@infracost.io](mailto:support@infracost.io) so we can assist you.
 
 #### S3 modules
 
@@ -109,21 +112,15 @@ If you store your private modules in an S3 bucket, you need to provide readonly 
 
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowObjectDownload",
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket",
-                "s3:GetObject"
-            ],
-            "Resource": [
-              "arn:aws:s3:::BUCKET_NAME",
-              "arn:aws:s3:::BUCKET_NAME/*"
-          ]
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowObjectDownload",
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket", "s3:GetObject"],
+      "Resource": ["arn:aws:s3:::BUCKET_NAME", "arn:aws:s3:::BUCKET_NAME/*"]
+    }
+  ]
 }
 ```
 
@@ -136,16 +133,19 @@ For Terragrunt `terraform` blocks, this has the exact same functionality as the 
 For `module` blocks in Terraform, the functionality is similar but supports matching on prefixes as well as the full source URL.
 
 For example, to map remote git modules to local module specify:
+
 ```
 INFRACOST_TERRAFORM_SOURCE_MAP=git::https://github.com/my-org/my-first-module.git=./local/my-first-module,git::https://github.com/my-org/my-second-module.git=./local/my-second-module
 ```
 
 To map a single remote git SSH modules to a git HTTPS module specify:
+
 ```
 INFRACOST_TERRAFORM_SOURCE_MAP=git::ssh://github.com/my-org/my-first-module.git=git::https://github.com/my-org/my-first-module.git,git::ssh://github.com/my-org/my-second-module.git=git::https://github.com/my-org/my-second-module.git
 ```
 
 To map all git SSH modules to git HTTPS modules for a single GitHub org, you can specify a prefix to match:
+
 ```
 INFRACOST_TERRAFORM_SOURCE_MAP=git::ssh://github.com/my-org/=git::https://github.com/my-org/
 ```
@@ -157,6 +157,7 @@ This only works for module URLs, not Terragrunt `terraform` blocks.
 When replacing module sources using the source map, the most specific match takes precedence.
 
 For example, given this source map:
+
 ```
 INFRACOST_TERRAFORM_SOURCE_MAP=git::https://github.com/my-org/my-module?ref=v1.0.0=./local/my-module-A,git::https://github.com/my-org/my-module=./local/my-module-B
 ```
@@ -164,17 +165,17 @@ INFRACOST_TERRAFORM_SOURCE_MAP=git::https://github.com/my-org/my-module?ref=v1.0
 The sources will be mapped as follows:
 
 | Source specified in Terraform                         | Mapped source         |
-|-------------------------------------------------------|-----------------------|
+| ----------------------------------------------------- | --------------------- |
 | `git::https://github.com/my-org/my-module?ref=v1.0.0` | `./local/my-module-A` |
 | `git::https://github.com/my-org/my-module?ref=v2.0.0` | `./local/my-module-B` |
 | `git::https://github.com/my-org/my-module`            | `./local/my-module-B` |
-
 
 ## Running Infracost in module repos
 
 You can run `infracost breakdown --path modules/my-module` to get a cost estimate for an individual module. Module variables can be passed-in using the `--terraform-var-file` or `terraform-var` flags.
 
 To get a combined cost estimate from multiple modules, create a [config-file](/docs/features/config_file/) as follows and run `infracost breakdown --config-file infracost.yml`:
+
 ```yaml
 version: 0.1
 

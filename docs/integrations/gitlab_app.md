@@ -7,13 +7,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Infracost GitLab App is an automated integration meaning that Infracost runs on our infrastructure and we keep it up to date. Infracost is trusted by thousands of companies around the world, including many of the Fortune 500. We are <a href="https://www.infracost.io/security/" target="_self" rel="">SOC 2 Type II</a> certified.
 
-| 1. Install the Infracost GitLab App | 2. Get merge request comments |
-|--------------|-----------|
-<img src={useBaseUrl("img/screenshots/gitlab-app-install.png")} alt="Install the GitLab App into any GitLab organization" width="100%"/> | <img src={useBaseUrl("img/screenshots/gitlab-app-comment.png")} alt="Infracost automatically leaves a comment on every merge request"/>
+| 1. Install the Infracost GitLab App                                                                                                      | 2. Get merge request comments                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src={useBaseUrl("img/screenshots/gitlab-app-install.png")} alt="Install the GitLab App into any GitLab organization" width="100%"/> | <img src={useBaseUrl("img/screenshots/gitlab-app-comment.png")} alt="Infracost automatically leaves a comment on every merge request"/> |
 
 ## Benefits
 
 There are two key benefits of using the GitLab App over manual CI/CD integrations:
+
 1. You can add Infracost to multiple repos with one click, no need to install or update CLI versions in your CI/CD pipeline.
 2. Infracost runs significantly faster as only changed folders are run based on the GitLab App events.
 
@@ -23,12 +24,12 @@ There are two key benefits of using the GitLab App over manual CI/CD integration
 
 2. Every Infracost user has a default organization for personal use. Create a new organization for your company using the organization dropdown at the top of the page.
 
-  <img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
+<img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
 
 3. Click on Settings > Org Settings > Integrations > GitLab and follow the wizard to select the repos you want to give Infracost access to.
 
-  Infracost has an [OAuth Application](https://docs.gitlab.com/api/applications/) that is used to connect to your GitLab.
-  Note that you should create or use a bot GitLab user with "Maintainer" access to the projects you want to use with Infracost. You must be logged in to GitLab UI with that bot user before proceeding to connect, as the Infracost GitLab App will be installed using that user’s account. [GitLab Service Accounts](https://docs.gitlab.com/ee/user/profile/service_accounts.html) cannot be used to install apps as they cannot login to the GitLab UI.
+Infracost has an [OAuth Application](https://docs.gitlab.com/api/applications/) that is used to connect to your GitLab.
+Note that you should create or use a bot GitLab user with "Maintainer" access to the projects you want to use with Infracost. You must be logged in to GitLab UI with that bot user before proceeding to connect, as the Infracost GitLab App will be installed using that user’s account. [GitLab Service Accounts](https://docs.gitlab.com/ee/user/profile/service_accounts.html) cannot be used to install apps as they cannot login to the GitLab UI.
 
 4. If you use private modules, see [this docs section](/docs/features/terraform_modules/#source-control-integrations).
 
@@ -59,6 +60,7 @@ The GitLab App needs access to code repos so it can run the CLI against them, an
 Each time a merge request is opened or a new commit is pushed to an open merge request, the Infracost GitLab App shows any tagging or FinOps policy issues that were introduced by the merge request along with the cost difference between the most recent commit of the merge request branch and the merge base of the base branch. This mirrors GitLab merge request diff logic and shows only the changes the merge request introduces.
 
 The GitLab App automatically reflects the following changes in Infracost:
+
 - Repos that are **renamed** are automatically updated in Infracost.
 - When a repo is **moved** from one GitLab Org to another, that change is reflected in Infracost. When the source and destination GitLab Orgs are in different Infracost Orgs, the move is also performed as long as the Infracost Cloud orgs are in the same Enterprise.
 - Repos that are **deleted** or **archived** are marked as archived in Infracost and preserved for audit purposes. Their issues no longer show in the dashboard.
@@ -82,6 +84,7 @@ Engineers can add a merge request comment `@infracost help` to get more informat
 The dismiss command makes Infracost ignore the detected blocking issues going forward. If you simply need to unblock a MR merge and intend to address the issue later, consider using the snooze command.
 
 Dismissing a policy issue works as follows:
+
 - The engineer adds a comment to the merge request to dismiss the issue using the command `@infracost dismiss <optional reason>`.
 - The Infracost GitLab App will then read the comment and react to the comment to let the engineer know the issue is queued for dismissal.
   <img src={useBaseUrl("img/gitlab/dismiss.png")} alt="reaction" className="img-rounded" />
@@ -89,13 +92,14 @@ Dismissing a policy issue works as follows:
 - Any blocking status checks will be updated to succeeded, enabling the engineer to merge the merge request.
   <img src={useBaseUrl("img/gitlab/complete.png")} alt="passing" className="img-rounded" />
 - Dismissed issues are shown in Infracost Cloud in the policies pages. You can filter by dismissed issues to see all the issues your engineers have dismissed and their reasons.
-  <img src={useBaseUrl("img/github/dismissed-table.png")} alt="dismissed table" className="img-rounded" />  
+  <img src={useBaseUrl("img/github/dismissed-table.png")} alt="dismissed table" className="img-rounded" />
 
 #### Snooze
 
 The snooze command allows you to unblock the merging of a MR when Infracost detects any blocking policy issues. This is useful for urgent tasks, such as bug fixes.
 
 Snoozing a blocked MR works as follows:
+
 - The engineer adds a comment to the merge request to snooze the issue using the command `@infracost snooze <optional reason>`.
   <img src={useBaseUrl("img/gitlab/snooze.png")} alt="snooze" className="img-rounded" />
 - The Infracost GitLab App will then read the comment and react to the comment to let the engineer know the issue is queued for snoozing.

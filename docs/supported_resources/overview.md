@@ -15,6 +15,7 @@ You can also run the following command to see only the unsupported resources:
 We regularly add support for new resources so we recommend watching our repo for releases: Go to the [repo](https://github.com/infracost/infracost) page, click on the Watch button > select Custom > Releases and click on Apply.
 
 You can help by:
+
 1. [Creating an issue](https://github.com/infracost/infracost/issues/new/choose) and mentioning the resource names you need; we'll try to prioritize it depending on community feedback.
 2. [Contributing to Infracost](https://github.com/infracost/infracost#contributing). You can join our [community Slack channel](https://www.infracost.io/community-chat) if you need help contributing.
 

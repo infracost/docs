@@ -92,14 +92,12 @@ To set up this feature, follow the steps below based on your source control syst
    [**Instructions for GitHub**](/docs/integrations/github_app/#make-infracost-a-required-check)
 
    **Azure Repos App**:
-
    1. Go to Project Settings > Repositories > Policies
    2. Add a new or edit the existing Branch Policy for your default branches
    3. Add a new Status Check for `checks/infracost`, and set it to Required.
       <img src={useBaseUrl("img/infracost-cloud/guardrails/azure-repos-require-status-pass.png")} alt="Configure Azure Repos to require status checks to pass before pull requests can be merged" />
 
    **GitLab App**:
-
    1. Follow [this doc](https://docs.gitlab.com/ee/user/project/merge_requests/status_checks.html#block-merges-of-merge-requests-unless-all-status-checks-have-passed) to setup a similar configuration.
 
 #### Example output

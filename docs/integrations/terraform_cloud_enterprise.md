@@ -18,6 +18,7 @@ Our Source control and CI/CD integrations run the Infracost CLI and parse Terraf
 <img src={useBaseUrl("img/screenshots/tfc_integration.png")} alt="Terraform Cloud Run Task integration" width="100%"/>
 
 This integration offers several features to enhance your Terraform Cloud experience:
+
 1. **Cost Estimates and policies**: Easily view cost estimates, tagging, and FinOps policy issues during Terraform Cloud runs. You can access detailed information in Infracost Cloud with just a click.
 2. **Policy enforcement**: Automatically block runs that fail tagging and FinOps policies that you've designated as blocking, ensuring compliance with your policies.
 3. **Guardrails for pull requests**: guardrails work when executing Run Tasks from pull requests. You can choose to block runs if needed when setting up guardrails. Note that manual runs from Terraform Cloud won't trigger guardrails since they're not associated with pull requests. If you unblock guardrails, remember to click "Retry run" in Terraform Cloud to reflect the updated status.
@@ -32,6 +33,7 @@ Sign up or log in to [Infracost Cloud](https://dashboard.infracost.io) and go to
 ### 2. Firewall configuration for TFE
 
 This step is only needed by Terraform Enterprise (TFE) users. You need to allow incoming traffic from the following IP addresses to your TFE instance port 443 (or whatever port you use); these are the IP addresses used by Infracost Cloud services to call your Run Task integration.
+
 - 3.133.40.66
 - 3.16.104.91
 - 3.147.121.170
@@ -44,6 +46,7 @@ If you have restricted out-going traffic from your TFE instance, you need to all
 ### 3. Configure a Run Task
 
 Follow the [instructions for configuring a Run Task](https://www.terraform.io/docs/cloud/workspaces/run-tasks.html#configuring-a-run-task) in Terraform Cloud. You should:
+
 - Enable the Run Task as a **post-plan stage** in your workspaces (only this "stage" option is supported by Infracost).
 - Set the Run Task to the **Mandatory** enforcement level so you can configure which Tagging or FinOps policies should block runs in Infracost Cloud.
 
@@ -77,7 +80,8 @@ Follow the [instructions for configuring a Run Task](https://www.terraform.io/do
     task_id           = resource.tfe_organization_run_task.example.id
     enforcement_level = "mandatory"
   }
-  ```
+```
+
 </details>
 
 ### 4. Results
@@ -91,6 +95,7 @@ If you are using Terraform Cloud/Enterprise, or Terraform workspaces, and you'd 
 ### With Terraform Cloud/Enterprise
 
 When Terraform Cloud/Enterprise's [remote execution mode](https://www.terraform.io/cloud-docs/workspaces/settings#execution-mode) is used, Infracost will use the token in the Terraform CLI config file to automatically retrieve the variables. If that does not satisfy your use-case, you can **either**:
+
 1. Set the `INFRACOST_TERRAFORM_CLOUD_TOKEN` environment variable to a [Team API Token or User API Token](https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html). `INFRACOST_TERRAFORM_CLOUD_HOST` can also be set for Terraform Enterprise users (e.g. to avoid using app.terraform.io). These environment variables can also be set in the [config file](/docs/features/config_file).
 2. Set the [`TF_CLI_CONFIG_FILE`](https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file) to the absolute path of your Terraform CLI config file.
 
@@ -99,6 +104,7 @@ When Terraform Cloud/Enterprise's [remote execution mode](https://www.terraform.
 Terraform Cloud/Enterprise users who use multiple Terraform workspaces, can use an Infracost [config file](/docs/features/config_file) to define them; their results will be combined into the same breakdown or diff output.
 
 If you'd like to select one workspace, you can do so by **either**:
+
 1. using the `--terraform-workspace` flag.
 2. setting the `INFRACOST_TERRAFORM_WORKSPACE` environment variable (this sets the [`TF_WORKSPACE`](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_workspace) internally).
 

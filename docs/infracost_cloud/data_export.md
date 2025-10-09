@@ -1,11 +1,11 @@
 ---
-slug: data_export 
+slug: data_export
 title: Data export
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Enterprises often have thousands of code repos across many departments, divisions or business units. FinOps teams are usually centralized and need visibility across the enterprise so they can better prioritize their efforts. 
+Enterprises often have thousands of code repos across many departments, divisions or business units. FinOps teams are usually centralized and need visibility across the enterprise so they can better prioritize their efforts.
 
 Infracost data exports provide this visibility. FinOps teams can, for example, see that departmentA is doing well when it comes to latest generation instance types being used, but need help improving their tagging coverage; or that departmentB has few data retention policies so specific training might be needed.
 
@@ -20,13 +20,16 @@ Data exports can be setup at either the Infracost organization level, or the ent
 <img src={useBaseUrl("img/infracost-cloud/data-export.png")} alt="Export data to AWS S3 and Azure Blob Storage" />
 
 ### Organization data export
+
 Once configured, CSV files will be updated daily with the latest information, replacing any earlier versions of the file:
+
 1. `infracost_branch_policy_summary_v1_YYYYMMDD.csv` containing the same information as the `infracost_enterprise_branch_policy_summary_v1_YYYYMMDD.csv` described below, but just for the organization (as opposed to all organizations in the enterprise).
 2. `infracost_merged_prs_summary_YYYYMM.csv` containing the same information as the `infracost_enterprise_merged_prs_summary_YYYYMM.csv` described below, but just for the organization (as opposed to all organizations in the enterprise).
 3. `infracost_merged_closed_prs_YYYYMM.csv` containing cost information on pull requests that were merged or closed during the current month and year. This data can be used to see the portion of cloud costs caused by engineering changes, versus organic changes from things like data transfer. Information about guardrails are also included in this file, so you can see who is approving guardrails and who is merging without approvals.
 4. `infracost_open_prs.csv` containing information on pull requests that are currently open. This data can be used to see potential increases that'll impact your costs in the future, so you are not surprised and can plan accordingly.
 
 ### Enterprise data export
+
 The enterprise data export consists of daily CSV files that contain a summary of all tagging and FinOps policy issues across all code repos in all organizations that are part of your enterprise. This data export also includes the number of issues that were prevented or fixed and the total amount of cost prevention or reduction from your policies.
 
 1. `infracost_enterprise_branch_policy_summary_v1_YYYYMMDD.csv`: This file contains granular information on current FinOps and tagging issues from the base branches, e.g. main or master, of all repos across all Infracost orgs.
@@ -42,7 +45,8 @@ The enterprise data export consists of daily CSV files that contain a summary of
    Every day, the file for the current month will be updated with the latest information for the month-to-date, replacing any earlier versions of the file. So for example, on the first day of April 2024, infracost_merged_prs_summary_202404.csv will be created, and on the 2nd of April, the same file will be overwritten with the latest information. On the 1st of May, infracost_merged_prs_summary_202405.csv will be created.
 
    Only repos that have merged pull requests appear in this file. If a repo has no impact data for the current month, it will not be included in this file. If a repo is archived or deleted in GitHub/GitLab, it will still be included in this file as long as it has merged pull requests in the current month. If a repo is renamed, the next day's exported file will reflect the new `repo_name`.
-3. `infracost_enterprise_licenses_summary_YYYYMM.csv`: This file shows the total number of licenses used across all Infracost orgs in the enterprise for the current month. The pull request authors are de-duplicated across the Infracost orgs in the enterprise. This file will always have 1 row. 
+
+3. `infracost_enterprise_licenses_summary_YYYYMM.csv`: This file shows the total number of licenses used across all Infracost orgs in the enterprise for the current month. The pull request authors are de-duplicated across the Infracost orgs in the enterprise. This file will always have 1 row.
 
 ## Export to AWS S3 bucket
 
@@ -67,16 +71,8 @@ This guide will walk you through the process of setting up an AWS Identity and A
      "Statement": [
        {
          "Effect": "Allow",
-         "Action": [
-           "s3:PutObject",
-           "s3:PutObjectAcl",
-           "s3:ListBucket",
-           "s3:GetObject"
-         ],
-         "Resource": [
-           "arn:aws:s3:::YOUR-BUCKET_NAME",
-           "arn:aws:s3:::YOUR-BUCKET_NAME/*"
-         ]
+         "Action": ["s3:PutObject", "s3:PutObjectAcl", "s3:ListBucket", "s3:GetObject"],
+         "Resource": ["arn:aws:s3:::YOUR-BUCKET_NAME", "arn:aws:s3:::YOUR-BUCKET_NAME/*"]
        }
      ]
    }
@@ -99,7 +95,7 @@ This guide will walk you through the process of setting up an AWS Identity and A
 6. In the search box, search for the **infracost-data-export-s3** policy you created in Step 1, select it, and then
    click on **Next: Tags**.
 7. Optionally, you can add tags to the role. Click on **Next: Review** after adding tags or skip it.
-8. On the Review page, name the role **infracost-data-export**, then click on **Create role**. You will be returned to 
+8. On the Review page, name the role **infracost-data-export**, then click on **Create role**. You will be returned to
    the list of roles.
 9. Search for the **infracost-data-export** role you just created and click on its name.
 10. On the role details page, copy the Role ARN (Amazon Resource Name) located at the top of the page. You will need to
@@ -131,11 +127,12 @@ This guide will walk you through the process of setting up data export from Infr
 ### Step 1: Create Service Principal
 
 1. Construct a scope that provides access limited to your Blob Container. This will be attached to the Service Principle and should look like:
+
    ```
    /subscriptions/<Your-Subscription-ID>/resourceGroups/<Your-Resource-Group-Name>/providers/Microsoft.Storage/storageAccounts/<Your-Resource-Group-Name>/blobServices/default/containers/<Your-Container-Name>/blobServices/default/containers/<Your-Container-Name>
    ```
+
    An easy way to do this is to navigate to **Storage Accounts** page in Azure Portal and click on the name of your storage account. Then in the storage account **Overview** section, click on the **JSON view** link and copy the **Resource ID** to your clipboard. Complete the scope by appending `/blobServices/default/containers/<Your-Container-Name>` to the end of this string.
-   
 
 2. Open your command prompt or terminal and sign in to your Azure account using the Azure CLI by running the command:
 
@@ -145,7 +142,6 @@ This guide will walk you through the process of setting up data export from Infr
 
    Alternatively, [open a bash Cloud Shell in the Azure Portal](https://learn.microsoft.com/en-us/azure/cloud-shell/quickstart?tabs=azurecli).
    The Azure CLI is automatically installed and logged in when using this method.
-
 
 3. Create a Service Principal for Infracost with the following `az` command.
 
