@@ -18,6 +18,7 @@ If the Terraform CLI fails, check their [debugging page](https://www.terraform.i
 By default, the Infracost CLI parses Terraform HCL code to estimate costs. If that does not work for your use-case, Infracost can also parse the Terraform/Terragrunt [plan JSON file](/docs/features/cli_commands/#option-2-terraform-plan-json).
 
 If you have multiple Terraform plan JSON files, you can
+
 1. run [`infracost breakdown`](/docs/features/cli_commands/#breakdown) with `--path plan-1.json --format json --out-file infracost-1.json` to generate an Infracost JSON file for each.
 2. run [`infracost output`](/docs/features/cli_commands/#combined-output-formats) with `--path "infracost-*.json" --format diff` (glob patterns need quotes) to combine the Infracost JSON files into one output format then use that file with `infracost comment`. The `infracost output --help` command shows the other options.
 
@@ -38,6 +39,7 @@ If you're having issues posting pull request comments, please review the trouble
 ## 5. Infracost Cloud dashboard
 
 If your pull request comments are being posted but they are **not showing in the dashboard**, ensure that the:
+
 1. In Infracost Cloud's Org settings page, the cost estimate dashboard is enabled.
 2. Infracost CLI version (`infracost --version`) being used is latest patch version of v0.10.
 3. [Required environment variables](/docs/features/environment_variables/#environment-variables-to-set-metadata) are set before the `infracost breakdown` and `infracost diff` commands are run. You can verify this by running `cat infracost.json | jq .metadata` or `infracost breakdown --path /code --format json | jq .metadata` and checking the Infracost JSON block shows your pull request metadata.

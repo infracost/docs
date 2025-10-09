@@ -7,13 +7,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The Infracost GitHub App is an automated integration meaning that Infracost runs on our infrastructure and we keep it up to date. Infracost is trusted by thousands of companies around the world, including many of the Fortune 500. We are <a href="https://www.infracost.io/security/" target="_self" rel="">SOC 2 Type II</a> certified.
 
-| 1. Install the Infracost GitHub App | 2. Get pull request comments |
-|--------------|-----------|
-<img src={useBaseUrl("img/screenshots/github-app-install.png")} alt="Install the GitHub App into any GitHub organization"/> | <img src={useBaseUrl("img/screenshots/github-app-comment.png")} alt="Infracost automatically leaves a comment on every pull request"/>
+| 1. Install the Infracost GitHub App                                                                                         | 2. Get pull request comments                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src={useBaseUrl("img/screenshots/github-app-install.png")} alt="Install the GitHub App into any GitHub organization"/> | <img src={useBaseUrl("img/screenshots/github-app-comment.png")} alt="Infracost automatically leaves a comment on every pull request"/> |
 
 ## Benefits
 
 There are three key benefits of using the GitHub App over manual CI/CD integrations:
+
 1. You can add Infracost to multiple repos with one click, no need to install or update CLI versions in your CI/CD pipeline.
 2. Infracost can automatically open pull requests for existing issues so engineers can review and merge them. See [this blog](https://www.infracost.io/blog/ai-for-finops-fix-cloud-cost-issues-faster/) for details.
 3. Infracost runs faster as only changed folders are run based on the GitHub App events.
@@ -24,7 +25,7 @@ There are three key benefits of using the GitHub App over manual CI/CD integrati
 
 2. Every Infracost user has a default organization for personal use. Create a new organization for your company using the organization dropdown at the top of the page.
 
-  <img src={useBaseUrl("img/infracost-cloud/create-orgs.png")} alt="Create new organization" />
+<img src={useBaseUrl('img/infracost-cloud/create-orgs.png')} alt="Create new organization" />
 
 3. Click on Settings > Org Settings > Integrations > GitHub and follow the wizard to select the repos you want to give Infracost access to.
 
@@ -47,7 +48,9 @@ Our automated GitHub App integration works with both GitHub Enterprise Cloud and
 Follow the same [usage steps](#usage) as the regular GitHub App above.
 
 #### Incoming traffic to GitHub
+
 If you use the GitHub Enterprise "Enable IP allow list", the Infracost GitHub App will automatically add the required IP address to your GitHub organization's IP allow list. If you need to do that manually, please allow incoming traffic from the following IP addresses to your GitHub instance port 443 (or whatever port you use); these are the IP addresses used by Infracost Cloud services to call the integration:
+
 - 3.133.40.66
 - 3.16.104.91
 - 3.147.121.170
@@ -56,6 +59,7 @@ If you use the GitHub Enterprise "Enable IP allow list", the Infracost GitHub Ap
 - 18.119.42.142
 
 #### Outgoing traffic from GitHub
+
 If you have restricted out-going traffic from your instance, you need to allow traffic to be sent to `dashboard.api.infracost.io:443` too. If you can only do that by IP address (and not domains), you should allowlist `52.223.24.69`, and `76.223.127.201`.
 
 ### GitHub Enterprise Server
@@ -66,7 +70,7 @@ Infracost Cloud optionally supports mTLS with GitHub Enterprise Server by using 
 
 ## How the GitHub App works
 
-The [Infracost GitHub App](https://github.com/marketplace/infracost) is verified by GitHub, and installed in thousands of GitHub orgs. The App needs *write access to pull requests* so it can post a comment with any cost estimates, tagging, and FinOps policy issues. You can select the repos you would like to give access to the App.
+The [Infracost GitHub App](https://github.com/marketplace/infracost) is verified by GitHub, and installed in thousands of GitHub orgs. The App needs _write access to pull requests_ so it can post a comment with any cost estimates, tagging, and FinOps policy issues. You can select the repos you would like to give access to the App.
 
 <details>
   <summary>Details of required permissions for main Infracost GitHub App</summary>
@@ -126,6 +130,7 @@ Email support@infracost.io if you have any questions about GitHub App permission
 Each time a pull request is opened or a new commit is pushed to an open pull request, the Infracost GitHub App shows the any tagging or FinOps policies issues that were introduced by the by the pull request along with the cost difference between the most recent commit of the pull request branch and the merge base of the base branch. This mirrors GitHub's pull request diff logic and shows only the changes the pull request introduces.
 
 The GitHub App automatically reflects the following changes in Infracost:
+
 - Repos that are **renamed** are automatically updated in Infracost.
 - When a repo is **moved** from one GitHub Org to another, that change is reflected in Infracost. When the source and destination GitHub Orgs are in different Infracost Orgs, the move is also performed as long as the Infracost Cloud orgs are in the same Enterprise.
 - Repos that are **deleted** or **archived** are marked as archived in Infracost and preserved for audit purposes. Their issues no longer show in the dashboard.
@@ -151,7 +156,7 @@ Engineers can add a pull request comment `@infracost help` to get more informati
 When you mark a policy as "Require engineers to resolve or dismiss issues", Infracost returns a "failed" status check to GitHub for pull requests that fail that policy. However, this does not, by itself, block the merge button in GitHub. To do that, you need to mark Infracost as "Required Check" in GitHub. There are two options for this:
 
 1. **Recommended**: Create a GitHub Ruleset to make Infracost a required status check across all of your repos in your GitHub organization. In GitHub, go to Settings > Repository > Rulsets and create a new ruleset with details from [**this screenshot**](pathname:///docs/img/infracost-cloud/github-app/ruleset-required-check.png). Use "Infracost" (with the capital I) when adding the check.
-You can read more about Rulesets in the [GitHub docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets); [this docs section](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rule-layering) describes how rulesets interact at the organization and repo level.
+   You can read more about Rulesets in the [GitHub docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets); [this docs section](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rule-layering) describes how rulesets interact at the organization and repo level.
 2. Branch protection rules can also be used, though that works on a per-repo basis so you will need to use the GitHub API to automate that for all of your repos. In GitHub, go to Settings > Branches > and tick the "Require status checks to pass before merging" option under Protect matching branches, as shown in [this screenshot](pathname:///docs/img/infracost-cloud/github-app/bpr-required-check.png).
 
 Note that when engineers [dismiss or snooze](#dismiss-or-snooze-blocking-policy-issues) pull requests, Infracost returns a "passed" status check to GitHub and unblocks the pull requests. Infracost automatically returns the "skipped" status check when a repo does not have any Terraform.

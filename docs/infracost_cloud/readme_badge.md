@@ -19,10 +19,10 @@ Cost badges require the cost estimate to be stored in Infracost Cloud so your re
 
 3. Select the branch and project that the badge should represent. The branch should normally be your main or master branch, and you can select "All projects" if the badge should show a sum of all projects in the repository. For Terraform module repos, where there are no projects, use the "All projects" option.
 
-  <img src={useBaseUrl("img/infracost-cloud/readme-badge-settings.png")} alt="Readme badge code snippet" />
+<img src={useBaseUrl("img/infracost-cloud/readme-badge-settings.png")} alt="Readme badge code snippet" />
 
-  The badge token is unique and associated with your Infracost Cloud organization. It only has access to the latest cost estimate for your repositories and nothing else, thus it is safe to be added to your `README.md` files.
+The badge token is unique and associated with your Infracost Cloud organization. It only has access to the latest cost estimate for your repositories and nothing else, thus it is safe to be added to your `README.md` files.
 
 4. Copy the Markdown or HTML code snippet and add it to the top of your `README.md` file, commit and push your change to your repository.
 
-  The cost badge will automatically show the latest cost estimate from your desired branch and projects.
+The cost badge will automatically show the latest cost estimate from your desired branch and projects.
