@@ -1,0 +1,170 @@
+name: Visual Regression Testing
+
+on:
+  pull_request:
+    branches: [master]
+  # Allow manual triggering
+  workflow_dispatch:
+
+# Cancel in-progress runs for the same PR
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual-regression:
+    runs-on: ubuntu-latest
+    env:
+      LOST_PIXEL_DISABLE_TELEMETRY: 1
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22.14.0
+
+      - name: Cache npm dependencies
+        id: cache-npm
+        uses: actions/cache@v4
+        with:
+          path: |
+            ./.npm
+            ./node_modules
+          key: ${{ runner.os }}-npm-visual-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install dependencies
+        if: steps.cache-npm.outputs.cache-hit != 'true'
+        run: npm ci --cache=.npm
+
+      - name: Install Playwright browsers
+        run: npx playwright@1.47.2 install --with-deps chromium
+
+      - name: Build current branch website
+        run: npm run build
+
+      - name: Generate page list from sitemap
+        run: npm run visual:generate-pages
+
+      - name: Start server for current branch
+        run: |
+          npm run serve > /dev/null 2>&1 &
+          echo "SERVER_PID=$!" >> $GITHUB_ENV
+          sleep 5
+
+      - name: Capture current branch screenshots
+        run: LOST_PIXEL_MODE=baseline npm run lost-pixel:run
+        continue-on-error: true
+
+      - name: Stop current branch server
+        run: kill $SERVER_PID || true
+
+      - name: Checkout and build master branch
+        run: |
+          # Clone master to .baseline directory
+          git clone -b master --depth 1 file://$(pwd) .baseline
+          cd .baseline
+          npm ci --prefer-offline --no-audit
+          npm run build
+          npm run visual:generate-pages
+
+      - name: Start server for master branch
+        run: |
+          cd .baseline
+          PORT=3001 npm run serve > /dev/null 2>&1 &
+          BASELINE_PID=$!
+          echo "BASELINE_SERVER_PID=$BASELINE_PID" >> $GITHUB_ENV
+          sleep 5
+
+      - name: Capture master branch screenshots and compare
+        id: lost-pixel
+        run: LOST_PIXEL_MODE=current LOST_PIXEL_BASE_URL=http://localhost:3001 npm run lost-pixel:run
+        continue-on-error: true
+
+      - name: Stop baseline server
+        if: always()
+        run: kill $BASELINE_SERVER_PID || true
+
+      - name: Upload visual regression results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-results
+          path: |
+            .lostpixel/baseline/
+            .lostpixel/current/
+            .lostpixel/difference/
+          retention-days: 30
+
+      - name: Check for visual differences
+        if: steps.lost-pixel.outcome == 'failure'
+        run: |
+          echo "::warning::Visual regression differences detected!"
+          echo "Please review the uploaded artifacts to see the differences."
+          if [ -d ".lostpixel/difference" ]; then
+            echo "Difference images are available in the workflow artifacts."
+          fi
+          exit 1
+
+      - name: Comment PR with results
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let comment = '## Visual Regression Testing Results\n\n';
+
+            if ('${{ steps.lost-pixel.outcome }}' === 'success') {
+              comment += '✅ **No visual differences detected!**\n\n';
+              comment += 'All screenshots match the baseline from the `master` branch.\n\n';
+              comment += 'The following was compared:\n';
+              comment += '- **Baseline**: `master` branch (latest)\n';
+              comment += '- **Current**: This PR branch\n';
+            } else if ('${{ steps.lost-pixel.outcome }}' === 'failure') {
+              comment += '⚠️ **Visual differences detected!**\n\n';
+              comment += 'Screenshots differ between this PR and the `master` branch.\n\n';
+              comment += '### How to review:\n';
+              comment += '1. Download the `visual-regression-results` artifact from this workflow run\n';
+              comment += '2. Check the `.lostpixel/difference/` directory for highlighted changes\n';
+              comment += '3. Compare `.lostpixel/current/` (this PR) vs `.lostpixel/baseline/` (master)\n\n';
+              comment += '### If changes are intentional:\n';
+              comment += 'Visual changes are expected when updating styles, layouts, or content. ';
+              comment += 'Review the differences to ensure they match your intentions. ';
+              comment += 'No baseline updates are needed since baselines are generated on-the-fly from `master`.\n';
+            } else {
+              comment += '❓ **Visual regression testing encountered an issue**\n\n';
+              comment += 'Please check the [workflow logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.';
+            }
+
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.find(comment =>
+              comment.user.type === 'Bot' &&
+              comment.body.includes('Visual Regression Testing Results')
+            );
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: comment
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+            }
