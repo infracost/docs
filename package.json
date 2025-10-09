@@ -12,8 +12,8 @@
     "svgo": "svgo ./static/**/*.svg",
     "lint": "eslint --ext .ts,.js,.tsx,.jsx --ignore-path .eslintignore --ignore-path .gitignore . --max-warnings=0",
     "lintfix": "eslint --fix --ext .ts,.js,.tsx,.jsx --ignore-path .eslintignore --ignore-path .gitignore .",
-    "format": "prettier --write 'src/**/*.{js,ts,jsx,tsx}'",
-    "format:check": "prettier --check 'src/**/*.{js,ts,jsx,tsx}'"
+    "format": "prettier --write '**/*.{js,ts,jsx,tsx,md,mdx}' --ignore-path .gitignore",
+    "format:check": "prettier --check '**/*.{js,ts,jsx,tsx,md,mdx}' --ignore-path .gitignore"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.1",
