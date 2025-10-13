@@ -27,8 +27,8 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>Make sure 'Integrate any other application you don't find in the gallery (Non-gallery)' is selected.</li>
         <li>On the left select <code>Single sign-on</code> and select <code>SAML</code></li>
         <li>Click <code>Edit</code> in the Basic SAML Configuration section.</li>
-        <li>Click <code>Add identifier</code> and enter <code>urn:auth0:infracost:&lt;YOUR INFRACOST ORG ID&gt;</code></li>
-        <li>Click <code>Add reply URL</code> and enter <code>https://login.infracost.io/login/callback?connection=&lt;YOUR INFRACOST ORG ID&gt;</code></li>
+        <li>Click <code>Add identifier</code> and enter <code>urn:auth0:infracost:YOUR_INFRACOST_ORG_ID</code></li>
+        <li>Click <code>Add reply URL</code> and enter <code>https://login.infracost.io/login/callback?connection=YOUR_INFRACOST_ORG_ID</code></li>
         <li>Click <code>Save</code></li>
         <li>Download 'Certificate (Base64)'. You will need to provide this to Infracost.</li>
         <li>Copy the 'Login URL'. You will need to provide this to Infracost in the next step.</li>
@@ -47,9 +47,9 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>For the App name enter <code>Infracost Cloud</code> and click Next.</li>
         <li>
           For Single sign on URL enter
-          <code>https://login.infracost.io/login/callback?connection=&lt;YOUR INFRACOST ORG ID&gt;</code>
+          <code>https://login.infracost.io/login/callback?connection=YOUR_INFRACOST_ORG_ID</code>
         </li>
-        <li>For the Audience URL (SP Entity ID) enter <code>urn:auth0:infracost:&lt;YOUR INFRACOST ORG ID&gt;</code><img
+        <li>For the Audience URL (SP Entity ID) enter <code>urn:auth0:infracost:YOUR_INFRACOST_ORG_ID</code><img
             loading="lazy" src="/docs/img/sso/okta-saml-settings.png" alt="Okta Attribute Statements form"
             class="img_ev3q" /></li>
         <li>Add the following for the <code>Attribute Statements</code> section and click <code>Next</code>.<img loading="lazy"
@@ -76,8 +76,8 @@ Assuming you have already purchased Infracost Cloud, you can setup SSO by follow
         <li>Copy the SSO URL and download the Certificate. You will need to supply these to Infracost in a future step.
           Click Continue.</li>
         <li>In the ACS URL enter:
-          <code>https://login.infracost.io/login/callback?connection=&lt;YOUR INFRACOST ORG ID&gt;</code></li>
-        <li>In the Entity ID enter: <code>urn:auth0:infracost:&lt;YOUR INFRACOST ORG ID&gt;</code></li>
+          <code>https://login.infracost.io/login/callback?connection=YOUR_INFRACOST_ORG_ID</code></li>
+        <li>In the Entity ID enter: <code>urn:auth0:infracost:YOUR_INFRACOST_ORG_ID</code></li>
         <li>Tick <code>Signed response</code></li>
         <li>For Name ID format choose <code>UNSPECIFIED</code> and for Name ID choose
           <code>Basic Information &gt; Primary email</code>. The form should look like the following:<img loading="lazy"
