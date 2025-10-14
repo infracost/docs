@@ -14,7 +14,7 @@ infrastructure issues directly in your pull requests with suggested code changes
 
 When Infracost detects policy failures in your infrastructure code, AutoFix analyzes these violations and generates precise, actionable code fixes for review. The process is designed to be intelligently paced: rather than opening all eligible pull requests at once, AutoFix spaces out PR creation to avoid overwhelming engineering teams and to support a sustainable remediation workflow.
 
-Each suggested fix is created by combining context from the static analysis engine), your organization's policy definitions, and any custom price books in use. AutoFix then generates a pull request containing the proposed code changes, assigning it to the appropriate engineer or team. This ensures that the right people are notified and responsible for reviewing and merging the fix.
+Each suggested fix is created by combining context from the static analysis engine, your organization's policy definitions, and any custom price books in use. AutoFix then generates a pull request containing the proposed code changes, assigning it to the appropriate engineer or team. This ensures that the right people are notified and responsible for reviewing and merging the fix.
 
 Before a pull request is opened, every fix is validated with static analysis to confirm that it addresses the original policy violation and does not introduce new costs or breaking changes. This validation helps maintain code quality and avoids unnecessary disruptions to your infrastructure or development process.
 
