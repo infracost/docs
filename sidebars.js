@@ -33,6 +33,7 @@ module.exports = {
         'infracost_cloud/tagging_policies',
         'infracost_cloud/guardrails',
         'infracost_cloud/campaigns',
+        'infracost_cloud/autofix',
         'infracost_cloud/jira_integration',
         'infracost_cloud/reports',
         'infracost_cloud/data_export',
