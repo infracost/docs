@@ -34,7 +34,7 @@ These examples show the output of the number `64145.4525` with different formatt
 | INFRACOST_CURRENCY=GBP<br/>INFRACOST_CURRENCY_FORMAT="GBP: £ 1,234.567"      | `£ 64,145.453`        |
 
 ### INFRACOST_GITHUB_PACKAGES_TOKEN
-A classic GitHub PAT with `read:packages` permission, used to obtain private packages for our CDK functionality.
+A classic GitHub PAT with `read:packages` permission, used to parse private packages for AWS CDK repos.
 
 ### INFRACOST_LOG_LEVEL
 Controls the log verbosity level. Can be set to `info` or `warn` in CI/CD systems to reduce noise, or `debug` to troubleshoot. Turns off spinners in output. Setting this environment variable is the same as using the `--log-level` flag.
