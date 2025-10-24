@@ -15,7 +15,7 @@ This API deletes files from the server after they are processed, however, it is 
 
 ## Breakdown
 
-Show breakdown of costs. This is the main API call that should be used. It can return a [JSON response](/docs/features/json_output_format/), which contains the total costs as well as detailed breakdowns:
+Show breakdown of costs. This is the main API call that should be used. It can return a JSON response, which contains the total costs as well as detailed breakdowns:
 ```
 cat infracost.json | jq -r '.totalMonthlyCost'
 cat infracost.json | jq -r '.pastTotalMonthlyCost'
@@ -87,8 +87,6 @@ values={[
 
   </TabItem>
   <TabItem value="json">
-
-  See example [JSON output here](/docs/features/json_output_format/).
 
   </TabItem>
   <TabItem value="html">

@@ -11,7 +11,7 @@ Infracost has multiple commands, all of which support `--help`:
 - Basic commands:
   - [`infracost breakdown`](#breakdown): Show breakdown of costs, can also be used to generate a baseline
   - [`infracost diff`](#diff): Show diff of monthly costs between current branch and baseline
-  - [`infracost generate config`](#generate-config): Generate Infracost config file from a template file
+  - [`infracost generate config`](/docs/features/config_file/): Generate Infracost config file from a template file
 
 - The following commands work with the Infracost JSON output, which is generated via `infracost diff --format json`:
   - [`infracost output`](#combined-output-formats): Combine and output Infracost JSON files in different formats
@@ -170,8 +170,6 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
     {label: 'Slack message', value: 'slack-message'}
   ]}>
   <TabItem value="json">
-
-  See [this example JSON output](/docs/features/json_output_format/). You can use `jq` to extract values, for example:
 
   ```shell
   infracost breakdown --path /code --format json --out-file infracost-base.json

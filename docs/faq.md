@@ -19,7 +19,7 @@ Infracost's CLI and [source control integrations](/docs/integrations/cicd/#sourc
   Infracost uses the code diff to calculate costs and evaluates the code for FinOps best practice and your tagging policies. 
 
 4. **Infracost Cloud**<br />
-  If you use Infracost Cloud, the CLI sends the final cost estimate and policy issues in JSON format to your dashboard, the JSON does not contain any cloud credentials or secrets.
+  If you use Infracost Cloud, the final cost estimate and policy issues are saved in your dashboard.
 
 ## Security and Privacy
 
@@ -87,7 +87,7 @@ No. The Infracost CLI parses the Terraform HCL code directly or the plan JSON fi
 
 ### What data is sent to Infracost Cloud?
 
-If you use [Infracost Cloud](/docs/infracost_cloud/get_started/), the CLI sends its [JSON output](/docs/features/cli_commands/#combined-output-formats) to your dashboard; you can generate and inspect this JSON. It does not contain any cloud credentials or secrets.
+If you use [Infracost Cloud](/docs/infracost_cloud/get_started/), cost estimates and policy issues are saved in your dashboard so you can see them in a central place.
 
 ### Do you sell my data?
 
