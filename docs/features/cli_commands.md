@@ -171,8 +171,6 @@ Run `infracost output --help` to see other options, such as `--fields` and `--sh
   ]}>
   <TabItem value="json">
 
-  See [this example JSON output](/docs/features/json_output_format/). You can use `jq` to extract values, for example:
-
   ```shell
   infracost breakdown --path /code --format json --out-file infracost-base.json
   # Edit your Terraform project, e.g. vim main.tf
