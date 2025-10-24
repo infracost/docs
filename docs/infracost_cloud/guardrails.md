@@ -43,7 +43,7 @@ Next you should select the thresholds that should trigger this guardrail, the th
 
 1. **Diff: Cost change**: triggered when costs are increased by more than this value, which protects against unexpected cost spikes. For example, trigger a guardrails whenever a pull request adds more than $2000 to the monthly costs.
 2. **Diff: Cost change percentage**: similar to the above but using a percentage instead of a fixed value. For example, trigger a guardrails whenever a pull request adds more than 25% to the monthly costs.
-3. **Budget: New monthly cost**: triggered when the new monthly cost exceeds this value, which protects against budgets being exceeded. For example, trigger a guardrails whenever the new monthly cost exceeds $10,000.
+3. **Budget: Monthly cost threshold**: triggered when a pull request crosses this threshold from below to above. For example, trigger when a change would push costs from $9,500 to $10,500 (crossing the $10,000 threshold).
 
 <img src={useBaseUrl("img/infracost-cloud/guardrails/thresholds.png")} alt="Set the thresholds that should trigger the guardrail" />
 
