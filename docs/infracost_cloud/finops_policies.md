@@ -86,3 +86,7 @@ Infracost supports such policies by allowing you to define filters that identify
 Module repositories are skipped during the evaluation of non-production FinOps policies. Instead, the repositories that utilize these modules are checked for those policies.
 
 <img src={useBaseUrl("img/infracost-cloud/finops-policies/production-filters.png")} alt="Production filters can be defined in the Org Settings." />
+
+## Potential savings
+
+Coming soon!
