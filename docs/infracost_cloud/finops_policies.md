@@ -89,4 +89,12 @@ Module repositories are skipped during the evaluation of non-production FinOps p
 
 ## Potential savings
 
-Coming soon!
+Potential savings values may vary due to the nature or compounding effects of multiple configurations in your IaC. Here are some known cases:
+
+### Extended support
+
+Certain extended support schemes set by cloud providers can influence potential savings values if the cost calculation is resource dependent (eg. factored by vCPU/hour). Hence, updating instance types can sometimes lead to an increase in extended support cost.
+
+### Modernization policies
+
+Certain policies that target instance modernization (eg. migrating from [gp2 to gp3](https://docs.aws.amazon.com/prescriptive-guidance/latest/optimize-costs-microsoft-workloads/ebs-migrate-gp2-gp3.html) for AWS RDS) may incur minor base cost increases affecting potential savings. This is due to the fact that these kinds of policies target right-sizing of instances for access to newer features or improved scalability (such as with IOPS heavy workloads).
