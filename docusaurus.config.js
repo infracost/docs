@@ -174,7 +174,7 @@ module.exports = {
     announcementBar: {
       id: 'support_us',
       content:
-        '<span class="announcement-message">If you like Infracost, give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">star on GitHub</a>!<img src="/docs/img/icons/star-white.svg" class="star-right" alt="Star icon" /></span>',
+        '<span class="announcement-message">If you like Infracost, give it a <a target="_blank" rel="noopener noreferrer" href="https://github.com/infracost/infracost">star on GitHub</a> <img src="/docs/img/icons/star-white.svg" class="star-right" alt="Star icon" /> Also, <a target="_blank" rel="noopener noreferrer" href="https://infracost.io/join-the-team">we\'re hiring!</a></span>',
       backgroundColor: '#2A2A5B',
       textColor: '#EBEBF2',
     },
