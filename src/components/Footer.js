@@ -78,7 +78,7 @@ function Footer() {
                 <a href="/contact/">Contact Us</a>
               </li>
               <li>
-                <a href="https://infracost.io/join-the-team">Careers</a>
+                <a href="https://infracost.io/join-the-team">Careers (we're hiring!)</a>
               </li>
             </ul>
           </div>
