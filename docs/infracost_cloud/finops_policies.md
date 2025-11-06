@@ -93,7 +93,7 @@ Potential savings values may vary due to the nature or compounding effects of mu
 
 ### Extended support
 
-Certain extended support schemes set by cloud providers can influence potential savings values if the cost calculation is resource dependent (eg. factored by vCPU/hour). Hence, updating instance types can sometimes lead to an increase in extended support cost.
+Some cloud providers calculate extended support costs per resource (e.g., per vCPU/hour). In these cases, updating an instance type may increase your extended support costs, which will reduce your net savings.
 
 ### Modernization policies
 
