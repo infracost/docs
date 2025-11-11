@@ -134,6 +134,11 @@ To enable this feature you should:
      </ul>
    </details>
 
+   <details>
+     <summary>Okta</summary>
+     For Okta, follow the <a href="https://support.okta.com/help/s/article/How-to-pass-a-user-s-group-membership-in-a-SAML-Assertion-from-Okta" target="_blank" rel="noopener noreferrer">How to pass a user's group membership in a SAML Assertion from Okta</a> article in the Okta documentation to configure group membership passing in your SAML assertions.
+   </details>
+
 ## Step 3: Email us key setup information
 
 1. Email us the following information:
