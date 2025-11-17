@@ -127,16 +127,20 @@ To enable this feature you should:
 
    <details>
      <summary>Microsoft Entra ID</summary>
-     For Microsoft Entra ID, follow the <a href="https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#emit-cloud-only-group-display-name-in-token" target="_blank" rel="noopener noreferrer">Emit cloud-only group display name in token</a> section in the Microsoft documentation. Specifically:
-     <ul>
-       <li>Set the Group Claims to 'Groups assigned to the application'</li>
-       <li>Set the Source Attribute to 'Cloud-only group display names'</li>
-     </ul>
+     <p>
+       For Microsoft Entra ID, follow the <a href="https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#emit-cloud-only-group-display-name-in-token" target="_blank" rel="noopener noreferrer">Emit cloud-only group display name in token</a> section in the Microsoft documentation. Specifically:
+       <ul>
+         <li>Set the Group Claims to 'Groups assigned to the application'</li>
+         <li>Set the Source Attribute to 'Cloud-only group display names'</li>
+       </ul>
+     </p>
    </details>
 
    <details>
      <summary>Okta</summary>
-     For Okta, follow the <a href="https://support.okta.com/help/s/article/How-to-pass-a-user-s-group-membership-in-a-SAML-Assertion-from-Okta" target="_blank" rel="noopener noreferrer">How to pass a user's group membership in a SAML Assertion from Okta</a> article in the Okta documentation to configure group membership passing in your SAML assertions.
+     <p>
+      For Okta, follow the <a href="https://support.okta.com/help/s/article/How-to-pass-a-user-s-group-membership-in-a-SAML-Assertion-from-Okta" target="_blank" rel="noopener noreferrer">How to pass a user's group membership in a SAML Assertion from Okta</a> article in the Okta documentation to configure group membership passing in your SAML assertions.
+      </p>
    </details>
 
 ## Step 3: Email us key setup information
