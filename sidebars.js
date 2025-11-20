@@ -36,6 +36,7 @@ module.exports = {
         'infracost_cloud/autofix',
         'infracost_cloud/jira_integration',
         'infracost_cloud/reports',
+        'infracost_cloud/module_repos',
         'infracost_cloud/data_export',
         'infracost_cloud/api',
         'infracost_cloud/sso',
