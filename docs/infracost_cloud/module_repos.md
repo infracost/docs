@@ -25,9 +25,9 @@ Cost tracking **is applied** to repositories that use modules in their root conf
 
 This approach ensures that cost estimates are generated where infrastructure is actually deployed, rather than where it's merely defined.
 
-## Mixed-Mode Modules
+## Mixed-Mode Module Repos
 
-Mixed-mode modules are Terraform modules that contain both:
+Mixed-mode module repos are Terraform repositories that contain both:
 - A module definition (reusable components)
 - A root configuration with provider definitions
 
@@ -36,19 +36,19 @@ This pattern is particularly useful when you want to:
 - Demonstrate typical usage patterns of your module
 - Offer a ready-to-deploy configuration alongside the reusable module
 
-### Cost Tracking for Mixed-Mode Modules
+### Cost Tracking for Mixed-Mode Module Repos
 
-For mixed-mode modules, cost tracking **will be applied** because the presence of a root configuration with providers makes the repository deployable. This enables several benefits:
+For mixed-mode module repos, cost tracking **will be applied** because the presence of a root configuration with providers makes the repository deployable. This enables several benefits:
 
 - **Cost Communication**: Share estimated or typical costs when using the module
 - **Example Validation**: Ensure your example configurations are cost-effective
 - **Template Guidance**: Help users understand the financial impact before adopting the module
 
-The cost estimates generated for mixed-mode modules serve as valuable documentation, helping teams make informed decisions about module adoption and usage patterns.
+The cost estimates generated for mixed-mode module repos serve as valuable documentation, helping teams make informed decisions about module adoption and usage patterns.
 
 ### Best Practices
 
-When creating mixed-mode modules:
+When creating mixed-mode module repos:
 
 1. **Separate Concerns**: Keep your module definition clean and separate from the example/template configuration
 2. **Realistic Examples**: Ensure your root configuration represents realistic usage scenarios
