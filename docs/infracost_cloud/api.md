@@ -13,7 +13,7 @@ This has two key benefits:
 1. Engineers get the fastest-possible feedback loop, at the right time in the right place (engineering workflow). You can customize the message engineers see, for example, "The application ID isn't valid, please ensure your application is registered at https://services.acme-inc.com/list".
 2. FinOps teams to see the percentage of resources that are tagged with correct values, and guess what, it automatically improves over time! No more chasing engineers and creating Jira tasks for this mundane stuff.
 
-The API also allows you to manage guardrails, which enable you to define cost thresholds for your infrastructure. When costs exceed these thresholds, Infracost can notify stakeholders, add comments to pull requests, or even block PRs from being merged. This helps teams control cloud costs by making engineers aware of potential cost issues before changes are deployed.
+The API also allows you to manage guardrails, which enable you to define cost thresholds for your infrastructure. When costs exceed these thresholds, Infracost can notify stakeholders, add comments to pull requests, or even block PRs from being merged. You can create, read, update, and delete guardrails programmatically. This helps teams control cloud costs by making engineers aware of potential cost issues before changes are deployed.
 
 ## Usage
 
@@ -55,7 +55,9 @@ The API also allows you to manage guardrails, which enable you to define cost th
     https://api.infracost.io/v1/orgs/MY_ORG/tagging-policies/e17b9d51-151d-4855-a17e-6349e485584c
   ```
 
-### Create a cost guardrail
+### Manage guardrails
+
+#### Create a guardrail
 
 - Create a JSON file, `guardrail.json`, as follows:
   ```json
@@ -88,6 +90,17 @@ The API also allows you to manage guardrails, which enable you to define cost th
     --data @guardrail.json \
     https://api.infracost.io/v1/orgs/MY_ORG/guardrails
   ```
+
+#### List, get, update, and delete guardrails
+
+You can also perform the following operations on guardrails:
+
+- **List all guardrails**: `GET /v1/orgs/{orgSlug}/guardrails`
+- **Get a single guardrail**: `GET /v1/orgs/{orgSlug}/guardrails/{id}`
+- **Update a guardrail**: `PATCH /v1/orgs/{orgSlug}/guardrails/{id}` (with JSON body similar to create)
+- **Delete a guardrail**: `DELETE /v1/orgs/{orgSlug}/guardrails/{id}`
+
+See the [full API documentation](https://api.infracost.io/v1/docs/) for complete request/response schemas and additional parameters.
 
 ### Update custom properties
 
