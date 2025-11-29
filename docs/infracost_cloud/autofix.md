@@ -1,11 +1,11 @@
 ---
 slug: autofix
-title: AutoFix
+title: AutoFix pull requests
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# AutoFix
+# AutoFix pull requests
 
 AutoFix automatically generates fixes for policy failures, enabling you to resolve infrastructure issues directly in your pull requests with suggested code changes.
 

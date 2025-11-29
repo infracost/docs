@@ -3,7 +3,7 @@ slug: overview
 title: Overview
 ---
 
-Infracost supports over **1,100** Terraform resources across [AWS](/docs/supported_resources/aws), [Azure](/docs/supported_resources/azure) and [Google](/docs/supported_resources/google). That number is growing fast thanks to our [large open source community](https://github.com/infracost/infracost/#community-and-contributing) of contributors.
+Infracost supports over **1,100** Terraform resources across [AWS](/docs/supported_resources/aws), [Azure](/docs/supported_resources/azure) and [Google](/docs/supported_resources/google). That number is growing fast thanks to our [large community](https://github.com/infracost/infracost/#community-and-contributing) of contributors.
 
 The quickest way to find out if your Terraform resources are supported is to run [`infracost breakdown`](/docs/features/usage_based_resources/) with the `--show-skipped` flag. This shows the unsupported resources at the bottom of the output.
 

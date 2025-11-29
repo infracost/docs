@@ -1,6 +1,6 @@
 ---
 slug: guardrails
-title: Guardrails
+title: Cost guardrails
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
