@@ -10,7 +10,7 @@ jobs:
     name: Bump CLI version info
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Download latest releases.json
         run: |
           curl https://api.github.com/repos/infracost/infracost/releases -o ./static/releases.json
