@@ -28,7 +28,7 @@ values={[
 ```shell
 brew install infracost
 
-infracost --version # Should show 0.10.42
+infracost --version # Should show 0.10.43
 ```
 
 To upgrade Infracost, run `brew update` then `brew upgrade infracost`.
@@ -56,7 +56,7 @@ Or you can install it manually:
 3. Check that it works correctly:
 
    ```shell
-   infracost --version # Should show 0.10.42
+   infracost --version # Should show 0.10.43
    ```
 
   </TabItem>
@@ -65,7 +65,7 @@ Or you can install it manually:
 ```shell
 choco install infracost
 
-infracost --version # Should show 0.10.42
+infracost --version # Should show 0.10.43
 ```
 
 To upgrade Infracost, run `choco upgrade infracost`.
