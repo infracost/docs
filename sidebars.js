@@ -56,6 +56,7 @@ module.exports = {
         'integrations/gitlab_app',
         'integrations/cicd_integrations',
         'integrations/slack',
+        'integrations/microsoft_teams',
         'integrations/spacelift',
         'integrations/terraform_cloud_enterprise',
         'integrations/open_policy_agent',
