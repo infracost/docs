@@ -1,5 +1,5 @@
 ---
-slug: carbon
+slug: infracarbon
 title: InfraCarbon
 ---
 
