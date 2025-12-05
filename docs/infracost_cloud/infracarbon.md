@@ -7,7 +7,7 @@ title: InfraCarbon
 
 InfraCarbon displays the CO₂e impact of your infrastructure changes directly in pull requests. This page explains how we calculate that data.
 
-![Carbon impact in pull requests](/img/infracost-cloud/infracarbon.png)
+![Carbon impact in pull requests](/img/infracost-cloud/infra-carbon-comment-example.png)
 
 ## Our approach
 
