@@ -34,7 +34,7 @@ module.exports = {
         'infracost_cloud/finops_policies',
         'infracost_cloud/tagging_policies',
         'infracost_cloud/guardrails',
-        'infracost_cloud/carbon',
+        'infracost_cloud/infracarbon',
         'infracost_cloud/reports',
         'infracost_cloud/custom_price_books',
         'infracost_cloud/sso',
