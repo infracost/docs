@@ -1,4 +1,4 @@
-[---
+---
 slug: privacy-policy
 title: Privacy Policy
 hide_table_of_contents: false
@@ -84,6 +84,10 @@ While using our Service, we may ask you to provide us with certain personally id
 If you choose to purchase a paid subscription, we may also collect certain billing and payment-related information. In practice, the Personal Data we process generally falls into the following categories: account and profile data, billing and payment information, product usage and telemetry data, support and communication data, and marketing preference data.
 
 We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any or all of these communications from us by emailing <support@infracost.io>.
+
+Call and Meeting Recordings
+
+If you participate in sales calls, product demonstrations, onboarding sessions, or customer support meetings, we may record these sessions for training, quality assurance, product improvement, and business record-keeping purposes. We will notify you, either verbally or through the meeting platform, before a recording begins. You may opt out of being recorded by informing the meeting host or choosing not to participate in a recorded session. In some cases, opting out may limit our ability to provide certain types of support or training.
 
 Usage Data
 
@@ -319,6 +323,8 @@ The following is a list of some of the main sub-processors and service providers
 |Pylon Labs, Inc|188 King Street - #502, San Francisco, California 94107, USA|Customer support platform.|
 |Linear Orbit, Inc|2261 Market St STE 10632, San Francisco, CA 94114, USA|Product management platform.|
 |Notion Labs, Inc|685 Market Street, San Francisco, CA 94105, USA|Internal documentation.|
+|GitHub, Inc.|88 Colin P Kelly Jr St, San Francisco, CA 94107, USA|Source code hosting and CI/CD pipelines.|
+|HashiCorp, Inc.(Terraform)|101 Second Street, Suite 700, San Francisco, CA 94105, USA|IaC management.|
 
 ### 13. Analytics
 
@@ -344,61 +350,7 @@ You can prevent Mixpanel from using your information for analytics purposes by o
 
 For more information on what type of information Mixpanel collects, please visit the Terms of Use page of Mixpanel: <https://mixpanel.com/terms/>
 
-### 14. CI/CD tools
-
-We may use third-party Service Providers to automate the development process of our Service.
-
-GitHub
-
-GitHub is provided by GitHub, Inc.
-
-GitHub is a development platform for hosting and reviewing code, managing projects, and building software.
-
-For more information on what data GitHub collects for what purpose and how the protection of the data is ensured, please visit GitHub's Privacy Policy page: <https://help.github.com/en/articles/github-privacy-statement>.
-
-GitLab CI/CD
-
-GitLab CI/CD is provided by GitLab, Inc.
-
-GitLab CI (Continuous Integration) service is a part of GitLab that builds and tests the software whenever a developer pushes code to the application.
-
-GitLab CD (Continuous Deployment) is a software service that places the changes of every code in production, resulting in daily deployment of production.
-
-For more information on what data GitLab CI/CD collects for what purpose and how the protection of the data is ensured, please visit GitLab CI/CD Privacy Policy page: <https://about.gitlab.com/privacy/>.
-
-Travis CI
-
-Travis CI is a distributed continuous integration service for building and testing projects hosted on GitHub.
-
-For more information on what data Travis CI collects for what purpose and how the protection of the data is ensured, please visit the Travis CI Privacy Policy page: <https://docs.travis-ci.com/legal/privacy-policy>.
-
-Codecov
-
-Codecov provides highly integrated tools for grouping, merging, archiving, and comparing coverage reports.
-
-For more information on what data Codecov collects, for what purpose, and how data protection is ensured, please visit their Privacy Policy page: <https://codecov.io/privacy>.
-
-CircleCI
-
-CircleCI is provided by Circle Internet Services, Inc.
-
-CircleCI is Continuous Integration, a development practice that is being used by software teams, allowing them to build, test, and deploy applications more easily and quickly on multiple platforms.
-
-For more information on what data Circle CI collects, for what purpose, and how data protection is ensured, please visit Circle CI's Privacy Policy page: <https://circleci.com/privacy/>.
-
-Terraform
-
-Terraform is provided by HashiCorp, Inc.
-
-For more information on what data Terraform collects, for what purpose, and how data protection is ensured, please visit their Privacy Policy page: <https://www.hashicorp.com/privacy>.
-
-Bitbucket
-
-Bitbucket is provided by Atlassian, Inc.
-
-For more information on what data Bitbucket collects, for what purpose, and how data protection is ensured, please visit their Privacy Policy page: <https://www.atlassian.com/legal/privacy-policy>.
-
-### 15. Behavioral Remarketing
+### 14. Behavioral Remarketing
 
 Infracost Inc. uses remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimise and serve ads based on your past visits to our Service.
 
@@ -448,7 +400,7 @@ You can opt-out of LinkedIn's interest-based ads by following their instructions
 
 You can learn more about the privacy practices and policies of LinkedIn by visiting their Privacy Policy page: <https://www.linkedin.com/legal/privacy-policy>
 
-### 16. Payments
+### 15. Payments
 
 We may provide paid products and/or services within Service. In that case, we use third-party payment processing services (e.g., payment processors).
 
@@ -460,13 +412,13 @@ Stripe:
 
 Their Privacy Policy can be viewed at: <https://stripe.com/us/privacy>
 
-### 17. Links to Other Sites
+### 16. Links to Other Sites
 
 Our Service may contain links to other sites that are not operated by us. If you click a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.
 
 We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
 
-### 18. Children's Privacy
+### 17. Children's Privacy
 
 Our Service is not intended for use by children under the age of 13 (“Children”).
 
@@ -474,7 +426,7 @@ Under applicable data protection laws in the European Economic Area and the Unit
 
 We do not knowingly collect personally identifiable information from children under the age of 13. If you become aware that a child has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from a child under the applicable age of digital consent without verification of parental consent, we take steps to remove that information from our servers.
 
-### 19. Changes to This Privacy Policy
+### 18. Changes to This Privacy Policy
 
 We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
 
@@ -482,9 +434,8 @@ In some cases, we will let you know via email and/or a prominent notice on our S
 
 You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
 
-### 20. Contact Us
+### 19. Contact Us
 
 If you have any questions about this Privacy Policy, please contact us:
 
 By email: <support@infracost.io>.
-](https://github.com/infracost/docs/pull/813/files)
