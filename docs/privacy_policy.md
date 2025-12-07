@@ -1,4 +1,4 @@
----
+[---
 slug: privacy-policy
 title: Privacy Policy
 hide_table_of_contents: false
@@ -487,3 +487,4 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 If you have any questions about this Privacy Policy, please contact us:
 
 By email: <support@infracost.io>.
+](https://github.com/infracost/docs/pull/813/files)
