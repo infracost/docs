@@ -138,7 +138,7 @@ Infracost shall provide reasonable assistance to the Customer with any data prot
 
 ---
 
-## ANNEX I  
+## ANNEX I
 
 DESCRIPTION OF THE TRANSFER
 
@@ -148,13 +148,13 @@ Data exporter:
 
 Customer (as defined above)
 
-Role (controller/processor): Controller, or Processor on behalf of Third-Party Controller  
+Role (controller/processor): Controller, or Processor on behalf of Third-Party Controller
 
 Data importer:
 
 Name: Infracost Inc.
 
-Address: 2261 Market Street STE 85821, San Francisco, California 94114, USA  
+Address: 2261 Market Street STE 85821, San Francisco, California 94114, USA
 
 Role (controller/processor): Processor
 
@@ -182,7 +182,7 @@ Operational and security telemetry related to use of the Services, such as user 
 
 Sensitive Data transferred (if applicable) and applied restrictions or safeguards that fully take into consideration the nature of the data and the risks involved, such as, for instance, strict purpose limitation, access restrictions (including access only for staff having followed specialized training), keeping a record of access to the data, restrictions for onward transfers or additional security measures:
 
-The Services are not designed to require special categories of Personal Data as defined in European Data Protection Laws, nor data relating to criminal convictions or offences, and Customers are instructed not to include such data in code, configuration or other content they submit to the Services.
+The Services are not designed to require special categories of Personal Data as defined in European Data Protection Laws, nor data relating to criminal convictions or offenses, and Customers are instructed not to include such data in code, configuration or other content they submit to the Services.
 
 To the extent Customers nonetheless include such data in Customer Content, it is processed only in accordance with their documented instructions in a B2B context and is protected by appropriate technical and organizational measures as described in Annex II, including strict access controls, logging, and encryption.
 
@@ -206,7 +206,7 @@ Customer Personal Data is collected, used, stored, transmitted, and otherwise pr
 
 Purpose(s) of the International Data Transfer and further Processing:
 
-Customer Personal Data is transferred and further processed solely for the purposes of providing the Services to Customer under the Agreement, including enabling authorised users to access and use the Services, generating and delivering cost estimates and related outputs, operating and securing the Services, providing customer support on Customer's instructions, and complying with applicable legal obligations that arise from providing the Services to Customer in a B2B context.
+Customer Personal Data is transferred and further processed solely for the purposes of providing the Services to Customer under the Agreement, including enabling authorized users to access and use the Services, generating and delivering cost estimates and related outputs, operating and securing the Services, providing customer support on Customer's instructions, and complying with applicable legal obligations that arise from providing the Services to Customer in a B2B context.
 
 The period for which the Personal Data will be retained, or, if that is not possible, the criteria used to determine that period:
 
@@ -244,97 +244,97 @@ Infracost will, at a minimum, implement the following types of security measures
 
 Technical and organizational measures to prevent unauthorized persons from gaining access to the data processing systems available in premises and facilities (including databases, application servers and related hardware), where Customer Personal Data is processed, include:
 
-- Establishing security areas and restricting access paths  
-- Establishing access authorizations for employees and third parties  
+- Establishing security areas and restricting access paths
+- Establishing access authorizations for employees and third parties
 - Securing decentralized data processing equipment and personal computers
 
 ### 2. Virtual access control
 
 Technical and organizational measures to prevent data processing systems from being used by unauthorized persons include:
 
-- User identification and authentication procedures  
-- ID/password security procedures (special characters, minimum length, complexity requirements)  
-- Automatic blocking (for example, password or timeout)  
-- Multi Factor Authentication (MFA)  
-- Monitoring of break-in attempts and automatic turn-off of the user ID upon several erroneous password attempts  
-- Creation of one master record per user and user-master data procedures per data processing environment  
+- User identification and authentication procedures
+- ID/password security procedures (special characters, minimum length, complexity requirements)
+- Automatic blocking (for example, password or timeout)
+- Multi Factor Authentication (MFA)
+- Monitoring of break-in attempts and automatic turn-off of the user ID upon several erroneous password attempts
+- Creation of one master record per user and user-master data procedures per data processing environment
 - Encryption of archived data media
 
 ### 3. Data access control
 
 Technical and organizational measures to ensure confidentiality and that persons entitled to use a data processing system gain access only to such Customer Personal Data in accordance with their access rights, and that Customer Personal Data cannot be read, copied, modified or deleted without authorization, include:
 
-- Internal policies and procedures  
-- Control authorization schemes  
-- Default configuration  
-- Differentiated access rights (profiles, roles, transactions and objects)  
-- Disciplinary action against employees who access Personal Data without authorization  
-- Reports of access  
-- Access procedures  
-- Change procedures  
-- Deletion procedures  
+- Internal policies and procedures
+- Control authorization schemes
+- Default configuration
+- Differentiated access rights (profiles, roles, transactions and objects)
+- Disciplinary action against employees who access Personal Data without authorization
+- Reports of access
+- Access procedures
+- Change procedures
+- Deletion procedures
 - Encryption
 
 ### 4. Disclosure control
 
 Technical and organizational measures to ensure that Customer Personal Data cannot be read, copied, modified or deleted without authorization during electronic transmission, transport or storage on storage media (manual or electronic), and that it can be verified to which companies or other legal entities Customer Personal Data are disclosed, include:
 
-- Encryption, pseudonymization or tunnelling  
-- Logging  
+- Encryption, pseudonymization or tunnelling
+- Logging
 - Transport security
 
 ### 5. Entry control
 
 Technical and organizational measures to monitor whether Customer Personal Data has been entered, changed or removed (deleted), and by whom, from data processing systems, include:
 
-- Logging and reporting systems  
+- Logging and reporting systems
 - Audit trails and documentation
 
 ### 6. Control of instructions
 
 Technical and organizational measures to ensure that Customer Personal Data is processed solely in accordance with the instructions of the Controller include:
 
-- Unambiguous wording of the contract  
-- Formal commissioning (request form)  
+- Unambiguous wording of the contract
+- Formal commissioning (request form)
 - Criteria for selecting the Processor
 
 ### 7. Availability control
 
 Technical and organizational measures to ensure the integrity, availability and resilience of the processing systems, and that Customer Personal Data are protected against accidental destruction or loss (physical or logical), include:
 
-- Backup procedures  
-- Mirroring of hard disks  
-- Uninterruptible power supply (UPS)  
-- Remote storage  
-- Anti-virus and firewall systems  
+- Backup procedures
+- Mirroring of hard disks
+- Uninterruptible power supply (UPS)
+- Remote storage
+- Anti-virus and firewall systems
 - Disaster recovery plan in the event of a physical or technical incident
 
 ### 8. Separation control
 
 Technical and organizational measures to ensure that Customer Personal Data collected for different purposes can be processed separately include:
 
-- Logical separation of databases  
-- "Internal client" concept and limitation of use  
-- Segregation of functions (production and testing)  
+- Logical separation of databases
+- "Internal client" concept and limitation of use
+- Segregation of functions (production and testing)
 - Procedures for storage, amendment, deletion and transmission of data for different purposes
 
 ### 9. Testing controls
 
 Technical and organizational measures to test, assess and evaluate the effectiveness of the technical and organizational measures implemented in order to ensure the security of the processing include:
 
-- Periodic review and test of the disaster recovery plan  
-- Testing and evaluation of software updates before they are installed  
-- Authenticated (with elevated rights) vulnerability scanning  
+- Periodic review and test of the disaster recovery plan
+- Testing and evaluation of software updates before they are installed
+- Authenticated (with elevated rights) vulnerability scanning
 - Test environments for specific penetration tests
 
 ### 10. IT governance
 
 Technical and organizational measures to improve the overall management of IT and ensure that the activities associated with information and technology are aligned with the compliance efforts include:
 
-- Processes for data minimization  
-- Processes for data quality  
-- Processes for limited data retention  
-- Processes for ensuring accountability  
+- Processes for data minimization
+- Processes for data quality
+- Processes for limited data retention
+- Processes for ensuring accountability
 - Data subject rights handling policies
 
 The measures in this Annex apply to all transfers described in this DPA.
