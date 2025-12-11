@@ -9,6 +9,10 @@ InfraCarbon displays the CO₂e impact of your infrastructure changes directly i
 
 ![Carbon impact in pull requests](/img/infracost-cloud/infra-carbon-comment-example.png)
 
+## Usage
+
+In [Infracost Cloud](https://dashboard.infracost.io/), go to Org Settings > InfraCarbon to enable this feature.
+
 ## Our approach
 
 We've partnered with [GreenPixie](https://greenpixie.com/), a cloud sustainability data provider based in the UK, to power InfraCarbon's carbon calculations.
@@ -26,11 +30,7 @@ To comply with GHG standards and account for the reality of cloud-related emissi
 - **Cloud resource type**: compute, storage, and networking have different footprints
 - **Instance size**: larger instances consume more power
 
-This methodology provides consistent measurement across AWS, Azure, and Google Cloud.
-
-## Learn more
-
-For a deeper understanding of cloud sustainability concepts including location-based calculations, Scopes 1, 2 & 3, water consumption, and the fundamental formulas for calculating cloud impact, GreenPixie offers a [certification course](https://academy.greenpixie.com/course/cloud-sustainability-fundamentals).
+This methodology provides consistent measurement across AWS, Azure, and Google Cloud. For a deeper understanding of cloud sustainability concepts including location-based calculations, Scopes 1, 2 & 3, water consumption, and the fundamental formulas for calculating cloud impact, GreenPixie offers a [certification course](https://academy.greenpixie.com/course/cloud-sustainability-fundamentals).
 
 ## Questions?
 

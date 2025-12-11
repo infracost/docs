@@ -5,7 +5,7 @@ title: Support
 
 # Help desk
 
-If you need help using Infracost, please email us at [support@infracost.io](mailto:support@infracost.io).
+**If you need help using Infracost, please email us at [support@infracost.io](mailto:support@infracost.io).**
 
 Check [our status page](https://status.infracost.io/) for updates on any service disruptions affecting our hosted services.
 
