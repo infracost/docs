@@ -189,13 +189,7 @@ The transfer is performed on a continuous basis for the duration of the Agreemen
 
 #### Main Subprocessors
 
-The main subprocessors engaged by Infracost to Process Customer Personal Data in connection with the Services are:
-
-| Name | Address | Purpose |
-| --- | --- | --- |
-| Amazon Web Services | 410 Terry Avenue North, Seattle, WA 98109-5210, USA | Cloud Hosting |
-| Auth0 | 10900 NE 8th St, Bellevue, WA 98004, USA | Authentication  |
-| Sentry | 1800 North Point Drive, Stevens Point, WI 54481, USA | Error and Performance Monitoring |
+Please refer to the list of subprocessors in [section 12](/docs/privacy-policy/#12-service-providers) of the Privacy Policy.
 
 Nature of the processing:
 
