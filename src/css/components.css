@@ -294,3 +294,7 @@ kbd {
     padding: 5rem 0;
   }
 }
+
+.text-anchor {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem);
+}
