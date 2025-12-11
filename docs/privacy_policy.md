@@ -27,7 +27,7 @@ When Infracost is the Controller: For the purposes of applicable data protection
 
 Address: 2261 Market Street STE 85821, San Francisco, California 94114
 
-Email: <support@infracost.io>
+Email: <dpo@infracost.io>
 
 When Infracost is the Processor: For all Personal Data (Customer Personal Data) processed within Infracost Cloud, CI/CD pipelines, and source control integrations on behalf of a corporate customer (for example, your employer), Infracost Inc. acts as the Data Processor. We process this data solely in accordance with our Data Processing Agreement and the Customer’s instructions. If you are an end user of a Corporate Customer, your employer is the Data Controller for this processing.
 
@@ -83,7 +83,7 @@ While using our Service, we may ask you to provide us with certain personally id
 
 If you choose to purchase a paid subscription, we may also collect certain billing and payment-related information. In practice, the Personal Data we process generally falls into the following categories: account and profile data, billing and payment information, product usage and telemetry data, support and communication data, and marketing preference data.
 
-We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any or all of these communications from us by emailing <support@infracost.io>.
+We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any or all of these communications from us by emailing <dpo@infracost.io>.
 
 Call and Meeting Recordings
 
@@ -225,7 +225,7 @@ If you are a resident of the European Union (EU), the European Economic Area (EE
 
 We aim to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.
 
-If you wish to be informed of the Personal Data we hold about you and have it removed from our systems, please email us at <support@infracost.io>.
+If you wish to be informed of the Personal Data we hold about you and have it removed from our systems, please email us at <dpo@infracost.io>.
 
 In certain circumstances, you have the following data protection rights:
 
@@ -263,7 +263,7 @@ According to CalOPPA, we agree to the following:
 
 (c) users will be notified of any privacy policy changes on our Privacy Policy Page;
 
-(d) users are able to change their personal information by emailing us at <support@infracost.io>.
+(d) users are able to change their personal information by emailing us at <dpo@infracost.io>.
 
 Our Policy on “Do Not Track” Signals:
 
@@ -297,7 +297,7 @@ Infracost Inc. does not sell Personal Data and does not share Personal Data for 
 
 Exercising Your Rights
 
-You may submit requests regarding your Personal Data by contacting us at <support@infracost.io>. We will verify your identity before responding to certain requests, as required by law. You may also designate an authorized agent to submit requests on your behalf.
+You may submit requests regarding your Personal Data by contacting us at <dpo@infracost.io>. We will verify your identity before responding to certain requests, as required by law. You may also designate an authorized agent to submit requests on your behalf.
 
 ### 12. Service Providers
 
@@ -438,4 +438,4 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 
 If you have any questions about this Privacy Policy, please contact us:
 
-By email: <support@infracost.io>.
+By email: <dpo@infracost.io>.
