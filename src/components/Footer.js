@@ -90,6 +90,11 @@ function Footer() {
           <div className="right">
             <ul>
               <li>
+                <a href="/docs/privacy-policy/#do-not-sell">
+                  Do not sell/share my personal information
+                </a>
+              </li>
+              <li>
                 <a href="/docs/privacy-policy/">Privacy policy</a>
               </li>
               <li>
