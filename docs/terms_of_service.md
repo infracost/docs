@@ -17,7 +17,7 @@ These Terms of Service (“Terms”, “Terms of Service”) govern your use of�
 
 Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Please read it here https://www.infracost.io/privacy-policy.
 
-For enterprise and business customers, our Data Processing Addendum (DPA) governs how we process personal data on your behalf, unless a separate DPA has been agreed between us. Please read it here https://www.infracost.io/data-processing-addendum/.
+For enterprise and business customers, our Data Processing Addendum (DPA) governs how we process personal data on your behalf, unless a separate DPA has been agreed between us. Please read it here https://www.infracost.io/data-processing-addendum.
 
 Your agreement with us includes these Terms and our Privacy Policy (“Agreements”). You acknowledge that you have read and understood Agreements, and agree to be bound of them.
 
