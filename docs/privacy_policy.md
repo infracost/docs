@@ -5,17 +5,19 @@ hide_table_of_contents: false
 custom_edit_url: null
 ---
 
-Effective date: 03 December 2025
+Effective date: 11 December 2025
 
 ### 1. Introduction
 
 Welcome to **Infracost Inc.**
 
-Infracost Inc. (“us”, “we”, or “our”) operates <https://infracost.io> and Infracost command line tools (hereinafter referred to as “Service”).
+Infracost Inc. (“us”, “we”, or “our”) operates https://infracost.io and Infracost command line tools (hereinafter referred to as “Service”).
 
-This Privacy Policy explains how we collect, protect, and share information when you use <https://infracost.io> and our command line tools. It applies whenever you use our Service.
+This Privacy Policy explains how we collect, protect, and share information when you use https://infracost.io and our command line tools. It applies whenever you use our Service.
 
-Infracost does not sell Personal Data and does not share Personal Data for cross-context behavioral advertising under the California Privacy Rights Act or any other US state privacy law. If you see a “Do Not Sell or Share My Personal Information” link, it will route to this same statement confirming that we do not sell or share Personal Data for these purposes.
+<span id="do-not-sell" class="text-anchor"></span>
+
+Infracost does not sell Personal Data and does not share Personal Data for cross-context behavioral advertising under the California Privacy Rights Act or any other US state privacy law. If you see a "Do Not Sell or Share My Personal Information" link, it will route to this same statement confirming that we do not sell or share Personal Data for these purposes.
 
 We use your data only to provide and improve Service. By using Service, you agree to the collection and use of your information as described in this Policy. Unless defined here, terms in this Privacy Policy have the meanings given in our Terms and Conditions.
 
@@ -27,17 +29,13 @@ When Infracost is the Controller: For the purposes of applicable data protection
 
 Address: 2261 Market Street STE 85821, San Francisco, California 94114
 
-Email: <dpo@infracost.io>
+Email: dpo@infracost.io
 
 When Infracost is the Processor: For all Personal Data (Customer Personal Data) processed within Infracost Cloud, CI/CD pipelines, and source control integrations on behalf of a corporate customer (for example, your employer), Infracost Inc. acts as the Data Processor. We process this data solely in accordance with our Data Processing Agreement and the Customer’s instructions. If you are an end user of a Corporate Customer, your employer is the Data Controller for this processing.
 
-### 2. **Definitions**
-
-SERVICE means the <https://infracost.io> website and Infracost command line tools operated by Infracost Inc.
-
 ### 2. Definitions
 
-SERVICE means the <https://infracost.io> website and Infracost command line tools operated by Infracost Inc.
+SERVICE means the https://infracost.io website and Infracost command line tools operated by Infracost Inc.
 
 PERSONAL DATA means data about a living individual who can be identified from those data (or from those and other information either in our possession or likely to come into our possession).
 
@@ -47,7 +45,7 @@ COOKIES are small files stored on your device (computer or mobile device).
 
 DATA CONTROLLER means a natural or legal person who (either alone or jointly or in common with other persons) determines the purposes for which and the manner in which any personal data are, or are to be, processed. For the purpose of this Privacy Policy, we are a Data Controller of Personal Data for website visitors, self-registered users, and our own HR and vendor records.
 
-For Customer Personal Data processed within Infracost Cloud when corporate customers use the platform, we act as a Data Processor on behalf of the Customer. The Customer’s privacy notice governs those users, and data subject requests relating to Customer Personal Data may be routed to the Customer. For most Customer Personal Data in Infracost Cloud and CI/CD integrations, the Customer organisation is the Data Controller and Infracost processes that data on their instructions.
+For Customer Personal Data processed within Infracost Cloud when corporate customers use the platform, we act as a Data Processor on behalf of the Customer. The Customer’s privacy notice governs those users, and data subject requests relating to Customer Personal Data may be routed to the Customer. For most Customer Personal Data in Infracost Cloud and CI/CD integrations, the Customer organization is the Data Controller and Infracost processes that data on their instructions.
 
 DATA PROCESSORS (OR SERVICE PROVIDERS) means any natural or legal person who processes the data on behalf of the Data Controller. We may use the services of various Service Providers in order to process your data more effectively.
 
@@ -83,7 +81,7 @@ While using our Service, we may ask you to provide us with certain personally id
 
 If you choose to purchase a paid subscription, we may also collect certain billing and payment-related information. In practice, the Personal Data we process generally falls into the following categories: account and profile data, billing and payment information, product usage and telemetry data, support and communication data, and marketing preference data.
 
-We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any or all of these communications from us by emailing <dpo@infracost.io>.
+We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any or all of these communications from us by emailing dpo@infracost.io.
 
 Call and Meeting Recordings
 
@@ -103,7 +101,7 @@ We collect Personal Data directly from you when you use Service, create an accou
 
 Tracking Cookies Data
 
-We use cookies and similar tracking technologies to track activity on our Service and to hold certain information. Cookies are files with a small amount of data, which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Other tracking technologies are also used, such as beacons, tags and scripts, to collect and track information and to improve and analyse our Service. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.
+We use cookies and similar tracking technologies to track activity on our Service and to hold certain information. Cookies are files with a small amount of data, which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Other tracking technologies are also used, such as beacons, tags and scripts, to collect and track information and to improve and analyze our Service. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.
 
 Examples of cookies we use include Session Cookies to operate our Service, Preference Cookies to remember your preferences and various settings, Security Cookies for security purposes, and Advertising Cookies to serve you with advertisements that may be relevant to you and your interests.
 
@@ -141,7 +139,7 @@ Infracost Inc. uses the collected data for various purposes:
 
 (j) to provide you with notices about your account and/or subscription, including expiration and renewal notices, email instructions, etc.;
 
-(k) to provide you with news, special offers, and general information about other goods, services, and events which we offer that are similar to those that you have already purchased or enquired about, unless you have opted not to receive such information;
+(k) to provide you with news, special offers, and general information about other goods, services, and events which we offer that are similar to those that you have already purchased or inquired about, unless you have opted not to receive such information;
 
 (l) in any other way we may describe when you provide the information;
 
@@ -221,11 +219,11 @@ The security of your data is important to us, but remember that no method of tra
 
 ### 10. Your Data Protection Rights Under General Data Protection Regulation (GDPR)
 
-If you are a resident of the European Union (EU), the European Economic Area (EEA), or the United Kingdom (UK), you have certain data protection rights under the GDPR. – See more at <https://eur-lex.europa.eu/eli/reg/2016/679/oj>
+If you are a resident of the European Union (EU), the European Economic Area (EEA), or the United Kingdom (UK), you have certain data protection rights under the GDPR. – See more at https://eur-lex.europa.eu/eli/reg/2016/679/oj
 
 We aim to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.
 
-If you wish to be informed of the Personal Data we hold about you and have it removed from our systems, please email us at <dpo@infracost.io>.
+If you wish to be informed of the Personal Data we hold about you and have it removed from our systems, please email us at dpo@infracost.io.
 
 In certain circumstances, you have the following data protection rights:
 
@@ -253,7 +251,7 @@ We respond to requests within one month, as required under GDPR, and may extend 
 
 ### 11. Your Data Protection Rights under the California Privacy Protection Act (CalOPPA)
 
-CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy. The law’s reach stretches well beyond California to require a person or company in the United States (and, conceivably, the world) that operates websites collecting personally identifiable information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals with whom it is being shared, and to comply with this policy. – See more at: <https://consumercal.org/about-cfc/cfc-education-foundation/california-online-privacy-protection-act-caloppa-3/>
+CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy. The law’s reach stretches well beyond California to require a person or company in the United States (and, conceivably, the world) that operates websites collecting personally identifiable information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals with whom it is being shared, and to comply with this policy. – See more at: https://consumercal.org/about-cfc/cfc-education-foundation/california-online-privacy-protection-act-caloppa-3/
 
 According to CalOPPA, we agree to the following:
 
@@ -263,7 +261,7 @@ According to CalOPPA, we agree to the following:
 
 (c) users will be notified of any privacy policy changes on our Privacy Policy Page;
 
-(d) users are able to change their personal information by emailing us at <dpo@infracost.io>.
+(d) users are able to change their personal information by emailing us at dpo@infracost.io.
 
 Our Policy on “Do Not Track” Signals:
 
@@ -297,11 +295,11 @@ Infracost Inc. does not sell Personal Data and does not share Personal Data for 
 
 Exercising Your Rights
 
-You may submit requests regarding your Personal Data by contacting us at <dpo@infracost.io>. We will verify your identity before responding to certain requests, as required by law. You may also designate an authorized agent to submit requests on your behalf.
+You may submit requests regarding your Personal Data by contacting us at dpo@infracost.io. We will verify your identity before responding to certain requests, as required by law. You may also designate an authorized agent to submit requests on your behalf.
 
 ### 12. Service Providers
 
-We may employ third-party companies and individuals to facilitate our Service (“Service Providers”), provide Service on our behalf, perform Service-related services, or assist us in analysing how our Service is used.
+We may employ third-party companies and individuals to facilitate our Service (“Service Providers”), provide Service on our behalf, perform Service-related services, or assist us in analyzing how our Service is used.
 
 These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.
 
@@ -324,7 +322,7 @@ The following is a list of some of the main sub-processors and service providers
 |Linear Orbit, Inc|2261 Market St STE 10632, San Francisco, CA 94114, USA|Product management platform.|
 |Notion Labs, Inc|685 Market Street, San Francisco, CA 94105, USA|Internal documentation.|
 |GitHub, Inc.|88 Colin P Kelly Jr St, San Francisco, CA 94107, USA|Source code hosting and CI/CD pipelines.|
-|HashiCorp, Inc.(Terraform)|101 Second Street, Suite 700, San Francisco, CA 94105, USA|IaC management.|
+|HashiCorp, Inc.|101 Second Street, Suite 700, San Francisco, CA 94105, USA|IaC management.|
 
 ### 13. Analytics
 
@@ -332,73 +330,73 @@ We may use third-party Service Providers to monitor and analyze the use of our S
 
 Google Analytics
 
-Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualise and personalise the ads of its own advertising network.
+Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.
 
-For more information on the privacy practices of Google, please visit the Google Privacy Terms web page: <https://policies.google.com/privacy?hl=en>
+For more information on the privacy practices of Google, please visit the Google Privacy Terms web page: https://policies.google.com/privacy?hl=en
 
-We also encourage you to review Google's policy for safeguarding your data: <https://support.google.com/analytics/answer/6004245>.
+We also encourage you to review Google's policy for safeguarding your data: https://support.google.com/analytics/answer/6004245.
 
 Segment.com
 
-Segment.com is a web traffic analysis tool. You can read the Privacy Policy for Segment.io here: <https://segment.com/legal/privacy/>.
+Segment.com is a web traffic analysis tool. You can read the Privacy Policy for Segment.io here: https://segment.com/legal/privacy/.
 
 Mixpanel
 
 Mixpanel is provided by Mixpanel Inc.
 
-You can prevent Mixpanel from using your information for analytics purposes by opting out. To opt out of Mixpanel service, please visit this page: <https://mixpanel.com/optout/>
+You can prevent Mixpanel from using your information for analytics purposes by opting out. To opt out of Mixpanel service, please visit this page: https://mixpanel.com/optout/
 
-For more information on what type of information Mixpanel collects, please visit the Terms of Use page of Mixpanel: <https://mixpanel.com/terms/>
+For more information on what type of information Mixpanel collects, please visit the Terms of Use page of Mixpanel: https://mixpanel.com/terms/
 
 ### 14. Behavioral Remarketing
 
-Infracost Inc. uses remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimise and serve ads based on your past visits to our Service.
+Infracost Inc. uses remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimize and serve ads based on your past visits to our Service.
 
 Google Ads (AdWords)
 
 Google Ads (AdWords) remarketing service is provided by Google Inc.
 
-You can opt-out of Google Analytics for Display Advertising and customize the Google Display Network ads by visiting the Google Ads Settings page: <http://www.google.com/settings/ads>
+You can opt-out of Google Analytics for Display Advertising and customize the Google Display Network ads by visiting the Google Ads Settings page: http://www.google.com/settings/ads
 
-Google also recommends installing the Google Analytics Opt-out Browser Add-on (<https://tools.google.com/dlpage/gaoptout>) for your web browser. The Google Analytics Opt-out Browser Add-on allows visitors to prevent their data from being collected and used by Google Analytics.
+Google also recommends installing the Google Analytics Opt-out Browser Add-on (https://tools.google.com/dlpage/gaoptout) for your web browser. The Google Analytics Opt-out Browser Add-on allows visitors to prevent their data from being collected and used by Google Analytics.
 
-For more information on the privacy practices of Google, please visit the Google Privacy Terms web page: <https://policies.google.com/privacy?hl=en>
+For more information on the privacy practices of Google, please visit the Google Privacy Terms web page: https://policies.google.com/privacy?hl=en
 
 Bing Ads Remarketing
 
 Bing Ads remarketing service is provided by Microsoft Inc.
 
-You can opt-out of Bing Ads interest-based ads by following their instructions: <https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads>
+You can opt-out of Bing Ads interest-based ads by following their instructions: https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads
 
-You can learn more about the privacy practices and policies of Microsoft by visiting their Privacy Policy page: <https://privacy.microsoft.com/en-us/PrivacyStatement>
+You can learn more about the privacy practices and policies of Microsoft by visiting their Privacy Policy page: https://privacy.microsoft.com/en-us/PrivacyStatement
 
 Twitter
 
 Twitter remarketing service is provided by Twitter Inc.
 
-You can opt-out from Twitter's interest-based ads by following their instructions: <https://support.twitter.com/articles/20170405>
+You can opt-out from Twitter's interest-based ads by following their instructions: https://support.twitter.com/articles/20170405
 
-You can learn more about the privacy practices and policies of Twitter by visiting their Privacy Policy page: <https://twitter.com/privacy>
+You can learn more about the privacy practices and policies of Twitter by visiting their Privacy Policy page: https://twitter.com/privacy
 
 Facebook
 
 Facebook remarketing service is provided by Facebook Inc.
 
-You can learn more about interest-based advertising from Facebook by visiting this page: <https://www.facebook.com/help/164968693837950>
+You can learn more about interest-based advertising from Facebook by visiting this page: https://www.facebook.com/help/164968693837950
 
-To opt-out of Facebook's interest-based ads, follow these instructions from Facebook: <https://www.facebook.com/help/568137493302217>.
+To opt-out of Facebook's interest-based ads, follow these instructions from Facebook: https://www.facebook.com/help/568137493302217.
 
-Facebook adheres to the Self-Regulatory Principles for Online Behavioural Advertising established by the Digital Advertising Alliance. You can also opt-out from Facebook and other participating companies through the Digital Advertising Alliance in the USA <http://www.aboutads.info/choices/>, the Digital Advertising Alliance of Canada in Canada <http://youradchoices.ca/>, or the European Interactive Digital Advertising Alliance in Europe <http://www.youronlinechoices.eu/>, or opt-out using your mobile device settings.
+Facebook adheres to the Self-Regulatory Principles for Online Behavioral Advertising established by the Digital Advertising Alliance. You can also opt-out from Facebook and other participating companies through the Digital Advertising Alliance in the USA http://www.aboutads.info/choices/, the Digital Advertising Alliance of Canada in Canada http://youradchoices.ca/, or the European Interactive Digital Advertising Alliance in Europe http://www.youronlinechoices.eu/, or opt-out using your mobile device settings.
 
-For more information on the privacy practices of Facebook, please visit Facebook's Data Policy: <https://www.facebook.com/privacy/explanation>
+For more information on the privacy practices of Facebook, please visit Facebook's Data Policy: https://www.facebook.com/privacy/explanation
 
 LinkedIn
 
 LinkedIn's remarketing service is provided by LinkedIn Corporation.
 
-You can opt-out of LinkedIn's interest-based ads by following their instructions: <https://www.linkedin.com/help/linkedin/answer/62931>
+You can opt-out of LinkedIn's interest-based ads by following their instructions: https://www.linkedin.com/help/linkedin/answer/62931
 
-You can learn more about the privacy practices and policies of LinkedIn by visiting their Privacy Policy page: <https://www.linkedin.com/legal/privacy-policy>
+You can learn more about the privacy practices and policies of LinkedIn by visiting their Privacy Policy page: https://www.linkedin.com/legal/privacy-policy
 
 ### 15. Payments
 
@@ -410,7 +408,7 @@ The payment processors we work with are:
 
 Stripe:
 
-Their Privacy Policy can be viewed at: <https://stripe.com/us/privacy>
+Their Privacy Policy can be viewed at: https://stripe.com/us/privacy
 
 ### 16. Links to Other Sites
 
@@ -438,4 +436,4 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 
 If you have any questions about this Privacy Policy, please contact us:
 
-By email: <dpo@infracost.io>.
+By email: dpo@infracost.io.
