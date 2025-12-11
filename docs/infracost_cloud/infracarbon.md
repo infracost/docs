@@ -5,19 +5,15 @@ title: InfraCarbon
 
 # InfraCarbon
 
-InfraCarbon displays the CO₂e impact of your infrastructure changes directly in pull requests. This page explains how we calculate that data.
+Prevent unnecessary carbon emissions every time you deploy infrastructure. InfraCarbon displays the carbon impact of your infrastructure changes directly in pull requests. This page explains how we calculate that data:
 
 ![Carbon impact in pull requests](/img/infracost-cloud/infra-carbon-comment-example.png)
 
 ## Our approach
 
-We've partnered with [GreenPixie](https://greenpixie.com/), a cloud sustainability data provider based in the UK, to power InfraCarbon's carbon calculations.
+We've partnered with [GreenPixie](https://greenpixie.com/), a cloud sustainability data provider, to power InfraCarbon's carbon calculations.
 
-GreenPixie's data is verified against ISO-14064 (aligned with the Greenhouse Gas Protocol) and under constant review by their research team of data scientists and academic partners.
-
-## What the calculations consider
-
-To comply with GHG standards and account for the reality of cloud-related emissions, the calculations consider:
+GreenPixie's data is verified against ISO-14064 (aligned with the Greenhouse Gas Protocol) and under constant review by their research team of data scientists and academic partners. To comply with [GHG standards](https://ghgprotocol.org/) and account for the reality of cloud-related emissions, GreenPixie's calculations consider:
 
 - **Cloud location**: local grid carbon intensity varies significantly by region
 - **Hardware**: different instance families and generations have different efficiency profiles
@@ -28,10 +24,7 @@ To comply with GHG standards and account for the reality of cloud-related emissi
 
 This methodology provides consistent measurement across AWS, Azure, and Google Cloud.
 
-## Learn more
+## Getting startred
 
-For a deeper understanding of cloud sustainability concepts including location-based calculations, Scopes 1, 2 & 3, water consumption, and the fundamental formulas for calculating cloud impact, GreenPixie offers a [certification course](https://academy.greenpixie.com/course/cloud-sustainability-fundamentals).
+InfraCarbon is on by default for all new customers. For existing customers, log into the Infracost dashboard and go to Settings > Org Settings > InfraCarbon.
 
-## Questions?
-
-If you have questions about how carbon data is calculated for your specific infrastructure, please [contact us](/support/).
