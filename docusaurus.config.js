@@ -29,6 +29,10 @@ module.exports = {
       {
         redirects: [
           {
+            from: '/docs/infracost_cloud/carbon',
+            to: '/docs/infracost_cloud/infracarbon',
+          },
+          {
             from: '/integrations',
             to: '/integrations/cicd',
           },
