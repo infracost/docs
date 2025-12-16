@@ -226,6 +226,6 @@ This page also has filters that you can use to only see certain pull requests. N
 
 ### 6. Add your team members
 
-From the Org Settings page, click on the Members page to [invite](/docs/infracost_cloud/key_concepts/#team-management) your team members to join your organization.
+From the Org Settings page, click on the Members page to [invite](/docs/infracost_cloud/key_concepts/#permissions) your team members to join your organization.
 
 We also recommend setting up [tagging policies](/docs/infracost_cloud/tagging_policies/) and [guardrails](/docs/infracost_cloud/guardrails/). You can also review how well you're following [FinOps best practices](/docs/infracost_cloud/finops_policies/).
