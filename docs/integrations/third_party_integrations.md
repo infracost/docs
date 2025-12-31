@@ -9,7 +9,7 @@ Infracost can be used in the following third-party systems. You should only cons
 
 - [Terraform Cloud/Enterprise Run Tasks](/docs/integrations/terraform_cloud_enterprise/)
 - [Scalr](https://docs.scalr.io/docs/infracost)
-- [Spacelift](https://docs.spacelift.io/vendors/terraform/infracost)
+- [Spacelift](/docs/integrations/spacelift)
 - [Env0](https://docs.envzero.com/guides/policies-governance/cost-estimation)
 - [Harness Infrastructure as Code Management](https://www.harness.io/products/infrastructure-as-code-management)
 - [Terrateam](https://docs.terrateam.io/integrations/infracost)
