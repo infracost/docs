@@ -8,9 +8,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Infracost can be used in the following third-party systems. You should only consider using them if you cannot use our [CI/CD integrations](/docs/integrations/cicd/) as these integrations are very minimal, do not post pull request comments nor do they work with other Infracost Cloud features such as [FinOps policies](/docs/infracost_cloud/finops_policies/), [Tagging policies](/docs/infracost_cloud/tagging_policies/) or [Guardrails](/docs/infracost_cloud/guardrails/).
 
 - [Terraform Cloud/Enterprise Run Tasks](/docs/integrations/terraform_cloud_enterprise/)
-- [Scalr](https://docs.scalr.com/en/latest/cost_estimate.html)
+- [Scalr](https://docs.scalr.io/docs/infracost)
 - [Spacelift](https://docs.spacelift.io/vendors/terraform/infracost)
-- [Env0](https://docs.env0.com/docs/cost-monitoring#cost-estimation)
+- [Env0](https://docs.envzero.com/guides/policies-governance/cost-estimation)
 - [Harness Infrastructure as Code Management](https://www.harness.io/products/infrastructure-as-code-management)
 - [Terrateam](https://docs.terrateam.io/integrations/infracost)
 - [Terraspace](https://terraspace.cloud/docs/cloud/cost-estimation)
